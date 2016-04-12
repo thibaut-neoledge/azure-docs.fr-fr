@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin" />
 
 # API Graph Azure Active Directory
@@ -48,7 +48,14 @@ L’API Graph fournit les fonctionnalités suivantes :
 
 - **Requête différentielle** : si vous souhaitez vérifier les modifications dans un répertoire entre deux périodes sans avoir à envoyer des requêtes fréquentes à l’API Graph, vous pouvez effectuer une demande de requête différentielle. Ce type de demande renvoie uniquement les modifications apportées entre la demande de requête différentielle précédente et la demande en cours. Pour plus d'informations, consultez [Requête différentielle de l'API Graph Azure AD (en anglais)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
 
-- **Extensions d’annuaire ** : si vous développez une application devant lire ou écrire des propriétés uniques pour les objets d’annuaire, vous pouvez enregistrer et utiliser des valeurs d’extension à l’aide de l’API Graph. Par exemple, si votre application nécessite une propriété d’identifiant Skype pour chaque utilisateur, vous pouvez enregistrer la nouvelle propriété dans le répertoire et elle sera disponible sur chaque objet utilisateur. Pour plus d'informations, consultez [Extensions de schéma d'annuaire de l'API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+- **Extensions d’annuaire** : si vous développez une application devant lire ou écrire des propriétés uniques pour les objets d’annuaire, vous pouvez enregistrer et utiliser des valeurs d’extension à l’aide de l’API Graph. Par exemple, si votre application nécessite une propriété d’identifiant Skype pour chaque utilisateur, vous pouvez enregistrer la nouvelle propriété dans le répertoire et elle sera disponible sur chaque objet utilisateur. Pour plus d'informations, consultez [Extensions de schéma d'annuaire de l'API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+
+- **Sécurisé par des étendues d'autorisation** : L’API Graph AAD expose des étendues d'autorisation qui permettent un accès sécurisé/consenti aux données AAD et prennent en charge différents types d'applications clientes, notamment :
+ - les applications disposant d’une interface utilisateur qui bénéficient d'un accès délégué aux données par le biais de l'autorisation de l'utilisateur connecté (délégué)
+  - celles qui utilisent un contrôle d'accès basé sur les rôles et défini par l’application, notamment les clients service/daemon (rôles d'application)
+
+    Les étendues d'autorisation des rôles d’application et des rôles délégués représentent un privilège exposé par l'API Graph et peuvent être demandées par les applications clientes au moyen des [fonctionnalités d’autorisation d'inscription des applications sur le portail Azure Classic](https://manage.windowsazure.com). Les clients peuvent vérifier les étendues d'autorisation qui leur sont accordées en inspectant la revendication d'étendue (« scp ») reçue dans le jeton d'accès pour les autorisations déléguées et la revendication de rôles (« roles ») pour les autorisations de rôle d'application. En savoir plus sur les [Étendues d'autorisation de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+
 
 ## Scénarios
 
@@ -66,4 +73,4 @@ L’API Graph sert dans de nombreux scénarios d’application. Les scénarios s
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

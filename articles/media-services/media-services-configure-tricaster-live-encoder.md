@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+	ms.date="03/02/2016"   
 	ms.author="juliako"/>
 
 #Utiliser l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique
@@ -28,7 +28,7 @@ Cette rubrique explique comment configurer l’encodeur en direct [NewTek TriCas
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure Classic pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
->[AZURE.NOTE]Lors de l'utilisation de Tricaster pour l’envoi dans un flux de contribution pour Azure Media Services, il peut y avoir des problèmes vidéo/audio dans votre événement en direct si vous utilisez certaines fonctionnalités de Tricaster, telles que le découpage rapide entre des flux ou le basculement de/vers les ardoises. L’équipe AMS travaille à la résolution de ces problèmes. En attendant, il est déconseillé d’utiliser ces fonctionnalités.
+>[AZURE.NOTE]Pendant l’utilisation de Tricaster pour l’envoi dans un flux de contribution pour des canaux AMS activés pour l’encodage live, il peut y avoir des problèmes vidéo/audio dans votre événement en direct si vous utilisez certaines fonctionnalités de Tricaster, telles que le découpage rapide entre des flux ou le basculement de/vers les ardoises. L’équipe AMS travaille à la résolution de ces problèmes. En attendant, il est déconseillé d’utiliser ces fonctionnalités.
 
 
 ##Composants requis
@@ -165,4 +165,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

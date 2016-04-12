@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis DocumentDB | Azure Data Factory" 
+	pageTitle="Déplacer des données vers/depuis DocumentDB | Microsoft Azure" 
 	description="Découvrez comment déplacer des données depuis et vers la collection Azure DocumentDB à l’aide d’Azure Data Factory." 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
@@ -399,15 +399,15 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Spécifier la requête pour lire les données. | Chaîne de requête prise en charge par DocumentDB. <p>Exemple : SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | Non <p>Si non spécifié, l’instruction SQL exécutée : select <columns defined in structure> from mycollection </p>
-| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <p>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l’activité de copie génère l’objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table.</p> | Non
+| query | Spécifier la requête pour lire les données. | Chaîne de requête prise en charge par DocumentDB. <br/>Exemple : SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"<br/> | Non <br/><br/>Si non spécifié, l’instruction SQL exécutée : select <columns defined in structure> from mycollection 
+| nestingSeparator | Caractère spécial pour indiquer que le document est imbriqué. | Tout caractère. <br/><br/>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. | Non
 
 **DocumentDbCollectionSink** prend en charge les propriétés suivantes :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <p>Par exemple, ci-dessus : Name.First dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :</p><p>"Name": {<br/> "First": "John"<br/>},</p> | Caractère utilisé pour séparer les niveaux d’imbrication.<p>La valeur par défaut est . (point).</p> | Caractère utilisé pour séparer les niveaux d'imbrication. <p>La valeur par défaut est . (point).</p> | Non | 
-| writeBatchSize | Nombre de requêtes parallèles au service DocumentDB pour créer des documents.<p>Vous pouvez optimiser les performances pendant la copie des données depuis/vers DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent lever le message d’erreur : « Le taux de requête est volumineux ».</p><p>La limitation est décidée par un certain nombre de facteurs, y compris la taille des documents, le nombre de termes dans les documents, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde).</p> | Valeur entière | Non |
+| nestingSeparator | Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : Name.First dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est . (point). | Caractère utilisé pour séparer les niveaux d'imbrication. <br/><br/>La valeur par défaut est . (point). | Non | 
+| writeBatchSize | Nombre de requêtes parallèles au service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances pendant la copie des données depuis/vers DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent lever le message d’erreur : « Le taux de requête est volumineux ».<br/><br/>La limitation est décidée par un certain nombre de facteurs, y compris la taille des documents, le nombre de termes dans les documents, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). | Valeur entière | Non |
 | writeBatchTimeout | Temps d'attente pour que l'opération soit terminée avant d'expirer. | (Unité = intervalle de temps) Exemple : « 00:30:00 » (30 minutes). | Non |
  
 ## Annexe
@@ -427,4 +427,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
      
 
-<!---HONumber=AcomDC_0302_2016--->
+<!----------HONumber=AcomDC_0309_2016--->

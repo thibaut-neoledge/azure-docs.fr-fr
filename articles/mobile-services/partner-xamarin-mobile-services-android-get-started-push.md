@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Ajout de notifications push à votre application Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter des notifications Push à votre application Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
-
-##Vue d'ensemble
+##Vue d’ensemble
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Xamarin.Android. Dans ce didacticiel, vous allez ajouter des notifications push au projet [Prise en main de Mobile Services] à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
 + Un compte Google actif.
 + Le composant client [Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
@@ -39,13 +39,13 @@ Les composants [Xamarin.Android] et [Azure Mobile Services] doivent déjà être
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>Configurer votre service mobile pour l'envoi de demandes push
+##<a id="configure"></a>Configurer votre service mobile pour l’envoi de demandes push
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
 ##<a id="update-scripts"></a>Mettre à jour le script d'insertion inscrit pour envoyer des notifications
 
->[AZURE.TIP]Les étapes suivantes montrent comment mettre à jour le script inscrit vers l’opération d’insertion sur la table TodoItem dans le portail Azure Classic. Vous pouvez également accéder et modifier ce script de service mobile directement dans Visual Studio, dans le nœud Azure de l'Explorateur de serveurs.
+>[AZURE.TIP] Les étapes suivantes montrent comment mettre à jour le script inscrit vers l’opération d’insertion sur la table TodoItem dans le portail Azure Classic. Vous pouvez également accéder et modifier ce script de service mobile directement dans Visual Studio, dans le nœud Azure de l'Explorateur de serveurs.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -68,15 +68,15 @@ Vous avez terminé ce didacticiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main de l'authentification](mobile-services-android-get-started-users.md) <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
-* [Présentation de Notification Hubs](../notification-hubs-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
+* [Présentation de Notification Hubs](../notification-hubs/notification-hubs-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
-* [Déboguer les applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
+* [Déboguer les applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 
-* [Utilisation de la bibliothèque cliente .NET pour Mobile Services](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec le code Xamarin C#.
+* [Utilisation de la bibliothèque cliente .NET pour Mobile Services](mobile-services-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec le code Xamarin C#.
 
 * [Référence de script serveur Mobile Services](mobile-services-how-to-use-server-scripts.md) <br/>En savoir plus sur l'implémentation de logique métier dans votre service mobile.
 
@@ -87,4 +87,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

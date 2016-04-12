@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Création d'itinéraires définis par l'utilisateur (UDR) dans l'interface de ligne de commande (CLI) Azure
@@ -52,7 +52,10 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	Paramètres : - **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*. - **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*. - **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
+	Paramètres :
+	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*.
+	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
+	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
 
 4. Exécutez la commande **`azure network route-table route create`** pour créer un itinéraire dans la table de routage créée ci-dessus pour envoyer tout le trafic destiné au sous-réseau Backend (192.168.2.0/24) à la machine virtuelle **FW1** (192.168.0.4).
 
@@ -73,7 +76,11 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	Paramètres : - **-r (ou --route-table-name)**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*. - **-a (ou --address-prefix)**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*. - **-y (ou --next-hop-type)**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*. - **-p (ou --next-hop-ip-address**). Adresse IP de saut suivant. Pour notre scénario, *192.168.0.4*.
+	Paramètres :
+	- **-r (ou --route-table-name)**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
+	- **-a (ou --address-prefix)**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
+	- **-y (ou --next-hop-type)**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
+	- **-p (ou --next-hop-ip-address**). Adresse IP de saut suivant. Pour notre scénario, *192.168.0.4*.
 
 5. Exécutez la commande **`azure network vnet subnet set`** pour associer la table de routage créée ci-dessus au sous-réseau **frontal**.
 
@@ -103,7 +110,8 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    
 		info:    network vnet subnet set command OK
 
-	Paramètres : - **-e (ou --vnet-name)**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
+	Paramètres :
+	- **-e (ou --vnet-name)**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
  
 ## Création des itinéraires définis par l'utilisateur (UDR) pour le sous-réseau Backend
 Pour créer la table de routage et l'itinéraire nécessaires pour le sous-réseau Backend selon le scénario ci-dessus, suivez les étapes ci-dessous.
@@ -187,8 +195,8 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		data:    
 		info:    network nic set command OK
 
-	Paramètres :
+	Paramètres :
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

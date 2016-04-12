@@ -1,0 +1,3 @@
+Après avoir créé un ou plusieurs groupes de sécurité réseau, vous devez pouvoir récupérer des informations sur vos groupes de sécurité réseau, ajouter et supprimer des règles, modifier des règles existantes, associer ou dissocier des groupes de sécurité réseau et supprimer des groupes de sécurité réseau. Dans cet article, vous allez apprendre à effectuer chacune de ces tâches. Avant de pouvoir gérer des groupes de sécurité réseau, il est important de bien connaître [leur fonctionnement](..\articles\virtual-network\virtual-networks-nsg.md).
+
+<!---HONumber=AcomDC_0323_2016-->

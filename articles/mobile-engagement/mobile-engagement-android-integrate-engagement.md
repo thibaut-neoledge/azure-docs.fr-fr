@@ -128,8 +128,6 @@ Pour activer la création d'un rapport à partir de tous les journaux nécessair
 
 > [AZURE.IMPORTANT] Lorsque vous utilisez `EngagementListActivity` ou `EngagementExpandableListActivity`, assurez-vous que tout appel à `requestWindowFeature(...);` est effectué avant l'appel à `super.onCreate(...);`. Dans le cas contraire, un incident se produira.
 
-Nous fournissons des sous-classes de `FragmentActivity` et `MapActivity`. Toutefois, pour éviter les problèmes avec les applications qui utilisent **ProGuard**, nous ne les avons pas incluses dans `engagement.jar`.
-
 Vous trouverez ces classes dans le dossier `src`. Vous pourrez les copier dans votre projet. Les classes se trouvent également dans **JavaDoc**.
 
 ### Méthode alternative : appelez `startActivity()` et `endActivity()` manuellement
@@ -382,4 +380,4 @@ Vous pouvez ensuite ajouter un `CheckBoxPreference` dans votre disposition préf
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

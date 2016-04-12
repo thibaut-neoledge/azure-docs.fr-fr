@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: rôles"
+   pageTitle="Rôles dans PIM | Microsoft Azure"
    description="Découvrez les rôles utilisés pour les identités dotées de privilèges avec l’extension Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: rôles
+# Rôles Azure AD Privileged Identity Management
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-## Rôles d’Azure Active Directory, d’Office 365 et d’autres sources
+## Rôles d’Azure Active Directory, d’Office 365 et d’autres sources
 
-Azure Privileged Identity Management (PIM) utilise les rôles suivants en tant que rôles d’administrateur par défaut :
+Azure Privileged Identity Management (PIM) utilise les rôles suivants en tant que rôles d’administrateur par défaut :
 
 - Administrateur général
 - Administrateur de facturation
 - Administrateur de services
-- Administrateur d'utilisateurs
+- Administrateur d'utilisateurs
 - Administrateur de mots de passe
 
-Pour plus d’informations sur les rôles dans Office 365, Exchange Online, Sharepoint Online et Skype Entreprise, accédez à [Attribution de rôles d’administrateur dans Office 365](https://support.office.com/fr-FR/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=fr-FR&rs=fr-FR&ad=US).
+Pour plus d’informations sur les rôles dans Office 365, Exchange Online, Sharepoint Online et Skype Entreprise, accédez à [Attribution de rôles d’administrateur dans Office 365](https://support.office.com/fr-FR/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=fr-FR&rs=fr-FR&ad=US).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -38,9 +38,9 @@ Pour plus d’informations sur les rôles dans Office 365, Exchange Online, Sha
 <!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
 ## Rôles d’utilisateur et connexion
-> [AZURE.NOTE]Un utilisateur désireux de se connecter à Azure PIM doit disposer d’une licence pour Azure.
+> [AZURE.NOTE]Un utilisateur désireux de se connecter à Azure PIM doit disposer d’une licence pour Azure.
 
-## Attribution d’une licence à un utilisateur dans Azure AD
+## Attribution d’une licence à un utilisateur dans Azure AD
 
 > [AZURE.NOTE] L’option de licence s’affiche uniquement s’il existe réellement des licences pour cet abonnement.
 
@@ -57,4 +57,4 @@ Pour plus d’informations sur les rôles dans Office 365, Exchange Online, Sha
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

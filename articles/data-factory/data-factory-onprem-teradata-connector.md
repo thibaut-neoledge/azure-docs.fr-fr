@@ -230,7 +230,7 @@ username | Spécifiez le nom d'utilisateur si vous utilisez l'authentification d
 password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non 
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. | Oui
 
-Pour plus d’informations sur la définition des informations d’identification pour une source de données Teradata locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+Pour plus d’informations sur la définition des informations d’identification pour une source de données Teradata locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)
 
 ## Propriétés de type du jeu de données Teradata
 
@@ -245,7 +245,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties**:
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
@@ -308,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

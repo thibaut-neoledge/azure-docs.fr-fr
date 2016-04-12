@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory" 
+	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Data Factory | Microsoft Azure" 
 	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

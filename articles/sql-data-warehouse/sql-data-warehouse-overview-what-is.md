@@ -13,45 +13,66 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # En quoi consiste Azure SQL Data Warehouse ?
 
-Azure SQL Data Warehouse est une base de données distribuée dédiée aux entreprises qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud associant des fonctionnalités SQL éprouvées à une capacité d’augmentation, de réduction et de pause en quelques secondes. SQL Data Warehouse est également profondément intégré dans Azure et se déploie facilement en quelques secondes. En outre, le service est entièrement géré et évite les pertes de temps liées à l’application de correctifs logiciels, à la maintenance et aux sauvegardes. Les sauvegardes automatiques et intégrées de SQL Data Warehouse prennent en charge la tolérance de panne et la restauration en libre-service.
+Azure SQL Data Warehouse est une base de données de mise à l’échelle basée sur le cloud qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Reposant sur notre architecture MPP (massively parallel processing), SQL Data Warehouse peut prendre en charge la charge de travail de votre entreprise.
 
-Lors du développement de SQL Data Warehouse, nous nous sommes concentrés sur quelques attributs clés afin de faire en sorte de tirer pleinement parti d’Azure et d’être en mesure de créer un entrepôt de données capable de répondre à n’importe quelle charge de travail d’entreprise.
+SQL Data Warehouse :
+
+- Combine notre base de données relationnelle SQL Server éprouvée avec nos capacités de mise à l’échelle du cloud Azure. Vous pouvez augmenter, diminuer, suspendre ou reprendre un calcul en quelques secondes. Cela vous permet de réduire les coûts liés à la mise à l’échelle de l’UC, si nécessaire, et de réduire l’utilisation pendant les heures creuses.
+- S’appuie sur notre plateforme Azure. Il est facile à déployer, à entretenir et assure une tolérance complète aux pannes grâce à des sauvegardes automatiques. 
+- Complète l’écosystème SQL Server. Permet le développement avec SQL Server T-SQL et ses outils qui vous sont familiers.
+
+Poursuivez votre lecture pour en savoir plus sur les fonctionnalités clés de SQL Data Warehouse.
 
 ## Optimisation
 
-### Architecture de l’entrepôt de données
+### Architecture MPP (Massively Parallel Processing)
 
-SQL Data Warehouse utilise l'architecture de traitement parallèle massif de Microsoft (MPP), initialement conçue pour exécuter certains des plus grands entrepôts de données d'entreprise sur site. Cette architecture tire parti des améliorations de performances d’entreposage de données intégrées et permet également à SQL Data Warehouse d’évoluer facilement et de traiter en parallèle le calcul des requêtes SQL complexes. L'architecture de SQL Data Warehouse a également été conçue pour tirer parti de sa présence dans Azure. En combinant ces deux aspects, l’architecture se décompose en 4 composants clés :
+SQL Data Warehouse utilise l’architecture MPP conçue pour exécuter certains des plus grands entrepôts de données sur site.
+
+Actuellement, notre architecture MPP répartit vos données sur 60 unités de traitement et de stockage sans partage. Les données sont stockées dans des objets blob géorépliqués redondants Azure Storage et liées aux nœuds de calcul pour l’exécution de la requête. Avec cette architecture, nous pouvons adopter une approche « Diviser pour mieux régner » pour l’exécution de requêtes T-SQL complexes. Lors du traitement, le nœud de contrôle analyse la requête, puis chaque nœud de calcul « conquiert » sa partie de données en parallèle.
+
+En combinant notre architecture MPP et les capacités de stockage Azure, SQL Data Warehouse peut :
+
+- Agrandir ou réduire le stockage indépendant de calcul.
+- Augmenter ou réduire le calcul sans déplacement de données. 
+- Suspendre le calcul tout en conservant les données.
+- Reprendre le calcul à tout moment.
+
+L’architecture est décrite en détail ci-dessous.
 
 ![Architecture de SQL Data Warehouse][1]
 
-- **Nœud de contrôle :** vous vous connectez au nœud de contrôle lorsque vous utilisez SQL Data Warehouse avec n'importe quel outil de développement, de chargement ou d'analyse décisionnelle. Dans SQL Data Warehouse, le nœud de contrôle est une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaires à ceux d'une base de données SQL standard. Mais, sous la surface, le nœud de contrôle coordonne tous les déplacements et calculs de données qui interviennent au niveau du système. Lorsqu'une commande est transmise au nœud de contrôle, celui-ci la divise en un ensemble de requêtes qui seront transmises aux nœuds de calcul du service.
 
-- **Nœuds de calcul :** comme le nœud de contrôle, les nœuds de calcul de SQL Data Warehouse sont alimentés à l’aide de bases de données SQL. Leur tâche consiste à délivrer la puissance de calcul du service. En arrière-plan, à chaque fois que des données sont chargées dans SQL Data Warehouse, celles-ci sont distribuées entre les nœuds du service. Ensuite, dès que le nœud de contrôle reçoit une commande, il la décompose en éléments pour chaque nœud de calcul qui, à son tour, agit sur les données qui lui sont affectées. Une fois le calcul effectué, les nœuds de calcul transmettent les résultats partiels au nœud de contrôle qui agrège ensuite les résultats avant de renvoyer une réponse.
+- **Nœud de contrôle :** le nœud de contrôle « contrôle » le système. Il s’agit du nœud frontal qui interagit avec toutes les applications et les connexions. Dans SQL Data Warehouse, le nœud de contrôle s’appuie sur une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaire. Sous la surface, le nœud de contrôle coordonne tous les mouvements de données et calculs nécessaires pour exécuter des requêtes parallèles sur vos données distribuées. Lorsque vous envoyez une requête TSQL à SQL Data Warehouse, le nœud de contrôle la transforme en requêtes distinctes qui s’exécutent sur chaque nœud de calcul en parallèle.
 
-- **Stockage :** tout le stockage de SQL Data Warehouse repose sur une forme standard d'Azure Storage - Objets blob. Cela signifie que lors de l’interaction avec les données, les nœuds de calcul écrivent et lisent directement à partir des objets Blob. La capacité d’Azure Storage à s’étendre en toute transparence et de façon quasi-illimitée nous permet de redimensionner automatiquement le stockage, et ce séparément du calcul. Azure Storage nous permet également de conserver le stockage en cas de mise à l’échelle ou de pause, de rationaliser notre processus de sauvegarde et de restauration, et de bénéficier d’un stockage plus sûr et plus tolérant aux pannes.
+- **Nœuds de calcul :** les nœuds de calcul alimentent SQL Data Warehouse. Il s’agit de bases de données SQL qui traitent les étapes de votre requête et gèrent vos données. Lors de l’ajout de données, SQL Data Warehouse distribue les lignes à l’aide de vos nœuds de calcul. Les nœuds de calcul sont également les travaux qui exécutent les requêtes parallèles sur vos données. Après traitement, ils renvoient les résultats au nœud de contrôle. Pour terminer la requête, le nœud de contrôle rassemble les résultats et renvoie le résultat final.
 
-- **Services de déplacement de données :** il s'agit du composant chargé de coordonner l'ensemble dans SQL Data Warehouse. Les services de déplacement de données permettent au nœud de contrôle de communiquer et transférer les données à tous les nœuds de calcul. Ils permettent également aux nœuds de calcul de transférer les données entre elles, ce qui leur permet d’accéder aux données résidant sur d’autres nœuds de calcul et de récupérer les données dont ils ont besoin pour effectuer des jointures et des agrégations.
 
-### Optimisations du moteur
+- **Stockage :** les données sont stockées dans des objets blob Azure Storage au format JSON. Lorsque les nœuds de calcul interagissent avec vos données, la lecture et l’écriture s’effectuent directement vers et depuis le stockage d’objets blob. Dans la mesure où le stockage Azure se développe de manière transparente et sans limite, SQL Data Warehouse peut faire de même. Étant donné que le calcul et le stockage sont indépendants, SQL Data Warehouse peut automatiquement mettre à l’échelle le stockage séparément du calcul de mise à l’échelle et inversement. Le stockage Azure offre également une tolérance complète aux pannes et rationalise le processus de sauvegarde et de restauration.
+   
 
-Cette approche MPP permet à SQL Data Warehouse d’adopter l’approche « diviser pour mieux régner » décrite ci-dessus lors de la résolution des problèmes affectant de grands volumes de données. Dans la mesure où les données de SQL Data Warehouse sont divisées et distribuées entre les nœuds de calcul du service, chaque nœud de calcul est en mesure de fonctionner en partie sur sa partie des données. Au final, les résultats sont transmis au nœud de contrôle et agrégés avant d’être transmis à l’utilisateur. Cette approche est également facilitée par un certain nombre d’optimisations des performances spécifiques à l’entreposage de données :
+- **Service de déplacement de données :** DMS correspond à notre technologie de déplacement des données entre les nœuds. DMS permet aux nœuds de calcul d’accéder aux données dont ils ont besoin pour les jonctions et les agrégations. DMS n’est pas un service Azure. C’est un service Windows qui s’exécute en même temps que la base de données SQL sur tous les nœuds. Dans la mesure où DMS s’exécute en arrière-plan, aucune interaction directe avec ce service n’est possible. Toutefois, lorsque vous examinez les plans de requête, vous remarquerez qu’ils comprennent certaines opérations DMS, dans la mesure où le déplacement des données est nécessaire sous une certaine forme pour exécuter chaque requête en parallèle.
 
-- SQL Data Warehouse utilise un optimiseur de requête avancée et un ensemble de statistiques complexes sur toutes les données du service pour créer ses plans de requête. À partir des informations relatives à la distribution et à la taille des données, le service est en mesure d’optimiser les requêtes distribuées en évaluant le coût des opérations de requête spécifique.
 
-- Au-delà de l’optimisation des plans de requête, SQL Data Warehouse s’appuie sur des techniques et des algorithmes avancés qui déplacent efficacement les données entre les ressources de calcul dans le cadre de l’opération de requête. Ces opérations sont intégrées dans les services de déplacement des données de l’entrepôt de données et les optimisations sont effectuées automatiquement.
+### Optimisation des performances des requêtes
 
-- L’inclusion d’index columnstore en cluster dans SQL Data Warehouse contribue également à accélérer les performances de requête. En s’appuyant sur le stockage en colonnes, SQL Data Warehouse peut délivrer des performances de compression jusqu’à 5 fois supérieures au stockage en ligne, et des performances de requête jusqu’à 10 fois supérieures. Les requêtes dirigées vers l’entrepôt de données sont très efficaces sur les index columnstore, car elles analysent bien souvent l’intégralité de la table ou la partition intégrale d’une table et limitent l’impact du déplacement des données pour les différentes étapes de la requête.
+En plus de la stratégie « Diviser pour mieux régner », l’approche MPP s’appuie sur un certain nombre d’optimisations de performances spécifiques à l’entreposage de données, parmi lesquelles :
+
+- Un optimiseur de requêtes distribuées et un ensemble de statistiques complexes sur toutes les données. À partir des informations relatives à la distribution et à la taille des données, le service est en mesure d’optimiser les requêtes en évaluant le coût des opérations de requête distribuée spécifique.
+
+- Des algorithmes et des techniques avancés intégrés au processus de déplacement de données pour déplacer efficacement les données entre les ressources de calcul dans le cadre de l’opération de requête. Ces opérations de mouvement de données sont intégrées et toutes les optimisations apportées à DMS s’effectuent automatiquement.
+
+- Des index de stockage de colonnes cluster par défaut. En s’appuyant sur le stockage en colonnes, SQL Data Warehouse peut délivrer des performances de compression jusqu’à 5 fois supérieures au stockage en ligne, et des performances de requête jusqu’à 10 fois supérieures. Les requêtes d’analyse qui doivent analyser un grand nombre de lignes sont particulièrement adaptées aux index de stockage de colonnes cluster.
 
 ## Extensibilité
 
-L’architecture de SQL Data Warehouse sépare le stockage du calcul, qui peuvent ainsi être mis à l’échelle indépendamment l’un de l’autre. La structure de déploiement simple et rapide de la base de données SQL permet de disposer instantanément de ressources de calcul supplémentaires. L’utilisation d’Azure Storage Blobs vient également enrichir cette structure. Les objets Blob garantissent un stockage stable et répliqué, tout en permettant une extension sans effort de l’infrastructure et ce, à moindre coût. Grâce à un stockage à l’échelle du cloud combiné à un calcul Azure, SQL Data Warehouse vous permet de payer le stockage de performances des requêtes dont vous avez besoin au moment où vous en avez besoin. Vous pouvez modifier la quantité de calcul en déplaçant simplement un curseur vers la gauche ou vers la droite dans le portail Azure Classic, mais vous pouvez également planifier cette modification ou l’ajouter à une charge de travail avec T-SQL et PowerShell.
+L’architecture de SQL Data Warehouse sépare le stockage du calcul, qui peuvent ainsi être mis à l’échelle indépendamment l’un de l’autre. La structure de déploiement simple et rapide de la base de données SQL permet de disposer instantanément de ressources de calcul supplémentaires. L’utilisation d’Azure Storage Blobs vient également enrichir cette structure. Les objets Blob garantissent un stockage stable et répliqué, tout en permettant une extension sans effort de l’infrastructure et ce, à moindre coût. Grâce à un stockage à l’échelle du cloud combiné à un calcul Azure, SQL Data Warehouse vous permet de payer le stockage de performances des requêtes dont vous avez besoin au moment où vous en avez besoin. Vous pouvez modifier la quantité de calcul en déplaçant simplement un curseur vers la gauche ou vers la droite dans le portail Azure, mais vous pouvez également planifier cette modification avec T-SQL et PowerShell.
 
 Tout en offrant la possibilité de contrôler entièrement la quantité de ressources de calcul indépendamment du stockage, SQL Data Warehouse vous permet de suspendre totalement votre entrepôt de données. Sans modifier le stockage en place, toutes les ressources de calcul sont transférées dans le pool principal d’Azure, pour vous permettre de réaliser des économies immédiates. Si nécessaire, il vous suffit de reprendre le calcul et de mettre vos données et vos ressources de calcul à la disposition de votre charge de travail.
 
@@ -83,7 +104,7 @@ En général, nous tenons à simplifier au maximum les DWU. Lorsque vous avez be
 
 - Lorsque vous n’avez pas besoin d’exécuter des requêtes, par exemple le soir ou le week-end, interrompez les ressources de calcul afin d’annuler l’ensemble des requêtes en cours et supprimez l’ensemble des unités DWU allouées à votre entrepôt de données.
 
-- Lorsque vous exécutez une opération de chargement ou de transformation de données importante, vous pouvez souhaiter monter en charge afin que vos données sont disponibles plus rapidement.
+- Lorsque vous exécutez une opération de chargement ou de transformation de données importante, vous pouvez souhaiter monter en charge afin que vos données soient disponibles plus rapidement.
 
 - Pour obtenir la valeur DWU idéale, essayez d’augmenter et de réduire vos DWU et d’exécuter quelques requêtes après le chargement de vos données. Puisque la mise à l’échelle est rapide, vous pouvez essayer plusieurs différents niveaux de performances sans vous engager au-delà d’une heure.
 
@@ -140,4 +161,4 @@ Simple d’utilisation, PolyBase vous permet de valoriser vos données de diffé
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

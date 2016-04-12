@@ -1,5 +1,3 @@
-```
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
-```
+> [AZURE.NOTE] Si votre problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur Twitter (@AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant ** Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Éléments de langage Transact-SQL SQL Data Warehouse | Microsoft Azure"
-   description="Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse."
+   description="Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Éléments de langage
@@ -283,8 +283,8 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

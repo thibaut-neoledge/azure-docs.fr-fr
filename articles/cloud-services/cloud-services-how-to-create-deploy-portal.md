@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création et déploiement d'un service cloud | Microsoft Azure"
-	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure. Ces exemples utilisent le portail Azure."
+	description="Découvrez comment créer et déployer un service cloud à l'aide du portail Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,17 +22,17 @@
 # Création et déploiement d’un service cloud
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portail Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portail Azure Classic](cloud-services-how-to-create-deploy.md)
 
-Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
+Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
 
 Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
 > [AZURE.NOTE] Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez Création rapide, puis configurez la publication VSTS dans l’outil de démarrage rapide Azure ou dans le tableau de bord. Pour plus d’informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Team Services][TFSTutorialForCloudService] ou **Démarrage rapide**.
 
 ## Concepts
-Trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
+Trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
 
 - **Définition de service** Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur ces composants et sur la création d’un package
 ## Préparation de votre application
 Avant de déployer un service cloud, vous devez créer le package de service cloud (.cspkg) à partir du code de l'application, ainsi que le fichier de configuration de service cloud (.cscfg). Le Kit de développement logiciel (SDK) Azure fournit les outils nécessaires à la préparation des fichiers de déploiement. Vous pouvez installer le Kit de développement logiciel (SDK) depuis la page des [téléchargements Azure](https://azure.microsoft.com/downloads/), dans le langage souhaité pour le développement de votre code.
 
-Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
+Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
 
 - Si vous souhaitez déployer un service cloud qui utilise le chiffrement de données SSL (Secure Sockets Layer), [configurez votre application](cloud-services-configure-ssl-certificate-portal.md#modify) pour SSL.
 
@@ -64,15 +64,15 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 - Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Réseaux** du portail Azure Classic, dans la page **Groupes d’affinités**.
 
 
-## Étape 3 : création d’un service cloud et chargement du package de déploiement
+## Création et déploiement
 
-1. Connectez-vous au [portail Azure][].
-2. Cliquez sur **Nouveau >Calculer**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Cliquez sur **Nouveau >Calculer**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
 3. En bas de la page d’informations qui s’affiche, cliquez sur **Créer**.
-4. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
+4. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
 5. Créez un **groupe de ressources** ou sélectionnez-en un.
 6. Sélectionnez un **emplacement**.
 7. Sélectionnez **Package** et, dans le panneau **Télécharger un package**, renseignez les champs obligatoires.  
@@ -88,8 +88,8 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 Si votre package de déploiement a été [configuré pour utiliser des certificats](cloud-services-configure-ssl-certificate-portal.md#modify), vous pouvez charger le certificat maintenant.
 
-1. Sélectionnez **Certificats** et, dans le panneau **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **mot de passe** pour le certificat.
-2. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le panneau **Ajouter des certificats**.
+1. Sélectionnez **Certificats** et, dans le panneau **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **mot de passe** pour le certificat.
+2. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le panneau **Ajouter des certificats**.
 3. Cliquez sur **Créer** dans le panneau **Service cloud**. Lorsque le déploiement atteint l'état **Ready**, vous pouvez passer aux étapes suivantes.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
@@ -113,6 +113,6 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
-* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

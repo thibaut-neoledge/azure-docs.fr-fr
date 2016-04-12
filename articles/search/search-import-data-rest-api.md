@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importation de données dans Azure Search à l’aide de l’API REST | Microsoft Azure | Service de recherche cloud hébergé"
-    description="Comment charger des données sur un index dans Azure Search à l’aide de l’API REST."
+    pageTitle="Chargement de données dans Azure Search à l’aide de l’API REST | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Découvrez comment charger des données sur un index dans Azure Search à l’aide de l’API REST."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -14,19 +14,18 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
-# Importer des données dans Azure Search à l’aide de l’API REST
+# Charger des données dans Azure Search à l’aide de l’API REST
 > [AZURE.SELECTOR]
 - [Vue d'ensemble](search-what-is-data-import.md)
-- [Portail](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
+Cet article vous explique comment utiliser l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour importer des données dans un index Azure Search.
 
-Cet article vous explique comment utiliser l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour importer des données dans un index Azure Search. Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-create-index-rest-api.md).
+Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md).
 
 Pour distribuer des documents dans l’index à l’aide de l’API REST, vous allez envoyer une requête HTTP POST au point de terminaison URL de votre index. Le corps de la requête HTTP est un objet JSON contenant les documents à ajouter, à modifier ou à supprimer.
 
@@ -54,7 +53,7 @@ Chaque objet JSON du tableau « value » représente un document à indexer. Cha
 `upload` | Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null.
 `merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
 `mergeOrUpload` | Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |- 
-`delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite avec la valeur null.
+`delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite sur la valeur null.
 
 ## III. Construire votre requête HTTP et le corps de la requête
 Maintenant que vous avez recueilli les valeurs de champ requises pour les actions de votre index, vous pouvez construire votre requête HTTP et le corps de requête JSON pour importer vos données.
@@ -164,9 +163,9 @@ Le code d’état `503` est renvoyé si aucun des éléments de la requête n’
 
 > [AZURE.NOTE] Dans ce cas, nous vous recommandons vivement de désactiver votre code client et d’attendre avant d’effectuer une nouvelle tentative. En laissant au système le temps de récupérer, vous aurez davantage de chance de voir vos futures requêtes aboutir. Si vous renouvelez rapidement vos tentatives de requête, vous ne ferez que prolonger la situation.
 
-Pour plus d’informations sur les actions de document et les réponses de réussite/d’erreur, consultez la page [Ajouter, mettre à jour ou supprimer des documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Codes d’état HTTP (Azure Search).
+Pour plus d’informations sur les actions de document et les réponses de réussite/d’erreur, consultez la page [Ajouter, mettre à jour ou supprimer des documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Suivant
-Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search à l’aide de l’API REST](search-query-rest-api.md).
+Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

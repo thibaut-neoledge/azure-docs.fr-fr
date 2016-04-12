@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath;vakarand"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Forum Aux Questions (FAQ) Azure AD Connect Health
@@ -92,6 +92,11 @@ Les alertes Azure AD Connect Health sont résolues en cas de condition de succè
 
 Les ports TCP/UDP 80, 443 et 5671 doivent être ouverts pour permettre à l’agent Azure AD Connect Health de communiquer avec les points de terminaison de service Azure AD Health.
 
+
+**Q : Pourquoi deux serveurs avec le même nom s’affichent dans le portail Azure AD Connect Health ?**
+
+Lorsque vous supprimez un agent à partir d’un serveur, le serveur n’est pas automatiquement supprimé du portail Azure AD Connect. Par conséquent, si vous avez supprimé manuellement un agent d’un serveur ou le serveur lui-même, vous devrez supprimer manuellement l’entrée de serveur à partir du portail Azure AD Connect Health. Pour plus d’informations, consultez [Supprimer une instance de serveur ou de service.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance) En outre, si vous avez recréé une image d’un serveur ou créé un nouveau serveur avec les mêmes détails (par exemple, le nom de l’ordinateur), mais que vous n’avez pas supprimé le serveur à partir du portail Azure AD Connect Health et ensuite installé l’agent sur le nouveau serveur, deux entrées pour le serveur peuvent s’afficher. Dans ce cas, vous devez supprimer l’entrée appartenant à l’ancien serveur manuellement. Les données de cette entrée seront généralement périmées.
+
 ## Liens connexes
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Les ports TCP/UDP 80, 443 et 5671 doivent être ouverts pour permettre à l’ag
 * [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

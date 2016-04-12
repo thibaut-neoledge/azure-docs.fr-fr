@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -36,20 +36,20 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter à votre storyboard existant les éléments d’interface utilisateur qui permettent à l’utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre concentrateur de notification avec les catégories sélectionnées sous forme de balises.
 
-1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
-	+ une étiquette intitulée « Dernières nouvelles » ;
-	+ des étiquettes portant les intitulés de catégories « Monde », « Politiques », « Entreprise », « Technologies », « Science », « Sports » ;
-	+ six commutateurs, un par catégorie, chacun défini sur l’**État** **Désactivé** par défaut ;
-	+ un bouton intitulé « S’abonner ».
+1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
+	+ une étiquette intitulée « Dernières nouvelles » ;
+	+ des étiquettes portant les intitulés de catégories « Monde », « Politiques », « Entreprise », « Technologies », « Science », « Sports » ;
+	+ six commutateurs, un par catégorie, chacun défini sur l’**État** **Désactivé** par défaut ;
+	+ un bouton intitulé « S’abonner ».
 
-	Votre storyboard doit ressembler à ce qui suit :
+	Votre storyboard doit ressembler à ce qui suit :
 
 	![][3]
 
 2. Dans l’éditeur de l’Assistant, créez des outlets pour tous les commutateurs et appelez-les "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
 
 
-3. Créez une action pour le bouton intitulé « S’abonner ». Le fichier ViewController.h doit désormais contenir le code suivant :
+3. Créez une action pour le bouton intitulé « S’abonner ». Le fichier ViewController.h doit désormais contenir le code suivant :
 
 		@property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
@@ -60,7 +60,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		- (IBAction)subscribe:(id)sender;
 
-4. Créez une **classe Cocoa Touch** appelée `Notifications`. Copiez le code suivant dans la section de l’interface du fichier Notifications.h :
+4. Créez une **classe Cocoa Touch** appelée `Notifications`. Copiez le code suivant dans la section de l’interface du fichier Notifications.h :
 
 		@property NSData* deviceToken;
 
@@ -73,7 +73,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		- (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
 
-5. Ajoutez la directive import suivante au fichier Notifications.m :
+5. Ajoutez la directive import suivante au fichier Notifications.m :
 
 		#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
@@ -121,7 +121,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 	Cette classe utilise le stockage local pour stocker et récupérer les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également une méthode pour s’inscrire à ces catégories à l’aide de l’inscription de [modèle](notification-hubs-templates.md).
 
-7. Dans le fichier AppDelegate.h, ajoutez une instruction import pour Notifications.h et une propriété pour une instance de la classe Notifications :
+7. Dans le fichier AppDelegate.h, ajoutez une instruction import pour Notifications.h et une propriété pour une instance de la classe Notifications :
 
 		#import "Notifications.h"
 
@@ -134,12 +134,12 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
 
-	> [AZURE.NOTE]Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
+	> [AZURE.NOTE] Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
 
 9. Dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** du fichier AppDelegate.m, remplacez le code de la méthode par le code suivant pour transmettre le jeton d’appareil à la classe Notifications. La classe Notifications effectue l’enregistrement pour les notifications avec les catégories. Si l’utilisateur modifie les sélections de catégorie, nous appelons la méthode `subscribeWithCategories` en réponse au bouton **S’abonner** pour mettre à jour les sections.
 
-	> [AZURE.NOTE]Étant donné que le jeton d’appareil attribué par le service de notification Push Apple (APN, Apple Push Notification) peut être modifié à tout moment, vous devez vous inscrire aux notifications à intervalles réguliers pour éviter les défaillances de notification. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
+	> [AZURE.NOTE] Étant donné que le jeton d’appareil attribué par le service de notification Push Apple (APN, Apple Push Notification) peut être modifié à tout moment, vous devez vous inscrire aux notifications à intervalles réguliers pour éviter les défaillances de notification. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
 		self.notifications.deviceToken = deviceToken;
 
@@ -337,7 +337,7 @@ Normalement, les notifications doivent être envoyées par un service principal.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
 
 + **[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]**
 
@@ -369,4 +369,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

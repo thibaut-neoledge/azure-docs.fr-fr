@@ -233,7 +233,7 @@ Sortie attendue :
 
 Utilisez l'applet de commande `Add-AzureRmVMNetworkInterface` pour affecter les cartes réseau aux différentes machines virtuelles.
 
-Des instructions concernant la création d'une machine virtuelle et l'affectation d'une carte réseau sont disponibles à la page [Création et préconfiguration d'une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), avec l'option 5 de l'exemple.
+Des instructions concernant la création d'une machine virtuelle et l'affectation d'une carte réseau sont disponibles à la page [Création et préconfiguration d'une machine virtuelle Windows avec Resource Manager et Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example), avec l'option 5 de l'exemple.
 
 
 Ou, si vous avez déjà créé une machine virtuelle, vous pouvez ajouter l'interface réseau en procédant comme suit :
@@ -308,4 +308,4 @@ Utilisez la commande `Remove-AzureLoadBalancer` pour supprimer un équilibreur d
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

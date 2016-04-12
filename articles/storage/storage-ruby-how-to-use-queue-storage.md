@@ -3,9 +3,9 @@
 	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de files d'attente à partir de Ruby
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d'une application Ruby
 
-Créez une application Ruby. Pour des instructions, consultez [Application Web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Créez une application Ruby. Pour des instructions, consultez [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -162,4 +162,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Microsoft Azure et files d’attente Azure Service Bus - comparaison et différences](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

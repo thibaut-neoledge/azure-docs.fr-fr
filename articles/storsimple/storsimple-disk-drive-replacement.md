@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Remplacer un lecteur de disque sur un appareil StorSimple | Microsoft Azure"
-   description="Explique comment remplacer un lecteur de disque sur un appareil principal ou un boîtier EBOD StorSimple."
+   description="Explique comment remplacer un lecteur de disque sur un boîtier principal ou EBOD StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/28/2016"
    ms.author="alkohli" />
 
 # Remplacer un lecteur de disque sur votre appareil StorSimple
@@ -41,7 +41,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
     ![Lecteur de disque verrouillé](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    **Figure 1**: Verrou anti-effraction engagé
+    **Figure 1** : Verrou anti-effraction engagé
 
     |Étiquette|Description|
     |:----|:----------|
@@ -54,7 +54,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
     ![Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-    **Figure 2**: Lecteur de disque déverrouillé
+    **Figure 2** : Lecteur de disque déverrouillé
 
 4. Le lecteur de disque peut maintenant être retiré.
 
@@ -76,9 +76,9 @@ Les lecteurs peuvent être retirés et remplacés pendant que le système foncti
 
 #### Pour retirer un lecteur
 
-1. Pour identifier le disque défectueux, dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Comme un disque défectueux peut se trouver dans le boîtier principal et/ou dans un boîtier EBOD (si vous utilisez un modèle 8600), vérifiez l’état des disques sous **Composants partagés** et sous **Composants partagés du boîtier EBOD**. Un disque défectueux dans un des boîtiers est affiché avec un état rouge.
+1. Pour identifier le disque défectueux, dans le Portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Comme un disque défectueux peut se trouver dans le boîtier principal et/ou dans un boîtier EBOD (si vous utilisez un modèle 8600), vérifiez l’état des disques sous **Composants partagés** et sous **Composants partagés du boîtier EBOD**. Un disque défectueux dans un des boîtiers est affiché avec un état rouge.
 
-2. Recherchez les lecteurs à l’avant du boîtier principal ou du boîtier EBOD. Pour le disque défectueux, le LED ambre est allumé.
+2. Recherchez les lecteurs à l’avant du boîtier principal ou du boîtier EBOD.
 
 3. Si le disque est déverrouillé, passez à l’étape suivante. Si le disque est verrouillé, déverrouillez-le en suivant la procédure décrite dans [Désengager le verrou anti-effraction](#disengage-the-antitamper-lock).
 
@@ -86,17 +86,17 @@ Les lecteurs peuvent être retirés et remplacés pendant que le système foncti
 
     ![Libération de la poignée du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3**: Libération de la poignée du lecteur
+    **Figure 3** : Libération de la poignée du lecteur
 
 5. Quand la poignée du support de lecteur est entièrement en extension, faites glisser le support de lecteur hors du châssis.
 
     ![Retrait du disque hors du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4**: Retrait du lecteur de disque hors du châssis
+    **Figure 4** : Retrait du lecteur de disque hors du châssis
 
 ##     Installez le lecteur de disque de remplacement
 
-Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple et que vous l’avez retiré, suivez cette procédure pour le remplacer par un nouveau lecteur.
+Quand un lecteur est défectueux dans votre appareil StorSimple et que vous l’avez retiré, suivez cette procédure pour le remplacer par un nouveau lecteur.
 
 #### Pour insérer un lecteur
 
@@ -104,13 +104,13 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
     ![Lecteur de disque avec la poignée en extension](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5**: Lecteur avec la poignée en extension
+    **Figure 5** : Lecteur avec la poignée en extension
 
 2. Faites glisser le support de lecteur jusqu’au bout dans le châssis.
 
     ![Insertion du disque dans le support de lecteur disque](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6**: Insertion du support de lecteur dans le châssis
+    **Figure 6** : Insertion du support de lecteur dans le châssis
 
 3. Le support de lecteur étant inséré, fermez la poignée du support de lecteur tout en continuant à pousser le support de lecteur dans le châssis, jusqu’à ce que la poignée du support de lecteur s’enclenche en position verrouillée.
 
@@ -124,4 +124,4 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

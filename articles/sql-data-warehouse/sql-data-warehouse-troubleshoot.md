@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Résolution de problèmes
 La rubrique suivante répertorie certains des problèmes les plus courants auxquels les clients sont confrontés avec Azure SQL Data Warehouse.
 
 ## Connectivité
-La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
+La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
 
 - Les règles du pare-feu ne sont pas définies
 - Les outils/protocoles ne sont pas pris en charge
@@ -28,7 +28,7 @@ La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
 ### Règles de pare-feu
 Les bases de données SQL Azure sont protégées par des pare-feux au niveau du serveur et de la base de données pour s'assurer que seules les adresses IP connues peuvent accéder aux bases de données. Les pare-feux sont sécurisés par défaut, ce qui signifie que vous devez autoriser l'accès de votre adresse IP avant de vous connecter.
 
-Pour configurer votre pare-feu pour l'accès, suivez les étapes décrites dans la section [Configurer l'accès au pare-feu du serveur pour l'adresse IP de votre client](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) de la page [Mise en service](sql-data-warehouse-get-started-provision.md).
+Pour configurer votre pare-feu pour l'accès, suivez les étapes décrites dans la section [Configurer l'accès au pare-feu du serveur pour l'adresse IP de votre client](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) de la page [Mise en service](sql-data-warehouse-get-started-provision.md).
 
 ### Les outils/protocoles ne sont pas pris en charge
 SQL Data Warehouse prend en charge [Visual Studio 2013/2015](sql-data-warehouse-get-started-connect.md) comme environnements de développement et [SQL Server Native Client 10/11 (ODBC)](https://msdn.microsoft.com/library/ms131415.aspx) pour la connectivité client.
@@ -38,7 +38,7 @@ Consultez nos pages sur la [connexion](sql-data-warehouse-get-started-connect.md
 ## Performances des requêtes
 SQL Data Warehouse utilise des constructions SQL Server communes pour l'exécution de requêtes, notamment les statistiques. Les [statistiques](sql-data-warehouse-develop-statistics.md) sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Vous pouvez utiliser la requête suivante pour déterminer la dernière fois que vos statistiques ont été mises à jour.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -56,7 +56,7 @@ FROM
 	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
 	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
 WHERE
-	1=1 
+	1=1
 	AND st.[user_created] = 1;
 ```
 
@@ -64,7 +64,7 @@ Consultez notre pages [Statistiques](sql-data-warehouse-develop-statistics.md) p
 
 ## Concepts clés de performances
 
-Consultez les articles suivants afin de mieux comprendre certains concepts supplémentaires clés de performance et de mise à l’échelle :
+Consultez les articles suivants afin de mieux comprendre certains concepts supplémentaires clés de performance et de mise à l’échelle :
 
 - [performances et mise à l’échelle][]
 - [modèle concurrentiel][]
@@ -73,7 +73,7 @@ Consultez les articles suivants afin de mieux comprendre certains concepts suppl
 - [statistiques pour améliorer les performances][]
 
 ## Étapes suivantes
-Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de recommandations sur le développement d’une solution SQL Data Warehouse.
+Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de recommandations sur le développement d’une solution SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -90,4 +90,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -26,36 +26,19 @@
 
 Cette rubrique présente un exemple de code Node.js qui s’exécute sur Mac OS X. L’exemple se connecte à Azure SQL Database en utilisant le pilote Tedious.
 
+## Étape 1 : configurer l’environnement de développement
 
-## Composants requis
+[Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Mac) (Configuration requise pour l’utilisation du pilote Tedious Node.js pour SQL Server)
 
-
-Installez le **nœud**, sauf s’il est déjà installé sur votre ordinateur.
-
-
-Pour installer node.js sous OSX 10.10 Yosemite, vous pouvez télécharger un package binaire précompilé, ce qui permet une installation facile. [Allez sur nodejs.org](http://nodejs.org/) et cliquez sur le bouton Installer pour télécharger le dernier package.
-
-Installez le package à partir du fichier .dmg en suivant les instructions de l’Assistant d’installation qui installera le **nœud** et **npm**. NPM signifie Node Package Manager et facilite l’installation des packages supplémentaires pour node.js.
-
-
-Une fois votre ordinateur configuré avec **node** et **npm**, accédez au répertoire où vous envisagez de créer votre projet Node.js et entrez les commandes suivantes.
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** crée un projet de nœud. Pour conserver les valeurs par défaut lors de la création de votre projet, appuyez sur Entrée jusqu'à ce que le projet soit créé. Le fichier **package.json** s'affiche dans le répertoire du projet.
-
-### Base de données SQL
+## Étape 2 : créer une base de données SQL
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-## Étape 1 : obtenir les informations de connexion
+## Étape 3 : obtenir les informations de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Étape 2 : se connecter
+## Étape 4 : se connecter
 
 La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connection.html) est utilisée pour la connexion à la base de données SQL.
 
@@ -74,7 +57,7 @@ La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connectio
 	});
 
 
-## Étape 3 : exécuter une requête
+## Étape 5 : exécuter une requête
 
 
 Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Request()](http://pekim.github.io/tedious/api-request.html). Si l'instruction renvoie des lignes, par exemple une instruction select, vous pouvez les récupérer à l'aide de la fonction [request.on()](http://pekim.github.io/tedious/api-request.html). S'il n'y a aucune ligne, la fonction [request.on()](http://pekim.github.io/tedious/api-request.html) renvoie des listes vides.
@@ -123,7 +106,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 	}
 
 
-## Étape 4 : insérer une ligne
+## Étape 6 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -172,4 +155,4 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

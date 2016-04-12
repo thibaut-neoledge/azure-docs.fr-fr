@@ -431,7 +431,7 @@ Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les
 	     } 
 	}
 
-Pour plus d'informations sur la définition des informations d'identification pour une source de données SQL Server, consultez [Configuration des informations d'identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+Pour plus d'informations sur la définition des informations d'identification pour une source de données SQL Server, consultez [Configuration des informations d'identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)
 
 ## Propriétés de type du jeu de données SQL Server
 
@@ -453,7 +453,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlSource
 
-Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
+Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -467,7 +467,7 @@ Vous pouvez également spécifier une procédure stockée en indiquant le **sqlR
 
 Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section Structure du code JSON du jeu de données sont utilisées pour créer une requête (select column1, column2 from mytable) à exécuter dans l'Azure SQL Database. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
 
-> [AZURE.NOTE] Lorsque vous utilisez **sqlReaderStoredProcedureName**, vous devez toujours spécifier une valeur pour la propriété **tableName** dans le jeu de données JSON. Il s'agit d'une limitation au niveau du produit pour l'instant. Cependant, il n'existe aucune validation effectuée pour cette table.
+> [AZURE.NOTE] Lorsque vous utilisez **sqlReaderStoredProcedureName**, vous devez toujours spécifier une valeur pour la propriété **tableName** dans le jeu de données JSON. Il s’agit d’une limitation au niveau du produit pour l’instant. Cependant, il n'existe aucune validation effectuée pour cette table.
 
 ### SqlSink
 
@@ -499,7 +499,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 3. Dans la même fenêtre, double-cliquez sur **TCP/IP** pour lancer la fenêtre des **propriétés de TCP/IP**.
 4. Allez sous l’onglet **Adresses IP**. Faites défiler l’écran vers le bas jusqu’à la section **IPAll**. Notez le **Port TCP** (**1433**, par défaut).
 5. Créez une **règle de Pare-feu Windows** sur l’ordinateur pour autoriser le trafic à entrer par ce port.  
-6. **Vérifiez la connexion**: servez-vous de SQL Server Management Studio sur un autre ordinateur pour vous connecter à SQL Server en utilisant un nom qualifié complet. Par exemple : <machine>.<domain>.corp.<company>.com, 1433.
+6. **Vérifiez la connexion** : servez-vous de SQL Server Management Studio sur un autre ordinateur pour vous connecter à SQL Server en utilisant un nom qualifié complet. Par exemple : <machine>.<domain>.corp.<company>.com, 1433.
 
 	> [AZURE.IMPORTANT] 
 	Consultez la rubrique [Considérations liées aux ports et à la sécurité](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) pour en savoir plus.
@@ -507,7 +507,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 	> Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Colonnes d'identité dans la base de données cible
-Cette section fournit un exemple pour copier des données d'une table source sans colonne d'identité vers une table de destination avec une colonne d'identité.
+Cette section fournit un exemple pour copier des données d’une table source sans colonne d’identité vers une table de destination avec une colonne d’identité.
 
 **Table source :**
 
@@ -527,7 +527,7 @@ Cette section fournit un exemple pour copier des données d'une table source san
 	)
 
 
-Notez que la table cible possède une colonne d'identité.
+Notez que la table cible possède une colonne d’identité.
 
 **Définition du jeu de données JSON source**
 
@@ -637,4 +637,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

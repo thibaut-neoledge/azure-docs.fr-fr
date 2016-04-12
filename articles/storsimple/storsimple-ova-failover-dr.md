@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array
@@ -25,7 +25,7 @@ Cet article décrit la récupération d'urgence pour votre Microsoft Azure StorS
 
 Le basculement de l'appareil est orchestré via la fonctionnalité de récupération d'urgence et se lance à partir de la page **Appareils**. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d'approvisionnement, le type et le modèle s'affichent.
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d'un appareil de la gamme 8000, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
 
@@ -48,9 +48,7 @@ Pour n'importe quel basculement d'appareil, les conditions préalables suivantes
 
 - L'appareil cible doit s'afficher avec l'état **Active** dans le portail Azure Classic. Vous devrez configurer un appareil virtuel cible avec une capacité identique ou supérieure. Vous devrez ensuite utiliser l'interface utilisateur web locale pour configurer et inscrire correctement l'appareil virtuel.
 
-	> [AZURE.IMPORTANT]
-	> 
-	> N'essayez pas de configurer l'appareil virtuel inscrit via le service en cliquant sur **Terminer l'installation de l'appareil**. Aucune configuration d'appareil ne doit être effectuée via le service.
+	> [AZURE.IMPORTANT] N’essayez pas de configurer l’appareil virtuel inscrit via le service en cliquant sur **Terminer l’installation de l’appareil**. Aucune configuration d'appareil ne doit être effectuée via le service.
 
 - Les appareils source et cible doivent être du même type. Vous pouvez uniquement basculer un appareil virtuel configuré comme un serveur de fichiers vers un autre serveur de fichiers. Il en est de même pour un serveur iSCSI.
 
@@ -91,13 +89,16 @@ Nous vous recommandons d'avoir un appareil StorSimple virtuel mis en service, co
 
 > [AZURE.IMPORTANT]
 > 
-> Vous n'êtes pas autorisé à basculer à partir d'un appareil de la gamme StorSimple 8000 vers un appareil virtuel.
+> - Vous n’êtes pas autorisé à basculer d’un appareil de la gamme StorSimple 8000 vers un appareil virtuel de la gamme 1200.
+> - Vous pouvez basculer d’un appareil virtuel avec mode FIPS déployé dans le portail Azure Government vers un appareil virtuel déployé dans le portail Azure Classic. L’opération inverse est également possible.
 
 Procédez comme suit pour restaurer votre appareil vers un appareil virtuel StorSimple cible.
 
-1. Mettez les volumes/partages hors connexion sur l'ordinateur hôte. Reportez-vous aux instructions spécifiques au système d'exploitation de l'ordinateur hôte pour mettre les volumes/partages hors connexion. Si ce n'est pas déjà fait, vous devrez mettre tous les volumes/partages hors connexion sur l'appareil en accédant à **Appareils > Partages** (ou **Appareil > Volumes**). Sélectionnez un partage/volume et cliquez sur **Mettre hors connexion** en bas de la page. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Répétez cette procédure pour tous les partages/volumes sur l'appareil.
+1. Mettez les volumes/partages hors connexion sur l'ordinateur hôte. Reportez-vous aux instructions spécifiques au système d'exploitation de l'ordinateur hôte pour mettre les volumes/partages hors connexion. Si ce n’est pas déjà fait, vous devrez mettre tous les volumes ou partages hors connexion sur l’appareil en accédant à **Appareils > Partages** (ou **Appareil > Volumes**). Sélectionnez un partage ou un volume, puis cliquez sur **Mettre hors connexion** au bas de la page. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Répétez cette procédure pour tous les partages/volumes sur l'appareil.
 
-2. Sur la page **Appareils**, sélectionnez l'appareil source pour le basculement et cliquez sur **Désactiver**. Vous êtes invité à confirmer l’opération. La désactivation d'appareil est une opération définitive qui ne peut pas être annulée. Vous recevrez également un rappel pour mettre vos partages/volumes hors connexion sur l'ordinateur hôte.
+2. Sur la page **Appareils**, sélectionnez l’appareil source pour le basculement, puis cliquez sur **Désactiver**. ![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. Vous êtes invité à confirmer l’opération. La désactivation d'appareil est une opération définitive qui ne peut pas être annulée. Vous recevrez également un rappel pour mettre vos partages/volumes hors connexion sur l'ordinateur hôte.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
@@ -105,21 +106,21 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 	![](./media/storsimple-ova-failover-dr/image19.png)
 
-4. Sur la page **Appareils**, l'état passe à **Désactivé**.
+4. Dans la page **Appareils**, l’état passe à **Désactivé**.
 
 	![](./media/storsimple-ova-failover-dr/image20.png)
 
-5. Sélectionnez l'appareil désactivé et en bas de la page, cliquez sur **Basculement**.
+5. Sélectionnez l’appareil désactivé, puis, en bas de la page, cliquez sur **Basculement**.
 
 6. Dans l'Assistant de confirmation du basculement qui s'affiche, procédez comme suit :
 
-    1. Dans la liste déroulante des appareils disponibles, choisissez un **appareil cible.** Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
+    1. Dans la liste déroulante des appareils disponibles, choisissez un **Appareil cible**. Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
 
     2. Passez en revue les détails associés à l'appareil source tels que le nom de l'appareil, la capacité totale et les noms des partages qui seront basculés.
 
 		![](./media/storsimple-ova-failover-dr/image21.png)
 
-7. Cochez la case **Je comprends que le basculement est une opération définitive qui, une fois effectuée avec succès, supprime l'appareil source.**.
+7. Cochez la case **Je comprends que le basculement est une opération définitive qui, une fois effectuée avec succès, supprime l’appareil source.**.
 
 8. Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-failover-dr/image1.png).
 
@@ -128,7 +129,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 	![](./media/storsimple-ova-failover-dr/image22.png)
 
-10. Dans la page **Travaux**, vous verrez un travail de basculement créé pour l'appareil source. Ce travail effectue les vérifications préalables pour la récupération d'urgence.
+10. Dans la page **Travaux**, vous verrez un travail de basculement créé pour l’appareil source. Ce travail effectue les vérifications préalables pour la récupération d'urgence.
 
 	![](./media/storsimple-ova-failover-dr/image23.png)
 
@@ -160,7 +161,7 @@ S'il existe des appareils StorSimple inscrits juste avant un incident, ces appar
 
 **Panne de connectivité cloud pendant la récupération d'urgence**
 
-Si la connectivité cloud est interrompue après le démarrage de la récupération d'urgence et avant la fin de la restauration de l'appareil, la récupération d'urgence échoue et vous serez averti. L'appareil cible qui a été utilisé pour la récupération d'urgence est alors marqué comme *inutilisable.* Le même appareil cible ne peut pas servir ensuite pour des récupérations d'urgence futures.
+Si la connectivité cloud est interrompue après le démarrage de la récupération d'urgence et avant la fin de la restauration de l'appareil, la récupération d'urgence échoue et vous serez averti. L’appareil cible qui a été utilisé pour la récupération d’urgence est alors marqué comme *inutilisable*. Le même appareil cible ne peut pas servir ensuite pour des récupérations d'urgence futures.
 
 **Aucun appareil cible compatible**
 
@@ -172,6 +173,6 @@ Si l'une des vérifications préalables n'est pas satisfaite, des erreurs s'affi
 
 ## Étapes suivantes
 
-En savoir plus sur la [gestion de votre StorSimple Virtual Array à l'aide de l'interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
+En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -64,4 +64,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

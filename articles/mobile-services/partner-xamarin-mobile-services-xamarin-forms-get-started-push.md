@@ -13,33 +13,34 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Ajout de notifications Push à votre application Xamarin.Forms
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter des notifications Push à votre application Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md).
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Ce didacticiel vous montre comment utiliser Azure Mobile Services pour envoyer des notifications Push aux applications iOS, Android et Windows Phone de votre solution Xamarin.Forms. Commencez par créer un service mobile. Ensuite, téléchargez un exemple Starter, inscrivez-vous aux services de notification Push appropriés et ajoutez du code à la solution pour recevoir des notifications de ces services.
 
-À la fin de ce didacticiel, votre service mobile envoie une notification Push chaque fois qu’un utilisateur ajoute une tâche dans l’une des applications. Cet exemple achevé figure ici : [exemple de notification Push Xamarin.Forms Azure achevé].
+À la fin de ce didacticiel, votre service mobile envoie une notification Push chaque fois qu’un utilisateur ajoute une tâche dans l’une des applications. Cet exemple achevé figure ici : [exemple de notification Push Xamarin.Forms Azure achevé].
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
 + Un périphérique iOS 8 (vous ne pouvez pas tester les notifications push dans le simulateur iOS)
-+ Un abonnement au programme pour développeurs iOS
++ Un abonnement au programme pour développeurs iOS
 + [Xamarin.iOS Studio]
 + [Composant Azure Mobile Services]
 + Un compte Google actif
 + Le composant client [Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
 
-Dans cette rubrique :
+Dans cette rubrique :
 
 1. [Création d’un service mobile](#create-service)
 2. [Téléchargement et configuration de l’exemple Starter](#download-starter-sample)
@@ -83,7 +84,7 @@ Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage d
 ## <a name="download-starter-sample"></a>Téléchargement et configuration de l’exemple Starter
 Nous allons ajouter des notifications Push à un exemple existant.
 
-1. Téléchargez l’exemple suivant : [exemple Starter de notification Push Xamarin.Forms Azure].
+1. Téléchargez l’exemple suivant : [exemple Starter de notification Push Xamarin.Forms Azure].
 
 2. Dans le **portail Azure Classic**, cliquez sur [Mobile Services], puis sur le service mobile. Cliquez sur l'onglet **Tableau de bord**, puis notez l'**URL du site**. Ensuite, cliquez sur **Gérer les clés** et prenez note de la **Clé de l’application**. Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d’application.
 
@@ -121,13 +122,13 @@ Ensuite, vous allez inscrire votre application auprès d'Apple, activer les noti
 
 ### <a name="register"></a>Inscrire votre application pour les notifications push
 
-Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.
+Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.
 
-1. Si vous n'avez pas déjà inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a> du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour créer un ID pour votre application.
+1. Si vous n'avez pas déjà inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a> du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour créer un ID pour votre application.
 
     ![][102]
 
-2. Entrez un nom pour votre application dans **Description**, entrez une valeur dans **Bundle Identifier** et retenez-la, activez l’option « Push Notifications » dans la section « App Services », puis cliquez sur **Continue**. Cet exemple utilise l'ID **MobileServices.Quickstart**, mais vous ne pouvez pas réutiliser le même ID, car chaque ID d'application doit être unique pour chaque utilisateur. Ainsi, nous vous recommandons d'ajouter votre nom complet ou vos initiales après le nom de l'application.
+2. Entrez un nom pour votre application dans **Description**, entrez une valeur dans **Bundle Identifier** et retenez-la, activez l’option « Push Notifications » dans la section « App Services », puis cliquez sur **Continue**. Cet exemple utilise l'ID **MobileServices.Quickstart**, mais vous ne pouvez pas réutiliser le même ID, car chaque ID d'application doit être unique pour chaque utilisateur. Ainsi, nous vous recommandons d'ajouter votre nom complet ou vos initiales après le nom de l'application.
 
     ![][103]
 
@@ -151,9 +152,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
     ![][108]
 
-    Ceci affiche l'Assistant « Add iOS Certificate ».
+    Ceci affiche l'Assistant « Add iOS Certificate ».
 
-    Remarque : ce didacticiel utilise un certificat de développement. Le même processus est utilisé lors de l'inscription d'un certificat de production. Assurez-vous simplement que vous avez défini le même type de certificat lorsque vous avez téléchargé le certificat vers Mobile Services.
+    Remarque : ce didacticiel utilise un certificat de développement. Le même processus est utilisé lors de l'inscription d'un certificat de production. Assurez-vous simplement que vous avez défini le même type de certificat lorsque vous avez téléchargé le certificat vers Mobile Services.
 
 5. Cliquez sur **Choose File**, accédez à l’emplacement où vous avez enregistré le fichier de demande de signature de certificat que vous avez créé lors de la première tâche, puis cliquez sur **Generate**.
 
@@ -171,17 +172,17 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 
-    Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
+    Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
     ![][10]
 
-    Remarque : il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe <strong>Apple Development iOS Push Notification Services:</strong>
+    Remarque : il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe <strong>Apple Development iOS Push Notification Services:</strong>
 
 Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et le télécharger vers Mobile Services pour activer l'authentification avec APNS.
 
 ### <a name="profile"></a>Créer un profil de mise en service pour l’application
 
-1. Une fois de retour dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a>, sélectionnez **Provisioning Profiles**, **All**, puis cliquez sur le bouton **+** pour créer un profil. Ceci démarre l’Assistant **Ajouter le profil d’approvisionnement iOS**.
+1. Une fois de retour dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a>, sélectionnez **Provisioning Profiles**, **All**, puis cliquez sur le bouton **+** pour créer un profil. Ceci démarre l’Assistant **Ajouter le profil d’approvisionnement iOS**.
 
     ![][112]
 
@@ -255,7 +256,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
 
 ### <a name="add-push"></a>Ajout de notifications Push à votre application
 
-1. Dans Xamarin.Studio ou Visual Studio, développez le projet **ToDoAzure.iOS**, ouvrez la classe **AppDelegate** et remplacez l’événement **FinishedLaunching** par le code suivant :
+1. Dans Xamarin.Studio ou Visual Studio, développez le projet **ToDoAzure.iOS**, ouvrez la classe **AppDelegate** et remplacez l’événement **FinishedLaunching** par le code suivant :
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
@@ -281,7 +282,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             return base.FinishedLaunching(app, options);
         }
 
-6. Dans **AppDelegate**, remplacez l’événement **RegisteredForRemoteNotifications** :
+6. Dans **AppDelegate**, remplacez l’événement **RegisteredForRemoteNotifications** :
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
@@ -305,7 +306,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
-7. Dans **AppDelegate**, remplacez l’événement **ReceivedRemoteNotification** :
+7. Dans **AppDelegate**, remplacez l’événement **ReceivedRemoteNotification** :
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
@@ -334,7 +335,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
     La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.
@@ -404,7 +405,7 @@ Dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis sur l
 
 La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.
@@ -443,12 +444,12 @@ La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 2. Cliquez avec le bouton droit sur le dossier **Composants**, cliquez sur **Obtenir d’autres composants**, recherchez le composant **Client de messagerie Cloud Google** composant et l’ajouter au projet.
 
-1. Ouvrez le fichier projet MainActivity.cs et ajoutez l’instruction using suivante à la classe :
+1. Ouvrez le fichier projet MainActivity.cs et ajoutez l’instruction using suivante à la classe :
 
 		using Gcm.Client;
 
 
-4.	Dans la classe **MainActivity**, ajoutez le code suivant à la méthode **OnCreate**, après l’appel à la méthode **LoadApplication** :
+4.	Dans la classe **MainActivity**, ajoutez le code suivant à la méthode **OnCreate**, après l’appel à la méthode **LoadApplication** :
 
             try
             {
@@ -475,12 +476,12 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
 
 5. Dans le projet ToDoAzure.Droid, créez une classe dans le projet appelé `GcmService`.
 
-5. Ajoutez les instructions Using suivantes à la classe **GcmService** :
+5. Ajoutez les instructions Using suivantes à la classe **GcmService** :
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. Ajoutez les demandes d’autorisation suivantes entre les instructions **using** et la déclaration **namespace** :
+6. Ajoutez les demandes d’autorisation suivantes entre les instructions **using** et la déclaration **namespace** :
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -491,7 +492,7 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-7. Dans le fichier de projet **GcmService.cs**, ajoutez la classe suivante :
+7. Dans le fichier de projet **GcmService.cs**, ajoutez la classe suivante :
 
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -507,7 +508,7 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
 
 	Dans le code ci-dessus, vous devez remplacer _`<PROJECT_NUMBER>`_ par le numéro de projet attribué par Google lorsque vous avez configuré votre application dans le portail des développeurs Google.
 
-8. Dans le fichier de projet GcmService.cs, ajoutez le code suivant qui définit la classe **GcmService** :
+8. Dans le fichier de projet GcmService.cs, ajoutez le code suivant qui définit la classe **GcmService** :
 
          [Service]
          public class GcmService : GcmServiceBase
@@ -557,7 +558,7 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
 
 	Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push.
 
-10. Remplacez la méthode **OnMessage** dans **GcmService** par le code suivant :
+10. Remplacez la méthode **OnMessage** dans **GcmService** par le code suivant :
 
         protected override void OnMessage(Context context, Intent intent)
         {
@@ -663,11 +664,11 @@ Cette section vous montre comment utiliser Azure Mobile Services pour envoyer de
 
 Pour permettre à votre application de recevoir les notifications Push, vous devez inscrire un canal de notification.
 
-1. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez l'instruction `using` suivante :
+1. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez l'instruction `using` suivante :
 
         using Microsoft.Phone.Notification;
 
-3. Ajoutez le code suivant à App.xaml.cs :
+3. Ajoutez le code suivant à App.xaml.cs :
 
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
@@ -696,19 +697,19 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
                 });
         }
 
-    Ce code récupère l’URI de canal ChannelURI pour l’application auprès du Service de notifications Push Microsoft (MPNS) utilisés par « Silverlight » Windows Phone 8.x, puis il inscrit ce ChannelURI aux notifications Push.
+    Ce code récupère l’URI de canal ChannelURI pour l’application auprès du Service de notifications Push Microsoft (MPNS) utilisés par « Silverlight » Windows Phone 8.x, puis il inscrit ce ChannelURI aux notifications Push.
 
 	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l’appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
 	Cela permet de s’assurer que l’inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
 
-5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s’affiche avec la clé d’inscription.
+5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s’affiche avec la clé d’inscription.
 
-6.	Dans l'Explorateur de solutions, développez Propriétés, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet Fonctionnalités et veillez à ce que la fonctionnalité **ID\_CAP\_PUSH\_NOTIFICATION** soit activée.
+6.	Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et vérifiez que la fonctionnalité **ID\_CAP\_PUSH\_NOTIFICATION** est activée.
 
    	![Activer les notifications dans VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -728,7 +729,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l’opération d’inser
 
     La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.
@@ -762,13 +763,13 @@ Enfin, vous devez mettre à jour le script inscrit dans l’opération d’inser
 
 	Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour envoyer les notifications Push.
 
-	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d’appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur **Télécharger** et en sélectionnant le certificat. Pour plus d’informations sur la génération du certificat, voir la rubrique [Configuration d’un service Web authentifié afin d’envoyer des notifications Push pour Windows Phone].
+	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d’appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur **Télécharger** et en sélectionnant le certificat. Pour plus d’informations sur la génération du certificat, voir la rubrique [Configuration d’un service Web authentifié afin d’envoyer des notifications Push pour Windows Phone].
 
 ###<a id="test"></a> Test des notifications Push dans votre application
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l’application.
 
-    >[AZURE.NOTE] Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l’émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l’horloge dans l’émulateur avant les tests.
+    >[AZURE.NOTE] Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l’émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l’horloge dans l’émulateur avant les tests.
 
 5. Dans l’application, créez une tâche intitulée **Hello push**, puis cliquez immédiatement sur le bouton Démarrer ou sur le bouton Précédent pour quitter l’application.
 
@@ -858,4 +859,4 @@ Enfin, vous devez mettre à jour le script inscrit dans l’opération d’inser
 [exemple Starter de notification Push Xamarin.Forms Azure]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [exemple de notification Push Xamarin.Forms Azure achevé]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

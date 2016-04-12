@@ -27,7 +27,7 @@ Obtenez des recommandations en termes de niveau tarifaire lors des tâches suiva
 
 - [Modifier les niveaux de service et de performances (niveau tarifaire) d’une base de données SQL](sql-database-scale-up.md)
 - [Mise à niveau d’un serveur SQL Azure vers la version 12](sql-database-upgrade-server-portal.md)
-- Accéder à votre serveur V12 : si vos bases de données peuvent [bénéficier d’un pool de bases de données élastiques](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), le panneau du serveur affiche un message indiquant un pool recommandé. Cliquez sur le message pour créer le pool recommandé.
+- Accédez à votre serveur V12. Voir [Recommandations relatives aux niveaux tarifaires des bases de données SQL](sql-database-service-tier-advisor.md).
 - [Créer un pool de bases de données élastiques](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

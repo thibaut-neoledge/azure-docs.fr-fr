@@ -40,7 +40,7 @@ Vous allez générer une application ASP.NET de base dans Azure App Service Web 
 
 Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
-- Déploiement AD FS local (pour une procédure de bout en bout du laboratoire de test que j’utilise, consultez la rubrique [Laboratoire de test : service STS autonome avec AD FS dans les machines virtuelles Azure (à des fins de test uniquement)](TODO))
+- Déploiement AD FS local (pour une procédure de bout en bout du laboratoire de test que j’utilise, consultez la rubrique [Laboratoire de test : service STS autonome avec AD FS dans les machines virtuelles Azure (à des fins de test uniquement)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Autorisations pour créer des approbations de partie de confiance dans Gestion AD FS
 - Visual Studio 2013
 - Le [Kit de développement logiciel (SDK) Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou une version ultérieure
@@ -356,4 +356,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données loca
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

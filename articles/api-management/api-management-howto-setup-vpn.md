@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # Comment configurer des connexions VPN dans Gestion des API Azure
@@ -48,11 +48,25 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 
 ![Ajouter des API à partir du VPN][api-management-setup-vpn-add-api]
 
+## Ports requis pour la prise en charge des réseaux privés virtuels de gestion des API
+
+Lorsque l’instance de service Gestion des API est hébergée dans un réseau virtuel, les ports du tableau suivant sont utilisés. Si ces ports sont bloqués, le service risque de ne pas fonctionner correctement. Le blocage d’un ou plusieurs de ces ports constitue le problème de configuration le plus courant lorsque vous utilisez Gestion des API dans un réseau virtuel.
+
+| Port(s) | Direction | Protocole de transfert | Objectif | Source / Destination |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443 | Trafic entrant | TCP | Communication client avec Gestion des API | INTERNET / VIRTUAL\_NETWORK |
+| 80,443 | Règle de trafic sortant | TCP | Dépendance Gestion des API sur Azure Storage et Azure Service Bus | VIRTUAL\_NETWORK / INTERNET |
+| 1433 | Règle de trafic sortant | TCP | Dépendances Gestion des API sur SQL | VIRTUAL\_NETWORK / INTERNET |
+| 9350, 9351, 9352, 9353, 9354 | Règle de trafic sortant | TCP | Dépendances Gestion des API sur Service Bus | VIRTUAL\_NETWORK / INTERNET |
+| 5671 | Règle de trafic sortant | AMQP | Dépendance Gestion des API pour la stratégie Journaliser dans Event Hub | VIRTUAL\_NETWORK / INTERNET |
+| 6381, 6382, 6383 | Entrant/sortant | UDP | Dépendances Gestion des API sur le cache Redis | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
+| 445 | Règle de trafic sortant | TCP | Dépendance Gestion des API sur le partage de fichiers Azure pour GIT | VIRTUAL\_NETWORK / INTERNET |
+
 
 ## <a name="related-content"> </a>Contenu connexe
 
 
-* [Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site][]
+* [Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic][]
 * [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,7 +79,7 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-[Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Création d’une pile LAMP avec Azure | Microsoft Azure"
 	description="Apprenez à créer une pile LAMP avec Microsoft Azure en utilisant des machines virtuelles Azure exécutant Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -26,22 +26,22 @@ Une pile « LAMP » est un groupe de logiciels open source généralement instal
 
 Dans ce guide, nous allons installer une pile LAMP sur une image Linux et la déployer sur Microsoft Azure.
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
 -	Création d'une machine virtuelle Azure.
 -	Préparation de la machine virtuelle pour la pile LAMP.
 -	Installation des logiciels requis par votre serveur LAMP sur la machine virtuelle.
 
-Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](https://azure.microsoft.com/). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, voir [Qu’est-ce que Microsoft Azure ?](https://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](https://azure.microsoft.com/). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, voir [Qu’est-ce que Microsoft Azure ?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, voir [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d’une durée de 10 minutes, présente le déploiement d’images LAMP prédéfinies à partir d’Azure Marketplace : [pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d’une durée de 10 minutes, présente le déploiement d’images LAMP prédéfinies à partir d’Azure Marketplace : [pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
-##Phase 1 : Création d’une image
+##Phase 1 : Création d’une image
 Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.
 
-###Étape 1 : Générer une clé d’authentification SSH
+###Étape 1 : Générer une clé d’authentification SSH
 SSH est un outil important pour les administrateurs système. Toutefois, s'appuyer sur un mot de passe défini par un humain pour la sécurité n'est pas toujours judicieux. Une clé SSH forte permet de laisser l'accès à distance ouvert sans se soucier des mots de passe. La méthode se compose d’une authentification avec chiffrement asymétrique. La clé privée de l’utilisateur est celle qui accorde l’authentification. Vous pouvez même verrouiller le compte de l’utilisateur pour interdire complètement l’authentification par mot de passe.
 
 Pour générer la clé d'authentification SSH, procédez comme suit.
@@ -49,16 +49,16 @@ Pour générer la clé d'authentification SSH, procédez comme suit.
 -	Téléchargez et installez Puttygen via [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
--	Après le processus de génération, puttygen.exe affiche votre clé générée. Par exemple : ![][2]
+-	Après le processus de génération, puttygen.exe affiche votre clé générée. Par exemple : ![][2]
 -	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
-###Étape 2 : Créer l’image dans le portail Azure.
+###Étape 2 : Créer l’image dans le portail Azure.
 Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
 
 ![][3]
 
-Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple LAMPDemo, pour qu’Azure génère l’URL comme suit : *Lampdemo.cloudapp.net*.
+Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple LAMPDemo, pour qu’Azure génère l’URL comme suit : *Lampdemo.cloudapp.net*.
 
 Pour **Nom d’utilisateur**, choisissez un nom que vous utiliserez ultérieurement pour vous connecter à la machine virtuelle.
 
@@ -68,10 +68,10 @@ Pour **Clé d’authentification SSH**, copiez la valeur de clé à partir du fi
 
 Configurez d’autres paramètres selon les besoins, puis cliquez sur **Créer**.
 
-##Phase 2 : Préparation de votre machine virtuelle pour la pile LAMP
+##Phase 2 : Préparation de votre machine virtuelle pour la pile LAMP
 Lors de cette phase, vous allez configurer un point de terminaison pour le trafic web, puis vous connecter à votre nouvelle machine virtuelle.
 
-###Étape 2 : Ouverture du port HTTP pour autoriser l’accès web
+###Étape 2 : Ouverture du port HTTP pour autoriser l’accès web
 Les points de terminaison dans Azure se composent d'un protocole (TCP ou UDP) et d'un port public et privé. Le port privé est celui que le service écoute sur la machine virtuelle. Le port public est celui que le service cloud Azure écoute en externe pour le trafic Internet. Dans certains cas, il s'agit du même numéro de port.
 
 Le port TCP 80 est le numéro de port par défaut sur lequel Apache écoute. L'ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d'autres clients Internet) d'accéder au serveur web Apache.
@@ -90,7 +90,7 @@ Configurez le point de terminaison :
 
 1.	Tapez un nom pour le point de terminaison dans **Point de terminaison**.
 2.	Tapez 80 dans **Port public**. Si vous avez modifié le port d'écoute par défaut d'Apache, vous devez mettre à jour Port privé pour qu'il s'agisse du même que le port d'écoute Apache.
-3.	Tapez 80 dans **Port public**. Par défaut, le trafic HTTP utilise le port 80. Si vous affectez le port 80, vous n'avez pas besoin d'inclure le numéro de port dans l'URL qui vous permet d'accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net. Si vous affectez une autre valeur pour le port d'écoute Apache, par exemple 81, vous devez ajouter le numéro de port à l'URL pour accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net:81/.
+3.	Tapez 80 dans **Port public**. Par défaut, le trafic HTTP utilise le port 80. Si vous affectez le port 80, vous n'avez pas besoin d'inclure le numéro de port dans l'URL qui vous permet d'accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net. Si vous affectez une autre valeur pour le port d'écoute Apache, par exemple 81, vous devez ajouter le numéro de port à l'URL pour accéder au service web Apache. Par exemple : http://lampdemo.cloudapp.net:81/.
 
 ![][7]
 
@@ -99,7 +99,7 @@ Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuel
 
 
 
-###Étape 2 : Connexion à l’image que vous avez créée
+###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n'importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
 Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. Cliquez sur **Parcourir -> Machines virtuelles**-> nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
@@ -110,11 +110,11 @@ Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. V
 
 Téléchargez Putty [ici](http://www.putty.org/).
 
-Après le téléchargement, cliquez sur le fichier exécutable PUTTY.EXE. Configurez les options de base avec le nom d’hôte et le numéro de port obtenus à partir des propriétés de votre machine virtuelle. Voici un exemple :
+Après le téléchargement, cliquez sur le fichier exécutable PUTTY.EXE. Configurez les options de base avec le nom d’hôte et le numéro de port obtenus à partir des propriétés de votre machine virtuelle. Voici un exemple :
 
 ![][9]
 
-Dans le volet gauche, cliquez sur **Connexion -> SSH -> Authentification**, puis cliquez sur **Parcourir** pour spécifier l’emplacement du fichier **privateKey.ppk** qui contient la clé privée générée par puttygen lors de la Phase 1 : Création d’une image. Voici un exemple :
+Dans le volet gauche, cliquez sur **Connexion -> SSH -> Authentification**, puis cliquez sur **Parcourir** pour spécifier l’emplacement du fichier **privateKey.ppk** qui contient la clé privée générée par puttygen lors de la Phase 1 : Création d’une image. Voici un exemple :
 
 ![][10]
 
@@ -127,11 +127,11 @@ Les éléments suivants doivent s'afficher.
 
 ![][12]
 
-Entrez le nom d’utilisateur spécifié lors de la création de la machine virtuelle lors de la Phase 1 : Création d’une image. Vous verrez quelque chose comme suit :
+Entrez le nom d’utilisateur spécifié lors de la création de la machine virtuelle lors de la Phase 1 : Création d’une image. Vous verrez quelque chose comme suit :
 
 ![][13]
 
-##Phase 3 : Installation de la pile LAMP
+##Phase 3 : Installation de la pile LAMP
 
 Selon la distribution de Linux utilisée pour créer votre machine virtuelle, il existe plusieurs façons d'installer la pile LAMP. Les sections suivantes contiennent les étapes classiques sur certains systèmes d'exploitation Linux courants.
 
@@ -147,13 +147,13 @@ Une fois l'installation terminé, démarrez Apache avec cette commande :
 	sudo service httpd start
 
 ####Tester Apache
-Pour vérifier si Apache est correctement installé, recherchez le nom DNS de votre serveur Apache (pour l’exemple de cet article, http://lampdemo.cloudapp.net/)). La page doit afficher les mots « It works! » ![][14]
+Pour vérifier si Apache est correctement installé, recherchez le nom DNS de votre serveur Apache (pour l’exemple de cet article, http://lampdemo.cloudapp.net/)). La page doit afficher les mots « It works! » ![][14]
 
 ####Résolution de problèmes
-Si Apache est en cours d'exécution mais que vous ne voyez pas la page Apache par défaut ci-dessus, vérifiez ce qui suit :
+Si Apache est en cours d'exécution mais que vous ne voyez pas la page Apache par défaut ci-dessus, vérifiez ce qui suit :
 
 -	Port/adresse d'écoute du service web Apache
-	-	Vérifiez le paramètre de point de terminaison pour votre machine virtuelle Azure. Assurez-vous que la configuration du point de terminaison est correcte. Dans cet article, consultez les instructions de la Phase 1 : Création d’une image
+	-	Vérifiez le paramètre de point de terminaison pour votre machine virtuelle Azure. Assurez-vous que la configuration du point de terminaison est correcte. Dans cet article, consultez les instructions de la Phase 1 : Création d’une image
 	-	Ouvrez /etc/httpd/conf/httpd.conf et recherchez la chaîne « Listen ». Assurez-vous que le port d'écoute Apache est identique au Port privé que vous avez configuré pour votre point de terminaison. Le port par défaut pour Apache est 80. Voici un exemple.  
 
 			……
@@ -256,7 +256,7 @@ Pour installer PHP sur votre machine virtuelle, ouvrez terminal et exécutez la 
 
 	sudo yum install php php-mysql  
 
-Réponses « y » pour télécharger des packages logiciels. Répondez « y » à la demande d'importation de clé GPG 0xE8562897 « CentOS-5 Key (CentOS 5 Official Signing Key) ». PHP s'installe.
+Réponses « y » pour télécharger des packages logiciels. Répondez « y » à la demande d'importation de clé GPG 0xE8562897 « CentOS-5 Key (CentOS 5 Official Signing Key) ». PHP s'installe.
 
 	warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID e8562897
 	updates/gpgkey                                                                                                                                                                       | 1.5 kB     00:00
@@ -264,7 +264,7 @@ Réponses « y » pour télécharger des packages logiciels. Répondez « y » �
 	Is this ok [y/N]: y  
 
 ###Debian, base Ubuntu
-Cela a été testé sur Ubuntu 14.04.
+Cela a été testé sur Ubuntu 14.04.
 
 Ubuntu est basé sur Debian. Vous pouvez installer la pile LAMP de la même manière que la série Red Hat. Pour simplifier les étapes, utilisez l'outil Tasksel.
 
@@ -292,7 +292,7 @@ Tout d'abord, créez un fichier :
 
 	sudo nano /var/www/html/info.php  
 
-Ajoutez la ligne suivante :
+Ajoutez la ligne suivante :
 
 	<?php
 	phpinfo();
@@ -321,11 +321,11 @@ En général, vous modifierez certains paramètres par défaut pour préparer le
 ###Autorisation de l'accès à distance à MySQL
 Si vous avez plusieurs machines virtuelles installées avec MySQL et qu'elles doivent échanger des données, vous devez activer l'accès à distance MySQL et accorder les autorisations appropriées.
 
-**Format de référence de commande :**
+**Format de référence de commande :**
 
 	grant [authority] on [databaseName].[tableName] to [username]@[login host] identified by "[passwd]"  
 
-**Exemple :**
+**Exemple :**
 
 	grant select,insert,update,delete on studentManage.student to user1@"%" Identified by "abc";
 
@@ -336,7 +336,7 @@ Vous devez également modifier le profil /etc/mysql/my.cnf. Si vous avez des lig
 
 Vous devez les mettre en commentaire (ajouter un signe # au début des lignes), puis redémarrer MySQL.
 
-Pour ajouter un point de terminaison pour autoriser l’accès à distance, consultez les instructions de la Phase 1 : Création d’une image, pour créer un point de terminaison. Le numéro de port TCP d'accès à distance par défaut de MySQL est 3306. Voici un exemple :
+Pour ajouter un point de terminaison pour autoriser l’accès à distance, consultez les instructions de la Phase 1 : Création d’une image, pour créer un point de terminaison. Le numéro de port TCP d'accès à distance par défaut de MySQL est 3306. Voici un exemple :
 
 ![][17]
 
@@ -351,7 +351,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE] Vous devrez peut-être vous reconnecter si vous souhaitez modifier un fichier dans /var/www/html/.
--	Utilisez n’importe quel client SFTP (par exemple, FileZilla) pour vous connecter au nom DNS de votre machine virtuelle (par exemple, lampdemo.cloudapp.net) et accédez à /**var/www/html** pour publier votre site. ![][18]
+-	Utilisez n’importe quel client SFTP (par exemple, FileZilla) pour vous connecter au nom DNS de votre machine virtuelle (par exemple, lampdemo.cloudapp.net) et accédez à /**var/www/html** pour publier votre site. ![][18]
 
 
 
@@ -361,7 +361,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 
 -	**Symptôme** Apache est en cours d’exécution mais vous ne voyez pas la page Apache par défaut avec votre navigateur.
 -	**Cause principale possible**
-	1.	Le port d’écoute Apache n’est pas identique au port privé du point de terminaison de votre machine virtuelle pour le trafic web.</br> Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le Port privé est identique au port d'écoute Apache. Consultez la Phase 1 : Création d’une image pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.</br> Pour déterminer le port d'écoute Apache, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/apache2/ports.conf (version Debian), recherchez la chaîne « Listen ». Le port par défaut est 80.
+	1.	Le port d’écoute Apache n’est pas identique au port privé du point de terminaison de votre machine virtuelle pour le trafic web.</br> Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le Port privé est identique au port d'écoute Apache. Consultez la Phase 1 : Création d’une image pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.</br> Pour déterminer le port d'écoute Apache, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/apache2/ports.conf (version Debian), recherchez la chaîne « Listen ». Le port par défaut est 80.
 
 	2.	Le pare-feu a désactivé le port d’écoute Apache.</br> Si vous voyez la page Apache par défaut à partir de l'hôte local, il est probable que le port sur lequel Apache écoute soit bloqué par le pare-feu. Vous pouvez utiliser l’outil w3m pour parcourir la page web. Les commandes suivantes installent w3m et accèdent à la page par défaut Apache :
 
@@ -386,11 +386,11 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 
 			service iptables restart  
 
-		Cela a été testé sur CentOS 6.3.
+		Cela a été testé sur CentOS 6.3.
 
 ###Autorisation refusée quand vous téléchargez vos fichiers de projet vers /var/www/html/  
 
--	**Symptôme** Quand vous utilisez un client SFTP (par exemple, FileZilla) pour vous connecter à votre machine virtuelle et que vous accédez à /var/www/html pour publier votre site, un message d’erreur semblable au suivant s’affiche :  
+-	**Symptôme** Quand vous utilisez un client SFTP (par exemple, FileZilla) pour vous connecter à votre machine virtuelle et que vous accédez à /var/www/html pour publier votre site, un message d’erreur semblable au suivant s’affiche :  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
@@ -404,7 +404,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 
 	Utilisez l’option -R pour appliquer aussi les autorisations pour tous les fichiers contenus dans un répertoire.
 
-	Notez que cette commande fonctionne également pour les répertoires. L’option -R modifie les autorisations pour tous les fichiers et répertoires contenus dans le répertoire. Voici un exemple :
+	Notez que cette commande fonctionne également pour les répertoires. L’option -R modifie les autorisations pour tous les fichiers et répertoires contenus dans le répertoire. Voici un exemple :
 
 		sudo chown -R username:group directory  
 
@@ -416,7 +416,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 
 ###Impossible de déterminer avec fiabilité le nom de domaine complet du serveur
 
--	**Symptôme** Quand vous redémarrez le serveur Apache en exécutant l’une des commandes suivantes :  
+-	**Symptôme** Quand vous redémarrez le serveur Apache en exécutant l’une des commandes suivantes :  
 
 		sudo /etc/init.d/apache2 restart  # Debian release  
 
@@ -433,7 +433,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 
 -	**Cause première possible** Vous n’avez pas défini le nom du serveur Apache.
 
--	**Solution** Insérez une ligne « ServerName localhost » dans le fichier httpd.conf (version Red Hat) ou apache2.conf (version Debian) dans /etc/apache2 et redémarrez Apache. La notice disparaît.
+-	**Solution** Insérez une ligne « ServerName localhost » dans le fichier httpd.conf (version Red Hat) ou apache2.conf (version Debian) dans /etc/apache2 et redémarrez Apache. La notice disparaît.
 
 
 
@@ -456,4 +456,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

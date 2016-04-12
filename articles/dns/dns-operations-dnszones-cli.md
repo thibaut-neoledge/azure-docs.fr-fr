@@ -19,18 +19,18 @@
 # Gestion des zones DNS à l'aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
-Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
+Ce guide explique comment gérer vos ressources de zone DNS à l’aide de l’interface de ligne de commande multiplateforme.
 
 >[AZURE.NOTE] Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Par conséquent, vous devez vous assurer que l’interface CLI Azure est configurée pour le mode Gestionnaire de ressources, à l’aide de la commande « azure config mode arm ».
 
->Si vous voyez « erreur: « dns » n’est pas une commande azure », cela est probablement dû au fait que vous utilisez Azure CLI en mode ASM et non en mode Gestionnaire de ressources.
+>Si vous voyez « erreur: « dns » n’est pas une commande azure », cela est probablement dû au fait que vous utilisez Azure CLI en mode ASM et non en mode Gestionnaire de ressources.
  
 ## Création d’une zone DNS
 
-Pour créer une nouvelle zone DNS pour héberger votre domaine, utilisez `azure network dns zone create` :
+Pour créer une nouvelle zone DNS pour héberger votre domaine, utilisez `azure network dns zone create` :
 
 	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -42,7 +42,7 @@ Le même nom de zone peut être réutilisé dans un autre groupe de ressources o
 
 ## Obtention d’une zone DNS
 
-Pour récupérer une zone DNS, utilisez la commande `azure network dns zone show` :
+Pour récupérer une zone DNS, utilisez la commande `azure network dns zone show` :
 
 	azure network dns zone show myresourcegroup contoso.com
 
@@ -51,7 +51,7 @@ L’opération retourne une zone DNS avec son ID, le nombre de jeux d’enregist
 
 ## Création de la liste des zones DNS
 
-Pour récupérer les zones DNS au sein d'un groupe de ressources, utilisez la commande `azure network dns zone list` :
+Pour récupérer les zones DNS au sein d'un groupe de ressources, utilisez la commande `azure network dns zone list` :
 
 	azure network dns zone list myresourcegroup
 
@@ -70,12 +70,12 @@ Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les je
 
 	azure network dns zone delete myresourcegroup contoso.com 
 
-Cette opération comporte un commutateur « -q » qui supprime l’invite pour confirmer que vous souhaitez supprimer la zone DNS.
+Cette opération comporte un commutateur « -q » qui supprime l’invite pour confirmer que vous souhaitez supprimer la zone DNS.
 
 
 ## Étapes suivantes
 
 
-Découvrez comment [gérer des enregistrements DNS](dns-operations-recordsets-cli.md) et [automatiser les opérations avec le kit de développement logiciel (SDK) .NET](dns-sdk.md)
+Découvrez comment [gérer des enregistrements DNS](dns-operations-recordsets-cli.md) et [automatiser les opérations avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

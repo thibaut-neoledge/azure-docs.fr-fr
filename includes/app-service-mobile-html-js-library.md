@@ -1,23 +1,32 @@
-##<a name="create-client"></a>How to: Create Client
+##<a name="create-client"></a>Créer une connexion cliente
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+Créez une connexion cliente en créant un objet `WindowsAzure.MobileServiceClient`. Remplacez `appUrl` par l’URL de votre application mobile.
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
+##<a name="table-reference"></a>Utilisation des tables
 
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+Pour accéder aux données ou les mettre à jour, créez une référence à la table principale. Remplacez `tableName` par le nom de votre table.
 
 ```
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query a Table Reference
+Une fois que vous disposez d’une référence de table, vous pouvez continuer à utiliser votre table :
 
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
+* [Interroger une table](#querying)
+  * [Filtrage des données](#table-filter)
+  * [Pagination des données](#table-paging)
+  * [Tri des données](#sorting-data)
+* [Insertion de données](#inserting)
+* [Modification des données](#modifying)
+* [Suppression de données](#deleting)
+
+###<a name="querying"></a>Procédure : interrogation d’une référence de table
+
+Une fois que vous disposez d’une référence de table, vous pouvez l’utiliser pour rechercher des données sur le serveur. Les requêtes sont effectuées dans un langage de type LINQ. Pour retourner toutes les données de la table, utilisez la syntaxe suivante :
 
 ```
 /**
@@ -45,15 +54,13 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+La fonction success est appelée avec les résultats. Ne recourez pas à `for (var i in results)` dans la fonction success, car cette action entraîne une itération sur les informations contenues dans les résultats quand d’autres fonctions de requête (telles que `.includeTotalCount()`) sont utilisées.
 
-For more information on the Query syntax, refer to the [Query object documentation].
+Pour plus d’informations sur la syntaxe de requête, consultez la [documentation de l’objet Query].
 
-### Filtering Data on the server
+####<a name="table-filter"></a>Filtrage des données sur le serveur
 
-You can use a `where` clause on the table reference:
+Vous pouvez utiliser une clause `where` sur la référence de table :
 
 ```
 table
@@ -62,8 +69,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
+Vous pouvez également utiliser une fonction qui filtre l’objet. Dans ce cas, la variable `this` est affectée à l’objet en cours de filtrage. La syntaxe suivante est équivalente à l’exemple précédent sur le plan fonctionnel :
 
 ```
 function filterByUserId(currentUserId) {
@@ -76,9 +82,9 @@ table
     .then(success, failure);
 ```
 
-### Paging through data
+####<a name="table-paging"></a>Pagination des données
 
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
+Utilisez les méthodes take() et skip(). Par exemple, si vous souhaitez fractionner la table en enregistrements de 100 lignes :
 
 ```
 var totalCount = 0, pages = 0;
@@ -101,18 +107,14 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+La méthode `.includeTotalCount()` est utilisée pour ajouter un champ totalCount à l’objet results. Le champ totalCount est rempli avec le nombre total d’enregistrements qui est retourné si aucune pagination n’est utilisée.
 
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
+Vous pouvez ensuite utiliser la variable pages et des boutons d’interface utilisateur pour fournir une liste de pages ; utilisez loadPage() pour charger les nouveaux enregistrements pour chaque page. Vous devez implémenter une sorte de mise en cache pour accélérer l’accès aux enregistrements qui ont déjà été chargés.
 
 
-###<a name="sorting-data"></a>How to: Return data sorted
+####<a name="sorting-data"></a>Procédure : renvoi de données triées
 
-Use the .orderBy() or .orderByDescending() query methods:
+Utilisez les méthodes de requête .orderBy() ou .orderByDescending() :
 
 ```
 table
@@ -121,11 +123,11 @@ table
     .then(success, failure);
 ```
 
-For more information on the Query object, refer to the [Query object documentation].
+Pour plus d’informations sur l’objet Query, consultez la [documentation de l’objet Query].
 
-##<a name="inserting"></a>How to: Insert Data
+###<a name="inserting"></a>Procédure : insertion de données
 
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
+Créez un objet JavaScript avec la date appropriée et appelez table.insert() de façon asynchrone :
 
 ```
 var newItem = {
@@ -140,19 +142,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
+Une fois l’insertion correctement effectuée, l’élément inséré est retourné avec les champs supplémentaires qui sont nécessaires pour les opérations de synchronisation. Vous devez mettre à jour votre propre cache avec ces informations en vue des mises à jour ultérieures.
 
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
+Notez que le Kit de développement logiciel (SDK) de serveur Node.js Azure Mobile Apps prend en charge le schéma dynamique à des fins de développement. Dans le cas du schéma dynamique, le schéma de la table est mis à jour à la volée ; vous pouvez ainsi ajouter des colonnes à la table simplement en les spécifiant dans une opération d’insertion ou de mise à jour. Nous vous recommandons de désactiver le schéma dynamique avant de déplacer votre application vers un environnement de production.
 
-##<a name="modifying"></a>How to: Modify Data
+###<a name="modifying"></a>Procédure : modification des données
 
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
+Comme dans le cas de la méthode .insert(), vous devez créer un objet de mise à jour, puis appeler .update(). L’objet de mise à jour doit contenir l’ID de l’enregistrement à mettre à jour, obtenu au moment de la lecture de l’enregistrement ou de l’appel de .insert().
 
 ```
 var updateItem = {
@@ -167,9 +163,9 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>How to: Delete Data
+###<a name="deleting"></a>Procédure : suppression de données
 
-Call the .del() method to delete a record.  Pass the ID in an object reference:
+Appelez la méthode .del() pour supprimer un enregistrement. Transmettez l’ID d’une référence d’objet :
 
 ```
 table
@@ -178,3 +174,5 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
+
+<!---HONumber=AcomDC_0323_2016-->

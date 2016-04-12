@@ -226,7 +226,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de service
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur. 
 
-**Remarque**: si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
 
 `statusDetails` : détails de l’état.
 
@@ -329,7 +329,7 @@ HTTP 200 (OK) si l’opération réussit.
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur. 
  
-**Remarque**: si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
  
 `statusDetails` : détails de l’état.
 
@@ -480,6 +480,8 @@ Vous ne pouvez pas modifier le nom, l’emplacement ou la référence. Si vous m
 Vous pouvez également utiliser la méthode PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
+
+> [AZURE.NOTE] Si vous utilisez une commande PUT pour mettre à jour le service, vous devez recourir au corps de requête utilisé dans une requête [Créer un service](#CreateService).
 
 ###Paramètres de l’URI de requête###
 
@@ -826,4 +828,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucune.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

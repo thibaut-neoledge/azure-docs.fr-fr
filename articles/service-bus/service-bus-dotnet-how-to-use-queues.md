@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilisation des files d’attente Service Bus (.NET) | Microsoft Azure"
+    pageTitle="Utilisation des files d’attente Service Bus (.NET) | Microsoft Azure"
     description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -16,7 +16,7 @@
     ms.date="01/26/2016"
     ms.author="sethm"/>
 
-# Utilisation des files d’attente Service Bus
+# Utilisation des files d’attente Service Bus
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -30,10 +30,10 @@ Cet article décrit l’utilisation des files d’attente Service Bus. Les exemp
 
 Le package [**NuGet** Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) est le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
 
-Pour installer le package NuGet dans votre application, procédez comme suit :
+Pour installer le package NuGet dans votre application, procédez comme suit :
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
-2.  Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+2.  Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
 
     ![][7]
 
@@ -50,7 +50,7 @@ Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisa
 
 ### Configuration de votre chaîne de connexion lors de l'utilisation des services cloud
 
-Le mécanisme de configuration de service est propre aux projets Azure Cloud Services et vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (.csdef), comme indiqué dans l’exemple qui suit :
+Le mécanisme de configuration de service est propre aux projets Azure Cloud Services et vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (.csdef), comme indiqué dans l’exemple qui suit :
 
 ```
 <ServiceDefinition name="Azure1">
@@ -63,7 +63,7 @@ Le mécanisme de configuration de service est propre aux projets Azure Cloud Ser
 ...
 </ServiceDefinition>
 ```
-Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (.cscfg), comme indiqué dans l’exemple qui suit :
+Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (.cscfg), comme indiqué dans l’exemple qui suit :
 
 ```
 <ServiceConfiguration serviceName="Azure1">
@@ -121,7 +121,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-Les surcharges de la méthode [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) vous permettent de paramétrer les propriétés de la file d’attente (par exemple, pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » (TTL) soit appliquée aux messages envoyés à la file d’attente). Ces paramètres sont appliqués à l’aide de la classe [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go et une durée de vie (TTL) de message par défaut de 1 minute.
+Les surcharges de la méthode [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) vous permettent de paramétrer les propriétés de la file d’attente (par exemple, pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » (TTL) soit appliquée aux messages envoyés à la file d’attente). Ces paramètres sont appliqués à l’aide de la classe [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go et une durée de vie (TTL) de message par défaut de 1 minute.
 
 ```
 // Configure queue settings.
@@ -148,7 +148,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 
 Pour envoyer un message à une file d'attente Service Bus, votre application crée un objet [QueueClient][] en utilisant la chaîne de connexion.
 
-Le code suivant montre comment créer un objet [QueueClient][] pour la file d’attente `TestQueue` créée en utilisant l’appel API [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx) :
+Le code suivant montre comment créer un objet [QueueClient][] pour la file d’attente `TestQueue` créée en utilisant l’appel API [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx) :
 
 ```
 string connectionString =
@@ -160,7 +160,7 @@ QueueClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Les messages envoyés aux files d’attente Service Bus (et reçus de celle-ci) sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][] possèdent un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage][] ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l’objet. Vous pouvez également fournir un objet **System.IO.Stream**.
+Les messages envoyés aux files d’attente Service Bus (et reçus de celle-ci) sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][] possèdent un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage][] ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l’objet. Vous pouvez également fournir un objet **System.IO.Stream**.
 
 L’exemple suivant montre comment envoyer cinq messages de test à l’objet [QueueClient][] `TestQueue` obtenu dans l’exemple de code précédent.
 
@@ -179,11 +179,11 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Les files d’attente Service Bus prennent en charge [une taille de message maximale de 256 Ko](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Si le partitionnement est activé, la limite supérieure est plus élevée. Pour plus d’informations, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
+Les files d’attente Service Bus prennent en charge [une taille de message maximale de 256 Ko](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Si le partitionnement est activé, la limite supérieure est plus élevée. Pour plus d’informations, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
 
 ## Réception des messages d’une file d’attente
 
-Le moyen conseillé pour recevoir les messages d’une file d’attente consiste à utiliser un objet [QueueClient][]. Les objets [QueueClient][] peuvent fonctionner dans deux modes différents : [ReceiveAndDelete et PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
+Le moyen conseillé pour recevoir les messages d’une file d’attente consiste à utiliser un objet [QueueClient][]. Les objets [QueueClient][] peuvent fonctionner dans deux modes différents : [ReceiveAndDelete et PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 Quand le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique. En effet, quand Service Bus reçoit une demande de lecture pour un message figurant dans une file d’attente, il marque le message comme consommé et le renvoie à l’application. **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
@@ -224,7 +224,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel au moment d’appeler [Complete][] sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute, le client attend donc un message jusqu’à une minute avant que l’appel expire et qu’il effectue un nouvel appel de recherche des messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
+Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel au moment d’appeler [Complete][] sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute, le client attend donc un message jusqu’à une minute avant que l’appel expire et qu’il effectue un nouvel appel de recherche des messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
 
 ## Gestion des blocages d’application et des messages illisibles
 
@@ -236,11 +236,11 @@ Si l’application subit un incident après le traitement du message, mais avant
 
 ## Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
 -   Pour en savoir plus sur les entités de messagerie Service Bus, consultez [Files d’attente, rubriques et abonnements.][].
--   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [didacticiel .NET sur la messagerie répartie Service Bus][].
--   Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
+-   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [didacticiel .NET sur la messagerie répartie Service Bus][].
+-   Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
 
   [Portail Azure Classic]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
@@ -255,4 +255,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

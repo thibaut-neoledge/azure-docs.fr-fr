@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure"
+	pageTitle="Guide sur le contrôle d’accès en fonction du rôle (RBAC) pour l’interface de ligne de commande Azure"
 	description="Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI) #
+# Guide sur le contrôle d’accès en fonction du rôle (RBAC) pour l’interface de ligne de commande Azure
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
 
 Le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
@@ -28,28 +28,18 @@ Dans ce didacticiel, vous allez apprendre à utiliser l’interface de ligne de 
 
 **Durée estimée :** 15 minutes
 
-## Composants requis ##
+## Composants requis
 
 Pour pouvoir utiliser Azure CLI pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 - Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli-install.md).
 - Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l’utilisation d’Azure Resource Manager dans Azure CLI : [Utilisation d’Azure CLI avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
-## Dans ce didacticiel ##
+## <a id="connect"></a>Connexion à vos abonnements
 
-* [Se connecter à vos abonnements](#connect)
-* [Vérifier les affectations de rôles existantes](#check)
-* [Créer une affectation de rôle](#create)
-* [Vérifier les autorisations](#verify)
-* [Étapes suivantes](#next)
-
-## <a id="connect"></a>Se connecter à vos abonnements ##
-
-Comme le RBAC ne fonctionne qu’avec Azure Resource Manager, la première chose à faire est de passer en mode Azure Resource Manager. Tapez :
+Comme le RBAC ne fonctionne qu’avec Azure Resource Manager, la première chose à faire est de passer en mode Azure Resource Manager. Type :
 
     azure config mode arm
-
-Pour plus d’informations, consultez [Utilisation d’Azure CLI avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 Pour vous connecter à vos abonnements Azure, tapez :
 
@@ -64,9 +54,7 @@ Si vous disposez de plusieurs abonnements et souhaitez changer d’abonnement, t
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Pour plus d’informations, consultez la section [Installer et configurer Azure CLI](../xplat-cli-install.md).
-
-## <a id="check"></a>Vérifier les affectations de rôles existantes ##
+## <a id="check"></a>Vérifier les affectations de rôles existantes
 
 Voyons maintenant quelles affectations de rôles existent déjà dans l'abonnement. Type :
 
@@ -84,11 +72,11 @@ Vous pouvez également contrôler les affectations de rôles existantes pour une
 Cela renverra toutes les affectations de rôles pour un utilisateur spécifique dans votre annuaire Azure AD, qui dispose d'une affectation de rôle « Propriétaire » pour le groupe de ressources « group1 ». L'affectation de rôle peut avoir deux origines :
 
 1. Une affectation de rôle « Propriétaire » à l'utilisateur pour le groupe de ressources.
-2. Une affectation de rôle « Propriétaire » à l'utilisateur pour le parent du groupe de ressources (l'abonnement dans le cas présent), car toute autorisation à un certain niveau d'une ressource parente est héritée par toutes ses ressources enfants.
+2. Une affectation de rôle « Propriétaire » à l’utilisateur pour le parent du groupe de ressources (à savoir l’abonnement dans le cas présent). Si vous affectez une autorisation au niveau du parent, tous les enfants ont les mêmes autorisations.
 
 Tous les paramètres de cette applet de commande sont facultatifs. Vous pouvez les combiner pour contrôler des affectations de rôles avec différents filtres.
 
-## <a id="create"></a>Créer une affectation de rôle ##
+## <a id="create"></a>Créer une affectation de rôle
 
 Pour créer une affectation de rôle, vous devez réfléchir aux éléments suivants :
 
@@ -116,16 +104,16 @@ Pour créer une affectation de rôle, vous devez réfléchir aux éléments suiv
 
 Ensuite, utilisez `azure role assignment create` pour créer une affectation de rôle. Par exemple :
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
-    `azure role assignment create --upn <user's email> -o Reader`
+ 	#Create a role assignment at the current subscription level for a user as a reader:
+    azure role assignment create --upn <user email> -o Reader
 
-	#This will create a role assignment at a resource group level:
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+	#Create a role assignment at a resource group level:
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
-	#This will create a role assignment at a resource level:
-    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
+	#Create a role assignment at a resource level:
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
-## <a id="verify"></a>Vérifier les autorisations ##
+## <a id="verify"></a>Vérifier les autorisations
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant :
 
@@ -136,7 +124,7 @@ Ces deux applets de commande renverront uniquement les groupes de ressources ou 
 
 Ensuite, lorsque vous tentez d’exécuter d’autres applets de commande comme `azure group create`, vous recevez une erreur d’accès refusé si vous ne disposez pas de l’autorisation requise.
 
-## <a id="next"></a>Étapes suivantes ##
+## <a id="next"></a>Étapes suivantes
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide d’Azure CLI, ainsi que sur les rubriques associées :
 
@@ -148,4 +136,4 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 - [Configurer le contrôle d’accès en fonction du rôle à l’aide de Windows PowerShell](role-based-access-control-powershell.md)
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

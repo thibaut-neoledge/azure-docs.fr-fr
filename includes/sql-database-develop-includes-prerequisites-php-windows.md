@@ -1,8 +1,5 @@
 
-## Composants requis
-
-
-Pour exécuter l'exemple de code PHP fourni dans cette rubrique, les éléments logiciels suivants doivent être installés sur votre ordinateur :
+Pour exécuter l'exemple de code PHP fourni dans cette rubrique, les éléments logiciels suivants doivent être installés sur votre ordinateur :
 
 
 - [Pilotes Microsoft Microsoft SQL Server pour PHP](http://www.microsoft.com/download/details.aspx?id=20098)
@@ -29,4 +26,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
@@ -112,4 +112,4 @@ Pour plus d’informations sur Azure Active Directory, consultez les ressources 
 
 Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps. Dans le prochain didacticiel de la série « Prise en main », vous allez apprendre à implémenter l’[authentification utilisateur dans API Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

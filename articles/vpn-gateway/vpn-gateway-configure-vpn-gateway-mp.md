@@ -164,10 +164,10 @@ Avant de modifier le type VPN de votre passerelle, vérifiez que votre périphé
 
 Pour en savoir plus sur les connexions entre locaux de réseau virtuel, voir l’article [À propos des connexions sécurisées entre locaux pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
 
-Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Voir [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
+Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Voir [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Si vous souhaitez configurer une connexion VPN de point à site, voir l’article [Configuration d’une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

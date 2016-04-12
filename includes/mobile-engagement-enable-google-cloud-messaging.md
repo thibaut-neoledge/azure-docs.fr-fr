@@ -1,4 +1,7 @@
->[AZURE.NOTE]Pour effectuer cette procédure, vous devez disposer d’un compte Google avec une adresse de messagerie valide. Pour créer un compte Google, accédez à <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+
+###Créer un projet Google Cloud Messaging avec une clé API
+
+>[AZURE.NOTE] Pour effectuer cette procédure, vous devez disposer d’un compte Google avec une adresse de messagerie valide. Pour créer un compte Google, accédez à <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 1. Accédez à [Google Cloud Console](https://console.developers.google.com/project), connectez-vous avec vos informations d’identification de compte Google, puis cliquez sur **Create Project**.
 
@@ -29,6 +32,6 @@
 
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 
-7. Prenez note de la valeur de **API KEY**. Vous allez utiliser cette valeur de clé API ultérieurement pour configurer dans la section « Push Natif ».
+7. Prenez note de la valeur de **API KEY**. Vous allez utiliser cette valeur de clé API ultérieurement pour configurer dans la section « Push Natif ».
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

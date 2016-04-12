@@ -3,9 +3,9 @@
 	description="Découvrez comment utiliser le service de stockage de files d’attente Azure pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
-	manager="carmonm"
-	editor="tysonn"/>
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Utilisation du stockage de files d'attente à partir de PHP
 
@@ -384,4 +384,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [require\_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

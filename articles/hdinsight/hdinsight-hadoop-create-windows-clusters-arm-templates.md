@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/02/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l’aide de modèles ARM
@@ -23,18 +23,21 @@
 
 Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resource Manager (ARM). Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md). Pour accéder à d’autres outils et fonctions de création de clusters, cliquez sur l’onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-###Configuration requise :
+##Configuration requise :
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) et/ou [CLI Azure](../xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) et/ou [Interface de ligne de commande Azure](../xplat-cli-install.md). 
 
 ## Modèles ARM
 
 Le modèle ARM permet de créer facilement, au cours d’une opération unique et coordonnée, des clusters HDInsight, leurs ressources dépendantes (telles que le compte de stockage par défaut) ainsi que d’autres ressources (telles que la base de données Azure SQL pour utiliser Apache Sqoop) correspondant à votre application. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
 
-L’[Annexe A]() propose un modèle ARM permettant de créer un cluster HDInsight avec le compte de stockage Azure dépendant. Utilisez un éditeur de texte pour enregistrer le modèle dans un fichier sur votre station de travail. Vous allez apprendre à appeler le modèle à l’aide de différents outils.
+L’[Annexe A](#appx-a-arm-template) propose un modèle ARM permettant de créer un cluster HDInsight avec le compte de stockage Azure dépendant. Utilisez un éditeur de texte pour enregistrer le modèle dans un fichier sur votre station de travail. Vous allez apprendre à appeler le modèle à l’aide de différents outils.
 
 Pour plus d’informations sur les modèles ARM, consultez les rubriques suivantes :
 
@@ -44,7 +47,7 @@ Pour plus d’informations sur les modèles ARM, consultez les rubriques suivant
 
 ## Déployer avec PowerShell
 
-La procédure suivante crée un cluster HDInsight sous Linux.
+La procédure suivante crée un cluster HDInsight.
 
 **Pour déployer un cluster à l’aide du modèle ARM**
 
@@ -111,11 +114,15 @@ L’exemple suivant appelle un modèle ARM pour créer un cluster, son compte de
 	azure login
 	azure config mode arm
     azure group create -n hdi1229rg -l "East US 2"
-    azure group deployment create "hdi1229rg" "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-windows-template.json" -p "{"clusterName":{"value":"hdi1229win"},"clusterStorageAccountName":{"value":"hdi1229store"},"location":{"value":"East US 2"},"clusterLoginPassword":{"value":"Pass@word1"}}"
+    azure group deployment create "hdi1229rg" "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json" -p "{"clusterName":{"value":"hdi1229win"},"clusterStorageAccountName":{"value":"hdi1229store"},"location":{"value":"East US 2"},"clusterLoginPassword":{"value":"Pass@word1"}}"
+
+
+
+
 
 ## Déploiement avec l’API REST
 
-Voir [Déployer avec l’API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
+Consultez [Déployer avec l’API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Déployer avec Visual Studio
 
@@ -126,11 +133,13 @@ Pour une introduction à l’utilisation de Visual Studio avec les groupes de re
 ##Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/arm-template-deployment.md).
+
+- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](../solution-dev-test-environments.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](../resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](../resource-group-template-functions.md).
+
 
 
 ##Annexe A : Modèle ARM
@@ -283,165 +292,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Wind
         }
     }
 
-
-
-##Annexe B : Modèle ARM de création de cluster Linux
-
-Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linux avec le compte de stockage Azure dépendant.
-
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "location": {
-	      "type": "string",
-	      "defaultValue": "North Europe",
-	      "allowedValues": [
-	        "North Europe"
-	      ],
-	      "metadata": {
-	        "description": "The location where all azure resources will be deployed."
-	      }
-	    },
-	    "clusterName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "The name of the HDInsight cluster to create."
-	      }
-	    },
-	    "clusterLoginUserName": {
-	      "type": "string",
-	      "defaultValue": "admin",
-	      "metadata": {
-	        "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
-	      }
-	    },
-	    "clusterLoginPassword": {
-	      "type": "securestring",
-	      "metadata": {
-	        "description": "The password for the cluster login."
-	      }
-	    },
-	    "sshUserName": {
-	      "type": "string",
-	      "defaultValue": "username",
-	      "metadata": {
-	        "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
-	      }
-	    },
-	    "sshPassword": {
-	      "type": "securestring",
-	      "metadata": {
-	        "description": "The password for the ssh user."
-	      }
-	    },
-	    "clusterStorageAccountName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "The name of the storage account to be created and be used as the cluster's storage."
-	      }
-	    },
-	    "clusterStorageType": {
-	      "type": "string",
-	      "defaultValue": "Standard_LRS",
-	      "allowedValues": [
-	        "Standard_LRS",
-	        "Standard_GRS",
-	        "Standard_ZRS"
-	      ]
-	    },
-	    "clusterWorkerNodeCount": {
-	      "type": "int",
-	      "defaultValue": 4,
-	      "metadata": {
-	        "description": "The number of nodes in the HDInsight cluster."
-	      }
-	    }
-	  },
-	  "variables": {},
-	  "resources": [
-	    {
-	      "name": "[parameters('clusterStorageAccountName')]",
-	      "type": "Microsoft.Storage/storageAccounts",
-	      "location": "[parameters('location')]",
-	      "apiVersion": "2015-05-01-preview",
-	      "dependsOn": [],
-	      "tags": {},
-	      "properties": {
-	        "accountType": "[parameters('clusterStorageType')]"
-	      }
-	    },
-	    {
-	      "name": "[parameters('clusterName')]",
-	      "type": "Microsoft.HDInsight/clusters",
-	      "location": "[parameters('location')]",
-	      "apiVersion": "2015-03-01-preview",
-	      "dependsOn": [
-	        "[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"
-	      ],
-	      "tags": {},
-	      "properties": {
-	        "clusterVersion": "3.2",
-	        "osType": "Linux",
-	        "clusterDefinition": {
-	          "kind": "hadoop",
-	          "configurations": {
-	            "gateway": {
-	              "restAuthCredential.isEnabled": true,
-	              "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-	              "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-	            }
-	          }
-	        },
-	        "storageProfile": {
-	          "storageaccounts": [
-	            {
-	              "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-	              "isDefault": true,
-	              "container": "[parameters('clusterName')]",
-	              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-	            }
-	          ]
-	        },
-	        "computeProfile": {
-	          "roles": [
-	            {
-	              "name": "headnode",
-	              "targetInstanceCount": "1",
-	              "hardwareProfile": {
-	                "vmSize": "Large"
-	              },
-	              "osProfile": {
-	                "linuxOperatingSystemProfile": {
-	                  "username": "[parameters('sshUserName')]",
-	                  "password": "[parameters('sshPassword')]"
-	                }
-	              }
-	            },
-	            {
-	              "name": "workernode",
-	              "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-	              "hardwareProfile": {
-	                "vmSize": "Large"
-	              },
-	              "osProfile": {
-	                "linuxOperatingSystemProfile": {
-	                  "username": "[parameters('sshUserName')]",
-	                  "password": "[parameters('sshPassword')]"
-	                }
-	              }
-	            }
-	          ]
-	        }
-	      }
-	    }
-	  ],
-	  "outputs": {
-	    "cluster": {
-	      "type": "object",
-	      "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-	    }
-	  }
-	}
-
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

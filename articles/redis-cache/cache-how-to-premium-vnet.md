@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -23,7 +23,7 @@ Le niveau Premium de Cache Redis Azure comprend le clustering, la persistance et
 
 Pour plus d’informations sur les autres fonctionnalités du cache Premium, voir [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md) et [Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md).
 
-## Pourquoi un réseau virtuel ?
+## Pourquoi un réseau virtuel ?
 le déploiement de [réseau virtuel Azure (VNET)](https://azure.microsoft.com/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
 
 ## Prise en charge des réseaux virtuels
@@ -47,13 +47,13 @@ Sélectionnez le sous-réseau souhaité dans la liste déroulante **Sous-réseau
 
 ![Réseau virtuel][redis-cache-vnet-ip]
 
-Le champ **Adresse IP statique** champ est facultatif. Si rien n’est spécifié, une option sera choisie dans le sous-réseau sélectionné. Si vous souhaitez indiquer une adresse IP statique spécifique, entrez l’**Adresse IP statique** souhaitée, puis cliquez sur **OK** pour enregistrer la configuration du réseau virtuel. Si l’adresse IP statique sélectionnée est déjà utilisée, un message d’erreur s’affiche.
+Le champ **Adresse IP statique** champ est facultatif. Si rien n’est spécifié, une option sera choisie dans le sous-réseau sélectionné. Si vous souhaitez indiquer une adresse IP statique spécifique, entrez l’**Adresse IP statique** souhaitée, puis cliquez sur **OK** pour enregistrer la configuration du réseau virtuel. Si l’adresse IP statique sélectionnée est déjà utilisée, un message d’erreur s’affiche.
 
 Une fois le cache est créé, vous pouvez afficher l'adresse IP et d’autres informations concernant le réseau virtuel en cliquant sur **Réseau virtuel** dans le panneau **Paramètres**.
 
 ![Réseau virtuel][redis-cache-vnet-info]
 
->[AZURE.IMPORTANT] Pour accéder à votre instance de Cache Redis Azure lors de l’utilisation d’un réseau virtuel, passez l’adresse IP statique du cache dans le réseau virtuel comme premier paramètre, puis passez un paramètre `sslhost` avec le point de terminaison de votre cache. Dans l’exemple suivant, l’adresse IP statique est `172.160.0.99` et le point de terminaison du cache est `contoso5.redis.cache.windows.net`.
+>[AZURE.IMPORTANT] Pour accéder à votre instance de Cache Redis Azure lors de l’utilisation d’un réseau virtuel, passez l’adresse IP statique du cache dans le réseau virtuel comme premier paramètre, puis passez un paramètre `sslhost` avec le point de terminaison de votre cache. Dans l’exemple suivant, l’adresse IP statique est `172.160.0.99` et le point de terminaison du cache est `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -68,11 +68,11 @@ Une fois le cache est créé, vous pouvez afficher l'adresse IP et d’autres in
 	    }
 	}
 
-## Forum aux questions sur le réseau virtuel de Cache Redis Azure
+## Forum aux questions sur le réseau virtuel de Cache Redis Azure
 
 La liste suivante présente différentes réponses aux questions les plus fréquemment posées sur la mise à l’échelle du Cache Redis Azure.
 
-## Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
+## Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
 
 Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports du tableau suivant sont utilisés. Si ces ports sont bloqués, le cache risque de ne pas fonctionner correctement. Le blocage d’un ou plusieurs de ces ports constitue le problème de configuration le plus courant lorsque vous utilisez le Cache Redis Azure dans un réseau virtuel.
 
@@ -92,7 +92,7 @@ Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports du
 
 
 
-## Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
+## Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
 
 Vous ne pouvez utiliser des réseaux virtuels qu’avec les caches de niveau Premium.
 
@@ -119,4 +119,4 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

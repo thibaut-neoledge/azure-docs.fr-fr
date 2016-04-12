@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Prise en main du connecteur Twilio et ajout de celui-ci à votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Twilio](../connectors/create-api-twilio.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Twilio](../connectors/connectors-create-api-twilio.md).
 
 Connectez-vous à votre compte Twilio pour envoyer et recevoir des messages SMS. Vous pouvez également de récupérer des numéros de téléphone et des données d'utilisation. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur Twilio à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
@@ -28,15 +28,15 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Twilio », sélectionnez-le et sélectionnez **Créer**.
 3. Configurez le connecteur Twilio comme suit : ![][1]  
-	- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-	- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Plan d’hébergement web**: sélectionnez ou créez un plan d’hébergement web.
-	- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
-	- **Nom**: indiquez le nom de votre connecteur Twilio.
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Nom** : indiquez le nom de votre connecteur Twilio.
 	- **Paramètres du package**
-		- **SID de compte**: identifiant unique du compte. Vous pouvez récupérer le SID de votre compte à l'adresse <https://www.twilio.com/user/account/settings>
-		- **Jeton d’autorisation**: jeton d’autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
+		- **SID de compte** : identifiant unique du compte. Vous pouvez récupérer le SID de votre compte à l'adresse <https://www.twilio.com/user/account/settings>
+		- **Jeton d’autorisation** : jeton d’autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
 
 
 4.	Cliquez sur Créer. Un connecteur Twilio est créé.
@@ -74,4 +74,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

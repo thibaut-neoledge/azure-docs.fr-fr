@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : activation d’Azure Multi-Factor Authentication dans vos applications accessibles aux consommateurs
@@ -54,4 +54,8 @@ La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifi
 
 Lorsque le consommateur se connecte (à l’aide d’un compte local ou social), si un numéro de téléphone vérifié est associé à son compte, il est invité à la confirmer. Si aucun numéro de téléphone n’est associé, le consommateur est invité à le fournir et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur en vue d’une utilisation ultérieure.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Authentification multifacteur sur d’autres stratégies
+
+Comme décrit pour les stratégies d’inscription et de connexion ci-dessus, il est également possible d’activer l’authentification multifacteur sur les stratégies d’inscription ou d’authentification ainsi que sur les stratégies de réinitialisation de mot de passe. Cette fonctionnalité sera également disponible prochainement sur les stratégies de modification de profil.
+
+<!---HONumber=AcomDC_0330_2016-->

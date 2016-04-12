@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/22/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Prise en main des outils de base de données élastiques
@@ -22,12 +22,12 @@ Ce document présente l'aspect développement avec l'exécution de l'exemple d'a
 
 ## Configuration requise
 
-1. Visual Studio 2012 ou ultérieur et C# sont requis. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-2. Nuget 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
+1. Visual Studio 2012 ou ultérieur et C# sont requis. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+2. Nuget 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 
 ## Télécharger et exécuter l’exemple d’application
 
-L'exemple **Base de données élastique avec Azure SQL - Prise en main** présente les aspects les plus importants du développement d'applications partitionnées à l'aide des outils de bases de données élastiques SQL Azure. Il s'intéresse aux principaux cas d'utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et l'[interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). Pour télécharger et exécuter les exemples, procédez comme suit :
+L'exemple **Base de données élastique avec Azure SQL - Prise en main** présente les aspects les plus importants du développement d'applications partitionnées à l'aide des outils de bases de données élastiques SQL Azure. Il s'intéresse aux principaux cas d'utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et l'[interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). Pour télécharger et exécuter les exemples, procédez comme suit :
 
 1. Ouvrez Visual Studio et sélectionnez **Fichier -> Nouveau -> Projet**.
 2. Dans la boîte de dialogue, cliquez sur **En ligne**.
@@ -53,15 +53,15 @@ Félicitations. Vous avez correctement conçu et exécuté votre première appli
 
 ### Éléments clés de l’exemple de code
 
-1. **Gestion des partitions et des cartes de partitions** : le code illustre le fonctionnement des partitions, des plages et des mappages dans le fichier **ShardMapManagerSample.cs**. Vous trouverez des informations supplémentaires à ce sujet ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).  
-2. **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans **DataDependentRoutingSample.cs**. Pour plus d’informations, consultez la page [Routage dépendant des données](http://go.microsoft.com/?linkid=9862596). 
-3. **Interrogation sur plusieurs partitions ** : l’interrogation sur plusieurs partitions est illustrée dans le fichier **MultiShardQuerySample.cs**. Pour plus d’informations, consultez la page [Interrogation de plusieurs partitions](http://go.microsoft.com/?linkid=9862597).
-4. **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier **AddNewShardsSample.cs**. Des informations détaillées à ce sujet sont disponibles ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).
+1. **Gestion des partitions et des cartes de partitions** : le code illustre le fonctionnement des partitions, des plages et des mappages dans le fichier **ShardMapManagerSample.cs**. Vous trouverez des informations supplémentaires à ce sujet ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).  
+2. **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans **DataDependentRoutingSample.cs**. Pour plus d’informations, consultez la page [Routage dépendant des données](http://go.microsoft.com/?linkid=9862596). 
+3. **Interrogation sur plusieurs partitions ** : l’interrogation sur plusieurs partitions est illustrée dans le fichier **MultiShardQuerySample.cs**. Pour plus d’informations, consultez la page [Interrogation de plusieurs partitions](http://go.microsoft.com/?linkid=9862597).
+4. **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier **AddNewShardsSample.cs**. Des informations détaillées à ce sujet sont disponibles ici : [Gestion des mappages de partition](http://go.microsoft.com/?linkid=9862595).
 
 ### Autres opérations de mise à l’échelle élastique
 
-1. **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est fournie via l’**outil de fractionnement/fusion**. Vous trouverez plus d’informations sur cet outil ici : [Présentation de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).   
+1. **Fractionnement d’une partition existante** : la fonctionnalité de fractionnement des partitions est fournie via l’**outil de fractionnement/fusion**. Vous trouverez plus d’informations sur cet outil ici : [Présentation de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
+2. **Fusion des partitions existantes** : les fusions de partitions sont également effectuées à l’aide de l’**outil de fractionnement/fusion**. Pour plus d’informations, reportez-vous à: [Présentation de l’outil de fusion et fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Coût
@@ -73,15 +73,15 @@ Par exemple, l’exemple d’application crée des bases de données. Le coût d
 Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Étapes suivantes
-Pour plus d’informations sur les outils de bases de données élastiques, consultez :
+Pour plus d’informations sur les outils de bases de données élastiques, consultez :
 
-* [Table de documentation des outils des bases de données élastiques](../learning-paths/sql-database-elastic-scale.md) 
--    Exemples de code : 
+* [Table de documentation des outils des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
+-    Exemples de code : 
     -    [Base de données élastique avec Azure SQL - Prise en main](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Base de données élastique avec Azure SQL - Intégration avec Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Partitionner l’élasticité sur le centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
--    Channel 9 : [Vidéo de présentation de la mise à l’échelle élastique](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+-    Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Channel 9 : [Vidéo de présentation de la mise à l’échelle élastique](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Forum de discussion : [Forum sur Azure SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
 
@@ -98,4 +98,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

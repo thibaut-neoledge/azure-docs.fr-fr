@@ -63,9 +63,9 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
-| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | | 14 jours après la dernière exécution de tranche de données. <p>90 jours, si une tranche basée sur un service liés OAuth est exécutée au moins une fois tous les 14 jours.</p> |
+| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | 14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
 
-Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
+Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
   
 ### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
@@ -93,7 +93,7 @@ Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autori
         }
     }
 
-Consultez les rubriques [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+Consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
  
  
 ## Activité U-SQL Data Lake Analytics 
@@ -257,4 +257,4 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

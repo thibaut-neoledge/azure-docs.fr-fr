@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Comment créer des groupes de sécurité réseau dans l’interface de ligne de commande Azure
@@ -32,13 +32,13 @@ Les exemples de commandes de l’interface de ligne de commande Azure ci-dessous
 ## Comment créer le groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    New mode is arm
 
@@ -46,7 +46,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 
 		azure network nsg create -g TestRG -l westus -n NSG-FrontEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg create
 		info:    Looking up the network security group "NSG-FrontEnd"
@@ -68,16 +68,16 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Paramètres :
+	Paramètres :
 	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*.
-	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*. 
+	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
 	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
 
-4. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 3389 (RDP) à partir d’Internet.
+4. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 3389 (RDP) à partir d’Internet.
 
 		azure network nsg rule create -g TestRG -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg rule create
 		warn:    Using default direction: Inbound
@@ -99,7 +99,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		data:    Priority                        : 100
 		info:    network nsg rule create command OK
 
-	Paramètres :
+	Paramètres :
 
 	- **-a (ou --nsg-name)**. Nom du groupe de sécurité réseau dans lequel la règle sera créée. Pour notre scénario, *NSG-FrontEnd*.
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
@@ -112,11 +112,11 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-e (ou --destination-address-prefix)**. Préfixe de l’adresse de destination dans CIDR ou à l’aide de balises par défaut.
 	- **-u (ou --destination-port-range)**. Port de destination ou plage de ports.	
 
-5. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 80 (HTTP) à partir d’Internet.
+5. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 80 (HTTP) à partir d’Internet.
 
 		azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg rule create
 		info:    Looking up the network security rule "web-rule"
@@ -141,7 +141,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 
 		azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -o NSG-FrontEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network vnet subnet set
 		info:    Looking up the subnet "FrontEnd"
@@ -170,7 +170,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 		azure network nsg create -g TestRG -l westus -n NSG-BackEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg create
 		info:    Looking up the network security group "NSG-BackEnd"
@@ -193,11 +193,11 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-4. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 1433 (SQL) à partir du sous-réseau frontal.
+4. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 1433 (SQL) à partir du sous-réseau frontal.
 
 		azure network nsg rule create -g TestRG -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg rule create
 		info:    Looking up the network security rule "sql-rule"
@@ -222,7 +222,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 		azure network nsg rule create -g TestRG -a NSG-BackEnd -n web-rule -c Deny -p * -r Outbound -y 200 -f * -o * -e Internet -u *
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg rule create
 		info:    Looking up the network security rule "web-rule"
@@ -247,7 +247,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 		azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -o NSG-BackEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network vnet subnet set
 		info:    Looking up the subnet "BackEnd"
@@ -269,4 +269,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

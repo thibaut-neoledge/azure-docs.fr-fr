@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ Veillez à inclure les bons en-têtes dans votre requête, qui doit se présente
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Vous trouverez votre clé de compte dans votre compte sur [Azure Data Market](https://datamarket.azure.com/account/keys).
+Vous trouverez votre clé de compte dans votre compte sur [Azure Data Market](https://datamarket.azure.com/account/keys). Actuellement, seul JSON est accepté pour les formats d’entrée et de sortie. XML n’est pas pris en charge.
 
 ---
 
@@ -383,4 +383,4 @@ Les propriétés de chaque partie de la réponse sont les suivantes :
 | TopicId | ID de rubrique auquel l'enregistrement a été affecté. |
 | Distance | Niveau de confiance que l'enregistrement appartient à la rubrique. Plus la distance est proche de zéro, plus le niveau de confiance est élevé. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager | Microsoft Azure"
+   pageTitle="Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager | Microsoft Azure"
    description="Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Rediriger d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
 
 Pour rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager, modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement CNAME, qui mappe votre nom de domaine d’entreprise au nom de domaine de votre profil Traffic Manager. Vous pouvez voir le nom de domaine Traffic Manager dans la section **Général** de la page Configuration du profil Traffic Manager.
 
-Par exemple, pour rediriger le nom de domaine d’entreprise www.contoso.com vers le nom de domaine Traffic Manager contoso.trafficmanager.net, vous devez mettre à jour votre enregistrement de ressource DNS comme suit :
+Par exemple, pour rediriger le nom de domaine d’entreprise www.contoso.com vers le nom de domaine Traffic Manager contoso.trafficmanager.net, vous devez mettre à jour votre enregistrement de ressource DNS comme suit :
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
@@ -31,8 +31,8 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 
 [Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md)
 
-[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
-[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
+[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

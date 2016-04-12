@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Déploiement de votre appareil StorSimple local (Update 2)
@@ -20,9 +20,9 @@
 > [AZURE.SELECTOR]
 - [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Version Mise à la disposition générale](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Bienvenue dans cette série de didacticiels consacrée au déploiement d’appareils Microsoft Azure StorSimple. Ces didacticiels de déploiement s'appliquent à la gamme StorSimple 8000 Update 2. Ils proposent une liste de contrôle de la configuration, ainsi que la configuration requise et des étapes de configuration détaillées pour votre appareil StorSimple.
 
@@ -206,7 +206,8 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 ## Recherche et application des mises à jour
 
-La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil. <!--can take 1-4 hours-->
+La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
+<!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -244,4 +245,4 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 - Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

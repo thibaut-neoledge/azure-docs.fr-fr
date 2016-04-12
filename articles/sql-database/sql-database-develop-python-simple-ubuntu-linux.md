@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -27,43 +27,27 @@
 Cette rubrique présente un exemple de code Python qui s'exécute sur un ordinateur client Ubuntu Linux, pour la connexion à une base de données SQL Azure.
 
 
-## Composants requis
+## Étape 1 : configurer l’environnement de développement
 
+[Prerequisites for using the pymsSQL Python Driver for SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Ubuntu-Linux) (Configuration requise pour l’utilisation du pilote Python pymsSQL pour SQL Server)
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
-
-### Installer les modules requis
-
-
-Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre script python. Entrez les commandes suivantes pour installer **FreeTDS** et **pymssql**. pymssql utilise FreeTDS pour se connecter aux bases de données SQL.
-
-	sudo apt-get --assume-yes update
-	sudo apt-get --assume-yes install freetds-dev freetds-bin
-	sudo apt-get --assume-yes install python-dev python-pip
-	sudo pip install pymssql
-
-
-### Base de données SQL
+## Étape 2 : créer une base de données SQL
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-## Étape 1 : obtenir les informations de connexion
+## Étape 3 : obtenir les informations de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Étape 2 : se connecter
-
-!!!!!sql-database-include-connection-string-details-20-portalshots.md
+## Étape 4 : se connecter
 
 La fonction [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) est utilisée pour la connexion à la base de données SQL.
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
-
-## Étape 3 : exécuter une requête
+## Étape 5 : exécuter une requête
 
 La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -78,7 +62,7 @@ La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Étape 4 : insérer une ligne
+## Étape 6 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -93,10 +77,10 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 	    row = cursor.fetchone()
 
 
-## Étape 5 : restaurer une transaction
+## Étape 7 : restaurer une transaction
 
 
-Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
+Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
 -Commencez une transaction
@@ -111,10 +95,10 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+	conn.rollback()
 
 ## Étapes suivantes
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

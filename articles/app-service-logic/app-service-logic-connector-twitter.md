@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Prise en main du connecteur Twitter et ajout de celui-ci dans votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Twitter](../connectors/create-api-twitter.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Twitter](../connectors/connectors-create-api-twitter.md).
 
 Connectez-vous à votre flux Twitter pour publier des tweets, lire ceux publiés sur votre fil d’actualités et celui de vos amis et découvrir les abonnés à votre compte Twitter. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur Twitter dans votre flux de travail, vous pouvez obtenir une multitude de scénarios. Vous pouvez, par exemple :
 
@@ -64,7 +64,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twitt
 1.	Créez une application logique ou ouvrez une application logique existante : ![][2]
 2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques : ![][3]
 3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique : ![][4]
-4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application**: ![][5]
+4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application** : ![][5]
 
 
 Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux de travail. Vous pouvez utiliser les tweets récupérés par le déclencheur Twitter dans d’autres actions du flux : ![][6]
@@ -92,4 +92,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

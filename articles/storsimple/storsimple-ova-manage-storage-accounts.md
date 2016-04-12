@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gérer votre compte de stockage StorSimple | Microsoft Azure"
+   pageTitle="Gérer votre compte de stockage StorSimple | Microsoft Azure"
    description="Explique comment utiliser la page Configurer de StorSimple Manager pour ajouter, modifier, supprimer ou régénérer les clés de sécurité d’un compte de stockage associé à StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
@@ -12,19 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour gérer votre compte de stockage (version préliminaire)
+# Utiliser le service StorSimple Manager pour gérer votre compte de stockage
 
 ## Vue d'ensemble
 
-La page **Configurer** présente les paramètres de service globaux qui peuvent être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
+La page **Configurer** présente les paramètres de service globaux qui peuvent être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 
 - Comptes de stockage 
 - Enregistrements de contrôle d’accès 
 
-Ce didacticiel explique comment utiliser la page **Configurer** pour ajouter, modifier ou supprimer des comptes de stockage pour StorSimple Virtual Array. Les informations contenues dans ce didacticiel s’appliquent uniquement à la version préliminaire publique de StorSimple Virtual Array.
+Ce didacticiel explique comment utiliser la page **Configurer** pour ajouter, modifier ou supprimer des comptes de stockage pour StorSimple Virtual Array. Les informations contenues dans ce didacticiel s’appliquent uniquement au StorSimple Virtual Array exécutant la version de mise à la disposition générale de mars 2016.
 
  ![Page Configurer](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
 
@@ -32,10 +32,10 @@ Les comptes de stockage contiennent les informations d’identification que l’
 
 Dans la page **Configurer**, tous les comptes de stockage créés pour l’abonnement à la facturation sont affichés sous forme de tableau et contiennent les informations suivantes :
 
-- **Nom** : nom unique attribué au compte lors de sa création.
-- **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
+- **Nom** : nom unique attribué au compte lors de sa création.
+- **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
 
-Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stockage dans la page **Configurer** sont les suivantes :
+Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stockage dans la page **Configurer** sont les suivantes :
 
 - Ajout d’un compte de stockage 
 - Modification d’un compte de stockage 
@@ -46,9 +46,9 @@ Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stoc
 
 Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorSimple.
 
-- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour plus d’informations sur la création des comptes de stockage, consultez [Création d’un nouveau service](storsimple-ova-manage-service.md#create-a-service). 
-- **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). 
-- **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
+- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour plus d’informations sur la création des comptes de stockage, consultez [Création d’un nouveau service](storsimple-ova-manage-service.md#create-a-service). 
+- **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). 
+- **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
 
 ## Ajout d’un compte de stockage
 
@@ -62,7 +62,7 @@ La procédure d’ajout d’un compte de stockage est détaillée ci-dessous.
 
 ## Modification d’un compte de stockage
 
-Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous modifiez un compte de stockage actuellement utilisé, les champs modifiables seront celui de la clé d’accès et celui du mode SSL du compte de stockage. Vous pouvez saisir la nouvelle clé d’accès de stockage ou modifier la sélection **Activer le mode SSL**, puis enregistrer les modifications.
+Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous modifiez un compte de stockage actuellement utilisé, les champs modifiables seront celui de la clé d’accès et celui du mode SSL du compte de stockage. Vous pouvez saisir la nouvelle clé d’accès de stockage ou modifier la sélection **Activer le mode SSL**, puis enregistrer les modifications.
 
 #### Pour modifier un compte de stockage
 
@@ -101,4 +101,4 @@ Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous 
 
 - Découvrez comment [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

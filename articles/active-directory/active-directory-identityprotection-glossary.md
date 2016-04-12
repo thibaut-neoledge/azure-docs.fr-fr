@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Glossaire du service Identity Protection | Microsoft Azure"
-	description="Glossaire du service Identity Protection."
+	pageTitle="Glossaire d’Azure Active Directory Identity Protection | Microsoft Azure"
+	description="Glossaire d’Azure Active Directory Identity Protection"
 	services="active-directory"
-	keywords="azure active directory identity protection, détection d’applications cloud, gestion d’applications"
+	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité, glossaire"
 	documentationCenter=""
 	authors="markusvi"
 	manager="stevenpo"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/04/2016"
 	ms.author="markvi"/>
 
-# Glossaire du service Identity Protection 
+# Glossaire d’Azure Active Directory Identity Protection 
 
 
 ### À risque (utilisateur)	
@@ -164,4 +164,4 @@ Configuration ou condition dans Azure Active Directory qui rend l’annuaire vul
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

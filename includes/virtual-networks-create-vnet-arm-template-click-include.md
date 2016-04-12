@@ -12,7 +12,7 @@ Vous pouvez réutiliser les modèles ARM prédéfinis sur le référentiel GitHu
 
 	![Paramètres de modèle ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources auquel ajouter le réseau virtuel ou cliquez sur **Créer** pour ajouter le réseau virtuel à un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez la page [](). La figure ci-dessous illustre les paramètres du nouveau groupe de ressources **TestRG**.
+4. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources auquel ajouter le réseau virtuel ou cliquez sur **Créer** pour ajouter le réseau virtuel à un groupe de ressources. La figure ci-dessous illustre les paramètres du nouveau groupe de ressources **TestRG**.
 
 	![Groupe de ressources](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
@@ -23,8 +23,8 @@ Vous pouvez réutiliser les modèles ARM prédéfinis sur le référentiel GitHu
 
 	![Mosaïque d’envoi d’un déploiement dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Une fois le déploiement terminé, cliquez sur **TestVNet** > **Tous les paramètres** > **Sous-réseaux** pour afficher les propriétés du sous-réseau, comme illustré ci-dessous.
+7. Une fois le déploiement terminé, cliquez sur **TestVNet** > **Tous les paramètres** > **Sous-réseaux** pour afficher les propriétés du sous-réseau, comme illustré ci-dessous.
 
 	![Créer un réseau virtuel dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

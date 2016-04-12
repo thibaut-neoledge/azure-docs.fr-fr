@@ -14,7 +14,7 @@ La procédure suivante vous guidera tout au long de la création du coffre utili
 
 5. Cliquez sur **Créer un archivage** pour terminer le flux de travail. La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, vous pouvez contrôler les notifications au bas du portail.
 
-    ![Création de coffre](./media/backup-create-vault/creatingvault1.png)
+    ![Création d’un archivage](./media/backup-create-vault/creatingvault1.png)
 
 6. Après avoir créé l’archivage de sauvegarde, un message vous indique que le coffre a été créé. Le coffre est également répertorié dans les ressources Recovery Services en tant que **Actif**.
 
@@ -23,9 +23,9 @@ La procédure suivante vous guidera tout au long de la création du coffre utili
 
 ### Azure Backup - Options de redondance de stockage
 
-> AZURE.IMPORTANT Idéalement, il convient d’identifier votre option de redondance de stockage juste après la création du coffre et avant l’inscription d’une machine dans le coffre. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
+>[AZURE.IMPORTANT] Idéalement, vous identifiez votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’un ordinateur dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
 
-Les besoins de votre entreprise déterminent la redondance du stockage Azure Backup principal. Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de stockage géo-redondant (par défaut). Elle se trouve sous l’option **Configurer** de votre coffre Backup.
+Déterminez la redondance du stockage Azure Backup principal en fonction des besoins de votre entreprise. Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de stockage géo-redondant (par défaut). Elle se trouve sous l’option **Configurer** de votre coffre de sauvegarde.
 
 ![GRS](./media/backup-create-vault/grs.png)
 
@@ -39,4 +39,4 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

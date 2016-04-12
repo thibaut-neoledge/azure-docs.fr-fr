@@ -24,18 +24,20 @@ Azure Data Lake Store est un service de stockage cloud compatible HDFS qui offre
 
 ##Configuration requise
 
-* [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieure
-* [Maven 3.x](https://maven.apache.org/download.cgi)
+* [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieure
+* [Maven 3.x](https://maven.apache.org/download.cgi)
 * Un abonnement Azure
-* Un cluster Storm sur HDInsight Ce document contient des informations sur la création d’un cluster pouvant utiliser Azure Data Lake Store.
+* Un cluster Storm sur HDInsight Pour créer un cluster Storm sur HDInsight, suivez les étapes du document [Approvisionner un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Les étapes décrites dans ce document vous guideront dans la création d’un nouveau cluster HDInsight et d’une instance Azure Data Lake Store.  
+
+    > [AZURE.IMPORTANT] Lorsque vous créez le cluster HDInsight, vous devez sélectionner __Storm__ comme type de cluster. Le système d’exploitation peut être Windows ou Linux.
 
 ###Configuration des variables d’environnement
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du Kit de développeur Java (JDK) sur votre station de travail de développement. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* __JAVA\_HOME__ : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`.
+* __JAVA\_HOME__ : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`.
 
-* __PATH__ :doit contenir les chemins d’accès suivants :
+* __PATH__ :doit contenir les chemins d’accès suivants :
 
     * __JAVA\_HOME__ (ou le chemin d’accès équivalent)
     
@@ -45,27 +47,27 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Implémentation de la topologie
 
-L’exemple utilisé dans ce document est écrit en Java et utilise les composants suivants :
+L’exemple utilisé dans ce document est écrit en Java et utilise les composants suivants :
 
-* __TickSpout__ : génère les données utilisées par d’autres composants de la topologie.
+* __TickSpout__ : génère les données utilisées par d’autres composants de la topologie.
 
-* __PartialCount__ : dénombre les événements générés par TickSpout.
+* __PartialCount__ : dénombre les événements générés par TickSpout.
 
-* __FinalCount__ : agrège les données de comptage de PartialCount.
+* __FinalCount__ : agrège les données de comptage de PartialCount.
 
-* __ADLStoreBolt__ : écrit des données dans Azure Data Lake Store à l’aide du composant [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html).
+* __ADLStoreBolt__ : écrit des données dans Azure Data Lake Store à l’aide du composant [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html).
 
 Le projet contenant cette topologie est disponible en téléchargement à partir de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 ###Présentation d’ADLStoreBolt
 
-ADLStoreBolt est le nom utilisé pour l’instance HdfsBolt de la topologie qui écrit dans Azure Data Lake. Il ne s’agit pas d’une version spéciale de HdfsBolt créée par Microsoft ; en revanche, il repose sur les valeurs de configuration du site de base, ainsi que sur les composants Hadoop inclus avec Azure HDInsight pour communiquer avec Azure Data Lake.
+ADLStoreBolt est le nom utilisé pour l’instance HdfsBolt de la topologie qui écrit dans Azure Data Lake. Il ne s’agit pas d’une version spéciale de HdfsBolt créée par Microsoft ; en revanche, il repose sur les valeurs de configuration du site de base, ainsi que sur les composants Hadoop inclus avec Azure HDInsight pour communiquer avec Azure Data Lake.
 
 En particulier, lorsque vous créez un cluster HDInsight, vous pouvez l’associer à une instance Azure Data Lake Store. ADLStoreBolt écrit des entrées dans le site de base pour le Data Lake Store sélectionné, lesquelles sont utilisées par des composants tels que hadoop-client et hadoop-hdfs pour permettre la communication avec Azure Data Lake Store.
 
-> [AZURE.NOTE] Microsoft a contribué au développement de code pour les projets Apache Hadoop et Storm qui permettent une communication avec Azure Data Lake Store et Azure Blob Storage, mais cette fonctionnalité n’est pas forcément incluse par défaut dans les autres distributions Hadoop et Storm.
+> [AZURE.NOTE] Microsoft a contribué au développement de code pour les projets Apache Hadoop et Storm qui permettent une communication avec Azure Data Lake Store et Azure Blob Storage, mais cette fonctionnalité n’est pas forcément incluse par défaut dans les autres distributions Hadoop et Storm.
 
-HdfsBolt est configuré comme suit dans la topologie :
+HdfsBolt est configuré comme suit dans la topologie :
 
     // 1. Create sync and rotation policies to control when data is synched
     //    (written) to the file system and when to roll over into a new file.
@@ -94,12 +96,6 @@ Si vous maîtrisez l’utilisation de HdfsBolt, vous remarquerez qu’il s’agi
 
 Puisque l’écriture dans le Data Lake Store utilise HdfsBolt et implique simplement un changement d’URL, vous devriez être en mesure de partir de n’importe quelle topologie existante qui écrit dans HDFS ou WASB à l’aide de HdfsBolt et de la modifier facilement pour pouvoir l’utiliser avec Azure Data Lake Store.
 
-##Création d’un cluster HDInsight et d’un Data Lake Store
-
-Créez un cluster Storm sur HDInsight en suivant les étapes du document [Approvisionner un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Les étapes décrites dans ce document vous guideront dans la création d’un nouveau cluster HDInsight et d’une instance Azure Data Lake Store.
-
-> [AZURE.IMPORTANT] Lorsque vous créez le cluster HDInsight, vous devez sélectionner __Storm__ comme type de cluster. Le système d’exploitation peut être Windows ou Linux.
-
 ##Génération et empaquetage de la topologie
 
 1. Téléchargez l’exemple de projet à partir de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) dans votre environnement de développement.
@@ -117,15 +113,15 @@ Créez un cluster Storm sur HDInsight en suivant les étapes du document [Approv
 
 Si vous avez créé un cluster Storm sur HDInsight basé sur Linux, procédez comme suit pour déployer et exécuter la topologie.
 
-1. Utilisez la commande suivante pour copier la topologie sur le cluster HDInsight. Remplacez __USER__ par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez __CLUSTERNAME__ par le nom du cluster.
+1. Utilisez la commande suivante pour copier la topologie sur le cluster HDInsight. Remplacez __USER__ par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 
         scp target\StormToDataLakeStore-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToDataLakeStore-1.0-SNAPSHOT.jar
     
     À l’invite, saisissez le mot de passe que vous avez utilisé lors de la création de l’utilisateur SSH du cluster. Si vous utilisez une clé publique au lieu d’un mot de passe, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès à la clé privée correspondante.
     
-    > [AZURE.NOTE] Si vous utilisez un client Windows pour le développement, vous ne disposerez peut-être pas d’une commande `scp`. Dans ce cas, vous pouvez utiliser l’utilitaire `pscp` disponible à l’adresse [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+    > [AZURE.NOTE] Si vous utilisez un client Windows pour le développement, vous ne disposerez peut-être pas d’une commande `scp`. Dans ce cas, vous pouvez utiliser l’utilitaire `pscp` disponible à l’adresse [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-2. Une fois le téléchargement terminé, utilisez les éléments suivants pour vous connecter au cluster HDInsight à l’aide de SSH. Remplacez __USER__ par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez __CLUSTERNAME__ par le nom du cluster.
+2. Une fois le téléchargement terminé, utilisez les éléments suivants pour vous connecter au cluster HDInsight à l’aide de SSH. Remplacez __USER__ par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 
         ssh USER@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -133,7 +129,7 @@ Si vous avez créé un cluster Storm sur HDInsight basé sur Linux, procédez co
     
     > [AZURE.NOTE] Si vous utilisez un client Windows pour le développement, suivez les instructions de l’article [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md) pour savoir comment utiliser le client PuTTY pour se connecter au cluster.
     
-3. Une fois connecté, procédez comme suit pour démarrer la topologie :
+3. Une fois connecté, procédez comme suit pour démarrer la topologie :
 
         storm jar StormToDataLakeStore-1.0-SNAPSHOT.jar com.microsoft.example.StormToDataLakeStore datalakewriter
     
@@ -143,14 +139,14 @@ Si vous avez créé un cluster Storm sur HDInsight basé sur Linux, procédez co
 
 1. Ouvrez un navigateur web et accédez à HTTPS://CLUSTERNAME.azurehdinsight.net, où __CLUSTERNAME__ est le nom de votre cluster HDInsight. À l’invite, indiquez le nom d’utilisateur admin (`admin`) et le mot de passe que vous avez utilisés pour ce compte lors de la création du cluster.
 
-2. Dans le tableau de bord Storm, sélectionnez __Parcourir__ à partir de la liste déroulante __Fichier Jar__, puis sélectionnez le fichier StormToDataLakeStore-1.0-SNAPSHOT.jar dans le répertoire `target`. Utilisez les valeurs suivantes pour les autres entrées du formulaire :
+2. Dans le tableau de bord Storm, sélectionnez __Parcourir__ à partir de la liste déroulante __Fichier Jar__, puis sélectionnez le fichier StormToDataLakeStore-1.0-SNAPSHOT.jar dans le répertoire `target`. Utilisez les valeurs suivantes pour les autres entrées du formulaire :
 
-    * Nom de la classe : com.microsoft.example.StormToDataLakeStore
-    * Paramètres supplémentaires : datalakewriter
+    * Nom de la classe : com.microsoft.example.StormToDataLakeStore
+    * Paramètres supplémentaires : datalakewriter
     
     ![image du tableau de bord storm](./media/hdinsight-storm-write-data-lake-store/submit.png)
 
-3. Cliquez sur le bouton __Envoyer__ pour télécharger et démarrer la topologie. Une fois la topologie démarrée, le champ de résultat situé sous le bouton __Envoyer__ doit afficher des informations similaires à ce qui suit :
+3. Cliquez sur le bouton __Envoyer__ pour télécharger et démarrer la topologie. Une fois la topologie démarrée, le champ de résultat situé sous le bouton __Envoyer__ doit afficher des informations similaires à ce qui suit :
 
         Process exit code: 0
         Currently running topologies:
@@ -164,7 +160,7 @@ Il existe plusieurs façons de visualiser les données. Dans cette section, nous
 
 > [AZURE.NOTE] Vous devez laisser les topologies s’exécuter pendant plusieurs minutes avant de vérifier les données de sortie, afin que les données soient synchronisées avec plusieurs fichiers sur Azure Data Lake Store.
 
-* __Depuis le [portail Azure](https://portal.azure.com)__ : dans le portail, sélectionnez l’Azure Data Lake Store que vous avez utilisé avec HDInsight.
+* __Depuis le [portail Azure](https://portal.azure.com)__ : dans le portail, sélectionnez l’Azure Data Lake Store que vous avez utilisé avec HDInsight.
 
     > [AZURE.NOTE] Si vous n’avez pas épinglé le Data Lake Store au tableau de bord du portail Azure, vous pouvez le retrouver en sélectionnant __Parcourir__ en bas de la liste à gauche, puis __Data Lake Store__, et enfin en sélectionnant le Store concerné.
     
@@ -178,11 +174,11 @@ Il existe plusieurs façons de visualiser les données. Dans cette section, nous
     
     Sélectionnez un des fichiers pour en afficher le contenu.
 
-* __Depuis le cluster__ : si vous vous êtes connecté au cluster HDInsight à l’aide de SSH (cluster Linux) ou du Bureau à distance (cluster Windows), vous pouvez utiliser les éléments suivants pour afficher les données. Remplacez __DATALAKE__ par le nom de votre Data Lake Store
+* __Depuis le cluster__ : si vous vous êtes connecté au cluster HDInsight à l’aide de SSH (cluster Linux) ou du Bureau à distance (cluster Windows), vous pouvez utiliser les éléments suivants pour afficher les données. Remplacez __DATALAKE__ par le nom de votre Data Lake Store
 
         hdfs dfs -cat adl://DATALAKE.azuredatalakestore.net/stormdata/*.txt
 
-    Cette commande va concaténer les fichiers texte stockés dans le répertoire et afficher des informations similaires à ce qui suit :
+    Cette commande va concaténer les fichiers texte stockés dans le répertoire et afficher des informations similaires à ce qui suit :
     
         406000000
         407000000
@@ -197,15 +193,15 @@ Il existe plusieurs façons de visualiser les données. Dans cette section, nous
         
 ##Arrêt de la topologie
 
-Les topologies Storm s’exécutent jusqu’à ce qu’elles soient arrêtées ou que le cluster soit supprimé. Utilisez les informations suivantes pour arrêter les topologies :
+Les topologies Storm s’exécutent jusqu’à ce qu’elles soient arrêtées ou que le cluster soit supprimé. Utilisez les informations suivantes pour arrêter les topologies :
 
-__Pour un cluster HDInsight basé sur Linux__ :
+__Pour un cluster HDInsight sous Linux__ :
 
-Depuis une session SSH vers le cluster, utilisez la commande suivante :
+Depuis une session SSH vers le cluster, utilisez la commande suivante :
 
     storm kill datalakewriter
 
-__Pour un cluster HDInsight basé sur Windows__ :
+__Pour un cluster HDInsight sous Windows__ :
 
 1. Dans le Tableau de bord Storm (https://CLUSTERNAME.azurehdinsight.net,), sélectionnez __Interface utilisateur de Storm__ en haut de la page.
 
@@ -217,8 +213,12 @@ __Pour un cluster HDInsight basé sur Windows__ :
 
     ![actions de topologie](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
+## Supprimer votre cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Étapes suivantes
 
-Maintenant que vous avez appris à utiliser Storm pour écrire dans Azure Data Lake Store, nous vous invitons à découvrir d’autres [exemples Storm pour HDInsight](hdinsight-storm-example-topology.md).
+Maintenant que vous avez appris à utiliser Storm pour écrire dans Azure Data Lake Store, découvrez d’autres [exemples Storm pour HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

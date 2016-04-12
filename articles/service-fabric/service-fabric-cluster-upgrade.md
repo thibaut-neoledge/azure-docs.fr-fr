@@ -75,7 +75,9 @@ Vous pouvez facilement mettre à jour les certificats principaux ou secondaires 
 
 ![Capture d'écran qui affiche les empreintes numériques des certificats sur le portail Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Avant d'identifier un certificat à utiliser pour les ressources de cluster, vous devez effectuer les étapes suivantes ; sinon, le nouveau certificat ne sera pas utilisé : 1. Chargez le nouveau certificat vers Azure Key Vault. Pour obtenir des instructions, consultez [Sécurité Service Fabric](service-fabric-cluster-security.md). Commencez à l'étape 2 dans ce document. 2. Mettez à jour toutes les machines virtuelles qui composent le cluster pour déployer le certificat sur celles-ci. Pour ce faire, consultez le [blog de l'équipe Azure Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Avant d'identifier un certificat à utiliser pour les ressources de cluster, vous devez effectuer les étapes suivantes ; sinon, le nouveau certificat ne sera pas utilisé :
+1. Chargez le nouveau certificat vers Azure Key Vault. Pour obtenir des instructions, consultez [Sécurité Service Fabric](service-fabric-cluster-security.md). Commencez à l'étape 2 dans ce document.
+2. Mettez à jour toutes les machines virtuelles qui composent le cluster pour déployer le certificat sur celles-ci. Pour ce faire, consultez le [blog de l'équipe Azure Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Ports d'application
 
@@ -100,11 +102,11 @@ Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de n
 
 Pour chaque type de nœud, vous pouvez ajouter des propriétés de positionnement personnalisées que vous souhaitez utiliser dans vos applications. NodeType est une propriété par défaut que vous pouvez utiliser sans l'ajouter explicitement.
 
->[AZURE.NOTE] Pour plus d'informations sur l'utilisation des propriétés de positionnement, consultez [Vue d'ensemble des contraintes de placement](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Pour plus d'informations sur l'utilisation et la définition de contraintes de placement et des propriétés de nœud, consultez la section « Contraintes de placement et propriétés de nœud » dans le document Gestionnaire de ressources de cluster Service Fabric sur la [Description de votre cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Métriques de capacité
 
-Pour chaque type de nœud, vous pouvez ajouter des mesures de capacité personnalisées que vous souhaitez utiliser dans vos applications pour créer un rapport sur la charge. Pour plus d'informations sur l'utilisation de mesures de capacité pour créer un rapport sur la charge, consultez la [Présentation du rapport de charge dynamique](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Pour chaque type de nœud, vous pouvez ajouter des mesures de capacité personnalisées que vous souhaitez utiliser dans vos applications pour créer un rapport sur la charge. Pour plus d'informations sur l'utilisation de métriques de capacité pour créer un rapport sur la charge, consultez les documents Gestionnaire de ressources de cluster Service Fabric sur la [Description de votre cluster](service-fabric-cluster-resource-manager-cluster-description.md) et les [Métriques et charge](service-fabric-cluster-resource-manager-metrics.md).
 
 ### Correctifs de système d'exploitation sur les machines virtuelles qui composent le cluster
 
@@ -124,4 +126,4 @@ Si vous devez mettre à niveau l'image du système d'exploitation sur les machin
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

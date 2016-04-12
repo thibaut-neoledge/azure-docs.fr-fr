@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP 
 
 ## Numéros système autonomes
 
-Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé le numéro AS 65515 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Vous pouvez utiliser des numéros AS privés pour l'homologation privée Azure. Vous devez utiliser des numéros AS enregistrés à votre nom pour les homologations publiques Azure et Microsoft.
+Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé le numéro AS 65515 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
 
 Il n'existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
@@ -178,4 +178,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

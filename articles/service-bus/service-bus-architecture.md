@@ -12,10 +12,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/06/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
-# Architecture de Service Bus
+# Architecture de Service Bus
 
 Cet article décrit l’architecture de traitement de message d’Azure Service Bus.
 
@@ -23,7 +23,7 @@ Cet article décrit l’architecture de traitement de message d’Azure Service 
 
 Service Bus est organisé par *unités d'échelle*. Une unité d'échelle est une unité de déploiement et contient tous les composants requis pour exécuter le service. Chaque région déploie une ou plusieurs unités d'échelle Service Bus.
 
-Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d’échelle gère tous les types d’entités Service Bus : relais, entités de messagerie répartie (files d’attente, rubriques, abonnements). Une unité d'échelle Service Bus est constituée des éléments suivants :
+Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d’échelle gère tous les types d’entités Service Bus : relais, entités de messagerie répartie (files d’attente, rubriques, abonnements). Une unité d'échelle Service Bus est constituée des éléments suivants :
 
 - **Un ensemble de nœuds de passerelle.** Les nœuds de passerelle authentifient les requêtes entrantes et gèrent les requêtes de relais. Chaque nœud de passerelle a une adresse IP publique.
 
@@ -63,10 +63,10 @@ Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Az
 
 ## Étapes suivantes
 
-Maintenant que vous avez lu une présentation du fonctionnement de Service Bus, consultez les liens suivants :
+Maintenant que vous avez lu une présentation du fonctionnement de Service Bus, consultez les liens suivants :
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-- [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Une solution de messages de file d'attente utilisant les files d'attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Une solution de messages de file d'attente utilisant les files d'attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

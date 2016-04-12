@@ -36,7 +36,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Flask (c
 - Git
 - [Python Tools pour Visual Studio][] (PTVS) - Remarque : ceci est facultatif
 
-**Remarque**: la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
+**Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
 ### Windows
 
@@ -382,7 +382,6 @@ Pour plus d'informations, consultez également le [Centre pour développeurs Pyt
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 <!--Link references-->
@@ -404,4 +403,4 @@ Pour plus d'informations, consultez également le [Centre pour développeurs Pyt
 [Documentation relative à Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

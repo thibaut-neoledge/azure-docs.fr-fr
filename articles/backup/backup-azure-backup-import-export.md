@@ -3,8 +3,8 @@
    description="Découvrez comment Azure Backup vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiales à l’aide du service Azure Import/Export."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Flux de travail de la sauvegarde hors connexion dans Azure Backup
 Azure Backup est très efficace pour permettre d’économiser les coûts de réseau et de stockage. Azure Backup compresse non seulement les données, mais effectue également une sauvegarde complète une seule fois, suivie de sauvegardes deltas et incrémentielles. Par conséquent, si un volume de fichiers de 10 To est en cours de sauvegarde, Azure Backup envoie 10 To dans le cadre de la réplication initiale et uniquement les deltas dans le cadre de la réplication différentielle. Par conséquent, la bande passante maximale du réseau étendu (WAN) est requise pendant la réplication initiale. Pour réduire la dépendance du réseau étendu lors de la réplication initiale, Azure Backup prend en charge la sauvegarde en mode hors connexion à l’aide du service Azure Import/Export.
@@ -119,4 +119,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage/storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

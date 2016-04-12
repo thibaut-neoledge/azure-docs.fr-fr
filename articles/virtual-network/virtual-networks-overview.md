@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Présentation du réseau virtuel
@@ -53,10 +53,10 @@ Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant vot
 
 Le sous-réseau est une plage d’adresses IP appartenant au réseau virtuel. Vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour l’organisation et la sécurité. Les machines virtuelles et les instances de rôle PaaS déployées sur des sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire. Vous pouvez également configurer des tables d’itinéraire et des groupes de sécurité réseau sur un sous-réseau.
 
-## Adresses IP
+## Adresses IP
 
 
-Il existe deux types d’adresses IP affectées aux ressources dans Azure : *publique* et *privée*. Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et d’autres services publics Azure tels que [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Les adresses IP privées permettent la communication entre les ressources dans un réseau virtuel, au même titre que celles qui sont connectées via un VPN, sans utiliser des adresses IP routables par Internet.
+Il existe deux types d’adresses IP affectées aux ressources dans Azure : *publique* et *privée*. Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et d’autres services publics Azure tels que [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Les adresses IP privées permettent la communication entre les ressources dans un réseau virtuel, au même titre que celles qui sont connectées via un VPN, sans utiliser des adresses IP routables par Internet.
 
 Pour en savoir plus sur les adresses IP dans Azure, visitez [les adresses IP de réseau virtuel](virtual-network-ip-addresses-overview-arm.md)
 
@@ -72,7 +72,7 @@ Pour en savoir plus sur l’équilibrage de charge dans Azure, visitez [Présent
 
 ## Groupe de sécurité réseau
 
-Vous pouvez créer des NSG afin de contrôler l’accès entrant et sortant aux interfaces réseau (cartes réseau), aux machines virtuelles et aux sous-réseaux. Chaque NSG contient une ou plusieurs règles spécifiant si le trafic est accepté ou refusé en fonction de l’adresse IP source, du port source, de l’adresse IP de destination et du port de destination. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](virtual-networks-nsg.md).
+Vous pouvez créer des NSG afin de contrôler l’accès entrant et sortant aux interfaces réseau (cartes réseau), aux machines virtuelles et aux sous-réseaux. Chaque NSG contient une ou plusieurs règles spécifiant si le trafic est accepté ou refusé en fonction de l’adresse IP source, du port source, de l’adresse IP de destination et du port de destination. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](virtual-networks-nsg.md).
 
 ## Appliances virtuelles
 
@@ -91,11 +91,8 @@ L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplé
 ## Étapes suivantes
 
 - [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md) et des sous-réseaux.
-- [Créer une machine virtuelle dans un réseau virtuel](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Créer une machine virtuelle dans un réseau virtuel](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
-- En savoir plus sur les [équilibreurs de charge](../load-balancer/load-balancer-overview.md).
-- [Réserver une adresse IP interne](virtual-networks-reserved-private-ip.md)
-- [Réserver une adresse IP publique](virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

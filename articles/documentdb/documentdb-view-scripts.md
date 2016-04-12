@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide de l’Explorateur de scripts de DocumentDB
@@ -89,6 +89,8 @@ L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD
 
 ## Exécuter une procédure stockée
 
+> [AZURE.WARNING] L’exécution de procédures stockées dans l'Explorateur de scripts n'est pas encore possible pour les collections partitionnées côté serveur. Pour plus d'informations, consultez [Partitionnement et mise à l'échelle dans DocumentDB](documentdb-partition-data.md).
+
 L’Explorateur de scripts vous permet d’exécuter des procédures stockées côté serveur à partir du portail Azure.
 
 - Quand vous ouvrez le panneau de création de procédure stockée, un script par défaut (*prefix*) est déjà fourni. Pour exécuter le script *prefix* ou votre propre script, ajoutez un *id* et des *entrées*. Pour les procédures stockées qui acceptent plusieurs paramètres, toutes les entrées doivent se trouver dans un tableau (par exemple, *["foo", "bar"]*).
@@ -115,6 +117,6 @@ L’Explorateur de scripts dans le portail Azure n’est qu’un des moyens d’
 
 Pour plus d’informations sur la programmation côté serveur de DocumentDB, consultez l’article [Procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur](documentdb-programming.md).
 
-Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider quand vous en apprenez plus sur DocumentDB.
+Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Notifications Push enrichies avec Azure Notification Hubs
@@ -24,17 +24,17 @@
 Pour attirer les utilisateurs avec des contenus riches instantanés, une application peut souhaiter envoyer des notifications Push plus sophistiquées que du texte brut. Ces notifications promeuvent les interactions entre utilisateurs et présentent du contenu tel que des URL, des sons, des images/coupons et bien plus encore. Ce didacticiel se base sur la rubrique [Envoi de notifications aux utilisateurs](notification-hubs-aspnet-backend-ios-notify-users.md) et montre comment envoyer des notifications Push qui incorporent des charges utiles (par exemple, une image).
 
 
-Ce didacticiel est compatible avec iOS 7 et 8.
+Ce didacticiel est compatible avec iOS 7 et 8.
 
   ![][IOS1]
 
-À un niveau élevé :
+À un niveau élevé :
 
-1. Le serveur principal :
-    - stocke la charge utile enrichie (dans ce cas, l'image) dans la base de données du serveur principal/stockage local ;
+1. Le serveur principal :
+    - stocke la charge utile enrichie (dans ce cas, l'image) dans la base de données du serveur principal/stockage local ;
     - envoie un ID de cette notification enrichie à l'appareil.
-2. L'application sur l'appareil :
-    - contacte le serveur principal en demandant la charge utile enrichie avec l'ID qu'elle reçoit ;
+2. L'application sur l'appareil :
+    - contacte le serveur principal en demandant la charge utile enrichie avec l'ID qu'elle reçoit ;
     - envoie des notifications aux utilisateurs sur l'appareil lorsque la récupération de données est terminée, et affiche la charge utile immédiatement lorsque les utilisateurs cliquent pour en savoir plus.
 
 
@@ -47,7 +47,7 @@ Ce didacticiel est compatible avec iOS 7 et 8.
 
     ![][IOS2]
 
-5. Dans **Notifications.cs**, ajoutez le code suivant à l’aide de l’instruction suivante :
+5. Dans **Notifications.cs**, ajoutez le code suivant à l’aide de l’instruction suivante :
 
         using System.Reflection;
 
@@ -98,7 +98,7 @@ Ce didacticiel est compatible avec iOS 7 et 8.
 
 	>[AZURE.NOTE](optional) Consultez [Comment incorporer des ressources et y accéder à l’aide de Visual C#](http://support.microsoft.com/kb/319292) pour plus d’informations sur la façon d’ajouter et d’obtenir des ressources de projet.
 
-7. Dans **NotificationsController.cs**, redéfinissez **NotificationsController** avec les extraits de code suivants. Ceci envoie un ID de notification enrichi sans assistance initial à l’appareil et permet l’extraction de l’image sur le client :
+7. Dans **NotificationsController.cs**, redéfinissez **NotificationsController** avec les extraits de code suivants. Ceci envoie un ID de notification enrichi sans assistance initial à l’appareil et permet l’extraction de l’image sur le client :
 
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -128,9 +128,9 @@ Ce didacticiel est compatible avec iOS 7 et 8.
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-8. Nous allons maintenant redéployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
+8. Nous allons maintenant redéployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
 
-9. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
+9. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
 
 ## Modification du projet iOS
 
@@ -146,7 +146,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
 4. Ajoutez un **Contrôleur de navigation** à votre table de montage séquentiel et faites-le glisser vers le contrôleur d’affichage d’accueil pour en faire l’**affichage racine** de la navigation. Vérifiez que **Est contrôleur d’affichage initial** dans l’inspecteur d’attributs est sélectionné pour le contrôleur de navigation uniquement.
 
-5. Ajoutez un **contrôleur d’affichage** à la table de montage séquentiel et ajoutez un **affichage d’image**. Il s’agit de la page que les utilisateurs verront une fois qu’ils souhaiteront en savoir plus en cliquant sur la notification. Votre storyboard doit ressembler à ce qui suit :
+5. Ajoutez un **contrôleur d’affichage** à la table de montage séquentiel et ajoutez un **affichage d’image**. Il s’agit de la page que les utilisateurs verront une fois qu’ils souhaiteront en savoir plus en cliquant sur la notification. Votre storyboard doit ressembler à ce qui suit :
 
     ![][IOS4]
 
@@ -156,21 +156,21 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
 8. Ensuite, créez une classe de contrôleur d’affichage intitulée **imageViewController** pour gérer l’interface utilisateur que vous venez de créer.
 
-9. Dans **imageViewController.h**, ajoutez le code suivant aux déclarations d’interface du contrôleur. Effectuez un glisser-déplacer, tout en appuyant sur la touche Ctrl, depuis l’affichage de l’image dans la table de montage séquentiel vers ces propriétés pour lier les deux :
+9. Dans **imageViewController.h**, ajoutez le code suivant aux déclarations d’interface du contrôleur. Effectuez un glisser-déplacer, tout en appuyant sur la touche Ctrl, depuis l’affichage de l’image dans la table de montage séquentiel vers ces propriétés pour lier les deux :
 
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
 
-10. Dans **imageViewController.m**, ajoutez ce qui suit à la fin de **viewDidload** :
+10. Dans **imageViewController.m**, ajoutez ce qui suit à la fin de **viewDidload** :
 
         // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
 
-11. Dans **AppDelegate.m**, importez le contrôleur d’image que vous avez créé :
+11. Dans **AppDelegate.m**, importez le contrôleur d’image que vous avez créé :
 
         #import "imageViewController.h"
 
-12. Ajoutez une section d’interface avec la déclaration suivante :
+12. Ajoutez une section d’interface avec la déclaration suivante :
 
         @interface AppDelegate ()
 
@@ -186,7 +186,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
         @end
 
-13. Dans **AppDelegate**, vérifiez que votre application est inscrite aux notifications en mode silencieux dans **application: didFinishLaunchingWithOptions** :
+13. Dans **AppDelegate**, vérifiez que votre application est inscrite aux notifications en mode silencieux dans **application: didFinishLaunchingWithOptions** :
 
         // Software version
         self.iOS8 = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)];
@@ -229,7 +229,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
         return YES;
 
-14. Insérez l’implémentation suivante pour **application:didRegisterForRemoteNotificationsWithDeviceToken** afin de prendre en compte les modifications d’interface utilisateur du tableau de montage séquentiel :
+14. Insérez l’implémentation suivante pour **application:didRegisterForRemoteNotificationsWithDeviceToken** afin de prendre en compte les modifications d’interface utilisateur du tableau de montage séquentiel :
 
         // Access navigation controller which is at the root of window
         UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
@@ -237,7 +237,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-15. Puis ajoutez les méthodes ci-après à **AppDelegate.m** pour récupérer l’image à partir de votre point de terminaison et envoyer une notification locale à la fin de la récupération. Prenez soin de remplacer l’espace réservé `{backend endpoint}` par le point de terminaison de votre serveur principal :
+15. Puis ajoutez les méthodes ci-après à **AppDelegate.m** pour récupérer l’image à partir de votre point de terminaison et envoyer une notification locale à la fin de la récupération. Prenez soin de remplacer l’espace réservé `{backend endpoint}` par le point de terminaison de votre serveur principal :
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
@@ -317,7 +317,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
             // Add "else if" here to handle more types of rich content such as url, sound files, etc.
         }
 
-16. Gérez la notification locale ci-dessus en ouvrant le contrôleur d’affichage d’image dans **AppDelegate.m** avec les méthodes suivantes :
+16. Gérez la notification locale ci-dessus en ouvrant le contrôleur d’affichage d’image dans **AppDelegate.m** avec les méthodes suivantes :
 
         // Helper: redirect users to image view controller
         - (void)redirectToImageViewWithImage: (UIImage *)img {
@@ -371,7 +371,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 
 2. Dans l’interface utilisateur de l’application iOS, entrez un nom d’utilisateur et un mot de passe de la même valeur pour l’authentification et cliquez sur **Se connecter**.
 
-3. Cliquez sur **Envoyer des notifications Push** : une alerte dans l’application doit s’afficher. Si vous cliquez sur **Plus**, l’image que vous avez choisi d’inclure dans votre serveur principal d’application s’affiche.
+3. Cliquez sur **Envoyer des notifications Push** : une alerte dans l’application doit s’afficher. Si vous cliquez sur **Plus**, l’image que vous avez choisi d’inclure dans votre serveur principal d’application s’affiche.
 
 4. Vous pouvez également cliquer sur **Envoyer des notifications Push** et appuyer immédiatement sur le bouton Accueil de votre appareil. Dans quelques instants, vous allez recevoir une notification Push. Si vous cliquez dessus ou si vous cliquez sur Plus, votre application et le contenu d’images enrichi apparaissent.
 
@@ -381,4 +381,4 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

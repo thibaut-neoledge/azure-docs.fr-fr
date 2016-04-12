@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # Didacticiel : traiter les messages des appareils vers le cloud IoT Hub
@@ -49,7 +49,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 Vous devez avoir une connaissance de base des services [Azure Storage] et [Azure Service Bus].
 
@@ -91,18 +91,18 @@ Informations supplémentaires sur IoT Hub :
 
 <!-- Links -->
 
-[stockage d’objets blob Azure]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure Data Factory]: https://azure.microsoft.com/fr-FR/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/fr-FR/documentation/services/hdinsight/
-[file d’attente Service Bus]: https://azure.microsoft.com/fr-FR/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[stockage d’objets blob Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[file d’attente Service Bus]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Guide du développeur Azure IoT Hub - Appareil vers cloud]: https://azure.microsoft.com/fr-FR/documentation/articles/iot-hub-devguide/#d2c
+[Guide du développeur Azure IoT Hub - Appareil vers cloud]: iot-hub-devguide.md#d2c
 
-[Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/services/storage/
-[Azure Service Bus]: https://azure.microsoft.com/fr-FR/documentation/services/service-bus/
+[Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -117,4 +117,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: iot-hub-tested-configurations.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

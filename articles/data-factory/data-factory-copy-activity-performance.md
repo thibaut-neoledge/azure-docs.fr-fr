@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide sur les performances et le réglage de l’activité de copie"
+	pageTitle="Guide sur les performances et le réglage de l’activité de copie | Microsoft Azure"
 	description="En savoir plus sur les facteurs clés ayant une incidence sur les performances du déplacement de données dans Azure Data Factory via l’activité de copie."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -97,7 +97,7 @@ Vérifiez que le magasin de données sous-jacent n’est pas submergé par d’a
 Pour les magasins de données Microsoft, reportez-vous aux [rubriques relatives à la surveillance et au réglage](#appendix-data-store-performance-tuning-reference) spécifiques du magasin de données, qui peuvent vous aider à comprendre les caractéristiques de performances de celui-ci, à réduire les temps de réponse et à maximiser le débit.
 
 ### Magasins de données basés sur un fichier
-*(Incluant les objets Blob Azure, Azure Data Lake et le système de fichiers local)*
+*(Incluant Azure Blob, Azure Data Lake et le système de fichiers local)*
 
 - **Taille moyenne de fichier et nombre de fichiers** : l’activité de copie transfère des données fichier par fichier. Pour une même quantité de données à déplacer, le débit global sera plus lent si les données se composent d’un grand nombre de petits fichiers plutôt que d’un petit nombre de fichiers plus volumineux, en raison de la phase d’amorçage nécessaire pour chaque fichier. Par conséquent, vous devez autant que possible combiner plusieurs petits fichiers en fichiers plus volumineux pour augmenter le débit.
 - **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations sur la sérialisation/désérialisation](#considerations-on-serializationdeserialization) et [Considérations sur la compression](#considerations-on-compression).
@@ -224,4 +224,4 @@ Voici quelques références relatives à la surveillance et au réglage des perf
 - SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
 - Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

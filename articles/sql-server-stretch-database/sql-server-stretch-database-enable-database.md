@@ -3,9 +3,9 @@
 	description="Découvrez comment configurer une base de données pour Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une base de données
@@ -128,6 +128,9 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 -   [Sauvegarder et restaurer des bases de données Stretch](sql-server-stretch-database-backup.md)
 
 ## Voir aussi
-[Identifier des bases de données et des tables pour Stretch Database](sql-server-stretch-database-identify-databases.md) [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Identifier les bases de données et les tables pour Stretch Database](sql-server-stretch-database-identify-databases.md)
+
+[Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0316_2016-->

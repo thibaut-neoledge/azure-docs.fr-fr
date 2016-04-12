@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # Utilisation et ajout du connecteur d’objet blob de stockage Azure dans votre application logique 
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Objet blob Azure Storage](../connectors/create-api-azureblobstorage.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Objet blob Azure Storage](../connectors/connectors-create-api-azureblobstorage.md).
 
 Connectez-vous à votre objet blob de stockage Azure pour télécharger et supprimer des objets blob dans le conteneur d’objets blob. Les connecteurs sont utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
 
@@ -63,7 +63,7 @@ Une fois le connecteur d’objet blob de stockage Azure créé, il peut être aj
 
 3. Sélectionnez votre connecteur d’objet blob de stockage Azure dans le volet droit. Le connecteur répertorie les actions disponibles : ![Liste des actions de l’objet blob de stockage Azure][10]
 
-4. Dans ce scénario, nous allons utiliser l'action **Télécharger un objet Blob**: ![Entrées de l’action de téléchargement de l’objet blob][11]
+4. Dans ce scénario, nous allons utiliser l'action **Télécharger un objet Blob** : ![Entrées de l’action de téléchargement de l’objet blob][11]
 
 5. Indiquez les valeurs d’entrée et sélectionnez la case à cocher pour terminer la configuration :
 
@@ -107,4 +107,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

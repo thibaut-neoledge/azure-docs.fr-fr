@@ -70,7 +70,7 @@ Cette commande effectue les opérations suivantes (que vous pouvez [exécuter ma
 
 Si vous ne vous connectez pas d’abord à Azure, le SDK sera installé sans être connecté à une ressource. Vous pourrez voir et rechercher les données de télémétrie Application Insights dans la fenêtre de recherche de Visual Studio au cours d’une opération de débogage. Vous pourrez effectuer les autres étapes ultérieurement.
 
-## <a name="run"></a> Exécution de votre projet
+## <a name="run"></a> Débogage de votre projet
 
 Exécutez votre application à l'aide de la touche F5 et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
@@ -81,6 +81,16 @@ Un décompte des événements consignés s’affiche dans Visual Studio.
 Cliquez sur ce bouton pour ouvrir la recherche de diagnostic.
 
 
+
+## Débogage de la télémétrie
+
+### Concentrateur de diagnostic
+
+Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
+
+![Ouvrez la fenêtre Outils de diagnostic et passez en revue les événements Application Insights.](./media/app-insights-asp-net/31.png)
+
+
 ### Recherche de diagnostic
 
 La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
@@ -89,8 +99,12 @@ La fenêtre de recherche présente les événements qui ont été consignés. (S
 
 La recherche en texte libre fonctionne sur tous les champs des événements. Par exemple, vous pouvez effectuer une recherche sur une partie de l’URL d’une page, sur la valeur d’une propriété telle que la ville du client, ou encore sur des termes spécifiques contenus dans un journal de suivi.
 
+Vous pouvez également ouvrir l’onglet Éléments connexes pour aider à repérer les demandes ayant échoué ou les exceptions.
 
-[En savoir plus sur la recherche](app-insights-diagnostic-search.md)
+
+![](./media/app-insights-asp-net/41.png)
+
+
 
 ### Exceptions
 
@@ -100,7 +114,28 @@ Cliquez sur une exception pour obtenir une trace de pile. Si le code de l’appl
 
 
 
-## <a name="monitor"></a> Ouvrir Application Insights
+
+### Surveillance locale
+
+
+
+(À partir de Visual Studio 2015 Mise à jour 2) Si vous n’avez pas configuré le Kit de développement logiciel pour envoyer les données de télémétrie au portail Application Insights (et qu’il n’existe donc aucune clé d’instrumentation dans ApplicationInsights.config), la fenêtre de diagnostic affichera les données de télémétrie de votre dernière session de débogage.
+
+C’est le comportement adéquat si vous avez déjà publié une version antérieure de votre application. Vous ne voulez pas que les données de télémétrie de vos sessions de débogage soient confondues avec les données de télémétrie sur le portail Application Insights de l’application publiée.
+
+Cela est également utile si vous disposez de [données de télémétrie personnalisées](app-insights-api-custom-events-metrics.md) que vous souhaitez déboguer avant de les envoyer sur le portail.
+
+
+* *Dans un premier temps, j’ai entièrement configuré Application Insights pour envoyer des données de télémétrie au portail. À présent, j’aimerais afficher ces données uniquement dans Visual Studio.*
+
+ * Dans les paramètres de la fenêtre de recherche, il existe une option permettant de rechercher des diagnostics locaux même si votre application envoie des données de télémétrie au portail.
+ * Pour arrêter l’envoi de données de télémétrie au portail, commentez la ligne `<instrumentationkey>...` du fichier ApplicationInsights.config. Lorsque vous êtes prêt à envoyer de nouveau les données de télémétrie au portail, supprimez les commentaires.
+
+
+
+## <a name="monitor"></a> Affichage des données de télémétrie sur le portail Application Insights
+
+Le portail Application Insights vous permet de consulter les données de télémétrie une fois votre application publiée. Pendant que vous procéderez au débogage, vous souhaiterez vérifier que les données de télémétrie sont correctement envoyées.
 
 Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
 
@@ -153,21 +188,6 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 > [AZURE.NOTE] Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 
-## Débogage de la télémétrie
-
-### Concentrateur de diagnostic
-
-Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
-
-![Ouvrez la fenêtre Outils de diagnostic et passez en revue les événements Application Insights.](./media/app-insights-asp-net/31.png)
-
-Cela est particulièrement utile si vous disposez de [données de télémétrie personnalisées](app-insights-api-custom-events-metrics.md) que vous souhaitez déboguer avant de les envoyer sur le portail.
-
-* *Dans un premier temps, j’ai entièrement configuré Application Insights pour envoyer des données de télémétrie au portail. À présent, j’aimerais afficher ces données uniquement dans Visual Studio.*
-
-    Commentez la ligne `<instrumentationkey>...` du fichier ApplicationInsights.config. Lorsque vous êtes prêt à envoyer de nouveau les données de télémétrie au portail, supprimez les commentaires.
-
-
 
 ## Étapes suivantes
 
@@ -214,4 +234,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

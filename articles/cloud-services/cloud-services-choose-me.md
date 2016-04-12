@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="L’option de calcul Azure Cloud Services m’est-elle destinée ? | Microsoft Azure" 
-	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
+	pageTitle="L’option de calcul Azure Cloud Services m’est-elle destinée ? | Microsoft Azure" 
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
 	services="cloud-services"
     documentationCenter=""
 	authors="Thraka" 
@@ -15,9 +15,9 @@
 	ms.date="09/01/2015" 
 	ms.author="adegeo"/>
 
-# Dois-je choisir Cloud Services ?
+# Dois-je choisir Cloud Services ?
 
-Azure propose différents modèles d’hébergement d’applications. Chaque modèle fournit un ensemble différent de services, donc votre choix dépend exactement ce que vous essayez de faire. Cloud Services est-il fait pour vous ?
+Azure propose différents modèles d’hébergement d’applications. Chaque modèle fournit un ensemble différent de services, donc votre choix dépend exactement ce que vous essayez de faire. Cloud Services est-il fait pour vous ?
 
 | Options de calcul | Public ciblé |
 | ------------------ | --------   |
@@ -33,7 +33,7 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 [Création d’une application de service cloud dans .NET](cloud-services-dotnet-get-started.md)<br/> [Création d’une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Création d’une application de service cloud dans PHP](../cloud-services-php-create-web-role.md)<br/> [Création d’une application de service cloud dans Python](../cloud-services-python-ptvs.md)<br/>
 
 [App Service]: ../app-service-web/app-service-web-overview.md
-[Virtual Machines]: ../virtual-machines/virtual-machines-about.md
+[Virtual Machines]: ../virtual-machines/virtual-machines-linux-about.md
 [Cloud Services]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

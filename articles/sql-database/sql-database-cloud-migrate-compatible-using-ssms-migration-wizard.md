@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migration d’une base de données SQL Server vers Base de données SQL à l’aide de l’assistant de déploiement de base de données vers Microsoft Azure Database
 
-Cet assistant, disponible dans SQL Server Management Studio, permet de migrer une [base de données SQL Server compatible](../sql-database-cloud-migrate.md) directement dans votre serveur Base de données SQL Microsoft Azure.
+Cet assistant, disponible dans SQL Server Management Studio, permet de migrer une [base de données SQL Server compatible](sql-database-cloud-migrate.md) directement dans votre serveur Base de données SQL Microsoft Azure.
 
 ## Utiliser l’assistant de déploiement de base de données dans une base de données Microsoft Azure
 
-> [AZURE.NOTE]Les étapes ci-dessous supposent que vous avez un [serveur Base de données SQL fourni](../sql-database-get-started.md).
+> [AZURE.NOTE] Les étapes ci-dessous supposent que vous avez un [serveur Base de données SQL fourni](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
 1. Assurez-vous de disposer de la dernière version de SQL Server Management Studio. Les nouvelles versions de Management Studio sont mises à jour tous les mois afin de refléter les mises à jour publiées sur le portail Azure.
 
-    > [AZURE.IMPORTANT]Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Ouvrez Management Studio et connectez-vous à votre base de données SQL Server pour migrer dans l’Explorateur d’objets.
 3. Dans l’Explorateur d’objets, cliquez avec le bouton droit de la souris sur la base de données, pointez sur **Tâches**, puis cliquez sur **Déployer une base de données sur Base de données SQL Microsoft Azure…**
@@ -45,13 +45,13 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 
 	![Paramètres d’exportation](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	Terminez l’Assistant pour migrer la base de données. Selon la taille et la complexité de la base de données, le déploiement peut durer de quelques minutes à plusieurs heures. Si cet assistant détecte les problèmes de compatibilité, les erreurs seront affichées à l’écran et la migration s’arrêtera. Pour obtenir des instructions sur la résolution des problèmes de compatibilité de base de données, consultez la page [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues).
+6.	Terminez l’Assistant pour migrer la base de données. Selon la taille et la complexité de la base de données, le déploiement peut durer de quelques minutes à plusieurs heures. Si cet assistant détecte les problèmes de compatibilité, les erreurs seront affichées à l’écran et la migration s’arrêtera. Pour obtenir des instructions sur la résolution des problèmes de compatibilité de base de données, consultez la page [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
-7.	À l’aide de l’Explorateur d’objets, connectez-vous à la base de données que vous venez de déployer sur votre serveur de base de données SQL Azure.
+7.	À l’aide de l’Explorateur d’objets, connectez-vous à la base de données que vous venez de déployer sur votre serveur de base de données SQL Azure.
 8.	Dans le portail Azure, vous pouvez afficher votre base de données et ses propriétés.
 
 ## Étape suivante : résoudre les problèmes de compatibilité, le cas échéant
 
 [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md), le cas échéant.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

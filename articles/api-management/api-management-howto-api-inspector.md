@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
 
 Gestion des API Azure fournit un outil Inspecteur d’API pour vous aider au débogage et à la résolution des problèmes de vos API. L'inspecteur d'API peut être utilisé par programme et directement depuis le portail des développeurs.
 
-En plus des opérations de suivi, l'inspecteur d’API assure également le suivi des évaluations d’[expression de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx). Pour une démonstration, consultez l'épisode [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/), à partir de la 21e minute.
+En plus des opérations de suivi, l'inspecteur d’API assure également le suivi des évaluations d’[expression de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx). Pour une démonstration, consultez l'épisode [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/), à partir de la 21e minute.
 
 Ce guide contient une procédure détaillée pour l'utilisation de l'inspecteur d'API.
 
->[AZURE.NOTE]Le suivi de l’inspecteur d’API n’est généré et mis à disposition que pour les demandes contenant des clés d’abonnement qui appartiennent au compte [administrateur](api-management-howto-create-groups.md).
+>[AZURE.NOTE] Le suivi de l’inspecteur d’API n’est généré et mis à disposition que pour les demandes contenant des clés d’abonnement qui appartiennent au compte [administrateur](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a>Utilisation de l’inspecteur d’API pour suivre un appel
 
@@ -230,7 +230,7 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 ## <a name="next-steps"> </a>Étapes suivantes
 
 -	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
--	Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
+-	Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -261,4 +261,4 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

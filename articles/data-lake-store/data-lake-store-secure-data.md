@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Sécurisation des données stockées dans Azure Data Lake Store
 
 La sécurisation des données dans Azure Data Lake Store se fait en trois étapes.
 
-1. Commencez par créer des groupes de sécurité dans Azure Active Directory (AAD). Ces groupes de sécurité sont utilisés pour implémenter le contrôle d'accès en fonction du rôle (RBAC) dans le portail Azure. Pour plus d'informations, consultez la page [Contrôle d'accès en fonction du rôle dans Microsoft Azure](role-based-access-control-configure.md).
+1. Commencez par créer des groupes de sécurité dans Azure Active Directory (AAD). Ces groupes de sécurité sont utilisés pour implémenter le contrôle d'accès en fonction du rôle (RBAC) dans le portail Azure. Pour plus d'informations, consultez la page [Contrôle d'accès en fonction du rôle dans Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Affectez les groupes de sécurité AAD au compte Azure Data Lake Store. Ceci contrôle l'accès au compte Data Lake Store à partir du portail et les opérations de gestion à partir du portail ou des API.
 
@@ -30,14 +30,14 @@ Cet article explique comment utiliser le portail Azure pour effectuer les tâche
 
 ## Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Créer des groupes de sécurité dans Azure Active Directory
 
-Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Affecter les utilisateurs ou les groupes de sécurité aux comptes Azure Data Lake Store
 
@@ -58,7 +58,7 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
 	* Ajouter un utilisateur/groupe au compte, puis lui affecter un rôle, ou
 	* Ajouter un rôle, puis affecter les utilisateurs/groupes au rôle.
 
-	Dans cette section, nous examinons la première approche : ajouter un groupe, puis affecter les rôles. Vous pouvez suivre les mêmes étapes pour commencer par sélectionner un rôle puis affecter des groupes à ce rôle.
+	Dans cette section, nous examinons la première approche : ajouter un groupe, puis affecter les rôles. Vous pouvez suivre les mêmes étapes pour commencer par sélectionner un rôle puis affecter des groupes à ce rôle.
 	
 4. Dans le panneau **Utilisateurs**, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès**. Dans le panneau **Ajouter un accès**, cliquez sur **Sélectionner un rôle**, puis sélectionnez un rôle pour l'utilisateur ou le groupe.
 
@@ -98,7 +98,7 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	![Lister les accès standard et personnalisés](./media/data-lake-store-secure-data/adl.acl.2.png "Lister les accès standard et personnalisés")
 
-	* L'accès standard est l'accès de type UNIX, où vous spécifiez la lecture, l'écriture et l'exécution (rwx) à trois classes d'utilisateurs distinctes : propriétaire, groupe et autres.
+	* L'accès standard est l'accès de type UNIX, où vous spécifiez la lecture, l'écriture et l'exécution (rwx) à trois classes d'utilisateurs distinctes : propriétaire, groupe et autres.
 	* L'accès personnalisé correspond aux ACL POSIX et vous permet de définir des autorisations pour des utilisateurs nommés ou des groupes en particulier, et pas seulement pour le propriétaire du fichier ou le groupe.
 	
 	Pour plus d'informations, consultez la page [ACL HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
@@ -119,7 +119,7 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	![Affecter des autorisations à un groupe](./media/data-lake-store-secure-data/adl.acl.5.png "Affecter des autorisations à un groupe")
 
-	> [AZURE.IMPORTANT] Dans la version actuelle, vous ne pouvez avoir que 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
+	> [AZURE.IMPORTANT] Dans la version actuelle, vous ne pouvez avoir que 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
 
 7. Si nécessaire, vous pouvez également modifier les autorisations d'accès après avoir ajouté le groupe. Cochez ou décochez la case de chaque type d'autorisation (lecture, écriture, exécution) selon que vous souhaitez retirer ou affecter cette autorisation au groupe de sécurité. Cliquez sur **Enregistrer** pour enregistrer les modifications, ou sur **Ignorer** pour annuler les modifications.
 
@@ -160,9 +160,9 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 
 - [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 - [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-- [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

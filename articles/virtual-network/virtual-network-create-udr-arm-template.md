@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des itinéraires définis par l'utilisateur (UDR) dans le modèle de déploiement classique](virtual-networks-udr-how-to.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -31,7 +31,7 @@
 
 Vous pouvez afficher et télécharger les [exemples de modèles](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-La section ci-dessous illustre la définition de l’itinéraire défini par l'utilisateur (UDR) frontal dans le fichier **azuredeploy-vnet-nsg-udr.json**, selon le scénario ci-dessus.
+La section ci-dessous illustre la définition de l’itinéraire défini par l’utilisateur (UDR) frontal dans le fichier **azuredeploy-vnet-nsg-udr.json**, selon le scénario ci-dessus.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -118,7 +118,7 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
-2. Pour créer un groupe de ressources, exécutez l’applet de commande `New-AzureRmResourceGroup`.
+2. Exécutez l’applet de commande `New-AzureRmResourceGroup` pour créer un groupe de ressources.
 
 		New-AzureRmResourceGroup -Name TestRG -Location westus
 
@@ -396,4 +396,4 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 >[AZURE.TIP] Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement est défini sur *Succeded*.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

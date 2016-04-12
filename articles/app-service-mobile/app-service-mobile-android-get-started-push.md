@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="yuaxu"/>
+	ms.date="03/04/2016"
+	ms.author="yuaxu;ricksal"/>
 
 # Ajouter des notifications Push à votre application Android
 
@@ -25,10 +25,10 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 ##Composants requis
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Compte Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) avec une adresse électronique vérifiée.
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) : inutile pour un projet de serveur principal Node.js.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) : inutile pour un projet de serveur principal Node.js.
 * Suivez le [didacticiel de démarrage rapide](app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Créer un hub de notification
@@ -73,11 +73,11 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 
 ##<a id="more"></a>En savoir plus
 
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l’installation d’un appareil.
+* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l’installation d’un appareil.
 
 <!-- URLs -->
 [Démarrage rapide Android]: app-service-mobile-android-get-started.md
 
 [Configuration du Kit de développement logiciel (SDK) des services Google Play]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

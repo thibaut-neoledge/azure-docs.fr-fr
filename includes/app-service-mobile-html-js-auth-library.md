@@ -1,11 +1,8 @@
-##<a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
+###<a name="server-auth"></a>Procédure : authentification auprès d’un fournisseur (flux serveur)
 
-To have Mobile Services manage the authentication process in your app, you must register your app with your identity
-provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app].
+Pour que les Mobile Services gèrent le processus d’authentification dans votre application, vous devez inscrire votre application auprès de votre fournisseur d’identité. Ensuite, dans Azure App Service, vous devez configurer l’ID d’application et le secret fournis par votre fournisseur. Pour plus d’informations, consultez le didacticiel [Ajout de l’authentification à votre application].
 
-Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
-example, to login with Facebook use the following code.
+Une fois que vous avez inscrit votre fournisseur d’identité, appelez simplement la méthode .login() avec le nom de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant.
 
 ```
 client.login("facebook").done(function (results) {
@@ -15,23 +12,17 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of
-the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
+Si vous utilisez un fournisseur d’identité différent de Facebook, remplacez la valeur transmise à la méthode login ci-dessus par l’une des valeurs suivantes : `microsoftaccount`, `facebook`, `twitter`, `google` ou `aad`.
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
-provider and generating a App Service authentication token after successful login with the identity provider. The login
-function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
-in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
+Dans ce cas, Azure App Service gère le flux d’authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d’authentification App Service après avoir établi une connexion avec le fournisseur d’identité. La fonction login, quand elle est utilisée, renvoie un objet JSON (user) qui expose l’ID utilisateur et le jeton d’authentification App Service dans les champs userId et authenticationToken, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration.
 
-##<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
+###<a name="client-auth"></a>Procédure : authentification auprès d’un fournisseur (flux client)
 
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for
-authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
-user data from the identity provider.
+Votre application peut également contacter le fournisseur d’identité de manière indépendante, puis fournir le jeton renvoyé à App Service à des fins d’authentification. Le flux client permet de proposer l'authentification unique aux utilisateurs ou de récupérer d'autres données utilisateur auprès du fournisseur d'identité.
 
-### Social Authentication basic example
+#### Exemple de base de l’authentification sociale
 
-This example uses Facebook client SDK for authentication:
+Cet exemple utilise le SDK client Facebook pour l'authentification :
 
 ```
 client.login(
@@ -43,11 +34,11 @@ client.login(
      alert("Error: " + err);
 });
 ```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.
+Cet exemple part du principe que le jeton fourni par le Kit de développement logiciel (SDK) propre au fournisseur est stocké dans une variable token.
 
-### Microsoft Account example
+#### Exemple de compte Microsoft
 
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
+L'exemple suivant utilise le Kit de développement logiciel (SDK) Live, qui prend en charge l'authentification unique pour les applications Windows Store à l'aide d'un compte Microsoft :
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -63,12 +54,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 });
 ```
 
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
+Cet exemple récupère un jeton de Live Connect, qui est fourni à App Service en appelant la fonction login.
 
-##<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+###<a name="auth-getinfo"></a>Procédure : obtention des informations sur l’utilisateur authentifié
 
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  For example, to use the fetch API:
+Les informations d’authentification sur l’utilisateur actuel peuvent être récupérées du point de terminaison `/.auth/me` à l’aide de toute méthode AJAX. Par exemple, pour utiliser l’API d’extraction :
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -80,4 +70,6 @@ fetch(url)
     });
 ```
 
-You could also use jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+Vous pouvez également utiliser jQuery ou une autre API AJAX pour extraire les informations. Les données sont reçues sous la forme d’un objet JSON.
+
+<!---HONumber=AcomDC_0323_2016-->

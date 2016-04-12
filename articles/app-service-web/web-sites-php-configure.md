@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service."
 	services="app-service"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Configurer PHP dans Azure App Service Web Apps
 
@@ -189,4 +189,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

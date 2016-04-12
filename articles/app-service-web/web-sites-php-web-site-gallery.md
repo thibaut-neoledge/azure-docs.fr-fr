@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Créer une application web WordPress dans Azure App Service | Microsoft Azure"
+	pageTitle="Créer une application web WordPress dans Azure App Service | Microsoft Azure"
 	description="Découvrez comment créer une application web Azure pour un blog WordPress par le biais du portail Azure."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,9 +14,9 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
-# Créer une application web WordPress dans Azure App Service
+# Créer une application web WordPress dans Azure App Service
 
 Ce didacticiel montre comment déployer un blog WordPress à partir d’Azure Marketplace.
 
@@ -24,7 +24,7 @@ Lorsque vous aurez terminé avec le didacticiel, vous disposerez de votre propre
 
 ![Site WordPress](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
-Vous apprendrez ce qui suit :
+Vous apprendrez ce qui suit :
 
 * Comment trouver un modèle d’application dans Azure Marketplace.
 * Comment créer une application web dans Azure App Service basée sur le modèle.
@@ -35,7 +35,7 @@ Azure Marketplace met à votre disposition une large gamme d’applications web 
 Le site WordPress déployé dans le cadre de ce didacticiel utilise MySQL pour la base de données. Pour utiliser Base de données SQL à la place, consultez le site [Project Nami](http://projectnami.org/). **Project Nami** est également disponible via Marketplace.
 
 > [AZURE.NOTE]
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -91,7 +91,7 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. S
 
 ## Lancer et gérer l’application web WordPress
 	
-7. Une fois la création de l’application web terminée, dans le portail Azure, accédez au groupe de ressources dans lequel vous avez créé l’application ; vous pourrez voir l’application web et la base de données.
+7. Une fois la création de l’application web terminée, dans le portail Azure, accédez au groupe de ressources dans lequel vous avez créé l’application ; vous pourrez voir l’application web et la base de données.
 
 	La ressource supplémentaire dotée de l’icône en forme d’ampoule est [Application Insights](/services/application-insights/), qui fournit des services de surveillance pour votre application web.
 
@@ -126,4 +126,4 @@ Pour plus d’informations sur l’utilisation d’App Service Web Apps, consult
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

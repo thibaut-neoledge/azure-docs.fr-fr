@@ -19,8 +19,8 @@
 
 # Surveillance et gestion des pipelines d’Azure Data Factory
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Utilisation du portail Azure/d’Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Utilisation de l’application de surveillance et gestion](data-factory-monitor-manage-app.md)
 
 Le service Data Factory offre une vision fiable et complète de vos services de stockage, de traitement et de déplacement des données. Il vous permet d'évaluer rapidement l'intégrité du pipeline de données de bout en bout, d'identifier les problèmes et de prendre des mesures correctives, si nécessaire. En outre, vous pouvez suivre visuellement le lignage des données et les relations entre vos données sur n'importe quelle source et consulter un historique complet de l'exécution des travaux, de l'intégrité du système et des dépendances à partir d'un tableau de bord de surveillance unique.
 
@@ -349,7 +349,7 @@ Le tableau suivant dresse la liste des opérations et des états (et états seco
 Nom d’opération | État | État secondaire
 -------------- | ------ | ----------
 RunStarted | Démarré | Starting
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Démarré
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -378,8 +378,10 @@ Une fois le déploiement du groupe de ressources réussi, les messages suivants 
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] Vous pouvez utiliser l’API REST [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour créer une règle d’alerte. La charge utile JSON est similaire à l’exemple JSON ci-dessus.
+
 #### Récupération de la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -396,12 +398,12 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 #### Résolution des problèmes des événements utilisateur
 
 
-- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements**:
+- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
 
 	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule**:
+- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
 
 
 		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
@@ -545,11 +547,13 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend actuellement en charge ces deux valeurs :
+- FailedRuns
+- SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -570,10 +574,10 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Outputs           
 
 
-Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d’informations et des exemples.
+Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour obtenir plus d’informations et des exemples.
 
 ## Déplacer la fabrique de données vers un autre groupe de ressources ou abonnement
-Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l'aide du bouton de la barre de commandes **Déplacer** situé sur la page d'accueil de votre fabrique de données.
+Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l’aide du bouton de la barre de commandes **Déplacer** situé sur la page d’accueil de votre fabrique de données.
 
 ![Déplacer la fabrique de données](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -581,4 +585,4 @@ Vous pouvez également déplacer toutes les ressources associées (notamment les
 
 ![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

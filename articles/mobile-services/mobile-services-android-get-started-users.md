@@ -18,11 +18,12 @@
 
 # Ajouter une authentification à votre application Mobile Services Android (backend JavaScript)
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de l’authentification à votre application Android](../app-service-mobile/app-service-mobile-android-get-started-users.md).
 
 ## Résumé
 
@@ -30,7 +31,7 @@ Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Se
 
 > [AZURE.VIDEO android-getting-started-with-authentication-in-windows-azure-mobile-services]
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
 
 
 ##Configuration requise
@@ -47,7 +48,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d’activer 
 
 1. Dans Android Studio, ouvrez le projet que vous avez créé quand vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
-2. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
+2. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -106,4 +107,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 
@@ -32,7 +32,7 @@ Les stratégies peuvent être configurées de façon globale, ou bien au niveau 
 
 ![Policies menu][policies-menu]
 
-L’éditeur de stratégies se compose de trois sections principales : la portée de la stratégie (en haut), la définition de la stratégie, là où les stratégies sont modifiées (à gauche) et la liste des instructions (à droite) :
+L’éditeur de stratégies se compose de trois sections principales : la portée de la stratégie (en haut), la définition de la stratégie, là où les stratégies sont modifiées (à gauche) et la liste des instructions (à droite) :
 
 ![Policies editor][policies-editor]
 
@@ -65,7 +65,7 @@ Ceci ajoute un code XML à l'élément `inbound`, indiquant comment configurer l
 		<address-range from="address" to="address"/>
 	</ip-filter>
 
-Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse IP 1.2.3.4, modifiez le code XML comme suit :
+Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse IP 1.2.3.4, modifiez le code XML comme suit :
 
 	<ip-filter action="allow">
 		<address>1.2.3.4</address>
@@ -122,7 +122,7 @@ Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-doma
 
 Si la même stratégie apparaît deux fois dans l'instruction de stratégie, la stratégie la plus récemment évaluée est appliquée. Cela permet de remplacer les stratégies qui sont définies dans une étendue plus élevée. Pour afficher les stratégies dans l'étendue actuelle dans l'éditeur de stratégie, cliquez sur **Recalculer la stratégie en vigueur pour l'étendue sélectionnée**.
 
-Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet.
+Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet.
 
 ## Étapes suivantes
 
@@ -148,4 +148,4 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -32,11 +32,11 @@ Pour accéder par programme aux objets blob des projets ASP.NET 5, vous devez aj
 
 1. Ajoutez les déclarations d’espace de noms suivantes en haut de chaque fichier C# dans lequel vous voulez accéder au stockage Azure par programmation.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. Obtenez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
 
@@ -155,4 +155,4 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

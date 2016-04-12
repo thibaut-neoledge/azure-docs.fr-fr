@@ -8,23 +8,23 @@ Dans cette section, vous allez créer une application console Windows qui simule
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulatedDevice**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de package NuGet**, recherchez **Client d’appareils Microsoft Azure**, cliquez sur **Installer**et acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **Microsoft.Azure.Devices.Client**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices.Client**, puis acceptez les conditions d’utilisation.
 
 	Cette opération lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT - Device SDK NuGet][lnk-device-nuget].
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices.Client;
         using Newtonsoft.Json;
         using System.Threading;
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs des espaces réservés par le nom d’hôte IoT Hub figurant dans la section *Créer un IoT Hub* et par la clé d’appareil figurant dans la section *Créer une identité d’appareil* :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs des espaces réservés par le nom d’hôte IoT Hub figurant dans la section *Créer un IoT Hub* et par la clé d’appareil figurant dans la section *Créer une identité d’appareil* :
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub hostname}";
         static string deviceKey = "{device key}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private static async void SendDeviceToCloudMessagesAsync()
         {
@@ -52,7 +52,7 @@ Dans cette section, vous allez créer une application console Windows qui simule
 
 	Cette méthode envoie un nouveau message Appareil vers cloud toutes les secondes. Le message contient un objet JSON sérialisé avec l’ID de l’appareil et un nombre généré de manière aléatoire pour simuler un anémomètre.
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Simulated device\n");
         deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));
@@ -73,4 +73,4 @@ Dans cette section, vous allez créer une application console Windows qui simule
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

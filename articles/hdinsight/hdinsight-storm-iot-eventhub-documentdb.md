@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Traitement des données de capteur de véhicules à partir d’Azure Event Hubs à l’aide d’Apache Storm dans HDInsight
@@ -34,28 +34,28 @@ Les données de télémétrie pour la température du moteur, la température am
 
 Pendant le traitement, le VIN est utilisé pour extraire des informations sur le modèle à partir d'Azure DocumentDB. Ces informations sont ajoutées au flux de données avant le stockage.
 
-Les composants utilisés dans la topologie Storm sont les suivants :
+Les composants utilisés dans la topologie Storm sont les suivants :
 
-* **EventHubSpout** : lit les données à partir d'Azure Event Hubs
+* **EventHubSpout** : lit les données à partir d'Azure Event Hubs
 
-* **TypeConversionBolt** : convertit la chaîne JSON à partir des hubs d'événements en un tuple contenant les valeurs de données individuelles de la température du moteur, la température ambiante, la vitesse, le VIN et l'horodatage
+* **TypeConversionBolt** : convertit la chaîne JSON à partir des hubs d'événements en un tuple contenant les valeurs de données individuelles de la température du moteur, la température ambiante, la vitesse, le VIN et l'horodatage
 
-* **DataReferencBolt** : recherche dans DocumentDB le modèle du véhicule à l'aide du VIN
+* **DataReferencBolt** : recherche dans DocumentDB le modèle du véhicule à l'aide du VIN
 
-* **WasbStoreBolt** : stocke les données dans HDFS (Azure Storage)
+* **WasbStoreBolt** : stocke les données dans HDFS (Azure Storage)
 
-Voici un diagramme de cette solution :
+Voici un diagramme de cette solution :
 
 ![topologie Storm](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
-> [AZURE.NOTE]Il s'agit d'un diagramme simplifié et chaque composant de la solution peut avoir plusieurs instances. Par exemple, les différentes instances de chaque composant de la topologie sont réparties entre les nœuds du cluster Storm dans HDInsight.
+> [AZURE.NOTE] Il s'agit d'un diagramme simplifié et chaque composant de la solution peut avoir plusieurs instances. Par exemple, les différentes instances de chaque composant de la topologie sont réparties entre les nœuds du cluster Storm dans HDInsight.
 
 ##Implémentation
 
-Une solution automatisée complète pour ce scénario est disponible dans le référentiel <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight-Storm-Examples</a> sur GitHub. Pour utiliser cet exemple, suivez les étapes de la page [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
+Une solution automatisée complète pour ce scénario est disponible dans le référentiel [HDInsight-Storm-Examples](https://github.com/hdinsight/hdinsight-storm-examples) sur GitHub. Pour utiliser cet exemple, suivez les étapes de la page [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
 
 ## Étapes suivantes
 
 Pour plus d'exemples de topologies Storm, consultez les [exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

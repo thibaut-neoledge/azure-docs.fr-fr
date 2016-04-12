@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -32,7 +32,7 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 
 > [AZURE.NOTE] Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par votre abonnement par région, et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de base à titre d'exemple. Si vous avez besoin de demander une augmentation du quota avec la prise en charge de cœurs, vous devez choisir le nombre de noyaux souhaité et les régions concernées, et effectuer une demande spécifique de quotas de base de groupes de ressources Azure pour les volumes et régions choisis. Par conséquent, si vous avez besoin de 30 cœurs en Europe de l'Ouest pour exécuter votre application, vous devez demander spécifiquement 30 cœurs en Europe de l'Ouest. Néanmoins, il n’y aura pas d’augmentation du quota de base dans les autres régions. Seule la région Europe de l'Ouest disposera du quota de 30 cœurs.
 <!-- -->
-Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)
+Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](./resource-manager-common-deployment-errors.md)
 
 
 ## Limites de service spécifique
@@ -280,8 +280,8 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tailles de machines virtuelles et services cloud pour Microsoft Azure](virtual-machines/virtual-machines-size-specs.md)
+[Tailles de machines virtuelles et services cloud pour Microsoft Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

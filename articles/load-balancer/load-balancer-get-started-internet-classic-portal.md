@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Création d’un équilibreur de charge accessible sur Internet (classique) dans le portail Azure Classic
@@ -40,10 +40,10 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 4.	Sur la page **Ajouter un point de terminaison à une machine virtuelle**, cliquez sur la flèche droite.
 
-4.	Sur la page **Spécifier les détails du point de terminaison** :
+4.	Sur la page **Spécifier les détails du point de terminaison** :
 	- Dans **Nom**, saisissez le nom du point de terminaison ou sélectionnez-en un dans la liste des points de terminaison prédéfinis pour les protocoles communs.
 	-  Dans **Protocole**, sélectionnez le protocole requis, TCP ou UDP, pour ce type de point de terminaison.
- 	-  Dans **Port public et Port privé**, entrez les numéros de port dont se servira la machine virtuelle. Vous pouvez utiliser le port privé et des règles de pare-feu sur la machine virtuelle pour rediriger le trafic de façon pertinente pour votre application. Le port privé et le port public peuvent être identiques. Par exemple, pour un point de terminaison pour le trafic Web (HTTP), vous pouvez attribuer le port 80 comme port public ou privé.
+ 	-  Dans **Port public et Port privé**, entrez les numéros de port dont se servira la machine virtuelle. Vous pouvez utiliser le port privé et des règles de pare-feu sur la machine virtuelle pour rediriger le trafic de façon pertinente pour votre application. Le port privé et le port public peuvent être identiques. Par exemple, pour un point de terminaison pour le trafic Web (HTTP), vous pouvez attribuer le port 80 comme port public ou privé.
 
 5.	Sélectionnez **Créer un jeu d'équilibrage de la charge**, puis cliquez sur la flèche vers la droite.
 
@@ -55,16 +55,16 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 9.	Sur la page **Ajouter un point de terminaison à la machine virtuelle**, cliquez sur **Ajouter un point de terminaison à un jeu d’équilibrage de la charge existant**, sélectionnez le nom du jeu d’équilibrage de la charge, puis cliquez sur la flèche vers la droite.
 
-10.	Sur la page **Spécifier les détails du point de terminaison**, entrez le nom du point de terminaison, puis cliquez sur la coche. Pour les machines virtuelles supplémentaires dans le jeu d’équilibrage de la charge, répétez les étapes 8 à 10.
+10.	Sur la page **Spécifier les détails du point de terminaison**, tapez le nom du point de terminaison, puis cliquez sur la coche. Pour les machines virtuelles supplémentaires dans le jeu d’équilibrage de la charge, répétez les étapes 8 à 10.
 
 
 
 ## Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
+[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

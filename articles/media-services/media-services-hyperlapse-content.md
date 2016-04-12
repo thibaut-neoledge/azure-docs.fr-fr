@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/12/2015"   
+	ms.date="03/08/2016"   
 	ms.author="adsolank"/>
 
 
@@ -24,7 +24,7 @@ Azure Media Hyperlapse est un processeur multimédia (MP) qui crée des vidéos 
 >[AZURE.IMPORTANT] Microsoft Hyperlapse pour Azure Media Services est en version préliminaire publique gratuite. Les tâches sont limitées aux 10 000 premières images de l'élément multimédia d'entrée.
 
 
-> Microsoft Hyperlapse est conçu pour fonctionner parfaitement dans du contenu « first-person » avec une caméra en mouvement. Bien que les enregistrements effectués par des appareils photo soient toujours pris en charge, les performances et la qualité du processeur multimédia Azure Media Hyperlapse ne peuvent pas être garanties pour d'autres types de contenu. Pour en savoir plus sur Microsoft Hyperlapse pour Azure Media Services et voir des exemples de vidéos, consultez la [billet de blog d'introduction](http://aka.ms/azurehyperlapseblog) depuis la version préliminaire.
+> Microsoft Hyperlapse est conçu pour fonctionner parfaitement dans du contenu « first-person » avec une caméra en mouvement. Bien que les enregistrements effectués par des appareils photo soient toujours pris en charge, les performances et la qualité du processeur multimédia Azure Media Hyperlapse ne peuvent pas être garanties pour d'autres types de contenu. Pour en savoir plus sur Microsoft Hyperlapse pour Azure Media Services et voir des exemples de vidéos, consultez la [billet de blog d'introduction](http://aka.ms/azurehyperlapseblog) depuis la version préliminaire.
 
 Une tâche Azure Media Hyperlapse prend comme entrée un fichier de ressource MP4, MOV ou WMV, ainsi qu'un fichier de configuration qui spécifie les images sur lesquelles la technique image par image doit être appliquée et à quelle vitesse (par exemple, les 10 000 premières images à 2x). La sortie est un rendu stabilisé et accéléré de l'entrée vidéo.
 
@@ -36,7 +36,7 @@ Vous devez tout d'abord charger votre fichier d'entrée souhaité dans Azure Med
 
 ###  <a id="configuration"></a>Configuration de la présélection pour Hyperlapse
 
-Une fois votre contenu dans votre compte Media Services, vous devez construire la présélection de votre configuration. Le tableau suivant décrit les champs spécifiés par l'utilisateur :
+Une fois votre contenu dans votre compte Media Services, vous devez construire la présélection de votre configuration. Le tableau suivant décrit les champs spécifiés par l'utilisateur :
 
  Champ | Description
 -------|-------------
@@ -46,7 +46,7 @@ Vitesse|Le facteur de l'accélération de la vidéo d'entrée.
 
 Voici un exemple de fichier de configuration conforme au format XML et JSON :
 
-**Présélection XML :**
+**Présélection XML :**
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -58,7 +58,7 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
 		</Options>
 	</Preset>
 
-**Présélection JSON :**
+**Présélection JSON :**
 
 	{
 		"Version":1.0,
@@ -221,4 +221,4 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

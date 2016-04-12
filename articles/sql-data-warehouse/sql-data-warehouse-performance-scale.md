@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Performances et mise à l’échelle élastiques avec SQL Data Warehouse
@@ -27,12 +27,12 @@ Plutôt que de communiquer des configurations de DWU idéales pour les catégori
 
 1. Si vous disposez d’un entrepôt de données en développement, commencez par sélectionner un nombre réduit d’unités DWU.
 2. Surveillez les performances de votre application, en observant notamment le nombre d’unités DWU sélectionné.
-3. Déterminez le niveau de performances le mieux adapté aux exigences en modulant la capacité de votre système à l’aide d’une mise à l’échelle linéaire. 
+3. Déterminez le niveau de performances le mieux adapté aux exigences en modulant la capacité de votre système à l’aide d’une mise à l’échelle linéaire.
 4. Augmentez ou baissez le nombre d’unités DWU sélectionné. Le service répond rapidement et ajuste le volume de ressources de calcul en fonction de la configuration des unités DWU.
 5. Continuez à effectuer des ajustements jusqu’à ce que vous atteigniez le niveau de performances requis par vos activités.
 
 Si votre application présente une charge de travail fluctuante, augmentez et réduisez les niveaux de performances suivant les pics et les creux. Par exemple, si une charge de travail atteint habituellement un niveau optimal à la fin du mois, envisagez d’ajouter davantage d’unités DWU durant ces quelques jours, avant de réduire l’échelle une fois la période d’activité intense passée.
- 
+
 ## Montée et descente en puissance des ressources de calcul
 Indépendante du stockage de type cloud, la flexibilité de SQL Data Warehouse vous permet d’augmenter, de réduire ou d’interrompre la capacité de calcul à l’aide d’une mise à l’échelle par glissement des unités d’entrepôt de données (DWU). Ainsi, vous disposez de la latitude nécessaire pour configurer une capacité de calcul optimale pour votre activité.
 
@@ -40,8 +40,8 @@ Pour augmenter votre puissance de calcul, vous pouvez ajouter d’autres DWU au 
 
 Dans le [Portail Azure Classic][], vous pouvez cliquer sur l’icône de « Montée en puissance parallèle » en haut de votre page SQL Data Warehouse, puis utiliser le curseur pour augmenter ou baisser la quantité d’unités DWU appliquée à votre entrepôt de données avant de cliquer sur « Enregistrer ». Si vous souhaitez chanter l’échelle par programmation, le code T-SQL ci-dessous indique comment ajuster l’allocation de DWU pour votre instance SQL Data Warehouse :
 
-```
-ALTER DATABASE MySQLDW 
+```sql
+ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
@@ -49,7 +49,7 @@ Veuillez noter que cette T-SQL doit être exécuté sur votre serveur logique et
 
 Vous pouvez obtenir le même résultat à l’aide de PowerShell, en exécutant le code ci-dessous :
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ L’interruption et la reprise de votre capacité de calcul s’effectuent via l
 
 Le code ci-dessous indique comment effectuer une pause à l’aide de PowerShell :
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 Il est également très simple de reprendre le service à l’aide de PowerShell :
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Pour en savoir plus sur l’utilisation de PowerShell, consultez [Utilisation des applets de commande PowerShell et des API REST avec SQL Data Warehouse][].
-
-
 
 ## Étapes suivantes
 Pour consulter une présentation sur les performances, accédez à la [vue d’ensemble sur les performances][].
@@ -96,4 +94,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 [Portail Azure Classic]: http://portal.azure.com/
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

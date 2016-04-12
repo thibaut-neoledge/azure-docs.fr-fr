@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Téléchargement de données avec Azure Data Factory
@@ -75,18 +75,18 @@ Liez votre compte de stockage Azure et SQL Data Warehouse à votre fabrique de d
 
 2. Pour enregistrer SQL Data Warehouse, accédez à la section « Créer et déployer », sélectionnez « Nouveau magasin de données », puis « Azure SQL Data Warehouse ». Copiez et collez ce modèle, puis renseignez vos informations.
 
-    ````
-    {
-        "name": "<Linked Service Name>",
-	    "properties": {
-	        "description": "",
-		    "type": "AzureSqlDW",
-		    "typeProperties": {
-		         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-	         }
-        }
+```JSON
+{
+    "name": "<Linked Service Name>",
+    "properties": {
+        "description": "",
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+         }
     }
-    ````
+}
+```
 
 ### Étape 2.2 : définir le jeu de données
 
@@ -96,56 +96,56 @@ Après avoir créé les services liés, nous devrons définir les jeux de donné
 
 2. Cliquez sur « Nouveau dataset », puis sur « Stockage des objets blobs Azure » pour lier votre stockage à votre fabrique de données. Vous pouvez utiliser le script ci-dessous pour définir vos données dans le stockage des objets blobs Azure :
 
-    ````
-	{
-	    "name": "<Dataset Name>",
-		"properties": {
-		    "type": "AzureBlob",
-			"linkedServiceName": "<linked storage name>",
-			"typeProperties": {
-			    "folderPath": "<containter name>",
-				"fileName": "FactInternetSales.csv",
-				"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "\n"
-                }
-            },
-		    "external": true,
-		    "availability": {
-			    "frequency": "Hour",
-			    "interval": 1
-		    },
-		    "policy": {
-		        "externalData": {
-			        "retryInterval": "00:01:00",
-			        "retryTimeout": "00:10:00",
-			        "maximumRetry": 3
-		        }
+```JSON
+{
+    "name": "<Dataset Name>",
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
-		}
+        },
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
+        }
 	}
-    ````
+}
+```
 
 
 3. Maintenant, nous allons définir notre jeu de données pour SQL Data Warehouse. Commencer de la même manière, en cliquant sur « Nouveau dataset », puis sur « Azure SQL Data Warehouse ».
 
-    ````
-    {
-	    "name": "DWDataset",
-		"properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "AzureSqlDWLinkedService",
-		    "typeProperties": {
-			    "tableName": "FactInternetSales"
-			},
-		    "availability": {
-		        "frequency": "Hour",
-			    "interval": 1
-	        }
+```JSON
+{
+    "name": "DWDataset",
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
-    ````
+}
+```
 
 ## Étape 3 : créer et exécuter le pipeline
 
@@ -153,7 +153,7 @@ Enfin, nous allons configurer et exécuter le pipeline dans Azure Data Factory. 
 
 Dans la section « Créer et déployer », cliquez sur « Autres commandes », puis sur « Nouveau Pipeline ». Après avoir créé le pipeline, vous pouvez utiliser le code ci-dessous pour transférer les données vers votre entrepôt de données :
 
-````
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -199,7 +199,7 @@ Dans la section « Créer et déployer », cliquez sur « Autres commandes », p
 	    "isPaused": false
     }
 }
-````
+```
 
 ## Étapes suivantes
 
@@ -212,7 +212,7 @@ Pour plus d’informations, consultez les articles suivants :
 Ces rubriques fournissent des informations détaillées sur Azure Data Factory. Elles décrivent la base de données SQL Azure et HDinsight, mais s’appliquent également à Azure SQL Data Warehouse.
 
 - [Didacticiel : prise en main d’Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline.md). Ce didacticiel est consacré au traitement des données avec Azure Data Factory. Dans ce didacticiel, vous allez apprendre à créer votre premier pipeline qui fait appel à HDInsight pour transformer et analyser des journaux web tous les mois. Notez que ce didacticiel ne couvre aucune activité de copie.
-- [Didacticiel : copie de données d’un objet blob Azure vers une base de données SQL Azure](../data-factory/data-factory-get-started.md). Ce didacticiel crée un pipeline dans Azure Data Factory pour copier des données d’un objet blob Azure Storage dans une base de données SQL Azure.
+- [Didacticiel : copie de données d’un objet blob Azure Storage vers une base de données SQL Azure](../data-factory/data-factory-get-started.md). Ce didacticiel crée un pipeline dans Azure Data Factory pour copier des données d’un objet blob Azure Storage dans une base de données SQL Azure.
 - [Didacticiel présentant un scénario réel](../data-factory/data-factory-tutorial.md). Ce didacticiel décrit de manière approfondie l’utilisation d’Azure Data Factory.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

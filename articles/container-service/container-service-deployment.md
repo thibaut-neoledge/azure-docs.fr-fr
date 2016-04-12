@@ -26,10 +26,10 @@ Ce document vous guide tout au long du déploiement d’un cluster Azure Contain
    
 ## Création d’un service à l’aide du portail Azure
  
-Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque**: ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
+Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque** : ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
  
-* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Chaque page du modèle comporte un bouton de déploiement vers Azure qui permet d’accéder au formulaire suivant du portail Azure. <br />
 
@@ -45,15 +45,15 @@ AGENTVMSIZE | Spécifie la taille des machines virtuelles de l’agent. Veillez 
 ADMINUSERNAME | Nom d’utilisateur qui sera utilisé pour un compte sur chaque machine virtuelle et chaque jeu de mise à l’échelle des machines virtuelles dans le cluster ACS.
 ORCHESTRATORTYPE| Sélectionnez l’orchestrateur que vous souhaitez utiliser dans votre cluster ACS.
 MASTERCOUNT | Nombre de machines virtuelles à configurer en tant que serveurs principaux de votre cluster. Vous pouvez n’en sélectionner qu’une, mais cette valeur n’apportera aucune résilience à votre cluster et est recommandée uniquement à des fins de test. Pour un cluster de production, il est recommandé d’en sélectionner 3 ou 5. 
-SSHRSAPUBLICKEY | Vous devez utiliser SSH pour l’authentification sur les machines virtuelles. Ce champ vous permet d’ajouter votre clé publique. Il est très important de bien coller la valeur de votre clé dans cette zone. Certains éditeurs insèrent des sauts de ligne dans le contenu, ce qui a pour effet de corrompre la clé. Vérifiez que votre clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Vous devriez obtenir quelque chose du type : « ssh rsa AAAAB3Nz... SNIPPEDCONTENT... UcyupgH azureuser@linuxvm' ». Si vous devez créer une clé SSH, suivez les instructions fournies pour [Windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) et [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md) sur le site de documentation Azure.
+SSHRSAPUBLICKEY | Vous devez utiliser SSH pour l’authentification sur les machines virtuelles. Ce champ vous permet d’ajouter votre clé publique. Il est très important de bien coller la valeur de votre clé dans cette zone. Certains éditeurs insèrent des sauts de ligne dans le contenu, ce qui a pour effet de corrompre la clé. Vérifiez que votre clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Vous devriez obtenir quelque chose du type : « ssh rsa AAAAB3Nz... SNIPPEDCONTENT... UcyupgH azureuser@linuxvm' ». Si vous devez créer une clé SSH, suivez les instructions fournies pour [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) et [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) sur le site de documentation Azure.
   
 Une fois que vous avez défini les valeurs appropriées pour vos paramètres, cliquez sur OK. Indiquez ensuite un nom de groupe de ressources et sélectionnez une région, puis lisez et acceptez les conditions juridiques.
 
-> Dans la version préliminaire, Azure Container Service est fourni gratuitement ; seuls les frais de traitement standard (machine virtuelle, stockage, réseau, etc.) sont appliqués.
+> Dans la version préliminaire, Azure Container Service est fourni gratuitement ; seuls les frais de traitement standard (machine virtuelle, stockage, réseau, etc.) sont appliqués.
  
 ![Sélectionner un groupe de ressources](media/resourcegroup.png)
  
-Pour finir, cliquez sur « Créer ». Vous êtes redirigé vers votre tableau de bord. En supposant que vous n’avez pas décoché la case « Épingler au tableau de bord » dans le panneau de déploiement, vous obtiendrez une vignette animée semblable à ce qui suit :
+Pour finir, cliquez sur « Créer ». Vous êtes redirigé vers votre tableau de bord. En supposant que vous n’avez pas décoché la case « Épingler au tableau de bord » dans le panneau de déploiement, vous obtiendrez une vignette animée semblable à ce qui suit :
 
 ![déploiement](media/deploy.png)
  
@@ -65,12 +65,12 @@ Il ne vous reste plus maintenant qu’à attendre que le cluster soit créé. Un
 
 Pour créer une instance d’Azure Container Service à l’aide de l’interface de ligne de commande (CLI), vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un essai gratuit dès aujourd’hui. Vous devez également avoir installé et configuré la CLI Azure.
  
-Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque**: ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
+Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque** : ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
  
-* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
-Assurez-vous que la CLI Azure a bien été liée à un abonnement Azure. Pour ce faire, exécutez la commande suivante :
+Assurez-vous que la CLI Azure a bien été liée à un abonnement Azure. Pour ce faire, exécutez la commande suivante :
 
 ```bash
 Azure account show
@@ -93,13 +93,13 @@ Si vous souhaitez créer votre cluster dans un nouveau groupe de ressources, vou
 azure group create GROUP_NAME REGION
 ```
  
-Une fois le groupe de ressources créé, vous pouvez créer votre cluster à l’aide de la commande suivante, où :
+Une fois le groupe de ressources créé, vous pouvez créer votre cluster à l’aide de la commande suivante, où :
 
 - **RESOURCE\_GROUP** est le nom du groupe de ressources que vous souhaitez utiliser pour ce service.
 - **DEPLOYMENT\_NAME** est le nom de ce déploiement.
-- **TEMPLATE\_URI** est l’emplacement du fichier de déploiement. **Remarque**: il doit s’agir du fichier RAW, et non d’un pointeur vers l’interface utilisateur de GitHub. Pour trouver cette URL, sélectionnez le fichier azuredeploy.json dans GitHub et cliquez sur le bouton RAW :
+- **TEMPLATE\_URI** est l’emplacement du fichier de déploiement. **Remarque** : il doit s’agir du fichier RAW, et non d’un pointeur vers l’interface utilisateur de GitHub. Pour trouver cette URL, sélectionnez le fichier azuredeploy.json dans GitHub et cliquez sur le bouton RAW :
 
-> Remarque : lorsque vous exécutez cette commande, l’interpréteur de commandes vous invite à saisir les valeurs des paramètres de déploiement.
+> Remarque : lorsque vous exécutez cette commande, l’interpréteur de commandes vous invite à saisir les valeurs des paramètres de déploiement.
  
 ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
@@ -107,13 +107,13 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
  
 ### Indication des paramètres du modèle
  
-Cette version de la commande oblige l’utilisateur à définir les paramètres de manière interactive. Si vous souhaitez fournir des paramètres en tant que chaîne au format json, vous pouvez le faire à l’aide du commutateur `-p`. Par exemple :
+Cette version de la commande oblige l’utilisateur à définir les paramètres de manière interactive. Si vous souhaitez fournir des paramètres en tant que chaîne au format json, vous pouvez le faire à l’aide du commutateur `-p`. Par exemple :
  
  ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
 
-Sinon, vous pouvez fournir un fichier de paramètres au format json à l’aide du commutateur `-e` :
+Vous pouvez également fournir un fichier de paramètres au format json à l’aide du commutateur `-e` :
 
  ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON'
@@ -123,12 +123,12 @@ Vous pouvez accéder à un exemple de fichier de paramètres nommé `azuredeploy
  
 ## Création d’un service à l’aide de PowerShell
 
-Il est également possible de déployer un cluster ACS avec PowerShell. Ce document est basé sur les versions 1.0 et supérieures du [module Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
+Il est également possible de déployer un cluster ACS avec PowerShell. Ce document est basé sur les versions 1.0 et supérieures du [module PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque**: ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
+Sélectionnez l’un des modèles suivants pour déployer un cluster Mesos ou Docker Swarm. **Remarque** : ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
  
-* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* Mesos : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Avant de créer un cluster dans votre abonnement Azure, vérifiez que votre session PowerShell a bien été ouverte dans Azure. Pour ce faire, vous pouvez exécuter la commande `Get-AzureRMSubscription`.
 
@@ -156,12 +156,12 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### Indication des paramètres du modèle
  
-Si vous êtes familiarisé avec PowerShell, vous savez que vous pouvez parcourir les paramètres disponibles pour une applet de commande en utilisant le signe moins (-) puis en appuyant sur la touche TAB. Cette fonctionnalité fonctionne également avec les paramètres que vous définissez dans votre modèle. Dès que vous entrez le nom du modèle, l’applet de commande récupère le modèle, analyse les paramètres et ajoute les paramètres du modèle à la commande de façon dynamique. Il est ainsi beaucoup plus facile de spécifier les valeurs des paramètres du modèle. En outre, si vous oubliez une valeur obligatoire, PowerShell vous invite à spécifier cette valeur.
+Si vous êtes familiarisé avec PowerShell, vous savez que vous pouvez parcourir les paramètres disponibles pour une applet de commande en utilisant le signe moins (-) puis en appuyant sur la touche TAB. Cette fonctionnalité fonctionne également avec les paramètres que vous définissez dans votre modèle. Dès que vous entrez le nom du modèle, l’applet de commande récupère le modèle, analyse ses paramètres et ajoute les paramètres du modèle à la commande de façon dynamique. Il est ainsi beaucoup plus facile de spécifier les valeurs des paramètres du modèle. En outre, si vous oubliez une valeur obligatoire, PowerShell vous invite à spécifier cette valeur.
  
 Voici l’intégralité de la commande contenant les paramètres. Vous pouvez renseigner vos propres valeurs pour les noms des ressources.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## Étapes suivantes
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

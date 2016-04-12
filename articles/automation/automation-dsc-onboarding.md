@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="02/26/2016"
+   ms.date="03/15/2016"
    ms.author="coreyp"/>
 
 # Gestion de machines avec Azure Automation DSC
@@ -103,7 +103,7 @@ Pour trouver l’URL et la clé d’enregistrement pour le compte Automation, co
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.14 `
+     -Version 2.15 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -374,4 +374,4 @@ L’inscription peut être renouvelée selon la procédure initiale, en utilisan
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

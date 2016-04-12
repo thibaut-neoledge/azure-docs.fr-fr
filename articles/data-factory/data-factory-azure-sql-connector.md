@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis Azure SQL | Azure Data Factory" 
+	pageTitle="Déplacer des données vers/depuis Azure SQL Database | Microsoft Azure" 
 	description="Découvrez comment déplacer des données depuis et vers Azure SQL Database à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -425,7 +425,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlSource
 
-Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
+Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -630,4 +630,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

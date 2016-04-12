@@ -36,7 +36,7 @@ Vous devez disposer des éléments suivants :
 
 ## Utilisation des noyaux 
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la mosaïque de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -56,9 +56,9 @@ Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
 1. **Contextes prédéfinis**. Avec le noyau **Python2** par défaut disponible avec les blocs-notes Jupyter, vous devez définir les contextes Spark, SQL ou Hive explicitement avant de commencer à utiliser l’application que vous développez. Si vous utilisez les nouveaux noyaux (**PySpark** ou **Spark**), ces contextes sont disponibles par défaut. Ces contextes sont les suivants :
 
-	* **sc**: pour le contexte Spark
-	* **sqlContext**: pour le contexte SQL
-	* **hiveContext**: pour le contexte Hive
+	* **sc** : pour le contexte Spark
+	* **sqlContext** : pour le contexte SQL
+	* **hiveContext** : pour le contexte Hive
 
 
 	Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
@@ -145,4 +145,4 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

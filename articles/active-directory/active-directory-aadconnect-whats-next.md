@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # Étapes suivantes et gestion d’Azure AD Connect
 Les rubriques suivantes relatives aux fonctionnalités avancées vous permettent de personnaliser Azure Active Directory Connect pour l’adapter aux besoins et aux spécifications de votre organisation.
+
+## Ajouter des administrateurs de synchronisation supplémentaires
+Par défaut, seul l’utilisateur qui a effectué l’installation et les administrateurs locaux sont en mesure de gérer le moteur de synchronisation installé. Pour que d’autres personnes puissent accéder au moteur de synchronisation et en assurer la gestion, localisez le groupe nommé ADSyncAdmins sur le serveur local et ajoutez ces personnes à ce groupe.
 
 ## Configuration facultative de votre service AD FS
 Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de connexion AD FS en vous connectant à AD FS, puis en utilisant PSH pour effectuer cette configuration.
@@ -78,4 +81,4 @@ Activation du mode intermédiaire | Cela vous permet d’organiser les informati
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

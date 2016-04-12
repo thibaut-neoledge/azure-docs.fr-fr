@@ -3,7 +3,7 @@
 	description="Répertorie les attributs qui sont synchronisés avec Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
 
-Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.<br> Les attributs sont regroupés selon l’application Azure AD associée.
+Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync. Les attributs sont regroupés selon l’application Azure AD associée.
 
+## Attributs à synchroniser
+Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ils contiennent des données sensibles ou personnelles, comme dans l'exemple ci-dessous.
 
-## Office 365 ProPlus
+![mauvais attributs](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+Dans ce cas, commencez par la liste des attributs ci-dessous et identifiez ceux qui contiennent des informations sensibles ou personnelles et ne peuvent pas être synchronisés. Ensuite, désélectionnez ces attributs lors de l’installation à l’aide de l’[application Azure AD et du filtrage des attributs](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+>[AZURE.WARNING] Lorsque vous désélectionnez des attributs, prenez garde à ne désélectionner que ceux qu’il est absolument impossible de synchroniser. Désélectionner d’autres attributs peut avoir un impact négatif sur les fonctionnalités.
+
+## Office 365 ProPlus
 
 | Nom de l’attribut| Utilisateur| Commentaire |
 | --- | :-: | --- |
@@ -335,7 +343,7 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 
 
 
-## Dynamics CRM
+## Dynamics CRM
 
 | Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
@@ -370,7 +378,12 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 
 ## Applications tierces
-Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base.
+Il s'agit d'un ensemble d'attributs utilisés comme attributs nécessaires au minimum pour une application ou une charge de travail générique. Il peut être utilisé pour des charges de travail non répertoriées ici ou pour une application hors applications Microsoft. Il est utilisé explicitement pour les applications suivantes :
+
+- Yammer (seul l’utilisateur est véritablement consommé)
+- [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+
+Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base.
 
 | Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
@@ -390,7 +403,7 @@ Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuair
 | usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
 | userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 
-## Windows 10
+## Windows 10
 Les ordinateurs (appareils devices) du domaine Windows 10 synchroniseront certains attributs sur Azure AD. Pour plus d'informations sur les scénarios, consultez [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md). Ces attributs sont toujours synchronisés et Windows 10 n'apparaît pas comme une application que vous pouvez désélectionner. Un ordinateur appartenant au domaine Windows 10 est identifié par l'attribut userCertificate.
 
 | Nom de l'attribut| Appareil| Commentaire |
@@ -417,17 +430,17 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 
 | Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObjectID| X| | | Dérivé de cloudAnchor dans Azure AD. Nouveauté d’Exchange 2016.|
-| msExchArchiveStatus| X| | | Archive en ligne : permet aux clients d’archiver le courrier.|
-| msExchBlockedSendersHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
-| msExchSafeRecipientsHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
-| msExchSafeSenderHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
-| msExchUCVoiceMailSettings| X| | | Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne.|
-| msExchUserHoldPolicies| X| | | Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige.|
+| msDS-ExternalDirectoryObjectID| X| | | Dérivé de cloudAnchor dans Azure AD. Nouveauté d’Exchange 2016.|
+| msExchArchiveStatus| X| | | Archive en ligne : permet aux clients d’archiver le courrier.|
+| msExchBlockedSendersHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchSafeRecipientsHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchSafeSenderHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchUCVoiceMailSettings| X| | | Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne.|
+| msExchUserHoldPolicies| X| | | Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige.|
 | proxyAddresses| X| X| X| Seule l’adresse x500 d’Exchange Online est insérée.|
 
 ## Écriture différée des appareils
-Les objets d’appareil sont créés dans Active Directory. Il peut s’agir d’appareils joints à Azure AD ou d’ordinateurs Windows 10 appartenant au domaine.
+Les objets d’appareil sont créés dans Active Directory. Il peut s’agir d’appareils joints à Azure AD ou d’ordinateurs Windows 10 appartenant au domaine.
 
 | Nom de l'attribut| Appareil| Commentaire |
 | --- | :-: | --- |
@@ -440,20 +453,20 @@ Les objets d’appareil sont créés dans Active Directory. Il peut s’agir d�
 | msDS-DeviceOSType | X| |
 | msDS-DeviceOSVersion | X| |
 | msDS-DevicePhysicalIDs | X| |
-| msDS-KeyCredentialLink | X| Uniquement avec le schéma AD de Windows Server 2016 |
+| msDS-KeyCredentialLink | X| Uniquement avec le schéma AD de Windows Server 2016 |
 | msDS-IsCompliant | X| |
 | msDS-IsEnabled | X| |
 | msDS-IsManaged | X| |
 | msDS-RegisteredOwner | X| |
 
 
-## Remarques sur les attributs
+## Remarques
 - Quand vous utilisez un ID secondaire, l’attribut local userPrincipalName est synchronisé avec l’attribut Azure AD onPremisesUserPrincipalName. L’attribut de l’ID secondaire, par exemple mail, sera synchronisé avec l’attribut Azure AD userPrincipalName.
-
+- Dans la liste ci-dessus, le type d'objet **Utilisateur** s'applique également au type d'objet **iNetOrgPerson**.
 
 ## Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,20 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Créer des ressources Application Insights à l’aide de PowerShell
 
 Cet article vous montre comment créer une ressource [Application Insights](app-insights-overview.md) dans Azure automatiquement. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](app-insights-monitor-web-app-availability.md), [configurer des alertes](app-insights-alerts.md) et créer d’autres ressources Azure.
 
-Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
+Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 
 ## Installation unique
 
-Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
+Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
 
-Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts :
+Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts :
 
 1. Installez le programme [Microsoft Web Platform Installer (v5 ou version ultérieure)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Utilisez-le pour installer Microsoft Azure PowerShell.
@@ -33,7 +33,7 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
 ## Copier le JSON pour les ressources existantes
 
 1. Configurez [Application Insights](app-insights-overview.md) pour un projet semblable à ceux que vous voulez générer automatiquement. Si vous le souhaitez, ajoutez les tests web et les alertes.
-2. Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce contenu :
+2. Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce contenu :
 
 
     ```JSON
@@ -81,17 +81,17 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
     Les *composants* sont les ressources Application Insights de base pour l’affichage des applications. Il existe des ressources distinctes pour les règles d’alertes et les tests web de disponibilité associés.
 
 3. Copiez le JSON du composant dans l’emplacement approprié dans `template1.json`.
-6. Supprimez les propriétés suivantes :
+6. Supprimez les propriétés suivantes :
   * `id`
   * `InstrumentationKey`
   * `CreationDate`
-4. Ouvrez les sections webtests et alertrules et copiez le JSON pour des éléments individuels dans votre modèle. (Ne copiez pas à partir des nœuds webtests ou alertrules : accédez aux éléments sous-jacents.)
+4. Ouvrez les sections webtests et alertrules et copiez le JSON pour des éléments individuels dans votre modèle. (Ne copiez pas à partir des nœuds webtests ou alertrules : accédez aux éléments sous-jacents.)
 
     Chaque test web étant associé à une règle d’alerte, vous devez copier les deux.
 
     Le test web doit être placé avant la règle d’alerte.
 
-5. Pour satisfaire le schéma, insérez cette ligne dans chaque ressource :
+5. Pour satisfaire le schéma, insérez cette ligne dans chaque ressource :
 
     `"apiVersion": "2014-04-01",`
 
@@ -119,7 +119,7 @@ find | replace with
 
 ## Si votre application est une application web Azure
 
-Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteextensions`, paramétrez-la comme suit :
+Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteextensions`, paramétrez-la comme suit :
 
 ```json
     {
@@ -140,13 +140,13 @@ Cette ressource déploie le kit de déploiement logiciel (SDK) Application Insig
 
 ## Définir les dépendances entre les ressources
 
-Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
+Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
 
-* Dans la ressource de test web :
+* Dans la ressource de test web :
 
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
 
-* Dans la ressource d’alerte :
+* Dans la ressource d’alerte :
 
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
@@ -156,7 +156,7 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
 
     `Login-AzureRmAccount`
 
-2. Exécutez une commande comme suit :
+2. Exécutez une commande comme suit :
 
     ```PS
 
@@ -176,7 +176,7 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
     * -webTestName est le nom du test web à créer.
     * -Url est l’URL de votre application web.
     * -text est une chaîne qui apparaît dans votre page web.
-    * -siteName : utilisé s’il s'agit d’un site Web Azure
+    * -siteName : utilisé s’il s'agit d’un site Web Azure
 
 
 ## Définir les alertes de mesures
@@ -186,7 +186,7 @@ Il existe une [méthode PowerShell pour définir les alertes](app-insights-alert
 
 ## exemple
 
-Voici l’intégralité des composants, test web et modèle d’alerte de test web que j’ai créés :
+Voici l’intégralité des composants, test web et modèle d’alerte de test web que j’ai créés :
 
 ``` JSON
 
@@ -317,7 +317,8 @@ Autres articles sur l’automation :
 
 * [Création d'une ressource Application Insights](app-insights-powershell-script-create-resource.md) - méthode rapide sans utiliser de modèle.
 * [Configurer des alertes](app-insights-powershell-alerts.md)
+* [Créer des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Envoyer des diagnostics Azure vers Application Insights.](app-insights-powershell-azure-diagnostics.md)
 * [Créer des annotations de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->
