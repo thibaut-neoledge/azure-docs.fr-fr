@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Vue d’ensemble de la suite Microsoft Azure IoT | Microsoft Azure"
-	description="Ceci offre une vue d’ensemble d’Azure IoT Suite, notamment l’empaquetage et les solutions préconfigurées."
+	description="Présentation de la façon dont Azure IoT Suite offre des solutions préconfigurées de l’Internet des objets pour collecter, analyser et stocker des données, fournir des visualisations et s’intégrer à d’autres systèmes."
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Vue d’ensemble de la suite Azure IoT
 
-Les services Azure IoT offrent un large éventail de fonctionnalités. Ces services de niveau professionnel vous permettent d’effectuer les tâches suivantes :
+Les services Azure IoT (Internet des objets) offrent un large éventail de fonctionnalités. Ces services de niveau professionnel vous permettent d’effectuer les tâches suivantes :
 
 - Collecter des données à partir des appareils
 - Analyser les flux de données en mouvement
@@ -74,4 +74,4 @@ Maintenant que vous disposez d’une vue d'ensemble des possibilités d’IoT Su
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

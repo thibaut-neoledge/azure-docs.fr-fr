@@ -20,8 +20,10 @@
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic
 
 > [AZURE.SELECTOR]
-- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
+- [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portail Azure - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+
 
 Cet article vous guidera tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Cet article s’applique au modèle de déploiement classique et s’appuie sur le Portail Azure Classic.
 
@@ -35,7 +37,7 @@ Cet article vous guidera tout au long de la création d’un réseau virtuel et 
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
  
-Si vous souhaitez établir une connexion entre des réseaux virtuels sans créer de connexion à un emplacement local, consultez les articles [Configurer une connexion de réseau virtuel à réseau virtuel dans le portail Azure Classic](virtual-networks-configure-vnet-to-vnet-connection.md) ou [Configuration d’une connexion de réseau virtuel à réseau virtuel pour des réseaux virtuels d’un même abonnement à l’aide d’Azure Resource Manager et de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+Si vous souhaitez établir une connexion entre des réseaux virtuels sans créer de connexion à un emplacement local, consultez les articles [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](virtual-networks-configure-vnet-to-vnet-connection.md) ou [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
  
 ## Avant de commencer
@@ -101,10 +103,10 @@ Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fo
 
 ## Configuration de votre passerelle de réseau virtuel
 
-Vous devez ensuite configurer la passerelle du réseau virtuel pour créer une connexion site à site sécurisée. Consultez [Configurer une passerelle de réseau virtuel dans le Portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md).
+Vous devez ensuite configurer la passerelle du réseau virtuel pour créer une connexion site à site sécurisée. Consultez [Configurer une passerelle VPN pour le modèle de déploiement classique](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la documentation relative aux [machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

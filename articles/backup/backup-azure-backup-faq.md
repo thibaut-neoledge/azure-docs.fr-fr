@@ -1,12 +1,12 @@
 <properties
    pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
-   description="Réponses aux questions fréquemment posées sur l’agent de sauvegarde, la sauvegarde et la rétention, la récupération, la sécurité et d’autres questions courantes sur la solution Azure Backup."
+   description="Réponses aux questions fréquemment posées sur le service de sauvegarde, l’agent de sauvegarde, la sauvegarde et la rétention, la récupération, la sécurité et d’autres questions courantes sur la récupération d’urgence et la sauvegarde."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="solution de sauvegarde ; service de sauvegarde"/>
+   keywords="sauvegarde et récupération d’urgence ; service de sauvegarde"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Service Azure Backup – Forum aux questions
+
+> [AZURE.SELECTOR]
+- [FAQ Azure Backup pour le mode classique](backup-azure-backup-faq.md)
+- [FAQ Azure Backup pour le mode ARM](backup-azure-backup-ibiza-faq.md)
+
 Cet article est constitué d’une liste de questions fréquemment posées (et des réponses respectives) sur le service Azure Backup. Notre communauté répond rapidement, et si une question est souvent posée, nous l’ajouterons à cet article. Généralement, les réponses aux questions fournissent des informations de référence ou de prise en charge. Vous pouvez poser des questions sur Azure Backup dans la section Disques de cet article ou d’un article associé. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installation et configuration
@@ -38,11 +43,11 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 |Windows Server 2008 R2 SP1 |64 bits|	Standard, Entreprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bits|	Standard, Entreprise, Datacenter, Foundation|
 
-**Q2. Où puis-je télécharger le dernier agent Azure Backup ?** <br/> R2. Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, System Center DPM ou du client Windows, à partir de [ici](http://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.
+**Q2. Où puis-je télécharger le dernier agent Azure Backup ?** <br/> R2. Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, de System Center DPM ou du client Windows, en cliquant [ici](http://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.
 
 **Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR6 depuis juillet 2015)
 
-**Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
+****Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
 **Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
 
@@ -54,7 +59,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q9. Comment inscrire mon serveur dans un autre centre de données ?**<br/> R9. Les données de sauvegarde sont envoyées au centre de données du service Azure Backup dans lequel elles sont inscrites. Le moyen le plus simple de modifier le centre de données est de désinstaller/réinstaller l’agent et de l’inscrire dans un nouveau centre de données.
 
-**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?** R10. Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Vous devez enregistrer le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous créez un nouvel enregistrement, la première opération de sauvegarde est une sauvegarde complète et non une sauvegarde incrémentielle. Si vous devez récupérer des données précédemment sauvegardées dans le coffre avec le nom de l’ancien serveur, vous pouvez récupérer des données à l’aide d’[**un autre serveur**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option dans l’assistant **Récupérer des données**.
+**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?**<br/> R10. Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Vous devez enregistrer le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous créez un nouvel enregistrement, la première opération de sauvegarde est une sauvegarde complète et non une sauvegarde incrémentielle. Si vous devez récupérer des données précédemment sauvegardées dans le coffre avec le nom de l’ancien serveur, vous pouvez utiliser l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) de l’assistant **Récupérer des données**.
 
 
 **Q11. À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?** <br/> R11. L’ensemble suivant de lecteurs/volumes ne peut pas être sauvegardé :
@@ -81,7 +86,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q13. Quelle est la taille minimale requise du dossier du cache ?** <br/> R13. La taille du dossier du cache détermine la quantité de données que vous sauvegardez. Le dossier cache doit représenter 5 % de l’espace requis pour le stockage de données.
 
-**Q14. Si mon organisation possède un coffre de sauvegarde, comment isoler les données d’un serveur d’un autre serveur lors de la restauration des données ?**<br/> R14. Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer les données sauvegardées par d’autres serveurs *qui utilisent la même phrase secrète*. Si vous avez des serveurs dont vous souhaitez isoler les données de sauvegarde des autres serveurs de votre organisation, utilisez une phrase secrète désignée pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
+**Q14. Si mon organisation possède un archivage de sauvegarde, comment isoler les données d’un serveur d’un autre serveur lors de la restauration des données ?**<br/> R14. Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer les données sauvegardées par d’autres serveurs *qui utilisent la même phrase secrète*. Si vous avez des serveurs dont vous souhaitez isoler les données de sauvegarde des autres serveurs de votre organisation, utilisez une phrase secrète désignée pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
 **Q15. Puis-je « migrer » mes données de sauvegarde entre les abonnements ?** <br/> R15 : non
 
@@ -131,11 +136,11 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 |Microsoft Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde|
 |État système/récupération complète |Chaque copie individuelle de l’état système/récupération complète de l’ordinateur en cours de sauvegarde|
 
-**Q2. Existe-t-il des limites au nombre de fois qu’un travail de sauvegarde peut être planifié chaque jour ?**<br/> R2. Oui, vous pouvez exécuter les tâches de sauvegarde sur Windows Server ou un client Windows jusqu’à trois fois/jour. Vous pouvez exécuter des tâches de sauvegarde sur System Center DPM jusqu’à deux fois par jour. Vous pouvez exécuter une tâche de sauvegarde pour les machines virtuelles IaaS une fois par jour.
+**Q2. Existe-t-il des limites au nombre de fois qu’une tâche de sauvegarde peut être planifiée chaque jour ?**<br/> R2. Oui, vous pouvez exécuter les tâches de sauvegarde sur Windows Server ou un client Windows jusqu’à trois fois/jour. Vous pouvez exécuter des tâches de sauvegarde sur System Center DPM jusqu’à deux fois par jour. Vous pouvez exécuter une tâche de sauvegarde pour les machines virtuelles IaaS une fois par jour.
 
 **Q3. Existe-t-il une différence entre la stratégie de planification de DPM et Windows Server (par exemple, sous Windows Server sans DPM) ?** <br/> R3. Oui. Avec DPM, vous pouvez spécifier des planifications quotidiennes, hebdomadaires, mensuelles et annuelles. Windows Server (sans DPM) vous permet de spécifier uniquement les planifications quotidiennes et hebdomadaires.
 
-**Q4. Existe-t-il une différence entre les stratégies de rétention de DPM et un serveur/client Windows (par exemple, sur Windows Server sans DPM) ?**<br/> R4. Non, DPM et le serveur/client Windows Server répondent tous les deux à des stratégies quotidienne, hebdomadaire, mensuelle et annuelle de rétention.
+**Q4. Existe-t-il une différence entre les stratégies de rétention de DPM et d’un serveur/client Windows (par exemple, sur Windows Server sans DPM) ?**<br/> R4. Non, DPM et le serveur/client Windows Server répondent tous les deux à des stratégies quotidienne, hebdomadaire, mensuelle et annuelle de rétention.
 
 **Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Oui, la structure de rétention Azure Backup vous permet une flexibilité complète dans la définition de la stratégie de rétention selon vos besoins.
 
@@ -147,13 +152,13 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q8. Si une sauvegarde est conservée pendant une longue période, faut-il plus de temps pour récupérer un point de données plus ancien ?** <br/> R8. Non, le délai de récupération reste identique pour les points de données récents ou anciens. Chaque point de récupération se comporte comme un point complet.
 
-**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles *occupent moins d’espace de stockage*, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche de stockage de données garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum.
+**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles *occupent moins d’espace de stockage*, mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération. L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche de stockage de données garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum.
 
 **Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Non. Nous avons éliminé les limites sur les points de récupération. Vous pouvez créer autant de points de récupération que vous le souhaitez.
 
 **Q11. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/> R11. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données dans le coffre de sauvegarde sont inférieures de 30 à 40 %.
 
-**Q12. Existe-t-il un moyen pour adapter la quantité de bande passante utilisée par le service Backup ?**<br/> R12. Oui, utilisez l’option **Modifier les propriétés** dans l’Agent de sauvegarde pour régler la bande passante. Ajuste la quantité de bande passante et les heures d’utilisation de cette bande passante. Consultez la page [Limitation de bande passante](../backup-configure-vault.md#enable-network-throttling) pour plus d’informations.
+**Q12. Existe-t-il un moyen d’adapter la quantité de bande passante utilisée par le service Backup ?**<br/> R12. Oui, utilisez l’option **Modifier les propriétés** de l’agent Backup pour régler la bande passante. Ajuste la quantité de bande passante et les heures d’utilisation de cette bande passante. Consultez la page [Limitation de bande passante](../backup-configure-vault.md#enable-network-throttling) pour en savoir plus.
 
 
 ## Récupérer
@@ -192,4 +197,4 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

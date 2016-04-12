@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor" 
-	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l’aide de Data Factory Editor dans le portail Azure Classic." 
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -310,9 +310,9 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
  
 
 ## Surveillance d’un pipeline
-Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour la surveillance, consultez [Surveiller et gérer Data Factory à l'aide des applets de commande PowerShell][monitor-manage-using-powershell].
+Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour la surveillance, consultez [Surveiller et gérer Data Factory à l'aide des applets de commande PowerShell][monitor-manage-using-powershell].
 
-1. Accédez au [portail Azure Classic (en version préliminaire)][azure-portal] s’il n’est pas déjà ouvert. 
+1. Accédez au [portail Azure (en version préliminaire)][azure-portal] s'il n'est pas déjà ouvert. 
 2. Si le panneau pour **ADFTutorialDataFactory** n'est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialDataFactory** dans le **Tableau d'accueil**. 
 3. Vous devez voir le nombre et les noms des tables et du pipeline que vous avez créés sur ce panneau.
 
@@ -456,4 +456,4 @@ Pour plus d’informations sur l’**activité de copie** dans Azure Data Factor
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

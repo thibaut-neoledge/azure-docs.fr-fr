@@ -56,9 +56,9 @@ Cliquez sur l’onglet **Studio** et vous serez invité à vous connecter à l�
 
 ### Galerie
 
-Cliquez sur l’onglet **Galerie** pour accéder à la galerie Cortana Anlaytics. La galerie est l'endroit où la communauté des scientifiques et développeurs spécialisés dans les données peut partager des solutions créées à l'aide des composants de la suite Cortana Anystics.
+Cliquez sur l’onglet **Galerie** pour accéder à la galerie Cortana Intelligence. La galerie est l’endroit où la communauté des chercheurs et développeurs spécialisés dans les données peut partager des solutions créées à l’aide des composants de la suite Cortana Intelligence.
 
-Pour plus d’informations sur la galerie, consultez [Partagez et découvrez les solutions dans la galerie Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md).
+Pour plus d’informations sur la galerie, consultez [Partagez et découvrez les solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Composants d'une expérience
 
@@ -115,4 +115,4 @@ Une fois votre modèle d'analyse prédictive prêt, vous pouvez le déployer com
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

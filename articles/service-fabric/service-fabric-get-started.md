@@ -28,19 +28,13 @@ Les versions de système d’exploitation prises en charge pour le développemen
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-Les outils de Service Fabric requièrent au moins Visual Studio 2015. Vous pouvez le trouver sur le [site web Visual Studio][2].
-
-> [AZURE.NOTE] Si vous n’exécutez pas l’une des versions de système d’exploitation prises en charge ou si vous préférez ne pas installer Visual Studio sur votre ordinateur, vous pouvez configurer une machine virtuelle Azure avec Windows Server 2012 R2 et Visual Studio préinstallés. Vous pouvez également procéder en utilisant une image à partir de la galerie de machine virtuelle Azure.
-
 ## Installer le runtime, le SDK et les outils
 
-L’installation des composants Service Fabric est effectuée par le programme d’installation de la plateforme web. Il existe trois options d’installation :
+Web Platform Installer offre trois configurations pour le développement de Service Fabric :
 
-- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015](full-bundle-vs2015)
-- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015 Preview](full-bundle-dev15)
-- [Installation du runtime Service Fabric et du Kit de développement logiciel (SDK) uniquement (aucun outil Visual Studio)](core-sdk)
+- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015][full-bundle-vs2015]
+- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015 Preview][full-bundle-dev15]
+- [Installation du runtime Service Fabric et du Kit de développement logiciel (SDK) uniquement (aucun outil Visual Studio)][core-sdk]
 
 
 ## Activer l'exécution du script PowerShell
@@ -67,4 +61,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Lien WebP Dev15"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Lien WebPI du Kit de développement logiciel principal"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -104,10 +104,39 @@ Lorsque vous avez configuré le tunnel de Mesos, vous pouvez accéder au point d
 
 Une fois que vous avez configuré le tunnel pour Docker Swarm, vous pouvez accéder au cluster Swarm via l’interface CLI Docker. Vous devez d’abord configurer une variable d’environnement Windows nommée `DOCKER_HOST` avec la valeur ` :2375`.
 
+## Résolution de problèmes
+
+### Une fois le tunnel créé, lorsque j’accède à l’URL de Mesos ou Marathon, je reçois l’erreur suivante : 502 Passerelle incorrecte...
+Le moyen le plus simple pour résoudre ce problème consiste à supprimer votre cluster et le redéployer. Vous pouvez également procéder comme suit pour obliger Zookeeper à se réparer lui-même :
+
+Connectez-vous à chaque serveur principal et procédez comme suit :
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Ensuite, une fois que tous les services sont arrêtés sur l’ensemble des serveurs principaux :
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Peu de temps après le redémarrage de tous les services, vous devriez être en mesure de manipuler votre cluster, comme décrit dans la documentation.
+
 ## Étapes suivantes
 
 Déployer et gérer des conteneurs avec Mesos ou Swarm.
 
 - [Travail avec Azure Container Service et Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

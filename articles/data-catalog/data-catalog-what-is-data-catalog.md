@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Présentation d’Azure Data Catalog"
-   description="Présentation de Microsoft Azure Data Catalog, y compris de ses fonctionnalités et des problèmes qu’il peut résoudre. Azure Data Catalog fournit des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) d’inscrire, de détecter, de comprendre et d’utiliser des sources de données."
+   pageTitle="Qu’est-ce qu’Azure Data Catalog | Microsoft Azure"
+   description="Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il peut résoudre. Azure Data Catalog fournit des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) d’inscrire, de détecter, de comprendre et d’utiliser des sources de données."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Qu’est-ce qu’Azure Data Catalog ?
@@ -109,4 +109,4 @@ L'objectif ultime de la détection de données est de rechercher les données do
 1.	Pour les applications clientes qui sont directement prises en charge par **Azure Data Catalog**, les utilisateurs peuvent cliquer sur le menu **Ouvrir dans** de la vignette de la source de données se trouvant dans le portail. L’application cliente se lancera alors en se connectant à la source de données sélectionnée.
 2.	Pour toutes les applications clientes, les utilisateurs peuvent utiliser les informations de connexion affichées dans le volet Propriétés pour une source de données sélectionnée. Cette information inclut tous les détails (tels que le nom du serveur, le nom de la base de données et le nom de l'objet) requis pour se connecter aux données et peut être copiée dans l'expérience de connexion de l'outil client. Si les détails d'accès de requête ont été fournis pour une source de données, cette information s'affichera à côté des détails de connexion.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

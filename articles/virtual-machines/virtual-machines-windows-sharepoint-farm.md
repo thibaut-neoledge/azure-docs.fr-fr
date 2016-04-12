@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
@@ -63,4 +63,4 @@ Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes 
 
 - Découvrez d'autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d'infrastructure d'Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

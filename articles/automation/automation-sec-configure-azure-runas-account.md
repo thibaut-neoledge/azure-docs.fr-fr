@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/30/2016"
+    ms.date="03/31/2016"
     ms.author="magoedte"/>
 
 # Authentifier des Runbooks avec un compte d’identification Azure
@@ -27,7 +27,9 @@ Avantages d’un principal du service :
 
 >[AZURE.NOTE] La [fonctionnalité d’intégration d’alertes](../azure-portal/insights-receive-alert-notifications.md) Azure associée aux Runbooks globaux requiert un compte Automation configuré avec un principal du service. Vous pouvez sélectionner un compte Automation déjà associé à un utilisateur principal du service ou choisir d’en créer un nouveau.
 
-Nous allons vous montrer comment créer un compte Automation à partir du portail Azure et d’Azure PowerShell, et vous expliquer comment vous authentifier auprès de ce principal du service dans vos Runbooks.
+
+
+Nous allons vous montrer comment créer un compte Automation à partir du portail Azure et mettre à jour un compte avec un compte d’identification à l’aide d’Azure PowerShell, et vous expliquer comment vous authentifier auprès de ce principal du service dans vos Runbooks.
 
 ## Créer un compte Automation à partir du portail Azure
 Dans cette section, vous allez suivre une procédure qui vous permettra de créer un compte Azure Automation et un principal du service à partir du portail Azure.
@@ -36,11 +38,20 @@ Dans cette section, vous allez suivre une procédure qui vous permettra de crée
 
 1. Connectez-vous au portail Azure en tant qu’administrateur de service pour l’abonnement Azure que vous souhaitez gérer.
 2. Sélectionnez **Comptes Automation**.
-3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br>![Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-account-properties.png)
+3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br>![Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
 5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
 6. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Oui**, puis cliquez sur le bouton **Créer**.  
-7. Lorsqu’Azure crée le compte Automation, vous pouvez en suivre la progression sous l’onglet **Notifications** du menu.
+
+    ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
+
+    >[AZURE.NOTE] Si vous choisissez de ne pas créer le compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affichera dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé et attribué au rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement. Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources ARM.
+
+    ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
+
+    >[AZURE.NOTE] Si vous recevez un message d’erreur de refus de l’autorisation après avoir cliqué sur le bouton **Créer**, c’est parce que votre compte n’est pas un membre du rôle des administrateurs de l’abonnement.
+
+7. Quand Azure crée le compte Automation, vous pouvez en suivre la progression sous l’onglet **Notifications** du menu.
 
 Une fois la procédure terminée, le compte Automation est créé avec une ressource de certificat nommée **AzureRunAsCertificate** valable un an, complétée par une ressource de connexion nommée **AzureRunAsConnection**.
 
@@ -56,13 +67,14 @@ Le script PowerShell configurera les éléments suivants :
 
 * Une application Azure AD pouvant être authentifiée avec un certificat auto-signé, un compte de principal du service pour cette application dans Azure AD et l’affectation du rôle de contributeur (que vous pouvez remplacer par un rôle de propriétaire ou par tout autre rôle) pour ce compte dans votre abonnement actuel. Pour plus d’informations, veuillez consulter l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).  
 * Une ressource de certificat Automation dans le compte Automation spécifié nommée **AzureRunAsCertificate**, qui contient le certificat utilisé dans le principal du service.
-* Une ressource de connexion Automation dans le nom du compte Automation spécifié nommée **AzureRunAsConnection**, qui contient l’ID d’application, l’ID de locataire, l’ID d’abonnement et l’empreinte numérique du certificat.<br>
+* Une ressource de connexion Automation dans le compte Automation spécifié nommée **AzureRunAsConnection**, qui contient l’ID d’application, l’ID de locataire, l’ID d’abonnement et le thumbprint du certificat.  
+
 
 ### Exécution du script PowerShell
 
 1. Enregistrez le script suivant sur votre ordinateur. Dans cet exemple, enregistrez-le sous le nom de fichier **New-AzureServicePrincipal.ps1**.  
 
- ```
+    ```
     #Requires - RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
@@ -87,9 +99,9 @@ Le script PowerShell configurera les éléments suivants :
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
     $KeyId = (New-Guid).Guid
-    $CertPath = Join-Path $env:TEMP ($ServicePrincipalDisplayName + ".pfx")
+    $CertPath = Join-Path $env:TEMP ($ApplicationDisplayName + ".pfx")
 
-    $Cert = New-SelfSignedCertificate -DnsName $ServicePrincipalDisplayName -CertStoreLocation cert:\LocalMachine\My -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
+    $Cert = New-SelfSignedCertificate -DnsName $ApplicationDisplayName -CertStoreLocation cert:\LocalMachine\My -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
 
     $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
     Export-PfxCertificate -Cert ("Cert:\localmachine\my" + $Cert.Thumbprint) -FilePath $CertPath -Password $CertPassword -Force | Write-Verbose
@@ -106,7 +118,7 @@ Le script PowerShell configurera les éléments suivants :
     $KeyCredential.Value = $KeyValue
 
     # Use Key credentials
-    $Application = New-AzureRmADApplication -DisplayName $ServicePrincipalDisplayName -HomePage ("http://" + $ServicePrincipalDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
+    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ServicePrincipalDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
 
     New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId | Write-Verbose
     Get-AzureRmADServicePrincipal | Where {$_.ApplicationId -eq $Application.ApplicationId} | Write-Verbose
@@ -128,11 +140,6 @@ Le script PowerShell configurera les éléments suivants :
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
-    Remove-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name ServicePrincipalApplicationID -Force -ErrorAction SilentlyContinue
-    New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name ServicePrincipalApplicationID -Value $Application.ApplicationId -Encrypted $false | write-verbose
-    Remove-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name ServicePrincipalTenantID -Force -ErrorAction SilentlyContinue
-    New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name ServicePrincipalTenantID -Value $TenantID.TenantId -Encrypted $false | write-verbose
-    Remove-AzureRmAutomationCertificate -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name AzureRunAsCertificate -Force -ErrorAction SilentlyContinue | write-verbose
     New-AzureRmAutomationCertificate -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Path $CertPath -Name AzureRunAsCertificate -Password $CertPassword -Exportable | write-verbose
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
@@ -141,40 +148,51 @@ Le script PowerShell configurera les éléments suivants :
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
- ```
-
-
+    ```
+<br>
 2. Sur votre ordinateur, démarrez **Windows PowerShell** à partir de l’écran **Démarrer** avec des droits utilisateur élevés.
-3. À partir de l’interface de ligne de commande PowerShell avec élévation de privilèges, accédez au dossier contenant le script créé à l’étape 1 et exécutez le script en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* et *-CertPlainPassword*.<br> ```.\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -ApplicationDisplayName <DisplayNameofAutomationAccount> -CertPlainPassword "<StrongPassword>"``` <br>
+3. À partir de l’interface de ligne de commande PowerShell avec élévation de privilèges, accédez au dossier contenant le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* et *-CertPlainPassword*.<br> 
 
-    >[AZURE.NOTE] Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous *devez* ouvrir une session avec un compte associé à un administrateur de service dans l’abonnement. <br>
+    ```
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
+     -AutomationAccountName <NameofAutomationAccount> 
+     -ApplicationDisplayName <DisplayNameofAutomationAccount> 
+     -CertPlainPassword "<StrongPassword>"
+    ```   
+<br>
 
+    >[AZURE.NOTE] Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous *devez* vous connecter avec un compte associé à un administrateur de service dans l’abonnement. <br> 
 4. Une fois le script terminé, passez à la section suivante pour tester et vérifier la nouvelle configuration des informations d’identification.
 
-### Vérification de l’authentification en tant que principal du service
+### Vérifier l’authentification 
 Nous allons ensuite effectuer un test rapide afin de vérifier que vous êtes en mesure de vous authentifier à l’aide du nouveau principal du service. Si vous ne parvenez pas à vous authentifier, revenez à l’étape 1 et confirmez de nouveau chacune des étapes précédentes.
 
 1. Dans le portail Azure, ouvrez le compte Automation que vous avez créé.  
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
 3. Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook** dans le panneau **Ajouter un Runbook**.
-4. Nommez le runbook *Test-SecPrin-Runbook* et sélectionnez PowerShell comme **Type de Runbook**. Cliquez sur **Créer** pour créer le Runbook.
+4. Nommez le Runbook *Test-SecPrin-Runbook* et sélectionnez PowerShell comme **Type de Runbook**. Cliquez sur **Créer** pour créer le Runbook.
 5. Dans le panneau **Modifier le Runbook PowerShell**, collez le code suivant dans le canevas :<br>
-       ```
-       $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-       Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-       ```
+  
+    ```
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID 
+     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   ```  
+<br>
 6. Enregistrez le Runbook en cliquant sur **Enregistrer**.
 7. Cliquez sur **Panneau de test** pour ouvrir le panneau **Test**.
 8. Cliquez sur **Démarrer** pour démarrer le test.
-9. Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît dans le volet. L’état initial de la tâche est *Mis en file d’attente* pour indiquer que la tâche attend qu’un Runbook Worker du cloud devienne disponible. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  
-10. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans notre cas, nous devrions obtenir l’état **Terminé**.<br> ![Test de Runbook du principal de sécurité](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
-11. Fermez le panneau **Test** pour revenir au canevas.
-12. Fermez le panneau **Modifier le Runbook PowerShell**.
-13. Fermez le panneau **Test-SecPrin-Runbook**.
+9. Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît dans le volet.  
+10. L’état initial de la tâche est *Mis en file d’attente* pour indiquer que la tâche attend qu’un Runbook Worker du cloud devienne disponible. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  
+11. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans notre cas, nous devrions obtenir l’état **Terminé**.<br> ![Test de Runbook du principal de sécurité](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br> 
+12. Fermez le panneau **Test** pour revenir au canevas.
+13. Fermez le panneau **Modifier le Runbook PowerShell**.
+14. Fermez le panneau **Test-SecPrin-Runbook**.
 
 Le code ci-dessus vous permet de vérifier si le nouveau compte est correctement configuré. Vous allez utiliser ce code dans tous vos Runbooks PowerShell pour vous authentifier dans Azure Automation afin de gérer les ressources ARM. Bien évidemment, vous pouvez toujours vous authentifier avec le compte Automation que vous utilisez actuellement.
 
 ## Étapes suivantes
-- Pour plus d’informations sur les principaux de service, voir [Objets principal du service et application](../active-directory/active-directory-application-objects.md).
+- Pour plus d’informations sur les principaux de service, voir [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
+- Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

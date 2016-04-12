@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
@@ -72,4 +72,4 @@ Vous pouvez créer un groupe de ressources et déployer une machine virtuelle à
 
 Lorsque vous créerez des machines virtuelles Linux avec des modèles, vous souhaiterez probablement savoir quelles autres infrastructures d’application peuvent être utilisées avec des modèles. Consultez la [galerie de modèles](https://azure.microsoft.com/documentation/templates/) pour découvrir les infrastructures d’application à déployer ensuite.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

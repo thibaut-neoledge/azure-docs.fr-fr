@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Ajout d’un disque à une machine virtuelle Linux | Microsoft Azure"
-	description="Découvrir comment ajouter un disque permanent à votre machine virtuelle Linux"
-	keywords="machine virtuelle Linux, ajouter un disque de ressources" 
+	description="Découvrir comment ajouter un disque persistant à votre machine virtuelle Linux"
+	keywords="machine virtuelle Linux, ajouter un disque de ressources"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rickstercdn"
@@ -20,17 +20,17 @@
 
 # Ajouter un disque à une machine virtuelle Linux
 
-Cette rubrique explique comment ajouter un disque persistant à une machine virtuelle Azure basée sur Linux à l’aide de l’interface de ligne de commande Azure pour Mac et Linux. L’ajout d’un disque persistant à votre machine virtuelle permet de conserver vos données (si votre machine virtuelle doit être reconfigurée en cas de maintenance ou de redimensionnement).
+Cet article explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. Pour ajouter un disque, vous aurez besoin de l’[interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
 
-## Composants requis
+## Commandes rapides
 
-Cette rubrique est applicable si vous disposez déjà d’un abonnement Azure fonctionnel ([obtenir un abonnement d’essai gratuit](https://azure.microsoft.com/pricing/free-trial/)), si vous [avez installé l’interface de ligne de commande Azure](../xplat-cli-install.md) et si vous avez déjà [créé une machine virtuelle](virtual-machines-linux-quick-create-cli.md). Vous devez connaître le nom du groupe de ressources et le nom de votre machine virtuelle, ainsi que la région dans laquelle ils se trouvent pour pouvoir continuer.
+```
+# In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
-## Associez votre terminal d’interface de ligne de commande à votre abonnement Azure.
+rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```
 
-Avant de faire quoi que ce soit avec Azure, vous devez vous [connecter à Azure avec Azure CLI](../xplat-cli-connect.md), puis faire basculer l’interface de ligne de commande en mode groupe de ressources en tapant `azure config mode arm`.
-
-## Attacher et monter un disque
+## Attacher un disque
 
 La procédure d’attachement d’un nouveau disque est rapide. Il vous suffit de saisir `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` afin de créer un nouveau disque (Go) et l’associer à votre machine virtuelle. Le résultat suivant doit s’afficher :
 
@@ -42,12 +42,11 @@ La procédure d’attachement d’un nouveau disque est rapide. Il vous suffit d
 	info:    vm disk attach-new command OK
 
 
-## Connectez-vous à la machine virtuelle Linux afin de monter le nouveau disque
+## Se connecter à la machine virtuelle Linux afin de monter le nouveau disque
 
+> [AZURE.NOTE] Dans cette rubrique, la connexion à la machine virtuelle est effectuée à l’aide de noms d’utilisateurs et de mots de passe. Pour utiliser des paires de clés publiques et privées pour interagir avec votre machine virtuelle, consultez la page [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md). Vous pouvez modifier la connectivité **SSH** des machines virtuelles créées avec la commande `azure vm quick-create` à l’aide de la commande `azure vm reset-access` pour complètement réinitialiser l’accès **SSH**, ajouter ou supprimer des utilisateurs ou ajouter des fichiers de clés publiques pour sécuriser l’accès.
 
-> [AZURE.NOTE] Dans cette rubrique, la connexion à la machine virtuelle est effectuée à l’aide de noms d’utilisateurs et de mots de passe. Pour utiliser des paires de clés publiques et privées pour interagir avec votre machine virtuelle, consultez la page [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md). Vous pouvez modifier la connectivité **SSH** des machines virtuelles créées avec la commande `azure vm quick-create` à l’aide de la commande `azure vm reset-access` pour complètement réinitialiser l’accès **SSH**, ajouter ou supprimer des utilisateurs ou ajouter des fichiers de clés publiques pour sécuriser l’accès. Cet article utilise le nom d’utilisateur et le mot de passe avec **SSH** par souci de concision.
-
-Vous devrez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, formater et monter votre nouveau disque pour que la machine virtuelle Linux puisse l’utiliser. Si vous ne maîtrisez pas la connexion via **ssh**, la commande prend la forme `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`.
+Vous devrez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, de formater et de monter votre nouveau disque pour que la machine virtuelle Linux puisse l’utiliser. Si vous ne maîtrisez pas la connexion via **ssh**, la commande prend la forme `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` et ressemble à ceci :
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -72,8 +71,6 @@ Vous devrez exécuter SSH dans votre machine virtuelle Azure afin de partitionne
 
 	0 packages can be updated.
 	0 updates are security updates.
-
-
 
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
@@ -153,7 +150,6 @@ Créez la partition en saisissant `p` lors de l’invite :
 	8192 inodes per group
 	Superblock backups stored on blocks:
 		32768, 98304, 163840, 229376, 294912, 819200, 884736
-
 	Allocating group tables: done
 	Writing inode tables: done
 	Creating journal (32768 blocks): done
@@ -177,8 +173,8 @@ Le disque de données est désormais utilisable en tant que `/datadrive`.
 
 ## Étapes suivantes
 
-- N’oubliez pas que votre nouveau disque n’est généralement pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab). 
+- N’oubliez pas que votre nouveau disque n’est généralement pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab).
 - Passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](virtual-machines-linux-optimization.md) pour garantir que votre machine virtuelle Linux est correctement configurée.
-- Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances. 
+- Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

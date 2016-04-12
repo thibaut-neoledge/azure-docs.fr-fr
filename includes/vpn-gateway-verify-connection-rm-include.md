@@ -1,10 +1,14 @@
 ### Vérification de votre connexion à l'aide du portail Azure
 
-Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** -> ***cliquez sur le nom de votre passerelle*** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le volet **Connexion**.
+Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** **>** ***cliquez sur le nom de votre passerelle*** **>** **Paramètres** **>** **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires concernant la connexion. Dans l’exemple ci-dessous, la connexion n’est pas activée et aucune donnée ne transite.
+
+
+![Vérifier la connexion](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
+
 
 ### Vérification de votre connexion à l'aide de PowerShell
 
-Vous pouvez également vérifier que votre connexion a abouti en exécutant la commande *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. À l'avenir, nous aurons une applet de commande pour cela. Vous pouvez utiliser l'exemple d'applet de commande suivant, en le configurant selon vos propres valeurs. Quand vous y êtes invité, sélectionnez *A* pour exécuter Tout.
+Il est également possible de vérifier que votre connexion a réussi à l’aide de `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. Vous pouvez utiliser l'exemple d'applet de commande suivant, en le configurant selon vos propres valeurs. Quand vous y êtes invité, sélectionnez *A* pour exécuter Tout.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
@@ -37,4 +41,4 @@ Vous pouvez également vérifier que votre connexion a abouti en exécutant la c
 	    "egressBytesTransferred": 4142431
 	  }
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

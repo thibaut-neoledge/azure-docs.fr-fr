@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Découverte : sauvegarde des machines virtuelles Azure
+
+> [AZURE.SELECTOR]
+- [Sauvegarder des machines virtuelles ARM](backup-azure-vms-first-look-arm.md)
+- [Sauvegarder des machines virtuelles en mode Classique](backup-azure-vms-first-look.md)
 
 Ce didacticiel vous guide tout au long des étapes de préparation de votre environnement Azure et vous explique comment sauvegarder une machine virtuelle Azure. Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle. Voici globalement les étapes que vous allez suivre.
 
@@ -25,13 +29,13 @@ Ce didacticiel vous guide tout au long des étapes de préparation de votre envi
 
 
 1. Créez ou connectez-vous à l’abonnement Azure.
-2. Créez un coffre de sauvegarde ou identifiez un coffre de sauvegarde existant *dans la même région que votre machine virtuelle*.
+2. Créez un archivage de sauvegarde ou identifiez un archivage de sauvegarde existant *dans la même région que votre machine virtuelle*.
 3. Utiliser le portail Azure pour découvrir et inscrire les machines virtuelles dans votre abonnement.
 4. Installez l’Agent de machine virtuelle sur l’ordinateur virtuel (si vous utilisez une machine virtuelle à partir de la galerie Azure, l’Agent de machine virtuelle sera déjà présent).
 5. Créez la stratégie servant à protéger les machines virtuelles.
 6. Exécuter la sauvegarde.
 
->[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Actuellement, le service Azure Backup ne prend pas en charge les machines virtuelles basées sur le modèle Azure Resource Manager (ARM), que l’on appelle également machines virtuelles IaaS V2. Étant donné que les machines virtuelles IaaS V2 ont été développées en même temps que la version du nouveau portail Azure, ce didacticiel a été rédigé pour les types de machines virtuelles compatibles avec le portail Azure Classic.
+>[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../resource-manager-deployment-model.md). Actuellement, le service Azure Backup ne prend pas en charge les machines virtuelles basées sur le modèle Azure Resource Manager (ARM), que l’on appelle également machines virtuelles IaaS V2. Étant donné que les machines virtuelles IaaS V2 ont été développées en même temps que la version du nouveau portail Azure, ce didacticiel a été rédigé pour les types de machines virtuelles compatibles avec le portail Azure Classic.
 
 
 ## Étape 1 : création d’un archivage (ou coffre) de sauvegarde pour une machine virtuelle
@@ -44,23 +48,23 @@ Pour créer un archivage de sauvegarde :
 
 1. Connectez-vous au [portail Azure](http://manage.windowsazure.com/).
 
-2. Dans le portail Azure, cliquez sur **Nouveau** > **Services de données** > **Services de récupération** > **Coffre de sauvegarde** > **Création rapide** (voir l’image ci-dessous).
+2. Dans le portail Azure, cliquez sur **Nouveau** > **Services de données** > **Recovery Services** > **Archivage de sauvegarde** > **Création rapide** (voir l’image ci-dessous).
 
     ![Créer un archivage de sauvegarde](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
-3. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
+3. Sous **Nom**, entrez un nom convivial permettant d’identifier l’archivage. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 
-4. Dans **Region**, sélectionnez la région géographique du coffre. Le coffre **doit** se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
+4. Dans **Region**, sélectionnez la région géographique du coffre. L’archivage **doit** se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
 
     Si vous ne connaissez pas la région dans laquelle se trouve votre machine virtuelle, fermez la boîte de dialogue de création d’archivage et accédez à la liste des machines virtuelles du portail. Si vos machines virtuelles se trouvent dans plusieurs régions, vous devez créer un archivage de sauvegarde dans chaque région ; pour autant, vous devez veiller à terminer le processus de création de l’archivage dans la première région avant de passer à la suivante. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : l’archivage de sauvegarde et le service Azure Backup s’en chargent automatiquement.
 
-5. Sous **Abonnement**, sélectionnez l’abonnement à associer au coffre de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
+5. Sous **Abonnement**, sélectionnez l’abonnement à associer à l’archivage de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
 6. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
 
     ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    Un message confirme que l’archivage a été correctement créé. Celui-ci est répertorié dans la page **Services de récupération** comme étant **Actif**.
+    Un message confirme que l’archivage a été correctement créé. Celui-ci est répertorié dans la page **Recovery Services** comme étant **Actif**.
 
     ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
@@ -85,11 +89,11 @@ Avant d’inscrire la machine virtuelle auprès d’un archivage, exécutez le p
 
 2. Dans le portail Azure Classic, cliquez sur **Recovery Services** pour ouvrir la liste des archivages Recovery Services. ![Sélectionner la charge de travail](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
-3. Dans la liste des coffres **Services de récupération**, sélectionnez le coffre que vous souhaitez utiliser pour sauvegarder une machine virtuelle.
+3. Dans la liste des archivages **Recovery Services**, sélectionnez celui que vous souhaitez utiliser pour sauvegarder une machine virtuelle.
 
-    Une fois le coffre sélectionné, vous accédez à la page **Démarrage rapide**.
+    Une fois l’archivage sélectionné, vous accédez à la page **Démarrage rapide**.
 
-4. Dans le menu du coffre (en haut de la page), cliquez sur **Éléments inscrits**.
+4. Dans le menu de l’affichage (en haut de la page), cliquez sur **Éléments inscrits**.
 
 5. Dans le menu **Type**, sélectionnez **Machine virtuelle Azure**.
 
@@ -136,15 +140,15 @@ Le tableau suivant fournit des informations supplémentaires sur l’agent de ma
 | **Opération** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installation de l’agent de machine virtuelle | <li>Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. <li>[Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. | <li>Installez l’[agent Linux](https://github.com/Azure/WALinuxAgent) le plus récent à partir de GitHub. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. <li> [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. |
-| Mise à jour de l’agent de machine virtuelle | La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. | Suivez les instructions fournies dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines-linux-update-agent.md). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
-| Validation de l’installation de l’agent de machine virtuelle | <li>Accédez au dossier *C:\\WindowsAzure\\Packages* dans la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. | N/A |
+| Mise à jour de l’agent de machine virtuelle | La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. | Suivez les instructions fournies dans la section [Mise à jour de l’agent de machine virtuelle Linux](../virtual-machines-linux-update-agent.md). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
+| Validation de l’installation de l’agent de machine virtuelle | <li>Accédez au dossier *C:\\WindowsAzure\\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. | N/A |
 
 
 ### Extension de sauvegarde
 
 Une fois l’agent de machine virtuelle installé sur la machine virtuelle, le service Azure Backup installe l’extension de sauvegarde vers l’agent de machine virtuelle. Le service Azure Backup met à niveau et corrige en toute transparence l'extension de sauvegarde sans intervention supplémentaire de l'utilisateur.
 
-Le service Backup installe l’extension de sauvegarde que la machine virtuelle soit ou non en cours d’exécution. Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent. Toutefois, le service Azure Backup poursuit la sauvegarde de la machine virtuelle, même si elle est éteinte et si l’extension n’a pas été installée, autrement dit si la machine virtuelle est hors connexion. Dans ce cas, le point de récupération sera *cohérent suite à l’incident*.
+Le service Backup installe l’extension de sauvegarde que la machine virtuelle soit ou non en cours d’exécution. Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent. Toutefois, le service Azure Backup poursuit la sauvegarde de la machine virtuelle, même si elle est éteinte et si l’extension n’a pas été installée, autrement dit si la machine virtuelle est hors connexion. Dans ce cas, le point de récupération sera *cohérent en cas d’incident*.
 
 
 ## Étape 4 : protection des machines virtuelles Azure
@@ -165,7 +169,7 @@ Vous pouvez désormais configurer une stratégie de sauvegarde et de rétention 
 
     Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
-5. Sous **Configurer la protection**, sélectionnez une stratégie existante ou créer une nouvelle stratégie pour protéger les machines virtuelles que vous avez identifiées.
+5. Sous **Configurer la protection**, sélectionnez une stratégie existante ou créez-en une pour protéger les machines virtuelles que vous avez identifiées.
 
     Vous pouvez associer plusieurs machines virtuelles à chaque stratégie de sauvegarde. Toutefois, vous ne pouvez associer votre machine virtuelle qu’à une seule stratégie à un moment donné.
 
@@ -197,7 +201,7 @@ Vous pouvez désormais configurer une stratégie de sauvegarde et de rétention 
 
 ## Étape 5 : sauvegarde initiale
 
-Une fois la machine virtuelle protégée par une stratégie, vous pouvez afficher cette relation sous l’onglet **Éléments protégés**. Avant l’exécution de la sauvegarde initiale d’une machine virtuelle, l’**État de la Protection** s’affiche sous la forme **Protégé (en attente de sauvegarde initiale)**. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
+Une fois la machine virtuelle protégée par une stratégie, vous pouvez afficher cette relation sous l’onglet **Éléments protégés**. Avant l’exécution de la sauvegarde initiale d’une machine virtuelle, la valeur **État de la protection** s’affiche sous la forme **Protégé (en attente de sauvegarde initiale)**. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
 ![Sauvegarde en attente](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
@@ -230,4 +234,4 @@ Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autr
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

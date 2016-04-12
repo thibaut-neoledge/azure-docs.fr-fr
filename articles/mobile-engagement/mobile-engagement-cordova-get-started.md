@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="03/25/2016"
+	ms.date="04/04/2016"
 	ms.author="piyushjo" />
 
 # Prise en main d'Azure Mobile Engagement pour Cordova/Phonegap
@@ -72,13 +72,14 @@ Nous allons créer une application de base à l’aide de Cordova afin d’illus
 1. Installez le plug-in Azure Mobile Engagement Cordova tout en fournissant les valeurs des variables pour configurer le plug-in :
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+     		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
 	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+	        --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_NATIVE_LOG=true|false
+			--variable AZME_ENABLE_PLUGIN_LOG=true|false
 
 *Icône Android Reach* : doit être le nom de la ressource sans extension ni préfixe dessinable (ex : mynotificationicon), et le fichier icône doit être copié dans votre projet android (platforms/android/res/drawable)
 
@@ -89,8 +90,7 @@ Nous allons créer une application de base à l’aide de Cordova afin d’illus
 1. Dans le projet Cordova, modifiez **www/js/index.js** pour ajouter l’appel de Mobile Engagement afin de déclarer une nouvelle activité à la réception de l’événement *deviceReady*.
 
 		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
+		        Engagement.startActivity("myPage",{});
 		    }
 
 2. Exécutez l'application :
@@ -155,10 +155,12 @@ Pour permettre à Mobile Engagement d'envoyer des notifications push en votre no
 Modifiez **www/js/index.js** pour ajouter l’appel de Mobile Engagement afin de demander des notifications push et de déclarer un gestionnaire :
 
 	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
+           Engagement.initializeReach(  
+	 			// on OpenUrl  
+	 			function(_url) {   
+	 			alert(_url);   
+	 			});  
+			Engagement.startActivity("myPage",{});  
 	    }
 
 ###Exécution de l'application
@@ -191,7 +193,7 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 	
 	- Entrez un **nom** pour votre campagne. 
 	- Sélectionnez le **Type de distribution** *Notification système* *Simple*.
-	- Sélectionnez le délai de livraison *N’importe quand*.
+	- Sélectionnez le **délai de livraison** *N’importe quand*.
 	- Entrez un **Titre** pour votre notification, qui constituera la première ligne de la diffusion.
 	- Entrez un **Message** pour votre notification, qui constituera le corps du message. 
 
@@ -200,7 +202,7 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 4. Entrez les informations nécessaires pour créer votre campagne **[iOS]**.
 
 	- Entrez un **nom** pour votre campagne. 
-	- Sélectionnez le délai de livraison *Hors de l’application uniquement*.
+	- Sélectionnez le **délai de livraison** *Hors de l’application uniquement*.
 	- Entrez un **Titre** pour votre notification, qui constituera la première ligne de la diffusion.
 	- Entrez un **Message** pour votre notification, qui constituera le corps du message. 
  
@@ -210,7 +212,7 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 
 	![][8]
 
-6. [Facultatif] Vous pouvez également fournir une URL d’action. Assurez-vous qu'elle utilise un schéma d’URL fourni lors de la configuration de la variable **AZME REDIRECT URL** du plug-in, par exemple **myapp://test*.
+6. [Facultatif] Vous pouvez également fournir une URL d’action. Assurez-vous qu’elle utilise un schéma d’URL fourni lors de la configuration de la variable **AZME\_REDIRECT\_URL** du plug-in, par exemple **myapp://test*.
 
 7. Vous avez terminé de définir la campagne de base la plus simple possible. Faites maintenant défiler vers le bas, puis cliquez sur le bouton **Créer** pour enregistrer votre campagne.
 
@@ -223,9 +225,6 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 ##<a id="next-steps"></a>Étapes suivantes
 [Vue d'ensemble de toutes les méthodes disponibles avec le Kit de développement logiciel (SDK) Cordova Mobile Engagement](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-<!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-cordova-get-started/engage-button.png
@@ -235,8 +234,7 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
-
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

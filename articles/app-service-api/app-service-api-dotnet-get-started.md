@@ -77,7 +77,6 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 	* **ToDoListAPI** (couche intermédiaire) : projet API web ASP.NET qui appelle la couche Données pour effectuer des opérations CRUD sur les éléments de tâche.
 
 	* **ToDoListAPI** (couche Données) : un projet API web ASP.NET qui exécute les opérations CRUD sur les éléments de tâche. Les éléments de tâche sont stockés en mémoire, ce qui signifie que toutes les modifications sont perdues à chaque redémarrage de l’application.
-	* . 
 
 	La couche intermédiaire renseigne l’ID utilisateur dans le champ `Owner` au moment de l’appel de la couche Données. Dans le code que vous téléchargez, l’ID d’utilisateur est toujours « * ». Lorsque vous ajouterez l’authentification dans les autres didacticiels, la couche intermédiaire fournira l’ID d’utilisateur à la couche de données.
 
@@ -180,7 +179,7 @@ Dans cette section du didacticiel, nous allons examiner les métadonnées Swagge
 		    {
 		*/
 
-	Le fichier *SwaggerConfig.cs* est créé lorsque vous installez le package Swashbuckle dans un projet. Ce fichier permet de configurer Swashbuckle de différentes manières.
+	Le fichier *SwaggerConfig.cs* est créé quand vous installez le package Swashbuckle dans un projet. Ce fichier permet de configurer Swashbuckle de différentes manières.
 
 	Le code dont vous avez supprimé les marques de commentaire active l’interface utilisateur Swagger que vous utiliserez lors des étapes suivantes. Lorsque vous créez un projet d’API Web à l’aide du modèle de projet Application API, ce code est commenté par défaut par mesure de sécurité.
 
@@ -194,7 +193,7 @@ Dans cette section du didacticiel, nous allons examiner les métadonnées Swagge
 
 5. Cliquez sur **Get**.
 
-6. Entrez un astérisque comme valeur du paramètre `owner`, puis cliquez sur **Essayer**.
+6. Entrez un astérisque comme valeur du paramètre `owner`, puis cliquez sur **Try it out**.
 
 	![Essayer l’interface utilisateur Swagger](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
@@ -266,9 +265,9 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	Si vous entrez un nom qu’une autre personne a déjà utilisé, un point d’exclamation rouge s’affiche à droite au lieu d’une coche verte, et vous devez entrer un autre nom.
 
-	Azure utilise ce nom comme préfixe de l’URL de votre application. L’URL complète se compose de ce nom suivi de *. azurewebsites.net*. Par exemple, si le nom du site est `ToDoListDataAPI`, l’URL est `todolistdataapi.azurewebsites.net`.
+	Azure utilise ce nom comme préfixe de l’URL de votre application. L’URL complète se compose de ce nom, suivi de *. azurewebsites.net*. Par exemple, si le nom est `ToDoListDataAPI`, l’URL est `todolistdataapi.azurewebsites.net`.
 
-6. Dans la liste déroulante **Groupe de ressources**, cliquez sur **Nouveau**, puis entrez « ToDoListGroup » ou un autre nom de votre choix.
+6. Dans la liste déroulante **Groupe de ressources**, cliquez sur **Nouveau**, puis entrez « ToDoListGroup » ou un autre nom si vous préférez.
 
 	Un groupe de ressources est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
@@ -282,7 +281,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	Au cours des étapes suivantes, vous allez créer un plan de service d’application pour le nouveau groupe de ressources. Un plan de service d’application spécifie les ressources de calcul sur lesquelles votre application API s’exécute. Par exemple, si vous choisissez le niveau Gratuit, votre application API s’exécute sur des machines virtuelles partagées, tandis que pour certains niveaux payants, elle s’exécute sur des machines virtuelles dédiées. Pour plus d’informations sur les plans App Service, consultez [Présentation des plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. Dans la boîte de dialogue **Configurer le plan App Service**, entrez « ToDoListPlan » ou un autre nom si vous préférez.
+5. Dans la boîte de dialogue **Configurer le plan de service d’application**, entrez « ToDoListPlan » ou un autre nom si vous préférez.
 
 5. Dans la liste déroulante **Emplacement**, sélectionnez le lieu le plus proche de vous.
 
@@ -312,7 +311,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	![Cliquez sur Suivant dans l’onglet Connexion de l’assistant Publier le site Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	L’onglet suivant est l’onglet **Paramètres**. Vous pouvez modifier l’onglet Configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
+	Dans l’onglet suivant **Paramètres**, Vous pouvez modifier l’onglet configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
 
 	* Supprimer les fichiers supplémentaires de la destination
 	* Précompiler durant la publication
@@ -358,7 +357,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	![Définition de l’API dans le panneau Paramètres](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	Le panneau **Définition de l’API** vous permet de spécifier l’URL qui retourne les métadonnées Swagger 2.0 au format JSON. Lorsque Visual Studio crée l’application API, il définit l’URL de définition de l’API, à savoir l’URL de base de l’application API plus `/swagger/docs/v1` sur la valeur par défaut des métadonnées générées par Swashbuckle que vous avez vues précédemment.
+	Le panneau **Définition de l’API** vous permet de spécifier l’URL qui retourne les métadonnées Swagger 2.0 au format JSON. Quand Visual Studio crée l’application API, il définit l’URL de définition de l’API, à savoir l’URL de base de l’application API plus `/swagger/docs/v1` sur la valeur par défaut des métadonnées générées par Swashbuckle que vous avez vues précédemment.
 
 	![URL de définition de l’API](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -448,7 +447,7 @@ Le projet ToDoListAPI comporte déjà le code client généré, mais vous allez 
 
 7. Cliquez sur **Create**.
 
-	Visual Studio crée l’application API et lui associe un profil de publication, puis affiche l’étape **Connexion** de l’Assistant **Publier le site web**.
+	Visual Studio crée l’application API et un profil de publication pour celle-ci, puis affiche l’étape **Connexion** de l’Assistant **Publier le site web**.
 
 3.  À l’étape **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Publier**.
 
@@ -481,7 +480,7 @@ Si vous appelez maintenant l’application API de la couche intermédiaire, elle
 
 13. Ajoutez « swagger » à l’URL dans la barre d’adresses du navigateur, puis appuyez sur Entrée. (L’URL est `http://{apiappname}.azurewebsites.net/swagger`.)
 
-	Le navigateur affiche la même interface utilisateur de Swagger que vous avez vue précédemment pour ToDoListDataAPI, mais `owner` n’est pas un champ obligatoire pour l’opération Get, car l’application API de la couche intermédiaire envoie automatiquement cette valeur à l’application API de la couche Données. (Lorsque vous suivez les didacticiels d’authentification, la couche intermédiaire envoie les ID utilisateur réels pour le paramètre `owner`. Pour le moment, elle code un astérisque de manière irréversible.)
+	Le navigateur affiche la même interface utilisateur de Swagger que vous avez vue précédemment pour ToDoListDataAPI, mais `owner` n’est pas un champ obligatoire pour l’opération Get, car l’application API de la couche intermédiaire envoie automatiquement cette valeur à l’application API de la couche Données. (Lorsque vous effectuez les didacticiels d’authentification, la couche intermédiaire envoie les ID utilisateur réels pour le paramètre `owner`. Pour le moment, elle code un astérisque de manière irréversible.)
 
 12. Essayez la méthode Get ainsi que d’autres méthodes pour confirmer que l’application API de couche intermédiaire appelle correctement l’application API de la couche de données.
 
@@ -489,7 +488,7 @@ Si vous appelez maintenant l’application API de la couche intermédiaire, elle
 
 Pour plus d’informations sur le client généré, consultez le [référentiel AutoRest sur GitHub](https://github.com/azure/autorest). Pour obtenir de l’aide à la résolution de problèmes en utilisant le client généré, signalez le [problème dans le référentiel AutoRest](https://github.com/azure/autorest/issues).
 
-## <a id="creating"></a> Facultatif : création intégrale d’un projet d’application API
+## <a id="creating"></a> Facultatif : Création d’un projet d’application API depuis le début
 
 Dans ce didacticiel, vous téléchargez des projets d’API web ASP.NET à déployer vers App Service au lieu de créer des projets depuis le début. Pour créer un projet que vous envisagez de déployer vers une application API, vous pouvez créer un projet d’API web standard et installer le package Swashbuckle. Vous pouvez également utiliser le modèle de nouveau projet d’**Application API Azure**. Pour utiliser ce modèle, cliquez sur **Fichier > Nouveau > Projet > Application web ASP.NET > Application API Azure**.
 
@@ -503,7 +502,7 @@ Comme expliqué [précédemment](#apptype), la seule différence entre les appli
 
 Toutefois, il est facile de modifier la représentation dans le portail si vous le souhaitez. Par exemple, pour transformer l’une des applications API que vous venez de créer en application web, procédez comme suit.
 
-1. Ouvrez l’Explorateur de ressources.
+1. Ouvrez l’[Explorateur de ressources](https://resources.azure.com/).
 
 2. Dans le volet de navigation gauche, développez **abonnements**, puis l’abonnement que vous utilisez.
 
@@ -543,4 +542,4 @@ Une fois que vous aurez configuré votre application web ASP.NET dans Azure App 
 
 Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code, y générer du code client et les consommer à partir de clients .NET. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
