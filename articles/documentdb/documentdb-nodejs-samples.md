@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
-	ms.author="mimig"/>
+	ms.date="03/22/2016" 
+	ms.author="ryancraw"/>
 
 
 # Exemples Node.js de DocumentDB
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [Exemples .NET](documentdb-dotnet-samples.md)
 - [Exemples Node.js](documentdb-nodejs-samples.md)
+- [Exemples Python](documentdb-python-samples.md)
 - [Galerie d’exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Le référentiel GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) contient des exemples de solutions qui exécutent des opérations CRUD ainsi que d’autres opérations courantes sur les ressources DocumentDB. Cet article fournit :
@@ -34,8 +35,8 @@ Le référentiel GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure
 
 1. Pour utiliser ces exemples Node.js, vous avez besoin d’un compte Azure :
     - Vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
-   - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
-2. Vous devez également disposer du [kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md). 
+   - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : ce dernier vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+2. Vous devez également disposer du [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md). 
 
     > [AZURE.NOTE] Chaque exemple est autonome, se définit lui-même et se nettoie automatiquement. Les exemples transmettent donc plusieurs appels à [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). À chaque appel, votre abonnement sera facturé pour 1 heure d’utilisation selon le niveau de performances de la collection en cours de création.
 
@@ -117,6 +118,6 @@ Task | Informations de référence sur l'API
 --- | ---
 [Utiliser un HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) | [HashPartitionResolver](http://documentdb.com)
 
-Pour en savoir plus sur le partitionnement des données dans DocumentDB, voir [Données de partition et d’échelle dans DocumentDB](documentdb-partition-data.md).
+Pour en savoir plus sur le partitionnement des données dans DocumentDB, consultez [Données de partition et d’échelle dans DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Détection de sources de données"
+   pageTitle="Comment découvrir des sources de données | Microsoft Azure"
    description="Article de procédure relatif à la détection de ressources de données inscrites avec Azure Data Catalog et abordant notamment la recherche, le filtrage et l’utilisation de la mise en surbrillance des correspondances dans le portail Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # Détection de sources de données
 
@@ -63,4 +62,4 @@ L’inscription d’une source de données avec **Azure Data Catalog** facilite 
 ## Voir aussi
 - Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la découverte de sources de données.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

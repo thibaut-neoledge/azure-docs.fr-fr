@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/18/2016"
 	ms.author="larryfr"/>
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -29,7 +29,7 @@ Certaines implémentations de Hadoop sont dotées d'un seul nœud principal héb
 
 Les clusters HDInsight fournissent un nœud principal secondaire, ce qui permet aux services et composants de continuer de s'exécuter sur le nœud secondaire en cas de panne sur le serveur principal.
 
-> [AZURE.IMPORTANT] Les deux nœuds principaux sont actifs et s'exécutent simultanément sur le cluster. Certains services tels que HDFS ou YARN, ne sont plus « actifs » sur un nœud principal à toute donnée temps (et « En attente » sur le nœud de tête). D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
+> [AZURE.IMPORTANT] Les deux nœuds principaux sont actifs et s'exécutent simultanément sur le cluster. Certains services tels que HDFS ou YARN, ne sont plus « actifs » sur un nœud principal à toute donnée temps (et « En attente » sur le nœud de tête). D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
 
 Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZKs) sont utilisés pour la sélection primaire de services principaux sur les nœuds principaux et garantissent que les services, les nœuds (worker) et les passerelles savent sur quel nœud principal, un service principal est actif.
 
@@ -37,7 +37,7 @@ Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZKs) sont utilisés pour l
 
 En général, tous les accès au cluster via les passerelles publiques (Ambari web et API REST) ne sont pas affectées par les nœuds principaux. La demande est acheminée vers le nœud principal actif et traitée comme il convient.
 
-Lors de l’accès au cluster à l’aide de SSH, la connexion via le port 22 (valeur par défaut pour SSH) entraîne la connexion au nœud principal 0. Une connexion via le port 23 entraîne une connexion au nœud principal 1.
+Lors de l’accès au cluster à l’aide de SSH, la connexion via le port 22 (valeur par défaut pour SSH) entraîne la connexion au nœud principal 0. Une connexion via le port 23 entraîne une connexion au nœud principal 1.
 
 ### Noms de domaine pleinement qualifiés internes (FQDN)
 
@@ -67,11 +67,11 @@ Vous pouvez utiliser la commande suivante pour vérifier l'état d'un service vi
 
 * Remplacez **SERVICENAME** par le nom du service dont l'état doit être contrôlé
 
-Par exemple, pour vérifier l'état du service **HDFS** dans un cluster nommé **moncluster**, avec un mot de passe **mot de passe**, vous devez utiliser la commande suivante :
+Par exemple, pour vérifier l'état du service **HDFS** dans un cluster nommé **moncluster**, avec un mot de passe **mot de passe**, vous devez utiliser la commande suivante :
 
 	curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
-La réponse ressemblera à ce qui suit :
+La réponse ressemblera à ce qui suit :
 
 	{
 	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
@@ -82,7 +82,7 @@ La réponse ressemblera à ce qui suit :
 	  }
 	}
 
-L’URL indique que le service est en cours d’exécution sur **nœud principal 0**.
+L’URL indique que le service est en cours d’exécution sur **nœud principal 0**.
 
 L'URL indique que le service est en cours d'exécution ou **démarré**.
 
@@ -138,15 +138,15 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 La taille du nœud principal ne peut être sélectionnée que lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
 
-* **Portail Azure** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des nœuds principal et de données (worker) du cluster :
+* **Portail Azure** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des nœuds principal et de données (worker) du cluster :
 
 	![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Interface de ligne de commande Azure** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille du nœud principal à l'aide du paramètre `--headNodeSize`.
+* **Interface de ligne de commande Azure** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille du nœud principal à l'aide du paramètre `--headNodeSize`.
 
-* **Azure PowerShell** : lorsque vous utilisez l'`New-AzureRmHDInsightCluster`applet de commande, vous pouvez définir la taille du nœud principal en utilisant à l'aide du paramètre `-HeadNodeVMSize`.
+* **Azure PowerShell** : lorsque vous utilisez l'`New-AzureRmHDInsightCluster`applet de commande, vous pouvez définir la taille du nœud principal en utilisant à l'aide du paramètre `-HeadNodeVMSize`.
 
 ##Étapes suivantes
 
@@ -166,4 +166,4 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

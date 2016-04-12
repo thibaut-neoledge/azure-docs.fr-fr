@@ -128,10 +128,10 @@ La validation des signatures dépasse le cadre de ce document. Si vous avez beso
 #### Validation des revendications
 Quand votre application reçoit un jeton id\_token au moment de la connexion de l’utilisateur, elle doit également procéder à quelques vérifications sur les revendications dans le jeton id\_token. Ces vérifications portent notamment sur les revendications suivantes :
 
-- Revendication **Audience**: il s’agit de vérifier que le jeton id\_token était bien destiné à votre application.
-- Revendications **Pas avant** et **Heure d'expiration**: il s'agit de vérifier que le jeton id\_token n'est pas arrivé à expiration.
-- Revendication **Émetteur**: il s’agit de vérifier que le jeton a été effectivement émis à votre application par le point de terminaison v2.0.
-- **Valeur à usage unique**: il s’agit d’atténuer les attaques par relecture de jetons.
+- Revendication **Audience** : il s’agit de vérifier que le jeton id\_token était bien destiné à votre application.
+- Revendications **Pas avant** et **Heure d'expiration** : il s'agit de vérifier que le jeton id\_token n'est pas arrivé à expiration.
+- Revendication **Émetteur** : il s’agit de vérifier que le jeton a été effectivement émis à votre application par le point de terminaison v2.0.
+- **Valeur à usage unique** : il s’agit d’atténuer les attaques par relecture de jetons.
 - et bien plus...
 
 Pour obtenir une liste complète des revendications que votre application doit valider, reportez-vous à la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
@@ -154,4 +154,4 @@ Les durées de vie de jeton suivantes sont fournies uniquement à titre indicati
 | Codes d’autorisation (comptes professionnels ou scolaires) | 10 minutes | Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand ils sont reçus. |
 | Codes d’autorisation (comptes personnels) | 5 minutes | Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand ils sont reçus. Les codes d’autorisation émis au nom de comptes personnels sont également à usage unique. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

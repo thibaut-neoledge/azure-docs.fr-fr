@@ -19,16 +19,16 @@
 
 # Ajout de l'authentification à votre application Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter l’authentification à votre application Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
-
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
 2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
@@ -36,7 +36,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-[Xamarin.iOS], XCode 6.0 et iOS 7.0 ou versions ultérieures sont requis pour suivre ce didacticiel.
+[Xamarin.iOS], XCode 6.0 et iOS 7.0 ou versions ultérieures sont requis pour suivre ce didacticiel.
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -50,7 +50,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 3. Dans Xcode, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
 
-4. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+4. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
    	Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -64,7 +64,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **ToDoService** en la définissant comme suit :
+2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **ToDoService** en la définissant comme suit :
 
         private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
@@ -78,9 +78,9 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         }
 
-	> [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Déplacez la demande de la table **ToDoItem** du constructeur **ToDoService** vers une nouvelle méthode intitulée **CreateTable** :
+3. Déplacez la demande de la table **ToDoItem** du constructeur **ToDoService** vers une nouvelle méthode intitulée **CreateTable** :
 
         private async Task CreateTable()
         {
@@ -88,7 +88,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             todoTable = client.GetSyncTable<ToDoItem>();
         }
 
-4. Créez une méthode publique asynchrone nommée **LoginAndGetData** en la définissant comme suit :
+4. Créez une méthode publique asynchrone nommée **LoginAndGetData** en la définissant comme suit :
 
         public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
@@ -96,7 +96,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             await CreateTable();
         }
 
-5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **ToDoService** ne possède pas de descripteur sur l'utilisateur :
+5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **ToDoService** ne possède pas de descripteur sur l'utilisateur :
 
         public override async void ViewDidAppear(bool animated)
         {
@@ -155,4 +155,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

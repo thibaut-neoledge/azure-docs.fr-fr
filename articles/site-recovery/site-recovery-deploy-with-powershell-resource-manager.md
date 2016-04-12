@@ -13,10 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# Utilisation d’Azure Site Recovery avec PowerShell et Azure Resource Manager.
+# Réplication de machines virtuelles Hyper-V en local dans Azure avec PowerShell et Azure Resource Manager.
+
+> [AZURE.SELECTOR]
+- [Portail Azure Classic](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## Vue d’ensemble
@@ -32,7 +37,7 @@ Cet article explique, à l’aide d’un exemple, comment utiliser Windows Power
 > [AZURE.NOTE] Les applets de commande PowerShell d’Azure Site Recovery vous permettent actuellement de configurer des scénarios site VMM vers site VMM, site VMM vers Azure et Hyper-V vers Azure. D’autres scénarios ASR seront disponibles prochainement.
 
 Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet article, mais vous devez tout de même connaître les concepts de base, tels que les modules, les applets de commande et les sessions. Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
-- En savoir plus sur l’[Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
+- En savoir plus sur l’[Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 ## Fonctionnalités clés
@@ -262,4 +267,4 @@ Cet article explique, à l’aide d’un exemple, comment utiliser Azure PowerSh
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

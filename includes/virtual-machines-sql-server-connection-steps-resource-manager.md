@@ -1,16 +1,16 @@
-### Configurer un nom DNS pour l’adresse IP publique
+### Configurer un nom DNS pour l’adresse IP publique
 
-Pour vous connecter au moteur de base de données SQL Server à partir d’Internet, tout d’abord, configurez un nom DNS pour votre adresse IP publique. Notez que cette étape n’est pas nécessaire si vous prévoyez uniquement de vous connecter à l’instance SQL Server dans le même réseau virtuel ou localement.
+Pour vous connecter au moteur de base de données SQL Server à partir d’Internet, tout d’abord, configurez un nom DNS pour votre adresse IP publique. Notez que cette étape n’est pas nécessaire si vous prévoyez uniquement de vous connecter à l’instance SQL Server dans le même réseau virtuel ou localement.
 
 Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dans le portail. Sélectionnez votre machine virtuelle SQL Server pour afficher ses propriétés.
 
-1. Dans le panneau de la machine virtuelle, sélectionnez votre **adresse IP publique.**
+1. Dans le panneau de la machine virtuelle, sélectionnez votre **adresse IP publique.**
 
 	![adresse IP publique](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. Dans les propriétés de votre adresse IP publique, développez **Configuration**.
+2. Dans les propriétés de votre adresse IP publique, développez **Configuration**.
 
-3. Entrez un nom DNS. Il s’agit d’un enregistrement A qui peut être utilisé pour la connexion à votre machine virtuelle SQL Server par nom plutôt que directement par l’adresse IP.
+3. Entrez un nom DNS. Il s’agit d’un enregistrement A qui peut être utilisé pour la connexion à votre machine virtuelle SQL Server par nom plutôt que directement par l’adresse IP.
 
 	![nom dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
@@ -30,4 +30,4 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 
 	![connecter ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

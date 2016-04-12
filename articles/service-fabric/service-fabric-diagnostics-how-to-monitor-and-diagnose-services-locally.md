@@ -3,7 +3,7 @@
    description="Découvrez comment analyser et diagnostiquer vos services écrits à l’aide de Microsoft Azure Service Fabric sur un ordinateur de développement local."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/04/2016"
    ms.author="toddabel"/>
 
 
@@ -58,8 +58,8 @@ Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec
 Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous pouvez générer, déployer et réexécuter l’application pour afficher vos événements dans la visionneuse d’événements de diagnostics. Si vous déboguez l’application en appuyant sur **F5**, la visionneuse d’événements de diagnostics s’ouvre automatiquement.
 
 ## Étapes suivantes
-Le code de traçage que vous avez ajouté à votre application ci-dessus pour le diagnostic local fonctionnera avec les outils que vous pouvez utiliser pour afficher ces événements lors de l’exécution de votre application sur un cluster Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent la manière de les configurer. 
-* [Collecte de journaux provenant d’un cluster Service Fabric dans diagnostics Azure et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) 
-* [Utilisation d’ElasticSearch comme magasin de suivi d’application Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+Le code de traçage que vous avez ajouté à votre application ci-dessus pour le diagnostic local fonctionnera avec les outils que vous pouvez utiliser pour afficher ces événements lors de l’exécution de votre application sur un cluster Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les configurer.
+* [Collecte de journaux d’un cluster Service Fabric dans Azure Diagnostics et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

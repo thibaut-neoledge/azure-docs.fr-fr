@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Vue d’ensemble de l’analyse d’intégrité Application Gateway
@@ -30,9 +30,9 @@ En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous
 
 Une passerelle d’application configure automatiquement une sonde d’intégrité par défaut lorsque vous ne définissez pas de configuration de sonde personnalisée. Le comportement d’analyse par défaut consiste à lancer une requête HTTP aux adresses IP configurées pour le pool principal.
 
-Par exemple : vous configurez votre passerelle d’application pour utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
+Par exemple : vous configurez votre passerelle d’application pour utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
 
-Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
+Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
 
 La sonde par défaut examine uniquement http://127.0.0.1:<port> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées comme décrit ci-dessous.
 
@@ -58,7 +58,7 @@ Les sondes personnalisées vous permettent d’avoir un contrôle plus précis d
 | Nom | Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocole | Protocole utilisé pour envoyer la sonde. Le protocole HTTP est le seul protocole valide. |
 | Hôte | Nom d’hôte pour l’envoi de la sonde. |
-| Chemin | Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée vers <protocol>://<host>:<port><path> |
+| Chemin | Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée vers <protocol>://<host>:<port><path> |
 | Intervalle | Intervalle d’analyse en secondes. Il s’agit de l’intervalle de temps qui s’écoule entre deux analyses consécutives.|
 | Délai d’attente | Délai d’expiration de l’analyse en secondes. La sonde est marquée comme étant en échec si aucune réponse valide n’est reçue dans le délai imparti. |
 | Seuil de défaillance sur le plan de l’intégrité | Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
@@ -67,4 +67,4 @@ Les sondes personnalisées vous permettent d’avoir un contrôle plus précis d
 
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) pour Azure Resource Manager ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-classic-ps.md) pour le modèle de déploiement Azure classique.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

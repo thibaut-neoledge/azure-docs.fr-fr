@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Utilisation et ajout du connecteur Azure Service Bus dans votre application logique 
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version du schéma 2015-08-01-preview, cliquez sur [API Service Bus](../connectors/create-api-servicebus.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version du schéma 2015-08-01-preview, cliquez sur [API Service Bus](../connectors/connectors-create-api-servicebus.md).
 
 Connectez-vous à Azure Service Bus pour envoyer des messages aux files d’attente et rubriques et recevoir des messages de files d’attente et d’abonnements. Les connecteurs sont utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
 
@@ -95,4 +95,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

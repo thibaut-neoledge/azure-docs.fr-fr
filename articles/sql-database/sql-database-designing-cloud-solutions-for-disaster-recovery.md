@@ -29,9 +29,9 @@ Cette option est idéale pour les applications dotées des caractéristiques sui
 + Forte dépendance à l’accès aux données en lecture-écriture (RW)
 + Connectivité dans plusieurs régions entre la logique d’application et la base de données non acceptable en raison de la latence et du coût du trafic    
 
-Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application sont concernés et doivent être basculés en tant qu’unité. Pour la redondance géographique, la logique d’application et la base de données sont toutes deux répliquées vers une autre région, mais elles ne sont pas utilisées pour la charge de travail de l’application dans des conditions normales. L’application dans la région secondaire doit être configurée pour utiliser une chaîne de connexion SQL sur la base de données secondaire. Traffic Manager est configuré pour utiliser la [méthode de routage du trafic par basculement](traffic-manager-configure-failover-load-balancing.md).
+Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application sont concernés et doivent être basculés en tant qu’unité. Pour la redondance géographique, la logique d’application et la base de données sont toutes deux répliquées vers une autre région, mais elles ne sont pas utilisées pour la charge de travail de l’application dans des conditions normales. L’application dans la région secondaire doit être configurée pour utiliser une chaîne de connexion SQL sur la base de données secondaire. Traffic Manager est configuré pour utiliser la [méthode de routage du trafic par basculement](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
-> [AZURE.NOTE] [Azure traffic manager](traffic-manager-overview.md) est utilisé dans cet article aux fins d’illustration uniquement. Vous pouvez utiliser toute solution d’équilibrage de charge qui prend en charge la méthode de routage du trafic par basculement.
+> [AZURE.NOTE] [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) est utilisé dans cet article aux fins d’illustration uniquement. Vous pouvez utiliser toute solution d’équilibrage de charge qui prend en charge la méthode de routage du trafic par basculement.
 
 Outre les instances de l’application principale, vous devez envisager de déployer une petite [application de rôle de travail](cloud-services-choose-me.md#tellmecs) qui surveille votre base de données primaire en émettant des commandes en lecture seule (RO) T-SQL périodiques. Vous pouvez l’utiliser pour déclencher automatiquement le basculement, pour générer une alerte sur la console d’administration de votre application, ou pour effectuer les deux opérations. Pour vous assurer que la surveillance n’est pas affectée par les pannes régionales, vous devez déployer les instances d’application de surveillance sur chaque région et les connecter à la base de données dans l’autre région. Toutefois, seule l’instance dans la région secondaire doit être active.
 
@@ -75,7 +75,7 @@ Cette option de récupération d’urgence cloud est idéale pour les applicatio
 + La logique de lecture seule peut être séparée de la logique de lecture-écriture à l’aide d’une chaîne de connexion différente.
 + La logique de lecture seule ne dépend pas de la synchronisation intégrale des données avec les dernières mises à jour.  
 
-Si vos applications possèdent ces caractéristiques, l’équilibrage de charge des connexions de l’utilisateur final entre plusieurs instances d’application dans différentes régions peut améliorer les performances et l’expérience de l’utilisateur final. Pour ce faire, chaque région doit disposer d’une instance active de l’application avec la logique de lecture-écriture (RW) connectée à la base de données primaire dans la région primaire. La logique de lecture seule (RO) doit être connectée à une base de données secondaire dans la même région que l’instance d’application. Traffic Manager doit être configuré pour utiliser [le routage de tourniquet (round robin)](traffic-manager-configure-round-robin-load-balancing.md) ou le [routage de performances](traffic-manager-configure-performance-load-balancing.md) avec la [surveillance du point de terminaison](traffic-manager-monitoring.md) activée pour chaque instance d’application.
+Si vos applications possèdent ces caractéristiques, l’équilibrage de charge des connexions de l’utilisateur final entre plusieurs instances d’application dans différentes régions peut améliorer les performances et l’expérience de l’utilisateur final. Pour ce faire, chaque région doit disposer d’une instance active de l’application avec la logique de lecture-écriture (RW) connectée à la base de données primaire dans la région primaire. La logique de lecture seule (RO) doit être connectée à une base de données secondaire dans la même région que l’instance d’application. Traffic Manager doit être configuré pour utiliser [le routage de tourniquet (round robin)](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) ou le [routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md) avec la [surveillance du point de terminaison](../traffic-manager/traffic-manager-monitoring.md) activée pour chaque instance d’application.
 
 Comme dans le modèle 1, vous devez envisager le déploiement d’une application de surveillance similaire. Mais contrairement au modèle 1, elle ne sera pas chargée de déclencher le basculement du point de terminaison.
 
@@ -108,7 +108,7 @@ Cette option est idéale pour les applications dotées des caractéristiques sui
 + Toute perte de données constitue un risque d’entreprise élevé ; le basculement de la base de données ne peut être utilisé qu’en dernier recours si la panne est permanente.
 + L’application peut fonctionner en mode lecture seule pour une période donnée.
 
-Dans ce modèle, l’application bascule en mode lecture seule quand elle est connectée à la base de données secondaire. La logique d’application dans la région primaire est colocalisée avec la base de données primaire et fonctionne en mode lecture-écriture (RW), la logique d’application dans la région secondaire est colocalisée avec la base de données secondaire et est prête à fonctionner en mode lecture seule (RO). Traffic Manager doit être configuré pour utiliser [le routage de basculement](traffic-manager-configure-failover-load-balancing.md) avec la [surveillance du point de terminaison](traffic-manager-monitoring.md) activée pour les deux instances d’application.
+Dans ce modèle, l’application bascule en mode lecture seule quand elle est connectée à la base de données secondaire. La logique d’application dans la région primaire est colocalisée avec la base de données primaire et fonctionne en mode lecture-écriture (RW), la logique d’application dans la région secondaire est colocalisée avec la base de données secondaire et est prête à fonctionner en mode lecture seule (RO). Traffic Manager doit être configuré pour utiliser [le routage de basculement](../traffic-manager/traffic-manager-configure-failover-routing-method.md) avec la [surveillance du point de terminaison](../traffic-manager/traffic-manager-monitoring.md) activée pour les deux instances d’application.
 
 Le diagramme suivant illustre cette configuration avant une panne. ![Déploiement actif/passif avant le basculement. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
@@ -124,7 +124,7 @@ En cas de panne dans la région secondaire, Traffic Manager marque le point de t
 
 ![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Ce modèle de conception offre plusieurs **avantages**:
+Ce modèle de conception offre plusieurs **avantages** :
 
 + Il évite la perte de données pendant les pannes temporaires.
 + Il ne nécessite pas le déploiement d’une application de surveillance étant donné que la récupération est déclenchée par Traffic Manager.
@@ -148,4 +148,4 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 | Déploiement actif / actif pour l’équilibrage de charge d’applications | Accès en lecture-écriture < 5 s | Temps de détection de défaillance + appel des API de basculement + modification des chaînes de connexion SQL + test de vérification des applications
 | Déploiement actif / passif pour la conservation des données | Accès en lecture seule < 5 s Accès en lecture-écriture = zéro | Accès en lecture seule = temps de détection de défaillance de connectivité + test de vérification des applications <br>Accès en lecture-écriture = temps pour atténuer la panne
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

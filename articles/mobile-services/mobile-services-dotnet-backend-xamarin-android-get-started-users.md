@@ -18,16 +18,16 @@
 
 # Prise en main de l'authentification dans Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter l’authentification à votre application Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md).
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
-
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
 2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
@@ -55,11 +55,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-1. Ajoutez la propriété suivante à la classe **TodoActivity** :
+1. Ajoutez la propriété suivante à la classe **TodoActivity** :
 
 			private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **TodoActivity** :
+2. Ajoutez la méthode suivante à la classe **TodoActivity** :
 
 	        private async Task Authenticate()
 	        {
@@ -76,7 +76,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
     Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié.
 
-    > [AZURE.NOTE]Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d’instancier l’objet `MobileServiceClient`.
 
@@ -112,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

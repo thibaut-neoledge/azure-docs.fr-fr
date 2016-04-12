@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Création de l'application Active Directory et du principal du service à l'aide du portail
@@ -77,9 +77,17 @@ Lorsque vous accédez à votre application par le biais d’un programme, vous a
   
    ![ID de client][5]
 
-Dans certains cas, vous devez transmettre l'ID de client avec votre demande d'authentification. Vous pouvez récupérer l’ID de locataire en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en extrayant l’ID comme indiqué ci-dessous.
+Dans certains cas, vous devez transmettre l'ID de client avec votre demande d'authentification. Pour les applications Web et les applications API, vous pouvez récupérer l’ID de client en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en récupérant l’ID comme indiqué ci-dessous.
 
    ![ID client](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Les points de terminaison ne sont pas disponibles pour les applications clientes natives. Au lieu de cela, vous pouvez récupérer l’ID de client par le biais de PowerShell :
+
+    PS C:\> Get-AzureRmSubscription
+
+Ou d’Azure CLI :
+
+    azure account show --json
 
 ## Créer une clé d’authentification
 
@@ -110,9 +118,9 @@ Votre application est maintenant prête et le principal du service est créé su
 
 Si votre application accède aux ressources pour le compte d’un utilisateur connecté, vous devez accorder à votre application l’autorisation déléguée d’accéder aux autres applications. Pour cela, vous devez vous rendre dans la section **Autorisations pour d’autres applications** de l’onglet **Configurer**. Par défaut, une autorisation déléguée est déjà activée pour Azure Active Directory. Ne modifiez pas cette autorisation déléguée.
 
-1. Sélectionnez **Ajouter une application**.
+1. Sélectionnez **Ajouter l’application**.
 
-2. Dans la liste, sélectionnez l’**API Gestion des services Microsoft Azure**.
+2. Dans la liste, sélectionnez l’**API de gestion des services Microsoft Azure**.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -229,4 +237,4 @@ Vous pouvez utiliser le code suivant pour transmettre le jeton dans l’en-tête
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur FTP à votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API FTP](../connectors/create-api-ftp.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API FTP](../connectors/connectors-create-api-ftp.md).
 
 Connectez-vous à un serveur FTP pour transférer des données ou des fichiers. Les principales fonctionnalités du connecteur FTP sont :
 
@@ -31,7 +31,9 @@ Connectez-vous à un serveur FTP pour transférer des données ou des fichiers. 
 Vous pouvez ajouter le connecteur FTP à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Créer un connecteur FTP
-Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lancez le portail Azure - Ouvrez Azure Marketplace à l’aide de +Nouveau (en bas de la page) -> Web+Mobile --> Azure Marketplace : ![Lancez Azure Marketplace][1]
+Pour créer un connecteur FTP, procédez comme indiqué ci-dessous.
+- Lancer le portail Azure
+- Ouvrez Azure Marketplace à l’aide de +Nouveau (au bas de la page) -> Web + mobile --> Azure Marketplace : ![Lancez Azure Marketplace][1]
 
 - Cliquez sur API Apps.
 - Recherchez FTP et sélectionnez le connecteur FTP : ![Sélectionnez le connecteur FTP][2]
@@ -39,20 +41,20 @@ Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lan
 - Cliquez sur Créer.
 - Dans le panneau du connecteur FTP qui s'ouvre, fournissez les données suivantes : ![Créez le connecteur FTP][3]
 
-- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-- **Plan d’hébergement web**: sélectionnez ou créez un plan d’hébergement web.
-- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
-- **Nom**: donnez un nom à votre connecteur FTP.
+- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
+- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+- **Nom** : donnez un nom à votre connecteur FTP.
 - **Paramètres du package**
-	- **Adresse du serveur**: spécifiez le nom ou l’adresse IP du serveur FTP.
-	- **Nom d’utilisateur**: spécifiez le nom d’utilisateur pour la connexion au serveur FTP.
-	- **Mot de passe**: spécifiez le mot de passe pour la connexion au serveur FTP.
-	- **Dossier racine**: indiquez le chemin du dossier racine.
-	- **Utiliser le mode binaire**: spécifiez true pour utiliser le mode de transfert binaire, false pour ASCII.
-	- **Utiliser SSL**: spécifiez true pour utiliser FTP sur un canal SSL/TLS sécurisé.
-	- **Port du serveur**: spécifiez le numéro de port du serveur FTP.
+	- **Adresse du serveur** : spécifiez le nom ou l’adresse IP du serveur FTP.
+	- **Nom d’utilisateur** : spécifiez le nom d’utilisateur pour la connexion au serveur FTP.
+	- **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur FTP.
+	- **Dossier racine** : indiquez le chemin du dossier racine.
+	- **Utiliser le mode binaire** : spécifiez true pour utiliser le mode de transfert binaire, false pour ASCII.
+	- **Utiliser SSL** : spécifiez true pour utiliser FTP sur un canal SSL/TLS sécurisé.
+	- **Port du serveur** : spécifiez le numéro de port du serveur FTP.
 - Cliquez sur Créer. Un nouveau connecteur FTP est créé.
 
 ## Utiliser le connecteur FTP dans une application logique
@@ -75,11 +77,17 @@ Le connecteur FTP a un déclencheur - « File Available (Read then Delete) ». C
 
 Cliquez sur le déclencheur « File Available (Read then Delete) »: ![Entrées de base du déclencheur FTP][7]
 
-Les entrées vous aident à configurer un chemin de dossier spécifique à interroger selon une fréquence planifiée. Les entrées de base sont les suivantes. Fréquence : spécifie la fréquence de l’interrogation FTP. Intervalle : spécifie l’intervalle de fréquence planifiée. Chemin du dossier : spécifie le chemin d’accès du dossier sur le serveur FTP. Type de fichier : indique si le type de fichier est binaire ou texte.
+Les entrées vous aident à configurer un chemin de dossier spécifique à interroger selon une fréquence planifiée. Les entrées de base sont :
+- Fréquence : spécifie la fréquence de l'interrogation FTP.
+- Intervalle : spécifie l'intervalle de la fréquence planifiée.
+- Chemin du dossier : spécifie le chemin du dossier sur le serveur FTP.
+- Type de fichier : spécifie si le type de fichier est binaire ou texte.
 
 Cliquez sur les ellipses « ... » pour voir les entrées avancées : ![Entrées de base du déclencheur FTP][8]
 
-Parmi les entrées avancées figurent les suivantes : - Masque de fichier : spécifie le masque de fichier lors de l’interrogation - Masque de fichiers à exclure : spécifie les masques de fichier à exclure lors de l’interrogation
+Les entrées avancées sont :
+- Masque de fichier : spécifie le masque de fichier pendant l'interrogation.
+- Masque de fichier à exclure : spécifie un masque de fichier à exclure pendant l'interrogation.
 
 Indiquez les entrées et cochez la case pour terminer leur configuration : ![Entrées de base du déclencheur FTP][9]
 
@@ -99,25 +107,25 @@ Cliquez sur le connecteur FTP dans le panneau droit. Le connecteur FTP répertor
 
 Le connecteur FTP prend en charge les actions suivantes :
 
-- **Obtenir un fichier**: obtient le contenu d’un fichier spécifique.
-- **Télécharger un fichier**: télécharge un fichier vers le chemin du dossier FTP.
-- **Supprimer un fichier**: supprime un fichier du chemin du dossier FTP.
-- **Répertorier les fichiers**: répertorie tous les fichiers dans le chemin du dossier FTP.
+- **Obtenir un fichier** : obtient le contenu d’un fichier spécifique.
+- **Télécharger un fichier** : télécharge un fichier vers le chemin du dossier FTP.
+- **Supprimer un fichier** : supprime un fichier du chemin du dossier FTP.
+- **Répertorier les fichiers** : répertorie tous les fichiers dans le chemin du dossier FTP.
 
 Prenons un exemple : Télécharger un fichier. Cliquez sur Télécharger un fichier.
 
 Les entrées de base sont affichées en premier : ![Entrées de base de l’action Télécharger un fichier][11]
 
 
-- **Contenu**: spécifie le contenu du fichier à télécharger.
-- **Encodage de transfert de contenu**: spécifiez none ou base64.
-- **Chemin du fichier**: spécifie le chemin du fichier à télécharger.
+- **Contenu** : spécifie le contenu du fichier à télécharger.
+- **Encodage de transfert de contenu** : spécifiez none ou base64.
+- **Chemin du fichier** : spécifie le chemin du fichier à télécharger.
 
 Cliquez sur ... pour voir les entrées avancées : ![Entrées de base de l’action Télécharger un fichier][12]
 
 
 - **Ajouter si le fichier existe** : True ou False. Quand cette entrée est activée, les données sont ajoutées au fichier s'il existe. Quand elle est désactivée, le fichier est remplacé s'il existe.
-- **Dossier temporaire**: facultatif. Si cette propriété est définie, l’adaptateur charge le fichier dans le Chemin du dossier temporaire. Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans Chemin du dossier. Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
+- **Dossier temporaire** : facultatif. Si cette propriété est définie, l’adaptateur charge le fichier dans le Chemin du dossier temporaire. Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans Chemin du dossier. Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
 Indiquez les entrées et cochez la case pour terminer leur configuration : ![Action de télécharger un fichier configurée][13]
 
@@ -162,4 +170,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

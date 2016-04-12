@@ -3,9 +3,9 @@
 	description="Découvrez comment sauvegarder et restaurer des bases de données Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Sauvegarder et restaurer des bases de données Stretch 
+# Sauvegarder et restaurer des bases de données Stretch
 
 Pour sauvegarder et restaurer des bases de données Stretch, vous pouvez continuer à appliquer les méthodes que vous appliquez actuellement. Pour plus d’informations sur la sauvegarde et la restauration SQL Server, consultez [Sauvegarde et restauration de bases de données SQL](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,7 +59,12 @@ Une fois que vous avez rétabli la connexion, Stretch Database tente de rapproch
 ![Stretch Database après la sauvegarde][StretchBackupImage4]
 
 ## Voir aussi
-[Gérer et résoudre les problèmes liés à Stretch Database](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [Sauvegarder et restaurer des bases de données SQL](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@ Une fois que vous avez rétabli la connexion, Stretch Database tente de rapproch
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importation de données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET | Microsoft Azure | Service de recherche cloud hébergé"
-    description="Comment charger des données dans un index dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET"
+    pageTitle="Chargement de données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Découvrez comment charger des données dans un index dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
@@ -17,15 +17,15 @@
     ms.date="03/09/2016"
     ms.author="brjohnst"/>
 
-# Importer des données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
+# Charger des données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
 > [AZURE.SELECTOR]
 - [Vue d'ensemble](search-what-is-data-import.md)
-- [Portail](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Cet article vous explique comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour importer des données dans un index Azure Search. Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-create-index-dotnet.md). Cet article suppose également que vous avez déjà créé un objet `SearchServiceClient`, comme indiqué dans [Créer un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
+Cet article vous explique comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour importer des données dans un index Azure Search.
+
+Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md). Cet article suppose également que vous avez déjà créé un objet `SearchServiceClient`, comme indiqué dans [Créer un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 Notez que tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
@@ -51,10 +51,10 @@ Pour importer des données à l’aide du Kit de développement logiciel (SDK) .
 
 Action | Description | Champs requis pour chaque document | Remarques
 --- | --- | --- | ---
-`Upload` | Une action `Upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau, et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête est défini sur la valeur `null`. y compris lorsque le champ a été précédemment défini sur une valeur non null.
-`Merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `DataType.Collection(DataType.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` est `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Cette action est similaire à `Merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécute une action `Upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |- 
-`Delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez sont ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `Merge` et définissez simplement le champ de manière explicite sur la valeur null.
+`Upload` | Une action `Upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null.
+`Merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `DataType.Collection(DataType.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
+`MergeOrUpload` | Cette action est similaire à celle d’une action `Merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `Upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |-
+`Delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `Merge` et définissez simplement le champ de manière explicite sur la valeur null.
 
 Vous pouvez spécifier quelle action vous souhaitez utiliser avec les différentes méthodes statiques des classes `IndexBatch` et `IndexAction`, comme indiqué dans la section suivante.
 
@@ -67,24 +67,24 @@ var actions =
     {
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "1", 
-                BaseRate = 199.0, 
+            {
+                HotelId = "1",
+                BaseRate = 199.0,
                 Description = "Best hotel in town",
                 DescriptionFr = "Meilleur hôtel en ville",
                 HotelName = "Fancy Stay",
-                Category = "Luxury", 
+                Category = "Luxury",
                 Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false, 
+                ParkingIncluded = false,
                 SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                Rating = 5, 
+                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                Rating = 5,
                 Location = GeographyPoint.Create(47.678581, -122.131577)
             }),
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "2", 
+            {
+                HotelId = "2",
                 BaseRate = 79.99,
                 Description = "Cheapest hotel in town",
                 DescriptionFr = "Hôtel le moins cher en ville",
@@ -98,9 +98,9 @@ var actions =
                 Location = GeographyPoint.Create(49.678581, -122.131577)
             }),
         IndexAction.MergeOrUpload(
-            new Hotel() 
-            { 
-                HotelId = "3", 
+            new Hotel()
+            {
+                HotelId = "3",
                 BaseRate = 129.99,
                 Description = "Close to town hall and the river"
             }),
@@ -184,7 +184,7 @@ public partial class Hotel
 
 La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l'index, mais à une différence près : le nom de chaque champ commence par une minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]`.
 
-> [AZURE.NOTE] Le Kit de développement logiciel (SDK) .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Mise à niveau vers le Kit de développement logiciel (SDK) Azure Search .NET version 1.1](search-dotnet-sdk-migration.md#WhatsNew). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
+> [AZURE.NOTE] Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Mise à niveau vers le Kit de développement logiciel (SDK) Azure Search .NET version 1.1](search-dotnet-sdk-migration.md#WhatsNew). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
 
 La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `DataType.String`. Il existe des mappages de type similaires entre `bool?` et `DataType.Boolean`, `DateTimeOffset?` et `DataType.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la `Documents.Get` méthode [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
 
@@ -196,13 +196,13 @@ Cette capacité à utiliser vos propres classes comme des documents fonctionne d
 
 Lorsque vous créez vos propres classes de modèles à mapper à un index Azure Search, nous vous recommandons de déclarer les propriétés des types de valeurs, par exemple `bool` et `int`, comme acceptant la valeur null (par exemple, `bool?` au lieu de `bool`). Si vous utilisez une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document de cet index ne contient de valeur null pour le champ correspondant. Ni le Kit de développement logiciel ni le service Azure Search ne vous aideront à appliquer cette recommandation.
 
-Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario dans lequel vous ajoutez un nouveau champ à un index existant qui est de type `DataType.Int32`. Après la mise à jour de la définition d’index, ce nouveau champ prendra la valeur null pour tous les documents (car tous les types peuvent avoir la valeur null dans Azure Search). Si vous utilisez ensuite une classe de modèle avec une propriété `int` n’acceptant pas la valeur null pour ce champ, vous obtenez une `JsonSerializationException` comme ceci lorsque vous tentez de récupérer des documents :
+Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario dans lequel vous ajoutez un nouveau champ à un index existant qui est de type `DataType.Int32`. Après la mise à jour de la définition d’index, ce nouveau champ prendra la valeur null pour tous les documents (car tous les types peuvent avoir la valeur null dans Azure Search). Si vous utilisez ensuite une classe de modèle avec une propriété `int` ne pouvant être définie sur null pour ce champ, vous obtiendrez l’exception `JsonSerializationException` ci-dessous lorsque vous tenterez de récupérer des documents :
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 Pour cette raison, nous vous recommandons d'utiliser des types pour lesquels la valeur null est autorisée en tant que meilleure pratique.
 
 ## Suivant
-Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md).
+Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

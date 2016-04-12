@@ -15,13 +15,13 @@
 
 #Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.
 
-Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](active-directory-editions.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
+Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](active-directory-editions.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
 
 La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article](active-directory-appssoaccess-whatis.md). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l'application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail de gestion pour activer l'authentification unique.
 
-Les clients disposant de licences [Azure Active Directory Premium](active-directory-editions.md) licences obtiennent également ces fonctionnalités supplémentaires :
+Les clients disposant de licences [Azure Active Directory Premium](active-directory-editions.md) licences obtiennent également ces fonctionnalités supplémentaires :
 
-* Intégration libre-service de toute application prenant en charge les fournisseurs d’identité SAML 2.0
+* Intégration libre-service de toute application prenant en charge les fournisseurs d’identité SAML 2.0 (Initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
 * Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Connexion libre-service des applications qui utilisent le protocole SCIM pour l'affectation d'utilisateurs ([description ici](active-directory-scim-provisioning))
 * Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
@@ -32,7 +32,7 @@ Ces fonctionnalités, également appelées *modèles d’intégration d’applic
 
 ##Ajout d’une application non répertoriée
 
-Pour connecter une application à l’aide d’un modèle d’intégration d’application, connectez-vous au portail de gestion Azure avec votre compte d’administrateur Azure Active Directory et accédez à la section **Active Directory > [Directory] > Applications**, sélectionnez **Ajouter**, puis **Ajouter une application à partir de la galerie**.
+Pour connecter une application à l’aide d’un modèle d’intégration d’application, connectez-vous au portail de gestion Azure avec votre compte d’administrateur Azure Active Directory et accédez à la section **Active Directory > [Directory] > Applications**, sélectionnez **Ajouter**, puis **Ajouter une application à partir de la galerie**.
 
 ![][1]
 
@@ -52,12 +52,30 @@ Ajouter une application de cette manière fournit une expérience très similair
 Sélectionnez cette option pour configurer l'authentification basée SAML pour l'application. Ceci nécessite que l'application prenne en charge SAML 2.0, et vous devriez collecter des informations sur la façon d'utiliser les fonctionnalités SAML de l'application avant de continuer. Après avoir sélectionné **Suivant**, on vous demandera d'entrer trois URL différentes correspondant aux points de terminaison SAML pour l'application.
 
 ![][4]
+ 
+Ces composants sont les suivants :
 
-Les icônes d'info-bulle dans la boîte de dialogue fournissent des détails sur chaque URL et la manière dont elle est utilisée. Une fois ces entrées effectuées, cliquez sur **Suivant** pour passer à l'écran suivant. Cet écran fournit des informations sur ce qui doit être configuré dans l'application pour lui permettre d'accepter un jeton SAML à partir d'Azure AD.
+* **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectue une authentification initiée par le fournisseur d’identité lorsque l’application est lancée à partir d’Office 365, du panneau d’accès Azure AD ou à partir de l’URL de connexion unique d’Azure AD (qui peut être copiée dans l’onglet Tableau de bord).
+
+* **URL de l’émetteur** : l’URL de l’émetteur doit identifier de façon unique l’application pour laquelle l’authentification unique est configurée. Il s’agit de la valeur qu’Azure AD renvoie à l’application en tant que paramètre **Audience** du jeton SAML. L’application doit la valider. Cette valeur apparaît également comme l’**ID d’entité** dans les métadonnées SAML fournies par l’application. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les valeurs d’ID d’entité ou d’audience. Voici un exemple de comment l’URL de l’audience figure dans le jeton SAML renvoyé à l’application :
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* **URL de réponse** : l’URL de réponse est là où l’application attend le jeton SAML. Elle est aussi appelée **URL ACS (Assertion Consumer Service)**. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les jetons de réponse SAML de l’URL ou de l’URL ACS. Une fois ces entrées effectuées, cliquez sur **Suivant** pour passer à l'écran suivant. Cet écran fournit des informations sur ce qui doit être configuré dans l'application pour lui permettre d'accepter un jeton SAML à partir d'Azure AD. 
 
 ![][5]
 
-Les valeurs requises varient selon l'application, consultez la documentation SAML de l'application pour en savoir plus. Les URL des services**Connexion** et **Déconnexion** correspondent toutes les deux au même point de terminaison, qui est le point de terminaison de gestion des demandes SAML pour votre instance d'Azure AD. L'URL de l'émetteur est la valeur qui s'affiche comme l'« Émetteur » dans le jeton SAML émis pour l'application.
+Les valeurs requises varient selon l'application, consultez la documentation SAML de l'application pour en savoir plus. Les URL des services**Connexion** et **Déconnexion** correspondent toutes les deux au même point de terminaison, qui est le point de terminaison de gestion des demandes SAML pour votre instance d'Azure AD. L'URL de l'émetteur est la valeur qui s'affiche comme l'« Émetteur » dans le jeton SAML émis pour l'application.
 
 Une fois que votre application a été configurée, cliquez sur le bouton **Suivant**, puis sur **Terminer** pour fermer la boîte de dialogue.
 
@@ -81,7 +99,7 @@ Vous pouvez afficher ou modifier les revendications envoyées à l'application d
 
 ![][7]
 
-Il existe deux raisons pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d'une manière qui nécessite que la revendication NameIdentifier soit différente du nom d'utilisateur (c’est-à-dire le nom d'utilisateur principal) stocké dans Azure Active Directory.
+Il existe deux raisons pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d'une manière qui nécessite que la revendication NameIdentifier soit différente du nom d'utilisateur (c’est-à-dire le nom d'utilisateur principal) stocké dans Azure Active Directory.
 
 Pour plus d'informations sur la manière d'ajouter et de modifier des revendications pour ces scénarios, consultez cet [article sur la personnalisation des revendications](active-directory-saml-claims-customization.md).
 
@@ -101,7 +119,7 @@ Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de la p
 
 Une fois la page de connexion capturée, les utilisateurs et les groupes peuvent être affectés et les stratégies d'informations d'identification peuvent être définies comme [applications SSO avec mot de passe](active-directory-appssoaccess-whatis.md) standard.
 
-Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
+Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
 ##Authentification unique existante
 
@@ -109,7 +127,7 @@ Sélectionnez cette option pour ajouter un lien au panneau d'accès Azure AD ou 
 
 Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de l'application à lier. Une fois l'opération terminée, les utilisateurs et les groupes peuvent être affectés à l'application, qui s'affiche alors dans le [Lanceur d'applications Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) pour ces utilisateurs.
 
-Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
+Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
 ## Articles connexes
 
@@ -126,4 +144,4 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

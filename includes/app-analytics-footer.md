@@ -1,14 +1,16 @@
 
 ## Index
 
-- [Overview](../articles/application-insights/app-analytics.md)
-- [Tour](../articles/application-insights/app-analytics-tour.md)
- - Start here. A tutorial covering the main features.
-- [Queries](../articles/application-insights/app-analytics-queries.md)
- - Use operators such as `where` and `count` to build queries.
-- [Aggregation](../articles/application-insights/app-analytics-aggregations.md)
- - Used to compute statistics over groups of records
-- [Scalars](../articles/application-insights/app-analytics-scalars.md)
- - Numbers, strings, and other expressions used to form query parameters.
+- [Vue d'ensemble](../articles/application-insights/app-analytics.md)
+- [Visite](../articles/application-insights/app-analytics-tour.md)
+ - Démarrer ici. Didacticiel couvrant les fonctionnalités principales.
+- [Requêtes](../articles/application-insights/app-analytics-queries.md)
+ - Utiliser des opérateurs tels que `where` et `count` pour générer des requêtes.
+- [Agrégation](../articles/application-insights/app-analytics-aggregations.md)
+ - Utilisé pour calculer des statistiques sur des groupes d’enregistrements
+- [Données scalaires](../articles/application-insights/app-analytics-scalars.md)
+ - Nombres, chaînes et autres expressions utilisés pour former les paramètres de requête.
+- [L'utilisation de](../articles/application-insights/app-analytics-using.md)
+ - Utilisation d’Analytics.
 
-
+<!---HONumber=AcomDC_0330_2016-->

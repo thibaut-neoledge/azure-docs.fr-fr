@@ -30,7 +30,7 @@ L’option **Mise en surbrillance des correspondances** [permet](https://msdn.mi
 
 L’option **Navigation à facettes** peut facilement être ajoutée à votre page de résultats avec Azure Search. À l'aide d’un [simple paramètre de requête](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search renvoie toutes les informations nécessaires pour créer une expérience de recherche à facettes dans l'interface utilisateur de votre application, afin de permettre aux utilisateurs d’explorer en détail et de filtrer les résultats de la recherche (par exemple, filtrer des éléments de catalogue par plage de prix ou par marque).
 
-La [prise en charge](search-create-geospatial.md) de l’option **Géospatiale** vous permet de traiter, de filtrer et d’afficher intelligemment les emplacements géographiques. Azure Search permet aux utilisateurs d'explorer les données en fonction de la proximité d'un résultat de recherche selon un emplacement spécifié, ou en fonction d’une région géographique spécifique.
+La prise en charge de la fonctionnalité **Géospatiale** vous permet de traiter, de filtrer et d’afficher intelligemment les emplacements géographiques. Azure Search permet aux utilisateurs d'explorer les données en fonction de la proximité d'un résultat de recherche selon un emplacement spécifié, ou en fonction d’une région géographique spécifique. Cette vidéo explique comment cela fonctionne : [Channel 9 : Azure Search et les données géospatiales](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 L’option **Filtres** permet d’intégrer facilement la navigation à facettes dans l’interface utilisateur de votre application, d’améliorer la formulation des requêtes et de filtrer en fonction de critères spécifiés par les utilisateurs ou les développeurs. Créez des filtres puissants à l’aide de la [syntaxe OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -83,4 +83,4 @@ Vous pouvez essayer Azure Search dès aujourd'hui ! Si vous avez déjà un compt
 
 Si vous n'avez pas un compte Azure, que vous pouvez essayer une session gratuite de 60 minutes sans aucune inscription nécessaire. Accédez à [Essayer Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) et sélectionnez « Application web ». Puis, sélectionnez le modèle « ASP.NET + Azure Search » pour commencer.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="02/21/2016"
+   ms.date="03/07/2016"
    ms.author="robinsh" />
 
 # Objectifs de performance et évolutivité d'Azure Storage
@@ -40,7 +40,8 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Pour plus d’informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md).
+
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ### Comptes de stockage standard
 
@@ -62,13 +63,13 @@ Le tableau présenté plus haut dans la section [Objectifs d'évolutivité des c
 
 Les partitions affectent l’extensibilité et l’équilibrage de charge de chacun des services de stockage comme suit :
 
-- **Blobs**: la clé de partition d’un blob est le nom du conteneur +  le nom du blob. Autrement dit, chaque blob a sa propre partition. Les blobs peuvent donc être répartis sur plusieurs serveurs afin de d’offrir un accès horizontal. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
+- **Blobs** : la clé de partition d’un blob est le nom du conteneur +  le nom du blob. Autrement dit, chaque blob a sa propre partition. Les blobs peuvent donc être répartis sur plusieurs serveurs afin de d’offrir un accès horizontal. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
 
-- **Fichiers**: la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
+- **Fichiers** : la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
 
-- **Messages**: la clé de partition d’un message est le nom de la file d’attente : tous les messages d’une file d’attente sont regroupés en une seule partition et servis par un seul serveur. Plusieurs files d’attente peuvent être traitées par différents serveurs pour équilibrer la charge, quel que soit le nombre de files d’attente du compte de stockage.
+- **Messages** : la clé de partition d’un message est le nom de la file d’attente : tous les messages d’une file d’attente sont regroupés en une seule partition et servis par un seul serveur. Plusieurs files d’attente peuvent être traitées par différents serveurs pour équilibrer la charge, quel que soit le nombre de files d’attente du compte de stockage.
 
-- **Entités**: la clé de partition d’une entité est le nom de la table + la clé de partition, cette dernière correspondant à la valeur de la propriété **PartitionKey** requise et définie par l’utilisateur pour l’entité.
+- **Entités** : la clé de partition d’une entité est le nom de la table + la clé de partition, cette dernière correspondant à la valeur de la propriété **PartitionKey** requise et définie par l’utilisateur pour l’entité.
 
 	Toutes les entités affichant la même valeur de clé de partition sont regroupées dans la même partition et sont stockées sur le même serveur de partition. Il s’agit d’un point important de la conception de votre application. Votre application doit offrir un parfait équilibre entre les avantages de l’extensibilité de la répartition des entités sur plusieurs partitions et les avantages d’accès aux données du regroupement des entités en une seule partition.
 
@@ -85,4 +86,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

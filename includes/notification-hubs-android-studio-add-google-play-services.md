@@ -11,7 +11,7 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Ajoutez la ligne suivante sous *dépendances* :
+4. Ajoutez la ligne suivante sous *dépendances* :
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 

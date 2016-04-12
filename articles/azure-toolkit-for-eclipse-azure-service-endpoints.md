@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
@@ -28,14 +28,14 @@ Le schéma qui suit représente la boîte de dialogue **Points de terminaison de
 
 ## Pour définir les points de terminaison de service Azure ##
 
-Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’une des actions suivantes :
+Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’une des actions suivantes :
 
 * Si vous souhaitez utiliser la plateforme Azure globale, à partir de la liste déroulante **Ensemble actif**, sélectionnez **windowsazure.com**, puis cliquez sur **OK**.
 * Si vous souhaitez utiliser Azure sous 21Vianet en Chine, dans la liste déroulante **Ensemble actif**, sélectionnez **windowsazure.cn** (Chine), puis cliquez sur **OK**.
-* Si vous souhaitez utiliser une plateforme Azure privée :
+* Si vous souhaitez utiliser une plateforme Azure privée :
     1. Cliquez sur **Modifier**.
     2. Une boîte de dialogue s’ouvre, vous informant que la boîte de dialogue **Points de terminaison de service** va être fermée et le fichier d’ensemble de préférences s’ouvre. Cliquez sur **OK**.
-    3. Dans le fichier preferencesets.xml, créez un nouvel élément `preferenceset`. Pour ce nouvel élément, créez les attributs `name`, `blob`, `management`, `portalURL` et `publishsettings`, puis ajoutez à ces dernières des valeurs qui correspondent à votre plateforme Azure privée. Vous pouvez utiliser les valeurs fournies pour les éléments `preferenceset` existants en tant que modèles. **Remarque** : la valeur utilisée pour l’attribut `blob`doit contenir le texte « blob » dans l’URL.
+    3. Dans le fichier preferencesets.xml, créez un nouvel élément `preferenceset`. Pour ce nouvel élément, créez les attributs `name`, `blob`, `management`, `portalURL` et `publishsettings`, puis ajoutez à ces dernières des valeurs qui correspondent à votre plateforme Azure privée. Vous pouvez utiliser les valeurs fournies pour les éléments `preferenceset` existants en tant que modèles. **Remarque** : la valeur utilisée pour l’attribut `blob`doit contenir le texte « blob » dans l’URL.
     4. Enregistrez et fermez preferencesets.xml.
     5. Rouvrez la boîte de dialogue **Points de terminaison de service**.
     6. À partir de la liste déroulante d’**ensembles d’actifs**, sélectionnez l’ensemble actif que vous avez créé, cliquez sur **OK**.
@@ -43,7 +43,7 @@ Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’u
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Kit de ressources Azure pour Eclipse][]
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
@@ -54,7 +54,7 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 <!-- URL List -->
 
 [Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
@@ -62,4 +62,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

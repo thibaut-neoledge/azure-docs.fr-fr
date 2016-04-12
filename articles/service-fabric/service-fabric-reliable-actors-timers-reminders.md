@@ -3,7 +3,7 @@
    description="Présentation des minuteries et rappels pour Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
-   ms.author="amanbha"/>
+   ms.date="03/15/2016"
+   ms.author="vturecek"/>
 
 
 # Minuteries des acteurs
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

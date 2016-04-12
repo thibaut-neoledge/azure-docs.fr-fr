@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurer une machine virtuelle SQL Server comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
-	description="Configurez une machine virtuelle pour la science des données avec SQL Server et un serveur IPython."
+	description="Configurez une machine virtuelle pour la science des données avec SQL Server et un serveur IPython."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev" 
@@ -20,25 +20,25 @@
 
 Cette rubrique explique comment approvisionner et configurer une machine virtuelle SQL Server utilisable au sein d’un environnement de science des données dans le cloud. La machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure et AzCopy, ainsi que d’autres utilitaires utiles pour les projets de science des données. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage d’objets blob Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage d’objets blob.
 
-La galerie de machines virtuelles Azure inclut différentes images contenant Microsoft SQL Server. Sélectionnez une image de machine virtuelle SQL Server adaptée à vos besoins en matière de données. Les images recommandées sont les suivantes :
+La galerie de machines virtuelles Azure inclut différentes images contenant Microsoft SQL Server. Sélectionnez une image de machine virtuelle SQL Server adaptée à vos besoins en matière de données. Les images recommandées sont les suivantes :
 
-- SQL Server 2012 SP2 Enterprise pour les données de taille réduite ou moyenne
-- SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données pour les données de taille conséquente ou très volumineuse
+- SQL Server 2012 SP2 Enterprise pour les données de taille réduite ou moyenne
+- SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données pour les données de taille conséquente ou très volumineuse
 
- > [AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ > [AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 
-##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
+##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
 
 1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
+2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
-3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
+3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
 	![Sélection de la machine virtuelle Serveur SQL][1]
 
-4.  Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
+4.  Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
 
     -   Entrez un **nom de machine virtuelle**.
     -   Dans la zone **NEW USER NAME**, entrez un nom d'utilisateur unique pour le compte d'administrateur local de machine virtuelle.
@@ -46,16 +46,16 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Dans la zone **CONFIRM PASSWORD** entrez de nouveau le mot de passe.
     -   Sélectionnez la **taille** adéquate dans le menu déroulant.
 
-     > [AZURE.NOTE] La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > [AZURE.NOTE] La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
     ![Configuration de machine virtuelle][2]
 
-5.  Dans la deuxième page **Configuration de la machine virtuelle**, configurez les ressources pour la mise en réseau, le stockage et la disponibilité :
+5.  Dans la deuxième page **Configuration de la machine virtuelle**, configurez les ressources pour la mise en réseau, le stockage et la disponibilité :
 
-    -   Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
-    -   Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net**
+    -   Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
+    -   Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net**
     -   Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
     -   Dans **Compte de stockage**, sélectionnez un compte de stockage existant ou un compte créé automatiquement.
     -   Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
@@ -63,7 +63,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 6.	Dans la section **POINTS DE TERMINAISON**, cliquez dans la liste déroulante vide sous **NOM**, sélectionnez **MSSQL**, puis tapez le numéro de port de l’instance du moteur de base de données (**1433** pour l’instance par défaut).
 
-7.  Votre machine virtuelle SQL Server peut également faire office de serveur Notebook IPython, que nous configurerons ultérieurement. Ajoutez un point de terminaison pour spécifier le port à utiliser pour votre serveur Notebook IPython. Entrez un nom dans la colonne **NOM**, puis sélectionnez le numéro de port de votre choix pour le port public et le numéro 9999 pour le port privé.
+7.  Votre machine virtuelle SQL Server peut également faire office de serveur Notebook IPython, que nous configurerons ultérieurement. Ajoutez un point de terminaison pour spécifier le port à utiliser pour votre serveur Notebook IPython. Entrez un nom dans la colonne **NOM**, puis sélectionnez le numéro de port de votre choix pour le port public et le numéro 9999 pour le port privé.
 
 	Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
@@ -73,7 +73,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 	`![Dernières Options de machine virtuelle][4]
 
-9.  Patientez pendant qu’Azure prépare votre machine virtuelle. L'état de la machine virtuelle doit normalement passer par les phases suivantes :
+9.  Patientez pendant qu’Azure prépare votre machine virtuelle. L'état de la machine virtuelle doit normalement passer par les phases suivantes :
 
     -   Démarrage (configuration)
     -   Arrêté
@@ -89,13 +89,13 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 3.  Dans la boîte de dialogue **Sécurité de Windows**, entrez le mot de passe du compte d’administrateur local indiqué à l’étape précédente. (Il se peut que vous soyez invité à vérifier les informations d’identification de la machine virtuelle.)
 
-4.  Lors de la première connexion à cette machine virtuelle, il est possible que plusieurs processus doivent s'effectuer, par exemple, la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L’exécution de ces tâches peut prendre quelques minutes. Tant que la configuration de SQL Server n’est pas terminée, il est possible que `SELECT @@SERVERNAME` ne renvoie pas le nom correct et que SQL Server Management Studio ne soit pas visible sur la page d’accueil.
+4.  Lors de la première connexion à cette machine virtuelle, il est possible que plusieurs processus doivent s'effectuer, par exemple, la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L’exécution de ces tâches peut prendre quelques minutes. Tant que la configuration de SQL Server n’est pas terminée, il est possible que `SELECT @@SERVERNAME` ne renvoie pas le nom correct et que SQL Server Management Studio ne soit pas visible sur la page d’accueil.
 
 Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l’instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
 
 ##<a name="InstallIPython"></a>Installer Notebook IPython et les autres outils connexes
 
-Un script de personnalisation spécial est mis à votre disposition pour vous permettre de configurer la nouvelle machine virtuelle SQL Server en tant que serveur Notebook IPython et pour installer des outils connexes complémentaires, tels qu’AzCopy, l’Explorateur de stockage Azure, des packages de science des données Python très utiles, etc. Pour effectuer l’installation :
+Un script de personnalisation spécial est mis à votre disposition pour vous permettre de configurer la nouvelle machine virtuelle SQL Server en tant que serveur Notebook IPython et pour installer des outils connexes complémentaires, tels qu’AzCopy, l’Explorateur de stockage Azure, des packages de science des données Python très utiles, etc. Pour effectuer l’installation :
 
 - Cliquez avec le bouton droit sur l’icône de démarrage de Windows et sélectionnez **Invite de commandes (admin)**.
 - Copiez les commandes ci-après et collez-les au niveau de l’invite de commandes.
@@ -106,8 +106,8 @@ Un script de personnalisation spécial est mis à votre disposition pour vous pe
 - Lorsque vous y êtes invité, entrez un mot de passe de votre choix pour le serveur Notebook IPython.
 - Le script de personnalisation automatise plusieurs procédures post-installation répertoriées ci-dessous.
 	+ Installation et configuration du serveur Notebook IPython
-	+ Ouverture de ports TCP dans le Pare-feu Windows pour les points de terminaison créés précédemment :
-	+ pour la connectivité à distance de SQL Server ;
+	+ Ouverture de ports TCP dans le Pare-feu Windows pour les points de terminaison créés précédemment :
+	+ pour la connectivité à distance de SQL Server ;
 	+ pour la connectivité à distance du serveur Notebook IPython.
 	+ Extraction des exemples de notebooks IPython et de scripts SQL
 	+ Téléchargement et installation des packages de science des données Python utiles
@@ -117,21 +117,21 @@ Un script de personnalisation spécial est mis à votre disposition pour vous pe
 
 ##<a name="Optional"></a>Attacher des disques de données selon vos besoins
 
-Si l’image de machine virtuelle que vous avez sélectionnée n’inclut aucun disque de données, c’est-à-dire aucun disque autre que le lecteur C (disque du système d’exploitation) ou le lecteur D (disque temporaire), vous devez ajouter un ou plusieurs disques de données pour y stocker vos données. L’image de machine virtuelle pour SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données est préconfigurée avec des disques supplémentaires pour les fichiers de données et les fichiers journaux SQL Server.
+Si l’image de machine virtuelle que vous avez sélectionnée n’inclut aucun disque de données, c’est-à-dire aucun disque autre que le lecteur C (disque du système d’exploitation) ou le lecteur D (disque temporaire), vous devez ajouter un ou plusieurs disques de données pour y stocker vos données. L’image de machine virtuelle pour SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données est préconfigurée avec des disques supplémentaires pour les fichiers de données et les fichiers journaux SQL Server.
 
- > [AZURE.NOTE] Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ > [AZURE.NOTE] Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
-Pour attacher des disques de données supplémentaires, suivez la procédure décrite dans l’article [Attachement d’un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md), qui explique en détail comment effectuer les opérations ci-après.
+Pour attacher des disques de données supplémentaires, suivez la procédure décrite dans l’article [Attachement d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md), qui explique en détail comment effectuer les opérations ci-après.
 
 1. Attachement de disques vides à la machine virtuelle approvisionnée aux étapes précédentes
 2. Initialisation des nouveaux disques dans la machine virtuelle
 
 
-##<a name="SSMS"></a>Se connecter à SQL Server Management Studio et activer l’authentification en mode mixte
+##<a name="SSMS"></a>Se connecter à SQL Server Management Studio et activer l’authentification en mode mixte
 
-Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement depuis vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Lecteur.
+Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement depuis vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Lecteur.
 
-1.  Lorsque vous êtes connecté à la machine virtuelle à l’aide du Bureau à distance, utilisez le volet Windows **Rechercher** et tapez **SQL Server Management Studio** (SMSS). Cliquez pour démarrer SQL Server Management Studio (SSMS). Vous pouvez ajouter un raccourci pour SSMS sur votre Bureau à des fins d’utilisation ultérieure.
+1.  Lorsque vous êtes connecté à la machine virtuelle à l’aide du Bureau à distance, utilisez le volet Windows **Rechercher** et tapez **SQL Server Management Studio** (SMSS). Cliquez pour démarrer SQL Server Management Studio (SSMS). Vous pouvez ajouter un raccourci pour SSMS sur votre Bureau à des fins d’utilisation ultérieure.
 
     ![Démarrer SSMS][5]
 
@@ -143,7 +143,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	<br>
 
-	 > [AZURE.TIP] Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
+	 > [AZURE.TIP] Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
 
 		USE master
     	go
@@ -152,7 +152,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
     	go
 
 
-	Pour changer le mode d’authentification au moyen de SQL Server Management Studio :
+	Pour changer le mode d’authentification au moyen de SQL Server Management Studio :
 
 3.  Dans SQL Server Management Studio Object Explorer, cliquez avec le bouton droit sur le nom de l’instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
 
@@ -170,11 +170,11 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 7.  Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **Oui** pour confirmer que vous voulez redémarrer SQL Server.
 
-##<a name="Logins"></a>Créer des connexions d’authentification SQL Server
+##<a name="Logins"></a>Créer des connexions d’authentification SQL Server
 
 Pour vous connecter au moteur de base de données à partir d’un autre ordinateur, vous devez créer au moins une connexion d’authentification SQL Server.
 
-> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le nom d’utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d’informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
+> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le nom d’utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d’informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
 
     USE master
     go
@@ -185,7 +185,7 @@ Pour vous connecter au moteur de base de données à partir d’un autre ordinat
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
-Pour créer des connexions SQL Server à l’aide de SQL Server Management Studio :
+Pour créer des connexions SQL Server à l’aide de SQL Server Management Studio :
 
 1.  Dans SQL Server Management Studio Object Explorer, développez le dossier de l’instance de serveur dans laquelle vous voulez créer la connexion.
 
@@ -213,7 +213,7 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 11. S’il s’agit de votre première connexion, vous pouvez désigner cette connexion en tant qu’administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
 
-    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
+    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
 
     ![administrateur système][12]
 
@@ -243,7 +243,7 @@ Pour vous connecter au moteur de base de données SQL Server à partir d’un au
 
 ##<a name="amlconnect"></a>Se connecter au moteur de base de données à partir d’Azure Machine Learning
 
-Dans les étapes ultérieures du Processus d’analyse avancé et technologie en action, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module Lecteur dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail via les liens du guide du Processus d’analyse avancé et technologie en action. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
+Dans les étapes ultérieures du Processus d’analyse avancé et technologie en action, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module Lecteur dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail via les liens du guide du Processus d’analyse avancé et technologie en action. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 
 2.	Dans le volet **Propriétés** du [module Lecteur](https://msdn.microsoft.com/library/azure/dn905997.aspx), sélectionnez **Base de données SQL Azure** dans la liste déroulante **Source de données**.
 
@@ -259,9 +259,9 @@ Dans les étapes ultérieures du Processus d’analyse avancé et technologie en
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)**.
 
-> [AZURE.NOTE] Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
+> [AZURE.NOTE] Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
-Pour arrêter et libérer la machine virtuelle :
+Pour arrêter et libérer la machine virtuelle :
 
 1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.  
 
@@ -279,7 +279,7 @@ Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pou
 
 Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine est également utilisable sous la forme d’un serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus d’analyse Cortana (CAP).
 
-Les étapes suivantes du traitement de données avancé dans Azure sont présentées dans le [Guide d’apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
+Les étapes suivantes du traitement de données avancé dans Azure sont présentées dans le [Guide d’apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

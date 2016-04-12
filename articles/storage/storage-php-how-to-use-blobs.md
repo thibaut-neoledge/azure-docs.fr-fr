@@ -3,9 +3,9 @@
 	description="Découvrez comment utiliser le service blob Azure pour charger, répertorier, télécharger et supprimer des objets blob. Les exemples de code sont écrits en PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Utilisation du stockage d’objets blob à partir de PHP
 
@@ -306,4 +306,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

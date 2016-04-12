@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Déploiement et gestion des concentrateurs de notification à l'aide de PowerShell
@@ -32,27 +32,27 @@ La gestion des concentrateurs de notification n’est pas directement prise en c
 
 ## Composants requis
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement], les [offres spéciales membres] ou la [version d'évaluation gratuite].
 
 - Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell].
 
-- Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
+- Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
 
-## Ajout d'une référence à l'assembly .NET pour Service Bus
+## Ajout d'une référence à l'assembly .NET pour Service Bus
 
 La gestion d’Azure Notification Hubs n’est pas encore incluse avec les applets de commande PowerShell dans Azure PowerShell. Pour approvisionner les hubs de notification, vous pouvez utiliser le client .NET fourni dans le [package NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Tout d’abord, vérifiez que votre script trouve bien l’assembly **Microsoft.Azure.NotificationHubs.dll**, qui est installé avec le package NuGet dans un projet Visual Studio. Pour plus de flexibilité, le script effectue ces étapes :
+Tout d’abord, vérifiez que votre script trouve bien l’assembly **Microsoft.Azure.NotificationHubs.dll**, qui est installé avec le package NuGet dans un projet Visual Studio. Pour plus de flexibilité, le script effectue ces étapes :
 
 1. Détermine le chemin d'accès à partir duquel il a été appelé.
 2. Parcourt le chemin d'accès jusqu'au dossier nommé `packages`. Ce dossier est créé lorsque vous installez les packages NuGet pour les projets Visual Studio.
 3. Dans le dossier `packages`, il effectue une recherche récursive pour trouver l’assembly **Microsoft.Azure.NotificationHubs.dll**.
 4. Référence l'assembly pour rendre les types disponibles pour une utilisation ultérieure.
 
-Voici comment ces étapes sont implémentées dans un script PowerShell :
+Voici comment ces étapes sont implémentées dans un script PowerShell :
 
 ``` powershell
 
@@ -95,10 +95,10 @@ Pour approvisionner un hub de notification, utilisez l’[API .NET pour Notifica
 
 Dans cette partie du script, nous allons créer quatre variables locales supplémentaires.
 
-1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
-2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».    
-3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
+2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification. Par exemple, « MonConcentrateur ».    
+3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey` : définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
 Ces variables sont utilisées pour la connexion à votre espace de noms et la création d’un nouveau hub de notification configuré pour gérer les notifications Windows Notification Services (WNS) avec les informations d’identification WNS pour une application Windows. Pour plus d’informations sur l’obtention du SID du package et de la clé secrète, consultez le didacticiel [Prise en main de Notification Hubs](notification-hubs-windows-store-dotnet-get-started.md).
 
@@ -158,7 +158,8 @@ else
 - [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts PowerShell Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Vous pouvez également télécharger des scripts prêts à l’emploi :
+- [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
  
 
 [formules d'abonnement]: http://azure.microsoft.com/pricing/purchase-options/
@@ -171,4 +172,4 @@ Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

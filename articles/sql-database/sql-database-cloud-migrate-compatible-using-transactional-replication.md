@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migrer une base de données SQL Server vers Base de données SQL à l’aide de la réplication transactionnelle
@@ -29,8 +29,8 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
  - SQL Server 2014 SP1 CU3 et versions ultérieures
  - SQL Server 2014 RTM CU10 et versions ultérieures
  - SQL Server 2012 SP2 CU8 et versions ultérieures
- - SQL Server 2012 SP3 
+ - SQL Server 2013 SP3 dès sa sortie
 
 Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données locale. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Par ailleurs, pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

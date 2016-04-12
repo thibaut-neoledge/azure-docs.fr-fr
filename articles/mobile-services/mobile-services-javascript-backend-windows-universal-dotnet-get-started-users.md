@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Ajouter l’authentification à votre application Windows 8.1 universelle | Azure Mobile Services"
+	pageTitle="Ajouter l’authentification à votre application Windows 8.1 universelle | Azure Mobile Services"
 	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
-# Ajouter l’authentification à votre application Windows 8.1 universelle
+# Ajouter l’authentification à votre application Windows 8.1 universelle
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d’une application Windows 8.1 universelle. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de l’authentification à votre application Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md).
+
+Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d’une application Windows 8.1 universelle. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
->[AZURE.NOTE]Ce didacticiel vous explique comment authentifier les utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour une application Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulter cette version de [Prise en main de l'authentification dans Mobile Services](mobile-services-windows-phone-get-started-users.md).
+>[AZURE.NOTE]Ce didacticiel vous explique comment authentifier les utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour une application Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulter cette version de [Prise en main de l'authentification dans Mobile Services](mobile-services-windows-phone-get-started-users.md).
 
 ##<a name="register"></a> Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -34,7 +39,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
  
->[AZURE.NOTE]Lorsque vous utilisez les outils Visual Studio pour connecter votre application à un service mobile, l'outil génère deux ensembles de définitions **MobileServiceClient**, une pour chaque plateforme cliente. C'est le bon moment pour simplifier le code généré en unifiant les définitions **MobileServiceClient** encapsulées dans `#if...#endif` en une seule définition encapsulée, utilisée par les deux versions de l'application. Cette opération n’est pas nécessaire si vous avez téléchargé l’application de démarrage rapide à partir du [portail Azure Classic].
+>[AZURE.NOTE] Lorsque vous utilisez les outils Visual Studio pour connecter votre application à un service mobile, l'outil génère deux ensembles de définitions **MobileServiceClient**, une pour chaque plateforme cliente. C'est le bon moment pour simplifier le code généré en unifiant les définitions **MobileServiceClient** encapsulées dans `#if...#endif` en une seule définition encapsulée, utilisée par les deux versions de l'application. Cette opération n’est pas nécessaire si vous avez téléchargé l’application de démarrage rapide à partir du [portail Azure Classic].
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
@@ -84,4 +89,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

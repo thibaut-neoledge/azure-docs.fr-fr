@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Création d’une application web avec le cache Redis à l’aide d’un modèle
@@ -26,12 +26,12 @@ Pour le modèle complet, consultez la page [Modèle d’application web avec le 
 
 ## Ce que vous allez déployer
 
-Dans ce modèle, vous allez déployer :
+Dans ce modèle, vous allez déployer :
 
 - Application web Azure
 - Cache Redis Azure.
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
@@ -69,7 +69,7 @@ Le modèle crée le cache dans le même emplacement que l’application web, ce 
       }
     }
 
-### Application web
+### Application web
 
 Crée l’application web avec le nom spécifié dans le paramètre **siteName**.
 
@@ -125,4 +125,4 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

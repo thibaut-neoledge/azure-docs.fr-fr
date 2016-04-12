@@ -56,9 +56,9 @@ Il est important de comprendre les différents niveaux de bases de données à v
 
 Voici quelques recommandations pour sélectionner le niveau pour votre base de données :
 
-- **Basic**: à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
-- **Standard**: à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
-- **Premium**: à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
+- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
+- **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
+- **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
 
 Pour plus d'informations sur l'utilisation de chaque niveau, consultez la rubrique [Raisons d'utiliser les nouveaux niveaux de service]
 
@@ -213,7 +213,9 @@ Cette section présente des tâches de diagnostic avancées, qui peuvent être u
 ### Composants requis
 Pour effectuer certaines des tâches de diagnostic traitées dans cette section, vous devez accéder à un outil de gestion pour les bases de données SQL, tel que **SQL Server Management Studio** ou la fonctionnalité de gestion intégrée au **portail Azure Classic**.
 
-SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n’avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
+
+SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n’avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
+
 
 Le portail Azure Classic offre une expérience de gestion intégrée plus limitée, mais disponible sans installation locale.
 
@@ -405,7 +407,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête**:
+Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Microsoft Azure à l'aide de vues de gestion dynamique][]. En plus de l’exécution de la requête, le **portail de gestion de la base de données SQL** vous propose un raccourci utile pour consulter ces données, en sélectionnant **Résumé** pour votre base de données, puis **Performances de requête** :
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -492,4 +494,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 <!-- BLOG LINKS -->
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

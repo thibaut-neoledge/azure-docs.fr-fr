@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Protéger les données sensibles dans SQL Database avec le chiffrement de base de données | Microsoft Azure"
+	pageTitle="Chiffrement intégral - Protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données"
 	description="Protéger les données sensibles de votre base de données SQL en quelques minutes."
-	keywords="base de données SQL, chiffrement sql, chiffrement de base de données, clé de chiffrement, données sensibles, chiffrement intégral"	
+	keywords="chiffrement des données, clé de chiffrement, chiffrement cloud"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Protéger les données sensibles dans SQL Database avec le chiffrement de base de données et stocker vos clés de chiffrement dans Azure Key Vault
+# Chiffrement intégral - Protéger les données sensibles de la base de données SQL à l’aide du chiffrement de base de données et stocker vos clés de chiffrement dans Azure Key Vault
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 - [Magasin de certificats Windows](sql-database-always-encrypted.md)
 
 
-Cet article montre comment sécuriser les données sensibles dans une base de données SQL avec le chiffrement de base de données à l’aide de l’[Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) et comment stocker vos clés de chiffrement dans Azure Key Vault.
+Cet article montre comment sécuriser les données sensibles dans une base de données SQL avec le chiffrement de données à l’aide de l’[Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) et comment stocker vos clés de chiffrement dans Azure Key Vault.
 
-Le chiffrement intégral est une nouvelle technologie de chiffrement de base de données SQL Azure et SQL Server qui protège les données sensibles au repos sur le serveur pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour s’assurer que les données sensibles ne s'affichent pas en clair dans le système de base de données. Seuls les applications clientes ou les serveurs d'applications ayant accès aux clés peuvent accéder aux données en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
+Le chiffrement intégral est une nouvelle technologie de chiffrement de données d’Azure SQL Database et de SQL Server qui protège les données sensibles au repos sur le serveur pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour s’assurer que les données sensibles ne s’affichent pas en clair dans le système de base de données. Après avoir configuré le chiffrement des données, seuls les applications clientes ou les serveurs d’applications ayant accès aux clés peuvent accéder aux données en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Après avoir configuré la base de données pour le chiffrement intégral, nous allons créer une application cliente en C# avec Visual Studio afin de l’utiliser avec les données chiffrées.
@@ -264,6 +264,26 @@ Le code suivant montre comment activer le chiffrement intégral en affectant la 
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting = 
        SqlConnectionColumnEncryptionSetting.Enabled;
+
+## Inscrire le fournisseur du coffre de clés Azure (Azure Key Vault)
+
+Le code suivant montre comment inscrire le fournisseur du coffre de clés Azure avec le pilote ADO.NET :
+
+    private static ClientCredential _clientCredential;
+
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(clientId, clientSecret);
+
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
 
 
 
@@ -635,9 +655,9 @@ Vous pouvez afficher les colonnes chiffrées qui ne contiennent aucune donnée e
    ![nouvelle application de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
 
-Pour utiliser SSMS pour accéder aux données en clair, nous pouvons ajouter le paramètre **Column Encryption Setting=enabled** à la connexion.
+Pour utiliser SSMS afin d’accéder aux données en clair, nous pouvons ajouter le paramètre **Column Encryption Setting=enabled** à la connexion.
 
-1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans l’**Explorateur d’objets**, puis cliquez sur **Déconnexion**.
+1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans **Explorateur d’objets** et sur **Déconnexion**.
 2. Cliquez sur **Connexion** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur**, puis cliquez sur **Options**.
 3. Cliquez sur **Paramètres de connexion supplémentaires** et tapez **Column Encryption Setting=enabled**.
 
@@ -656,7 +676,7 @@ Pour utiliser SSMS pour accéder aux données en clair, nous pouvons ajouter le 
 ## Étapes suivantes
 Après avoir créé une base de données qui utilise le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
 
-- [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx)
+- [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrer des données déjà chiffrées avec le chiffrement intégral](https://msdn.microsoft.com/library/mt621539.aspx)
 
 
@@ -669,4 +689,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

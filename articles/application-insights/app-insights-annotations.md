@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Annotations de version dans Application Insights
 
-Des annotations de version sur les graphiques [Metrics Explorer](app-insights-metrics-explorer.md) montrent les endroits où vous avez déployé une nouvelle édition. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées de manière automatique par le [système de génération Visual Studio Team Services](https://www.visualstudio.com/fr-FR/get-started/build/build-your-app-vs).
+Des annotations de version sur les graphiques [Metrics Explorer](app-insights-metrics-explorer.md) montrent les endroits où vous avez déployé une nouvelle édition. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées de manière automatique par le [système de génération Visual Studio Team Services](https://www.visualstudio.com/fr-FR/get-started/build/build-your-app-vs) et vous pouvez aussi [les créer à partir de PowerShell](#create-annotations-from-powershell).
 
 ![Exemples d’annotations avec corrélation visible avec le délai de réponse de serveur](./media/app-insights-annotations/00.png)
 
@@ -27,7 +27,7 @@ Les annotations de version sont une fonctionnalité de la build sur le cloud et 
 
 Pour être en mesure de créer des annotations de version, vous devez installer l’une des nombreuses extensions Team Service disponibles dans Visual Studio Marketplace.
 
-1. Connectez-vous à [Visual Studio Team Services](https://www.visualstudio.com/fr-FR/get-started/setup/sign-up-for-visual-studio-online).
+1. Connectez-vous à votre projet [Visual Studio Team Services](https://www.visualstudio.com/fr-FR/get-started/setup/sign-up-for-visual-studio-online).
 2. Dans Visual Studio Marketplace, [obtenez l’extension Release Annotations](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) et ajoutez-la à votre compte Team Services.
 
 ![En haut à droite de la page web de Team Services, ouvrez Marketplace. Sélectionnez Visual Team Services, puis, sous Build, choisissez Afficher plus.](./media/app-insights-annotations/10.png)
@@ -69,6 +69,24 @@ Vous devez effectuer cette opération pour chaque modèle de version dans lequel
 
 5. Enfin, **enregistrez** la définition de version.
 
+## Créer des annotations à partir de PowerShell
+
+Vous pouvez également créer des annotations à partir du processus de votre choix (sans utiliser Visual Studio Team System).
+
+Obtenez le [script Powershell à partir de GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Utilisez-le comme suit :
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Obtenez l’`applicationId` et une `apiKey` à partir de votre ressource Application Insights : ouvrez Paramètres, Accès API et copiez l’ID de l’application. Cliquez ensuite sur Créer une clé d’API, puis copiez la clé.
+
 ## Annotations de version
 
 Désormais, lorsque vous utilisez le modèle de version pour déployer une nouvelle version, une annotation est envoyée à Application Insights. Les annotations figureront sur les graphiques Metrics Explorer.
@@ -78,4 +96,4 @@ Cliquez sur un marqueur d’annotation pour ouvrir les détails sur la version, 
 
 ![Cliquez sur un marqueur d’annotation de version.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

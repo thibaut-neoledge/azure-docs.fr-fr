@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# Dois-je utiliser le point de terminaison v2.0 ? 
+# Dois-je utiliser le point de terminaison v2.0 ?
 
 Lorsque vous créez des applications qui s’intègrent à Azure Active Directory, vous devez déterminer si les protocoles d’authentification et le point de terminaison v2.0 satisferont vos besoins. Le modèle d’application Azure AD d’origine est toujours intégralement pris en charge. À certains égards, il est plus riche en fonctionnalités que le point de terminaison v2.0. Toutefois, le point de terminaison v2.0 [octroie d’importants avantages](active-directory-v2-compare.md) aux développeurs, ce qui peut vous inciter à utiliser le nouveau modèle de programmation. Au fil du temps, le point de terminaison v2.0 évoluera pour prendre en charge l’intégralité des fonctions Azure AD. Dès lors, vous n’aurez aucunement besoin de recourir à une autre solution.
 
@@ -74,13 +74,15 @@ Si vous souhaitez utiliser le point de terminaison v2.0 dans une application de 
 
 - Si vous générez une application web, vous pouvez en toute sécurité utiliser notre middleware mis à la disposition générale côté serveur afin de vous connecter et de procéder à la validation des jetons. Vous recourrez notamment au middleware OWIN Open ID Connect pour ASP.NET et à notre plug-in NodeJS Passport. Des exemples de codes utilisant ces middlewares sont disponibles dans notre section [Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
 - Pour d’autres plateformes et pour les applications natives et mobiles, vous pouvez également procéder à l’intégration avec le point de terminaison v2.0 en envoyant et en recevant directement des messages de protocole dans votre code d’application. Les protocoles v2.0 OpenID Connect et OAuth [ont été explicitement documentés](active-directory-v2-protocols.md) afin de vous aider à effectuer une telle intégration.
-- Enfin, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source, sans modification majeure. La disponibilité de telles bibliothèques varie en fonction des langues et des plateformes, et les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) conservent des listes d’implémentations populaires. Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0. Veuillez noter que les fonctionnalités telles que [Enregistrement client dynamique OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) et les points de terminaison de validation de jeton ne sont pas encore pris en charge. Il peut être nécessaire de les désactiver dans la bibliothèque pour utiliser le point de terminaison v2 : 
+- Enfin, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source, sans modification majeure. La disponibilité de telles bibliothèques varie en fonction des langues et des plateformes, et les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) conservent des listes d’implémentations populaires. Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0.
 
   - [Serveur d’identité WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Exemple Android OpenID Connect](https://github.com/learning-layers/android-openid-connect)
+  - [Client OAuth2 iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Client OAuth2 Android](https://github.com/wuman/android-oauth-client)
+  - [Client OpenID Connect Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## Restrictions sur les protocoles
 Le point de terminaison v2.0 prend uniquement en charge Open ID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n’ont pas été intégrées dans le point de terminaison v2.0. Voici quelques exemples :
@@ -96,4 +98,4 @@ Un ensemble de fonctionnalités de développeur disponible dans le service Azure
 - Revendications de groupe pour les utilisateurs Azure AD
 - Rôles d’application et revendications de rôle
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

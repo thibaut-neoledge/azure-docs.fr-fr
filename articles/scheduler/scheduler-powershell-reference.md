@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Informations de référence sur les applets de commande PowerShell de Scheduler" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Informations de référence sur les applets de commande PowerShell de Scheduler"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Informations de référence sur les applets de commande PowerShell de Scheduler
 
 Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.
@@ -36,10 +36,10 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
 
 ## Voir aussi
- 
+
 
  [Présentation d'Azure Scheduler](scheduler-intro.md)
- 
+
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
@@ -53,10 +53,5 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
- 
-  
 
-
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

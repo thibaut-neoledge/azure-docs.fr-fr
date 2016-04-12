@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
@@ -55,23 +55,23 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 	![Volet de navigation][4]
 
-2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure Classic et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
+2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure Classic et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
 
 	![Volet de navigation][5]
 
-3. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
+3. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
 
 	![Volet de navigation][6]
 
-4. Dans le volet des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/> **Remarque :** dans Excel versions 2010 ou ultérieures, les paramètres Power Query et **Combinaison rapide** sont requis
+4. Dans le volet des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/> **Remarque :** dans Excel versions 2010 ou ultérieures, les paramètres Power Query et **Combinaison rapide** sont requis
 
 	![Volet de navigation][7]
 
-5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « gnore the Privacy Levels and potentially improve performance » :
+5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « gnore the Privacy Levels and potentially improve performance » :
 
 	![Volet de navigation][8]
 
-6. Pour charger les journaux d’audit SQL, vérifiez que les paramètres de l’onglet Paramètres sont correctement définis, puis sélectionnez le ruban « Données » et cliquez sur le bouton « Actualiser tout ».
+6. Pour charger les journaux d’audit SQL, vérifiez que les paramètres de l’onglet Paramètres sont correctement définis, puis sélectionnez le ruban « Données » et cliquez sur le bouton « Actualiser tout ».
 
 	![Volet de navigation][9]
 
@@ -89,4 +89,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 
 ## Introduction
 
-Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python. La procédure est la suivante :
+Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python. La procédure est la suivante :
 
-**Pourquoi échantillonner vos données ?** Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse Cortana consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+**Pourquoi échantillonner vos données ?** Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse Cortana consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage.
 
@@ -32,9 +32,9 @@ Cette tâche d'échantillonnage est une étape du [processus d'analyse Cortana (
 
 
 ## Télécharger et sous-échantillonner les données
-1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
+1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -57,7 +57,7 @@ Cette tâche d'échantillonnage est une étape du [processus d'analyse Cortana (
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Sous-échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
+3. Sous-échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -65,19 +65,19 @@ Cette tâche d'échantillonnage est une étape du [processus d'analyse Cortana (
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
+	Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
 
 ##<a name="heading"></a>Télécharger les données et les lire dans Azure Machine Learning
 
-Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
+Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
 
-1. Écrivez la trame de données dans un fichier local :
+1. Écrivez la trame de données dans un fichier local :
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Chargez le fichier local dans un objet blob Azure au moyen de l’exemple de code suivant :
+2. Chargez le fichier local dans un objet blob Azure au moyen de l’exemple de code suivant :
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -97,7 +97,7 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Lisez les données de l’objet blob Azure à l’aide du [lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme illustré dans la capture d’écran ci-dessous :
+3. Lisez les données de l’objet blob Azure à l’aide du [lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme illustré dans la capture d’écran ci-dessous :
  
 ![objet blob de lecteur][1]
 
@@ -108,4 +108,4 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

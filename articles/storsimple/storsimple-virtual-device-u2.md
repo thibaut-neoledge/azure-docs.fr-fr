@@ -103,7 +103,7 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 - Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d’informations sur les [régions actuellement prises en charge pour 8020](#supported-regions-for-8020).
 - Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide ou si le serveur DNS n'est pas en mesure de résoudre correctement les adresses IP, la création de l'appareil virtuel échoue.
 - Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
-- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé.
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel.
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier.
@@ -282,4 +282,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

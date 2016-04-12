@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 
@@ -45,30 +45,28 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants 
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Accès au stockage d’objets blob par programme
+### Ajout de déclarations d'espaces de noms
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Ajoutez les instructions `using` suivantes au début du fichier `program.cs` :
 
-### Déclarations d’espace de noms
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-Ajoutez les déclarations d’espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+### Créer le client du service Blob
 
-Prenez soin de bien référencer l’assembly `Microsoft.WindowsAzure.Storage.dll`.
-
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-Un type **CloudBlobClient** vous permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d’objets blob. Le code suivant crée un objet **CloudBlobClient** en utilisant l’objet de compte de stockage récupéré ci-dessus :
+La classe **CloudBlobClient** vous permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le Blob Storage. Ajoutez le code suivant à la méthode Main() :
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-## Création d’un conteneur
+Vous êtes maintenant prêt à écrire du code qui lit et écrit des données dans le Blob Storage.
+
+## Créez un conteneur.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -90,8 +88,7 @@ Cet exemple montre comment créer un conteneur, si celui-ci n’existe pas encor
 Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous voulez que les fichiers du conteneur soient publics, vous pouvez configurer le conteneur en utilisant le code suivant :
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 Tous les utilisateurs d’Internet peuvent afficher les objets blob d’un conteneur public, mais seuls ceux possédant la clé d’accès adéquate peuvent les modifier ou les supprimer.
 
@@ -380,4 +377,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #Présentation de Gestion des API
 
 API Management aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection.
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+Regardez la vidéo qui suit pour obtenir une vue d’ensemble de la gestion des API Azure et apprendre à l’utiliser pour ajouter de nombreuses fonctionnalités à votre API, et notamment le contrôle d’accès, la limitation du débit, la surveillance, la journalisation des événements et la mise en mémoire cache de réponse, avec un minimum de travail de votre part.
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 Pour utiliser Gestion des API, les administrateurs créent des API. Chaque API se compose d'une ou plusieurs opérations et chacune peut être ajoutée à un produit ou plusieurs. Pour utiliser une API, les développeurs s'abonnent à un produit qui contient cette API, puis ils peuvent appeler l'opération de l'API, sujette à toutes les stratégies d'utilisation pouvant être en vigueur.
 
@@ -92,6 +94,12 @@ Le portail des développeurs est l'endroit où les développeurs peuvent en savo
 
 Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutant du contenu personnalisé, en personnalisant des styles et en ajoutant votre marque.
 
+## Gestion et économie des API
+
+Pour en savoir plus sur la gestion des API, regardez la présentation suivante depuis la conférence Microsoft Ignite 2015.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups
@@ -114,4 +122,4 @@ Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutan
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

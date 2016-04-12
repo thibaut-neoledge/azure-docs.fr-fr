@@ -3,7 +3,7 @@
    description="Familiarisez-vous avec la procédure de connexion à SQL Data Warehouse et découvrez comme exécuter certaines requêtes."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Se connecter et lancer des requêtes avec SQLCM
@@ -47,15 +47,15 @@ Pour vous connecter à votre base de données, vous devez disposer du nom comple
 
 Pour vous connecter à une instance spécifique de SQL Data Warehouse en utilisant sqlcmd, vous devez ouvrir la fenêtre d’invite de commandes et saisir la chaîne **sqlcmd**, suivie de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion doit contenir les paramètres suivants :
 
-+ **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
-+ **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
 + **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
 + **Base de données (-D) :** nom de la base de données.
++ **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
++ **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
 + **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour que la connexion à une instance SQL Data Warehouse soit possible.
 
 Par conséquent, pour vous connecter à une instance SQL Data Warehouse, saisissez ce qui suit :
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

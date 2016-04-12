@@ -1,6 +1,6 @@
 <properties
    pageTitle="Exemple de cycle de vie d’application basée sur REST | Microsoft Azure"
-   description="Exemple Microsoft Azure Service Fabric qui illustre le cycle de vie de l'application, par le biais de l'interface REST Service Fabric."
+   description="Exemple Microsoft Azure Service Fabric qui illustre le cycle de vie de l'application, par le biais de l'interface REST Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -13,28 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="ryanwi"/>
 
 # Échantillon de cycle de vie des applications basé sur REST
 
 Cet échantillon détaille le cycle de vie des applications de la structure du service, via des appels d’API REST. Pour en savoir plus sur le cycle de vie des applications Service Fabric, consultez [Cycle de vie des applications Service Fabric](service-fabric-application-lifecycle.md).
 
-Cet exemple effectue les opérations suivantes :
+Cet exemple effectue les opérations suivantes :
 
-* approvisionne l’exemple **WordCount 1.0.0** à partir du package d’application WordCount dans le magasin d’images ;
-* affiche la liste des types d’applications, dont WordCount 1.0.0 ;
-* crée l’application WordCount sous la forme **fabric:/WordCount** ;
-* affiche la liste des applications, dont fabric:/WordCount version 1.0.0 ;
-* approvisionne la version 1.1.0 de l’exemple WordCount à partir du package d’application **WordCountUpgrade** dans le magasin d’images ;
-* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
-* met à niveau l’application WordCount vers la version 1.1.0 ;
-* affiche la liste des applications, dont WordCount version 1.1.0, mais dans laquelle ne figure plus WordCount version 1.0.0 ;
-* supprime l’application WordCount ;
-* affiche la liste des applications, qui n’inclut plus l’élément fabric:/WordCount ;
-* annule l’approvisionnement de la version 1.1.0 de l’exemple WordCount ;
-* affiche la liste des types d’application, dont WordCount version 1.0.0, mais dans laquelle ne figure plus WordCount version 1.1.0 ;
-* annule l’approvisionnement de la version 1.0.0 de l’exemple WordCount ;
+* approvisionne l’exemple **WordCount 1.0.0** à partir du package d’application WordCount dans le magasin d’images ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 ;
+* crée l’application WordCount sous la forme **fabric:/WordCount** ;
+* affiche la liste des applications, dont fabric:/WordCount version 1.0.0 ;
+* approvisionne la version 1.1.0 de l’exemple WordCount à partir du package d’application **WordCountUpgrade** dans le magasin d’images ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
+* met à niveau l’application WordCount vers la version 1.1.0 ;
+* affiche la liste des applications, dont WordCount version 1.1.0, mais dans laquelle ne figure plus WordCount version 1.0.0 ;
+* supprime l’application WordCount ;
+* affiche la liste des applications, qui n’inclut plus l’élément fabric:/WordCount ;
+* annule l’approvisionnement de la version 1.1.0 de l’exemple WordCount ;
+* affiche la liste des types d’application, dont WordCount version 1.0.0, mais dans laquelle ne figure plus WordCount version 1.1.0 ;
+* annule l’approvisionnement de la version 1.0.0 de l’exemple WordCount ;
 * affiche la liste des types d’applications, qui n’inclut plus WordCount.
 
 
@@ -47,14 +47,14 @@ Cet exemple utilise l’[exemple WordCount](http://aka.ms/servicefabricsamples) 
 |WordCount|Échantillon d’application WordCount. Le fichier **ApplicationManifest.xml** contient **ApplicationTypeVersion="1.0.0"**.|
 |WordCountUpgrade|Échantillon d’application WordCount. Le fichier ApplicationManifest.xml doit être remplacé par **ApplicationTypeVersion="1.1.0"** pour permettre la mise à niveau de l’application.|
 
-Pour créer les packages d’application et les copier dans le magasin d’images, procédez comme suit :
+Pour créer les packages d’application et les copier dans le magasin d’images, procédez comme suit :
 
 1. Copiez **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** vers **C:\\Temp\\WordCount**. Cette opération permet de créer le package de l’application WordCount.
 2. Copiez C:\\Temp\\WordCount vers **C:\\Temp\\WordCountUpgrade**. Cette opération permet de créer le package de l’**application WordCountUpgrade**.
 3. Ouvrez **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** dans un éditeur de texte.
-4. Dans l’élément **ApplicationManifest**, modifiez l’attribut **ApplicationTypeVersion** et affectez-lui la valeur **« 1.1.0 »**. Cette opération permet de mettre à jour le numéro de version de l’application.
+4. Dans l’élément **ApplicationManifest**, modifiez l’attribut **ApplicationTypeVersion** et affectez-lui la valeur **« 1.1.0 »**. Cette opération permet de mettre à jour le numéro de version de l’application.
 5. Enregistrez le fichier ApplicationManifest.xml modifié.
-6. Exécutez le script PowerShell suivant en tant qu’administrateur afin de copier les applications dans le magasin d’images :
+6. Exécutez le script PowerShell suivant en tant qu’administrateur afin de copier les applications dans le magasin d’images :
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Cycle de vie des applications Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

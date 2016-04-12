@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -89,6 +89,12 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 **Publications de la Communauté :**
 
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *par Matias Quarantaas*
+
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *par Eric Langland*
+
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *par Howard Edidin*
+
 * [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *par Yoichi Kawasaki*
 
 * [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *par Peter Mannerhult*
@@ -140,9 +146,10 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 ### Événements récents et à venir
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, État du Washington, États-Unis | 3 mars 2016 | n/a
-| SQLBits XV | tbd | Liverpool, Royaume-Uni | 4-7 mai 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/) | John Macintyre, Dharma Shukla | San Francisco, CA | Du 30 mars au 1er avril 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Royaume-Uni | 4-7 mai 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Réunion : groupe d’utilisateurs Azure du Royaume-Uni](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Royaume-Uni | 12 mai 2016 | n/a |
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
 
@@ -150,6 +157,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Enregistrement |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, État du Washington, États-Unis | 3 mars 2016 | n/a |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, État du Texas, États-Unis | 28 janvier 2016 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montréal, QC, Canada | 1er décembre 2015 | n/a |
 | [Meetup : SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | n/a |
@@ -181,8 +189,10 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 ### Vidéos et podcasts
 
 | Afficher | Intervenant | Date | Épisode |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 9 mars 2016 | [Développement de solutions avec Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Groupe d’utilisateurs d’intégration | Han Wong | 17 février 2016 | [Analyser et visualiser des données non relationnelles avec DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| The Azure Podcast | Cale Teeter | 14 janvier 2016 | [Épisode 110 : Utilisation de DocumentDB et Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | Channel 9 : Applications modernes | Tara Shankar Jana | 13 décembre 2016 | [Adopter une approche moderne pour les données dans vos applications](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 décembre 2015 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Groupe d’utilisateurs d’intégration | Howard Edidin | 9 novembre 2015 | [DocumentDB Azure pour l’intégration des services de santé – 2e partie](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

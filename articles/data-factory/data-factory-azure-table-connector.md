@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis Azure Table | Azure Data Factory" 
+	pageTitle="Déplacer des données vers/depuis Azure Table | Microsoft Azure" 
 	description="Découvrez comment déplacer des données depuis et vers le stockage Azure Table à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | <p>Chaîne de requête de table Azure. Voir les exemples ci-dessous. | Non
+azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Voir les exemples ci-dessous. | Non
 azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | Non |
 
 ### Exemples azureTableSourceQuery
@@ -526,4 +526,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

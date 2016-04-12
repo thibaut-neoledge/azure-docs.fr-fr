@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/02/2016"
 	ms.author="mithal;garye" />
 
 # Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
@@ -24,11 +24,11 @@ Que vos données soient situées localement ou dans le cloud, ou qu’elles soie
 
 ## Télécharger l’aide-mémoire relatif au pipeline de données automatisé Machine Learning
 
-Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format tabloïd (11 x 17 pouces).
+Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format tabloïd (11 x 17 pouces).
 
-**Téléchargez l’aide-mémoire ici : [Aide-mémoire relatif au pipeline de données automatisé Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**Téléchargez l’aide-mémoire ici : [Aide-mémoire relatif au pipeline de données automatisé Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
-![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
+![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
@@ -41,4 +41,4 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Annotation de sources de données"
+   pageTitle="Annotation de sources de données | Microsoft Azure"
    description="Article de procédure relatif à l’annotation de ressources de données dans Azure Data Catalog et abordant notamment les noms conviviaux, les balises, les descriptions et les experts."
    services="data-catalog"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
 # Annotation de sources de données
 
 ## Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Lorsqu’une source de données est inscrite avec **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. **Azure Data Catalog** permet aux utilisateurs de fournir leurs propres métadonnées descriptives (descriptions et balises, par exemple) pour compléter les métadonnées extraites de la source de données et favoriser la compréhension de la source de données pour un plus grand nombre de personnes.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Lorsqu’une source de données est inscrite dans **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. **Azure Data Catalog** permet aux utilisateurs de fournir leurs propres métadonnées descriptives (descriptions et balises, par exemple) pour compléter les métadonnées extraites de la source de données et favoriser la compréhension de la source de données pour un plus grand nombre de personnes.
 
 ## Annotation et crowdsourcing
 Tout le monde possède un avis. Et c’est une bonne chose. Avec **Azure Data Catalog**, les perspectives de chaque utilisateur à l’égard des sources de données d’entreprise sont prises en compte et valorisées. Examinez le scénario suivant :
@@ -34,7 +34,7 @@ Tout le monde possède un avis. Et c’est une bonne chose. Avec **Azure Data Ca
 Chacune de ces perspectives est précieuse, et **Azure Data Catalog** utilise une approche de crowdsourcing à l’égard des métadonnées, qui permet de capturer et d’utiliser chacune d’elles en vue d’établir une image complète des sources de données inscrites. À l’aide du portail **Azure Data Catalog**, chaque utilisateur peut ajouter et modifier ses propres annotations, tout en consultant les annotations apportées par les autres utilisateurs.
 
 ## Différents types d’annotations
-La version préliminaire d’**Azure Data Catalog** prend en charge les types d’annotations suivants :
+**Azure Data Catalog** prend en charge les types d’annotations suivants :
 
 | Annotation | Remarques |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ L’inscription d’une source de données avec **Azure Data Catalog** favorise 
 ## Voir aussi
 - Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur l’annotation de sources de données.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

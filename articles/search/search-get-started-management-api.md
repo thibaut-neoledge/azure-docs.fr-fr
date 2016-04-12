@@ -47,7 +47,7 @@ Avant de pouvoir exécuter l'exemple d'application, vous devez activer l'authent
 
 Le gestionnaire de ressources Azure nécessite le service Azure Active Directory en tant que fournisseur d'identité.
 
-Pour obtenir un jeton d'accès qui permet aux demandes d'atteindre le gestionnaire de ressources, l'application cliente inclut un segment de code qui appelle Active Directory. Le segment de code et les étapes préalables à son utilisation proviennent de cet article : [Demandes d'authentification Azure Resource Manager]().
+Pour obtenir un jeton d'accès qui permet aux demandes d'atteindre le gestionnaire de ressources, l'application cliente inclut un segment de code qui appelle Active Directory. Le segment de code et les étapes préalables à son utilisation proviennent de cet article : [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Vous pouvez suivre les instructions fournies dans le lien ci-dessus ou les étapes de ce document si vous préférez parcourir le didacticiel étape par étape.
 
@@ -208,4 +208,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

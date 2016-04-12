@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Connexion aux sources de données"
+   pageTitle="Connexion aux sources de données « Big Data » | Microsoft Azure"
    description="Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -54,4 +54,4 @@ L’inscription d’une source de données avec **Azure Data Catalog** favorise 
 ## Voir aussi
 - Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la connexion à des sources de données.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

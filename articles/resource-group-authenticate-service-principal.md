@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Authentification d'un principal du service à l'aide d'Azure Resource Manager
@@ -120,7 +120,7 @@ Ces étapes supposent que vous avez défini un coffre de clés et une clé secr�
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Accédez à votre application Active Directory. Vous obtiendrez l’ID d’application au moment de la connexion.
+2. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@ Vous avez créé une application Active Directory et un principal du service pou
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Fournir un certificat via un script PowerShell automatisé
 
-1. Accédez à votre application Active Directory. Vous obtiendrez l’ID d’application au moment de la connexion.
+1. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -279,8 +279,11 @@ Pour l’authentification à partir d’une application .NET, incluez le code su
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -337,13 +340,13 @@ Vous avez créé une application Active Directory et un principal du service pou
 
 Si vous souhaitez vous connecter manuellement en tant que principal du service, vous pouvez utiliser la commande **azure login**. Vous devez renseigner l’ID de client, l’ID d’application et le mot de passe. L’intégration directe d’un mot de passe dans un script présente des risques dans la mesure où le mot de passe est stocké dans le fichier. Consultez la section suivante pour découvrir une meilleure alternative lors de l’exécution d’un script automatisé.
 
-1. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Vous devez supprimer les guillemets ouvrants et fermants renvoyés par la sortie JSON avant de le transmettre en tant que paramètre.
+1. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre. Le commutateur **- r** récupère la valeur sans guillemets.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Connectez-vous en tant que principal du service.
 
@@ -365,17 +368,17 @@ Cette section explique comment se connecter en tant que principal du service san
 
 Ces étapes supposent que vous avez défini un coffre de clés et une clé secrète permettant de stocker le mot de passe. Pour déployer un coffre de clés et une clé secrète via un modèle, consultez [Format de modèle de coffre de clés](). Pour en savoir plus sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 
-1. Récupérez votre mot de passe (dans l’exemple ci-dessous, le mot de passe est stocké en tant que clé secrète sous le nom **appPassword**) dans le coffre de clés. Vous devez supprimer les guillemets ouvrants et fermants renvoyés par la sortie JSON avant de le transmettre en tant que paramètre de mot de passe.
+1. Récupérez votre mot de passe (dans l’exemple ci-dessous, le mot de passe est stocké en tant que clé secrète sous le nom **appPassword**) dans le coffre de clés. Incluez le commutateur **-r** pour supprimer les guillemets ouvrants et fermants renvoyés par la sortie JSON.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service.
+2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Connectez-vous en tant que principal du service en indiquant l’ID d’application, le mot de passe obtenu à partir du coffre de clés, ainsi que l’ID de client.
 
@@ -460,13 +463,13 @@ Vous avez créé une application Active Directory et un principal du service pou
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service.
+2. Déterminez le paramètre **TenantId** de l’abonnement qui contient le principal du service. Si vous récupérez l’ID de client pour votre abonnement actuellement authentifié, il est inutile de fournir l’ID d’abonnement en tant que paramètre. Le commutateur **- r** récupère la valeur sans guillemets.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Pour le nom d’utilisateur, utilisez le paramètre **AppId** que vous avez utilisé lors de la création du principal du service. Si vous avez besoin de récupérer l’ID d’application, utilisez la commande suivante. Indiquez le nom de l’application Active Directory dans le paramètre **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Pour vous authentifier avec Azure CLI, vous devez fournir l’empreinte du certificat, le fichier de certificat, l’ID d’application et l’ID de client.
 
@@ -503,10 +506,13 @@ Pour l’authentification à partir d’une application .NET, incluez le code su
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
-Pour obtenir des informations supplémentaires sur l’utilisation de certificats et d’Azure CLI, consultez la page [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux)
+Pour obtenir des informations supplémentaires sur l’utilisation de certificats et d’Azure CLI, consultez la page [Authentification par certificat à l’aide de principaux du service Azure à partir de la ligne de commande Linux (en anglais)](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
 ## Étapes suivantes
   
@@ -517,4 +523,4 @@ Pour obtenir des informations supplémentaires sur l’utilisation de certificat
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -55,7 +55,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 ## Création d’une application Machine Learning à l’aide de Spark MLlib
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglée au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -71,7 +71,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-3. Comme vous avez créé un bloc-notes portable à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark, Hive et SQL sont automatiquement créés pour vous exécutez la première cellule de code. Vous pouvez commencer à créer votre application d'apprentissage automatique en important les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
+3. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark, Hive et SQL sont automatiquement créés pour vous exécutez la première cellule de code. Vous pouvez commencer à créer votre application d'apprentissage automatique en important les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
 
 
 		from pyspark.ml import Pipeline
@@ -419,4 +419,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

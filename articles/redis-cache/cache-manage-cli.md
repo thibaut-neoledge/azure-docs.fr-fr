@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [Interface de ligne de commande Azure](cache-manage-cli.md)
 
 L'interface de ligne de commande Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme. Cet article montre comment créer et gérer vos instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure.
 
@@ -28,10 +28,10 @@ L'interface de ligne de commande Azure est un excellent moyen de gérer votre in
 
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.
 
--	Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte d’évaluation gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
--	[Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+-	Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+-	[Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
 -	Connectez votre installation d’interface de ligne de commande Azure à un compte Azure personnel ou à un compte Azure professionnel ou scolaire, puis connectez-vous à partir de l’interface de ligne de commande Azure à l’aide de la commande `azure login`. Pour comprendre les différences et faire votre choix, consultez [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
--	Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm`. Pour plus d'informations, consultez [Définition du mode Azure Resource Manager](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm`. Pour plus d'informations, consultez [Définition du mode Azure Resource Manager](../xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Propriétés du cache Redis
 
@@ -42,15 +42,15 @@ Les propriétés suivantes sont utilisées lors de la création et de la mise à
 | name | -n, --name | Nom du cache Redis. |
 | resource group | -g, --resource-group | Nom du groupe de ressources. |
 | location | -l, --location | Emplacement où créer le cache. |
-| size | -z, --size | Taille du cache Redis. Valeurs valides : [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| sku | -x, --sku | SKU Redis. Doit être une des valeurs : [De Base, Standard, Premium] |
+| size | -z, --size | Taille du cache Redis. Valeurs valides : [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| sku | -x, --sku | SKU Redis. Doit être une des valeurs : [De Base, Standard, Premium] |
 | enableNonSslPort | -e, --enable-non-ssl-port | Propriété EnableNonSslPort du cache Redis. Ajoutez cet indicateur si vous souhaitez activer le port non-SSL pour votre cache |
-| Configuration de Redis | -c, --redis-configuration | Configuration de Redis. Entrez ici une chaîne au format JSON des clés et des valeurs de configuration. Format :"{"":"","":""}" |
-| Configuration de Redis | -f, --redis-configuration-file | Configuration de Redis. Entrez ici le chemin d’un fichier contenant les clés et les valeurs de configuration. Format pour l’entrée du fichier : {"":"","":""} |
+| Configuration de Redis | -c, --redis-configuration | Configuration de Redis. Entrez ici une chaîne au format JSON des clés et des valeurs de configuration. Format :"{"":"","":""}" |
+| Configuration de Redis | -f, --redis-configuration-file | Configuration de Redis. Entrez ici le chemin d’un fichier contenant les clés et les valeurs de configuration. Format pour l’entrée du fichier : {"":"","":""} |
 | Nombre de partitions | -r, --shard-count | Nombre de partitions à créer sur un cache de cluster Premium avec clustering. |
 | Réseau virtuel | -v, --virtual-network | Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le cache Redis. Exemple de format : /subscriptions/{ID\_abonnement}/resourceGroups/{nom\_groupe\_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| key type | -t, --key-type | Type de clé à renouveler. Valeurs valides : [Primary, Secondary] |
-| StaticIP | -p, --static-ip <static-ip> | Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. |
+| key type | -t, --key-type | Type de clé à renouveler. Valeurs valides : [Primary, Secondary] |
+| StaticIP | -p, --static-ip <static-ip> | Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. |
 | Sous-réseau | t, --subnet <subnet> | Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. |
 | VirtualNetwork | -v, --virtual-network <virtual-network> | Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le cache Redis. Exemple de format : /subscriptions/{ID\_abonnement}/resourceGroups/{nom\_groupe\_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Abonnement | -s, --subscription | Identificateur de l’abonnement. |
@@ -90,7 +90,7 @@ Pour afficher toutes les commandes de cache Redis et leurs paramètres, utilisez
 
 ## Création d’un cache Redis
 
-Pour créer un cache Redis, utilisez la commande suivante :
+Pour créer un cache Redis, utilisez la commande suivante :
 
 	azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
@@ -124,7 +124,7 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 
 ## Suppression d’un cache Redis
 
-Pour supprimer un cache Redis, utilisez la commande suivante :
+Pour supprimer un cache Redis, utilisez la commande suivante :
 
 	azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
@@ -148,7 +148,7 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 
 ## Liste de tous les caches Redis dans votre abonnement ou groupe de ressources
 
-Pour répertorier tous les caches Redis dans votre abonnement ou groupe de ressources, utilisez la commande suivante :
+Pour répertorier tous les caches Redis dans votre abonnement ou groupe de ressources, utilisez la commande suivante :
 
 	azure rediscache list [options]
 
@@ -171,7 +171,7 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 
 ## Affichage des propriétés d’un cache Redis existant
 
-Pour afficher les propriétés d’un cache Redis existant, utilisez la commande suivante :
+Pour afficher les propriétés d’un cache Redis existant, utilisez la commande suivante :
 
 	azure rediscache show [--name <name> --resource-group <resource-group>]
 
@@ -196,7 +196,7 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 <a name="scale"></a>
 ## Modification des paramètres d’un cache Redis
 
-Pour modifier les paramètres d’un cache Redis, utilisez la commande suivante :
+Pour modifier les paramètres d’un cache Redis, utilisez la commande suivante :
 
 	azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
@@ -222,7 +222,7 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 
 ## Renouvellement de la clé d’authentification pour un cache Redis
 
-Pour renouveler la clé d’authentification pour un cache Redis, utilisez la commande suivante :
+Pour renouveler la clé d’authentification pour un cache Redis, utilisez la commande suivante :
 
 	azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
 
@@ -271,4 +271,4 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

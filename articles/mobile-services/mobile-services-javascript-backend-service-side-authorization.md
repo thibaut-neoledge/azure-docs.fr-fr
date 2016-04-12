@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal JavaScript | Microsoft Azure"
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal JavaScript | Microsoft Azure"
 	description="Découvrez comment autoriser des utilisateurs sur le backend JavaScript Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
+> [AZURE.SELECTOR]
+- [Backend .NET](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Back-end Javascript](mobile-services-javascript-backend-service-side-authorization.md)
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps de cette rubrique, consultez [cet exemple de code](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/personal-table/tables/TodoItem.js#L38).
 
 Cette rubrique montre comment utiliser des scripts côté serveur pour autoriser des utilisateurs. Dans ce didacticiel, vous inscrivez les scripts dans Azure Mobile Services, filtrez des requêtes en fonction de l’ID utilisateur et permettez aux utilisateurs d’accéder uniquement à leurs propres données. Le filtrage des résultats de la requête d'un utilisateur par l'ID d'utilisateur est la forme d’autorisation la plus basique. Selon votre scénario spécifique, vous pouvez également créer des tables ou rôles utilisateurs pour effectuer le suivi d’informations d'autorisation utilisateur plus détaillées, telles que les points de terminaison auxquels un utilisateur donné peut accéder.
 
@@ -39,9 +43,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 	Ce script ajoute l’ID utilisateur de l’utilisateur authentifié à l’élément avant l’insertion.
 
-    >[AZURE.NOTE]Assurez-vous que le [schéma dynamique](https://msdn.microsoft.com/library/azure/jj193175.aspx) est activé. Dans le cas contraire, la colonne *userId* n'est pas ajoutée automatiquement. Ce paramètre est activé par défaut pour un nouveau service mobile.
+    >[AZURE.NOTE] Assurez-vous que le [schéma dynamique](https://msdn.microsoft.com/library/azure/jj193175.aspx) est activé. Dans le cas contraire, la colonne *userId* n'est pas ajoutée automatiquement. Ce paramètre est activé par défaut pour un nouveau service mobile.
 
-3. De la même façon, remplacez l'opération **Read** existante par la fonction suivante : Ce script filtre les objets TodoItem renvoyés, de façon à ce qu’un utilisateur reçoive uniquement les éléments qu’il a insérés.
+3. De la même façon, remplacez l'opération **Read** existante par la fonction suivante : Ce script filtre les objets TodoItem renvoyés, de façon à ce qu’un utilisateur reçoive uniquement les éléments qu’il a insérés.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
@@ -68,6 +72,5 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [Ajout de l'authentification à une application Mobile Services existante]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [portail Azure Classic]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

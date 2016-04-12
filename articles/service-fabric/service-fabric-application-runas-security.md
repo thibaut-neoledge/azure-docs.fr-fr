@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs : exécution d’une application Service Fabric avec des autorisations de sécurité différentes
 Azure Service Fabric permet de sécuriser les applications en cours d’exécution dans le cluster sous différents comptes utilisateurs, appelés **RunAs**. Service Fabric sécurise également les ressources utilisées par les applications avec le compte utilisateur, comme les fichiers, les répertoires et les certificats.
@@ -94,13 +94,13 @@ Vérifiez ensuite que le fichier MySetup.bat est inclus dans le package de servi
 Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > out.txt
-echo %TestVariable% >> out.txt
+echo System TestVariable définie sur > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Pour supprimer cette variable système utilisez
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 1. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType**:
+Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 2. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType** :
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ Le manifeste d’application ci-dessous affiche un grand nombre des différents 
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

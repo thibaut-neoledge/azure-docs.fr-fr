@@ -1,63 +1,48 @@
 <properties
-	pageTitle="Importation de données dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Comment charger des données sur un index dans Azure Search"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Chargement de données dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Découvrez comment charger des données dans un index dans Azure Search."
+    services="search"
+    documentationCenter=""
+    authors="ashmaka"
+    manager=""
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/10/2016"
+    ms.author="ashmaka"/>
 
-# Importer des données dans Azure Search
+# Charger des données dans Azure Search
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [Vue d'ensemble](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Dans Azure Search, le service fonctionne sur des données persistantes (index) qui donnent des documents et informations utilisées pour traiter un index, exécuter des requêtes ou formuler des résultats de recherche. Pour remplir un index, vous pouvez utiliser un modèle push ou pull de chargement des données.
 
-Avant l’importation, l’index doit déjà exister. Voir [Index dans Azure Search](search-what-is-an-index.md) pour plus d’informations.
+## Modèles de chargement de données dans Azure Search
+Deux méthodes permettent de renseigner votre index Azure Search avec vos données. La première option consiste à envoyer manuellement vos données dans l’index à l’aide de l’[API REST](search-import-data-rest-api.md) ou du [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md) d’Azure Search. La seconde option consiste à [pointer une source de données prise en charge](search-indexer-overview.md) vers votre index Azure Search et à permettre à Azure Search d’extraire automatiquement vos données dans le service de recherche.
 
-##Envoyer des données à un index
+Ce guide couvre uniquement les instructions portant sur l’utilisation du modèle d’émission de chargement de données (qui est pris en charge uniquement dans l’[API REST](search-import-data-rest-api.md) et dans le [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md)), mais vous pouvez en savoir plus sur le modèle d’émission ci-dessous.
 
-Cette approche concerne la prise en compte d’un jeu de données existant conforme au schéma d’index et de validation à votre service de recherche. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez rechercher des opérations à synchroniser avec les bases de données de stock), un modèle push est la seule option.
+### Envoyer des données à un index
 
-Vous pouvez utiliser l’API REST ou le kit de développement logiciel .NET pour envoyer des données à un index. Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
+Cette approche désigne l’envoi par programme de vos données à Azure Search pour les rendre disponibles pour la recherche. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
 
-Cette approche est plus flexible qu’un modèle d’extraction, parce que vous téléchargez des documents individuellement ou par lots (jusqu’à 1 000 par lot ou 16 Mo, quelle que soit la limite atteinte en premier).
+Vous pouvez utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou le [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md) pour envoyer des données à un index. Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-##Extraire des données (analyse) 
+Cette approche est plus flexible que le modèle d’extraction, car vous pouvez charger des documents individuellement ou par lots (jusqu’à 1 000 par lot ou 16 Mo, quelle que soit la limite atteinte en premier). Le modèle d’émission vous permet également de charger des documents dans Azure Search indépendamment de l’emplacement des données.
 
-Un modèle d’extraction analyse une source de données prise en charge et charge l’index pour vous. Dans Azure Search, cette fonctionnalité est implémentée via des *indexeurs* et est actuellement disponible pour la base de données SQL Azure, DocumentDB et SQL Server sur des machines virtuelles Azure. Voir [indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) pour en savoir plus sur le téléchargement de données SQL Azure.
+### Extraire des données dans un index
 
-Vous pouvez utiliser le portail, l’API REST ou le kit de développement logiciel .NET pour extraire des données dans un index.
+Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index Azure Search. En suivant les modifications et les suppressions effectuées dans les documents existants, et en reconnaissant les nouveaux documents, les indexeurs suppriment la nécessité de gérer activement les données de votre index.
 
-##Configuration de jeu de données requise
+Dans Azure Search, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour le [stockage d’objets blob (version préliminaire)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Base de données SQL Azure et SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-Il n’existe aucune restriction sur le type de données que vous téléchargez, à condition que le schéma et les jeux de données soient formulés sous forme de structures JSON.
+La fonctionnalité de l’indexeur est exposée dans le [portail Azure](search-import-data-portal.md) ainsi que dans l’[API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-Les données doivent être tirées de la base de données ou de la source de données que votre application crée ou consomme. Par exemple, si votre application est un catalogue de vente au détail en ligne, l’index que vous créez pour la recherche d’Azure Search doit tirer les données de l’inventaire des produits ou des bases de données client qui prennent en charge votre application.
-
-Le jeu de données doit être issu d’une table, vue, conteneur d’objets blobs ou équivalent unique. Vous devrez peut-être créer une structure de données dans votre application de base de données ou noSQL qui fournit les données à Azure Search. Pour certaines sources de données comme la base de données SQL Azure ou DocumentDB, vous pouvez créer un indexeur qui analyse un tableau externe, une vue ou un conteneur d’objets blobs pour les données à télécharger dans Azure Search.
-
-##Choix d’une approche d’importation de données
-
-|Critères|Approche recommandée|
-|------------|---------------|
-|Synchronisation des données quasiment en temps réel|Le code, .NET ou API REST, pour envoyer des mises à jour à un index. Une approche « pull » de la réception de données est une opération planifiée, qui ne peut pas s’exécuter assez rapidement pour intégrer des modifications rapides dans une source de données principales.|
-|Base de données Azure SQL, DocumentDB ou SQL Server sur les machines virtuelles Azure|Les indexeurs sont ancrés aux types de source de données spécifiques. Si les sources de données primaires font partie des types de source de données pris en charge, un indexeur est le moyen le plus simple de charger un index. Vous pouvez planifier l’actualisation des données à des intervalles d’une heure. Vous pouvez configurer un indexeur dans le portail ou en code.|
-|Actualisation des données planifiée|Utilisez un indexeur (voir ci-dessus).|
-|Créer des prototypes sans code ou modification|Le portail comprend un Assistant Importation de données qui configure un indexeur qui génère parfois un schéma préliminaire s’il existe suffisamment d’informations dans la base de données principale pour y parvenir. L’Assistant inclut des options permettant de configurer l’actualisation planifiée des données. Si vous le souhaitez, vous pouvez ajouter des analyseurs de langage ou des options de CORS. Il existe quelques inconvénients : il est impossible d’ajouter des profils de score. Vous ne pouvez non plus exporter un schéma créé dans le portail pour un fichier JSON à utiliser dans le code.| 
-
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

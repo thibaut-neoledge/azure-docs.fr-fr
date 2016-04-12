@@ -10,6 +10,8 @@ Le diagramme suivant montre une architecture de solution IoT classique. Notez qu
 
 ![Architecture de solution IoT][img-solution-architecture]
 
+> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Services Microsoft Azure IoT : Architecture de référence).
+
 ### Connectivité des appareils
 
 Dans cette architecture de solution IoT, les appareils envoient les données de télémétrie, comme par exemple des lectures de température, vers un point de terminaison du cloud pour qu’elles soient traitées et stockées. Les appareils peuvent également recevoir des commandes « cloud-à-appareil », et y répondre, en lisant les messages issus d’un point de terminaison du cloud. Par exemple, un appareil peut extraire une commande qui indique de modifier la fréquence à laquelle il échantillonne les données.
@@ -48,5 +50,6 @@ Grâce à la couche de présentation et de connectivité d’entreprise, les uti
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Création d'un équilibreur de charge accessible sur Internet (classique) dans le portail Azure
@@ -38,32 +38,32 @@ Pour créer un modèle de déploiement (classique) d’équilibreur de charge ac
 
 2. Accédez au panneau (classique) des machines virtuelles > sélectionnez une machine virtuelle.
 
-3. Dans le panneau « Essentials » des machines virtuelles > sélectionnez « Tous les paramètres »
+3. Dans le panneau « Essentials » des machines virtuelles > sélectionnez « Tous les paramètres »
 
 4. Cliquez sur Jeux d’équilibrage de charge.
 
-5. Pour créer un équilibreur de charge, cliquez sur l'icône « Joindre » en haut du panneau des jeux d'équilibrage de charge.
+5. Pour créer un équilibreur de charge, cliquez sur l'icône « Joindre » en haut du panneau des jeux d'équilibrage de charge.
 
-6. Sélectionnez le « Type de jeu d'équilibrage de la charge » public pour l'équilibreur de charge accessible sur Internet.
+6. Sélectionnez le « Type de jeu d'équilibrage de la charge » public pour l'équilibreur de charge accessible sur Internet.
 
-7. Cliquez sur « Configurer les paramètres requis » pour ouvrir « Choisir un jeu d'équilibrage de charge », puis sur « Créer un jeu d'équilibrage de charge ».
+7. Cliquez sur « Configurer les paramètres requis » pour ouvrir « Choisir un jeu d'équilibrage de charge », puis sur « Créer un jeu d'équilibrage de charge ».
 
-8. Dans le volet « Créer un jeu d'équilibrage de charge », donnez un nom au jeu d'équilibrage de charge. Renseignez le nom, le port public, le protocole de sonde, le port de la sonde.
+8. Dans le volet « Créer un jeu d'équilibrage de charge », donnez un nom au jeu d'équilibrage de charge. Renseignez le nom, le port public, le protocole de sonde, le port de la sonde.
 
 9. Si nécessaire, modifiez l'intervalle de sondage et de nouvelles tentatives.
 
 10. (facultatif) Si vous le souhaitez, vous pouvez configurer des règles de contrôle d'accès dans le panneau de création de jeux d'équilibrage de charge.
 
-11. Cliquez sur Ok pour revenir au panneau « Joindre le jeu d'équilibrage de charge ».
+11. Cliquez sur Ok pour revenir au panneau « Joindre le jeu d'équilibrage de charge ».
 
-12. Cliquez sur Ok et attendez que la nouvelle ressource d'équilibrage de charge s'affiche dans le panneau « Jeux d'équilibrage de charge ».
+12. Cliquez sur Ok et attendez que la nouvelle ressource d'équilibrage de charge s'affiche dans le panneau « Jeux d'équilibrage de charge ».
  
 ## Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
+[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

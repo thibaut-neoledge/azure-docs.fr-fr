@@ -57,7 +57,7 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines-windows-tutorial/)
+- [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines-windows-hero-tutorial/)
 
 **Services de données**
 
@@ -82,4 +82,4 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

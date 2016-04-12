@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 #Création d'une application iOS
@@ -26,11 +26,11 @@ Ce didacticiel montre comment utiliser un backend cloud ([Azure Mobile Apps](app
 
 ## Composants requis
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 
-* Un PC avec [Visual Studio Community 2013] ou version ultérieure.
+* Un PC avec [Visual Studio Community 2013] ou version ultérieure.
 
 * Un Mac avec Xcode v7.0 ou version ultérieure.
 
@@ -42,11 +42,11 @@ Suivez ces étapes pour créer un serveur principal d’application mobile.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
 ## Télécharger le projet de serveur
 
-1. Sur votre PC, accédez au [portail Azure]. Cliquez sur **Parcourir tout** > **Mobile Apps**, puis cliquez sur le serveur principal d’application mobile que vous venez de créer.
+1. Sur votre PC, accédez au [portail Azure]. Cliquez sur **Parcourir tout** > **Mobile Apps**, puis cliquez sur le serveur principal d’application mobile que vous venez de créer.
 
 2. Dans le panneau Application mobile, cliquez sur **Paramètres** et sous **Application mobile**, cliquez sur **Démarrage rapide** > **iOS (Objective-C)**. Si vous préférez Swift, cliquez sur **Démarrage rapide** > **iOS (Swift)**.
 
@@ -65,6 +65,6 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 <!-- URLs -->
 [portail Azure]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

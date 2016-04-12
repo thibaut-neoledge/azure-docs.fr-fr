@@ -5,12 +5,12 @@ Ressource| Limite par défaut | Limite maximale
 Réseaux virtuels par abonnement | 50 | 100
 Sites de réseaux locaux par abonnement | 20 | contacter le support technique
 Serveurs DNS par réseau virtuel | 20 | 100
-Machines virtuelles et instances de rôles par réseau virtuel | 2 048 | 2 048
+Adresses IP privées par réseau virtuel | 4096 | 4096
 Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle | 500K | 500K 
 Groupes de sécurité réseau (NSG) | 100 | 200
 Règles de groupe de sécurité réseau par groupe de sécurité réseau | 200 | 400
 Tables d'itinéraires définis par l'utilisateur | 100 | 200
-Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 500
+Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 400
 Adresses IP publiques (dynamiques) | 5 | contacter le support technique
 Adresses IP publiques réservées | 20 | contacter le support technique
 Adresse IP virtuelle publique par déploiement | 5 | contacter le support technique
@@ -26,13 +26,13 @@ Ressource| Limite par défaut | Limite maximale
 --- | --- | ---
 Réseaux virtuels par abonnement | 50 | 500
 Serveurs DNS par réseau virtuel | 9 | 25
-Machines virtuelles et instances de rôles par réseau virtuel | 2 048 | 2 048
+Adresses IP privées par réseau virtuel | 4096 | 4096
 Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle | 500K |500K
-Interfaces réseau (NIC) | 300 | 1 000
+Interfaces réseau (NIC) | 300 | 10000
 Groupes de sécurité réseau (NSG) | 100 | 400
 Règles de groupe de sécurité réseau par groupe de sécurité réseau | 200 | 500
 Tables d'itinéraires définis par l'utilisateur | 100 | 400
-Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 500
+Itinéraires définis par l'utilisateur par table d'itinéraire | 100 | 400
 Adresses IP publiques (dynamiques) | 60 | contacter le support technique
 Adresses IP publiques réservées | 20 | contacter le support technique
 Équilibreurs de charge (internes et accessibles sur Internet) | 100 | contacter le support technique
@@ -43,4 +43,4 @@ Passerelles d'application | 50 | 50
 
 Pour accroître les limites par défaut, contactez le support technique.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

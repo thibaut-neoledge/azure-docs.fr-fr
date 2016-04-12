@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Prise en main](vs-active-directory-webapi-getting-started.md)
+> - [Que s'est-il passé ?](vs-active-directory-webapi-what-happened.md)
 
 ##Demander une authentification pour l'accès aux contrôleurs
  
@@ -29,4 +29,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -3,7 +3,7 @@
    description="Décrit comment Reliable Actors utilise les fonctionnalités de la plateforme Service Fabric en traitant les concepts du point de vue des développeurs d’acteur."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
-   ms.author="abhisram"/>
+   ms.date="03/15/2016"
+   ms.author="vturecek"/>
 
 # Comment les Acteurs fiables utilisent la plateforme Service Fabric
 
@@ -44,7 +44,7 @@ Vous pouvez trouver le type de service auquel le type d’acteur est mappé dans
 <StatefulServiceType ServiceTypeName="VoiceMailBoxActorServiceType" HasPersistedState="true">
 ~~~
 
-Lorsque le package de l’application est créé à l’aide de Visual Studio, les journaux de la fenêtre Sortie de génération indiquent l’emplacement de ce package. Par exemple :
+Lorsque le package de l’application est créé à l’aide de Visual Studio, les journaux de la fenêtre Sortie de génération indiquent l’emplacement de ce package. Par exemple :
 
     -------- Package started: Project: VoiceMailBoxApplication, Configuration: Debug x64 ------
     VoiceMailBoxApplication -> C:\samples\Samples\Actors\VS2015\VoiceMailBox\VoiceMailBoxApplication\pkg\Debug
@@ -102,7 +102,7 @@ Les tâches de gestion suivantes (mises à niveau et suppression éventuelle) de
 ## Évolutivité des services d'acteur
 Les administrateurs de cluster peuvent créer un ou plusieurs services d'acteur pour chaque type de service du cluster. Chacun de ces services d'acteur peut avoir une ou plusieurs partitions (similaires aux autres services d'infrastructure Service Fabric). La possibilité de créer plusieurs services d'un type de service (mappé à un type d'acteur) et la possibilité de créer plusieurs partitions pour un service permettent de faire évoluer l'application de l'acteur. Consultez l’article sur l’[extensibilité](service-fabric-concepts-scalability.md) pour plus d’informations.
 
-> [AZURE.NOTE]Les services d’acteur sans état doivent avoir un nombre d’[instances](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) égal à 1. La présence de plus d’une instance d’un service d’acteur sans état dans une partition n’est pas prise en charge. Par conséquent, il n’est pas possible pour les services d’acteur sans état d’augmenter le nombre d'instances pour optimiser l’extensibilité. Ils doivent utiliser les options d'extensibilité décrites dans l’[article sur l’extensibilité](service-fabric-concepts-scalability.md).
+> [AZURE.NOTE] Les services d’acteur sans état doivent avoir un nombre d’[instances](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) égal à 1. La présence de plus d’une instance d’un service d’acteur sans état dans une partition n’est pas prise en charge. Par conséquent, il n’est pas possible pour les services d’acteur sans état d’augmenter le nombre d'instances pour optimiser l’extensibilité. Ils doivent utiliser les options d'extensibilité décrites dans l’[article sur l’extensibilité](service-fabric-concepts-scalability.md).
 
 ## Concepts de partition Service Fabric pour les acteurs
 L’ID d’un acteur est mappé à une partition d’un service d’acteur. L'acteur est créé dans la partition à laquelle l'ID acteur est mappé. Lorsqu'un acteur est créé, le runtime Actors écrit un [événement EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) qui indique dans quelle partition cet acteur est créé. Voici un exemple de cet événement qui indique qu'un acteur avec l'ID `-5349766044453424161` a été créé dans la partition `b6afef61-be9a-4492-8358-8f473e5d2487` du service `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, de l'application `fabric:/VoicemailBoxAdvancedApplication`.
@@ -143,7 +143,7 @@ Un autre acteur avec l’ID `-4952641569324299627` a été créé dans une autre
       }
     }
 
-> [AZURE.NOTE]Certains champs des événements ci-dessus sont omis par souci de concision.
+> [AZURE.NOTE] Certains champs des événements ci-dessus sont omis par souci de concision.
 
 L'ID de partition peut être utilisé pour obtenir d'autres informations relatives à la partition. Par exemple, l’outil [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) peut être utilisé pour afficher des informations sur la partition, le service et l’application auxquels il appartient. La capture d'écran suivante affiche des informations sur la partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, qui contenait l'acteur avec l'ID `-4952641569324299627` dans l'exemple ci-dessus.
 
@@ -175,7 +175,7 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
 ### Concepts de partition Service Fabric pour les acteurs sans état
 Les acteurs sans état sont créés dans une partition d'un service sans état Service Fabric. L'ID acteur détermine dans quelle partition l'acteur est créé. Le nombre d’[instances](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) pour un service d’acteur sans état doit être égal à 1. La modification du nombre d'instances n'est pas prise en charge. Par conséquent, l'acteur est créé dans l'unique instance de service au sein de la partition.
 
-> [AZURE.TIP]Le runtime Service Fabric émet certains [événements liés aux instances d'acteur sans état](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
+> [AZURE.TIP] Le runtime Service Fabric émet certains [événements liés aux instances d'acteur sans état](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
 
 Lors de la création d'un acteur sans état, le runtime Actors écrit un [événement EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) qui indique dans quelles partition et instance l'acteur est créé. Vous trouverez ci-dessous un exemple de cet événement. Il indique qu’un acteur avec l’ID `abc` a été créé dans l’instance `130745709600495974` de la partition `8c828833-ccf1-4e21-b99d-03b14d4face3`, du service `fabric:/HelloWorldApplication/HelloWorldActorService`, de l’application `fabric:/HelloWorldApplication`.
 
@@ -196,12 +196,12 @@ Lors de la création d'un acteur sans état, le runtime Actors écrit un [évén
       }
     }
 
-> [AZURE.NOTE]Certains champs de l’événement ci-dessus sont omis par souci de concision.
+> [AZURE.NOTE] Certains champs de l’événement ci-dessus sont omis par souci de concision.
 
 ### Concepts de partition Service Fabric pour les acteurs avec état
 Les acteurs avec état sont créés dans une partition du service avec état Service Fabric. L'ID acteur détermine dans quelle partition l'acteur est créé. Chaque partition du service peut avoir un ou plusieurs [réplicas](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) placés sur différents nœuds du cluster. Avoir plusieurs réplicas garantit la fiabilité de l'état de l'acteur. Azure Resource Manager optimise le positionnement en fonction des domaines d’erreur et de mise à niveau disponibles dans le cluster. Deux réplicas de la même partition ne sont jamais placés sur le même nœud. Les acteurs sont toujours créés dans le réplica principal de la partition à laquelle leur ID d’acteur est mappé.
 
-> [AZURE.TIP]Le runtime Fabric Actors émet certains [événements liés aux réplicas d'acteur avec état](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
+> [AZURE.TIP] Le runtime Fabric Actors émet certains [événements liés aux réplicas d'acteur avec état](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
 
 N'oubliez pas que dans l'[exemple VoiceMailBoxActor présenté précédemment](#service-fabric-partition-concepts-for-actors), l'acteur avec l'ID `-4952641569324299627` a été créé dans la partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. L'événement EventSource tiré de cet exemple indique également que l'intervenant a été créé dans le réplica `130745418574851853` de cette partition. Il s’agissait du réplica principal de cette partition au moment de la création de l’acteur. La capture d'écran Service Fabric Explorer ci-dessous confirme ce point.
 
@@ -242,4 +242,4 @@ Notez que la modification du fournisseur d’état nécessite la recréation du 
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

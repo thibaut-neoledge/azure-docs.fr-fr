@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog prise en main du catalogue de données"
-   description="Didacticiel de bout en bout des scénarios et des fonctionnalités d’Azure Data Catalog."
+   pageTitle="Azure Data Catalog prise en main du catalogue de données | Microsoft Azure"
+   description="Didacticiel de bout en bout présentant des scénarios et des fonctionnalités d’Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -18,7 +18,7 @@
 
 # Prise en main d’Azure Data Catalog
 
-Cet article est un didacticiel de bout en bout expliquant les scénarios et les fonctionnalités de la version préliminaire publique d’**Azure Data Catalog**. Une fois que vous vous êtes inscrit pour recevoir la version préliminaire, suivez ces étapes pour créer un catalogue de données puis inscrire, annoter et découvrir des sources de données.
+Cet article présente de bout en bout les scénarios et les fonctionnalités d’**Azure Data Catalog**. Une fois inscrit au service, suivez ces étapes pour créer un catalogue de données puis inscrire, annoter et découvrir des sources de données.
 
 ## Configuration requise pour le didacticiel
 
@@ -256,6 +256,6 @@ Dans cet exercice, vous avez exploré les fonctionnalités de gestion **Azure Da
 
 ## Résumé
 
-Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la version préliminaire d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
+Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

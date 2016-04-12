@@ -3,8 +3,8 @@
    description="Spécification des sources de données actuellement prises en charge."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Sources de données prises en charge par Azure Data Catalog
 
@@ -436,18 +436,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Conteneur</td>
-      <td>Cluster virtuel</td>
-      <td>N/A</td>
-      <td>
-        <font size=2> protocole&#160;: cosmos
-            <br>authentification&#160;: {base, windows}
-            <br>adresse&#160;:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL&#160;Server&#160;Reporting&#160;Services</td>
@@ -523,46 +512,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; modèle
             <br>
-            <br>*base ou anonyme disponible uniquement via https </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream</td>
-      <td>Cluster virtuel</td>
-      <td>
-        <font size=2> protocole&#160;: cosmos
-            <br>authentification&#160;: {base, windows}
-            <br>adresse&#160;:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Ensemble de flux</td>
-      <td>Cluster virtuel</td>
-      <td>
-        <font size=2> protocole&#160;: cosmos
-            <br>authentification&#160;: {base, windows}
-            <br>adresse&#160;:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Affichage</td>
-      <td>Cluster virtuel</td>
-      <td>
-        <font size=2> protocole&#160;: cosmos
-            <br>authentification&#160;: {base, windows}
-            <br>adresse&#160;:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+            <br>*base ou anonyme disponible uniquement via https* </font>
       </td>
     </tr>
 
@@ -664,7 +614,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; modèle
             <br>
-            <br>*base ou anonyme disponible uniquement via https </font>
+            <br>*base ou anonyme disponible uniquement via https* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
             <br>&#160;&#160;&#160;&#160;&#160; objet
             <br>&#160;&#160;&#160;&#160;&#160; objectType&#160;: {Kpi}
             <br>
-            <br>*base ou anonyme disponible uniquement via https </font>
+            <br>*base ou anonyme disponible uniquement via https* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
             <br>&#160;&#160;&#160;&#160;&#160; objet
             <br>&#160;&#160;&#160;&#160;&#160; objectType&#160;: {Table}
             <br>
-            <br>*base ou anonyme disponible uniquement via https </font>
+            <br>*base ou anonyme disponible uniquement via https* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

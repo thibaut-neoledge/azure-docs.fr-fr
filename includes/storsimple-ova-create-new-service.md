@@ -1,6 +1,6 @@
 #### Création d’un service
 
-1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure Classic en utilisant l’URL qui suit : [https://manage.windowsazure.com/](https://manage.windowsazure.com/)
+1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure Classic en utilisant l’URL qui suit : [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Si vous déployez l’appareil dans le portail Government, connectez-vous ici : [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
 2.  Dans le portail, cliquez sur **Nouveau > Services de données > StorSimple Manager > Création rapide**.
 
@@ -16,6 +16,8 @@
 
    	 -   Le gestionnaire StorSimple et le stockage Azure peuvent se trouver en deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Azure Storage dans le portail et suivez les étapes indiquées dans [Créer un compte Azure Storage](storage-create-storage-account.md#create-a-storage-account). Une fois ce compte créé, ajoutez-le au service StorSimple Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service).
    	 
+   	 -   Si vous déployez l’appareil virtuel dans le portail Government, le service StorSimple Manager est disponible dans l’Iowa et en Virginie.
+   	 
    	 	
 	1.  Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
 
@@ -23,7 +25,7 @@
 
 	1.  Cliquez sur **Créer StorSimple Manager** pour créer le service.
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	Vous allez être redirigé vers la page d’accueil **Service**. La création de service dure quelques minutes. Un message vous informe que le service a été créé.
 
@@ -31,4 +33,4 @@
 
 	Le statut du service sera alors **Actif**.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

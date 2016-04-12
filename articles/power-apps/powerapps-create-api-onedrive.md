@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter l’API OneDrive à PowerApps Enterprise | Microsoft Azure"
+	pageTitle="Ajouter l’API OneDrive à PowerApps Enterprise | Microsoft Azure"
 	description="Création ou configuration d’une nouvelle API OneDrive dans l’environnement App Service de votre organisation"
 	services=""
     suite="powerapps"
@@ -14,38 +14,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# Création d’une nouvelle API OneDrive dans l’environnement App Service de votre organisation
+# Créer une API OneDrive dans PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/connectors-create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+Ajoutez l’API OneDrive à l’environnement de service d’application (locataire) de votre organisation.
 
 ## Créer l’API dans le portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
  
-2. Sélectionnez **Parcourir** dans la barre des tâches : ![][14]
+2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][14]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
+3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
 
-4. Dans **PowerApps**, sélectionnez **Gérer les API** : ![Accédez aux API inscrites][1]
+4. Dans **POWERAPPS**, sélectionnez **GÉRER LES API** : ![Accédez aux API inscrites][1]
 
-5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][2]
+5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][2]
 
 6. Entrez un **nom** descriptif pour votre API.
 	
-7. Dans **Source**, sélectionnez **API disponibles** pour sélectionner les API prédéfinies, puis sélectionnez **OneDrive** : ![Sélectionnez API OneDrive][3]
+7. Dans **Source**, sélectionnez **API disponibles** pour sélectionner les API prédéfinies, puis sélectionnez **OneDrive** : ![Sélectionnez API OneDrive][3]
 
-8. Sélectionnez **Paramètres – Configurer les paramètres requis** : ![configurez les paramètres de l’API OneDrive][4]
+8. Sélectionnez **Paramètres – Configurer les paramètres requis** : ![configurez les paramètres de l’API OneDrive][4]
 
-9. Entrez la *clé d’application* et la *question secrète de l’application* de votre application OneDrive. Si vous n’en avez pas, consultez la section « Enregistrer une application OneDrive pour une utilisation avec PowerApps » dans cette rubrique pour créer les valeurs clé et question secrète dont vous avez besoin.
+9. Entrez la *clé d’application* et la *question secrète de l’application* de votre application OneDrive. Si vous n’en avez pas, consultez la section « Enregistrer une application OneDrive pour une utilisation avec PowerApps » dans cette rubrique pour créer les valeurs clé et question secrète dont vous avez besoin.
 
-	> [AZURE.IMPORTANT]Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
+	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
 
 10. Sélectionnez **OK** pour achever la procédure.
 
 Quand vous avez terminé, une nouvelle API OneDrive est ajoutée à votre environnement App Service.
 
-## Facultatif : Enregistrement d’une application OneDrive pour une utilisation avec PowerApps
+## Facultatif : Enregistrement d’une application OneDrive pour une utilisation avec PowerApps
 
 Si vous ne disposez pas d’une application OneDrive avec les valeurs clé et question secrète, alors procédez comme suit pour créer l’application et obtenir les valeurs dont vous avez besoin.
 
@@ -53,18 +59,24 @@ Si vous ne disposez pas d’une application OneDrive avec les valeurs clé et qu
 
 2. Entrez le **nom de votre Application**, puis sélectionnez **J’accepte**: ![Nouvelle application OneDrive][6]
 
-3. Sur la page Paramètres :
+3. Sur la page Paramètres :
 
-	a) Sélectionnez **Paramètres API**. b) Paramétrez l’URL de redirection avec celle que vous avez reçue lorsque vous avez ajouté la nouvelle API OneDrive API dans le portail Azure Portal (dans cette rubrique). c) Sélectionnez **Enregistrer**.
+	1. Sélectionnez **Paramètres de l’API**.  
+	2. Définissez l’URL de redirection sur l’URL que vous avez reçue quand vous avez ajouté la nouvelle API OneDrive dans le portail Azure (dans cette rubrique).  
+	3. Sélectionnez **Enregistrer**.  
 
 	![Paramètres de l’application API OneDrive][7]
 
 Une nouvelle application OneDrive est créée. Vous pouvez utiliser cette application dans la configuration de votre API OneDrive dans le portail Azure.
 
-## Résumé et étapes suivantes
-Dans cette rubrique, vous avez ajouté l’API OneDrive à PowersApps Enterprise. Ensuite, donnez accès à l’API aux utilisateurs afin qu’ils puissent l’ajouter à leurs applications :
+## Consulter les API REST
 
-[Ajouter une connexion et ouvrir l’accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
+Informations de référence sur l’[API REST OneDrive](../connectors/connectors-create-api-onedrive.md).
+
+## Résumé et étapes suivantes
+Dans cette rubrique, vous avez ajouté l’API OneDrive à PowersApps Enterprise. Ensuite, donnez accès à l’API aux utilisateurs afin qu’ils puissent l’ajouter à leurs applications :
+
+[Ajouter une connexion et attribuer un accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
 
 <!--References-->
 [1]: ./media/powerapps-create-api-onedrive/browse-to-registered-apis.PNG
@@ -77,4 +89,4 @@ Dans cette rubrique, vous avez ajouté l’API OneDrive à PowersApps Enterprise
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

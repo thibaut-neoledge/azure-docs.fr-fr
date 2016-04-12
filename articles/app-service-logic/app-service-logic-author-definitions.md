@@ -2,7 +2,7 @@
 	pageTitle="Créer des définitions d’application logique | Microsoft Azure" 
 	description="Apprenez à écrire la définition JSON pour les applications logiques" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Créer des définitions d'application logique
-Cette rubrique montre comment utiliser les définitions des [applications logiques App Services](app-service-logic-what-are-logic-apps.md), qui constituent un langage JSON déclaratif simple. Si nécessaire, commencez par consulter [comment créer une application logique](app-service-logic-create-a-logic-app.md). Vous pouvez également lire les [documents de référence complets du langage de définition sur MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Cette rubrique montre comment utiliser les définitions des [applications logiques App Services](app-service-logic-what-are-logic-apps.md), qui constituent un langage JSON déclaratif simple. Si nécessaire, commencez par consulter [comment créer une application logique](app-service-logic-create-a-logic-app.md). Vous pouvez également lire les [documents de référence complets du langage de définition sur MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Plusieurs étapes qui se répètent dans une liste
 
 Il est courant d’avoir une étape qui obtient une liste d’éléments, puis une série de deux actions ou plus à effectuer pour chaque élément de la liste :
 
-![Répétition sur des listes](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Répétition sur des listes](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Répétition sur des listes](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Répétition sur des listes](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Répétition sur des listes](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
+
+ 
 Dans cet exemple, il existe 3 actions :
 
 1. Obtenir une liste d'articles. Ceci renvoie un objet qui contient un tableau.
@@ -77,7 +84,7 @@ Dans cet exemple, il existe 3 actions :
 
 Comme indiqué dans la section [Utiliser les fonctionnalités des applications logiques](app-service-logic-use-logic-app-features.md), vous effectuez une itération sur la première liste à l'aide de la propriété `forEach:` sur la deuxième action. Toutefois, pour la troisième action, vous devez sélectionner la propriété `@actions('readLinks').outputs`, étant donné que la seconde est exécutée pour chaque article.
 
-Dans l’action, vous pouvez utiliser la fonction [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item). Dans cet exemple, je voulais obtenir l’en-tête `location`, donc j’ai utilisé la fonction `@item().outputs.headers` pour obtenir les sorties de l’exécution de l’action à partir de la seconde action sur laquelle nous effectuons une itération.
+Dans l’action, vous pouvez utiliser la fonction [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item). Dans cet exemple, je voulais obtenir l’en-tête `location`. J’ai donc utilisé la fonction `@item().outputs.headers` pour obtenir les sorties de l’exécution de l’action à partir de la seconde action sur laquelle nous effectuons une itération.
 
 ## Mappage d'éléments dans une liste à une autre configuration
 
@@ -134,7 +141,7 @@ Ensuite, supposons que nous voulions obtenir du contenu complètement différent
 
 Dans ce cas, nous obtenons d'abord une liste d'articles, puis la deuxième étape recherche dans un mappage, en fonction de la catégorie définie en tant que paramètre, l'URL à partir de laquelle obtenir le contenu.
 
-Il existe deux éléments auxquels il faut prêter attention : la fonction [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) est utilisée pour vérifier si la catégorie correspond à l'une des catégories connues définies. Ensuite, une fois que nous obtenons la catégorie, nous pouvons extraire l'élément de la carte à l'aide de crochets : `parameters[...]`.
+Il existe deux éléments auxquels il faut prêter attention : la fonction [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) est utilisée pour vérifier si la catégorie correspond à l'une des catégories connues définies. Ensuite, une fois que nous obtenons la catégorie, nous pouvons extraire l'élément de la carte à l'aide de crochets : `parameters[...]`.
 
 ## Associer/imbriquer les applications logiques lors de la répétition sur une liste
 
@@ -199,7 +206,7 @@ Dans l'application logique parent :
 }
 ```
 
-Puis, dans l'application logique enfant, vous utiliserez la fonction [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) pour obtenir les valeurs qui ont été transmises dans le workflow enfant. Vous remplirez ensuite les sorties avec les données que vous souhaitez renvoyer au flux parent.
+Puis, dans l'application logique enfant, vous utiliserez la fonction [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) pour obtenir les valeurs qui ont été transmises dans le workflow enfant. Vous remplirez ensuite les sorties avec les données que vous souhaitez renvoyer au flux parent.
 
 ```
 {
@@ -236,7 +243,7 @@ Puis, dans l'application logique enfant, vous utiliserez la fonction [`triggerBo
 }
 ```
 
-Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
+Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx).
 
 >[AZURE.NOTE]Le concepteur d'applications logiques ne prend pas en charge les actions de type application logique, donc vous devrez modifier la définition manuellement.
 
@@ -354,7 +361,7 @@ Vous pouvez voir que l'horodatage pour les deux branches est identique.
 
 Vous pouvez combiner deux flux conditionnels de logique (qui ont peut-être été exécutés ou pas) à l'aide d'une seule action qui récupère les données des deux branches.
 
-Votre stratégie pour cela varie selon que vous gérez un élément ou une collection d'éléments. Dans le cas d'un seul élément, vous devrez utiliser la fonction [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce) :
+Votre stratégie pour cela varie selon que vous gérez un élément ou une collection d'éléments. Dans le cas d'un seul élément, vous devrez utiliser la fonction [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) :
 
 ```
 {
@@ -410,7 +417,7 @@ Votre stratégie pour cela varie selon que vous gérez un élément ou une colle
 }
 ```
  
-Ou, si vos deux premières branches fonctionnent sur une liste de commandes, par exemple, vous devrez utiliser la fonction [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) pour combiner les données des deux branches.
+Ou, si vos deux premières branches fonctionnent sur une liste de commandes, par exemple, vous devrez utiliser la fonction [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) pour combiner les données des deux branches.
 
 ```
 {
@@ -514,17 +521,17 @@ Nous voulons également une sous-chaîne du nom de la commande, car les 5 premie
 
 De l'intérieur vers l'extérieur, voici ce que l'on a :
 
-1. Obtenez la [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length) du nom de la commande, ceci renvoie le nombre total de caractères
+1. Obtenez la [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) du nom de la commande, ceci renvoie le nombre total de caractères
 
 2. Soustrayez 5 (car nous voulons une chaîne plus courte)
 
-3. Prenez la [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring). Nous commençons à l'index `5` et suivons le reste de la chaîne.
+3. Prenez la [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Nous commençons à l'index `5` et suivons le reste de la chaîne.
 
-4. Convertissez cette sous-chaîne en une chaîne [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64)
+4. Convertissez cette sous-chaîne en une chaîne [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64)
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) tous les caractères `+` par `-`
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) tous les caractères `+` par `-`
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) tous les caractères `/` par `_`
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) tous les caractères `/` par `_`
 
 ## Utilisation des dates
 
@@ -571,13 +578,13 @@ Les dates peuvent être utiles, particulièrement lorsque vous tentez d'extraire
 }
 ```
 
-Dans cet exemple, nous extrayons la `startTime` de l'étape précédente. Puis, nous sommes obtenons l'heure actuelle et soustrayons une seconde :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (vous pouvez utiliser d'autres unités de temps, comme `minutes` ou `hours`). Enfin, nous pouvons comparer ces deux valeurs. Si la première est inférieure à la seconde, alors cela signifie que plus d'une seconde s'est écoulée depuis que la commande a été placée.
+Dans cet exemple, nous extrayons la `startTime` de l'étape précédente. Puis, nous sommes obtenons l'heure actuelle et soustrayons une seconde :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (vous pouvez utiliser d'autres unités de temps, comme `minutes` ou `hours`). Enfin, nous pouvons comparer ces deux valeurs. Si la première est inférieure à la seconde, alors cela signifie que plus d'une seconde s'est écoulée depuis que la commande a été placée.
 
-Notez également que nous pouvons utiliser des formateurs de chaîne pour formater les dates : dans la chaîne de requête j'utilise [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) pour obtenir RFC1123. Le formatage des dates [est décrit sur MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+Notez également que nous pouvons utiliser des formateurs de chaîne pour formater les dates : dans la chaîne de requête j'utilise [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) pour obtenir RFC1123. Le formatage des dates [est décrit sur MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## Transmission de valeurs à l'exécution pour modifier le comportement
 
-Imaginons que vous disposez de comportements différents que vous souhaitez exécuter en fonction d'une valeur que vous utilisez pour lancer votre application logique. Vous pouvez utiliser la fonction [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) pour extraire ces valeurs de ce que vous avez transmis :
+Imaginons que vous disposez de comportements différents que vous souhaitez exécuter en fonction d'une valeur que vous utilisez pour lancer votre application logique. Vous pouvez utiliser la fonction [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) pour extraire ces valeurs de ce que vous avez transmis :
 
 ```
 {
@@ -611,13 +618,7 @@ Imaginons que vous disposez de comportements différents que vous souhaitez exé
 }
 ```
 
-Pour que cela fonctionne, vous devez transmettre les propriétés souhaitées (dans l'exemple ci-dessus `uriToGet` et `doMoreLogic`) lorsque vous démarrez l'exécution. Voici l'appel pour lequel vous pouvez [utiliser l'authentification de base](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth) :
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+Pour que cela fonctionne, vous devez transmettre les propriétés souhaitées (dans l'exemple ci-dessus `uriToGet` et `doMoreLogic`) lorsque vous démarrez l'exécution.
 
 Avec la charge utile suivante. Notez que vous avez fourni l'application logique avec les valeurs à utiliser maintenant :
 
@@ -695,7 +696,7 @@ Dans chaque environnement, vous pouvez ensuite fournir une valeur différente po
 
 ## Exécution d’une étape jusqu’à ce qu’une condition soit remplie
 
-Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse avant de continuer. Par exemple, imaginez que vous souhaitez attendre que quelqu’un télécharge un fichier dans un répertoire avant de traiter le fichier. Vous pouvez dans ce cas utiliser la syntaxe *do-until*:
+Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse avant de continuer. Par exemple, imaginez que vous souhaitez attendre que quelqu’un télécharge un fichier dans un répertoire avant de traiter le fichier. Vous pouvez dans ce cas utiliser la syntaxe *do-until* :
 
 ```
 {
@@ -728,6 +729,6 @@ Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse ava
 }
 ```
 
-Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
+Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

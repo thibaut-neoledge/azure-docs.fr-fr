@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/20/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 # Azure Premium Storage : conception sous le signe de la haute performance
@@ -168,16 +168,17 @@ Pour obtenir une valeur d’E/S par seconde et de bande passante supérieure à 
 Pour évaluer les effets de la taille des E/S sur les performances de l’application, vous pouvez exécuter des outils d’évaluation sur votre machine virtuelle et sur vos disques. Créez plusieurs séries de tests et utilisez une taille d’E/S différente pour chaque exécution afin d’en déterminer l’impact. Reportez-vous à la section [Benchmarking](#Benchmarking) à la fin de cet article pour plus de détails.
 
 ## Tailles des machines virtuelles à grande échelle  
-Lorsque vous commencez la conception d’une application, l’une des premières choses à faire est de choisir une machine virtuelle qui hébergera votre application. Premium Storage est fourni avec des tailles de machine virtuelle à grande échelle capables d’exécuter des applications qui requièrent une plus grande puissance de calcul et de hautes performances d’E/S du disque local. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et l’utilisation d’un disque SSD comme disque local. Les séries DS et GS sont des exemples de machines virtuelles à grande échelle prenant en charge Premium Storage.
+Lorsque vous commencez la conception d’une application, l’une des premières choses à faire est de choisir une machine virtuelle qui hébergera votre application. Premium Storage est fourni avec des tailles de machine virtuelle à grande échelle capables d’exécuter des applications qui requièrent une plus grande puissance de calcul et de hautes performances d’E/S du disque local. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et l’utilisation d’un disque SSD comme disque local. Les séries DS, DSv2 et GS sont des exemples de machines virtuelles à grande échelle prenant en charge Premium Storage.
 
-Ces machines virtuelles sont disponibles en différentes tailles, avec un nombre différent de cœurs de processeur, de mémoire, de système d’exploitation et de taille du disque temporaire. Chaque taille de chaque machine virtuelle possède également un nombre maximal de disques de données que vous pouvez attacher à la machine virtuelle. Par conséquent, la taille de machine virtuelle choisie affectera la quantité de traitement, de mémoire et de capacité de stockage disponible pour votre application. Elle affecte également le coût de traitement et de stockage. Vous trouverez ci-dessous les spécifications de la plus grande taille de machine virtuelle d’une série DS et d’une série GS :
+Ces machines virtuelles sont disponibles en différentes tailles, avec un nombre différent de cœurs de processeur, de mémoire, de système d’exploitation et de taille du disque temporaire. Chaque taille de chaque machine virtuelle possède également un nombre maximal de disques de données que vous pouvez attacher à la machine virtuelle. Par conséquent, la taille de machine virtuelle choisie affectera la quantité de traitement, de mémoire et de capacité de stockage disponible pour votre application. Elle affecte également le coût de traitement et de stockage. Vous trouverez ci-dessous les spécifications de la plus grande taille de machine virtuelle d’une série DS, d’une série DSv2 et d’une série GS :
 
 | Taille de la machine virtuelle | Cœurs d’unité centrale | Mémoire | Tailles du disque de la machine virtuelle | Disques de données max. | Taille du cache | d’opérations d’E/S par seconde | Limites d’E/S du cache de bande passante |
 |---|---|---|---|---|---|---|---|
 | Standard\_DS14 | 16 | 112 Go | OS = 1023 Go <br> SSD local = 224 Go | 32 | 576 Go | 50 000 E/S par seconde <br> 512 Mo par seconde | 4 000 E/S par seconde et 33 Mo par seconde |
 | Standard\_GS5 | 32 | 448 Go | OS = 1 023 Go <br> SSD local = 896 Go | 64 | 4 224 Go | 80 000 E/S par seconde <br> 2 000 Mo par seconde | 5 000 E/S par seconde et 50 Mo par seconde |
 
-Pour afficher une liste complète de toutes les tailles de machine virtuelle Azure disponibles, consultez l’article [Tailles de machines virtuelles Azure](../virtual-machines/virtual-machines-size-specs.md). Choisissez une taille de machine virtuelle capable de s’adapter aux exigences de performances souhaitées de votre application. En outre, prenez en compte les considérations suivantes lors du choix de tailles de machine virtuelle.
+Pour afficher une liste complète de toutes les tailles de machine virtuelle Azure disponibles, consultez l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md). Choisissez une taille de machine virtuelle capable de s’adapter aux exigences de performances souhaitées de votre application. En outre, prenez en compte les considérations suivantes lors du choix de tailles de machine virtuelle.
+
 
 *Limites de mise à l’échelle* Les limites d’E/S par seconde par machine virtuelle et par disque sont différentes et indépendantes les unes des autres. Assurez-vous que l’application génère un nombre d’E/S par seconde dans les limites de la machine virtuelle et des disques premium qui lui sont associés. Dans le cas contraire, les performances de l’application seront limitées.
 
@@ -197,7 +198,10 @@ Le tableau ci-dessous résume la répartition des coûts de ce scénario pour un
 | **Coût des disques par mois** | 1 638,40 $ (32 disques de 1 To) | 544,34 $ (4 disques P30) |
 | **Coût global par mois** | 3 208,98 $ | 1 544,34 $ |
 
-*Distributions Linux* Avec Azure Premium Storage, vous obtenez le même niveau de performances pour les machines virtuelles exécutant Windows et Linux. Nous prenons en charge diverses distributions Linux, dont vous trouverez la liste complète dans la section [Distributions Linux sur Azure approuvées](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Il est important de noter que les différentes distributions sont mieux adaptées à différents types de charges de travail. Vous verrez différents niveaux de performances selon la distribution sur laquelle votre charge de travail est exécutée. Testez les distributions Linux avec votre application et choisissez celle qui vous convient le mieux.
+*Distributions Linux*
+
+Avec Azure Premium Storage, vous obtenez le même niveau de performances pour les machines virtuelles exécutant Windows et Linux. Nous prenons en charge diverses distributions Linux, dont vous trouverez la liste complète [ici](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Il est important de noter que les différentes distributions sont mieux adaptées à différents types de charges de travail. Vous verrez différents niveaux de performances selon la distribution sur laquelle votre charge de travail est exécutée. Testez les distributions Linux avec votre application et choisissez celle qui vous convient le mieux.
+
 
 Lorsque vous exécutez Linux avec Premium Storage, vérifiez les dernières mises à jour sur les pilotes requis pour garantir de meilleures performances.
 
@@ -263,13 +267,17 @@ Sous Windows, vous pouvez utiliser les espaces de stockage pour entrelacer les d
 
 Important : avec l’interface utilisateur du Gestionnaire de serveurs, vous pouvez définir un nombre maximal de 8 colonnes au total pour un volume entrelacé. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. PowerShell vous permet de définir un nombre de colonnes égal au nombre de disques. Par exemple, s’il existe 16 disques dans un agrégat unique, spécifiez 16 colonnes dans le paramètre *NumberOfColumns* de l’applet de commande *New-VirtualDisk*.
 
+
 Sous Linux, utilisez l’utilitaire MDADM pour entrelacer les disques. Pour obtenir des instructions détaillées sur l’entrelacement de disques sous Linux, reportez-vous à [Configuration d’un RAID logiciel sur Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+
 
 *Taille d’entrelacement* La taille d’entrelacement constitue un facteur important dans la configuration de l’entrelacement de disques. La taille d’entrelacement ou la taille de bloc représente la plus petite partie des données que l’application peut traiter sur un volume entrelacé. La taille d’entrelacement que vous configurez varie selon le type d’application et le modèle de demande associé. Si vous choisissez une taille d’entrelacement incorrecte, vous risquez de rencontrer un défaut d’alignement des E/S, ce qui conduirait à une dégradation des performances de votre application.
 
 Par exemple, si une demande d’E/S générée par votre application est supérieure à la taille d’entrelacement de disque, le système de stockage écrira au-delà des limites d’unité de bande sur plusieurs disques. Au moment d’accéder aux données, il devra effectuer une recherche sur plusieurs unités de bande pour exécuter la demande. L’effet cumulatif de ce comportement peut entraîner une dégradation significative des performances. En revanche, si la taille de la demande d’E/S est inférieure à la taille d’entrelacement, et si ces E/S sont aléatoires par nature, les demandes d’E/S peuvent s’ajouter sur le même disque et provoquer un goulot d’étranglement responsable d’une dégradation des performances d’E/S.
 
-Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Pour de grandes demandes d’E/S séquentielles, utilisez en revanche une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez une taille d’entrelacement de 64 Ko pour les charges de travail OLTP et de 256 Ko pour les charges de travail d’entrepôt de données. Pour plus d’informations, consultez la section [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines : considérations sur les disques et les performances](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
+
+Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Pour de grandes demandes d’E/S séquentielles, utilisez en revanche une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez une taille d’entrelacement de 64 Ko pour les charges de travail OLTP et de 256 Ko pour les charges de travail d’entrepôt de données. Pour en savoir plus, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations)
+
 
 >**Remarque :** vous pouvez entrelacer au maximum 32 disques de stockage premium sur une machine virtuelle DS et 64 disques de stockage premium sur une machine virtuelle GS.
 
@@ -322,7 +330,7 @@ Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard 
 >**Important :** Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
 
 #### Iometer   
-[Téléchargez l'outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
+[Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
 
 *Fichier de test* Iometer utilise un fichier de test stocké sur le volume sur lequel vous allez exécuter le test de benchmarking. Les lectures et écritures sont activées sur ce fichier de test afin de mesurer le taux d’E/S par seconde et le débit du disque. Iometer crée ce fichier de test si vous n’en avez pas fourni. Créez un fichier de test de 200 Go appelé iobw.tst sur les volumes CacheReads et NoCacheWrites.
 
@@ -419,7 +427,10 @@ rw=randwrite
 directory=/mnt/nocache
 ```
 
-Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer un taux d’E/S par seconde maximal : Une profondeur de file d’attente élevée de 256. -Une petite taille de bloc de 8 Ko. -Plusieurs threads effectuant des écritures aléatoires.
+Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
+-   Une profondeur de file d’attente élevée de 256.  
+-   Une petite taille de bloc de 8 Ko.  
+-   Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 
@@ -526,7 +537,7 @@ En savoir plus sur Azure Premium Storage :
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 
-- [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

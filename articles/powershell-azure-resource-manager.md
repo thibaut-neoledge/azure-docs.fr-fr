@@ -461,6 +461,6 @@ Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressou
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour savoir comment déployer des modèles, consultez [Déployer une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md).
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

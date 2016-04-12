@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Créer un cache Redis à l’aide d’un modèle
@@ -26,7 +26,7 @@ Pour en savoir plus sur la création de modèles, voir [Création de modèles Az
 
 Pour le modèle complet, consultez le [modèle de cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE]Des modèles ARM pour le nouveau [niveau Premium](cache-premium-tier-intro.md) sont disponibles.
+>[AZURE.NOTE] Des modèles ARM pour le nouveau [niveau Premium](cache-premium-tier-intro.md) sont disponibles.
 >
 >-    [Créer un cache Redis Premium avec le clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [Créer un cache Redis Premium avec la persistance des données](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
@@ -38,7 +38,7 @@ Pour le modèle complet, consultez le [modèle de cache Redis](https://github.co
 
 Dans ce modèle, vous allez déployer un cache Redis Azure qui utilise un compte de stockage existant pour les données de diagnostic.
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
@@ -137,4 +137,4 @@ Crée le cache Redis Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

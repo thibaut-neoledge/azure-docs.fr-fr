@@ -40,7 +40,7 @@ L’exemple suivant montre comment vous pouvez activer les diagnostics pour un s
 
 Si le fichier de configuration des diagnostics spécifie un élément StorageAccount avec un nom de compte de stockage, l’applet de commande New-AzureServiceDiagnosticsExtensionConfig utilise automatiquement ce compte de stockage. Pour que cela fonctionne, le compte de stockage doit appartenir au même abonnement que le service cloud déployé.
 
-À partir d’Azure SDK 2.6, les fichiers de configuration de l’extension générés par la sortie cible de publication MSBuild incluent le nom du compte de stockage en fonction de la chaîne de configuration des diagnostics spécifiée dans le fichier de configuration de service (.cscfg). Le script ci-dessous vous montre comment analyser les fichiers de configuration de l’extension à partir de la sortie cible de publication, et comment configurer l’extension de diagnostics pour chaque rôle lorsque vous déployez le service cloud.
+À partir d’Azure SDK 2.6, les fichiers de configuration de l’extension générés par la sortie cible de publication MSBuild incluent le nom du compte de stockage en fonction de la chaîne de configuration des diagnostics spécifiée dans le fichier de configuration de service (.cscfg). Le script ci-dessous vous montre comment analyser les fichiers de configuration de l’extension à partir de la sortie cible de publication, et comment configurer l’extension de diagnostics pour chaque rôle lorsque vous déployez le service cloud.
 
 	$service_name = "MyService"
 	$service_package = "C:\build\output\CloudService.cspkg"
@@ -105,7 +105,7 @@ Vous pouvez utiliser l’applet de commande [Set-AzureServiceDiagnosticsExtensio
 	  
 
 ## Obtenir la configuration actuelle de l’extension de diagnostics
-Pour obtenir la configuration de diagnostics actuelle pour un service cloud, utilisez l’applet de commande [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) :
+Pour obtenir la configuration de diagnostics actuelle pour un service cloud, utilisez l’applet de commande [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) :
 	
 	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
@@ -116,7 +116,7 @@ Pour désactiver les diagnostics sur un service cloud, vous pouvez utiliser l’
 
 Si vous avez activé l’extension de diagnostics à l’aide de *Set-AzureServiceDiagnosticsExtension* ou *New-AzureServiceDiagnosticsExtensionConfig* sans le paramètre *Role*, vous pouvez supprimer l’extension à l’aide de *Remove-AzureServiceDiagnosticsExtension* sans le paramètre *Role*. Si le paramètre *Role* a été utilisé lors de l’activation de l’extension, il doit également être utilisé lors de la suppression de l’extension.
 
-Pour supprimer l’extension de diagnostics de chaque rôle individuel :
+Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 
 	Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
@@ -125,6 +125,6 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 
 - Pour obtenir une aide supplémentaire sur l’utilisation des diagnostics Azure et d’autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) explique les différentes options de configuration xml pour l’extension de diagnostics.
-- Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](virtual-machines-extensions-diagnostics-windows-template.md).  
+- Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -117,6 +117,10 @@ Oui. Vous pouvez importer votre code R existant dans ML Studio et l’exécuter 
 
 Non, cela n’est pas pris en charge, mais du code R ou Python personnalisé peut être utilisé pour définir un module.
 
+**Combien de modules puis-je exécuter en parallèle dans mon expérience ?**
+
+Vous pouvez exécuter jusqu’à 4 modules en parallèle dans une expérience.
+
 
 ### Traitement des données
 
@@ -164,7 +168,7 @@ Actuellement, les modules personnalisés peuvent uniquement être créés en R.
 
 **Quels packages R sont disponibles dans Machine Learning Studio ?**
 
-Actuellement, Machine Learning Studio prend en charge plus de 400 packages CRAN R et cette liste est en constante évolution. Voir [Prolongez votre expérience avec R](machine-learning-extend-your-experiment-with-r.md) pour des informations sur l’obtention de la liste des packages R pris en charge. Si le package souhaité ne figure pas dans cette liste, indiquez son nom sur le [forum de commentaires des utilisateurs](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio prend actuellement en charge 400 packages R CRAN. Voici la [liste actuelle](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de tous les packages inclus. Voir également [Prolongez votre expérience avec R](machine-learning-extend-your-experiment-with-r.md) pour savoir comment récupérer vous-même cette liste des packages R. Si le package souhaité ne figure pas dans cette liste, indiquez son nom sur le [forum de commentaires des utilisateurs](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Est-il possible de créer un module R personnalisé ?**
 
@@ -221,7 +225,7 @@ Pour les enregistrements de ressources, c'est généralement dans la réponse du
 
  ** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
 
- ** Où puis-je trouver plus d'informations sur les codes d'erreur ? Les codes d'erreur sont décrits [ici.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+ **** Où puis-je trouver plus d'informations sur les codes d'erreur ? Les codes d’erreur sont décrits [ici.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Extensibilité
 
@@ -313,4 +317,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

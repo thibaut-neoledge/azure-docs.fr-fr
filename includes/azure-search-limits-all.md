@@ -1,4 +1,4 @@
-Ressource|Gratuit|De base (version préliminaire) <sup>6</sup>|S1|S2
+Ressource|Gratuit|De base (version préliminaire) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
 Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par abonnement Azure 
 Taille de stockage maximum <sup>1</sup>|50 Mo ou 10 000 documents|2 Go par service|25 Go par partition ou 300 Go de documents par service|100 Go par partition ou 1,2 To par service 
@@ -19,12 +19,14 @@ Tarification <sup>4</sup>|N/A|75 $ par unité de recherche par mois|250 $ par un
 
 <sup>2</sup> Le nombre de requêtes par seconde est une approximation basée sur une méthode heuristique. Il est calculé à l’aide de charges de travail client simulées et réelles pour obtenir des valeurs estimées. Le débit exact du nombre de requêtes par seconde varie en fonction de vos données et de la nature de la requête.
 
-<sup>3</sup> Les unités de recherche sont l’unité facturable pour un réplica ou une partition. Vous avez besoin des deux pour les opérations de stockage, d’indexation et de requête. Consultez la [planification de la capacité](../articles/search/search-capacity-planning.md) pour obtenir des combinaisons valides de réplicas et des partitions qui vous permettront de rester dans la limite maximale de 3 ou 36 unités (pour les versions De base et Standard respectivement).
+<sup>3</sup> Les unités de recherche sont l’unité facturable pour un réplica ou une partition. Vous avez besoin des deux pour les opérations de stockage, d’indexation et de requête. Consultez la [planification de la capacité](../articles/search/search-capacity-planning.md) pour obtenir des combinaisons valides de réplicas et des partitions qui vous permettront de rester dans la limite maximale de 3 ou 36 unités (pour les versions De base et Standard, respectivement).
 
-<sup>4</sup> Le prix indiqué est pour le marché américain et illustre les coûts relatifs sur différents niveaux. Différents marchés ont différents prix. Reportez-vous à la [page de tarification](https://azure.microsoft.com/pricing/details/search/) pour les frais dans d’autres devises. Les frais sont indiqués par unité de recherche (SU). Au niveau S1, une configuration de 3 unités de recherche (par exemple, 3 réplicas et 1 partition) coûterait 750 $ par mois en moyenne. Si vous descendez en puissance et réduisez le nombre d’unités de recherche au cours du moins, la facture et adaptée en conséquence et vous ne payez que ce que vous utilisez.
+<sup>4</sup> Le prix indiqué vaut pour le marché américain et illustre les coûts relatifs sur différents niveaux. Différents marchés ont différents prix. Reportez-vous à la [page de tarification](https://azure.microsoft.com/pricing/details/search/) pour connaître les frais dans d’autres devises. Les frais sont indiqués par unité de recherche (SU). Au niveau S1, une configuration de 3 unités de recherche (par exemple, 3 réplicas et 1 partition) coûterait 750 $ par mois en moyenne. Si vous descendez en puissance et réduisez le nombre d’unités de recherche au cours du moins, la facture et adaptée en conséquence et vous ne payez que ce que vous utilisez.
 
 <sup>5</sup> Il ne s’agit pas d’une erreur typographique. Le niveau de base a une limite de 100 champs par index. Il s’agit de la seule couche dotée de cette limite inférieure.
 
 <sup>6</sup> Le [niveau de base](http://aka.ms/azuresearchbasic) est disponible à un prix inférieur de 50 % du prix complet pendant la période de version préliminaire.
 
-<!-----HONumber=AcomDC_0302_2016-->
+<sup>7</sup> S2 nécessite un ticket de service. Il ne peut pas être configuré dans le portail. Si vous avez besoin d’aide pour la prise en main, envoyez un courrier électronique à azuresearch_contact@microsoft.com.
+
+<!-----HONumber=AcomDC_0316_2016-->

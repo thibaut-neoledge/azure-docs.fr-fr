@@ -18,12 +18,13 @@
 # Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
 > [AZURE.SELECTOR]
 - [Vue d'ensemble](search-query-overview.md)
-- [Explorateur de recherche](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portail](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Cet article explique comment interroger un index à l’aide du [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-create-index-dotnet.md) et l’avoir [rempli de données](search-import-data-dotnet.md).
+Cet article explique comment interroger un index à l’aide du [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+
+Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
 
 Notez que tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
@@ -34,12 +35,12 @@ Maintenant que vous avez créé un index Azure Search, vous êtes presque prêt 
 2. Accédez au panneau de votre service Azure Search
 3. Cliquez sur l’icône « Clés »
 
-Votre service comporte des *clés d’administration* et des *clés de requête*.
+Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
-  - Vos *clés d’administration* primaire et secondaire accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service, de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
-  - Vos *clés de requête* accordent l’accès en lecture seule aux index et aux documents. Elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
+  - Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
+  - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
-Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de vos clés de requête. Vos clés d’administration peuvent également servir pour les requêtes, mais il est recommandé d’utiliser une clé de requête dans votre code d’application, afin de respecter le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de vos clés de requête. Vos clés d’administration peuvent également vous servir pour exécuter des requêtes, mais il est recommandé d’utiliser une clé de requête dans votre code d’application, car cette approche respecte davantage le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## II. Créer une instance de la classe SearchIndexClient
 Pour générer des requêtes avec le Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchIndexClient`. Cette classe dispose de plusieurs constructeurs. Celui qui vous intéresse prend le nom du service de recherche, le nom de l’index et un objet `SearchCredentials` en tant que paramètres. `SearchCredentials` encapsule votre clé API.
@@ -59,16 +60,9 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 La recherche à l’aide du Kit de développement logiciel (SDK) .NET est aussi simple que l’appel de la méthode `Documents.Search` sur votre `SearchIndexClient`. Cette méthode accepte quelques paramètres, notamment le texte de recherche, avec un objet `SearchParameters` qui peut être utilisé pour affiner la requête.
 
 #### Types de requête
-
-Azure Search propose de nombreuses options pour créer des requêtes extrêmement performantes. Les deux principaux types de requête que vous allez utiliser sont `search` et `filter`. Une requête `search` recherche un ou plusieurs termes dans tous les champs de _recherche_ de votre index et fonctionne comme les moteurs de recherche Google ou Bing. Une requête `filter` évalue une expression booléenne dans tous les champs sur lesquels vous pouvez _filtrer_ dans un index. Contrairement aux requêtes `search`, les requêtes `filter` correspondent au contenu exact d’un champ, ce qui signifie qu’elles respectent la casse pour les champs string.
-
-Vous pouvez utiliser des recherches et des filtres conjointement ou séparément. Si vous les utilisez conjointement, le filtre est d’abord appliqué à la totalité de l’index et la recherche est effectuée sur les résultats du filtre. Les filtres peuvent donc être une technique utile pour améliorer les performances des requêtes, car ils limitent le nombre de documents que doit traiter la requête de recherche.
+Les deux principaux [types de requête](search-query-overview.md#types-of-queries) que vous allez utiliser sont `search` et `filter`. Une requête `search` recherche un ou plusieurs termes dans tous les champs de _recherche_ de votre index. Une requête `filter` évalue une expression booléenne dans tous les champs sur lesquels vous pouvez _filtrer_ dans un index.
 
 Les filtres et les recherches sont exécutés à l’aide de la méthode `Documents.Search`. Une requête de recherche peut être transmise dans le paramètre `searchText`, tandis qu’une expression de filtre peut être transmise dans la propriété `Filter` de la classe `SearchParameters`. Pour filtrer sans effectuer de recherche, transmettez simplement `"*"` pour le paramètre `searchText`. Pour effectuer une recherche sans appliquer de filtre, ne définissez pas la propriété `Filter` et ne transmettez pas une instance `SearchParameters`.
-
-La syntaxe des expressions de filtre est un sous-ensemble du [langage de filtre OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Pour les requêtes de recherche, vous pouvez utiliser la [syntaxe simplifiée](https://msdn.microsoft.com/library/azure/dn798920.aspx) ou la [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
-Pour en savoir plus sur les différents paramètres d’une requête, consultez la [référence du Kit de développement logiciel (SDK) .NET sur MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters.aspx). Vous trouverez également ci-dessous quelques exemples de requêtes.
 
 #### Exemples de requêtes
 
@@ -80,9 +74,9 @@ DocumentSearchResult<Hotel> results;
 
 Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
 
-parameters = 
-    new SearchParameters() 
-    { 
+parameters =
+    new SearchParameters()
+    {
         Select = new[] { "hotelName" }
     };
 
@@ -168,4 +162,4 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 L’exemple de code ci-dessus utilise la console pour générer les résultats de recherche. De même, vous devez afficher les résultats de recherche dans votre propre application. Consultez [cet exemple sur GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) pour obtenir un exemple illustrant l’affichage des résultats de recherche dans une application web ASP.NET MVC.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

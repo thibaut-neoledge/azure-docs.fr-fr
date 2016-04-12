@@ -7,7 +7,7 @@ Une ressource de groupe de sécurité réseau permet de créer des limites de s�
 |**securityRules**|Liste des règles de sécurité qui composent le groupe de sécurité réseau|Voir [Règle de sécurité](#Security-rule) ci-dessous|
 |**defaultSecurityRules**|Liste des règles de sécurité par défaut présentes dans chaque groupe de sécurité réseau|Voir [Règles de sécurité par défaut](#Default-security-rules) ci-dessous|
 
-- **Règle de sécurité** : plusieurs règles de sécurité peuvent être définies pour un groupe de sécurité réseau. Chaque règle peut autoriser ou refuser différents types de trafic.
+- **Règle de sécurité** : plusieurs règles de sécurité peuvent être définies pour un groupe de sécurité réseau. Chaque règle peut autoriser ou refuser différents types de trafic.
 
 ### Règle de sécurité
 Une règle de sécurité est une ressource enfant d'un groupe de sécurité réseau qui contient les propriétés ci-dessous.
@@ -21,10 +21,10 @@ Une règle de sécurité est une ressource enfant d'un groupe de sécurité rés
 |**sourceAddressPrefix**|Préfixe d'adresse source à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|Préfixe d'adresse de destination à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|
-|**priority**|Priorité de la règle. Les règles sont vérifiées dans l'ordre de priorité ; une fois qu'une règle s'applique, plus aucune règle n'est testée pour la correspondance.|10, 100, 65000|
+|**priority**|Priorité de la règle. Les règles sont vérifiées dans l'ordre de priorité ; une fois qu'une règle s'applique, plus aucune règle n'est testée pour la correspondance.|10, 100, 65000|
 |**access**|Type d'accès à appliquer si la règle correspond|autoriser ou refuser|
 
-Exemple de groupe de sécurité réseau au format JSON :
+Exemple de groupe de sécurité réseau au format JSON :
 
 	{
 	    "name": "NSG-BackEnd",
@@ -68,12 +68,12 @@ Exemple de groupe de sécurité réseau au format JSON :
 	}
 
 ### Règles de sécurité par défaut
-Les règles de sécurité par défaut ont les mêmes propriétés que les règles de sécurité. Elles existent pour fournir une connectivité de base entre les ressources qui ont un groupe de sécurité réseau appliqué. Assurez-vous de savoir quelles [règles de sécurité par défaut](./virtual-networks-nsg.md#Default-Rules) existent.
+Les règles de sécurité par défaut ont les mêmes propriétés que les règles de sécurité. Elles existent pour fournir une connectivité de base entre les ressources qui ont un groupe de sécurité réseau appliqué. Assurez-vous de savoir quelles [règles de sécurité par défaut](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) existent.
 
 ### Ressources supplémentaires
 
-- Obtenez davantage d'informations sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
+- Obtenez davantage d'informations sur les [groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 - Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) pour les groupes de sécurité réseau.
 - Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) pour les règles de sécurité.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

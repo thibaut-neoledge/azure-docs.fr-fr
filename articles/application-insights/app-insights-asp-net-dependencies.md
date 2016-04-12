@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Suivi des dépendances dans Application Insights" 
+	pageTitle="Suivi des dépendances dans Application Insights" 
 	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,11 +12,11 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
-# Configurer Application Insights : suivi des dépendances
+# Configurer Application Insights : suivi des dépendances
 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
@@ -27,7 +27,7 @@ Un *dépendance* est un composant externe qui est appelé par votre application.
 
 ![Exemples de graphiques](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
+Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
 
 * ASP.NET
  * Bases de données SQL
@@ -35,7 +35,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
  * Appels HTTP locaux ou distants
  * Azure DocumentDb, table, stockage d’objets blob et file d’attente
 * Java
- * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
+ * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
 * JavaScript dans les pages web : le [SDK de page web](app-insights-javascript.md) enregistre automatiquement les appels Ajax en tant que dépendances.
 
 Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d’autres dépendances à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
@@ -47,9 +47,13 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
 ### Si votre application s’exécute sur votre serveur IIS
 
-1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
+Si votre application web s’exécute sur .NET version 4.6 ou ultérieure et que vous y [installez le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md), vous bénéficiez automatiquement du suivi des dépendances. Vous n’avez besoin de rien d’autre.
+
+Sinon, installez Application Insights Status Monitor sur le serveur :
+
+1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
 2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
+4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
 
     ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
 
@@ -75,7 +79,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
    web.config a également été légèrement modifié.
 
-#### Vous voulez (re)configurer plus tard ?
+#### Vous voulez (re)configurer plus tard ?
 
 Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
 
@@ -84,28 +88,28 @@ Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout momen
 
 ### Si votre application s’exécute en tant qu’application web Azure
 
-Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
+Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
 ![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net-dependencies/05-extend.png)
 
 
 ### S’il s’agit d’un projet services cloud Azure
 
-[Ajouter des scripts aux rôles web et de travail](app-insights-cloudservices.md).
+[Ajoutez des scripts aux rôles web et de travail](app-insights-cloudservices.md#dependencies). Ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances
 
-Pour évaluer les performances des demandes au niveau de votre serveur :
+Pour évaluer les performances des demandes au niveau de votre serveur :
 
 ![Dans Application Insights, dans la page Vue d’ensemble de votre application, cliquez sur la vignette de performances](./media/app-insights-asp-net-dependencies/01-performance.png)
 
-Faites défiler vers le bas pour accéder à la grille des demandes :
+Faites défiler vers le bas pour accéder à la grille des demandes :
 
 ![Liste de demandes avec moyennes et nombres](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
 La durée de la première est très longue. Examinons-la pour en savoir plus.
 
-Cliquez sur cette ligne pour afficher les événements de la demande :
+Cliquez sur cette ligne pour afficher les événements de la demande :
 
 
 ![Liste des occurrences de demande](./media/app-insights-asp-net-dependencies/03-instances.png)
@@ -114,13 +118,13 @@ Cliquez sur n’importe quelle instance présentant une longue durée d’exécu
 
 > [AZURE.NOTE] Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
 
-Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
+Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
 
 ![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Il semble que la plupart du temps passé au traitement de cette demande ait été consacré à l’appel d’un service local.
 
-Sélectionnez cette ligne pour obtenir plus d’informations :
+Sélectionnez cette ligne pour obtenir plus d’informations :
 
 
 ![Cliquez sur cette dépendance distante pour identifier la cause](./media/app-insights-asp-net-dependencies/05-detail.png)
@@ -185,7 +189,6 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

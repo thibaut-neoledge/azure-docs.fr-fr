@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main avec Azure IoT Hub pour C# | Microsoft Azure"
-	description="Suivez ce didacticiel pour commencer à utiliser Azure IoT Hub avec C#."
+	pageTitle="Prise en main d’Azure IoT Hub pour C# | Microsoft Azure"
+	description="Didacticiel de prise en main d’Azure IoT Hub avec C#. Utilisez Azure IoT Hub et C# avec les kits de développement logiciel (SDK) de Microsoft Azure IoT pour mettre en œuvre une solution Internet des objets."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
 # Prise en main d’Azure IoT Hub pour .NET
@@ -22,27 +22,27 @@
 
 ## Introduction
 
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
+Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT (Internet des objets) et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
 
 - Offre une messagerie évolutive Appareil vers cloud et Cloud vers appareil fiable.
 - Assure la sécurité des communications grâce aux informations d’identification de sécurité par appareil et au contrôle d’accès.
 - Inclut des bibliothèques d’appareils pour les langages et les plateformes les plus courants.
 
-Ce didacticiel vous explique les procédures suivantes :
+Ce didacticiel vous explique les procédures suivantes :
 
 - Utilisez le portail Azure pour créer un hub IoT.
 - Créer une identité de l’appareil dans votre hub IoT.
 - Créer un périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
 
-À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
+À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
 
-* **CreateDeviceIdentity**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter votre appareil simulé ;
-* **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
+* **CreateDeviceIdentity**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter votre appareil simulé ;
+* **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE] L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> [AZURE.NOTE] L’article [kit de développement logiciel IoT Hub](lnk-hub-sdks) fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
-Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
@@ -100,7 +100,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le portail, puis créé une identité d’appareil dans le registre d’identités du concentrateur. Vous avez utilisé cette identité d’appareil dans un appareil simulé qui envoie des messages de l’appareil vers le cloud au concentrateur et créé une autre application qui affiche les messages reçus par le concentrateur. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les didacticiels suivants :
+Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le portail, puis créé une identité d’appareil dans le registre d’identités du concentrateur. Vous avez utilisé cette identité d’appareil dans un appareil simulé qui envoie des messages de l’appareil vers le cloud au concentrateur et créé une autre application qui affiche les messages reçus par le concentrateur. Vous pouvez continuer à explorer les fonctionnalités d’IoT Hub et d’autres scénarios IoT dans les didacticiels suivants :
 
 - [Envoyer des messages du cloud vers des appareils avec IoT Hub](lnk-c2d-tutorial) montre comment envoyer des messages aux appareils et traiter les informations de remise générées par IoT Hub.
 - [Traiter les messages des appareils vers le cloud](lnk-process-d2c-tutorial) montre comment traiter de manière fiable des messages interactifs et de télémétrie provenant d’appareils.
@@ -125,4 +125,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0406_2016-->

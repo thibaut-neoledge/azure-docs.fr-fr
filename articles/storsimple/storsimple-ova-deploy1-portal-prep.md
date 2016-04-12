@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Préparation du portail
@@ -26,8 +26,8 @@ Cet article s'applique à Microsoft Azure StorSimple Virtual Array (également a
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. Nous vous recommandons de consulter la liste de contrôle de configuration du déploiement avant de commencer. La préparation du portail prendra moins de 10 minutes.
 
-Les informations de déploiement StorSimple publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
-
+Les informations publiées dans cet article s’appliquent au déploiement de StorSimple Virtual Array dans le portail Azure Classic, ainsi que dans Microsoft Azure Government Cloud.
+ 
 ### Prise en main
 
 Le flux de travail du déploiement se compose de la préparation du portail, de la configuration d'un tableau virtuel dans votre environnement virtualisé et de la finalisation de la configuration. Pour commencer le déploiement de StorSimple Virtual Array en tant que serveur de fichiers ou serveur iSCSI, vous devrez consulter les ressources suivantes (articles et vidéos).
@@ -38,7 +38,7 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre StorS
 
 | **#** | **Dans cette étape** | **Vous effectuerez ceci...** | **Utilisez ces documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **Configuration du portail Azure Classic** | Créez et configurez votre service StorSimple Manager avant de configurer un appareil virtuel StorSimple. |[Préparation du portail](storsimple-ova-deploy1-portal-prep.md)| 
+|1\. | **Configuration du portail Azure Classic** | Créez et configurez votre service StorSimple Manager avant de configurer un appareil virtuel StorSimple. |[Préparation du portail](storsimple-ova-deploy1-portal-prep.md)|
 |2\. | **Configuration du tableau virtuel** | Pour Hyper-V, configurez et connectez-vous à un appareil virtuel StorSimple sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2. <br></br> <br></br> Pour VMware, configurez et connectez-vous à un appareil virtuel local StorSimple sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures.<br></br>| [Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **Configuration du tableau virtuel** | Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI.| [Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un virtuel tableau comme serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
 
@@ -211,4 +211,4 @@ L'étape suivante consiste à configurer une machine virtuelle pour votre appare
 
 -   [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

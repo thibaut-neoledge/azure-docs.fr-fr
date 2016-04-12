@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Microsoft Azure"
-	description="Découvrez comment limiter l’accès des utilisateurs autorisés d’un service mobile principal .NET."
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Microsoft Azure"
+	description="Découvrez comment limiter l’accès des utilisateurs autorisés d’un service mobile principal .NET."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Backend .NET](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Back-end Javascript](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps de cette rubrique, consultez [Limiter l’accès aux données pour les utilisateurs autorisés](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize) dans l’article Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps.
 
 Cette rubrique montre comment utiliser une logique côté serveur pour autoriser les utilisateurs. Dans ce didacticiel, vous modifiez les contrôleurs de table, filtrez des requêtes en fonction de l’ID des utilisateurs et permettez aux utilisateurs d’accéder uniquement à leurs propres données. Le filtrage des résultats de la requête d'un utilisateur par l'ID d'utilisateur est la forme d’autorisation la plus basique. Selon votre scénario spécifique, vous pouvez également créer des tables ou rôles utilisateurs pour effectuer le suivi d’informations d'autorisation utilisateur plus détaillées, telles que les points de terminaison auxquels un utilisateur donné peut accéder.
 
@@ -33,13 +32,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## <a name="register-scripts"></a>Modification des méthodes d'accès aux données
 
-1. Dans Visual Studio, ouvrez votre projet mobile, développez le dossier DataObjects, puis ouvrez **TodoItem.cs**. La classe **TodoItem** définit l'objet de données et vous devez ajouter une propriété **UserId** pour le filtrage. Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
+1. Dans Visual Studio, ouvrez votre projet mobile, développez le dossier DataObjects, puis ouvrez **TodoItem.cs**. La classe **TodoItem** définit l'objet de données et vous devez ajouter une propriété **UserId** pour le filtrage. Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
 
 		public string UserId { get; set; }
 
 	>[AZURE.NOTE] Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les [migrations Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. Dans Visual Studio, développez le dossier Contrôleurs, ouvrez **TodoItemController.cs** et ajoutez l’instruction Using suivante :
+2. Dans Visual Studio, développez le dossier Contrôleurs, ouvrez **TodoItemController.cs** et ajoutez l’instruction Using suivante :
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
@@ -53,7 +52,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 	Ce code ajoute l’ID utilisateur de l’utilisateur authentifié à l’élément, avant son insertion dans la table TodoItem.
 
-3. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
+3. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
@@ -84,4 +83,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 <!-- URLs. -->
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

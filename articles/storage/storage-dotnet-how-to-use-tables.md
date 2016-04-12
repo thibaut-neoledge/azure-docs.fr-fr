@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main du stockage de tables Azure à l’aide de .NET | Microsoft Azure"
-	description="Stockez des données non structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL de Microsoft. Commencez par des opérations simples de stockage de tables, notamment la création et la suppression de tables, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données."
+	pageTitle="Prise en main du stockage de tables Azure à l’aide de .NET | Microsoft Azure"
+	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL de Microsoft. Commencez par des opérations simples de stockage de tables, notamment la création et la suppression de tables, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/27/2016"
 	ms.author="tamram"/>
 
 
-# Prise en main du stockage de tables Azure à l’aide de .NET
+# Prise en main du stockage de tables Azure à l’aide de .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Le stockage de tables Azure est un service qui stocke des données NoSQL non structurées dans le cloud. Le stockage de tables est un magasin de clés/attributs doté d’une conception sans schéma. Comme le stockage de tables est sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L'accès aux données est rapide et peu coûteux pour tous les types d'applications. Normalement, le stockage de tables est considérablement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
+Le stockage de tables Azure est un service qui stocke des données NoSQL structurées dans le cloud. Le stockage de tables est un magasin de clés/attributs doté d’une conception sans schéma. Comme le stockage de tables est sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L'accès aux données est rapide et peu coûteux pour tous les types d'applications. Normalement, le stockage de tables est considérablement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
 
 Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d'adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Vous pouvez stocker un nombre quelconque d'entités dans une table, et un compte de stockage peut contenir un nombre quelconque de tables, jusqu'à la limite de capacité du compte de stockage.
 
-Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de tables Azure, notamment la création et la suppression d’une table, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données des tables.
+Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de tables Azure, notamment la création et la suppression d’une table, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données des tables.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -42,7 +42,7 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Déclarations d'espace de noms
-Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
+Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 
     using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
@@ -86,7 +86,7 @@ Les entités mappent vers les objets C# en utilisant une classe personnalisée d
         public string PhoneNumber { get; set; }
     }
 
-Les opérations de table qui impliquent des entités sont effectuées par le biais de l’objet **CloudTable** que vous avez créé précédemment dans la section « Création d’une table ». L’opération à effectuer est représentée par un objet **TableOperation**. L’exemple de code suivant illustre la création des objets **CloudTable** et **CustomerEntity**. Pour préparer l’opération, un objet **TableOperation** est créé pour insérer l’entité du client dans la table. Finalement, l’opération est exécutée en appelant **CloudTable.Execute**.
+Les opérations de table qui impliquent des entités sont effectuées par le biais de l’objet **CloudTable** que vous avez créé précédemment dans la section « Création d’une table ». L’opération à effectuer est représentée par un objet **TableOperation**. L’exemple de code suivant illustre la création des objets **CloudTable** et **CustomerEntity**. Pour préparer l’opération, un objet **TableOperation** est créé pour insérer l’entité du client dans la table. Finalement, l’opération est exécutée en appelant **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -111,10 +111,10 @@ Les opérations de table qui impliquent des entités sont effectuées par le bia
 
 ## Insertion d'un lot d'entités
 
-Vous pouvez insérer un lot d'entités dans une table en une seule opération d'écriture. Autres remarques sur les opérations par lot :
+Vous pouvez insérer un lot d'entités dans une table en une seule opération d'écriture. Autres remarques sur les opérations par lot :
 
 -  Vous pouvez effectuer des mises à jour, des suppressions et des insertions dans la même opération par lot.
--  Une seule opération par lot peut inclure jusqu’à 100 entités.
+-  Une seule opération par lot peut inclure jusqu’à 100 entités.
 -  Toutes les entités d’une opération par lot doivent avoir la même clé de partition.
 -  Même s'il est possible d'exécuter une requête en tant qu'opération par lot, il doit s'agir de la seule opération du lot.
 
@@ -177,7 +177,7 @@ Pour exécuter une requête de table pour toutes les entités d’une partition,
 
 ## Extraction d'un ensemble d'entités dans une partition
 
-Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
+Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -205,7 +205,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d'une part
 
 ## Extraction d'une seule entité
 
-Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -257,7 +257,7 @@ Pour mettre à jour une entité, récupérez-la du service de Table, modifiez l�
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -311,7 +311,7 @@ Les opérations **Replace** échouent si l’entité est modifiée depuis sa ré
 
 ## Interrogation d'un sous-ensemble de propriétés d'entité
 
-Vous pouvez utiliser une requête de table pour récupérer uniquement quelques propriétés au lieu de l’intégralité des propriétés de l’entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant renvoie uniquement les adresses de messagerie électronique des entités dans la table. Pour ce faire, nous utilisons une requête **DynamicTableEntity**, ainsi qu’**EntityResolver**. Pour plus d’informations sur la projection, consultez le billet de blog [Introducing Upsert and Query Projection][]. Notez que la projection n’est pas prise en charge sur l’émulateur de stockage local : ce code ne s’exécute donc que si vous utilisez un compte sur le service de Table.
+Vous pouvez utiliser une requête de table pour récupérer uniquement quelques propriétés au lieu de l’intégralité des propriétés de l’entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant renvoie uniquement les adresses de messagerie électronique des entités dans la table. Pour ce faire, nous utilisons une requête **DynamicTableEntity**, ainsi qu’**EntityResolver**. Pour plus d’informations sur la projection, consultez le billet de blog [Introducing Upsert and Query Projection][]. Notez que la projection n’est pas prise en charge sur l’émulateur de stockage local : ce code ne s’exécute donc que si vous utilisez un compte sur le service de Table.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -418,12 +418,12 @@ Si vous lisez un grand nombre d’entités et souhaitez traiter ou afficher les 
 
 Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez consulter les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-- Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
-    - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
+    - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    - [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
+    - [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
     - [Utilisation d’une base de données SQL Azure dans des applications .NET](sql-database-dotnet-how-to-use.md) pour le stockage de données relationnelles.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
@@ -444,4 +444,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

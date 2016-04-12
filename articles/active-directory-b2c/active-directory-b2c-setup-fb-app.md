@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Facebook
@@ -54,20 +54,18 @@ Pour utiliser Facebook en tant que fournisseur d’identité dans Azure Active D
 
     ![Facebook - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-10. Pour rendre votre application Facebook utilisable par Azure AD B2C, vous devez la rendre disponible publiquement. Pour cela, vous pouvez cliquer sur **Status & Review** dans le volet de navigation gauche, puis formuler une demande de révision. (Cliquez sur le bouton **Start a Submission**.) Une fois votre demande approuvée par Facebook, vous pouvez la publier en plaçant le commutateur en haut de la page sur **YES** et en cliquant sur **Confirm**.
-
-    ![Facebook - soumission d’application](./media/active-directory-b2c-setup-fb-app/fb-app-submission.png)
+10. Pour rendre votre application Facebook utilisable par Azure AD B2C, vous devez la rendre disponible publiquement. Vous pouvez le faire en cliquant sur **Révision de l’application** dans le volet de navigation gauche et en positionnant le commutateur en haut de la page sur **OUI** et en cliquant sur **Confirmer**.
 
     ![Facebook - App publique](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## Configuration de Facebook en tant que fournisseur d’identité dans votre client
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « FB ».
 5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **Facebook**, puis cliquez sur **OK**.
-6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’ID de l’application et la Question secrète de l’application Facebook que vous avez créée précédemment, respectivement dans les champs **ID client** et **Clé secrète client**.
+6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’ID de l’application et la question secrète (de l’application Facebook que vous avez créée précédemment) respectivement dans les champs **ID client** et **Clé secrète client**.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Facebook.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

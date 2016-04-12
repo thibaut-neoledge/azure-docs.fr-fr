@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -35,7 +35,7 @@ Cette rubrique :
 - Créez une API en utilisant l'une des méthodes suivantes :  
 	- Créez une [API gérée par Microsoft ou gérée par le service informatique](powerapps-register-from-available-apis.md).
 	- Créez une API hébergée dans votre [Environnement App Service](powerapps-register-api-hosted-in-app-service.md).
-	- Créez à l'aide d’une [Définition d'API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+	- Créez à l'aide d’une [Définition d'API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
 
 ## Permettez aux utilisateurs d’accéder à l’API
@@ -61,7 +61,7 @@ Autorisez maintenant les utilisateurs de votre société à utiliser la connexio
   
 4. Ajoutez un utilisateur ou un groupe. Sélectionnez **Ajouter** pour enregistrer vos modifications.
 
-Maintenant que les utilisateurs disposent des autorisations d’accès à l'API et à sa connexion, ils peuvent ajouter ces API à leurs applications créées dans PowerApps. Plus précisément :
+Maintenant que les utilisateurs disposent des autorisations d’accès à l'API et à sa connexion, ils peuvent ajouter ces API à leurs applications créées dans PowerApps. Plus précisément :
 
 - Les utilisateurs peuvent voir l’API répertoriée sous **Connexions disponibles** dans PowerApps.
 - Les utilisateurs peuvent voir la connexion sous **Mes connexions** dans PowerApps.
@@ -86,4 +86,4 @@ Vous pouvez ensuite [gérer et surveiller votre PowerApps](powerapps-manage-moni
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

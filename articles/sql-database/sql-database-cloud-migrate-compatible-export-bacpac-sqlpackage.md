@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage"
-   description="Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
+   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage"
+   description="Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage
+# Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage
 
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -37,11 +37,11 @@ Cet article explique comment exporter une base de données SQL Server à partir 
 
 	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Étape suivante : importation dans Base de données SQL à partir d’un fichier BACPAC
+## Étape suivante : importation dans Base de données SQL à partir d’un fichier BACPAC
 
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 - [Portail Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

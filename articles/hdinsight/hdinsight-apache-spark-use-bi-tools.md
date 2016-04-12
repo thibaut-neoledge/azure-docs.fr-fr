@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="03/21/2016" 
 	ms.author="nitinme"/>
 
 
@@ -42,7 +42,7 @@ Dans cette section, nous allons utiliser le bloc-notes [Jupyter](https://jupyter
 
 Une fois vos données enregistrées dans une table Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la mosaïque de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -58,7 +58,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-4. Comme vous avez créé un bloc-notes portable à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark, Hive et SQL sont automatiquement créés pour vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
+4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark, Hive et SQL sont automatiquement créés pour vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
 
 		from pyspark.sql import *
 		
@@ -79,7 +79,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 		
 		# Infer the schema and create a table       
-		hvacTable = hiveCtx.createDataFrame(hvac)
+		hvacTable = hiveContext.createDataFrame(hvac)
 		hvacTable.registerTempTable('hvactemptable')
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
@@ -231,4 +231,4 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

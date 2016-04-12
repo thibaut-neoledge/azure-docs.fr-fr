@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
@@ -174,9 +174,9 @@ Le tableau suivant récapitule les performances des algorithmes :
 
 *Tableau 1. Performances générales (précision) des algorithmes*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Modèle moyen|	Meilleur modèle|	Mauvaises performances|	Modèle moyen
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Modèle moyen|Meilleur modèle|Mauvaises performances|Modèle moyen|
 
 Les modèles hébergés dans ML Studio ont supplanté le modèle SAP de 15 à 25 % grâce à sa vitesse d’exécution, mais leur exactitude était largement équivalente.
 
@@ -190,7 +190,7 @@ Dans le secteur des télécommunications, plusieurs pratiques ont émergé pour 
 	-	**Données d'entreprise et concurrentielles**. Obtient toutes les informations possibles sur le client (par exemple, les données indisponibles ou difficiles à récupérer).
 -	Utilisez l’importance pour la sélection des caractéristiques. Cela implique que le modèle d’arbre de décision optimisé est toujours une approche prometteuse.  
 
-L'utilisation de ces quatre catégories donne l'impression qu'une simple approche *déterministe*, basée sur des indices formés sur des facteurs raisonnables par catégorie, doit suffire à identifier les clients risquant de se désabonner. Malheureusement, même si cette notion reste plausible, c’est une fausse idée. En effet, l’attrition est un effet temporel et les facteurs y contribuant sont habituellement dans des états temporaires. Un facteur qui incite un client à se désabonner aujourd’hui peut être différent demain, et le sera certainement dans six mois. De ce fait, un modèle *probabiliste* est nécessaire.
+L’utilisation de ces quatre catégories donne l’impression qu’une simple approche *déterministe*, basée sur des indices formés sur des facteurs raisonnables par catégorie, doit suffire à identifier les clients risquant de se désabonner. Malheureusement, même si cette notion reste plausible, c’est une fausse idée. En effet, l’attrition est un effet temporel et les facteurs y contribuant sont habituellement dans des états temporaires. Un facteur qui incite un client à se désabonner aujourd’hui peut être différent demain, et le sera certainement dans six mois. De ce fait, un modèle *probabiliste* est nécessaire.
 
 Cette observation importante est souvent ignorée par les entreprises, qui préfèrent généralement une approche d’informatique décisionnelle, car elle est plus vendeuse et permet une automatisation directe.
 
@@ -215,13 +215,13 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 ##Références
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.
 
-[2] Article Wikipedia : [Notions d'exactitude et de précision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Article Wikipédia : [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modèle d’attrition Telco](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) dans la galerie Cortana Analytics
+[5] [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) dans la galerie Cortana Analytics
 ##Annexe
 
 ![][10]
@@ -240,4 +240,4 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

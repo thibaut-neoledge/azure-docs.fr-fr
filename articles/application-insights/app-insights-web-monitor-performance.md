@@ -29,9 +29,9 @@ Côté client, Application Insights peut récupérer les données télémétriqu
 
 ## <a name="setup"></a>Configurer la surveillance des performances
 
-Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
+Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
-* [Applications web ASP.NET](app-insights-asp-net.md)
+* [Applications web ASP.NET](app-insights-asp-net.md)
  * [Ajout de la surveillance des exceptions](app-insights-asp-net-exceptions.md)
  * [Ajout de la surveillance des dépendances](app-insights-monitor-performance-live-website-now.md)
 * [Applications web J2EE](app-insights-java-get-started.md)
@@ -40,20 +40,20 @@ Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inc
 
 ## <a name="view"></a>Exploration des mesures de performances
 
-Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
+Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
 
 
 
-Cliquez sur n’importe quel graphique pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
+Cliquez sur n’importe quel graphique pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
 
 
 ![Cliquez sur d'autres éléments pour afficher plus de données et sélectionnez une plage de temps](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
-Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un nouveau graphique et sélectionnez ses métriques :
+Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un nouveau graphique et sélectionnez ses métriques :
 
 ![Cliquez sur un graphique pour sélectionner les métriques](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu'un membre d'un groupe est sélectionné, seuls les autres membres de ce groupe s'affichent.
+> [AZURE.NOTE] **Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu'un membre d'un groupe est sélectionné, seuls les autres membres de ce groupe s'affichent.
 
 
 ## <a name="metrics"></a>Signification Vignettes de performances et rapports
@@ -110,45 +110,56 @@ La sélection d'une métrique désactive les autres métriques qui peuvent s'aff
 
 ## Compteurs de performances système
 
-Certaines mesures utilisables peuvent provenir de [compteurs de performances](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows offre un large éventail de compteurs de ce type ; vous pouvez également définir les vôtres.
 
-Cet exemple montre les compteurs de performance disponibles par défaut. Nous avons [ajouté un graphique distinct](app-insights-metrics-explorer.md#editing-charts-and-grids) pour chaque compteur et nommé le graphique en [l’enregistrant en tant que favori](app-insights-metrics-explorer.md#editing-charts-and-grids) :
+Windows offre un large éventail de compteurs de performances, et vous pouvez également définir les vôtres.
+
+Pour les applications hébergées sur Azure, [envoyez des diagnostics Azure vers Application Insights](app-insights-azure-diagnostics.md).
+
+Pour afficher un jeu commun de [compteurs de performances](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), ouvrez le panneau **Serveurs**. Vous pouvez également choisir les compteurs en modifiant un graphique et en sélectionnant une mesure à partir de la section des compteurs de performances :
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+La liste complète des mesures disponibles sur votre système peut être déterminée sur les systèmes Windows à l'aide de la commande PowerShell [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
 
-Si les compteurs requis ne figurent pas dans la liste de propriétés, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
+Si les compteurs requis ne figurent pas dans la liste des mesures, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement. Pour savoir quels compteurs sont disponibles dans votre système, lisez [cette présentation](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+Vous pouvez capturer les compteurs standard et ceux que vous avez vous-même mis en œuvre. `\Objects\Processes` est disponible sur tous les systèmes Windows ; `\Sales...` est un exemple de compteur personnalisé qui peut être mis en œuvre dans un serveur web.
 
-L’élément `ReportAs` est requis pour les noms des compteurs qui contiennent des caractères autres que ceux-ci : lettres, parenthèses, barres obliques, tirets, traits de soulignement, espaces et points.
+Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement.
 
-Si vous spécifiez une instance, elle est collectée en tant que propriété « CounterInstanceName » de la mesure signalée.
 
-Si vous préférez, vous pouvez écrire le code suivant, pour obtenir le même effet :
+L’élément `ReportAs` est requis pour les noms des compteurs qui contiennent des caractères autres que ceux-ci : lettres, parenthèses, barres obliques, tirets, traits de soulignement, espaces et points.
 
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Sales(electronics)# Items Sold", "Items sold"));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+Si vous spécifiez une instance, elle est collectée en tant que dimension « CounterInstanceName » de la mesure signalée.
 
-En outre, si vous souhaitez collecter les compteurs de performances système et les transmettre à Application Insights, vous pouvez utiliser l'extrait de code ci-dessous :
+### Collecte des compteurs de performances dans le code
+
+Pour collecter les compteurs de performances système et les transmettre à Application Insights, vous pouvez utiliser l'extrait de code ci-dessous :
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
+Ou vous pouvez effectuer la même opération avec les mesures personnalisées que vous avez créées :
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\Sales(electronics)# Items Sold", "Items sold"));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+En outre, si vous souhaitez
+
 ### Nombre d’exceptions
 
-*Quelle est la différence entre le taux d’exceptions et les mesures d’exceptions ?*
+*Quelle est la différence entre le taux d’exceptions et les mesures d’exceptions ?*
 
 * Le *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
 * *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](app-insights-asp-net-exceptions.md). 
@@ -163,11 +174,11 @@ Définissez la ressource avant les autres propriétés. Ne choisissez pas les re
 
 Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
 
-*Je ne vois pas apparaître le bouton Ajouter une alerte.* - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
+*Je ne vois pas apparaître le bouton Ajouter une alerte.* - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
 
 ## <a name="diagnosis"></a>Problèmes de diagnostic
 
-Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
+Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
 * Configurez les [tests Web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site Web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
@@ -199,4 +210,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

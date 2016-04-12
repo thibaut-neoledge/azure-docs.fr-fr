@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="magoedte;bwren" />
 
 # Sortie et messages de Runbook dans Azure Automation
@@ -167,7 +167,7 @@ Dans l’exemple suivant, un exemple de Runbook est démarré et exécuté. À l
 
 Pour les runbooks graphiques, une journalisation supplémentaire est disponible sous la forme de suivi au niveau de l’activité. Il existe deux niveaux de suivi : de base et détaillé. Dans le suivi de base, vous pouvez voir l’heure de début et de fin de chaque activité dans le runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité, comme le nombre de tentatives et l’heure de début de l’activité. Dans le suivi détaillé, vous obtenez le suivi de base, ainsi que des données d’entrée et de sortie pour chaque activité. Notez qu’actuellement les enregistrements de suivi sont écrits à l’aide du flux de commentaires détaillé. Vous devez activer la journalisation détaillée lorsque vous activez le suivi. Pour les runbooks graphiques avec le suivi activé, il est inutile de journaliser les informations de progression, étant donné que le suivi de base joue le même rôle et contient des informations plus détaillées.
 
-![Vue du flux de travail de création graphique](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+![Vue du flux de travail de création graphique](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
 La capture d’écran ci-dessus illustre le fait que lorsque vous activez la journalisation détaillée et le suivi pour les graphiques, vous obtenez beaucoup plus d’informations dans la vue du flux de travail de production. Ces informations supplémentaires peuvent être essentielles pour résoudre les problèmes de production pour un runbook. Il est donc conseillé de l’activer uniquement à cet effet et pas de manière générale. Les enregistrements de suivi peuvent être particulièrement nombreux. Avec le suivi de runbook graphique, vous pouvez obtenir entre deux et quatre enregistrements par activité selon que vous avez configuré le suivi de base ou le suivi détaillé. À moins que vous n’ayez besoin de ces informations pour suivre la progression d’un runbook à des fins de dépannage, vous pouvez choisir de désactiver le suivi.
 
@@ -183,11 +183,11 @@ La capture d’écran ci-dessus illustre le fait que lorsque vous activez la jou
 
  5. Dans le panneau Journalisation et suivi, sous Journaliser les enregistrements détaillés, cliquez sur **Activé** pour activer la journalisation détaillée et sous Suivi au niveau de l’activité, modifiez le niveau de suivi sur **De base** ou **Détaillé** en fonction du niveau de suivi requis.<br>
 
-    ![Panneau Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
+    ![Panneau Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Articles connexes
 
 - [Suivre une tâche de Runbook](automation-runbook-execution.md)
 - [Runbooks enfants](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

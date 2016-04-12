@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -26,20 +26,21 @@
 
 Cette rubrique montre comment vous connecter à Azure SQL Database à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
 
+## Étape 1 : configurer l’environnement de développement
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### Base de données SQL
+## Étape 2 : créer une base de données SQL
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
 
-## Étape 1 : obtenir les informations de connexion
+## Étape 3 : obtenir les informations de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Étape 2 : se connecter
+## Étape 4 : se connecter
 
 
 La fonction **OpenConnection** est appelée presque en premier dans toutes les fonctions qui suivent.
@@ -63,7 +64,7 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 	}
 
 
-## Étape 3 : exécuter une requête
+## Étape 5 : exécuter une requête
 
 La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,7 +94,7 @@ La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 	}
 
 
-## Étape 4 : insérer une ligne
+## Étape 6 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -123,10 +124,10 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 		}
 	}
 
-## Étape 5 : restaurer une transaction
+## Étape 7 : restaurer une transaction
 
 
-Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
+Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 -Commencez une transaction
 
@@ -180,4 +181,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
 Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [Accès aux bases de données du serveur SQL avec PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

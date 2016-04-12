@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Essayer la base de données SQL : Utiliser C# pour créer une base de données SQL | Microsoft Azure" 
-	description="Essayez la base de données SQL pour développer des applications SQL et C# et créez une base de données SQL Azure avec C# à l’aide de la bibliothèque de base de données SQL pour .NET." 
+<properties
+	pageTitle="Essayer la base de données SQL : Utiliser C# pour créer une base de données SQL | Microsoft Azure"
+	description="Essayez la base de données SQL pour développer des applications SQL et C# et créez une base de données SQL Azure avec C# à l’aide de la bibliothèque de base de données SQL pour .NET."
 	keywords="essayer sql, sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# Essayer la base de données SQL : Utiliser C&#x23; pour créer une base de données SQL avec la bibliothèque de base de données SQL pour .NET 
+# Essayer la base de données SQL : Utiliser C&#x23; pour créer une base de données SQL avec la bibliothèque de base de données SQL pour .NET
 
 **Base de données unique**
 
@@ -26,15 +26,9 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
+Découvrez comment utiliser les commandes C# pour créer une base de données SQL Azure avec la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Vous allez essayer la base de données SQL en créant une base de données unique à l’aide de SQL et C#. Pour créer des pools de base de données élastiques, voir [Créer un pool de base de données élastique](sql-database-elastic-pool-create-portal.md). Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
-
-Découvrez comment utiliser les commandes C# pour créer une base de données SQL Azure avec la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-
-Vous allez essayer la base de données SQL en créant une base de données unique à l’aide de SQL et C#. Pour créer des bases de données élastiques, voir [Créer un pool de bases de données élastiques](sql-database-elastic-pool-portal.md).
-
-Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
-
-La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -42,15 +36,15 @@ La bibliothèque de base de données SQL Azure pour .NET fournit une API basée 
 
 <br>
 
-Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+- Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 
-## Installation des bibliothèques nécessaires
+## Installer les bibliothèques nécessaires
 
-Pour configurer une base de données SQL avec C#, obtenez les bibliothèques de gestion requises en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
+Pour configurer une base de données SQL avec C#, obtenez les bibliothèques de gestion requises en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -63,12 +57,12 @@ Vous devez d’abord autoriser votre application cliente à accéder au service 
 
 Pour authentifier votre application cliente en fonction de l’utilisateur actuel, vous devez d’abord inscrire celle-ci dans le domaine AAD associé à l’abonnement sous lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut.
 
-Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
+Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
-1. Sur la gauche, sélectionnez le service **Active Directory**, puis sélectionnez le répertoire pour authentifier votre application et cliquez sur son **Nom**.
+1. Sur la gauche, sélectionnez le service **Active Directory**, puis le répertoire pour authentifier votre application et cliquez sur son **Nom**.
 
-    ![Essayer la base de données SQL : Configurer Azure Active Directory (AAD).][1]
+    ![Essayer la base de données SQL : Configurer Azure Active Directory (AAD).][1]
 
 2. Dans la page du répertoire, cliquez sur **APPLICATIONS**.
 
@@ -82,7 +76,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Fournissez des informations sur votre application C# SQL.][7]
 
-6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajoutez une URL de redirection pour votre application C# SQL.][8]
 
@@ -104,7 +98,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 ### Identifier le nom de domaine
 
-Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
+Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
 
 1. Accédez au [portail Azure](http://portal.azure.com).
 2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle.
@@ -117,10 +111,10 @@ Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le 
 
 **Ressources AAD supplémentaires**
 
-Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Récupérer le jeton d’accès pour l’utilisateur actuel 
+### Récupérer le jeton d’accès pour l’utilisateur actuel
 
 L’application cliente doit récupérer le jeton d’accès d’application pour l’utilisateur actuel. La première fois que le code est exécuté par un utilisateur, celui-ci est invité à entrer ses informations d’identification. Le jeton résultant est mis en cache localement. Les exécutions suivantes récupèrent le jeton du cache, et l’utilisateur n’est invité à se connecter que si le jeton a expiré.
 
@@ -154,7 +148,7 @@ Avec Resource Manager, toutes les ressources doivent être créées dans un grou
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@ Avec Resource Manager, toutes les ressources doivent être créées dans un grou
         }
 
 
-## Créer un serveur 
+## Créer un serveur
 
 Les bases de données SQL se trouvent sur des serveurs. Le nom du serveur doit être unique globalement parmi tous les serveurs SQL Azure. Il se peut donc qu’une erreur soit signalée si le nom de serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes.
 
@@ -223,7 +217,7 @@ L’exemple suivant crée une règle qui ouvre l’accès au serveur à partir d
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -243,7 +237,7 @@ Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une 
 
 ## Utiliser C&#x23; pour créer une base de données SQL
 
-La commande C# suivante crée une base de données SQL si aucune base de données portant le même nom n’existe sur le serveur ; dans le cas contraire, la base de données existante est mise à jour.
+La commande C# suivante crée une base de données SQL si aucune base de données portant le même nom n’existe sur le serveur ; dans le cas contraire, la base de données existante est mise à jour.
 
 
         static void CreateDatabase()
@@ -270,7 +264,7 @@ La commande C# suivante crée une base de données SQL si aucune base de donnée
 
 ## Exemple C&#x23; d’application console
 
-L’exemple suivant crée un groupe de ressources, un serveur, les règles de pare-feu et une base de données SQL. La section *Configurer l’authentification avec Azure Active Directory* située en haut de cet article explique où obtenir les valeurs correspondant aux variables clientId, redirectUri et domainName URI.
+L’exemple suivant crée un groupe de ressources, un serveur, les règles de pare-feu et une base de données SQL. La section *Configurer l’authentification avec Azure Active Directory* située en haut de cet article explique où obtenir les valeurs correspondant aux variables clientId, redirectUri et domainName.
 
 
     using Microsoft.Azure;
@@ -284,7 +278,7 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -440,9 +434,9 @@ L’exemple suivant crée un groupe de ressources, un serveur, les règles de pa
 
 
 ## Étapes suivantes
-Maintenant que vous avez essayé la base de données SQL et configuré une base de données avec C#, vous êtes prêt pour les articles suivants :
+Maintenant que vous avez essayé la base de données SQL et configuré une base de données avec C#, vous êtes prêt pour les articles suivants :
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 ## Ressources supplémentaires
 
@@ -463,4 +457,4 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

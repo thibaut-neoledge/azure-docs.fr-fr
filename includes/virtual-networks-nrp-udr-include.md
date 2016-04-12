@@ -16,12 +16,12 @@ Les itinéraires définis par l’utilisateur peuvent contenir les propriétés 
 
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
-|**addressPrefix**|Préfixe d’adresse ou adresse IP complète pour la destination|192\.168.1.0/24, 192.168.1.101|
+|**addressPrefix**|Préfixe d’adresse ou adresse IP complète pour la destination|192\.168.1.0/24, 192.168.1.101|
 |**nextHopType**|Type d’appareil vers lequel le trafic sera envoyé|VirtualAppliance, passerelle VPN, Internet|
-|**nextHopIpAddress**|Adresse IP de tronçon suivant|192\.168.1.4|
+|**nextHopIpAddress**|Adresse IP de tronçon suivant|192\.168.1.4|
 
 
-Exemple de table de routage au format JSON :
+Exemple de table de routage au format JSON :
 
 	{
 	    "name": "UDR-BackEnd",
@@ -54,8 +54,8 @@ Exemple de table de routage au format JSON :
 
 ### Ressources supplémentaires
 
-- Obtenez davantage d’informations sur les [itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md).
+- Obtenez davantage d’informations sur les [itinéraires définis par l’utilisateur](../articles/virtual-network/virtual-networks-udr-overview.md).
 - Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) pour les tables de routage.
 - Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) pour les itinéraires définis par l’utilisateur (UDR).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

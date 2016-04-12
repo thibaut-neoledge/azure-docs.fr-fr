@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 >
-> Ce document ne vous sera utile que si vous avez intégré le module de couverture et configuré une remise de campagnes à tout moment. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
+> Ce document est utile uniquement si vous avez intégré le module Reach et que vous avez l’intention d’effectuer des transmissions de type Push vers des appareils Amazon. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
 
 ##Introduction
 
@@ -102,14 +102,11 @@ Assurez-vous de disposer des autorisations suivantes dans votre `AndroidManifest
 
 ##Accorder à Engagement des informations d'identification OAuth
 
-Envoyez vos informations d'identification OAuth (ID client et question secrète du client) ici : $/#application/YOUR\_APPID/native-push.
-
-Vous pouvez maintenant sélectionner l'option À tout moment lors de la création d'annonces et de sondages dans le module de couverture.
-
+Envoyez vos informations d’identification OAuth (ID client et clé secrète client) sur le portail Engagement.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [bibliothèque cliente ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [intégré ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

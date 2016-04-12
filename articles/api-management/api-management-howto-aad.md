@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="API Management" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
@@ -84,7 +84,7 @@ Revenez au portail des éditeurs et collez l’**ID de client** copié dans la c
 
 ![ID de client][api-management-client-id]
 
-Revenez à la configuration d’Azure Active Directory, puis cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur **1 an** est utilisée.
+Revenez à la configuration d’Azure Active Directory, puis cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur **1 an** est utilisée.
 
 ![Clé][api-management-aad-key-before-save]
 
@@ -228,4 +228,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---------HONumber=AcomDC_0309_2016-->

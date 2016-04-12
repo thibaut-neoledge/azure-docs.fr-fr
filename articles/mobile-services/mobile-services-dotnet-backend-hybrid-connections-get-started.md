@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connexion à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions hybrides | Azure Mobile Services"
-	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions Azure hybrides."
+	pageTitle="Connexion à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions hybrides | Azure Mobile Services"
+	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions Azure hybrides."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -13,30 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # Connexion à une instance SQL Server locale à partir d’Azure Mobile Services au moyen de connexions hybrides
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-&nbsp;
+Lorsque votre entreprise effectue la transition vers le cloud, il est possible que vous ne soyez pas en mesure de migrer toutes vos ressources Azure immédiatement. Les connexions hybrides permettent aux Azure Mobile Services de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides utilisent l'autorisation avec signature d'accès partagé (SAS) pour sécuriser les connexions de votre service mobile et du Gestionnaire de connexion hybride local à la connexion hybride. Pour plus d'informations, consultez [Aperçu des connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md).
 
-
-Lorsque votre entreprise effectue la transition vers le cloud, il est possible que vous ne soyez pas en mesure de migrer toutes vos ressources Azure immédiatement. Les connexions hybrides permettent aux Azure Mobile Services de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides utilisent l'autorisation avec signature d'accès partagé (SAS) pour sécuriser les connexions de votre service mobile et du Gestionnaire de connexion hybride local à la connexion hybride. Pour plus d'informations, consultez [Aperçu des connexions hybrides](../integration-hybrid-connection-overview.md).
-
-Au cours de ce didacticiel, vous allez apprendre à modifier un service mobile principal .NET afin d'utiliser une base de données SQL Server locale au lieu de la base de données SQL Azure par défaut approvisionnée avec votre service. Les connexions hybrides sont également prises en charge pour un service mobile principal JavaScript, comme le décrit [cet article](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
+Au cours de ce didacticiel, vous allez apprendre à modifier un service mobile principal .NET afin d'utiliser une base de données SQL Server locale au lieu de la base de données SQL Azure par défaut approvisionnée avec votre service. Les connexions hybrides sont également prises en charge pour un service mobile principal JavaScript, comme le décrit [cet article](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
 
 ##Conditions préalables##
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
 - **Un service mobile principal .NET existant** <br/>Suivez le didacticiel [Prise en main de Mobile Services] pour créer et télécharger un nouveau service mobile principal .NET à partir du [portail Azure Classic].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
-## Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local
+## Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local
 
 [AZURE.INCLUDE [hybrid-connections-create-on-premises-database](../../includes/hybrid-connections-create-on-premises-database.md)]
 
@@ -52,11 +50,11 @@ Ce didacticiel requiert les éléments suivants :
 
 Dans cette étape, vous définissez une chaîne de connexion pour la base de données locale et vous modifiez le serveur mobile pour utiliser cette connexion.
 
-1. Dans Visual Studio 2013, ouvrez le projet qui définit votre service mobile basé principal .NET.
+1. Dans Visual Studio 2013, ouvrez le projet qui définit votre service mobile basé principal .NET.
 
 	Pour apprendre à télécharger votre projet de backend .NET, consultez la page [Prise en main de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
 
-2. Dans l'Explorateur de solutions, ouvrez le fichier Web.config, recherchez la section **connectionStrings**, ajoutez une entrée SqlClient comme suit, pointant vers la base de données SQL Server locale :
+2. Dans l'Explorateur de solutions, ouvrez le fichier Web.config, recherchez la section **connectionStrings**, ajoutez une entrée SqlClient comme suit, pointant vers la base de données SQL Server locale :
 
 	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -74,7 +72,7 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
 
 4. Développez le dossier **Modèles** et ouvrez le fichier de modèle de données, se terminant par *Context.cs*.
 
-6. Modifiez le constructeur d'instance **DbContext** pour transmettre la valeur `OnPremisesDBConnection` au constructeur **DbContext** de base, similaire à l'extrait de code suivant :
+6. Modifiez le constructeur d'instance **DbContext** pour transmettre la valeur `OnPremisesDBConnection` au constructeur **DbContext** de base, similaire à l'extrait de code suivant :
 
         public class hybridService1Context : DbContext
         {
@@ -102,7 +100,7 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 
 	![Chaîne de connexion pour la base de données locale](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
 
-2. Ajoutez une nouvelle chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur comme la suivante :
+2. Ajoutez une nouvelle chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur comme la suivante :
 
 		Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
 
@@ -121,15 +119,15 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 
 4. Dans SQL Server Management Studio, connectez-vous à votre instance SQL Server, ouvrez l'Explorateur d'objets, développez la base de données **OnPremisesDB** et développez les **Tables**.
 
-5. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
+5. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
 
 	Notez que les modifications générées dans votre application ont été enregistrées par le service mobile dans votre base de données locale à l'aide de la connexion hybride.
 
 ##Voir aussi##
 
 + [Site web des connexions hybrides](../../services/biztalk-services/)
-+ [Aperçu des connexions hybrides](../integration-hybrid-connection-overview.md)
-+ [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs.md)
++ [Aperçu des connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md)
++ [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Modifications des modèles de données pour un service mobile principal .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
 
 <!-- IMAGES -->
@@ -139,4 +137,4 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 [portail Azure Classic]: http://manage.windowsazure.com
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

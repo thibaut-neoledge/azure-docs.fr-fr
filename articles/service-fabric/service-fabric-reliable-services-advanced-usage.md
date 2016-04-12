@@ -37,7 +37,7 @@ La classe de base StatefulService devrait suffire pour la plupart des services a
 
 - `IStateProviderReplica CreateStateProviderReplica()` Un service avec état doit disposer d'un fournisseur d'état fiable. StatefulService utilise la classe ReliableStateManager, qui fournit les collections fiables (par exemple, les dictionnaires et les files d'attente). Vous pouvez substituer cette méthode pour configurer la classe ReliableStateManager en transmettant une ReliableStateManagerConfiguration à son constructeur. Vous pouvez ensuite fournir des sérialiseurs d’état personnalisé, spécifier ce qui se passe quand des données ont peut-être été perdues et configurer le réplicateur ou les fournisseurs d’état.
 
-StatefulServiceBase fournit également les mêmes quatre événements du cycle de vie que StatelessServiceBase, avec la même sémantique et les mêmes cas d'utilisation :
+StatefulServiceBase fournit également les mêmes quatre événements du cycle de vie que StatelessServiceBase, avec la même sémantique et les mêmes cas d'utilisation :
 
 - `void OnInitialize(StatefulServiceInitializiationParameters)`
 - `Task OnOpenAsync(IStatefulServicePartition, CancellationToken)`
@@ -45,7 +45,7 @@ StatefulServiceBase fournit également les mêmes quatre événements du cycle d
 - `void OnAbort()`
 
 ## Étapes suivantes
-Pour accéder à des rubriques plus avancées concernant Service Fabric, consultez les articles suivants :
+Pour accéder à des rubriques plus avancées concernant Service Fabric, consultez les articles suivants :
 
 - [Configuration de Reliable Services avec état](service-fabric-reliable-services-configuration.md)
 
@@ -53,6 +53,6 @@ Pour accéder à des rubriques plus avancées concernant Service Fabric, consult
 
 - [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Vue d’ensemble des contraintes de placement](service-fabric-placement-constraint.md)
+- [Configuration de services avec Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/29/2016"
 	ms.author="larryfr"/>
 
 # Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
-Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop sur Azure HDInsight à l’aide de la personnalisation de cluster **Action de script**. Une action de script vous permet d'exécuter des scripts pour personnaliser un cluster, uniquement au moment de sa création. Pour plus d’informations, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop sur Azure HDInsight à l’aide d’une **action de script** pour personnaliser un cluster.
 
 Dans cette rubrique, vous allez apprendre à installer Giraph à l'aide d'une action de script. Après avoir installé Giraph, vous apprendrez également comment l'utiliser pour la plupart des applications courantes, à savoir traiter des graphiques à grande échelle.
 
@@ -27,35 +27,39 @@ Dans cette rubrique, vous allez apprendre à installer Giraph à l'aide d'une ac
 
 ## <a name="whatis"></a>Présentation de Giraph
 
-[Apache Giraph](http://giraph.apache.org/) permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight. Les graphiques modélisent les relations entre les objets, telles que les connexions entre routeurs sur un grand réseau comme Internet ou les relations entre individus sur les réseaux sociaux (parfois appelés graphiques sociaux). Le traitement des graphiques permet d'examiner les relations entre les objets d'un graphique, par exemple :
+[Apache Giraph](http://giraph.apache.org/) permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight. Les graphiques modélisent les relations entre les objets, telles que les connexions entre routeurs sur un grand réseau comme Internet ou les relations entre individus sur les réseaux sociaux (parfois appelés graphiques sociaux). Le traitement des graphiques permet d'examiner les relations entre les objets d'un graphique, par exemple :
 
-- identifier les amis potentiels en fonction de vos relations actuelles ;
-- identifier le chemin le plus court entre deux ordinateurs d'un réseau ;
+- identifier les amis potentiels en fonction de vos relations actuelles ;
+- identifier le chemin le plus court entre deux ordinateurs d'un réseau ;
 - calculer le classement de pages web.
 
 ##Ce que fait le script
 
-Le script effectue les opérations suivantes :
+Le script effectue les opérations suivantes :
 
 * Installe Giraph sur `/usr/hdp/current/giraph`
-* Copie le fichier `giraph-examples.jar` dans le stockage par défaut (WASB) de votre cluster : `/example/jars/giraph-examples.jar`
+* Copie le fichier `giraph-examples.jar` dans le stockage par défaut (WASB) de votre cluster : `/example/jars/giraph-examples.jar`
 
 ## <a name="install"></a>Installez Giraph à l’aide des actions de script
 
-Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh1](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Cette section explique comment utiliser l’exemple de script dans le cadre de la création du cluster à l’aide du portail Azure Classic.
+Un exemple de script d’installation de Giraph sur un cluster HDInsight est disponible à l’emplacement suivant.
 
-> [AZURE.NOTE] Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+    https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+
+Cette section explique comment utiliser l’exemple de script dans le cadre de la création du cluster à l’aide du portail Azure.
+
+> [AZURE.NOTE] Azure PowerShell, le Kit de développement logiciel (SDK) .NET HDInsight ou les modèles Azure Resource Manager peuvent également être utilisés pour appliquer des actions de script. Vous pouvez également appliquer les actions de script aux clusters qui sont déjà en cours d’exécution. Pour plus d’informations, consultez la page [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Démarrez la création d’un cluster à l’aide de la procédure décrite dans [Création de clusters HDInsight sous Linux](hdinsight-provision-linux-clusters.md#portal), mais ne terminez pas la création.
 
-2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations ci-dessous :
+2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations ci-dessous :
 
-	* __NAME__ : saisissez un nom convivial pour l’action de script.
-	* __SCRIPT URI__ : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-	* __HEAD__ : cochez cette option
-	* __WORKER__ : cochez cette option.
-	* __ZOOKEEPER__ : cochez cette option pour installer le nœud ZooKeeper.
-	* __PARAMETERS__ : laissez ce champ vide.
+	* __NAME__ : saisissez un nom convivial pour l’action de script.
+	* __SCRIPT URI__ : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+	* __HEAD__ : cochez cette option
+	* __WORKER__ : cochez cette option.
+	* __ZOOKEEPER__ : cochez cette option pour installer le nœud ZooKeeper.
+	* __PARAMETERS__ : laissez ce champ vide.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
 
@@ -65,21 +69,21 @@ Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsigh
 
 Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l’exemple SimpleShortestPathsComputation inclus avec Giraph. Cela met en oeuvre l’implémentation <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> qui permet de trouver le trajet le plus court entre des objets dans un schéma.
 
-1. Connectez-vous au cluster HDInsight à l’aide de SSH :
+1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
+	Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
 
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-1. Utilisez la commande suivante pour créer un fichier nommé __tiny\_graph.txt__ :
+1. Utilisez la commande suivante pour créer un fichier nommé __tiny\_graph.txt__ :
 
 		nano tiny_graph.txt
 
-	Utilisez les données suivantes comme contenu de ce fichier :
+	Utilisez les données suivantes comme contenu de ce fichier :
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -89,21 +93,21 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Chaque ligne représente une relation entre un objet **source\_id** et un ou plusieurs objets **dest\_id**. La valeur **edge\\_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source\_id** et **dest\_id**.
 
-	Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données ci-dessus peuvent ressembler à cela :
+	Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données ci-dessus peuvent ressembler à cela :
 
 	![tiny\_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
 
 2. Pour enregistrer le fichier, utilisez __Ctrl + X__, puis __Y__, et enfin __Entrée__ pour accepter le nom de fichier.
 
-3. Pour stocker les données dans le stockage principal de votre cluster HDInsight, utilisez les éléments suivants :
+3. Pour stocker les données dans le stockage principal de votre cluster HDInsight, utilisez les éléments suivants :
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-3. Pour obtenir le nom de domaine complet (FQDN) du nœud principal du cluster, utilisez les éléments suivants :
+3. Pour obtenir le nom de domaine complet (FQDN) du nœud principal du cluster, utilisez les éléments suivants :
 
         hostname -f
         
-4. Exécutez l’exemple SimpleShortestPathsComputation en utilisant la commande suivante : Remplacez __HEADNODE__ par le nom de domaine complet renvoyé à l’étape précédente :
+4. Exécutez l’exemple SimpleShortestPathsComputation en utilisant la commande suivante : Remplacez __HEADNODE__ par le nom de domaine complet renvoyé à l’étape précédente :
 
 		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
@@ -123,11 +127,11 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 	Pour plus d’informations sur ces éléments et d’autres paramètres utilisés avec des exemples Giraph, consultez la section [Démarrage rapide de Giraph](http://giraph.apache.org/quick_start.html).
 
-5. Une fois la tâche terminée, les résultats sont stockés dans le répertoire \_\___wasb:///example/out/shotestpaths__. Les fichiers créés commencent par __part-m__ et se terminent par un nombre indiquant s’il s’agit du premier, deuxième fichier, etc. Utilisez ce qui suit pour afficher le résultat :
+5. Une fois la tâche terminée, les résultats sont stockés dans le répertoire \_\___wasb:///example/out/shotestpaths__. Les fichiers créés commencent par __part-m__ et se terminent par un nombre indiquant s’il s’agit du premier, deuxième fichier, etc. Utilisez ce qui suit pour afficher le résultat :
 
 		hadoop fs -text /example/output/shortestpaths/*
 
-	Le résultat doit ressembler à ce qui suit :
+	Le résultat doit ressembler à ce qui suit :
 
 		0	1.0
 		4	5.0
@@ -135,21 +139,19 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 		1	0.0
 		3	1.0
 
-	L'exemple SimpleShortestPathComputation est codé en dur de façon à commencer avec l'ID d'objet 1 et trouver le chemin le plus court vers les autres objets. Le résultat doit être lu comme `destination_id distance`, où distance est la valeur (ou la pondération) des bords parcourus entre l’ID d’objet 1 et l’ID cible.
+	L'exemple SimpleShortestPathComputation est codé en dur de façon à commencer avec l'ID d'objet 1 et trouver le chemin le plus court vers les autres objets. Le résultat doit être lu comme `destination_id distance`, où distance est la valeur (ou la pondération) des bords parcourus entre l’ID d’objet 1 et l’ID cible.
 
-	En visualisant cela, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l'ID 1 et tous les autres objets. Notez que le chemin le plus court entre ID 1 et ID 4 est 5. Il s’agit de la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
+	En visualisant cela, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l'ID 1 et tous les autres objets. Notez que le chemin le plus court entre ID 1 et ID 4 est 5. Il s’agit de la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
 
 	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
 
 ## Étapes suivantes
 
-- [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
+- [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
 
-- [Installation et utilisation de Spark sur des clusters HDInsight](hdinsight-hadoop-spark-install-linux.md) : instructions sur l’utilisation de la personnalisation de cluster pour installer et utiliser Spark sur des clusters Hadoop HDInsight. Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de « big data ».
-
-- [Installation de R sur des clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md) : instructions sur l’utilisation de la personnalisation des clusters pour installer et utiliser R sur des clusters Hadoop HDInsight. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
+- [Installation de R sur des clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md) : instructions sur l’utilisation de la personnalisation des clusters pour installer et utiliser R sur des clusters Hadoop HDInsight. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
 
 - [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

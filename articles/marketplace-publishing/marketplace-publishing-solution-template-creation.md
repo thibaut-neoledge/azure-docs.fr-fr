@@ -36,7 +36,7 @@ Un modèle de solution est « parent » de toutes ses topologies. Vous pouvez d�
 
   Azure Marketplace : http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Portail Azure en version préliminaire : https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Portail Azure : https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Ajouter une nouvelle version.
 
@@ -46,16 +46,6 @@ Téléchargez un fichier zip contenant tous les fichiers requis pour configurer 
 - Tous les modèles liés et tous les scripts nécessaires.
 
 Après avoir téléchargé le fichier zip, cliquez sur **Demander la certification**. L’équipe de certification Microsoft examine les fichiers et certifie la topologie.
-
-Vous pouvez également valider l’expérience de création sans effectuer le déploiement pour le client à l’aide les étapes qui suivent :
-
-1. Enregistrez le fichier *createUiDefinition.json* et générez l’URL absolue. L’URL doit être accessible publiquement.
-2. Encodez l’URL en utilisant l’outil à l’adresse [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/).
-3. Remplacez le texte en gras par l’emplacement (URL encodée) du fichier *createUiDefinition.json* qui doit être validé.
-
-  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-
-4. Copiez et collez l’URL dans un navigateur et affichez l’expérience client de votre fichier createUiDefinition.json.
 
   > [AZURE.TIP] Pendant que vos développeurs se chargent de la création des topologies du modèle de solution et obtiennent leur certification, les services commerciaux, marketing et/ou juridique de votre entreprise se chargent du contenu marketing et juridique.
 
@@ -77,4 +67,4 @@ Les rubriques suivantes peuvent également vous intéresser :
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

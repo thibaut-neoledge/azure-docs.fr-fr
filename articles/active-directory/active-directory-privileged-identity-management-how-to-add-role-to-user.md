@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Privileged Identity Management : comment commencer à ajouter un rôle à un utilisateur"
-   description="Découvrez comment ajouter des rôles aux identités privilégiées avec l’extension Privileged Identity Management."
+   pageTitle="Ajouter ou supprimer un rôle d’utilisateur | Microsoft Azure"
+   description="Découvrez comment ajouter des rôles privilégiés avec l’extension Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management : Comment ajouter ou supprimer un rôle d’utilisateur
+# Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur
 
 ## Ajout ou suppression d’un rôle d’utilisateur
-Vous pouvez accéder au panneau **Ajouter les utilisateurs gérés** de l’interface de PIM de plusieurs façons. La séquence de clics pour chacune d’elles est indiquée ci-dessous :
+Vous pouvez accéder au panneau **Ajouter les utilisateurs gérés** de l’interface de Privileged Identity Management (PIM) de plusieurs façons. La séquence de clics pour chacune d’elles est indiquée ci-dessous :
 
 - Tableau de bord > Utilisateurs dans les rôles d’administrateur > Ajouter ou Supprimer
 - Tableau de bord > Résumé des rôles > Liste de tous les utilisateurs > Ajouter ou Supprimer
 - Tableau de bord > cliquez sur le rôle d’utilisateur dans la table des rôles (par exemple Administrateur général) > Ajouter ou Supprimer
 
 ## Ajouter un utilisateur à un rôle
-Une fois que vous avez accédé au panneau **Ajouter les utilisateurs gérés** :
+Une fois que vous avez accédé au panneau **Ajouter les utilisateurs gérés** :
 
 1. Cliquez sur **Sélectionner un rôle**. Si vous avez accédé à l’écran actuel en cliquant sur un rôle d’utilisateur dans la table des rôles, le rôle est déjà sélectionné.
 2. Sélectionnez un rôle dans la liste des rôles. Par exemple, si vous sélectionnez **Administrateur de mots de passe**, le panneau **Sélectionner des utilisateurs** s’ouvre.
@@ -34,6 +34,9 @@ Une fois que vous avez accédé au panneau **Ajouter les utilisateurs gérés**�
 4. Sélectionnez l’utilisateur dans la liste, puis cliquez sur **Terminé**.
 5. Cliquez sur **OK** pour enregistrer votre sélection. L’utilisateur que vous avez sélectionné s’affiche dans la liste et le rôle sera temporaire.
 6. Si vous souhaitez conserver le rôle, cliquez sur l’utilisateur dans la liste. Les informations de l’utilisateur s’affichent dans un nouveau panneau. Sélectionnez **Rendre permanent** dans le menu des informations utilisateur.
+
+    Vous devez effectuer cette opération si l’utilisateur ne peut pas s’inscrire à Azure Muti-Fator Authentication (MFA) ou s’il utilise un compte Microsoft. Les administrateurs temporaires sont invités à s’inscrire à MFA lors de l’activation.
+
 7. Cliquez sur **Activer** pour démarrer une demande d’activation de ce rôle pour l’utilisateur. Entrez le motif de l’activation dans le champ de texte **Raison de la demande**. À ce stade, le rôle est automatiquement activé pour cet utilisateur, et une notification est envoyée aux administrateurs généraux.
 
 ## Supprimer un utilisateur d’un rôle
@@ -46,4 +49,4 @@ Une fois que vous avez accédé au panneau **Ajouter les utilisateurs gérés**�
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

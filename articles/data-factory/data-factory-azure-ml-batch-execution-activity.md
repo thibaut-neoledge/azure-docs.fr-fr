@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer des pipelines prédictifs à l’aide de l’activité Azure Machine Learning Batch Execution | Microsoft Azure" 
+	pageTitle="Utiliser des activités Machine Learning | Microsoft Azure" 
 	description="Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -560,7 +560,7 @@ L’extrait de code JSON suivant définit un service lié Azure Machine Learning
 	  	}
 	}
 
-Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey**:
+Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey** :
 
 1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
 2. Cliquez sur le **service web de formation** dans la liste des services web. 
@@ -772,4 +772,4 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016---->

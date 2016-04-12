@@ -41,7 +41,6 @@ Non. Les services de domaine Azure AD ne peuvent être configurés que dans l’
 #### Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?
 Non. Le domaine fourni par les services de domaine Azure AD est un domaine géré. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer par ailleurs les contrôleurs de ce domaine, car ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (ni en lecture/écriture ni en lecture seule) pour le domaine géré.
 
-
 ### Administration et opérations
 
 #### J’ai activé les services de domaine Azure AD. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
@@ -56,7 +55,7 @@ Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines
 #### Puis-je étendre le schéma du domaine fourni par les services de domaine Azure AD ?
 Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
 
-### Puis-je modifier les enregistrements DNS fournis par les services de domaine Azure AD ?
+#### Puis-je modifier les enregistrements DNS fournis par les services de domaine Azure AD ?
 Oui. Les utilisateurs qui font partie du groupe d'administration (c.-à-d. « AAD DC Administrators ») disposent d’autorisations DNS Admin pour modifier les enregistrements DNS.
 
 ### Facturation et disponibilité
@@ -76,4 +75,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD so
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

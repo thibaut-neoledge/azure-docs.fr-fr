@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/02/2016"
+	ms.date="03/29/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,25 +19,28 @@
 
 # Modifier les niveaux de service et de performances (niveau de tarification) d’une base de données SQL
 
-**Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-scale-up.md)
+- [Portail Azure](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide du [portail Azure](https://portal.azure.com).
+
+Les niveaux de service et de performances décrivent les fonctionnalités et ressources disponibles pour votre base de données SQL, et peuvent être mis à jour à mesure que les besoins de votre application évoluent. Pour plus d’informations, voir [Niveaux de service](sql-database-service-tiers.md).
+
+Notez que la modification du niveau de service et/ou de performances d’une base de données crée un réplica de la base de données d’origine au nouveau niveau de performances, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Cette fenêtre de désactivation varie, mais dure moins de 4 secondes en moyenne, et ne dépasse pas 30 secondes dans plus de 99 % des cas. En de très rare occasions, cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
+
+La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service Standard ne demande pas plus de 6 heures. Le changement des niveaux de performances d’une base de données de la même taille dans le niveau de service Premium doit s’effectuer en moins de 3 heures.
+
 
 Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
-
-> [AZURE.IMPORTANT] La modification des niveaux de service et de performances d’une base de données SQL s’effectue en ligne. Cela signifie que votre base de données doit être en ligne et accessible pendant toute la durée de l’opération, sans interruption de service.
 
 - Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu. 
 - Lors de la mise à niveau d’une base de données avec la [géo-réplication standard](https://msdn.microsoft.com/library/azure/dn758204.aspx) ou la [géo-réplication active](https://msdn.microsoft.com/library/azure/dn741339.aspx), vous devez d'abord mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant la mise à niveau de la base de données principale.
 - Avant d’effectuer le passage à une version antérieure depuis un niveau de service Premium, vous devez arrêter toutes les relations de géo-réplication. Vous pouvez suivre les étapes décrites dans la section [Arrêt d’une relation de copie continue](https://msdn.microsoft.com/library/azure/dn741323.aspx) pour arrêter le processus de réplication entre la base de données principale et les bases de données secondaires actives.
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
 - La modification de la tarification de votre base de données ne modifie pas la taille maximale de la base de données. Pour modifier la taille maximale de votre base de données, utilisez [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ou [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-- Vous pouvez apporter jusqu’à quatre modifications à une base de données individuelle (concernant un niveau de service ou de performances) par période de 24 heures.
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
+
 
 
 **Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :**
@@ -55,12 +58,12 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à modifier.
-3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)**:
+3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)** :
 
     ![niveau tarifaire][1]
 
 
-1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner**:
+1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner** :
 
     Le fait de cliquer sur **Sélectionner** envoie une demande de mise à l’échelle pour modifier la couche de base de données. En fonction de la taille de votre base de données, l’opération de mise à l’échelle peut prendre plus ou moins longtemps. Cliquez sur la notification pour obtenir les détails et l’état de l’opération de mise à l’échelle.
 
@@ -68,7 +71,7 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 
     ![sélectionner un niveau de tarification][2]
 
-3.	Dans le ruban gauche, cliquez sur **Notifications**:
+3.	Dans le ruban gauche, cliquez sur **Notifications** :
 
     ![notifications][3]
 
@@ -103,4 +106,4 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

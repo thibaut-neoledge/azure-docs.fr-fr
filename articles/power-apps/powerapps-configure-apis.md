@@ -19,7 +19,7 @@
 
 # Mettre à jour une API existante et ses propriétés
 
-L'API que vous inscrivez dans l'environnement App Service est essentiellement un proxy vers votre service principal. Une fois que vous créez l'API, vous pouvez modifier ses propriétés. Par exemple, vous pouvez :
+L'API que vous inscrivez dans l'environnement App Service est essentiellement un proxy vers votre service principal. Une fois que vous créez l'API, vous pouvez modifier ses propriétés. Par exemple, vous pouvez :
 
 - Ajouter une icône personnalisée pour votre API.
 - Modifier la méthode de sécurisation du serveur principal utilisé par l'API. 
@@ -34,9 +34,9 @@ L'API que vous inscrivez dans l'environnement App Service est essentiellement un
 
 ## Ajouter une icône personnalisée ou un nom d’affichage convivial
 
-1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
+1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
 2. Sélectionnez **TOUS LES PARAMÈTRES**.
-3. Dans **PARAMÈTRES**, sélectionnez **GÉNÉRAL** : ![][11]
+3. Dans **PARAMÈTRES**, sélectionnez **GÉNÉRAL** : ![][11]
 
 Dans Général, vous pouvez modifier les paramètres suivants :
 
@@ -50,7 +50,7 @@ Authentifier avec le service principal | Après avoir inscrit votre service prin
 
 ## Mise à jour du Swagger de votre API
 
-1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
+1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
 2. Sélectionnez **TOUS LES PARAMÈTRES**.
 3. Dans **PARAMÈTRES**, sélectionnez **DÉFINITION DE L'API** : ![][13]
 
@@ -59,26 +59,26 @@ Authentifier avec le service principal | Après avoir inscrit votre service prin
 - Pour en savoir plus sur Swagger 2.0, consultez le [site Web officiel de Swagger](http://swagger.io).
 - Pour plus d'informations sur la façon d’obtenir Swagger 2.0 lorsque vous développez votre API, consultez :  
 	- [Créer une application API ASP.NET dans Azure App Service](../app-service-dotnet-create-api-app.md)
-	- [Créer et déployer une application API Java dans Azure App Service](../app-service-api-java-api-app.md)
+	- [Créer et déployer une application API Java dans Azure App Service](../app-service-api-java-api-app.md)
 	- [Créer et déployer une application API Node.js dans Azure App Service](../app-service-api-nodejs-api-app.md)
 	- [Personnaliser des définitions d’API générées par Swashbuckle](../app-service-api-dotnet-swashbuckle-customize.md)
 - Pour en savoir plus sur les meilleures pratiques d'utilisation de Swagger 2.0 pour PowerApps, consultez [Développer une API pour PowerApps](powerapps-develop-api.md).
 
 ## Mettre à jour la stratégie XML de votre API
 
-1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
+1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de votre API.
 2. Sélectionnez **TOUS LES PARAMÈTRES**.
-3. Dans **PARAMÈTRES**, sélectionnez **STRATÉGIE** : ![][14]
+3. Dans **PARAMÈTRES**, sélectionnez **STRATÉGIE** : ![][14]
 
 Cette stratégie est la même stratégie prise en charge par [Gestion des API Azure](https://azure.microsoft.com/services/api-management/). La stratégie actuelle figure dans l'éditeur XML incorporé. Vous pouvez la modifier en ligne ou télécharger un nouveau fichier XML. Après avoir **enregistré** vos modifications, toutes les erreurs apparaissent dans ce panneau, y compris les problèmes liés à la stratégie de l'API.
 
-La rubrique[Stratégies dans Gestion des API Azure](../api-management-howto-policies.md) constitue une bonne ressource pour en savoir plus sur la configuration et la signification des stratégies.
+La rubrique[Stratégies dans Gestion des API Azure](../api-management/api-management-howto-policies.md) constitue une bonne ressource pour en savoir plus sur la configuration et la signification des stratégies.
 
 
 ## Résumé et étapes suivantes
 Après avoir créé votre API, vous pouvez utiliser les étapes de cette rubrique pour modifier ses paramètres et même en personnaliser certains.
 
-Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivantes :
+Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivantes :
 
 - [Configurer une API pour se connecter à un serveur principal AAD protégé](powerapps-configure-apis-aad.md)
 - [Développer une API pour PowerApps](powerapps-develop-api.md)
@@ -88,4 +88,4 @@ Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivant
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

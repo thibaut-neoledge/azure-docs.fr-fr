@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="02/08/2016"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -205,8 +205,22 @@ Nom de la propriété | Valeur de la propriété | Explication
 AzureSearch\_Skip | "true" | Demande à l’indexeur d’objets blob d’ignorer complètement l’objet blob ; aucune extraction de métadonnées ou de contenu ne sera tentée. Cela se révèle utile lorsque vous souhaitez ignorer certains types de contenu, ou quand un objet blob spécifique échoue à plusieurs reprises et interrompt le processus d’indexation.
 AzureSearch\_SkipContent | "true" | Indique à l’indexeur d’objets blob de seulement indexer les métadonnées et d’ignorer l’extraction du contenu de l’objet blob. Cela est utile si le contenu de l’objet blob n’est pas intéressant, mais que vous souhaitez néanmoins indexer les métadonnées attachées à cet objet blob.
 
+<a name="IndexerParametersConfigurationControl"></a>
+## Utilisation de paramètres d’indexeur pour contrôler l’extraction des documents
+
+Si vous devez extraire des métadonnées, mais ignorer l’extraction de contenu pour tous les objets blob, vous pouvez demander ce comportement à l’aide de la configuration d’indexeur, au lieu d’avoir à ajouter des métadonnées `AzureSearch_SkipContent` à chaque objet blob. Pour ce faire, définissez la propriété de configuration `skipContent` sur `true` dans l’objet `parameters` :
+
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "skipContent" : true } }
+	}
+
 ## Aidez-nous à améliorer Azure Search
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

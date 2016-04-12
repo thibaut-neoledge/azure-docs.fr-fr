@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 	- **name**. Nom de la ressource. Remarquez l’utilisation de **[parameters(’applicationGatewayName’)]**, qui signifie que le nom sera fourni par l’utilisateur ou par un fichier de paramètres au cours du déploiement.
 	- **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway.
 
-7. Revenez à https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
+7. Revenez à https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
 8. Cliquez sur **azuredeploy-paremeters.json**, puis cliquez sur **RAW**.
 9. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 10. Ouvrez le fichier que vous venez d’enregistrer et modifiez les valeurs des paramètres. Utilisez les valeurs ci-dessous pour déployer la passerelle Application Gateway décrite dans notre scénario.
@@ -284,4 +284,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

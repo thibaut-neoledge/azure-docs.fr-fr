@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Inscription de sources de données"
-   description="Article de procédure relatif à l'inscription de sources de données avec Azure Data Catalog, y compris les champs de métadonnées extraits et les sources de données prises en charge lors de l'aperçu."
+   pageTitle="Comment inscrire des sources de données | Microsoft Azure"
+   description="Article de procédure relatif à l’inscription de sources de données avec Azure Data Catalog, y compris les champs de métadonnées extraits lors de l’inscription."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -79,4 +79,4 @@ L’inscription d’une source de données auprès d’**Azure Data Catalog** fa
 ## Voir aussi
 - Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur l’inscription de sources de données.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

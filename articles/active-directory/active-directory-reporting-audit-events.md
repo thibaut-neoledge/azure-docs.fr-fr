@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Événements de rapport d’audit d’Azure Active Directory| Microsoft Azure"
-   description="Événements audités disponibles pour l'affichage et le téléchargement à partir d'Azure Active Directory"
+   pageTitle="Événements de rapport d’audit d’Azure Active Directory | Microsoft Azure"
+   description="Événements audités disponibles pour l'affichage et le téléchargement à partir d'Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
-# Événements de rapport d'audit d'Azure Active Directory
+# Événements de rapport d’audit d’Azure Active Directory
 
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine). Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’acteur qui a effectué l’action, la ressource cible affectée par la modification, ainsi que la date et l’heure (UTC). Les clients sont en mesure de récupérer la liste des événements d'audit pour leur Azure Active Directory via le [Portail de gestion Azure](https://manage.windowsazure.com/), comme décrit dans [Afficher vos rapports d'accès et d’utilisation](active-directory-view-access-usage-reports.md).
+Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine). Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’acteur qui a effectué l’action, la ressource cible affectée par la modification, ainsi que la date et l’heure (UTC). Les clients sont en mesure de récupérer la liste des événements d'audit pour leur Azure Active Directory via le [Portail de gestion Azure](https://manage.windowsazure.com/), comme décrit dans [Afficher vos rapports d'accès et d’utilisation](active-directory-view-access-usage-reports.md).
 
 
 ## Liste d'événements de rapport d'audit
@@ -34,7 +34,7 @@ Supprimer l'utilisateur | Suppression de l'utilisateur du répertoire
 Définir les propriétés de licence | Définition des propriétés de la licence pour un utilisateur du répertoire
 Réinitialiser le mot de passe de l'utilisateur | Réinitialisation du mot de passe pour un utilisateur du répertoire
 Modifier le mot de passe de l'utilisateur | Modification du mot de passe pour un utilisateur du répertoire
-Modifier la licence de l'utilisateur | Modification de la licence attribuée à un utilisateur du répertoire Pour voir quelles licences ont été mises à jour, examinez l’événement « Mettre à jour l’utilisateur » juste avant ou après cet événement.
+Modifier la licence de l'utilisateur | Modification de la licence attribuée à un utilisateur du répertoire Pour voir quelles licences ont été mises à jour, examinez l’événement « Mettre à jour l’utilisateur » juste avant ou après cet événement.
 Mettre à jour l'utilisateur | Mise à jour d'un utilisateur dans le répertoire [Voir ci-dessous](#quotupdate-userquot-attributes) pour les attributs qui peuvent être mis à jour.
 Définir le mot de passe utilisateur | Définition de la propriété qui force un utilisateur à modifier son mot de passe lors de la connexion
 **Événements liés aux groupes** |
@@ -54,7 +54,7 @@ Supprimer l'entrée de délégation | Suppression d’un [OAuth2PermissionGrant]
 **Événements liés aux rôles** |
 Ajouter un membre au rôle | Ajout d'un utilisateur à un rôle de répertoire
 Supprimer un membre du rôle | Suppression d'un utilisateur d'un rôle de répertoire
-Définir les informations de contact d'entreprise | Définition des préférences de contact au niveau de l'entreprise Cela inclut les adresses de messagerie pour le marketing, ainsi que les notifications techniques à propos de Microsoft Online Services.
+Définir les informations de contact d'entreprise | Définition des préférences de contact au niveau de l'entreprise Cela inclut les adresses de messagerie pour le marketing, ainsi que les notifications techniques à propos de Microsoft Online Services.
 **Événements B2B** |
 Lot d’invitations chargé | Un administrateur a chargé un fichier contenant des invitations à envoyer aux utilisateurs partenaires.
 Lot d’invitations traité. | Un fichier contenant des invitations à envoyer aux utilisateurs partenaires a été traité.
@@ -89,7 +89,7 @@ Promote tenant to partner
 --->
 
 ## Rétention des rapports d’audit
-Les événements du rapport d’audit d’Azure AD sont conservés pendant 180 jours. Pour plus d’informations sur la rétention des rapports, consultez la page [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
+Les événements du rapport d’audit d’Azure AD sont conservés pendant 180 jours. Pour plus d’informations sur la rétention des rapports, consultez la page [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
 
 Pour les clients intéressés par le stockage de leurs événements d’audit pour des périodes de rétention plus longues, l’API de création de rapports peut être utilisée pour extraire régulièrement des événements d’audit dans un magasin de données distinct. Consultez la rubrique [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md) pour en savoir plus.
 
@@ -103,8 +103,8 @@ Action | L'action qui a été effectuée
 Cible | L'utilisateur ou le principal du service pour qui l'action a été effectuée
 
 
-## Attributs de « Mettre à jour l’utilisateur »
-L'événement d'audit « Mettre à jour l'utilisateur » inclut des informations supplémentaires sur les attributs utilisateur qui ont été mis à jour. Pour chaque attribut, la valeur précédente et la nouvelle valeur sont toutes les deux incluses.
+## Attributs de « Mettre à jour l’utilisateur »
+L'événement d'audit « Mettre à jour l'utilisateur » inclut des informations supplémentaires sur les attributs utilisateur qui ont été mis à jour. Pour chaque attribut, la valeur précédente et la nouvelle valeur sont toutes les deux incluses.
 
 Attribut | Description
 ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -120,6 +120,6 @@ StrongAuthenticationRequirement | Dans le cas où l'authentification multi-facte
 StrongAuthenticationUserDetails | Numéro de téléphone de l'utilisateur, numéro de téléphone alternatif et adresse de messagerie utilisés pour la vérification de l'authentification multi-facteur et de la réinitialisation du mot de passe.
 TelephoneNumber | Numéro de téléphone de l'utilisateur
 
-Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](https://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
+Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](https://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

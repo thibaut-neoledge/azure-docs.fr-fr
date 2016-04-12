@@ -18,7 +18,8 @@
 
 # Protocoles v2.0 - OAuth 2.0 et OpenID Connect
 
-Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit distribué en standard, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos bibliothèques open source. <!-- TODO: Need link to libraries above -->
+Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit distribué en standard, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos bibliothèques open source.
+<!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
 	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
@@ -77,7 +78,7 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 - Génération de démons ou de processus côté serveur avec le flux d’informations d’identification de Client OAuth 2.0 (prochainement)
 - Obtention de jetons dans une API web avec le flux De la part de d’OAuth 2.0 (prochainement)
 
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
+<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

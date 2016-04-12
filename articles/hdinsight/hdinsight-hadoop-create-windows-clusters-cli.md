@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide de l’interface de ligne de commande Azure
@@ -23,7 +23,10 @@
 
 Apprenez à créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure. Pour accéder à d'autres outils et fonctions de création de clusters, cliquez sur l'onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-###Configuration requise :
+##Configuration requise :
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
@@ -50,7 +53,7 @@ Pour obtenir de l’aide, utilisez le commutateur **-h**. Par exemple :
 
 Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance d'Azure Resource Management (ARM) et d'un compte de stockage d'objets Blob Azure. Pour créer un cluster HDInsight, vous devez indiquer les éléments suivants :
 
-- **Groupe de ressources Azure**: un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. 
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. 
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
 	
@@ -62,9 +65,9 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 
 - **Nom du cluster HDInsight**
 
-- **Emplacement**: un des centres de données Azure prenant en charge des clusters HDInsight. Pour obtenir la liste des emplacements pris en charge, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+- **Emplacement** : un des centres de données Azure prenant en charge des clusters HDInsight. Pour obtenir la liste des emplacements pris en charge, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-- **Compte de stockage par défaut**: HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight.
+- **Compte de stockage par défaut** : HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight.
 
 	Pour créer un compte de stockage Azure :
 	
@@ -85,7 +88,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 
 	Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
 
-- **(facultatif) Conteneur d'objets blob par défaut**: la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
+- **(facultatif) Conteneur d'objets blob par défaut** : la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
 
 	azure storage container create --account-name « <Storage Account Name> » --account-key <Storage Account Key> [ContainerName]
 
@@ -125,7 +128,7 @@ Pour plus d’informations sur les actions de script, consultez [Personnaliser d
 
 ## Créer des clusters à l'aide de modèles ARM
 
-Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters en appelant des modèles ARM. Voir [Déploiement avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters en appelant des modèles ARM. Consultez [Déploiement avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## Voir aussi
 
@@ -134,4 +137,4 @@ Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters
 - [Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure](hdinsight-administer-use-command-line.md)
 - [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

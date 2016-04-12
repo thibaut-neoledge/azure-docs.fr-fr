@@ -14,16 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
-	ms.author="mimig"/>
+	ms.date="03/22/2016" 
+	ms.author="ryancraw"/>
 
 
 # Exemples .NET DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET Examples](documentdb-dotnet-samples.md)
-- [Node.js Examples](documentdb-nodejs-samples.md)
-- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+- [Exemples .NET](documentdb-dotnet-samples.md)
+- [Exemples Node.js](documentdb-nodejs-samples.md)
+- [Exemples Python](documentdb-python-samples.md)
+- [Galerie d’exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Le référentiel GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) contient des exemples de solutions qui exécutent des opérations CRUD ainsi que d’autres opérations courantes sur les ressources DocumentDB. Cet article fournit :
 
@@ -34,7 +35,7 @@ Le référentiel GitHub [azure-documentdb-net](https://github.com/Azure/azure-do
 
 1. Pour utiliser ces exemples NoSQL, vous avez besoin d’un compte Azure :
     - Vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
-   - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+   - Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : ce dernier vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 2. Vous avez également besoin du [package NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [AZURE.NOTE]
@@ -105,7 +106,7 @@ L’exemple de fichier de partitionnement [azure-documentdb-net/samples/code-sam
 Task | Informations de référence sur l'API
 --- | ---
 [Utiliser un HashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L144-L160) | [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx)
-[Utiliser un RangePartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L162-L186) | [Appliquer une plage ](https://msdn.microsoft.com/library/azure/mt126048.aspx) avec<br>[RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
+[Utiliser un RangePartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L162-L186) | [Appliquer une plage](https://msdn.microsoft.com/library/azure/mt126048.aspx) avec<br>[RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
 [Implémenter les programmes de résolution de partition personnalisés](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L285) | [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx)
 [Implémenter une table de recherche simple](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L115-L119) avec<br>[LookupPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) | [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
 [Implémenter un programme de résolution de partition qui crée ou clone des collections](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L121-L126) avec<br> [ManagedHashPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/ManagedHashPartitionResolver.cs) | [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx)
@@ -178,4 +179,4 @@ Task | Informations de référence sur l'API
 [Définir les autorisations sur une collection ou un document](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [Obtenir la liste des autorisations d’un utilisateur](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

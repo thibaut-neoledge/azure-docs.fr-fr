@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Présentation du kit de développement logiciel Azure IoT device SDK pour C
@@ -155,6 +155,8 @@ L’implémentation de l’exemple d’application est disponible dans le fichie
 Nous allons utiliser cet exemple d’application pour vous montrer les éléments requis pour utiliser la bibliothèque **IoTHubClient**.
 
 ### Initialisation de la bibliothèque
+
+> [AZURE.NOTE] Avant d’utiliser les bibliothèques, vous devrez peut-être procéder à une initialisation spécifique à la plateforme. Par exemple, si vous prévoyez d’utiliser AMQPS sur Linux, vous devez initialiser la bibliothèque OpenSSL. Les exemples du [référentiel GitHub](https://github.com/Azure/azure-iot-sdks) appellent la fonction de l’utilitaire **platform\_init** lorsque le client démarre et appellent la fonction **platform\_deinit** avant de se fermer. Ces fonctions sont déclarées dans le fichier d’en-tête « platform.h ». Nous vous conseillons d’examiner les définitions de ces fonctions pour votre plateforme cible dans le [référentiel](https://github.com/Azure/azure-iot-sdks) pour déterminer si vous devez inclure du code d’initialisation de la plateforme dans votre client.
 
 Pour commencer à travailler avec les bibliothèques, vous devez d’abord attribuer un pointeur client IoT Hub :
 
@@ -458,4 +460,4 @@ Chacune de ces trois fonctions s’aligne sur les trois fonctions d’initialisa
 
 Cet article a abordé les principes fondamentaux de l’utilisation des bibliothèques dans le **Kit de développement logiciel Azure IoT device SDK pour C**. Il vous a fourni suffisamment d’informations pour comprendre ce qui est inclus dans le Kit de développement logiciel (SDK), son architecture et la manière d’utiliser les exemples Windows. Le prochain article poursuit la description du kit de développement logiciel en approfondissant les explications relatives à [la bibliothèque IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->
