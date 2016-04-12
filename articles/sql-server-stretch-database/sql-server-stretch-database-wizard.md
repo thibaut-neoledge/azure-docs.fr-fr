@@ -46,7 +46,7 @@ Sélectionnez les tables que vous souhaitez activer pour Stretch.
 |**Étendu**|Indique si la table est déjà activée.|
 |**Lignes**|Spécifie le nombre de lignes dans la table.|
 |**Taille (Ko)**|Spécifie la taille de la table en Ko.|
-|**Migrer**|Dans CTP 3.1 jusqu’à RC1, vous pouvez uniquement migrer une table entière à l’aide de l’Assistant. Si vous souhaitez spécifier un prédicat pour sélectionner des lignes à migrer à partir d’une table qui contient à la fois des données d’historique et des données actuelles, exécutez l’instruction ALTER TABLE pour spécifier un prédicat après avoir quitté l’Assistant. Pour plus d’informations, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrer**|Dans la version CTP 3.1 jusqu’à RC2, vous pouvez uniquement migrer une table entière à l’aide de l’Assistant. Si vous souhaitez spécifier un prédicat pour sélectionner des lignes à migrer à partir d’une table qui contient à la fois des données d’historique et des données actuelles, exécutez l’instruction ALTER TABLE pour spécifier un prédicat après avoir quitté l’Assistant. Pour plus d’informations, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 
 ## <a name="Configure"></a>Configurer le déploiement Azure
 
@@ -141,4 +141,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

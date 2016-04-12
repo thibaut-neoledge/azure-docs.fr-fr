@@ -28,13 +28,11 @@ U-SQL est un langage hyper évolutif et hautement extensible conçu pour prépar
 
 ###Composants requis
 
-- **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++** 
+- **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge.** 
 - **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.7.1 ou ultérieure**. Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**. 
 
-    Une fois les Data Lake Tools pour Visual Studio installés, vous verrez un menu Data Lake dans Visual Studio :
-    
-    ![Menu U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+    Une fois les outils Data Lake pour Visual Studio installés, vous verrez un nœud « Data Lake Analytics » dans l’Explorateur de serveurs sous le nœud « Azure » (vous pouvez ouvrir l’Explorateur de serveurs en appuyant sur Ctrl+Alt+S).
 
 - **Consultez les deux sections suivantes dans [Prendre en main Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)**.
 
@@ -71,7 +69,7 @@ Si vous voulez utiliser vos propres données, voici les procédures de télécha
 
 **Pour charger les fichiers dans un compte Azure Blob Storage lié**
 
-1. À partir de l'**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés. 
+1. À partir de l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**. Le compte de stockage Data Lake par défaut doit s'afficher, ainsi que les comptes de stockage Data Lake liés et les comptes Azure Storage liés. 
 2. Développez le compte Azure Storage.
 3. Cliquez avec le bouton droit sur le conteneur dans lequel vous souhaitez télécharger des fichiers, puis cliquez sur **Explorer**. Si vous ne disposez pas d’un conteneur, vous devez commencer par en créer un à l’aide du portail Azure, d’Azure PowerShell ou d’autres outils.
 4. Accédez au dossier où vous souhaitez télécharger des fichiers, 
@@ -363,4 +361,4 @@ Le script PowerShell suivant prépare un compte Azure Data Lake Analytics et la 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

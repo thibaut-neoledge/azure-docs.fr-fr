@@ -20,7 +20,8 @@
 # Créer un réseau virtuel avec une connexion VPN de site à site en utilisant Azure Resource Manager et PowerShell
 
 > [AZURE.SELECTOR]
-- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
+- [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portail Azure - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local, à l’aide du modèle de déploiement **Azure Resource Manager**. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
@@ -118,7 +119,7 @@ Pour ajouter une passerelle de réseau local avec des préfixes d’adresse mult
 
 ### Pour modifier des préfixes d’adresses IP de votre passerelle de réseau local
 
-Parfois, les préfixes de votre passerelle de réseau local changent. Les étapes à suivre pour modifier vos préfixes d'adresses IP varient selon que vous avez créé une connexion à la passerelle VPN. Consultez la section [Modifier les préfixes d’adresse IP d’une passerelle de réseau local](#modify) de cet article.
+Parfois, les préfixes de votre passerelle de réseau local changent. Les étapes à suivre pour modifier vos préfixes d'adresses IP varient selon que vous avez créé une connexion à la passerelle VPN. Consultez la section [Modifier des préfixes d’adresses IP de votre passerelle de réseau local](#modify) de cet article.
 
 
 ## 4\. Demander une adresse IP publique de la passerelle VPN
@@ -145,7 +146,7 @@ Dans cette étape, vous allez créer la passerelle de réseau virtuel. Notez que
 
 Utilisez les valeurs suivantes :
 
-- Le paramètre **- GatewayType** pour une configuration de site à site est **Vpn**. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
+- Le paramètre **-GatewayType** pour une configuration de site à site est **Vpn**. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
 
 - Le paramètre **-VpnType** peut avoir pour valeur **RouteBased** (appelé passerelle dynamique dans certaines documentations) ou **PolicyBased** (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md#vpntype).
 - La valeur de **-GatewaySku** peut être **Basic**, **Standard**, ou **HighPerformance**. 	
@@ -188,4 +189,4 @@ Si vous devez modifier les préfixes de votre passerelle de réseau local, suive
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

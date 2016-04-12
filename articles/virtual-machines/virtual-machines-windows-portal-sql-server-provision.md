@@ -12,7 +12,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/24/2016"
@@ -168,12 +168,12 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 
 |PARAMÈTRE|DESCRIPTION|EXEMPLE|
 |----------|----------|-------|
-|**URL du coffre de clés** | L’emplacement du coffre de clés.|https://contosokeyvault.vault.azure.net/ |
-|**Nom principal du coffre de clés Azure** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **Secret du principal du coffre de clés Azure**|L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nom des informations d’identification**|Choisissez un nom pour désigner ces informations d’identification.| mycred1|
+|**URL du coffre de clés** |L’emplacement du coffre de clés.|https://contosokeyvault.vault.azure.net/ |
+|**Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Secret du principal**|Secret du principal du service Azure Active Directory Également appelé Secret client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
 
-Pour plus d’informations, consultez [Configurer Azure Key Vault Integration (Intégration du coffre de clés Azure) pour des machines virtuelles SQL Server sur Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5\. Passer en revue le résumé
 Passez en revue le résumé et cliquez sur **OK** pour créer SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle. Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **Notifications** en haut de l’écran affiche l’état de base du déploiement.
@@ -203,4 +203,4 @@ Les étapes suivantes ne sont pas requises si vous devez uniquement accéder à 
 ##<a id="Next">Étapes suivantes
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

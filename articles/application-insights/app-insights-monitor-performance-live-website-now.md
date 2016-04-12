@@ -194,6 +194,89 @@ Windows 7, 8 et 8.1 côté client, avec également .NET Framework 4.0 et 4.5
 
 Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 
+## Automation avec PowerShell
+
+Vous pouvez démarrer et arrêter la surveillance à l’aide de PowerShell.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (Facultatif) Le nom d’une application web.
+* Affiche l’état de la surveillance Application Insights pour chaque application web (ou l’application nommée) dans ce serveur IIS.
+
+* Renvoie `ApplicationInsightsApplication` pour chaque application :
+ * `SdkState==EnabledAfterDeployment` : l’application est surveillée et a été instrumentée au moment de l’exécution, via l’outil Status Monitor ou via `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled` : l’application n’est pas instrumentée pour Application Insights. Soit elle n’a jamais été instrumentée, soit la surveillance au moment de l’exécution a été désactivée via l’outil Status Monitor ou via `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledByCodeInstrumentation` : l’application a été instrumentée en ajoutant le Kit de développement logiciel (SDK) au code source. Son Kit de développement logiciel (SDK) ne peut pas être mis à jour ou arrêté.
+ * `SdkVersion` affiche la version en cours d’utilisation pour la surveillance de cette application.
+ * `LatestAvailableSdkVersion` affiche la version actuellement disponible sur la galerie NuGet. Pour mettre à niveau l’application vers cette version, utilisez `Update-ApplicationInsightsMonitoring`.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` Le nom de l’application dans le serveur IIS
+* `-InstrumentationKey` L’ikey de la ressource Application Insights où vous souhaitez que les résultats soient affichés.
+
+* Cette applet de commande affecte uniquement les applications qui ne sont pas déjà instrumentées, c’est-à-dire SdkState==NotInstrumented.
+
+    L’applet de commande n’affecte pas une application qui est déjà instrumentée, que ce soit au moment de la création en ajoutant le Kit de développement logiciel (SDK) au code ou au moment de l’exécution via une utilisation préalable de cette applet de commande.
+
+    La version du Kit de développement logiciel (SDK) utilisée pour instrumenter l’application est la version la plus récente téléchargée sur ce serveur.
+
+    Pour télécharger la version la plus récente, utilisez Update-ApplicationInsightsVersion.
+
+* Renvoie `ApplicationInsightsApplication` en cas de réussite. En cas d’échec, il consigne un suivi sur stderr.
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` Le nom d’une application dans le serveur IIS
+* `-All` Arrête la surveillance de toutes les applications de ce serveur IIS pour lequel `SdkState==EnabledAfterDeployment`
+
+* Arrête la surveillance des applications spécifiées et supprime l’instrumentation. Cela fonctionne uniquement pour les applications qui ont été instrumentées au moment de l’exécution via l’outil Status Monitoring ou via ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+
+* Renvoie ApplicationInsightsApplication.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name` :le nom d’une application web dans le serveur IIS.
+* `-InstrumentationKey` (Facultatif.) Permet de modifier la ressource à laquelle la télémétrie de l’application est envoyée.
+* Cette applet de commande :
+ * Met à niveau l’application nommée vers la version la plus récente du Kit de développement logiciel (SDK) téléchargée sur cette machine. (Fonctionne uniquement si `SdkState==EnabledAfterDeployment`)
+ * Si vous fournissez une clé d’instrumentation, l’application nommée est reconfigurée pour envoyer la télémétrie à la ressource avec cette clé. (Fonctionne si `SdkState != Disabled`)
+
+`Update-ApplicationInsightsVersion`
+
+* Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
+
+## Modèle Azure
+
+Si l’application web est dans Azure et que vous créez vos ressources à l’aide d’un modèle Azure Resource Manager, vous pouvez configurer Application Insights en ajoutant cela au nœud de ressources :
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource`, un nom pour la ressource Application Insights
+* `myWebAppName`, l’ID de l’application web
 
 ## <a name="next"></a>Étapes suivantes
 
@@ -219,4 +302,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

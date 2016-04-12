@@ -1,6 +1,6 @@
 <properties
    pageTitle="Adoption d’Azure Data Catalog | Microsoft Azure"
-   description="Cet article vous aide dans la prise en main de l’adoption d’Azure Data Catalog dans votre organisation. Pour mener à bien l’adoption d’**Azure Data Catalog**, vous pouvez vous concentrer sur trois éléments clés : définition de votre vision du projet, identification des principaux cas d’utilisation métier au sein de votre organisation et choix d’un projet pilote."
+   description="Cet article présente une approche et un processus destiné aux organisations qui envisagent d’adopter Azure Data Catalog, y compris la définition de la vision du projet, l’identification des principaux cas d’utilisation métier au sein de l’organisation et le choix d’un projet pilote."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/28/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Adoption d’Azure Data Catalog
@@ -172,4 +172,4 @@ Cet article concernait la prise en main d’**Azure Data Catalog** dans votre or
 -	[Annoter des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Métadonnées en crowdsourcing](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

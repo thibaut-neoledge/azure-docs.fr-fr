@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Création de SQL Data Warehouse à l'aide de Powershell
@@ -78,7 +78,7 @@ Pour accéder aux informations de référence sur la commande, consultez [New-Az
 Pour connaître les options de paramètre, consultez [Créer une base de données (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx).
 
 ## Étapes suivantes
-Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger] ou [migrer][] les données.
+Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][].
 
 Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Warehouse par programme, consultez notre documentation [Powershell][] ou [API REST][].
 
@@ -88,7 +88,8 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 
 <!--Article references-->
 [migrer]: ./sql-data-warehouse-overview-migrate.md
-[développer]: ./sql-data-warehouse-overview-develop/.md
+[développer]: ./sql-data-warehouse-overview-develop.md
+[charger]: ./sql-data-warehouse-load-with-bcp.md
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [API REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
@@ -96,4 +97,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Comment installer et configurer Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

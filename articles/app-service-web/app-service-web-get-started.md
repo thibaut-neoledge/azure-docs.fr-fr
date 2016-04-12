@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@ Déployons à présent une application web dans Azure App Service
 
 4. Créez la ressource d’application d’App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante. L’URL de votre application web sera http://&lt;app_name>. azurewebsites.net.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] Si vous n’avez jamais configuré les informations d’identification de déploiement pour votre abonnement Azure, vous serez invité à les créer. Ces informations d’identification (et non pas les informations d’identification de votre compte Azure) sont utilisées par App Service uniquement dans le cadre des déploiements Git et des connexions FTP.
     
@@ -85,11 +85,9 @@ Félicitations, vous avez déployé votre application vers Azure App Service.
 
 ## Exécuter votre application en temps réel
 
-Pour exécuter votre application en temps réel dans Azure, exécutez la commande qui suit :
+Pour voir votre application en cours d’exécution dans Azure, exécutez cette commande à partir de n’importe quel répertoire de votre référentiel :
 
-    azure site browse <app_name>
-
-Si vous voyez ce message d’erreur : `Site <app_name> does not exist or has no hostnames`, réessayez la commande dans quelques secondes. Certaines applications, telles que les applications Java, prennent plus de temps pour lancer le déploiement.
+    azure site browse
 
 ## Mettre à jour votre application
 
@@ -101,7 +99,7 @@ Vous pouvez désormais procéder à un transfert depuis la racine (référentiel
 
 ## Autres méthodes de déploiement
 
-Il existe différentes façons de déployer votre application web. Le déploiement Git depuis un référentiel local n’en constitue qu’une seule. Vous pouvez assurer le déploiement directement depuis Visual Studio, assurer le déploiement en continu depuis GitHub, synchroniser à partir de DropBox ou de OneDrive, télécharger des fichiers via FTP, etc. Pour plus d’informations sur les options de déploiement, consultez la page [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md).
+Il existe différentes façons de déployer votre application web. Le déploiement Git depuis un référentiel local n’en constitue qu’une seule. Vous pouvez assurer le déploiement directement depuis Visual Studio, assurer le déploiement en continu depuis GitHub, synchroniser à partir de DropBox ou de OneDrive, télécharger des fichiers via FTP, etc. Pour en savoir plus sur les options de déploiement, voir [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md).
 
 ## Voir votre application sur le portail Azure
 
@@ -111,7 +109,7 @@ Il existe différentes façons de déployer votre application web. Le déploieme
 
 2. Dans la barre à gauche, cliquez sur **App Services**.
 
-3. Cliquez sur l’application App Service que vous venez de créer pour ouvrir son panneau dans le portail. Vous verrez que le panneau **Paramètres** est également ouvert par défaut pour plus de commodité.
+3. Cliquez sur l’application App Service que vous venez de créer pour ouvrir son panneau dans le portail. Vous verrez que le panneau **Paramètres** est également ouvert par défaut, pour plus de commodité.
 
     ![Vue du portail de la première application dans Azure App Service](./media/app-service-web-get-started/portal-view.png)
 
@@ -141,4 +139,4 @@ Ou trouvez encore du contenu relatif à la plage d’applications que vous pouve
 - [Créer des applications mobiles](/documentation/learning-paths/appservice-mobileapps/)
 - [Créer des applications API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Comment documenter des sources de données"
+   pageTitle="Comment documenter des sources de données | Microsoft Azure"
    description="Article de procédure expliquant comment documenter les ressources de données dans Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Documentation de sources de données
@@ -48,4 +48,4 @@ Le niveau de documentation peut aller d’une simple description des caractéris
 
 La documentation des sources de données avec **Azure Data Catalog** peut créer une narration sur vos ressources de données avec le degré de détail dont vous avez besoin. À l’aide de liens, vous pouvez référencer du contenu stocké dans un référentiel de contenu existant qui rassemble vos documents et vos ressources de données existants. Une fois que vos utilisateurs accèdent aux ressources de données appropriées, ils peuvent bénéficier d’un ensemble de documentation complet.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

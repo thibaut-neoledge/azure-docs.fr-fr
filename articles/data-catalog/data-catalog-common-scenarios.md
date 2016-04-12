@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Scénarios courants avec Azure Data Catalog"
+   pageTitle="Scénarios courants avec Azure Data Catalog | Microsoft Azure"
    description="Vue d’ensemble des scénarios courants pour Azure Data Catalog, y compris l’inscription et la découverte des sources de données de grande valeur, l’activation du décisionnel libre-service et la capture de connaissances tribales existantes sur les sources de données et les processus."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -66,4 +66,4 @@ Parfois ces experts en données font l’effort de documenter leurs connaissance
 
 Azure Data Catalog agit comme une plateforme permettant de partager ces connaissances tribales et de les rendre facilement identifiables. Les experts en données peuvent annoter directement les ressources de données et même inclure des liens vers la documentation existante. Cela permet non seulement de capturer les connaissances, mais également d’inscrire l’accès aux connaissances dans le même processus que celui utilisé pour découvrir les sources de données. Ainsi, lorsqu’une personne utilise le catalogue pour découvrir une source de données, elle trouvera non seulement la source elle-même, mais également les connaissances de l’expert qui auparavant existaient uniquement dans la tête de ce dernier.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

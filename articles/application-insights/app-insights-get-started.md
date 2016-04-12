@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de Visual Studio Application Insights | Microsoft Azure"
-	description="Analysez l’utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Visual Studio Application Insights."
+	pageTitle="Prise en main de Visual Studio Application Insights | Microsoft Azure"
+	description="Analysez l’utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Visual Studio Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="03/31/2016"
 	ms.author="awills"/>
 
 # Prise en main de Visual Studio Application Insights
@@ -46,14 +46,14 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 ## Support et commentaires
 
 
-* Questions et problèmes :
+* Questions et problèmes :
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bogues :
+* Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions
- * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Exemples de code
  * [Exemples de code](app-insights-code-samples.md)
 
@@ -74,4 +74,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

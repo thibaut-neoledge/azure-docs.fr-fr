@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="03/31/2016"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -60,6 +60,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[Réseaux Aryaka](http://www.aryaka.com/)** | Pris en charge | Pris en charge | Amsterdam, Silicon Valley, Singapour, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Tokyo, Washington DC |
+|**CenturyLink** | Bientôt disponible | Bientôt disponible| Silicon Valley |
 |**China Telecom Global** | Pris en charge | Non pris en charge | Hong Kong |
 |**Cologix** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin, Londres |
@@ -72,21 +73,21 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Internet Solutions - Cloud Connect** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **Interxion** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Pris en charge | Pris en charge | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Sydney, Washington DC |
+| **Megaport** | Pris en charge | Pris en charge | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapour, Sydney, Washington DC |
 | **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **NTT Communications** | Pris en charge | Pris en charge | Londres, Osaka, Tokyo |
 | **[Orange](http://www.orange-business.com/)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
 | **PCCW Global Limited** | Pris en charge | Pris en charge | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Non pris en charge | Singapour |
-| **Softbank** | Bientôt disponible | Bientôt disponible | Osaka, Tokyo | 
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Pris en charge | Pris en charge | Amsterdam, Chennai+, Hong Kong, Londres, Mumbai+, Singapour, Washington DC |
+| **Softbank** | Pris en charge | Pris en charge | Osaka, Tokyo | 
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Pris en charge | Pris en charge | Amsterdam, Chennai, Hong Kong, Londres, Mumbai, Silicon Valley, Singapour, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **Telenor** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Pris en charge | Non pris en charge | Melbourne, Sydney |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Sydney, Tokyo, Washington DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
-| **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Washington DC |
+| **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
  **+** = bientôt disponible
 
@@ -96,10 +97,10 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Bientôt disponible | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Bientôt disponible | Chicago, New York+, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Chicago, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Chicago, New York+, Washington DC |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Bientôt disponible | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Bientôt disponible | Chicago, New York+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Pris en charge | Chicago, New York+, Washington DC |
 
 #### Chine
 
@@ -144,14 +145,15 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 |**Intégrateur système**|**Continent**|
 |---|---|
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe|
 |**[Nimbo](http://www.nimbo.com/)**|FR||
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe/Moyen-Orient/Afrique|
-|**[Direction de projet](http://www.projectleadership.net/azure)** | FR |
+|**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
 |**[Efficacité](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
+|**[Direction de projet](http://www.projectleadership.net/azure)** | FR |
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

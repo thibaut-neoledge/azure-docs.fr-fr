@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog prise en main du catalogue de données"
-   description="Didacticiel de bout en bout des scénarios et des fonctionnalités d’Azure Data Catalog."
+   pageTitle="Azure Data Catalog prise en main du catalogue de données | Microsoft Azure"
+   description="Didacticiel de bout en bout présentant des scénarios et des fonctionnalités d’Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -258,4 +258,4 @@ Dans cet exercice, vous avez exploré les fonctionnalités de gestion **Azure Da
 
 Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

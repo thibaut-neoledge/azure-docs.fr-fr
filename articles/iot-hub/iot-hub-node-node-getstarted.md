@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main avec Azure IoT Hub pour Node.js | Microsoft Azure"
-	description="Suivez ce didacticiel pour commencer à utiliser Azure IoT Hub avec Node.js."
+	pageTitle="Prise en main d’Azure IoT Hub pour Node.js | Microsoft Azure"
+	description="Didacticiel de prise en main d’Azure IoT Hub avec Node.js. Utilisez Azure IoT Hub et Node.js avec les kits de développement logiciel (SDK) de Microsoft Azure IoT pour mettre en œuvre une solution Internet des objets."
 	services="iot-hub"
 	documentationCenter="nodejs"
 	authors="dominicbetts"
@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
+Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT (Internet des objets) et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
 
 - Offre une messagerie évolutive Appareil vers cloud et Cloud vers appareil fiable.
 - Assure la sécurité des communications grâce aux informations d’identification de sécurité par appareil et au contrôle d’accès.
@@ -139,4 +139,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->
