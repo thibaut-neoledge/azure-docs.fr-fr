@@ -192,4 +192,4 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 - En savoir plus sur les [limites, quotas et contraintes des abonnements et services Azure](../articles/azure-subscription-service-limits.md).
 - En savoir plus sur [les instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!------HONumber=AcomDC_0330_2016-->
