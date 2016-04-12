@@ -23,4 +23,4 @@ Cet article décrit les tailles et options disponibles pour les machines virtuel
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
