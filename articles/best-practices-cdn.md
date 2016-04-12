@@ -65,8 +65,8 @@ La liste suivante répertorie des exemples de temps médian jusqu’au premier o
 |Séoul, KR| 190 | 190 | 0 % |
 
 
-\* A un nœud de CDN Azure dans la même ville. 
-\*\* A un nœud de CDN Azure dans une ville voisine.
+\* A un nœud de CDN Azure dans la même ville.  
+\*\* A un nœud de CDN Azure dans une ville voisine.  
 
 ## Défis  
 
