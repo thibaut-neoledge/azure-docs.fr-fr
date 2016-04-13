@@ -29,7 +29,7 @@ Ajoutez l’API Dynamics CRM Online à l’environnement App Service (locataire)
 
 1. Dans le [portail Azure](https://portal.azure.com), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
 
-2. Dans la barre des tâches, sélectionnez **Parcourir** :  
+2. Dans la barre des tâches, sélectionnez **Parcourir** :  
 ![][1]
 
 3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* :  
@@ -122,5 +122,5 @@ Vous venez de voir comment ajouter l’API Dynamics CRM Online à PowersApps Ent
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
 

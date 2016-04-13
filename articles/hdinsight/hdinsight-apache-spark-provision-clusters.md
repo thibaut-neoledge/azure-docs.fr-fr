@@ -146,7 +146,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 		![Panneau Stockage supplémentaire](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.9.png "Spécifier des comptes de stockage supplémentaires")
 
-		Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Nouveau cluster HDInsight **.
+		Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Nouveau cluster HDInsight**.
 
 10. Dans le panneau **Nouveau cluster HDInsight**, assurez-vous que l’option **Épingler au tableau d’accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L’icône indique que le cluster est en cours de création et sera modifiée pour représenter l’icône HDInsight une fois la création terminée.
 
@@ -242,4 +242,4 @@ Spécifiez un type de cluster Spark :
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
