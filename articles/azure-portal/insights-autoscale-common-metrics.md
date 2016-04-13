@@ -51,7 +51,33 @@ Vous pouvez créer une alerte pour les métriques suivantes.
 
 |Nom de métrique|	Unité|
 |---|---|
-|\\Processeur(\_Total)\\% temps processeur|Pourcentage| |\\Processeur(\_Total)\\% temps privilégié |Pourcentage| |\\Processeur(\_Total)\\% temps utilisateur |Pourcentage| |\\Informations sur le processeur(\_Total)\\Fréquence du processeur |Nombre| |\\Système\\Processus| Nombre| |\\Processus(\_Total)\\Nombre de threads| Nombre| |\\Processus(\_Total)\\Nombre de handles |Nombre| |\\Mémoire\\ % octets validés en cours d’utilisation |Poucentage| |\\Mémoire\\Octets disponibles| Octets| |\\Mémoire\\Octets validés |Octets| |\\Mémoire\\Limite de mémoire dédiée| Octets| |\\Mémoire\\Octets de réserve paginée| Octets| |\\Mémoire\\Octets de réserve non paginée| Octets| |\\Disque physique(\_Total)\\% temps disque| Pourcentage| |\\Disque physique(\_Total)\\% temps de lecture du disque| Pourcentage| |\\Disque physique(\_Total)\\% temps d’écriture sur le disque| Pourcentage| |\\Disque physique(\_Total)\\Transferts disque/s |Nombre par seconde| |\\Disque physique(\_Total)\\Lectures disque/s |Nombre par seconde| |\\Disque physique(\_Total)\\Écritures disque/s |Nombre par seconde| |\\Disque physique(\_Total)\\Octets disque/s |Octets par seconde| |\\Disque physique(\_Total)\\Lectures disque, octets/s| Octets par seconde| |\\Disque physique(\_Total)\\Écritures disque, octets/s |Octets par seconde| |\\Disque physique(\_Total)\\Moy. Longueur de la file d’attente du disque| Nombre| |\\Disque physique(\_Total)\\Moy. Longueur de file d’attente lecture disque| Nombre| |\\Disque physique(\_Total)\\Moy. Longueur de file d’attente écriture disque |Nombre| |\\Disque logique(\_Total)\\% espace libre| Pourcentage| |\\Espace libre(\_Total)\\Mégaoctets libres| Nombre|
+|\\Processeur(\_Total)\\% temps processeur|Pourcentage|
+|\\Processeur(\_Total)\\% temps privilégié |Pourcentage|
+|\\Processeur(\_Total)\\% temps utilisateur |Pourcentage|
+|\\Informations sur le processeur(\_Total)\\Fréquence du processeur |Nombre|
+|\\Système\\Processus| Nombre|
+|\\Processus(\_Total)\\Nombre de threads| Nombre|
+|\\Processus(\_Total)\\Nombre de handles |Nombre|
+|\\Mémoire\\ % octets validés en cours d’utilisation |Poucentage|
+|\\Mémoire\\Octets disponibles| Octets|
+|\\Mémoire\\Octets validés |Octets|
+|\\Mémoire\\Limite de mémoire dédiée| Octets|
+|\\Mémoire\\Octets de réserve paginée| Octets|
+|\\Mémoire\\Octets de réserve non paginée| Octets|
+|\\Disque physique(\_Total)\\% temps disque| Pourcentage|
+|\\Disque physique(\_Total)\\% temps de lecture du disque| Pourcentage|
+|\\Disque physique(\_Total)\\% temps d’écriture sur le disque| Pourcentage|
+|\\Disque physique(\_Total)\\Transferts disque/s |Nombre par seconde|
+|\\Disque physique(\_Total)\\Lectures disque/s |Nombre par seconde|
+|\\Disque physique(\_Total)\\Écritures disque/s |Nombre par seconde|
+|\\Disque physique(\_Total)\\Octets disque/s |Octets par seconde|
+|\\Disque physique(\_Total)\\Lectures disque, octets/s| Octets par seconde|
+|\\Disque physique(\_Total)\\Écritures disque, octets/s |Octets par seconde|
+|\\Disque physique(\_Total)\\Moy. Longueur de la file d’attente du disque| Nombre|
+|\\Disque physique(\_Total)\\Moy. Longueur de file d’attente lecture disque| Nombre|
+|\\Disque physique(\_Total)\\Moy. Longueur de file d’attente écriture disque |Nombre|
+|\\Disque logique(\_Total)\\% espace libre| Pourcentage|
+|\\Espace libre(\_Total)\\Mégaoctets libres| Nombre|
 
 
 
