@@ -79,10 +79,10 @@ Lorsque vous avez terminé, une nouvelle API Dynamics CRM Online est ajoutée à
 
 	![Ajouter une application AAD – Informations sur l’application][9]
 
-6. Dans **Propriétés de l’application** :
+6. Dans **Propriétés de l’application** :  
 
-	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur \__https://login.windows.net_.
-2. Entrez un **URI ID d’application** valide pour votre application.  
+	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur _https://login.windows.net_.  
+	2. Entrez un **URI ID d’application** valide pour votre application.  
 	3. Sélectionnez **OK**.  
 
 	![Ajouter une application AAD – Propriétés de l’application][10]
@@ -123,3 +123,4 @@ Vous venez de voir comment ajouter l’API Dynamics CRM Online à PowersApps Ent
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
 <!---HONumber=AcomDC_0330_2016-->
+

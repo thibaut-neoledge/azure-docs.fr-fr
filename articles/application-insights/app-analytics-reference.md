@@ -27,11 +27,12 @@
 
 [Description générale des expressions régulières](https://github.com/google/re2/wiki/Syntax).
 
-Cette page répertorie la syntaxe des expressions régulières acceptée par RE2. Elle répertorie également la syntaxe acceptée par PCRE, PERL et VIM.
+Cette page répertorie la syntaxe des expressions régulières acceptée par RE2. 
+Elle répertorie également la syntaxe acceptée par PCRE, PERL et VIM. 
 
-|
+||
 |---|---
-|Caractères uniques : | 
+|Caractères uniques : |
 |. |n’importe quel caractère, y compris éventuellement un caractère de nouvelle ligne (s=vrai) 
 |[xyz] |classe de caractères 
 |[^xyz] |classe de caractères exclue 
