@@ -222,7 +222,8 @@ Répétez le processus pour chaque plateforme sur laquelle votre application s�
 - Utilisez l’[ID de l’application](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) du tableau de bord pour envoyer des données d’incident et des commentaires à partir de votre application. Dans MyDriving, mettre à jour les ID dans src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs 
 -   [**Invitez les utilisateurs de test**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). Vous obtenez une URL pour recruter les utilisateurs testeurs. Ils pourront s’inscrire pour rejoindre votre équipe, télécharger l’application et vous envoyer des commentaires.
 
--   Si vous préférez une version bêta plus ouverte, définissez une distribution publique : cliquez sur **Manage App, Distribution, Download = Public**. Désormais, tout le monde peut télécharger votre application et vous envoyer des commentaires. De même, tous les utilisateurs recevront une notification lorsque vous publierez une nouvelle version. Vous pouvez également leur fournir des rapports d’incident. ![](./media/iot-solution-build-system/image3.png)
+-   Si vous préférez une version bêta plus ouverte, définissez une distribution publique : cliquez sur **Manage App, Distribution, Download = Public**. Désormais, tout le monde peut télécharger votre application et vous envoyer des commentaires. De même, tous les utilisateurs recevront une notification lorsque vous publierez une nouvelle version. Vous pouvez également leur fournir des rapports d’incident.
+![](./media/iot-solution-build-system/image3.png)
 
 -   [**Liez les rapports d’incident à Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs) : cliquez sur **Manage App, Visual Studio Team Services**. HockeyApp peut créer automatiquement des éléments de travail dans Team Services lorsque des rapports d’incident sont disponibles ou lors de la réception des commentaires.
 
@@ -389,7 +390,8 @@ Puis, nous définissons le déclencheur de mise en production pour le déploieme
 
 ![](./media/iot-solution-build-system/image8.png)
 
-Pour les applications mobiles, nous effectuons le déploiement dans HockeyApp : ![](./media/iot-solution-build-system/image9.png)
+Pour les applications mobiles, nous effectuons le déploiement dans HockeyApp :
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +477,4 @@ Vous pouvez également signaler un [problème sur GitHub] ou laisser un commenta
 
 Nous espérons recevoir bientôt de vos nouvelles.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016--->

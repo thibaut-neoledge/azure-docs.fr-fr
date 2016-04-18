@@ -1,6 +1,6 @@
 <properties
    pageTitle="Présentation de Microsoft Power BI Embedded"
-   description=""
+   description="Présentation de Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

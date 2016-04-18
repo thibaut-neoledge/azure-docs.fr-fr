@@ -213,7 +213,8 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 3. Créez la vignette Demand by Timestamp :
 	-	Cliquez sur le jeu de données **EnergyStreamData** dans la section Jeux de données du volet gauche.
 
-	-	Cliquez sur l’icône **Courbes** ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
+	-	Cliquez sur l’icône **Courbes** ç
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
 
 	-	Cliquez sur EnergyStreamData dans le panneau **Champs**.
 
@@ -225,13 +226,14 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 	-	Dans le tableau de bord, pointez la souris sur cette vignette, cliquez sur l’icône Modifier située en haut à droite pour donner le titre « Demand by Timestamp ».
 
-4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### Configurer le tableau de bord de chemin à froid
 Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
-> [AZURE.NOTE] (1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] \(1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -252,7 +254,8 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-	Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
 
-		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit.
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, spécifiez le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Ignorez les messages d’avertissement qui s’affichent à l’écran.
 
@@ -288,4 +291,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016---->

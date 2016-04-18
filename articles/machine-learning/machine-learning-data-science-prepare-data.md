@@ -98,7 +98,7 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 
 * **Échantillonnage des enregistrements** : échantillonner les enregistrements de données et ne choisir que le sous-ensemble représentatif.
 * **Échantillonnage des attributs** : ne sélectionner que les attributs importants dans les données.  
-* **Agrégation **: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
+* **Agrégation**: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
 
 ## Comment nettoyer les données textuelles ?
 
@@ -110,4 +110,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 
 >*Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0406_2016--->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="À propos du flux de jetons d’application dans Power BI Embedded"
-   description=""
+   description="À propos du flux de jetons d’application dans Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

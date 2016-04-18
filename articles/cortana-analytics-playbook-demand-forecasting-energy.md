@@ -167,7 +167,8 @@ Dans de nombreux cas, le client peut être intéressé par la justification prof
 
 D’autre part, une personne doit avoir une bonne connaissance de la valeur pour l’entreprise de l’utilisation de la prévision de la demande d’énergie (à court ou à long terme). En fait, il est important de comprendre la valeur commerciale de chaque opération de prévision. Par exemple, une prévision de charge électrique précise pour les 24 heures à venir peut éviter la surproduction ou peut aider à empêcher les surcharges du réseau, ce qui peut se traduire par des économies au quotidien.
 
-Voici à quoi pourrait ressembler une formule de base pour le calcul de la solution de prévision de la demande : ![Formule de base pour le calcul des avantages financiers de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Voici à quoi pourrait ressembler une formule de base pour le calcul de la solution de prévision de la demande :
+![Formule de base pour le calcul des avantages financiers de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Cortana Intelligence Suite fournit un modèle de tarification par répartition, et il est donc inutile d’engager un composant de coût fixe pour cette formule. Cette formule peut être calculée sur une base quotidienne, mensuelle ou annuelle.
 
@@ -384,4 +385,4 @@ Le diagramme suivant représente une architecture Cortana Intelligence classique
 
 Pour plus d’informations sur chacun des composants et de l’architecture d’ensemble, reportez-vous au modèle Energy Solution.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

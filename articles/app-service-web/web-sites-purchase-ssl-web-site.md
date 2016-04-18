@@ -113,7 +113,7 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
 
     * **Vérification du domaine**
 
-        1. Il s’agit du processus le plus pratique **SEULEMENT SI ** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+        1. Il s’agit du processus le plus pratique **SEULEMENT SI** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
         2. Cliquez sur le bouton **« Vérifier »** pour terminer cette étape.
         
@@ -208,4 +208,4 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnal
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0406_2016--->

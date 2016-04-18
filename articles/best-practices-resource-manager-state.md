@@ -198,7 +198,7 @@ En plus des variables statiques, plusieurs variables sont générées dynamiquem
 
 Lorsque vous appelez le modèle principal, vous pouvez sélectionner une taille de t-shirt à partir d'un nombre limité d'options qui incluent généralement des valeurs telles que *Petit*, *Moyen* et *Grand*.
 
-Dans le modèle principal, cette option apparaît en tant que paramètre tel que *tshirtSize* :
+Dans le modèle principal, cette option apparaît en tant que paramètre tel que *tshirtSize* :
 
     "tshirtSize": {
       "type": "string",
@@ -314,7 +314,7 @@ Les détails du stockage sont souvent partagés avec les modèles liés. Dans l'
 
 Si vous utilisez des modèles liés, vous devrez peut-être transmettre des paramètres de système d’exploitation à différents types de nœuds entre les différents types de configurations connus. Un objet complexe est pratique pour stocker et partager facilement des informations de système d’exploitation et facilite également la prise en charge de plusieurs options de système d’exploitation pour le déploiement.
 
-L’exemple suivant montre un objet pour *osSettings* :
+L’exemple suivant montre un objet pour *osSettings* :
 
     "osSettings": {
       "imageReference": {
@@ -389,4 +389,4 @@ Dans le modèle principal, vous pouvez utiliser ces données avec la syntaxe sui
 - [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

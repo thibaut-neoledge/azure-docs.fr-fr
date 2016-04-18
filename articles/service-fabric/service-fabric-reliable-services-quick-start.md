@@ -24,11 +24,11 @@ Une application Azure Service Fabric contient un ou plusieurs services qui exéc
 
 Un service sans état est un type de service qui correspond actuellement à la norme pour les applications cloud. Le service lui-même est considéré comme étant sans état, car il ne contient pas de données à stocker de manière fiable ou à rendre hautement disponibles. Si une instance d’un service sans état est arrêtée, tout son état interne est perdu. Dans ce type de service, l’état doit être conservé dans un magasin externe, comme des tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
 
-Lancez Visual Studio 2015 RC en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld* :
+Lancez Visual Studio 2015 RC en tant qu’administrateur et créez un projet d’application Service Fabric nommé *HelloWorld* :
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Créez ensuite un projet de service sans état nommé *HelloWorldStateless* :
+Créez ensuite un projet de service sans état nommé *HelloWorldStateless* :
 
 ![Dans la deuxième boîte de dialogue, créer un projet de service sans état](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 

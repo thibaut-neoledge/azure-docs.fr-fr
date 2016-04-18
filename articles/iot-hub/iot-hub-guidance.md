@@ -56,7 +56,7 @@ Une passerelle de champ est différente d’un appareil de routage de trafic sim
 
 ### Types de passerelles de champ
 
-Une passerelle de champ peut être *transparente* ou *opaque* :
+Une passerelle de champ peut être *transparente* ou *opaque* :
 
 | &nbsp; | Passerelle transparente | Passerelle opaque|
 |--------|-------------|--------|

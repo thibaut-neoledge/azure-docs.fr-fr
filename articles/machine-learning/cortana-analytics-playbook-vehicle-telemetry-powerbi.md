@@ -70,7 +70,8 @@ Vous êtes maintenant prêt à configurer le tableau de bord Power BI avec des 
 
 **Générer les données simulées**
 
-1. Sur votre ordinateur local, accédez au dossier où vous avez extrait le package Vehicle Telematics Simulator. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
+1. Sur votre ordinateur local, accédez au dossier où vous avez extrait le package Vehicle Telematics Simulator.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
 2.	Exécutez l’application ***CarEventGenerator.exe***.
 3.	Ce simulateur émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. Elle est publiée dans une instance Azure Event Hub qui est configurée dans le cadre de votre déploiement.
 
@@ -83,7 +84,8 @@ Une application intégrée dans la solution permet de générer le tableau de bo
 Pour télécharger l’application :
 
 1.	Cliquez sur le nœud Power BI sur la vue schématique, puis cliquez sur le lien **Télécharger l’application de tableau de bord en temps réel** dans le volet des propriétés.![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2.	Extrayez l’application et enregistrez-la en local. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
+2.	Extrayez l’application et enregistrez-la en local.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
 
 3.	Exécutez l’application **RealtimeDashboardApp.exe**.
 4.	Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur **Accepter**.
@@ -121,37 +123,47 @@ Vous pouvez choisir de configurer les 3 rapports en temps réel, ou arrêter ap
 
 ### 1\. Véhicules opérationnels
   
-Double-cliquez sur la **Page 1** et renommez-la « Véhicules opérationnels ». ![Connected Cars - Véhicules opérationnels](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
+Double-cliquez sur la **Page 1** et renommez-la « Véhicules opérationnels ».
+![Connected Cars - Véhicules opérationnels](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
 
 Sélectionnez **vin** dans **Champs** et choisissez **« Carte »** comme type de visualisation.
 
-Une visualisation sous forme de carte est créée, comme illustré ci-dessous. ![Connected Cars - Sélectionner le numéro d’identification du véhicule](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
+Une visualisation sous forme de carte est créée, comme illustré ci-dessous.
+![Connected Cars - Sélectionner le numéro d’identification du véhicule](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
-Sélectionnez **Ville** et **vin** dans Champs. Choisissez la visualisation de type **« Carte »**. Faites glisser **vin** dans la zone de valeurs. Faites glisser **city** vers la zone **Legend**. ![Connected Cars - Visualisation sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
+Sélectionnez **Ville** et **vin** dans Champs. Choisissez la visualisation de type **« Carte »**. Faites glisser **vin** dans la zone de valeurs. Faites glisser **city** vers la zone **Legend**.
+![Connected Cars - Visualisation sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
   
-Sélectionnez la section **Format** dans **Visualisations**. Cliquez sur **Titre** et modifiez le texte en le remplaçant par **« Véhicules opérationnels par ville »**. ![Connected Cars - Véhicules opérationnels par ville](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
+Sélectionnez la section **Format** dans **Visualisations**. Cliquez sur **Titre** et modifiez le texte en le remplaçant par **« Véhicules opérationnels par ville »**.
+![Connected Cars - Véhicules opérationnels par ville](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
 
-La visualisation finale doit être telle qu’illustrée ci-dessous. ![Connected Cars - Visualisation finale](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
+La visualisation finale doit être telle qu’illustrée ci-dessous.
+![Connected Cars - Visualisation finale](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
 Sélectionnez **Ville** et **vin**, puis modifiez le type de visualisation en le définissant sur **Histogramme groupé**. Vérifiez le champ **Ville** dans la zone **Axe** et **vin** dans la zone **Valeur**.
 
-Triez le graphique par **« Nombre de vin »**. ![Connected Cars - Nombre de numéros d’identification de véhicule](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4f.png)
+Triez le graphique par **« Nombre de vin »**.
+![Connected Cars - Nombre de numéros d’identification de véhicule](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4f.png)
 
 Modifiez le **titre** du graphique en le nommant **« Véhicules opérationnels par ville »**.
 
-Cliquez sur la section **Format**, puis sélectionnez **Couleurs des données**. Cliquez sur **«Activé »** dans **Afficher tout**. ![Connected Cars - Afficher toutes les couleurs de données](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
+Cliquez sur la section **Format**, puis sélectionnez **Couleurs des données**. Cliquez sur **«Activé »** dans **Afficher tout**.
+![Connected Cars - Afficher toutes les couleurs de données](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
 
-Modifiez la couleur de chaque ville en cliquant sur l’icône de couleur. ![Connected Cars - Modifier les couleurs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
+Modifiez la couleur de chaque ville en cliquant sur l’icône de couleur.
+![Connected Cars - Modifier les couleurs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
-Sélectionnez la visualisation **Histogramme groupé ** dans la zone Visualisations, faites glisser le champ **Ville** dans la zone **Axe**, **Modèle** dans la zone **Légende** et **vin** dans la zone **Valeur**. ![Connected Cars - Histogramme groupé](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![Connected Cars - Rendu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
+Sélectionnez la visualisation **Histogramme groupé** dans la zone Visualisations, faites glisser le champ **Ville** dans la zone **Axe**, **Modèle** dans la zone **Légende** et **vin** dans la zone **Valeur**.
+![Connected Cars - Histogramme groupé](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![Connected Cars - Rendu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
   
-Réorganisez toutes les visualisations sur cette page comme indiqué dans la figure. ![Connected Cars - Visualisations](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
+Réorganisez toutes les visualisations sur cette page comme indiqué dans la figure.
+![Connected Cars - Visualisations](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
 Vous avez correctement configuré le rapport en temps réel « Véhicules opérationnels ». Vous pouvez passer à la création du rapport en temps réel suivant, ou bien vous arrêter ici et configurer le tableau de bord.
 
@@ -161,38 +173,48 @@ Cliquez sur ![Ajouter](./media/cortana-analytics-playbook-vehicle-telemetry-powe
 
 ![Connected Cars - Véhicules nécessitant une maintenance](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4l.png)
 
-Sélectionnez le champ **vin** et définissez le type de visualisation sur **Carte**. ![Connected Cars - Visualisation du numéro d’identification du véhicule sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
+Sélectionnez le champ **vin** et définissez le type de visualisation sur **Carte**.
+![Connected Cars - Visualisation du numéro d’identification du véhicule sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
 
 Le jeu de données contient un champ nommé « MaintenanceLabel ». Ce champ peut avoir une valeur de « 0 » ou « 1 ». Il est défini par le modèle Azure Machine Learning configuré dans le cadre de la solution et intégré avec la fonction temps réel. La valeur « 1 » indique un véhicule nécessitant une maintenance.
 
 Nous allons ajouter le filtre **Niveau page** pour afficher les données relatives aux véhicules ayant besoin d’une intervention de maintenance.
 
-1. Faites glisser le champ **« MaintenanceLabel »** dans **Filtres de niveau page**. ![Connected Cars - Filtres au niveau de la page](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
+1. Faites glisser le champ **« MaintenanceLabel »** dans **Filtres de niveau page**.
+![Connected Cars - Filtres au niveau de la page](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
 
-2. Cliquez sur le menu **Filtrage de base** situé en bas du filtre niveau page MaintenanceLabel. ![Connected Cars - Filtrage de base](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
+2. Cliquez sur le menu **Filtrage de base** situé en bas du filtre niveau page MaintenanceLabel.
+![Connected Cars - Filtrage de base](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
 
-3.  Affectez-lui la valeur de filtre **« 1 »**. ![Connected Cars - Valeur de filtre](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
+3.  Affectez-lui la valeur de filtre **« 1 »**.
+![Connected Cars - Valeur de filtre](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
 
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
-Sélectionnez **Histogramme groupé** dans la section Visualisations. ![Connected Cars - Visualisation du numéro d’identification du véhicule sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![Connected Cars - Histogramme groupé](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
+Sélectionnez **Histogramme groupé** dans la section Visualisations.
+![Connected Cars - Visualisation du numéro d’identification du véhicule sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![Connected Cars - Histogramme groupé](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
 Faites glisser le champ **Modèle** dans la zone **Axe** et le champ **Vin** dans la zone **Valeur**. Triez ensuite la visualisation par **Nombre de vin**. Modifiez le **titre** du graphique en le renommant **« Véhicules nécessitant une maintenance par modèle »**.
 
-Faites glisser les champs **vin** dans la zone **Saturation de la couleur** située dans la section **Champs** ![Champs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de l’onglet **Visualisation**. ![Connected Cars - Saturation des couleurs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
+Faites glisser les champs **vin** dans la zone **Saturation de la couleur** située dans la section **Champs** ![Champs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de l’onglet **Visualisation**.
+![Connected Cars - Saturation des couleurs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
 
-Dans les visualisations, modifiez le champ **Couleurs des données** à partir de la section **Format**. Définissez la couleur minimale sur : **F2C812**. Définissez la couleur maximale sur : **FF6300**. ![Connected Cars - Changements de couleur](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![Connected Cars - Nouvelles couleurs de visualisation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
-
-Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
-
-Sélectionnez **Histogramme groupé** dans la zone Visualisations, faites glisser le champ **vin** dans la zone **Valeur** et le champ **Ville** dans la zone **Axe**. Triez le graphique par **« Nombre de vin »**. Modifiez le **titre** du graphique en le renommant **« Véhicules nécessitant une maintenance par ville »**. ![Connected Cars - Véhicules nécessitant une maintenance par ville](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
+Dans les visualisations, modifiez le champ **Couleurs des données** à partir de la section **Format**. Définissez la couleur minimale sur : **F2C812**. Définissez la couleur maximale sur : **FF6300**.
+![Connected Cars - Changements de couleur](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![Connected Cars - Nouvelles couleurs de visualisation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
-Dans la section Visualisations, sélectionnez la visualisation **Carte à plusieurs lignes**, puis faites glisser les champs **Modèle** et **vin** dans la zone **Champs**. ![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
+Sélectionnez **Histogramme groupé** dans la zone Visualisations, faites glisser le champ **vin** dans la zone **Valeur** et le champ **Ville** dans la zone **Axe**. Triez le graphique par **« Nombre de vin »**. Modifiez le **titre** du graphique en le renommant **« Véhicules nécessitant une maintenance par ville »**.
+![Connected Cars - Véhicules nécessitant une maintenance par ville](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
 
-Réorganisez toutes les visualisations. Le rapport final doit être similaire à ce qui suit : ![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
+Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
+
+Dans la section Visualisations, sélectionnez la visualisation **Carte à plusieurs lignes**, puis faites glisser les champs **Modèle** et **vin** dans la zone **Champs**.
+![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
+
+Réorganisez toutes les visualisations. Le rapport final doit être similaire à ce qui suit :
+![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
 
 Vous avez correctement configuré le rapport en temps réel « Véhicules nécessitant une maintenance ». Vous pouvez passer à la création du rapport en temps réel suivant, ou bien vous arrêter ici et configurer le tableau de bord.
 
@@ -200,7 +222,8 @@ Vous avez correctement configuré le rapport en temps réel « Véhicules néce
   
 Cliquez sur ![Ajouter](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png) pour ajouter un rapport, puis renommez-le **« Statistiques relatives à l’état des véhicules »**.
 
-Dans la section Visualisations, sélectionnez la visualisation **Jauge**, puis faites glisser le champ **Vitesse** dans les zones **Valeur, Valeur minimum, Valeur maximum**. ![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
+Dans la section Visualisations, sélectionnez la visualisation **Jauge**, puis faites glisser le champ **Vitesse** dans les zones **Valeur, Valeur minimum, Valeur maximum**.
+![Connected Cars - Carte à plusieurs lignes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
 
 Modifiez l’agrégation par défaut du champ **Vitesse** dans la zone **Valeur** en la définissant sur **Moyenne**.
 
@@ -386,11 +409,12 @@ Un jeu de données, un rapport et un tableau de bord vide sont alors créés.
 **Organiser le tableau de bord**
 
 1.	Accédez au tableau de bord.
-2.	Placez le curseur sur chaque graphique et renommez-les selon les noms indiqués dans l’image complète du tableau de bord ci-dessous. Déplacez également les graphiques de manière à obtenir un tableau de bord similaire à la capture ci-dessous. ![Vehicle Telemetry - Organiser le tableau de bord 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![Vehicle Telemetry PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
+2.	Placez le curseur sur chaque graphique et renommez-les selon les noms indiqués dans l’image complète du tableau de bord ci-dessous. Déplacez également les graphiques de manière à obtenir un tableau de bord similaire à la capture ci-dessous.
+![Vehicle Telemetry - Organiser le tableau de bord 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![Vehicle Telemetry PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 3. Le tableau de bord terminé final doit ressembler à la version ci-dessous si vous avez créé tous les rapports comme indiqué dans ce document. 
 
 ![Vehicle Telemetry - Organiser le tableau de bord 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 Félicitations ! Vous avez correctement créé les rapports et le tableau de bord pour obtenir des informations en temps réel, prédictives et par lots sur l’état des véhicules et les habitudes de conduite.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!------HONumber=AcomDC_0406_2016-->

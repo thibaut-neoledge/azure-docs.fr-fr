@@ -191,17 +191,17 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
 
-**Déni de service ** : un périphérique peut être dans l’incapacité de fonctionner ou de communiquer en interférant avec des fréquences radio ou en coupant des câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
+**Déni de service** : un périphérique peut être dans l’incapacité de fonctionner ou de communiquer en interférant avec des fréquences radio ou en coupant des câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement les logiciels s’exécutant sur le périphérique, permettant ainsi potentiellement aux logiciels de remplacement de tirer parti de l’identité véritable du périphérique si les éléments de clé ou les fonctions de chiffrement détenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement les logiciels s’exécutant sur le périphérique, permettant ainsi potentiellement aux logiciels de remplacement de tirer parti de l’identité véritable du périphérique si les éléments de clé ou les fonctions de chiffrement détenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image de spectre visible d’un couloir vide peut être visée pour afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 
 **Falsification** : une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données du périphérique sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement les logiciels s’exécutant sur le périphérique, permettant ainsi potentiellement aux logiciels de remplacement de tirer parti de l’identité véritable du périphérique si les éléments de clé ou les fonctions de chiffrement détenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement les logiciels s’exécutant sur le périphérique, permettant ainsi potentiellement aux logiciels de remplacement de tirer parti de l’identité véritable du périphérique si les éléments de clé ou les fonctions de chiffrement détenant les éléments de clé ont été mis à la disposition des programmes illicites.
    
-**Divulgation d’informations ** : si le périphérique exécute des logiciels manipulés, de tels logiciels peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
+**Divulgation d’informations** : si le périphérique exécute des logiciels manipulés, de tels logiciels peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
 
 **Divulgation d’informations**: une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre le périphérique et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner les informations.
 
@@ -270,4 +270,4 @@ Pour plus d’informations, reportez-vous aux articles suivants :
 - [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/) (Architecture de référence Microsoft Azure IoT)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0406_2016--->
