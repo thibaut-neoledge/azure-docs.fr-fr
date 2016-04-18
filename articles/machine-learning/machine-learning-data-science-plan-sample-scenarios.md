@@ -30,11 +30,11 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 >[AZURE.NOTE] **Pour tous les scénarios suivants, vous devez :**
 
-*   [Créer un compte de stockage](storage-whatis-account.md)
-*   [Créer un espace de travail Azure Machine Learning](machine-learning/machine-learning-create-workspace.md)
+*   [Créer un compte de stockage](../storage/storage-create-storage-account.md)
+*   [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md)
 
 
-## <a name="smalllocal"></a>Scénario 1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
+## <a name="smalllocal"></a>Scénario n°1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
 
 ![Fichiers locaux petits à moyens][1]
 
@@ -46,7 +46,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 3.  Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux téléchargés.
 
-## <a name="smalllocalprocess"></a>Scénario 2 : jeu de données petit à moyen de fichiers locaux nécessitant un traitement
+## <a name="smalllocalprocess"></a>Scénario n°2 : jeu de données petit à moyen de fichiers locaux nécessitant un traitement
 
 ![Fichiers locaux petits à moyens avec traitement][2]
 
@@ -68,7 +68,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 8. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
-## <a name="largelocal"></a>Scénario 3 : jeu de données volumineux de fichiers locaux, ciblant des objets blob Azure
+## <a name="largelocal"></a>Scénario n°3 : jeu de données volumineux de fichiers locaux, ciblant des objets blob Azure
 
 ![Fichiers locaux volumineux][3]
 
@@ -95,7 +95,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 10. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
 
-## <a name="smalllocaltodb"></a>Scénario 4 : jeu de données petit à moyen de fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="smalllocaltodb"></a>Scénario n°4 : jeu de données petit à moyen de fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
 
 ![Fichiers locaux petits à moyens vers une base de données SQL dans Azure][4]
 
@@ -113,7 +113,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 6.  Chargez des données dans la base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 
-    a. Option 1 : utilisation de SQL Server Management Studio.
+    a. Option n°1 : utilisation de SQL Server Management Studio.
 
 		i.  Login to SQL Server VM
         ii. Run SQL Server Management Studio.
@@ -136,7 +136,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 11. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
-## <a name="largelocaltodb"></a>Scénario 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="largelocaltodb"></a>Scénario n°5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
 
 ![Fichiers locaux volumineux vers une base de données SQL dans Azure][5]
 
@@ -168,7 +168,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
     f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
- > [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -180,7 +180,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 9. Flux d’expérience Azure Machine Learning simple commençant par le jeux de données téléchargés
 
-## <a name="largedbtodb"></a>Scénario 6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="largedbtodb"></a>Scénario n°6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server dans une machine virtuelle Azure
 
 ![Base de données SQL volumineuse sur site vers une base de données SQL dans Azure][6]
 
@@ -208,7 +208,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 	f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
-> [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -234,7 +234,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 
 [Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
-## <a name="largedbtohive"></a>Scénario 7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
+## <a name="largedbtohive"></a>Scénario n°7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
 
 ![Données volumineuses (« Big Data ») dans la base de données Hive cible locale][9]
 
@@ -296,8 +296,8 @@ Le schéma suivant résume les scénarios décrits ci-dessus et les processus de
 Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Learning qui utilisent le processus et la technologie d’analyse avancée à l’aide de jeux de données publics, consultez :
 
 
-* [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

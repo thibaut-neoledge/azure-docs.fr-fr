@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 
@@ -24,7 +24,7 @@
 
 La mise en cache est une technique courante qui vise à améliorer les performances et l’extensibilité d’un système. Elle consiste à copier temporairement des données fréquemment sollicitées dans un stockage rapide situé près de l’application. Si cet espace de stockage rapide des données se trouve plus près de l’application que la source d’origine, la mise en cache peut améliorer sensiblement les temps de réponse des applications clientes en fournissant les données plus rapidement.
 
-La mise en cache est plus efficace quand une instance client lit à plusieurs reprises les mêmes données, en particulier si le magasin de données d’origine réunit les conditions suivantes :
+La mise en cache est plus efficace quand une instance client lit à plusieurs reprises les mêmes données, en particulier si le magasin de données d’origine réunit les conditions suivantes :
 - Il reste relativement statique.
 - Il est lent par rapport à la vitesse du cache.
 - Il est soumis à un niveau élevé de contention.
@@ -32,7 +32,7 @@ La mise en cache est plus efficace quand une instance client lit à plusieurs re
 
 ## Mise en cache dans les applications distribuées
 
-Les applications distribuées implémentent généralement une des deux stratégies suivantes ou les deux lors de la mise en cache des données :
+Les applications distribuées implémentent généralement une des deux stratégies suivantes ou les deux lors de la mise en cache des données :
 
 - Utilisation d’un cache privé, où les données sont stockées localement sur l’ordinateur exécutant une instance d’une application ou d’un service.
 - Utilisation d'un cache partagé, agissant comme une source commune accessible par plusieurs ordinateurs et/ou processus.
@@ -47,11 +47,11 @@ Si vous avez besoin de mettre en cache davantage d’informations que ce qui est
 
 Si plusieurs instances d’une application utilisant ce modèle s’exécutent simultanément, chaque instance a son propre cache indépendant contenant sa propre copie des données.
 
-Il faut considérer un cache comme une capture instantanée des données d’origine à un moment donné dans le passé. Si ces données ne sont pas statiques, il est probable que différentes instances d’application contiennent différentes versions des données dans leur cache. Par conséquent, une même requête effectuée par ces instances peut renvoyer des résultats différents, comme l’illustre la Figure 1.
+Il faut considérer un cache comme une capture instantanée des données d’origine à un moment donné dans le passé. Si ces données ne sont pas statiques, il est probable que différentes instances d’application contiennent différentes versions des données dans leur cache. Par conséquent, une même requête effectuée par ces instances peut renvoyer des résultats différents, comme l’illustre la Figure 1.
 
 ![Utilisation d'un cache en mémoire dans différentes instances d'une application](media/best-practices-caching/Figure1.png)
 
-_Figure 1 : Utilisation d'un cache en mémoire dans différentes instances d'une application_
+_Figure 1 : Utilisation d'un cache en mémoire dans différentes instances d'une application_
 
 ### Shared Caching (mise en cache partagé)
 
@@ -59,11 +59,11 @@ L’utilisation d’un cache partagé peut atténuer le problème résultant du 
 
 ![Utilisation d’un cache partagé](media/best-practices-caching/Figure2.png)
 
-_Figure 2 : Utilisation d'un cache partagé_
+_Figure 2 : Utilisation d'un cache partagé_
 
 Un avantage important de l’approche de la mise en cache partagé est l’extensibilité qu’elle offre. De nombreux services de cache partagé sont implémentés à l'aide d'un cluster de serveurs et utilisent des logiciels qui distribuent les données dans le cluster de manière transparente. Une instance d’application envoie simplement une demande au service de cache (Cache Service). L’infrastructure sous-jacente est chargée de déterminer l’emplacement des données mises en cache dans le cluster. Vous pouvez facilement faire évoluer le cache en ajoutant des serveurs.
 
-L’approche de mise en cache partagé présente essentiellement deux inconvénients :
+L’approche de mise en cache partagé présente essentiellement deux inconvénients :
 - L’accès au cache est plus lent, car il n’est plus conservé localement pour chaque instance d’application.
 - La nécessité d’implémenter un service de cache séparé peut compliquer la solution.
 
@@ -115,7 +115,7 @@ Lorsque les données en cache arrivent à expiration, elles sont supprimées du 
 
 Il est également possible que le cache soit saturé si des données peuvent y résider pendant une longue période. Dans ce cas, toute demande d’ajout d’éléments au cache peut entraîner la suppression forcée d’autres éléments. On parle alors d’éviction. Les services de cache suppriment généralement les données les moins récemment utilisées (LRU), mais vous pouvez généralement remplacer cette stratégie et empêcher l’éviction des éléments. Toutefois, si vous adoptez cette approche, vous risquez un dépassement de la mémoire disponible dans le cache. Dans ce cas, si une application tente d’ajouter un élément au cache, l’opération échoue et lève une exception.
 
-Certaines implémentations de la mise en cache peuvent nécessiter des stratégies d’éviction supplémentaires. Il existe plusieurs types de stratégies d’éviction. Il s’agit des actions suivantes :
+Certaines implémentations de la mise en cache peuvent nécessiter des stratégies d’éviction supplémentaires. Il existe plusieurs types de stratégies d’éviction. Il s’agit des actions suivantes :
 - Stratégie des dernières données utilisées (en supposant que les données ne seront plus nécessaires).
 - Stratégie dite du premier entré, premier sorti (les données les plus anciennes sont supprimées en premier).
 - Stratégie de suppression explicite basée sur un événement déclenché (par exemple, des données en cours de modification).
@@ -132,7 +132,7 @@ Si vous générez une application web qui traite des données via une connexion 
 
 Les caches sont souvent conçus pour être partagés par plusieurs instances d'une application. Chaque instance de l'application peut lire et modifier les données du cache. Pas conséquent, les problèmes d’accès concurrentiel résultant du partage d’un magasin de données s’appliquent également à un cache. Si une application doit modifier des données mises en cache, assurez-vous que les mises à jour effectuées par une instance de l’application ne remplacent pas les modifications apportées par une autre instance.
 
-Selon la nature des données et la probabilité de collisions, vous pouvez adopter une des deux approches d'accès concurrentiel suivantes :
+Selon la nature des données et la probabilité de collisions, vous pouvez adopter une des deux approches d'accès concurrentiel suivantes :
 
 - __Accès concurrentiel optimiste.__ Juste avant la mise à jour des données, l’application vérifie si les données mises en cache ont été modifiées depuis leur récupération. Si les données sont toujours identiques, la modification peut être apportée. Dans le cas contraire, l’application doit décider s’il convient de les mettre à jour. (La logique métier sur laquelle cette décision s’appuie est spécifique de l’application). Cette approche est appropriée pour les situations où les mises à jour sont peu fréquentes ou celles où les collisions sont peu probables.
 - __Accès concurrentiel pessimiste.__ Lors de la récupération des données, l’application les verrouille dans le cache pour empêcher qu’une autre instance les modifie. Ce processus permet d’éviter les collisions, mais peut bloquer d’autres instances qui doivent traiter les mêmes données. Un accès concurrentiel pessimiste pouvant affecter l’extensibilité d’une solution, il n’est conseillé que pour des opérations à durée de vie limitée. Cette approche peut être appropriée dans les cas où des collisions sont probables, en particulier si une application met à jour plusieurs éléments du cache et doit veiller à ce que ces modifications soient appliquées de manière cohérente.
@@ -149,9 +149,9 @@ Toutefois, l’extensibilité du système peut être affectée si l’applicatio
 
 Songez à implémenter un cache local privé dans chaque instance d’une application, en plus du cache partagé auquel toutes les instances de l’application accèdent. Quand l’application récupère un élément, elle peut vérifier le cache local, puis le cache partagé, puis le magasin de données d’origine. Le cache local peut être rempli à l’aide des données du cache partagé ou de la base de données si le cache partagé n’est pas disponible.
 
-Cette approche nécessite une configuration soigneuse pour éviter que le cache local devienne trop caduque par rapport au cache partagé. Toutefois, le cache local fait office de tampon si le cache partagé est inaccessible. La figure 3 illustre cette structure.
+Cette approche nécessite une configuration soigneuse pour éviter que le cache local devienne trop caduque par rapport au cache partagé. Toutefois, le cache local fait office de tampon si le cache partagé est inaccessible. La figure 3 illustre cette structure.
 
-![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) _Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
+![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) _Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
 
 Pour prendre en charge des caches volumineux qui contiennent des données à long terme, certains services de cache offrent une option de haute disponibilité qui implémente le basculement automatique si le cache devient indisponible. Cette approche implique généralement une réplication des données mises en cache sur un serveur de cache principal vers un serveur de cache secondaire, et un basculement vers le serveur secondaire en cas d’échec du serveur principal ou de perte de la connectivité.
 
@@ -175,20 +175,20 @@ Pour plus d’informations sur la gestion de la cohérence des données, voir la
 
 ### Protéger les données mises en cache
 
-Quel que soit le service de cache que vous utilisez, songez à la manière de protéger les données contenues dans le cache contre un accès non autorisé. Il existe deux problèmes principaux :
+Quel que soit le service de cache que vous utilisez, songez à la manière de protéger les données contenues dans le cache contre un accès non autorisé. Il existe deux problèmes principaux :
 
-- la confidentialité des données dans le cache ;
+- la confidentialité des données dans le cache ;
 - la confidentialité des données lorsqu’elles circulent entre le cache et l’application utilisant le cache.
 
-Pour protéger des données dans le cache, le service de cache peut implémenter un mécanisme d’authentification qui requiert que les applications spécifient les éléments suivants :
-- les identités pouvant accéder aux données dans le cache ;
+Pour protéger des données dans le cache, le service de cache peut implémenter un mécanisme d’authentification qui requiert que les applications spécifient les éléments suivants :
+- les identités pouvant accéder aux données dans le cache ;
 - les opérations (lecture et écriture) que ces identités sont autorisées à effectuer.
 
 Pour réduire la surcharge associée à la lecture et à l’écriture de données, une fois que l’identité a obtenu un accès en écriture et/ou en lecture au cache, elle peut utiliser toutes les données de celui-ci.
 
-Si vous devez restreindre l’accès à des sous-ensembles des données mises en cache, vous pouvez effectuer les opérations suivantes :
+Si vous devez restreindre l’accès à des sous-ensembles des données mises en cache, vous pouvez effectuer les opérations suivantes :
 
-- fractionner le cache en partitions (à l’aide de différents serveurs de cache) et accorder uniquement aux identités l’accès aux partitions qu’elles sont autorisées à utiliser ;
+- fractionner le cache en partitions (à l’aide de différents serveurs de cache) et accorder uniquement aux identités l’accès aux partitions qu’elles sont autorisées à utiliser ;
 - chiffrer les données dans chaque sous-ensemble en utilisant différentes clés, et fournir les clés de chiffrement uniquement aux identités qui doivent avoir accès à chaque sous-ensemble. Il se peut qu’une application cliente soit toujours être en mesure de récupérer toutes les données du cache, mais elle ne peut déchiffrer que les données pour lesquelles elle possède les clés.
 
 Vous devez également protéger les données échangées avec le cache. Pour ce faire, vous dépendez des fonctionnalités de sécurité fournies par l’infrastructure réseau que les applications clientes utilisent pour se connecter au cache. Si le cache est implémenté à l’aide d’un serveur local de l’organisation qui héberge les applications clientes, il se peut que l’isolation du réseau lui-même ne nécessite aucune mesure supplémentaire. Si le cache est distant et requiert une connexion TCP ou HTTP via un réseau public (comme Internet), songez à implémenter le protocole SSL.
@@ -205,7 +205,7 @@ Le cache Redis Azure est une solution de mise en cache très performante qui off
 >
 > En outre, Azure prend en charge la mise en cache In-Role Cache. Cette fonctionnalité vous permet de créer un cache propre à un service cloud. Le cache est hébergé sur des instances de rôle web ou de travail, et n’est accessible qu’aux rôles opérant en relation avec la même unité de déploiement de service cloud. (Une unité de déploiement est l’ensemble des instances de rôle déployées sous la forme d’un service cloud dans une région spécifique.) Le cache est mis en cluster, et toutes les instances du rôle situées dans la même unité de déploiement hébergeant le cache font partie du même cluster de cache. Toutefois, cette option n'est plus recommandée et elle est fournie uniquement pour prendre en charge des applications existantes qui ont été générées afin de l'utiliser. Pour tout nouveau développement, utilisez plutôt le cache Redis Azure.
 >
-> La mise hors service du service de cache géré Azure et d’In-Role Cache Azure est actuellement prévue pour le 16 novembre 2016. Nous vous recommandons de migrer vers Cache Redis Azure en vue de cette mise hors service. Pour plus d’informations, voir la page [Quelle est l’offre du cache Redis Azure et quelle taille utiliser ?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) sur le site web de Microsoft.
+> La mise hors service du service de cache géré Azure et d’In-Role Cache Azure est actuellement prévue pour le 16 novembre 2016. Nous vous recommandons de migrer vers Cache Redis Azure en vue de cette mise hors service. Pour plus d’informations, voir la page [Quelle est l’offre du cache Redis Azure et quelle taille utiliser ?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) sur le site web de Microsoft.
 
 
 ### Fonctionnalités de Redis
@@ -244,7 +244,7 @@ Un cache Redis a une taille limitée dépendant des ressources disponibles sur l
 
 Redis permet à une application cliente d’envoyer une série d'opérations qui lisent et écrivent des données dans le cache en tant que transaction atomique. Toutes les commandes de la transaction sont exécutées de façon séquentielle, et aucune commande émise par d’autres clients concurrentiels n’est insérée entre elles.
 
-Toutefois, il ne s’agit pas de transactions réelles, car une base de données relationnelle les exécute. Le traitement des transactions comprend deux phases : la première consiste en une mise en attente des commandes, et la seconde en leur exécution. Durant la phase de mise en file d'attente des commandes, les commandes qui composent la transaction sont envoyées par le client. Si une erreur se produit à ce stade (par exemple, une erreur de syntaxe ou un nombre incorrect de paramètres), Redis refuse de traiter toute la transaction et l’ignore.
+Toutefois, il ne s’agit pas de transactions réelles, car une base de données relationnelle les exécute. Le traitement des transactions comprend deux phases : la première consiste en une mise en attente des commandes, et la seconde en leur exécution. Durant la phase de mise en file d'attente des commandes, les commandes qui composent la transaction sont envoyées par le client. Si une erreur se produit à ce stade (par exemple, une erreur de syntaxe ou un nombre incorrect de paramètres), Redis refuse de traiter toute la transaction et l’ignore.
 
 Pendant la phase d’exécution, Redis exécute successivement chaque commande en file d’attente. En cas d’échec d’une commande au cours de cette phase, Redis passe à la commande en file d’attente suivante, et n’annule pas les effets de commandes déjà exécutées. Cette forme simplifiée de transaction aide à maintenir les performances et à éviter des problèmes de performances résultant d’une contention.
 
@@ -268,9 +268,9 @@ Pour plus d’informations, voir la page [Sécurité Redis](http://redis.io/topi
 
 ### Utilisation du Cache Redis Azure
 
-Le Cache Redis Azure permet d'accéder aux serveurs Redis s'exécutant sur les serveurs hébergés dans un centre de données Azure. Il agit comme une façade qui fournit de la sécurité et un contrôle de l’accès. Vous pouvez approvisionner un cache à l'aide du portail de gestion Azure. Le portail fournit un certain nombre de configurations prédéfinies, allant d'un cache de 53 Go exécuté en tant que service dédié qui prend en charge les communications SSL (pour la confidentialité) à la réplication maître/subordonné avec un contrat SLA offrant une disponibilité de 99,9 %, à un cache de 250 Mo sans réplication (aucune garantie de disponibilité) en cours d'exécution sur du matériel partagé.
+Le Cache Redis Azure permet d'accéder aux serveurs Redis s'exécutant sur les serveurs hébergés dans un centre de données Azure. Il agit comme une façade qui fournit de la sécurité et un contrôle de l’accès. Vous pouvez approvisionner un cache à l'aide du portail de gestion Azure. Le portail fournit un certain nombre de configurations prédéfinies, allant d'un cache de 53 Go exécuté en tant que service dédié qui prend en charge les communications SSL (pour la confidentialité) à la réplication maître/subordonné avec un contrat SLA offrant une disponibilité de 99,9 %, à un cache de 250 Mo sans réplication (aucune garantie de disponibilité) en cours d'exécution sur du matériel partagé.
 
-À l'aide du portail de gestion Azure, vous pouvez également configurer la stratégie d'éviction du cache et contrôler l'accès au cache en ajoutant des utilisateurs aux rôles fournis : Propriétaire, Collaborateur, Lecteur. Ces rôles définissent les opérations que les membres peuvent effectuer. Par exemple, les membres du rôle Propriétaire ont un contrôle complet du cache (y compris la sécurité) et de son contenu, les membres du rôle Collaborateur peuvent lire et écrire des informations dans le cache, et les membres du rôle Lecteur peuvent uniquement récupérer des données à partir du cache.
+À l'aide du portail de gestion Azure, vous pouvez également configurer la stratégie d'éviction du cache et contrôler l'accès au cache en ajoutant des utilisateurs aux rôles fournis : Propriétaire, Collaborateur, Lecteur. Ces rôles définissent les opérations que les membres peuvent effectuer. Par exemple, les membres du rôle Propriétaire ont un contrôle complet du cache (y compris la sécurité) et de son contenu, les membres du rôle Collaborateur peuvent lire et écrire des informations dans le cache, et les membres du rôle Lecteur peuvent uniquement récupérer des données à partir du cache.
 
 La plupart des tâches d'administration sont effectuées via le portail de gestion Azure. Pour cette raison, la plupart des commandes d'administration disponibles dans la version standard de Redis ne sont pas disponibles, y compris la possibilité de modifier la configuration par programme, d’arrêter le serveur Redis, de configurer des subordonnés supplémentaires ou de forcer l’enregistrement des données sur le disque.
 
@@ -284,7 +284,7 @@ Pour plus d'informations et pour obtenir des exemples montrant comment créer et
 
 Si vous concevez des applications web ASP.NET qui s’exécutent à l'aide de rôles web Azure, vous pouvez enregistrer la sortie HTML et les informations d'état de session dans un Cache Redis Azure. Le fournisseur d'état de session du Cache Redis Azure vous permet de partager des informations de session entre différentes instances d'une application web ASP.NET. Il est très utile dans le cas d’une batterie de serveurs web où l’affinité client-serveur n'est pas disponible et où la mise en cache des données de session en mémoire ne serait pas appropriée.
 
-L’utilisation du fournisseur d'état de session avec le Cache Redis Azure offre plusieurs avantages, notamment :
+L’utilisation du fournisseur d'état de session avec le Cache Redis Azure offre plusieurs avantages, notamment :
 
 - Le fournisseur d’état de session peut partager l'état de session avec un grand nombre d'instances d'une application web ASP.NET, en fournissant une extensibilité améliorée.
 - Il prend en charge un accès contrôlé et simultané aux mêmes données d'état de session pour plusieurs lecteurs et un seul enregistreur.
@@ -300,9 +300,9 @@ De même, le fournisseur de caches de sortie pour le Cache Redis Azure vous perm
 
 Le cache Redis Azure donne accès à des serveurs Redis hébergés dans un centre de données Azure. Il agit comme une façade assurant la sécurité et le contrôle d’accès. Vous pouvez déployer un cache à l’aide du portail Azure.
 
-Le portail fournit un certain nombre de configurations prédéfinies. Celles-ci vont d’un cache de 53 Go opérant en tant que service dédié qui prend en charge les communications SSL (pour la confidentialité) et la réplication maître/subordonné avec un contrat SLA offrant une disponibilité de 99,9 %, à un cache de 250 Mo sans réplication (aucune garantie de disponibilité) s’exécutant sur du matériel partagé.
+Le portail fournit un certain nombre de configurations prédéfinies. Celles-ci vont d’un cache de 53 Go opérant en tant que service dédié qui prend en charge les communications SSL (pour la confidentialité) et la réplication maître/subordonné avec un contrat SLA offrant une disponibilité de 99,9 %, à un cache de 250 Mo sans réplication (aucune garantie de disponibilité) s’exécutant sur du matériel partagé.
 
-Le portail Azure vous permet également de configurer la stratégie d’éviction du cache et de contrôler l’accès au cache en ajoutant des utilisateurs aux rôles fournis . Ces rôles qui définissent les opérations que les membres peuvent effectuer sont Propriétaire, Collaborateur et Lecteur. Par exemple, les membres du rôle Propriétaire ont un contrôle complet du cache (y compris la sécurité) et de son contenu, les membres du rôle Collaborateur peuvent lire et écrire des informations dans le cache, et les membres du rôle Lecteur peuvent uniquement récupérer des données à partir du cache.
+Le portail Azure vous permet également de configurer la stratégie d’éviction du cache et de contrôler l’accès au cache en ajoutant des utilisateurs aux rôles fournis . Ces rôles qui définissent les opérations que les membres peuvent effectuer sont Propriétaire, Collaborateur et Lecteur. Par exemple, les membres du rôle Propriétaire ont un contrôle complet du cache (y compris la sécurité) et de son contenu, les membres du rôle Collaborateur peuvent lire et écrire des informations dans le cache, et les membres du rôle Lecteur peuvent uniquement récupérer des données à partir du cache.
 
 La plupart des tâches d’administration sont effectuées via le portail Azure. Pour cette raison, bon nombre des commandes d’administration disponibles dans la version standard de Redis ne sont pas accessibles, dont la possibilité de modifier la configuration par programme, d’arrêter le serveur Redis, de configurer des subordonnés supplémentaires, ou de forcer l’enregistrement de données sur disque.
 
@@ -318,11 +318,11 @@ Pour plus d'informations et pour obtenir des exemples montrant comment créer et
 
 Si vous concevez des applications web ASP.NET qui s’exécutent à l’aide de rôles web Azure, vous pouvez enregistrer la sortie HTML et les informations d’état de session dans un cache Redis Azure. Le fournisseur d’état de session pour le cache Redis Azure vous permet de partager des informations de session entre différentes instances d’une application web ASP.NET. Il est très utile dans le cas d’une batterie de serveurs web où l’affinité client-serveur n’est pas disponible et où la mise en cache des données de session en mémoire ne serait pas appropriée.
 
-L’utilisation du fournisseur d’état de session avec le cache Redis Azure offre plusieurs avantages, notamment :
+L’utilisation du fournisseur d’état de session avec le cache Redis Azure offre plusieurs avantages, notamment :
 
-- partage d’état de session avec un grand nombre d’instances d’applications web ASP.NET ;
-- extensibilité améliorée ;
-- prise en charge d’un accès contrôlé concurrentiel aux mêmes données d’état de session pour plusieurs lecteurs et un seul enregistreur ;
+- partage d’état de session avec un grand nombre d’instances d’applications web ASP.NET ;
+- extensibilité améliorée ;
+- prise en charge d’un accès contrôlé concurrentiel aux mêmes données d’état de session pour plusieurs lecteurs et un seul enregistreur ;
 - utilisation d’une compression pour économiser la mémoire et améliorer les performances réseau.
 
 Pour plus d’informations, visitez la page [Fournisseur d’état de session ASP.NET pour cache Redis Azure](redis-cache/cache-asp.net-session-state-provider.md) sur le site web de Microsoft.
@@ -333,7 +333,7 @@ De même, le fournisseur de caches de sortie pour le cache Redis Azure vous perm
 
 ## Création d'un cache Redis personnalisé
 
-Le cache Redis Azure agit comme façade devant les serveurs Redis sous-jacents. Actuellement, il prend en charge un ensemble fixe de configurations, mais ne fournit pas le clustering Redis. Si vous avez besoin d’une configuration avancée non couverte par le cache Redis Azure (par exemple, d’un cache supérieur à 53 Go), vous pouvez créer et héberger vos propres serveurs Redis à l’aide de machines virtuelles Azure.
+Le cache Redis Azure agit comme façade devant les serveurs Redis sous-jacents. Actuellement, il prend en charge un ensemble fixe de configurations, mais ne fournit pas le clustering Redis. Si vous avez besoin d’une configuration avancée non couverte par le cache Redis Azure (par exemple, d’un cache supérieur à 53 Go), vous pouvez créer et héberger vos propres serveurs Redis à l’aide de machines virtuelles Azure.
 
 Il s’agit d’un processus potentiellement complexe, car vous devrez peut-être créer plusieurs machines virtuelles faisant office de nœuds principaux et subordonnés si vous souhaitez implémenter une réplication. En outre, si vous souhaitez créer un cluster, vous avez besoin de plusieurs serveurs maîtres et subordonnés. Une topologie de réplication en cluster minimale offrant un niveau élevé de disponibilité et d’évolutivité comprend au moins six machines virtuelles organisées sous la forme de trois paires de serveurs maître/subordonné (un cluster devant contenir au moins trois nœuds principaux).
 
@@ -343,7 +343,7 @@ Notez que si vous implémentez votre propre cache Redis de cette façon, vous ê
 
 ## Partitionnement d’un cache Redis
 
-Le partitionnement du cache implique le fractionnement du cache sur plusieurs ordinateurs. Cette structure présente plusieurs avantages par rapport à l'utilisation d'un serveur de cache unique, notamment :
+Le partitionnement du cache implique le fractionnement du cache sur plusieurs ordinateurs. Cette structure présente plusieurs avantages par rapport à l'utilisation d'un serveur de cache unique, notamment :
 
 - Création d'un cache beaucoup plus volumineux que ce qui peut être stocké sur un serveur unique.
 - Distribution des données entre serveurs, en améliorant la disponibilité. Si un serveur est défaillant ou devient inaccessible, les données qu’il contient sont indisponibles, mais les données des autres serveurs restent accessibles. Pour un cache, cela n’est pas essentiel, car les données mises en cache ne sont qu’une copie temporaire des données contenues dans une base de données. Les données mises en cache sur un serveur qui devient inaccessible peuvent être mises en cache sur un autre serveur à la place.
@@ -352,7 +352,7 @@ Le partitionnement du cache implique le fractionnement du cache sur plusieurs or
 
 Pour un cache, la forme la plus courante est le partitionnement. Dans le cadre de cette stratégie, chaque partition est un cache Redis à part entière. Les données sont dirigées vers une partition spécifique à l'aide de la logique de partitionnement, qui peut utiliser plusieurs méthodes. Le [modèle de partitionnement](http://msdn.microsoft.com/library/dn589797.aspx) fournit des informations supplémentaires sur l’implémentation du partitionnement.
 
-Pour implémenter le partitionnement dans un cache Redis, vous pouvez adopter l’une des approches suivantes :
+Pour implémenter le partitionnement dans un cache Redis, vous pouvez adopter l’une des approches suivantes :
 
 - _Routage des demandes côté serveur._ Dans cette technique, une application cliente envoie une demande à un des serveurs Redis qui composent le cache (probablement le serveur le plus proche). Chaque serveur Redis stocke les métadonnées décrivant la partition qu’il contient, et contient également les informations relatives aux partitions présentes sur d’autres serveurs. Le serveur Redis examine la demande du client. Si elle peut être résolue localement, il effectue l’opération demandée. Dans le cas contraire, il transfère la demande au serveur approprié. Ce modèle est mis en œuvre à l’aide du clustering Redis et est décrit plus en détail dans le [didacticiel sur les clusters Redis](http://redis.io/topics/cluster-tutorial) sur le site web de Redis. Le clustering Redis est transparent pour les applications clientes et il est possible d’ajouter des serveurs Redis supplémentaires au cluster (et aux données repartitionnées) sans devoir reconfigurer les clients.
 
@@ -406,7 +406,7 @@ private async Task<string> RetrieveItem(string itemKey)
 
 Les méthodes `StringGet` et `StringSet` ne sont pas limitées à l’extraction ou au stockage de valeurs de type chaîne. Elles peuvent accepter tout élément qui est sérialisé en tant que tableau d’octets. Si vous avez besoin d’enregistrer un objet .NET, vous pouvez le sérialiser en tant que flux d’octets et utiliser la méthode `StringSet` pour l’écrire dans le cache.
 
-De même, vous pouvez lire un objet à partir du cache à l’aide de la méthode `StringGet` et le désérialiser en tant qu’objet .NET. Le code suivant illustre un ensemble de méthodes d’extension pour l’interface IDatabase (la méthode `GetDatabase` d’une connexion Redis renvoie un objet `IDatabase`), ainsi qu’un exemple de code utilisant ces méthodes pour lire et écrire un objet `BlogPost` dans le cache :
+De même, vous pouvez lire un objet à partir du cache à l’aide de la méthode `StringGet` et le désérialiser en tant qu’objet .NET. Le code suivant illustre un ensemble de méthodes d’extension pour l’interface IDatabase (la méthode `GetDatabase` d’une connexion Redis renvoie un objet `IDatabase`), ainsi qu’un exemple de code utilisant ces méthodes pour lire et écrire un objet `BlogPost` dans le cache :
 
 ```csharp
 public static class RedisCacheExtensions
@@ -461,7 +461,7 @@ public static class RedisCacheExtensions
 }
 ```
 
-Le code suivant illustre une méthode nommée `RetrieveBlogPost` qui utilise ces méthodes d'extension pour lire et écrire un objet `BlogPost` sérialisable dans le cache selon le mode de type cache-aside :
+Le code suivant illustre une méthode nommée `RetrieveBlogPost` qui utilise ces méthodes d'extension pour lire et écrire un objet `BlogPost` sérialisable dans le cache selon le mode de type cache-aside :
 
 ```csharp
 // The BlogPost type
@@ -499,7 +499,7 @@ private async Task<BlogPost> RetrieveBlogPost(string blogPostKey)
 
 Redis prend en charge la mise en pipeline des commandes si une application cliente envoie plusieurs demandes asynchrones. Redis peut appliquer un multiplexage aux demandes à l'aide de la même connexion plutôt que de recevoir et de répondre aux commandes dans une séquence stricte.
 
-Cette approche permet de réduire la latence grâce à une utilisation plus efficace du réseau. L'extrait de code suivant montre un exemple qui récupère simultanément les détails de deux clients. Le code envoie deux demandes, effectue d'autres traitements (non illustrés), puis attend de recevoir les résultats. La méthode `Wait` de l’objet cache est similaire à la méthode .NET Framework `Task.Wait` :
+Cette approche permet de réduire la latence grâce à une utilisation plus efficace du réseau. L'extrait de code suivant montre un exemple qui récupère simultanément les détails de deux clients. Le code envoie deux demandes, effectue d'autres traitements (non illustrés), puis attend de recevoir les résultats. La méthode `Wait` de l’objet cache est similaire à la méthode .NET Framework `Task.Wait` :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -522,7 +522,7 @@ L’utilisation la plus simple de Redis pour la mise en cache consiste à recour
 
 Notez que ces clés contiennent également des données non interprétées, afin que vous puissiez utiliser tout type d’informations binaires comme clé. Toutefois, plus la clé est longue, plus il faut d’espace pour la stocker et plus les opérations de recherche prennent de temps. Pour faciliter l’utilisation et la maintenance, concevez votre espace de clés soigneusement et utilisez des clés explicites (mais pas longues).
 
-Par exemple, utilisez des clés structurées telles que « client:100 » pour représenter la clé pour le client avec l'ID 100 plutôt que simplement « 100 ». Ce schéma permet de facilement faire la différence entre les valeurs qui stockent les différents types de données. Par exemple, vous pouvez également utiliser la clé « orders:100 » pour représenter la clé pour la commande avec l'ID 100.
+Par exemple, utilisez des clés structurées telles que « client:100 » pour représenter la clé pour le client avec l'ID 100 plutôt que simplement « 100 ». Ce schéma permet de facilement faire la différence entre les valeurs qui stockent les différents types de données. Par exemple, vous pouvez également utiliser la clé « orders:100 » pour représenter la clé pour la commande avec l'ID 100.
 
 Indépendamment des chaînes binaires unidimensionnelles, une valeur d’une paire clé/valeur Redis peut également contenir des informations plus structurées, dont des listes, des ensembles (triés et non triés) et des hachages. Redis fournit un ensemble de commandes complet qui permet de manipuler ces types. Bon nombre de ces commandes sont accessibles par les applications .NET Framework via une bibliothèque cliente telle que StackExchange. La page [Présentation des types de données et abstractions Redis](http://redis.io/topics/data-types-intro) du site web de Redis fournit une vue plus détaillée de ces types et des commandes que vous pouvez utiliser pour les manipuler.
 
@@ -530,9 +530,9 @@ Cette section récapitule quelques utilisations habituelles de ces types de donn
 
 ### Exécuter des opérations atomiques et par lots
 
-Redis prend en charge une série d'opérations get et set atomiques sur les valeurs de chaîne. Ces opérations suppriment les risques de conditions de concurrence possibles qui peuvent se produire lors de l'utilisation de commandes `GET` et `SET` distinctes. Les opérations disponibles sont les suivantes :
+Redis prend en charge une série d'opérations get et set atomiques sur les valeurs de chaîne. Ces opérations suppriment les risques de conditions de concurrence possibles qui peuvent se produire lors de l'utilisation de commandes `GET` et `SET` distinctes. Les opérations disponibles sont les suivantes :
 
-- `INCR`, `INCRBY`, `DECR` et `DECRBY` effectuent des opérations d’incrémentation et de décrémentation atomiques sur les valeurs de données numériques entières. La bibliothèque StackExchange fournit des versions surchargées des méthodes `IDatabase.StringIncrementAsync` et `IDatabase.StringDecrementAsync` pour effectuer ces opérations et renvoyer la valeur résultante stockée dans le cache. L'extrait de code suivant illustre l’utilisation de ces méthodes :
+- `INCR`, `INCRBY`, `DECR` et `DECRBY` effectuent des opérations d’incrémentation et de décrémentation atomiques sur les valeurs de données numériques entières. La bibliothèque StackExchange fournit des versions surchargées des méthodes `IDatabase.StringIncrementAsync` et `IDatabase.StringDecrementAsync` pour effectuer ces opérations et renvoyer la valeur résultante stockée dans le cache. L'extrait de code suivant illustre l’utilisation de ces méthodes :
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -549,7 +549,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
   // newValue should be 50
   ```
 
-- `GETSET` récupère la valeur associée à une clé et la remplace par une autre. La bibliothèque StackExchange donne accès à cette opération via la méthode `IDatabase.StringGetSetAsync`. L'extrait de code ci-dessous montre un exemple de cette méthode. Ce code retourne la valeur actuelle associée à la clé « data:counter » de l’exemple précédent. Il réinitialise ensuite la valeur de cette clé à zéro, le tout dans le cadre de la même opération :
+- `GETSET` récupère la valeur associée à une clé et la remplace par une autre. La bibliothèque StackExchange donne accès à cette opération via la méthode `IDatabase.StringGetSetAsync`. L'extrait de code ci-dessous montre un exemple de cette méthode. Ce code retourne la valeur actuelle associée à la clé « data:counter » de l’exemple précédent. Il réinitialise ensuite la valeur de cette clé à zéro, le tout dans le cadre de la même opération :
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -558,13 +558,13 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
   ```
 
-- `MGET` et `MSET` peuvent renvoyer ou modifier un ensemble de valeurs de chaîne en une seule opération. Les méthodes `IDatabase.StringGetAsync` et `IDatabase.StringSetAsync` sont surchargées pour prendre en charge cette fonctionnalité, comme illustré dans l'exemple suivant :
+- `MGET` et `MSET` peuvent renvoyer ou modifier un ensemble de valeurs de chaîne en une seule opération. Les méthodes `IDatabase.StringGetAsync` et `IDatabase.StringSetAsync` sont surchargées pour prendre en charge cette fonctionnalité, comme illustré dans l'exemple suivant :
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key/value pairs
+  // Create a list of key-value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -573,7 +573,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key/value pairs in the cache
+  // Store the list of key-value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys
@@ -589,7 +589,7 @@ Vous créez un objet `ITransaction` à l’aide de la méthode `IDatabase.Create
 
 L’interface `ITransaction` donne accès à un ensemble de méthodes similaires à celles auxquelles l’interface `IDatabase`, sauf que toutes les méthodes sont asynchrones. Cela signifie qu’elles sont exécutées uniquement lors de l’appel de la méthode `ITransaction.Execute`. La valeur renvoyée par la méthode `ITransaction.Execute` indique si la transaction a été créée avec succès (true) ou a échoué (false).
 
-L'extrait de code suivant montre un exemple qui incrémente et décrémente deux compteurs dans le cadre d’une même transaction :
+L'extrait de code suivant montre un exemple qui incrémente et décrémente deux compteurs dans le cadre d’une même transaction :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -612,7 +612,7 @@ Pour plus d'informations, consultez la page [Transactions Redis](https://github.
 
 Lors de l’exécution des opérations par lot, vous pouvez utiliser l’interface `IBatch` de la bibliothèque StackExchange. Cette interface donne accès à un ensemble de méthodes similaires à celles auxquelles accède l’interface `IDatabase`, sauf que toutes les méthodes sont asynchrones.
 
-Vous créez un objet `IBatch` à l’aide de la méthode `IDatabase.CreateBatch`, puis exécutez le lot à l’aide de la méthode `IBatch.Execute`, comme indiqué dans l’exemple suivant. Ce code définit simplement une valeur de chaîne, incrémente et décrémente les compteurs utilisés dans l’exemple précédent, puis affiche les résultats :
+Vous créez un objet `IBatch` à l’aide de la méthode `IDatabase.CreateBatch`, puis exécutez le lot à l’aide de la méthode `IBatch.Execute`, comme indiqué dans l’exemple suivant. Ce code définit simplement une valeur de chaîne, incrémente et décrémente les compteurs utilisés dans l’exemple précédent, puis affiche les résultats :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -629,9 +629,9 @@ Console.WriteLine("{0}", t2.Result);
 
 Il est important de comprendre qu’à la différence d’une transaction, si une commande du lot échoue parce qu’elle est mal formée, les autres commandes peuvent continuer à s’exécuter. La méthode `IBatch.Execute` ne retourne pas d’indication de réussite ou d’échec.
 
-### Effectuer des opérations de cache « fire and forget »
+### Effectuer des opérations de cache « fire and forget »
 
-Redis prend en charge les opérations « fire and forget » à l’aide d’indicateurs de commande. Dans ce cas, le client lance simplement une opération mais n’est pas intéressé par le résultat et n'attend pas la fin de la commande. L’exemple ci-dessous montre comment exécuter la commande INCR en tant qu’opération « fire and forget » :
+Redis prend en charge les opérations « fire and forget » à l’aide d’indicateurs de commande. Dans ce cas, le client lance simplement une opération mais n’est pas intéressé par le résultat et n'attend pas la fin de la commande. L’exemple ci-dessous montre comment exécuter la commande INCR en tant qu’opération « fire and forget » :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -646,7 +646,7 @@ cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
 
 Lorsque vous stockez un élément dans un cache Redis, vous pouvez spécifier un délai après lequel l'élément est automatiquement supprimé du cache. Vous pouvez également demander le temps restant avant qu’une clé expire à l’aide de la commande `TTL`. Cette commande est disponible pour des applications StackExchange à l’aide de la méthode `IDatabase.KeyTimeToLive`.
 
-L’extrait de code suivant montre comment définir un délai d’expiration de 20 secondes sur une clé et demander la durée de vie restante de la clé :
+L’extrait de code suivant montre comment définir un délai d’expiration de 20 secondes sur une clé et demander la durée de vie restante de la clé :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -660,7 +660,7 @@ await cache.StringSetAsync("data:key1", 99, TimeSpan.FromSeconds(20));
 TimeSpan? expiry = cache.KeyTimeToLive("data:key1");
 ```
 
-Vous pouvez également définir le délai d’expiration sur une date et une heure spécifiques à l’aide de la commande EXPIRE, disponible dans la bibliothèque StackExchange en tant que méthode `KeyExpireAsync` :
+Vous pouvez également définir le délai d’expiration sur une date et une heure spécifiques à l’aide de la commande EXPIRE, disponible dans la bibliothèque StackExchange en tant que méthode `KeyExpireAsync` :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -673,7 +673,7 @@ await cache.KeyExpireAsync("data:key1",
 ...
 ```
 
-> _Conseil :_ vous pouvez supprimer manuellement un élément du cache à l’aide de la commande DEL, disponible via la bibliothèque StackExchange en tant que méthode `IDatabase.KeyDeleteAsync`.
+> _Conseil :_ vous pouvez supprimer manuellement un élément du cache à l’aide de la commande DEL, disponible via la bibliothèque StackExchange en tant que méthode `IDatabase.KeyDeleteAsync`.
 
 ### Utiliser des balises pour établir une corrélation croisée entre des éléments mis en cache
 
@@ -683,7 +683,7 @@ Vous pouvez également combiner les ensembles existants pour créer de nouveaux 
 
 Les extraits de code suivants montrent comment les ensembles peuvent être utiles pour rapidement stocker et récupérer des collections d'éléments connexes. Ce code utilise le type `BlogPost` décrit dans la section Implémenter des applications clientes de cache Redis, plus haut dans cet article.
 
-Un objet `BlogPost` contient quatre champs : un ID, un titre, un classement et une collection de balises. Le premier extrait de code ci-dessous montre les exemples de données utilisés pour remplir une liste C# d’objets `BlogPost` :
+Un objet `BlogPost` contient quatre champs : un ID, un titre, un classement et une collection de balises. Le premier extrait de code ci-dessous montre les exemples de données utilisés pour remplir une liste C# d’objets `BlogPost` :
 
 ```csharp
 List<string[]> tags = new List<string[]>()
@@ -718,7 +718,7 @@ for (int i = 0; i < numberOfPosts; i++)
 }
 ```
 
-Vous pouvez stocker les balises pour chaque objet `BlogPost` en tant qu’ensemble dans un cache Redis, puis associer chaque ensemble avec l’ID de l’objet `BlogPost`. Cela permet à une application de trouver rapidement toutes les balises appartenant à un billet de blog spécifique. Pour activer la recherche dans le sens opposé et rechercher tous les billets de blog qui partagent une balise spécifique, vous pouvez créer un autre ensemble qui contient les billets de blog faisant référence à l'ID de balise dans la clé :
+Vous pouvez stocker les balises pour chaque objet `BlogPost` en tant qu’ensemble dans un cache Redis, puis associer chaque ensemble avec l’ID de l’objet `BlogPost`. Cela permet à une application de trouver rapidement toutes les balises appartenant à un billet de blog spécifique. Pour activer la recherche dans le sens opposé et rechercher tous les billets de blog qui partagent une balise spécifique, vous pouvez créer un autre ensemble qui contient les billets de blog faisant référence à l'ID de balise dans la clé :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -742,7 +742,7 @@ foreach (BlogPost post in posts)
 }
 ```
 
-Ces structures permettent d'effectuer de nombreuses requêtes courantes de manière très efficace. Par exemple, vous pouvez rechercher et afficher toutes les balises du billet de blog 1 comme suit :
+Ces structures permettent d'effectuer de nombreuses requêtes courantes de manière très efficace. Par exemple, vous pouvez rechercher et afficher toutes les balises du billet de blog 1 comme suit :
 
 ```csharp
 // Show the tags for blog post #1
@@ -752,7 +752,7 @@ foreach (var value in await cache.SetMembersAsync("blog:posts:1:tags"))
 }
 ```
 
-Vous pouvez rechercher toutes les balises qui sont communes aux billets de blog 1 et 2 en effectuant une opération d'intersection ensembliste, comme suit :
+Vous pouvez rechercher toutes les balises qui sont communes aux billets de blog 1 et 2 en effectuant une opération d'intersection ensembliste, comme suit :
 
 ```csharp
 // Show the tags in common for blog posts #1 and #2
@@ -763,7 +763,7 @@ foreach (var value in await cache.SetCombineAsync(SetOperation.Intersect, new Re
 }
 ```
 
-Vous pouvez également rechercher tous les billets de blog qui contiennent une balise spécifique :
+Vous pouvez également rechercher tous les billets de blog qui contiennent une balise spécifique :
 
 ```csharp
 // Show the ids of the blog posts that have the tag "iot".
@@ -779,7 +779,7 @@ Une tâche requise courante de nombreuses applications est celle de trouver les 
 
 Vous pouvez implémenter cette fonctionnalité en utilisant une liste Redis. Celle-ci contient plusieurs éléments qui partagent la même clé. Elle agit comme une file d’attente à deux extrémités. Vous pouvez envoyer des éléments vers chaque extrémité de la liste à l’aide des commandes LPUSH (push à gauche) et RPUSH (push à droite). Vous pouvez récupérer des éléments à partir d’une des extrémités de la liste en utilisant les commandes LPOP et RPOP. Vous pouvez également renvoyer un ensemble d'éléments à l'aide des commandes LRANGE et RRANGE.
 
-Les extraits de code ci-dessous montrent comment vous pouvez effectuer ces opérations à l'aide de la bibliothèque StackExchange. Ce code utilise le type `BlogPost` issu des exemples précédents. Quand un utilisateur lit un billet de blog, la méthode `IDatabase.ListLeftPushAsync` pousse son titre vers une liste associée à la clé « blog:recent\_posts » dans le cache Redis.
+Les extraits de code ci-dessous montrent comment vous pouvez effectuer ces opérations à l'aide de la bibliothèque StackExchange. Ce code utilise le type `BlogPost` issu des exemples précédents. Quand un utilisateur lit un billet de blog, la méthode `IDatabase.ListLeftPushAsync` pousse son titre vers une liste associée à la clé « blog:recent\_posts » dans le cache Redis.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -793,7 +793,7 @@ await cache.ListLeftPushAsync(
 
 Lors de la lecture des autres billets de blog, leurs titres sont envoyés à la même liste. La liste est organisée selon la séquence d’ajout des titres. Les billets de blog consultés le plus récemment figurent à l’extrémité gauche de la liste. (Si un même billet de blog est lu plusieurs fois, il a plusieurs entrées dans la liste.)
 
-Vous pouvez afficher les titres des billets de blog consultés le plus récemment à l’aide de la méthode `IDatabase.ListRange`. Cette méthode prend la clé qui contient la liste, un point de départ et un point de fin. L’extrait de code suivant récupère le titre des 10 billets de blog (éléments de 0 à 9) à l’extrémité la plus à gauche de la liste :
+Vous pouvez afficher les titres des billets de blog consultés le plus récemment à l’aide de la méthode `IDatabase.ListRange`. Cette méthode prend la clé qui contient la liste, un point de départ et un point de fin. L’extrait de code suivant récupère le titre des 10 billets de blog (éléments de 0 à 9) à l’extrémité la plus à gauche de la liste :
 
 ```csharp
 // Show latest ten posts
@@ -805,7 +805,7 @@ foreach (string postTitle in await cache.ListRangeAsync(redisKey, 0, 9))
 
 Notez que la méthode `ListRangeAsync` ne supprime pas d’éléments de la liste. Pour ce faire, vous pouvez utiliser les méthodes `IDatabase.ListLeftPopAsync` et `IDatabase.ListRightPopAsync`.
 
-Pour empêcher la liste de croître indéfiniment, vous pouvez régulièrement éliminer les éléments de la liste. L’extrait de code ci-dessous montre comment supprimer tous les éléments de la liste, sauf les cinq les plus à gauche :
+Pour empêcher la liste de croître indéfiniment, vous pouvez régulièrement éliminer les éléments de la liste. L’extrait de code ci-dessous montre comment supprimer tous les éléments de la liste, sauf les cinq les plus à gauche :
 
 ```csharp
 await cache.ListTrimAsync(redisKey, 0, 5);
@@ -813,7 +813,7 @@ await cache.ListTrimAsync(redisKey, 0, 5);
 
 ### Implémenter un classement
 
-Par défaut, les éléments d’un ensemble ne sont pas conservés dans un ordre spécifique. Vous pouvez créer un ensemble ordonné en utilisant la commande ZADD (méthode `IDatabase.SortedSetAdd` dans la bibliothèque StackExchange). Les éléments sont classés à l’aide d’une valeur numérique appelée « score », fournie en tant que paramètre à la commande.
+Par défaut, les éléments d’un ensemble ne sont pas conservés dans un ordre spécifique. Vous pouvez créer un ensemble ordonné en utilisant la commande ZADD (méthode `IDatabase.SortedSetAdd` dans la bibliothèque StackExchange). Les éléments sont classés à l’aide d’une valeur numérique appelée « score », fournie en tant que paramètre à la commande.
 
 L'extrait de code suivant ajoute le titre d'un billet de blog à une liste ordonnée. Dans cet exemple, chaque billet de blog comporte également un champ de score contenant son classement.
 
@@ -826,7 +826,7 @@ BlogPost blogPost = ...; // Reference to a blog post that has just been rated
 await cache.SortedSetAddAsync(redisKey, blogPost.Title, blogpost.Score);
 ```
 
-Vous pouvez récupérer les titres et scores de billet de blog dans l’ordre croissant des scores à l’aide de la méthode `IDatabase.SortedSetRangeByRankWithScores` :
+Vous pouvez récupérer les titres et scores de billet de blog dans l’ordre croissant des scores à l’aide de la méthode `IDatabase.SortedSetRangeByRankWithScores` :
 
 ```csharp
 foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
@@ -837,7 +837,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
 
 > [AZURE.NOTE] La bibliothèque StackExchange fournit également la méthode `IDatabase.SortedSetRangeByRankAsync` qui renvoie les données dans l’ordre des scores, mais ne renvoie pas les scores.
 
-Vous pouvez également récupérer des éléments dans l’ordre décroissant des scores et limiter le nombre d’éléments renvoyés en fournissant des paramètres supplémentaires à la méthode `IDatabase.SortedSetRangeByRankWithScoresAsync`. L'exemple suivant affiche les titres et les scores des 10 premiers billets de blog classés :
+Vous pouvez également récupérer des éléments dans l’ordre décroissant des scores et limiter le nombre d’éléments renvoyés en fournissant des paramètres supplémentaires à la méthode `IDatabase.SortedSetRangeByRankWithScoresAsync`. L'exemple suivant affiche les titres et les scores des 10 premiers billets de blog classés :
 
 ```csharp
 foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
@@ -847,7 +847,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
 }
 ```
 
-L’exemple suivant utilise la méthode `IDatabase.SortedSetRangeByScoreWithScoresAsync` qui permet de limiter les éléments qui sont retournés à ceux qui s’inscrivent dans une plage de scores donnée :
+L’exemple suivant utilise la méthode `IDatabase.SortedSetRangeByScoreWithScoresAsync` qui permet de limiter les éléments qui sont retournés à ceux qui s’inscrivent dans une plage de scores donnée :
 
 ```csharp
 // Blog posts with scores between 5000 and 100000
@@ -864,7 +864,7 @@ Outre son utilisation comme cache de données, un serveur Redis fournit la messa
 
 Redis fournit la commande SUBSCRIBE que les applications clientes doivent utiliser pour s’abonner à des canaux. Cette commande attend le nom d'un ou de plusieurs canaux sur lesquels l'application acceptera les messages. La bibliothèque StackExchange inclut l’interface `ISubscription` qui permet à une application .NET Framework de s’abonner à des canaux et de publier sur ceux-ci.
 
-Vous créez un objet `ISubscription` à l’aide de la méthode `GetSubscriber` de la connexion au serveur Redis. Vous écoutez ensuite des messages sur un canal à l’aide de la méthode `SubscribeAsync` de cet objet. L'exemple de code suivant montre comment s'abonner à un canal nommé « messages:blogPosts » :
+Vous créez un objet `ISubscription` à l’aide de la méthode `GetSubscriber` de la connexion au serveur Redis. Vous écoutez ensuite des messages sur un canal à l’aide de la méthode `SubscribeAsync` de cet objet. L'exemple de code suivant montre comment s'abonner à un canal nommé « messages:blogPosts » :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -882,7 +882,7 @@ Notez également que l’espace de noms que les canaux utilisent diffère de cel
 
 Le deuxième paramètre est un délégué Action. Ce délégué s'exécute en mode asynchrone chaque fois qu'un nouveau message apparaît dans le canal. Cet exemple affiche simplement le message dans la console (le message contient le titre d'un billet de blog).
 
-Pour publier vers un canal, une application peut utiliser la commande Redis PUBLISH. La bibliothèque StackExchange fournit la méthode `IServer.PublishAsync` pour effectuer cette opération. L'extrait de code suivant montre comment publier un message sur le canal « messages:blogPosts » :
+Pour publier vers un canal, une application peut utiliser la commande Redis PUBLISH. La bibliothèque StackExchange fournit la méthode `IServer.PublishAsync` pour effectuer cette opération. L'extrait de code suivant montre comment publier un message sur le canal « messages:blogPosts » :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -892,11 +892,11 @@ BlogPost blogpost = ...;
 subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 ```
 
-Il existe plusieurs points que vous devez comprendre sur le mécanisme éditeur/abonné :
+Il existe plusieurs points que vous devez comprendre sur le mécanisme éditeur/abonné :
 
 - Plusieurs utilisateurs peuvent s’abonner au même canal. Tous recevront les messages publiés sur celui-ci.
 - Les abonnés ne reçoivent que les messages qui ont été publiés après le début de leur abonnement. Les canaux ne sont pas mis en mémoire tampon. Quand un message est publié, l’infrastructure Redis l’envoie à chaque abonné, puis le supprime.
-- Par défaut, les messages sont reçus par les abonnés dans l'ordre dans lequel ils sont envoyés. Dans un système très actif avec un grand nombre de messages et de nombreux abonnés et éditeurs, garantir la remise de messages séquentielle peut ralentir les performances du système. Si chaque message est indépendant et si l’ordre est sans importance, vous pouvez activer un traitement simultané par le système Redis, qui peut contribuer à améliorer la réactivité. Vous pouvez faire cela dans un client StackExchange en définissant l’élément PreserveAsyncOrder de la connexion utilisée par l’abonné sur false :
+- Par défaut, les messages sont reçus par les abonnés dans l'ordre dans lequel ils sont envoyés. Dans un système très actif avec un grand nombre de messages et de nombreux abonnés et éditeurs, garantir la remise de messages séquentielle peut ralentir les performances du système. Si chaque message est indépendant et si l’ordre est sans importance, vous pouvez activer un traitement simultané par le système Redis, qui peut contribuer à améliorer la réactivité. Vous pouvez faire cela dans un client StackExchange en définissant l’élément PreserveAsyncOrder de la connexion utilisée par l’abonné sur false :
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
@@ -905,9 +905,9 @@ Il existe plusieurs points que vous devez comprendre sur le mécanisme éditeur/
 
 ## Conseils et modèles connexes
 
-Le modèle suivant peut également être pertinent dans votre cas si vous implémentez une mise en cache dans vos applications :
+Le modèle suivant peut également être pertinent dans votre cas si vous implémentez une mise en cache dans vos applications :
 
-- [Modèle de type cache-aside](http://msdn.microsoft.com/library/dn589799.aspx) : ce modèle décrit comment charger des données à la demande dans un cache à partir d’un magasin de données. Il permet également de maintenir la cohérence entre les données en cache et les données du magasin de données d’origine.
+- [Modèle de type cache-aside](http://msdn.microsoft.com/library/dn589799.aspx) : ce modèle décrit comment charger des données à la demande dans un cache à partir d’un magasin de données. Il permet également de maintenir la cohérence entre les données en cache et les données du magasin de données d’origine.
 - Le [modèle de partitionnement](http://msdn.microsoft.com/library/dn589797.aspx) fournit des informations sur l’implémentation d’un partitionnement horizontal pour vous aider à améliorer l’extensibilité lors du stockage de grands volumes de données et de l’accès à ceux-ci.
 
 ## Plus d’informations
@@ -934,4 +934,4 @@ Le modèle suivant peut également être pertinent dans votre cas si vous implé
 - Page relative aux [transactions dans Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) dans le référentiel StackExchange.Redis.
 - [Guide de partitionnement des données](http://msdn.microsoft.com/library/dn589795.aspx) sur le site web de Microsoft.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

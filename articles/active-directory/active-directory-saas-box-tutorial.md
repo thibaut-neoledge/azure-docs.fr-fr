@@ -32,7 +32,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 1.  Activation de l'intégration d'application pour Box
 2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
+3.  Configuration de l'approvisionnement des utilisateurs et des groupes
 4.  Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-box-tutorial/IC769537.png "Scénario")
@@ -115,11 +115,15 @@ Cette section décrit comment activer l'approvisionnement des comptes d'utilisat
 
 4. Cliquez sur **Accorder l’accès à Box** pour autoriser cette opération et retourner au portail de gestion Azure. <br><br> ![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769549.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
-5. Pour terminer la configuration, cliquez sur le bouton Terminé. <br><br> ![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769551.png "Activer l'approvisionnement de l'utilisateur automatique.")
+
+5. Sur la page **Options d'approvisionnement**, les cases à cocher **Types d'objet à approvisionner** permettent de choisir ou non les objets de groupe approvisionnés dans Box en plus des objets utilisateur. Pour plus d'informations, voir "Affectation d'utilisateurs et de groupes" ci-dessous.
+
+
+6. Pour terminer la configuration, cliquez sur le bouton Terminé. <br><br> ![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769551.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
 
 
-##Affectation d’utilisateurs
+##Affectation d'un utilisateur de test
   
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
@@ -131,7 +135,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation. <br><br> ![Oui](./media/active-directory-saas-box-tutorial/IC767830.png "Oui")
   
-
 À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Box.
 
 Une première étape de vérification consiste à contrôler l'état d'approvisionnement en cliquant sur le tableau de bord dans la page d'intégration d'applications Box dans le Portail de gestion Azure.
@@ -148,9 +151,28 @@ Dans votre locataire Box, les utilisateurs synchronisés sont répertoriés sous
 <br><br> ![Statut d’intégration](./media/active-directory-saas-box-tutorial/IC769556.png "Statut d’intégration")
 
 
+##Affectation d'utilisateurs et de groupes
+
+L'onglet **Box > Utilisateurs et groupes** du portail Azure Classic vous permet de spécifier quels utilisateurs et groupes doivent avoir accès à Box. L'affectation d'un utilisateur ou groupe entraîne les événements suivants :
+
+* Azure AD permet à l'utilisateur affecté (par affectation directe ou appartenance au groupe) de s'identifier auprès de Box. Si un utilisateur n'est pas affecté, Azure AD ne lui permettra pas de se connecter à Box et renverra une erreur sur la page de connexion Azure AD.
+
+* Une mosaïque d'application pour Box est ajoutée au [lanceur d'applications](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) de cet utilisateur.
+
+* Si la configuration automatique est activée, les utilisateurs et/ou groupes affectés sont ajoutés à la file d'attente d'approvisionnement automatique.
+
+    * Si seuls des objets utilisateur ont été configurés pour être approvisionnés, tous les utilisateurs directement affectées sont placés dans la file d'attente d'approvisionnement et tous les utilisateurs membres des groupes affectés seront placés dans la file d'attente d'approvisionnement. 
+    
+    * Si des objets de groupe ont été configurés pour être approvisionnés, tous les objets du groupe affectés sont approvisionnés dans Box, tout comme l'ensemble des utilisateurs membres de ces groupes. Les appartenances des groupes et des utilisateurs sont conservées lors de l'écriture dans Box.
+    
+Vous pouvez utiliser l'onglet **Attributs > Authentification unique** pour configurer les attributs (ou revendications) de l'utilisateur présentées dans Box pendant l'authentification SAML, et l'onglet **Attributs > Approvisionnement** pour configurer le transfert des attributs utilisateur et groupe d'Azure AD vers Box lors des opérations d'approvisionnement. Consultez les ressources ci-après pour plus d'informations.
+
+
 ## Ressources supplémentaires
 
+* [Personnalisation des revendications émises dans le jeton SAML](active-directory-saml-claims-customization.md)
+* [Approvisionnement : personnaliser les mappages d'attributs](active-directory-saas-customizing-attribute-mappings.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

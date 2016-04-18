@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="03/31/2016"
    ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour cloner un volume (Mise à jour 2)
+# Utiliser le service StorSimple Manager pour cloner un volume (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
@@ -31,7 +31,7 @@ Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour c
 >
 >Un volume épinglé localement sera cloné comme un volume à plusieurs niveaux. Si vous voulez que le volume cloné soit épinglé localement, vous pouvez convertir le clone en un volume localement épinglé une fois l'opération de clonage terminée. Pour plus d'informations sur la conversion d'un volume à plusieurs niveaux en volume épinglé localement, consultez la page [Changer de type de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
 >
->Si vous essayez de convertir un volume cloné de type plusieurs niveaux au type localement épinglé immédiatement après le clonage (lorsqu'il est toujours un clone temporaire), la conversion échoue avec le message d'erreur suivant :
+>Si vous essayez de convertir un volume cloné de type plusieurs niveaux au type localement épinglé immédiatement après le clonage (lorsqu'il est toujours un clone temporaire), la conversion échoue avec le message d'erreur suivant :
 >
 >`Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 >
@@ -51,21 +51,21 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 3. Cliquez sur **Cloner** pour commencer le clonage du volume sélectionné.
 
-4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement**:
+4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
 
   1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre. Si vous choisissez un volume associé à d’autres fournisseurs de service cloud (autres qu’Azure), la liste déroulante pour l’appareil cible affiche uniquement des appareils physiques. Vous ne pouvez pas cloner un volume associé à d’autres fournisseurs de services cloud sur un appareil virtuel.
 
-        >[AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
-  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
+  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
     
-        >[AZURE.NOTE] Le champ **Cloner le volume comme** sera **Hiérarchisé** même si vous clonez un volume épinglé localement. Vous ne pouvez pas modifier ce paramètre. Toutefois, si vous voulez que le volume cloné soit aussi épinglé localement, une fois le clone créé, vous pouvez le convertir en volume épinglé localement. Pour plus d'informations sur la conversion d'un volume hiérarchisé en un volume épinglé localement, accédez à [Modifier le type de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
   3. Cliquez sur l'icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume-u2/HCS_ArrowIcon.png) pour passer à la page suivante.
 
-5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume**:
+5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
 
   1. Spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante.
 
@@ -73,11 +73,11 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
   2. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-clone-volume-u2/HCS_CheckIcon.png)pour terminer l’opération.
 
-6. Un travail de clonage sera lancé et vous serez averti lorsque le clone sera créé avec succès. Cliquez sur **Afficher le travail** pour surveiller le travail de clonage sur la page **Travaux**. Vous verrez le message suivant lorsque le travail de clonage est terminé :
+6. Un travail de clonage sera lancé et vous serez averti lorsque le clone sera créé avec succès. Cliquez sur **Afficher le travail** pour surveiller le travail de clonage sur la page **Travaux**. Vous verrez le message suivant lorsque le travail de clonage est terminé :
 
     ![Message de clone](./media/storsimple-clone-volume-u2/CloneMsg.png)
 
-7. Une fois le travail de clonage terminé :
+7. Une fois le travail de clonage terminé :
 
   1. Accédez à la page **Appareils**, puis sélectionnez l’onglet **Conteneurs de volumes**.
   2. Sélectionnez le conteneur de volume associé au volume source que vous avez cloné. Dans la liste des volumes, vous devez voir le clone qui vient d’être créé.
@@ -117,4 +117,4 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

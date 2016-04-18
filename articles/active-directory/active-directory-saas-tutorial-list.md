@@ -94,6 +94,7 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Gigya.jpg)| [Gigya](https://go.microsoft.com/fwLink/?LinkID=403245&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_GoogleApps.jpg)| [Google Apps](https://go.microsoft.com/fwLink/?LinkID=309577&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Greenhouse.jpg)| [Greenhouse](https://go.microsoft.com/fwLink/?LinkID=403252&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HackerOne.png)| [HackerOne](https://go.microsoft.com/fwLink/?LinkID=785097&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.jpg)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.jpg)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.jpg)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
@@ -164,7 +165,7 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.jpg)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.jpg)| [SciQuest Spend Director](https://go.microsoft.com/fwLink/?LinkID=530243&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.jpg)| [ScreenSteps](https://go.microsoft.com/fwLink/?LinkID=510251&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.jpg)| [Éléments SD](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.jpg)| [Éléments SD](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SecureDeliver.jpg)| [Secure Deliver](https://go.microsoft.com/fwLink/?LinkID=733457&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ServiceNow.jpg)| [ServiceNow](https://go.microsoft.com/fwLink/?LinkID=309587&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ShiftPlanning.jpg)| [ShiftPlanning](https://go.microsoft.com/fwLink/?LinkID=510242&clcid=0x409)|
@@ -221,6 +222,6 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 ##Articles connexes
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

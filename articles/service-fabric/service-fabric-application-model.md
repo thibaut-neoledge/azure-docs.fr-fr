@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"   
+   ms.date="04/05/2016"   
    ms.author="seanmck"/>
 
 # Modéliser une application dans Service Fabric
@@ -82,7 +82,7 @@ Les attributs **Version** sont des chaînes non structurées et ne sont pas anal
 
 **DataPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient des données statiques arbitraires destinées à être consommées par le processus pendant l'exécution.
 
-**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml*:
+**ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -93,7 +93,7 @@ Les attributs **Version** sont des chaînes non structurées et ne sont pas anal
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Un manifeste de service peut contenir plusieurs packages de code, de configuration et de données. Les versions de chacun de ces packages peuvent être gérées de manière indépendante.
+> [AZURE.NOTE] Un manifeste de service peut contenir plusieurs packages de code, de configuration et de données. Les versions de chacun de ces packages peuvent être gérées de manière indépendante.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -139,7 +139,7 @@ Comme dans le cas des manifestes de service, les attributs **Version** sont des 
 
 **DefaultServices** déclare des instances de service qui sont créées automatiquement chaque fois qu'une application est instanciée par rapport à ce type d'application. Les services par défaut peuvent s'avérer pratiques et se comportent à tous égards comme des services normaux une fois qu'ils ont été créés. Ils sont mis à niveau avec tous les autres services dans l'instance d'application et peuvent également être supprimés.
 
-> [AZURE.NOTE]Un manifeste d'application peut contenir plusieurs importations de manifeste de service et services par défaut. La version de chaque importation de manifeste de service peut être gérée indépendamment.
+> [AZURE.NOTE] Un manifeste d'application peut contenir plusieurs importations de manifeste de service et services par défaut. La version de chaque importation de manifeste de service peut être gérée indépendamment.
 
 Pour savoir comment mettre à jour différents paramètres d’application et de service dans des environnements individuels, consultez [Gestion des paramètres d’application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md)
 
@@ -254,4 +254,4 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

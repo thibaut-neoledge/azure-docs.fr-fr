@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault | Microsoft Azure"
+   pageTitle="Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault | Microsoft Azure"
    description="Ce didacticiel vous explique comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour Microsoft Azure Storage avec Azure Key Vault."
    services="storage"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="01/06/2016"
+   ms.date="03/31/2016"
    ms.author="lakasa"/>
 
-# Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault
+# Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault
 
 ## Introduction
 
@@ -235,4 +235,4 @@ Pour obtenir les dernières informations sur Microsoft Azure Storage, consulte
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus et la technologie d'analyse avancée (ADAPT) 
+#<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus et la technologie d'analyse avancée (ADAPT)
 
 Ce document décrit différentes manières d’envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Cette tâche fait partie du processus d’analyse Cortana (CAP). Plusieurs tâches de manipulation des données sont abordées : exploration des données et génération de fonctionnalités. Des requêtes Hive génériques qui montrent comment explorer des données ou générer des fonctionnalités à l’aide de Hive dans un cluster Hadoop Azure HDInsight sont présentées. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive intégrées.
 
@@ -106,7 +106,7 @@ Les utilisateurs peuvent également enregistrer les résultats d’une requête 
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans *wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
+Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans **wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
 
 ![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -167,7 +167,7 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 
 Cette section décrit les méthodes permettant de générer des fonctionnalités à l’aide de requêtes Hive.
 
-> [AZURE.NOTE] Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+> [AZURE.NOTE] Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-move-hive-tables.md).
 
 Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine.
 
@@ -310,8 +310,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-
-
- 
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

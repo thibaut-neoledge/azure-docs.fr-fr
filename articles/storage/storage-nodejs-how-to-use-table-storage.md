@@ -65,7 +65,7 @@ Pour utiliser Azure Storage, vous avez besoin du Kit de développement logiciel 
 
 Ajoutez le code suivant en haut du fichier **server.js** dans votre application :
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Configurer une connexion Azure Storage
 
@@ -77,27 +77,27 @@ Pour obtenir un exemple de configuration des variables d’environnement dans le
 
 Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
 
-    var tableSvc = azure.createTableService();
+	var tableSvc = azure.createTableService();
 
 L’appel de **createTableIfNotExists** crée une nouvelle table avec le nom spécifié si elle n’existe pas déjà. Dans l'exemple suivant, la table 'mytable' est créée, si elle n'existe pas déjà :
 
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if(!error){
-			// Table exists or created
-		}
+	tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+	  if(!error){
+	    // Table exists or created
+	  }
 	});
 
-`result` est `true` si une table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
+`result.created` est `true` si une table est créée et `false` si la table existe déjà. `response` contient des informations sur la demande.
 
 ### Filtres
 
 Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées via **TableService**. Il peut s’agir d’opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Après le prétraitement des options de la requête, la méthode doit appeler « next », en passant un rappel avec la signature suivante :
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
 
@@ -130,19 +130,19 @@ Voici un exemple de définition d'une entité. Notez que **dueDate** est défini
 Vous pouvez également utiliser **entityGenerator** pour créer des entités. L'exemple suivant crée la même entité de tâche en utilisant **entityGenerator**.
 
 	var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
+	var task = {
 	  PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+	  RowKey: entGen.String('1'),
+	  description: entGen.String('take out the trash'),
+	  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+	};
 
 Pour ajouter une entité à votre table, transmettez l'objet d'entité à la méthode **insertEntity**.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if(!error){
-			// Entity inserted
-		}
+	  if(!error){
+	    // Entity inserted
+	  }
 	});
 
 Si l’opération aboutit, `result` contient l’élément [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) de l’enregistrement inséré et `response` contient des informations sur l’opération.
@@ -159,7 +159,7 @@ Exemple de réponse :
 
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **updateEntity** : met à jour une entité existante en la remplaçant
+* **replaceEntity** : met à jour une entité existante en la remplaçant
 
 * **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
 
@@ -167,13 +167,13 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 
 * **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** :
+L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntity** :
 
-	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+	  if(!error) {
+	    // Entity updated
+	  }
+	});
 
 > [AZURE.NOTE] Par défaut, la mise à jour d'une entité ne vérifie pas si les données en cours de mise à jour ont déjà été modifiées par un autre processus. Pour activer la prise en charge de mises à jour simultanées :
 >
@@ -182,10 +182,10 @@ L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** 
 > 2. Lors d'une opération de mise à jour sur une entité, ajoutez les informations ETag précédemment extraites dans la nouvelle entité. Par exemple :
 >
 >     `entity2['.metadata'].etag = currentEtag;`
->    
+>
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez extrait la valeur ETag, par exemple avec une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
 
-Avec **updateEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Avec **replaceEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
@@ -195,7 +195,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 
  L'exemple suivant illustre la soumission par lot de deux entités :
 
-    var task1 = {
+	var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
@@ -239,11 +239,11 @@ Les opérations ajoutées à un traitement par lot peuvent être inspectées en 
 
 Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
 
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+	tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
 	    // result contains the entity
 	  }
-    });
+	});
 
 À la fin de cette opération, `result` contient l’entité.
 
@@ -296,9 +296,9 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 	  RowKey: {'_': '1'}
 	};
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
+	tableSvc.deleteEntity('mytable', task, function(error, response){
 	  if(!error) {
-		// Entity deleted
+	    // Entity deleted
 	  }
 	});
 
@@ -308,7 +308,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 
 Le code suivant permet de supprimer une table d'un compte de stockage.
 
-    tableSvc.deleteTable('mytable', function(error, response){
+	tableSvc.deleteTable('mytable', function(error, response){
 		if(!error){
 			// Table deleted
 		}
@@ -379,7 +379,7 @@ L'application cliente utilise les signatures d'accès partagé avec **TableServi
 
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
-		// result contains the entities
+	    // result contains the entities
 	  }
 	});
 
@@ -391,36 +391,30 @@ Vous pouvez également utiliser une liste de contrôle d'accès (ACL) pour défi
 
 Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stratégies d'accès, dans lequel un ID est associé à chaque stratégie. L’exemple suivant définit deux stratégies ; une pour « user1 » et une pour « user2 » :
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks**, puis ajoute les nouvelles stratégies à l’aide de **setTableAcl**. Cette approche permet :
 
+	var extend = require('extend');
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+    if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -448,4 +442,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec le service de Table Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prévision de la demande énergétique : guide technique | Microsoft Azure"
-	description="Guide technique de l’utilisation du modèle de solution avec Microsoft Cortana Analytics pour prévoir la demande énergétique."
+	pageTitle="Prévision de la demande énergétique : guide technique | Microsoft Azure"
+	description="Guide technique de l’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour prévoir la demande énergétique."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Guide technique de l’utilisation du modèle de solution Cortana Analytics pour prévoir la demande énergétique
+# Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 
 ## **Vue d'ensemble**
 
-Les modèles de solution visent à accélérer le processus de création d’une démonstration E2E sur Cortana Analytics Suite. Un modèle déployé fournit à votre abonnement les composants Cortana Analytics nécessaires et établit les relations entre eux. Il amorce également le pipeline de données avec des exemples de données générées à partir d'une application de simulation de données. Téléchargez le simulateur de données en cliquant sur le lien fourni et installez-le sur votre ordinateur local. Pour obtenir des instructions sur l'utilisation du simulateur, consultez le fichier readme.txt. Les données issues du simulateur alimentent le pipeline de données et génèrent des prédictions Machine Learning que vous pouvez ensuite visualiser dans le tableau de bord Power BI.
+Les modèles de solution visent à accélérer le processus de création d’une démonstration E2E sur Cortana Intelligence Suite. Un modèle déployé fournit à votre abonnement les composants Cortana Intelligence nécessaires et établit les relations entre eux. Il amorce également le pipeline de données avec des exemples de données générées à partir d'une application de simulation de données. Téléchargez le simulateur de données en cliquant sur le lien fourni et installez-le sur votre ordinateur local. Pour obtenir des instructions sur l'utilisation du simulateur, consultez le fichier readme.txt. Les données issues du simulateur alimentent le pipeline de données et génèrent des prédictions Machine Learning que vous pouvez ensuite visualiser dans le tableau de bord Power BI.
 
 Le processus de déploiement vous guide à travers plusieurs étapes permettant de configurer les informations d’identification de votre solution. Veillez à consigner les informations d’identification, telles que le nom de la solution, le nom d’utilisateur et le mot de passe, que vous renseignez pendant le déploiement.
 
@@ -91,13 +91,13 @@ Ce document ne décrit pas le mode de réception de vos données, mais vous pouv
 
 Le service [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) permet de fournir des analyses en temps quasi-réel grâce à une lecture des flux de données et à l’envoi de données vers diverses sources.
 
-Dans le cas du modèle de solution de prévision de la demande énergétique, la requête Azure Stream Analytics se compose de deux sous-requêtes, chacune utilisant les événements du service Azure Event Hub en tant qu’entrées et générant des sorties à deux emplacements distincts. Ces sorties comprennent un jeu de données Power BI et un emplacement Azure Storage.
+Dans le cas du modèle de solution de prévision de la demande énergétique, la requête Azure Stream Analytics se compose de deux sous-requêtes, chacune utilisant les événements du service Azure Event Hub en tant qu’entrées et générant des sorties à deux emplacements distincts. Ces sorties comprennent un jeu de données Power BI et un emplacement Azure Storage.
 
-Pour accéder à la requête [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) :
+Pour accéder à la requête [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) :
 
 -   Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/).
 
--   Recherchez les travaux Stream Analytics ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) qui ont été générés au moment du déploiement de la solution. L’un effectue un Push des données vers Blob Storage (par exemple, mytest1streaming432822asablob), et l'autre vers Power BI (par exemple, mytest1streaming432822asapbi).
+-   Recherchez les travaux Stream Analytics ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) qui ont été générés au moment du déploiement de la solution. L’un effectue un Push des données vers Blob Storage (par exemple, mytest1streaming432822asablob), et l'autre vers Power BI (par exemple, mytest1streaming432822asapbi).
 
 
 -   Sélectionnez
@@ -110,11 +110,11 @@ Pour accéder à la requête [Azure Stream Analytics](https://azure.microsoft.co
 
 Pour plus d’informations sur la construction des requêtes Azure Stream Analytics, consultez les [informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) sur MSDN.
 
-Dans cette solution, le travail Azure Stream Analytics qui génère le jeu de données avec des informations d’analyse en temps quasi-réel concernant le flux de données entrant dans un tableau de bord Power BI est fourni dans le cadre de ce modèle de solution. Étant donné que le format des données entrantes est implicitement connu, ces requêtes devront être modifiées en fonction de votre format de données.
+Dans cette solution, le travail Azure Stream Analytics qui génère le jeu de données avec des informations d’analyse en temps quasi-réel concernant le flux de données entrant dans un tableau de bord Power BI est fourni dans le cadre de ce modèle de solution. Étant donné que le format des données entrantes est implicitement connu, ces requêtes devront être modifiées en fonction de votre format de données.
 
 L’autre travail Azure Stream Analytics génère tous les événements [Event Hub](https://azure.microsoft.com/services/event-hubs/) dans [Azure Storage](https://azure.microsoft.com/services/storage/) et ne nécessite donc aucune modification, quel que soit votre format de données, puisque les informations d’événement complètes sont transmises en continu vers le stockage.
 
-### Azure Data Factory
+### Azure Data Factory
 
 Le service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orchestre le déplacement et le traitement des données. Dans le modèle de solution de prévision de la demande énergétique, la fabrique de données est constituée de douze [pipelines](data-factory\data-factory-create-pipelines.md) qui déplacent et traitent les données à l’aide de différentes technologies.
 
@@ -124,7 +124,7 @@ Cette section décrit les [pipelines](data-factory\data-factory-create-pipelines
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ADF2.png)
 
-Cinq des pipelines de cette fabrique contiennent des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisés pour partitionner et agréger les données. Quand ils sont référencés, les scripts se trouvent dans le compte [Azure Storage](https://azure.microsoft.com/services/storage/) créé pendant l’installation, à l’emplacement suivant : demandforecasting\\\script\\\hive\\\ (ou https://[Your nom de votre solution].blob.core.windows.net/demandforecasting).
+Cinq des pipelines de cette fabrique contiennent des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisés pour partitionner et agréger les données. Quand ils sont référencés, les scripts se trouvent dans le compte [Azure Storage](https://azure.microsoft.com/services/storage/) créé pendant l’installation, à l’emplacement suivant : demandforecasting\\\script\\\hive\\\ (ou https://[Your nom de votre solution].blob.core.windows.net/demandforecasting).
 
 De la même manière que les requêtes [Azure Stream Analytics](#azure-stream-analytics-1), les scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) ont une connaissance implicite du format des données entrantes. Vous devez donc modifier ces requêtes en fonction de votre format de données et des exigences d’[ingénierie des fonctionnalités](machine-learning\machine-learning-feature-selection-and-engineering.md).
 
@@ -137,7 +137,7 @@ Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-s
 
 #### *LoadHistoryDemandDataPipeline*
 
-Ce [pipeline](data-factory\data-factory-create-pipelines.md) contient deux activités :
+Ce [pipeline](data-factory\data-factory-create-pipelines.md) contient deux activités :
 - [HDInsightHive](data-factory\data-factory-hive-activity.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour agréger les données de demande d’historique horaire au niveau de la sous-station en données horaires au niveau de la région et les placer dans Azure Storage pendant le travail Azure Stream Analytics.
 
 - [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), qui déplace les données agrégées de l’objet blob Azure Storage vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
@@ -147,7 +147,7 @@ Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-s
 
 #### *MLScoringRegionXPipeline*
 
-Ces [pipelines](data-factory\data-factory-create-pipelines.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérience Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région. Ce pipeline contient les activités suivantes :
+Ces [pipelines](data-factory\data-factory-create-pipelines.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérience Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région. Ce pipeline contient les activités suivantes :
 -	[HDInsightHive](data-factory\data-factory-hive-activity.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour effectuer les agrégations et l’ingénierie de fonctionnalités nécessaires pour l’expérience Azure Machine Learning (les scripts Hive pour cette tâche sont le ***PrepareMLInputRegionX.hql*** respectif) ;
 
 -	[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), qui déplace les résultats de l’activité [HDInsightHive](data-factory\data-factory-hive-activity.md) vers un objet blob Azure Storage unique, accessible à l’activité [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) ;
@@ -179,9 +179,9 @@ Une fois le Générateur de données lancé, l’alimentation du pipeline commen
 
 	Ici, vous pouvez cliquer sur Nouvelle requête et entrez une requête pour obtenir le nombre de lignes (par exemple, select count(*) from DemandRealHourly). À mesure que votre base de données augmente, le nombre de lignes de la table doit augmenter.
 
-3. Vérifiez les données à partir du tableau de bord Power BI.
+3. Vérifiez les données à partir du tableau de bord Power BI.
 
-	Vous pouvez configurer un tableau de bord de chemin à chaud Power BI pour surveiller les données brutes entrantes. Suivez les instructions contenues dans la section « Tableau de bord Power BI ».
+	Vous pouvez configurer un tableau de bord de chemin à chaud Power BI pour surveiller les données brutes entrantes. Suivez les instructions contenues dans la section « Tableau de bord Power BI ».
 
 
 
@@ -189,7 +189,7 @@ Une fois le Générateur de données lancé, l’alimentation du pipeline commen
 
 ### Vue d’ensemble
 
-Cette section décrit comment configurer un tableau de bord Power BI afin de visualiser vos données en temps réel à partir d’Azure Stream Analytics (chemin à chaud), ainsi que les résultats des prévisions à partir d’Azure Machine Learning (chemin à froid).
+Cette section décrit comment configurer un tableau de bord Power BI afin de visualiser vos données en temps réel à partir d’Azure Stream Analytics (chemin à chaud), ainsi que les résultats des prévisions à partir d’Azure Machine Learning (chemin à froid).
 
 
 ### Configurer le tableau de bord de chemin à chaud
@@ -206,7 +206,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 2. Connectez-vous à [Power BI en ligne](http://www.powerbi.com).
 
-    -   Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
+    -   Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
 
     -   Vérifiez que le volet ***Visualisations*** est ouvert et qu’il apparaît à droite de l’écran.
 
@@ -223,7 +223,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 	-	Cliquez sur l’icône **Épingler au tableau de bord**![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) dans le coin supérieur droit de ce graphique en courbes. Une fenêtre Épingler au tableau de bord peut apparaître pour vous permettre de sélectionner un tableau de bord. Sélectionnez EnergyStreamDataReport, puis cliquez sur Épingler.
 
-	-	Dans le tableau de bord, pointez la souris sur cette vignette, cliquez sur l’icône Modifier située en haut à droite pour donner le titre « Demand by Timestamp ».
+	-	Dans le tableau de bord, pointez la souris sur cette vignette, cliquez sur l’icône Modifier située en haut à droite pour donner le titre « Demand by Timestamp ».
 
 4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
@@ -231,7 +231,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 ### Configurer le tableau de bord de chemin à froid
 Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
-> [AZURE.NOTE] (1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] (1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -247,7 +247,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-   Le **nom d’utilisateur** et le **mot de passe** de votre base de données sont identiques à ceux précédemment enregistrés au moment du déploiement de la solution.
 
-2.	Mettez à jour la source de données du fichier Power BI de chemin à froid.
+2.	Mettez à jour la source de données du fichier Power BI de chemin à froid.
 	-  Vérifiez que vous avez installé la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 	-	Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
@@ -258,13 +258,13 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-   Dans la fenêtre contextuelle suivante, deux options s’affichent dans le volet gauche (**Windows** et **Base de données**). Cliquez sur **Base de données** et renseignez vos **Nom d’utilisateur** et **Mot de passe** (qui doivent correspondre à ceux que vous avez entrés au moment du déploiement de la solution et de la création de la base de données Azure SQL). Dans ***Sélectionnez le niveau auquel appliquer ces paramètres***, cochez l’option du niveau de base de données. Cliquez ensuite sur **Se connecter**.
 
-	-   Une fois redirigé sur la page précédente, fermez la fenêtre. Un message s’affiche. Cliquez sur **Appliquer**. Pour finir, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications. Votre fichier Power BI a maintenant établi la connexion au serveur. Si vos visualisations sont vides, veillez à désactiver les sélections de visualisation pour visualiser toutes les données en cliquant sur l’icône de suppression en haut à droite des légendes. Utilisez le bouton Actualiser pour afficher les nouvelles données sur les visualisations. Au départ, vous verrez uniquement les données d’amorçage sur vos visualisations, étant donné que la fabrique de données est planifiée pour s’actualiser toutes les 3 heures. Au bout de 3 heures, les nouvelles prédictions sont reflétées dans vos visualisations lorsque vous actualisez les données.
+	-   Une fois redirigé sur la page précédente, fermez la fenêtre. Un message s’affiche. Cliquez sur **Appliquer**. Pour finir, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications. Votre fichier Power BI a maintenant établi la connexion au serveur. Si vos visualisations sont vides, veillez à désactiver les sélections de visualisation pour visualiser toutes les données en cliquant sur l’icône de suppression en haut à droite des légendes. Utilisez le bouton Actualiser pour afficher les nouvelles données sur les visualisations. Au départ, vous verrez uniquement les données d’amorçage sur vos visualisations, étant donné que la fabrique de données est planifiée pour s’actualiser toutes les 3 heures. Au bout de 3 heures, les nouvelles prédictions sont reflétées dans vos visualisations lorsque vous actualisez les données.
 
 3. (Facultatif) Publiez le tableau de bord de chemin à froid dans [Power BI en ligne](http://www.powerbi.com/). Notez que vous avez besoin d’un compte Power BI (ou d’un compte Office 365) pour cette étape.
 
-	-   Cliquez sur **Publier** et attendez quelques secondes. Une fenêtre s’affiche avec une coche verte pour confirmer que la publication dans Power BI a bien été effectuée. Cliquez sur le lien sous Ouvrir demoprediction.pbix dans Power BI. Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+	-   Cliquez sur **Publier** et attendez quelques secondes. Une fenêtre s’affiche avec une coche verte pour confirmer que la publication dans Power BI a bien été effectuée. Cliquez sur le lien sous Ouvrir demoprediction.pbix dans Power BI. Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
-	-   Pour créer un tableau de bord : cliquez sur le signe **+** à côté de la section **Tableaux de bord** dans le volet gauche. Nommez ce nouveau tableau de bord « Prévision de la demande - Démonstration ».
+	-   Pour créer un tableau de bord : cliquez sur le signe **+** à côté de la section **Tableaux de bord** dans le volet gauche. Nommez ce nouveau tableau de bord « Prévision de la demande - Démonstration ».
 
 	-   Après avoir ouvert le rapport, cliquez sur ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) pour épingler toutes les visualisations à votre tableau de bord. Pour obtenir des instructions détaillées, consultez [Épingler une vignette à un tableau de bord Power BI à partir d’un rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Accédez à la page Tableau de bord et ajustez la taille et l’emplacement de vos visualisations, puis modifier leurs titres. Pour obtenir des instructions détaillées sur la modification de vos vignettes, consultez [Modifier une vignette : redimensionner, déplacer, renommer, épingler, supprimer, ajouter un lien hypertexte](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Voici un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à froid.
 
@@ -282,10 +282,10 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 ## **Outils d’estimation des coûts**
 
-Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impliqués dans l’exécution du modèle de solution de prévision de la demande énergétique dans votre abonnement :
+Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impliqués dans l’exécution du modèle de solution de prévision de la demande énergétique dans votre abonnement :
 
 -   [Microsoft Azure Cost Estimator Tool (en ligne)](https://azure.microsoft.com/pricing/calculator/)
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

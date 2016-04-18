@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 
@@ -31,6 +31,7 @@ Globalement, un environnement App Service se compose de plusieurs composants pri
 - Stockage
 - Base de données
 - Réseau virtuel « v1 » classique avec au moins un sous-réseau
+- Actuellement, seuls les réseaux virtuels avec un espace d'adressage RFC1918 (c'est-à-dire des adresses privées) sont pris en charge.
 - Sous-réseau sur lequel s'exécute le service hébergé d'environnement Azure App
 
 Les ressources de calcul sont utilisées pour vos 4 pools de ressources. Chaque environnement App Service possède un ensemble de serveurs frontaux et 3 pools de travail. Vous n’avez pas besoin d’utiliser les 3 pools de travail et, si vous le souhaitez, vous pouvez n’en utiliser qu’un. Les serveurs frontaux sont les points de terminaison HTTP pour vos applications maintenues dans votre ASE. Les Workers sont le lieu d’exécution de vos applications. Le moment où vous devez ajouter des serveurs frontaux ou des Workers est lié aux performances des applications placées dans l’ASE. Par exemple, supposons que vous avez seulement une application dans votre ASE et qu’il s’agit d’une application Hello World qui reçoit un grand nombre de demandes. Dans ce cas, vous aurez besoin de faire monter en puissance vos serveurs frontaux pour gérer la charge HTTP mais, à l’inverse, vous n’aurez pas besoin de faire monter en puissance vos Workers. Gérer tous ces processus manuellement est plutôt rébarbatif, surtout lorsque l’on pense que chaque ASE possède probablement une combinaison d’applications qui s’exécutent avec des critères de performances divers. Fort heureusement, nous avons ajouté la mise à l’échelle automatique aux environnements App Service et cela va grandement vous faciliter la vie. Pour des informations concernant la mise à l’échelle classique et automatique des environnements App Service, consultez [Mise à l’échelle automatique et environnement App Service][ASEAutoscale].
@@ -94,7 +95,10 @@ Pour donner une meilleure perspective de la mise à l’échelle des application
 
 Les pools de ressources (des serveurs frontaux et Workers) ne sont pas directement accessibles par les clients. Autrement dit, vous ne pouvez pas effectuer d’opération de protocole RDP vers eux, modifier leur configuration ou agir en tant qu’administrateur. Ils sont utilisés et gérés par Azure. Cela étant dit, il incombe cependant à l’utilisateur de décider de la quantité et de la taille des ressources de calcul.
 
-Il existe en fait trois façons de contrôler le nombre de serveurs dont vous disposez dans vos pools de ressources : opération de mise à l’échelle à partir du panneau principal de l’ASE dans la partie supérieure ; opération de mise à l’échelle manuelle à partir du panneau Mise à l’échelle du pool de ressources individuel, sous Paramètres ; mise à l’échelle automatique configurée à partir du panneau Mise à l’échelle du pool de ressources individuel
+Il existe en fait trois façons de contrôler le nombre de serveurs dont vous disposez dans vos pools de ressources
+- Opération de mise à l’échelle à partir du panneau principal de l’ASE dans la partie supérieure
+- Opération de mise à l’échelle manuelle à partir du panneau Mise à l’échelle du pool de ressources individuel, sous Paramètres
+- Mise à l’échelle automatique configurée à partir du panneau Mise à l’échelle du pool de ressources individuel
 
 Pour utiliser l’opération de mise à l’échelle sur le panneau de l’ASE, cliquez simplement dessus, faites glisser le curseur vers la quantité souhaitée et enregistrez. Cette interface utilisateur prend également en charge la modification de la taille.
 
@@ -200,4 +204,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

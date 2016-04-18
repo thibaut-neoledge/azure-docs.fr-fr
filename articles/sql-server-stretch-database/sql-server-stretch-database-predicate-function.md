@@ -18,16 +18,16 @@
 
 # Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)
 
-Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. Si votre table contient à la fois des données historiques et des données actuelles, d’autre part, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre doit appeler une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
-
-Dans la version CTP 3.1 via RC1, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activation de base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
-
-Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
+Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. D’autre part, si votre table contient à la fois des données historiques et des données actuelles, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre est une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
 >   [AZURE.NOTE] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
+Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
+
+Dans la version CTP 3.1 jusqu’à RC2, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour plus d’informations, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) et [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+
 ## Exigences de base pour la fonction tabulaire inline
-La fonction tabulaire inline requise pour une fonction de filtre Stretch Database ressemble à l’exemple qui suit.
+La fonction tabulaire inline requise pour un prédicat de filtre Stretch Database ressemble à l’exemple qui suit.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
@@ -42,7 +42,7 @@ Les paramètres de la fonction doivent être des identificateurs pour les colonn
 La liaison de schéma est nécessaire pour éviter que les colonnes utilisées par le prédicat de filtre soient supprimées ou modifiées.
 
 ### Valeur de retour
-Si la fonction retourne un résultat non vide, la ligne est éligible à la migration ; autrement dit, si la fonction ne retourne aucune ligne, la ligne ne peut être retenue pour la migration.
+Si la fonction retourne un résultat non vide, la ligne est éligible à la migration. Dans le cas contraire, c’est-à-dire si la fonction ne retourne aucun résultat, la ligne n’est pas éligible à la migration.
 
 ### Conditions
 Le &lt;*prédicat*&gt; peut comporter une condition ou plusieurs conditions reliées entre elles par l’opérateur logique AND.
@@ -133,7 +133,117 @@ Vous pouvez utiliser les opérateurs BETWEEN et NOT BETWEEN si le prédicat obte
 
 Vous ne pouvez pas utiliser de sous-requêtes ou de fonctions non déterministes comme RAND() ou GETDATE().
 
-## Exemples de fonctions valides
+## Ajouter un prédicat de filtre à une table
+Ajoutez un prédicat de filtre à une table en exécutant l’instruction ALTER TABLE et en spécifiant une fonction tabulaire inline existante comme valeur du paramètre FILTER\_PREDICATE. Par exemple :
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Après avoir lié la fonction à la table en tant que prédicat, les éléments qui suivent sont vrais.
+
+-   Lors de la migration de données suivante, seules les lignes pour lesquelles la fonction retourne une valeur non vide sont migrées.
+
+-   Les colonnes utilisées par la fonction sont liées par schéma. Vous ne pouvez pas modifier ces colonnes tant qu’une table utilise la fonction comme prédicat de filtre.
+
+Il est impossible de supprimer la fonction tabulaire inline tant qu’une table utilise la fonction en tant que prédicat de filtre.
+
+## Filtrer les lignes par date
+L’exemple suivant migre les lignes pour lesquelles la colonne **date** contient une valeur antérieure au 1er janvier 2016.
+
+```tsql
+-- Filter by date
+--
+CREATE FUNCTION dbo.fn_stretch_by_date(@date datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @date < CONVERT(datetime2, '1/1/2016', 101)
+GO
+```
+
+## Filtrer les lignes par la valeur dans une colonne d’état
+L’exemple suivant migre les lignes pour lesquelles la colonne d’**état** contient une des valeurs spécifiées.
+
+```tsql
+-- Filter by status column
+--
+CREATE FUNCTION dbo.fn_stretch_by_status(@status nvarchar(128))
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @status IN (N'Completed', N'Returned', N'Cancelled')
+GO
+```
+
+## Filtrer les lignes à l’aide d’une fenêtre glissante
+Pour filtrer les lignes à l’aide d’une fenêtre glissante, n’oubliez pas les exigences suivantes pour la fonction de filtre.
+
+-   La fonction doit être déterministe. Par conséquent, vous ne pouvez pas créer une fonction qui recalcule automatiquement la fenêtre glissante au fur et à mesure.
+
+-   La fonction utilise la liaison de schéma. Par conséquent, vous ne pouvez pas simplement mettre à jour la fonction « sur place » chaque jour en appelant ALTER FUNCTION pour déplacer la fenêtre glissante.
+
+Démarrez avec un prédicat de filtre semblable à l’exemple suivant, qui permet de migrer les lignes pour lesquelles la colonne **systemEndTime** contient une valeur antérieure au 1er janvier 2016.
+
+```tsql
+CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING  
+AS  
+RETURN SELECT 1 AS is_eligible
+  WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
+```
+
+Appliquez le prédicat de filtre à la table.
+
+```tsql
+ALTER TABLE <table name>
+SET (
+        REMOTE_DATA_ARCHIVE = ON
+                (
+                        FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160101 (SysEndTime)
+                                , MIGRATION_STATE = OUTBOUND
+                )
+        )
+;
+```
+
+Lorsque vous souhaitez mettre à jour la fenêtre glissante, procédez comme suit.
+
+1.  Créez une fonction qui spécifie la nouvelle fenêtre glissante. L’exemple suivant sélectionne les dates antérieures au 2 janvier 2106, au lieu du 1er janvier 2016.
+
+2.  Remplacez le prédicat de filtre précédent par le nouveau en appelant ALTER TABLE, comme indiqué dans l’exemple suivant.
+
+3. Si vous le souhaitez, vous pouvez aussi supprimer la fonction de filtre précédente que vous n’utilisez plus en appelant DROP FUNCTION. (Cette étape n’est pas illustrée dans l’exemple).
+
+```tsql
+BEGIN TRAN
+GO
+        /*(1) Create new predicate function definition */
+        CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160102(@systemEndTime datetime2)
+        RETURNS TABLE
+        WITH SCHEMABINDING
+        AS
+        RETURN SELECT 1 AS is_eligible
+               WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
+        GO
+
+        /*(2) Set the new function as filter predicate */
+        ALTER TABLE <table name>
+        SET
+        (
+               REMOTE_DATA_ARCHIVE = ON
+               (
+                       FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160102(SysEndTime),
+                       MIGRATION_STATE = OUTBOUND
+               )
+        )
+COMMIT ;
+```
+
+## Exemples supplémentaires de prédicats de filtres valides
 
 -   L’exemple suivant combine deux conditions primitives en utilisant l’opérateur logique AND.
 
@@ -200,7 +310,7 @@ Vous ne pouvez pas utiliser de sous-requêtes ou de fonctions non déterministes
     GO
     ```
 
-## Exemples de fonctions non valides
+## Exemples de prédicats de filtres qui ne sont pas valides
 
 -   La fonction qui suit est non valide, car elle contient une conversion non déterministe.
 
@@ -281,42 +391,16 @@ Vous ne pouvez pas utiliser de sous-requêtes ou de fonctions non déterministes
     GO
     ```
 
-## Comment Stretch Database applique-t-il le prédicat de filtre ?
-Stretch Database applique le prédicat de filtre à la table et détermine les lignes éligibles à l’aide de l’opérateur CROSS APPLY. Par exemple :
+## Comment Stretch Database applique-t-il le prédicat de filtre ?
+Stretch Database applique le prédicat de filtre à la table et détermine les lignes éligibles à l’aide de l’opérateur CROSS APPLY. Par exemple :
 
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
 ```
 Si la fonction retourne un résultat non vide pour la ligne, la ligne éligible à la migration.
 
-## Ajouter un prédicat de filtre à une table
-Ajoutez un prédicat de filtre à une table en exécutant l’instruction ALTER TABLE et en spécifiant une fonction tabulaire inline existante comme valeur du paramètre FILTER\_PREDICATE. Par exemple :
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Après avoir lié la fonction à la table en tant que prédicat, les éléments qui suivent sont vrais.
-
--   Lors de la migration de données suivante, seules les lignes pour lesquelles la fonction retourne une valeur non vide sont migrées.
-
--   Les colonnes utilisées par la fonction sont liées par schéma. Vous ne pouvez pas modifier ces colonnes tant qu’une table utilise la fonction comme prédicat de filtre.
-
-## Supprimer un prédicat de filtre d’une table
-Pour migrer la table entière plutôt que des lignes sélectionnées, supprimez le FILTER\_PREDICATE existant en lui affectant la valeur null. Par exemple :
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = NULL,
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Une fois que vous avez supprimé le prédicat de filtre, toutes les lignes de la table sont éligibles à la migration.
-
 ## Remplacer un prédicat de filtre existant
-Vous pouvez remplacer le prédicat de filtre spécifié précédemment en exécutant à nouveau l’instruction ALTER TABLE et en spécifiant une nouvelle valeur pour le paramètre FILTER\_PREDICATE. Par exemple :
+Vous pouvez remplacer le prédicat de filtre spécifié précédemment en exécutant à nouveau l’instruction ALTER TABLE et en spécifiant une nouvelle valeur pour le paramètre FILTER\_PREDICATE. Par exemple :
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -400,14 +484,22 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## Annuler un prédicat de filtre
-Il est impossible de supprimer la fonction tabulaire inline tant qu’une table utilise la fonction en tant que prédicat de filtre.
+## Supprimer un prédicat de filtre d’une table
+Pour migrer la table entière plutôt que des lignes sélectionnées, supprimez le FILTER\_PREDICATE existant en lui affectant la valeur null. Par exemple :
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = NULL,
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Une fois que vous avez supprimé le prédicat de filtre, toutes les lignes de la table sont éligibles à la migration. Par conséquent, vous ne pouvez pas spécifier un prédicat de filtre pour la même table ultérieurement, sauf si vous extrayez d’abord toutes les données distantes pour la table à partir d’Azure. Cette restriction existe pour éviter les situations où les lignes qui ne sont pas éligibles pour la migration lorsque vous fournissez un nouveau prédicat de filtre ont déjà été migrées vers Azure.
 
 ## Vérifier le prédicat de filtre appliqué à une table
-Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate**. Si la valeur est null, la table entière est éligible à l’archivage. Pour plus d’informations, voir [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate**. Si la valeur est null, la table entière est éligible à l’archivage. Pour plus d’informations, consultez [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Voir aussi
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

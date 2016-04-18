@@ -3,9 +3,9 @@
    description="Présentation des événements pour Reliable Actors Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/19/2016"
+   ms.date="03/25/2016"
    ms.author="amanbha"/>
 
 
@@ -38,7 +38,6 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 {
     Task UpdateGameStatus(GameStatus status);
 
-    [Readonly]
     Task<string> GetGameScore();
 }
 ```
@@ -60,7 +59,8 @@ Sur le client, créez un proxy pour l'acteur qui publie l'événement et s'abonn
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
+                    
+await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
 En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l'acteur gère les abonnements actifs et s'y réabonne automatiquement. Vous pouvez contrôler l'intervalle de réabonnement via l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
@@ -69,7 +69,13 @@ Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
-ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
+ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+## Étapes suivantes
+ - [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
+ - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
+ - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Exemple de code](https://github.com/Azure/servicefabric-samples)
+
+<!---HONumber=AcomDC_0406_2016-->

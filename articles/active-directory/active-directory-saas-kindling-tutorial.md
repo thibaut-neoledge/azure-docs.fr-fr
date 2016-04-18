@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l'intégration d'Azure AD avec Kindling, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Kindling pour lequel l'authentification unique est activée
+- Un abonnement Kindling
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -84,7 +84,7 @@ Pour configurer et tester l'authentification unique Azure AD avec Kindling, vou
 
 L'objectif de cette section est d'activer l'authentification unique Azure AD dans le portail Azure Classic et de configurer l'authentification unique dans votre application Kindling. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-Pour configurer l'authentification unique pour Kindling, vous avez besoin d'un domaine enregistré. Si vous n'avez pas encore de domaine enregistré, contactez votre équipe de support Kindling via [support@flatterfiles.com](mailto:support@flatterfiles.com).
+Pour configurer l'authentification unique pour Kindling, vous avez besoin d'un domaine enregistré. Si vous n'avez pas encore de domaine enregistré, contactez votre équipe de support Kindling via [support@kindlingapp.com](mailto:support@kindlingapp.com).
 
 
 
@@ -97,11 +97,15 @@ Pour configurer l'authentification unique pour Kindling, vous avez besoin d'un d
 3. Sur la page **Configurer les paramètres d'application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. Dans la zone de texte **URL d'authentification**, tapez l'URL utilisée par vos utilisateurs pour se connecter à votre application Kindling (ex. **https://fabrikam.Kindling.com/*).
+    a. Dans la zone de texte **URL d'authentification**, tapez l'URL utilisée par vos utilisateurs pour se connecter à votre application Kindling (ex. : *https://\<nom\_entreprise>.kindlingapp.com/*).
 
-    b. Contactez votre équipe de support Kindling pour connaître la valeur de l'**Émetteur** et de l'**URL de réponse**.
+    b. Contactez votre équipe de support Kindling à l'adresse [support@kindlingapp.com](mailto:support@kindlingapp.com) pour connaître la valeur de l'**Émetteur** et de l'**URL de réponse**.
+
+    c. Dans la zone de texte **Émetteur**, entrez l'URL de votre Émetteur.
+
+    d. Dans la zone de texte **URL de réponse**, entrez votre URL de réponse.
  
-    c. Cliquez sur **Next**.
+    e. Cliquez sur **Next**.
  
  
 4. Sur la page **Configurer l'authentification unique sur Kindling**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
@@ -216,4 +220,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

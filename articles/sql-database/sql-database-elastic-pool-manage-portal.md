@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/18/2016"
+	ms.date="04/01/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,6 +24,7 @@
 - [Portail Azure](sql-database-elastic-pool-manage-portal.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
 Cet article décrit comment utiliser le portail Azure pour surveiller, gérer et redimensionner un pool de bases de données élastique et les bases de données dans le pool. La Base de données SQL dispose d’une intelligence intégrée qui analyse la télémétrie de l’historique de l’utilisation et recommande de façon proactive un pool pour les bases de données quand il se révèle plus rentable. Vous pouvez également ajouter et supprimer des bases de données avant de valider les modifications et voir l’impact sur le stockage et les performances du pool.
@@ -120,15 +121,15 @@ Dans le panneau pour la base de données, cliquez sur **Créer une base de donn�
 
 ##Créer et gérer des tâches élastiques
 
-Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Avant d’utiliser des tâches, installez les composants de tâches élastiques et indiquez vos informations d’identification. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
+Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Avant d’utiliser des tâches, installez les composants de tâches élastiques et indiquez vos informations d’identification. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 
 ## Ressources supplémentaires
 
 - [Référence de base de données élastique](sql-database-elastic-pool-reference.md)
-- [Pools élastiques de bases de données SQL](sql-database-elastic-pool.md)
+- [Pools élastiques de bases de données SQL](sql-database-elastic-pool.md)
 - [Créer un pool de bases de données élastique avec le portail](sql-database-elastic-pool-create-csharp.md)
 - [Créer un pool élastique de bases de données](sql-database-elastic-pool-create-powershell.md)
 - [Créer un pool de bases de données élastique avec C#](sql-database-elastic-pool-create-csharp.md)
 - [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

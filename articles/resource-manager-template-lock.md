@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Verrou de ressources, schéma de modèle
@@ -42,20 +42,21 @@ Pour créer un verrou, ajoutez le schéma suivant à la section des ressources d
 
 Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Oui | Pour les ressources : <br />**{namespace}/{type}/providers/locks**<br /><br />Pour les groupes de ressources :<br />**Microsoft.Authorization/locks** | Le type de ressource à créer. |
-| apiVersion | enum | Oui | **2015-01-01** | La version de l'API à utiliser pour la création de la ressource. |  
-| name | string | Oui | Pour les ressources :<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />Pour les groupes de ressources :<br />**{lockname}****<br /><br />jusqu'à 64 caractères<br />Ne peut pas contenir <, >, %, &, ? ou les caractères de contrôle. | Une valeur qui spécifie à la fois la ressource à verrouiller et le nom du verrou. | 
-| dependsOn | array | Non | Liste séparée par des virgules de noms de ressources ou d'identificateurs de ressources uniques. | La collection de ressources dont dépend ce verrou. Si la ressource que vous verrouillez est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource soit déployée en premier. | 
-| properties | object | Oui | (voir ci-dessous) | Objet qui identifie le type de verrou et des remarques sur le verrou. | 
+| Nom | Valeur |
+| ---- | ---- | 
+| type | Enum<br />Requis<br />**{namespace}/{type}/providers/locks** - pour des ressources ou <br />**Microsoft.Authorization/locks** - pour des groupes de ressources<br /><br />Type de ressource à créer. |
+| apiVersion | Enum<br />Requis<br />**2015-01-01**<br /><br />Version de l’API à utiliser pour créer la ressource. |  
+| name | String<br />Requis<br />**{resource}/Microsoft.Authorization/{lockname}** - pour des ressources ou<br />**{lockname}** - pour des groupes de ressources<br />jusqu’à 64 caractères et ne peut pas contenir <, > %, &, ? ou les caractères de contrôle.<br /><br />Une valeur qui spécifie à la fois la ressource à verrouiller et le nom du verrou. |
+| dependsOn | Array<br />Facultatif<br />Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.<br /><br />La collection de ressources dont dépend ce verrou. Si la ressource que vous verrouillez est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource est tout d'abord déployée. | 
+| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui identifie le type de verrou et des remarques sur le verrou. |  
 
+<a id="properties" />
 ### objet propriétés
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | Oui | **CannotDelete** | Le type de verrou à appliquer à l'étendue. CanNotDelete permet la modification, mais empêche toute suppression. |
-| HDInsight | string | Non | 512 caractères | Description du verrou. |
+| Nom | Valeur |
+| ------- | ---- |
+| level | Enum<br />Requis<br />**CannotDelete**<br /><br />Le type de verrou à appliquer à l'étendue. CanNotDelete permet la modification, mais empêche toute suppression. |
+| HDInsight | String<br />Facultatif<br />jusqu’à 512 caractères<br /><br />Description du verrou. |
 
 
 ## Utilisation de la ressource de verrouillage
@@ -135,4 +136,4 @@ L’exemple suivant applique un verrou cannot-delete (suppression impossible) au
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour plus d'informations sur les verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

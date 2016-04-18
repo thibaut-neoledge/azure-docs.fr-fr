@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Consignes et limitations générales de base de données SQL Azure"
    description="Cette page décrit certaines limitations générales de la base de données SQL Azure, ainsi que les zones d’interopérabilité et de prise en charge."
    services="sql-database"
@@ -6,7 +6,7 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
@@ -19,15 +19,15 @@
 
 Cette rubrique fournit des instructions et présente les limitations générales applicables à la base de données Azure SQL. Pour mieux comprendre les notions de quotas, de gestion des ressources et de prise en charge, consultez les [ressources supplémentaires](#additional-guidelines) référencées à la fin de cette rubrique.
 
-## Connectivité
+## Connectivité et authentification
 
- - L’authentification Windows n’est pas prise en charge. Voir [Gestion des bases de données et des connexions dans la base de données Azure SQL](sql-database-manage-logins.md) 
+  - L’authentification Windows n’est pas prise en charge. Voir [Gestion des bases de données et des connexions dans la base de données Azure SQL](sql-database-manage-logins.md) Toutefois, l’authentification Azure Active Directory est prise en charge avec certaines limitations. Consultez la page [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
- - La base de données SQL Microsoft Azure prend en charge les versions 7.3 et ultérieures du client de protocole TDS (Tabular Data Stream).
+  - La base de données SQL Microsoft Azure prend en charge les versions 7.3 et ultérieures du client de protocole TDS (Tabular Data Stream).
 
- - Seules les connexions TCP/IP sont autorisées.
+  - Seules les connexions TCP/IP sont autorisées.
 
- - Le navigateur de SQL Server 2008 n’est pas pris en charge, car la base de données SQL Microsoft Azure ne possède pas de ports dynamiques, mais uniquement le port 1433.
+  - Le navigateur de SQL Server 2008 n’est pas pris en charge, car la base de données SQL Microsoft Azure ne possède pas de ports dynamiques, mais uniquement le port 1433.
 
 ## Agents/tâches SQL Server
 
@@ -41,11 +41,11 @@ Le classement de base de données par défaut utilisé par la base de données S
 
 Certains noms d’utilisateur ne sont pas autorisés pour des raisons de sécurité. Vous ne pouvez pas utiliser les noms suivants :
 
- - **admin** 
- - **administrator** 
- - **guest** 
- - **root** 
- - **sa** 
+ - **admin**
+ - **administrator**
+ - **guest**
+ - **root**
+ - **sa**
 
 Les noms de tous les nouveaux objets doivent être conformes aux règles des identificateurs SQL Server. Pour plus d'informations, consultez [Identificateurs](https://msdn.microsoft.com/library/ms175874.aspx).
 
@@ -63,4 +63,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

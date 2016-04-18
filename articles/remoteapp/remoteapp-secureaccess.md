@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/12/2016" 
+    ms.date="04/05/2016" 
     ms.author="elizapo" />
 
 # Sécurisation de l’accès à Azure RemoteApp et au-delà
@@ -44,7 +44,7 @@ Les administrateurs Azure RemoteApp peuvent utiliser la fonctionnalité disponi
 ### Comment configurer un accès conditionnel pour Azure RemoteApp
 Nous allons vous guider pas à pas dans un exemple de scénario : un administrateur Azure RemoteApp souhaite bloquer l’accès à l’environnement lorsque les utilisateurs sont en dehors du réseau d’entreprise.
 
->[AZURE.NOTE]Nous supposons que vous avez mis à niveau Azure AD vers le niveau Premium et que vous avez créé au moins une collection Azure RemoteApp.
+>[AZURE.NOTE] Nous supposons que vous avez mis à niveau Azure AD vers le niveau Premium et que vous avez créé au moins une collection Azure RemoteApp.
 
 1.	Dans le portail Azure, cliquez sur l’onglet **Active Directory**, puis sur l’annuaire à configurer.
 
@@ -110,4 +110,4 @@ Avec Azure RemoteApp, vous devez d’abord configurer votre réseau virtuel et 
 ## La solution complète
 Le diagramme ci-dessous illustre la solution complète dans laquelle nous avons créé un canal d’accès sécurisé de l’utilisateur final, via Azure RemoteApp (ARA), à la ressource principale. ![Sécuriser Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png) Dans l’étape 1, nous avons sélectionné les utilisateurs et créé des règles d’accès qui régissent l’accès à Azure RemoteApp. Dans l’exemple ci-dessous, nous autorisons uniquement l’accès aux utilisateurs qui travaillent à partir du réseau d’entreprise. Les utilisateurs qui ne remplissent pas cette condition ne peuvent pas accéder du tout à l’environnement Azure RemoteApp. Dans l’étape 2, nous avons exposé la ressource principale uniquement via la configuration VNet (réseau virtuel)/VPN que nous contrôlons. Azure RemoteApp a été placé dans le même réseau virtuel. Le résultat final est que la ressource est uniquement accessible via l’environnement Azure RemoteApp.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

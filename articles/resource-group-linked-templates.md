@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation de modèles liés à Azure Resource Manager"
+   pageTitle="Modèles liés à Azure Resource Manager | Microsoft Azure"
    description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Utilisation de modèles liés à Azure Resource Manager
@@ -113,7 +113,7 @@ Vous pouvez également utiliser [deployment()](../resource-group-template-functi
 Si vous devez transmettre une valeur du modèle lié vers le modèle principal, vous pouvez créer une valeur dans la section **outputs** du modèle lié. Pour consulter un exemple, accédez à la page [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
 ## Étapes suivantes
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
-- [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](resource-group-template-deploy.md)
+- Pour obtenir des informations sur la définition de l'ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md)
+- Pour savoir comment définir une ressource sans créer de nombreuses instances de celle-ci, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0406_2016-->
