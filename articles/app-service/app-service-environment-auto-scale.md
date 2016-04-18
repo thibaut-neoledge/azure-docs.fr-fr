@@ -44,7 +44,7 @@ Les profils de mise à l’échelle automatique sont utiles pour définir des li
  
 ![][scale-profile2]
  
-Une fois qu’un profil est défini, les règles de mise à l’échelle automatique en fonction de mesures peuvent être ajoutées pour augmenter ou réduire le nombre d’instances dans le **pool de travail** dans les limites définies par le profil.
+Une fois qu’un profil est défini, les règles de mise à l’échelle automatique en fonction de mesures peuvent être ajoutées pour augmenter ou réduire le nombre d’instances dans le **pool de workers** dans les limites définies par le profil.
 
 ![][scale-rule]
 
