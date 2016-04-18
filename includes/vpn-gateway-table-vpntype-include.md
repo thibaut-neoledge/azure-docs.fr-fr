@@ -1,4 +1,4 @@
-### Type VPN pour le modèle de déploiement Resource Manager
+#### Type de VPN : modèle de déploiement Resource Manager
 
 | | **Basé sur un itinéraire** | **Basé sur des stratégies** |
 |-----------------------------------|--------------------|------------------|
@@ -10,7 +10,7 @@
 | **Classic vers Gestionnaire de ressources** | yes | no |
 
 
-### Type VPN pour le modèle de déploiement classique
+#### Type de VPN : modèle de déploiement classique
 
 
 | | **Dynamique** | **Statique** |
@@ -22,4 +22,4 @@
 | **De point à site** | yes | no |
 | **Classic vers Gestionnaire de ressources** | yes | no |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

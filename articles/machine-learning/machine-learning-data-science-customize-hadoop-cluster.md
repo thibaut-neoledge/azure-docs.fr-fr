@@ -57,7 +57,7 @@ Sur la dernière page de configuration, **Actions de script**, cliquez sur le bo
  
 * **NOM** : vous pouvez indiquer n’importe quelle chaîne en tant que nom de l’action de script. 
 * **TYPE DE NŒUD** : sélectionnez **Tous les nœuds**. 
-* **SCRIPT URI** : *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **SCRIPT URI** : **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* est un conteneur public dans le compte de stockage 
 	* *getgoing* permet de partager les fichiers de scripts PowerShell afin d’aider les utilisateurs à travailler dans Azure. 
 * **PARAMÈTRES** : (laisser cette zone vide)
@@ -88,7 +88,7 @@ Les utilisateurs doivent activer l’accès à distance au cluster Hadoop dans M
 
 	 ![Create workspace][9]
 
-Les étapes suivantes du processus d’analyse avancée dans Azure sont présentées dans le [Guide d’apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
+Les étapes suivantes du processus d’analyse avancée sont présentées dans le [processus Cortana Analytics (CAP, Cortana Analytics Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement, de traitement et d’échantillonnage des données dans HDInsight en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
 
 Consultez la section [Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d’analyse avancée](machine-learning-data-science-process-hive-tables.md) pour savoir comment accéder aux modules Python inclus dans Anaconda à partir du nœud principal du cluster, dans les fonctions définies par l’utilisateur (FDU) qui permettent de traiter les enregistrements Hive stockés dans le cluster.
 
@@ -104,4 +104,4 @@ Consultez la section [Envoyer des requêtes Hive à des clusters Hadoop HDInsigh
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

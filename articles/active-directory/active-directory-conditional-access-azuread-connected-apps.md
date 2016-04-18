@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS
@@ -49,6 +49,7 @@ Cette section décrit comment configurer des règles d’accès par application.
 ##Présentation des règles d’accès
 
 Cette section fournit une description détaillée des règles d’accès prises en charge dans la version préliminaire de l’accès conditionnel Azure pour les applications.
+
 ### Spécification des utilisateurs auxquels s’appliquent les règles d’accès
 
 Par défaut, la stratégie s’applique à tous les utilisateurs qui ont accès à l’application. Toutefois, vous pouvez également limiter la stratégie aux utilisateurs qui sont membres de groupes de sécurité spécifiques. Le bouton **Ajouter un groupe** permet de sélectionner un ou plusieurs groupes à partir de la boîte de dialogue de sélection de groupe auxquels la règle d’accès s’applique. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés. Quand les règles d’accès s’appliquent aux groupes, elles ne s’appliquent qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés.
@@ -78,7 +79,7 @@ Les règles d’accès sont évaluées lorsqu’un utilisateur accède à une ap
 
 Pour les clients fédérés, l’authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS.
 
-Par défaut, l’authentification multifacteur a lieu sur une page hébergée par Azure Active Directory. Pour configurer l’authentification multifacteur localement, vous devez affecter la valeur true à la propriété –SupportsMFA dans Azure Active Directory à l’aide du module Azure AD pour Windows PowerShell.
+Par défaut, l’authentification multifacteur a lieu sur une page hébergée par Azure Active Directory. Pour configurer l’authentification multifacteur localement, vous devez affecter la valeur **true** à la propriété –SupportsMFA dans Azure Active Directory à l’aide du module Azure AD pour Windows PowerShell.
 
 L’exemple suivant montre comment activer l’authentification multifacteur localement à l’aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le client contoso.com :
 
@@ -88,6 +89,7 @@ En plus de définir cet indicateur, vous devez configurer l’instance AD FS du 
 
 ##Articles connexes
 
+- [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](active-directory-conditional-access.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

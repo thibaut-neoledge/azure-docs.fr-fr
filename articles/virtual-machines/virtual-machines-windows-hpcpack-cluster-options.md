@@ -18,9 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Options pour créer et gérer un cluster HPC (calcul haute performance) Windows dans Azure avec Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
+
+Si vous souhaitez exécuter des charges de travail HPC Linux avec HPC Pack, consultez la page [Options pour la création et la gestion d’un cluster HPC Linux dans Azure avec Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Configuration d’un cluster HPC Pack dans Azure
 
@@ -30,17 +32,17 @@ ms.service="virtual-machines-windows"
 
 * (Marketplace) [Cluster HPC Pack pour les charges de travail Excel](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 
-* (Démarrage rapide) [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+* (Démarrage rapide) [Création d'un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
 
 * (Démarrage rapide) [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Images d’ordinateur virtuel Azure
 
-* [HPC Pack sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [HPC Pack sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
 
-* [Nœud de calcul de HPC Pack sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+* [Nœud de calcul de HPC Pack sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 
-* [Nœud de calcul de HPC Pack avec Excel sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+* [Nœud de calcul de HPC Pack avec Excel sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
 
 
@@ -50,7 +52,7 @@ ms.service="virtual-machines-windows"
 
 ### Didacticiels
 
-* [Didacticiel : prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-windows-excel-cluster-hpcpack.md)
+* [Didacticiel : prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-windows-excel-cluster-hpcpack.md)
 
 
 
@@ -73,9 +75,9 @@ ms.service="virtual-machines-windows"
 
 * [Intégration à des instances de travail Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
-* [Didacticiel : configurer un cluster hybride avec HPC Pack dans Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Didacticiel : configurer un cluster hybride avec HPC Pack dans Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-* [Ajouter des nœuds « en rafale » Azure à un nœud principal HPC Pack dans Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
+* [Ajouter des nœuds « en rafale » Azure à un nœud principal HPC Pack dans Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
 * [Agrandir et réduire les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -87,4 +89,4 @@ ms.service="virtual-machines-windows"
 
 * [Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

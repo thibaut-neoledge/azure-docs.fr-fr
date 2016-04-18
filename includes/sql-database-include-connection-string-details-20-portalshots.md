@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Obtenir la chaîne de connexion sur le portail Azure
 
 
-Utilisez le [portail Azure en version préliminaire](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec Azure SQL Database :
+Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec la base de données SQL Azure :
 
 
 1. Cliquez sur **PARCOURIR** > **Bases de données SQL**.
@@ -56,4 +56,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

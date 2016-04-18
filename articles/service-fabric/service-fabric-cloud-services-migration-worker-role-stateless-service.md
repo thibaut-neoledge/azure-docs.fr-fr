@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Guide de conversion des rôles web et de travail en services sans état Service Fabric | Microsoft Azure"
+   pageTitle="Guide de conversion des rôles web et de travail en services sans état Service Fabric | Microsoft Azure"
    description="Ce guide compare les rôles web et de travail des services cloud aux services sans état Service Fabric afin de faciliter la migration des services cloud vers Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -22,7 +22,7 @@ Cet article explique comment migrer vos rôles web et de travail des services cl
 
 ## Passer d’un projet de service cloud à un projet d’application Service Fabric
  
- Les projets de service cloud et les projets d’application Service Fabric présentent une structure similaire. Les deux représentent l’unité de déploiement de votre application : autrement dit, ils définissent tous deux l’ensemble du package déployé pour exécuter votre application. Un projet de service cloud contient un ou plusieurs rôles web ou de travail. De la même façon, un projet d’application Service Fabric regroupe un ou plusieurs services.
+ Les projets de service cloud et les projets d’application Service Fabric présentent une structure similaire. Les deux représentent l’unité de déploiement de votre application : autrement dit, ils définissent tous deux l’ensemble du package déployé pour exécuter votre application. Un projet de service cloud contient un ou plusieurs rôles web ou de travail. De la même façon, un projet d’application Service Fabric regroupe un ou plusieurs services.
 
 La différence est que le projet de service cloud associe le déploiement d’application à un déploiement de machine virtuelle et inclut donc les paramètres de configuration de la machine virtuelle, tandis que le projet d’application Service Fabric définit uniquement une application qui sera déployée sur un ensemble de machines virtuelles existantes dans un cluster Service Fabric. Le cluster Service Fabric est déployé une seule fois, via un modèle ARM ou via le portail Azure, et plusieurs applications Service Fabric peuvent y être déployées.
 
@@ -38,7 +38,7 @@ D’un point de vue conceptuel, un rôle de travail représente une charge de tr
 
 Comme pour le rôle de travail, un rôle web représente également une charge de travail sans état, et, d’un point de vue conceptuel, il peut donc lui aussi être mappé vers un service sans état Service Fabric. Toutefois, contrairement aux rôles web, Service Fabric ne prend pas en charge les IIS. Pour migrer une application web d’un rôle web vers un service sans état, vous devez d’abord passer à une infrastructure web auto-hébergée et qui ne dépend pas d’IIS ou de System.Web, comme ASP.NET Core 1.
 
-****Application ** | **Prise en charge** | **Chemin de migration**
+****Application ** | **Prise en charge** | **Chemin de migration**
 --- | --- | ---
 Formulaires web ASP.NET | Non | Convertir en ASP.NET Core 1 MVC
 ASP.NET MVC | Avec migration | Mettre à niveau vers ASP.NET Core 1
@@ -47,7 +47,7 @@ ASP.NET Core 1 | Oui | N/A
 
 ## API de point d’entrée et cycle de vie
 
-Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables :
+Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables :
 
 **Point d’entrée** | **Instances de** | **Service Service Fabric**
 --- | --- | ---
@@ -108,15 +108,15 @@ namespace Stateless1
 
 ```
 
-Les deux disposent d’un remplacement « Exécuter » principal où commencer le traitement. Les services Service Fabric associent `Run`, `Start`, et `Stop` en un point d’entrée unique, `RunAsync`. Votre service doit démarrer en même temps que `RunAsync` et doit cesser de fonctionner lorsque le CancellationToken de la méthode `RunAsync` apparaît.
+Les deux disposent d’un remplacement « Exécuter » principal où commencer le traitement. Les services Service Fabric associent `Run`, `Start`, et `Stop` en un point d’entrée unique, `RunAsync`. Votre service doit démarrer en même temps que `RunAsync` et doit cesser de fonctionner lorsque le CancellationToken de la méthode `RunAsync` apparaît.
 
-Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
+Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
 
- - **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
+ - **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
 
- - **Durée de vie :** les instances de rôle de travail sont recyclées lorsque la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de fonctionner.
+ - **Durée de vie :** les instances de rôle de travail sont recyclées lorsque la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de fonctionner.
 
-Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
+Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
 
 ## API d’application et environnement
 
@@ -126,19 +126,19 @@ L’API d’environnement des services cloud fournit des informations et des fon
 --- | --- | ---
 Paramètres de configuration et notification de modification | `RoleEnvironment` | `CodePackageActivationContext`
 Stockage local | `RoleEnvironment` | `CodePackageActivationContext`
-Informations sur le point de terminaison | `RoleInstance` <ul><li>Instance active : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instance : `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` pour l’adresse du nœud actif</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte du point de terminaison du service</li> 
+Informations sur le point de terminaison | `RoleInstance` <ul><li>Instance active : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instance : `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` pour l’adresse du nœud actif</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte du point de terminaison du service</li> 
 Émulation de l’environnement | `RoleEnvironment.IsEmulated` | N/A
 Événement de modification simultanée | `RoleEnvironment` | N/A
 
 ## Paramètres de configuration
 
-Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :
+Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :
 
- - **Code :** contient les exécutables du service, ses fichiers binaires, ses DLL et tous les autres fichiers dont un service a besoin pour s’exécuter.
- - **Config :** tous les fichiers de configuration et les paramètres d’un service.
- - **Data :** les fichiers de données statiques associés au service.
+ - **Code :** contient les exécutables du service, ses fichiers binaires, ses DLL et tous les autres fichiers dont un service a besoin pour s’exécuter.
+ - **Config :** tous les fichiers de configuration et les paramètres d’un service.
+ - **Data :** les fichiers de données statiques associés au service.
 
-Chacun de ces packages peut être individuellement mis à niveau et faire l’objet d’un contrôle de version indépendant. Comme pour les services cloud, les packages de configuration sont accessibles par programme via une API et des événements permettent d’informer le service de toute modification apportée au package de configuration. Un fichier Settings.xml peut être utilisé pour la configuration clé-valeur et l’accès par programme. Toutefois, contrairement aux services cloud, les packages de configuration Service Fabric peuvent contenir des fichiers de configuration à n’importe quel format : XML, JSON, YAML ou tout format binaire personnalisé.
+Chacun de ces packages peut être individuellement mis à niveau et faire l’objet d’un contrôle de version indépendant. Comme pour les services cloud, les packages de configuration sont accessibles par programme via une API et des événements permettent d’informer le service de toute modification apportée au package de configuration. Un fichier Settings.xml peut être utilisé pour la configuration clé-valeur et l’accès par programmation de manière similaire à la section appSetttings d’un fichier App.config. Toutefois, contrairement aux services cloud, les packages de configuration Service Fabric peuvent contenir des fichiers de configuration à n’importe quel format : XML, JSON, YAML ou tout format binaire personnalisé.
 
 
 ### Accès à la configuration
@@ -222,8 +222,8 @@ Les tâches de démarrage sont des actions effectuées avant le démarrage d’u
  | Microsoft Azure | Service Fabric
 --- | --- | ---
 Emplacement de la configuration | ServiceDefinition.csdef | ServiceManifest.xml
-Privilèges | « limités » ou « élevés » | n’importe quel compte utilisateur ou machine
-Séquencement | « simple », « en arrière-plan », « au premier plan » | les tâches de démarrage doivent s’exécuter correctement pour que le service démarre.
+Privilèges | « limités » ou « élevés » | n’importe quel compte utilisateur ou machine
+Séquencement | « simple », « en arrière-plan », « au premier plan » | les tâches de démarrage doivent s’exécuter correctement pour que le service démarre.
 
 ### Microsoft Azure
 Dans les services cloud, un point d’entrée de démarrage est configuré pour chaque rôle dans le fichier ServiceDefinition.csdef.
@@ -245,7 +245,7 @@ Dans les services cloud, un point d’entrée de démarrage est configuré pour 
 
 ### Service Fabric
 
-Dans Service Fabric, un point d’entrée de démarrage est configuré pour chaque service dans le fichier ServiceManifest.xml :
+Dans Service Fabric, un point d’entrée de démarrage est configuré pour chaque service dans le fichier ServiceManifest.xml :
 
 ```xml
 
@@ -277,4 +277,4 @@ Découvrez plus en détail les services fiables Service Fabric et les différenc
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

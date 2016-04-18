@@ -91,8 +91,6 @@ Les didacticiels suivants montrent comment configurer App Service pour exploiter
 
 Si vous voulez utiliser un système d’identité différent de ceux fournis ici, vous pouvez également exploiter la [prise en charge de l’authentification personnalisée en version préliminaire dans le Kit de développement logiciel (SDK) serveur .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-Vous pouvez également trouver d’autres informations sur les flux ci-dessus dans [Présentation de l’authentification App Service](app-service-authentication-overview.md). Cette rubrique inclut également des informations sur la passerelle App Service, qui n’est plus utilisée Mobile Apps, mais ce contenu conceptuel est toujours d’actualité.
-
 [Ajout de l'authentification à votre application iOS]: app-service-mobile-ios-get-started-users.md
 [Ajout de l'authentification à votre application Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
 [Ajout de l'authentification à votre application Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@ Vous pouvez également trouver d’autres informations sur les flux ci-dessus da
 [Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
+	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
 	description="Mettre à l’échelle une machine virtuelle en réponse aux alertes avec Azure Automation"
 	services="virtual-machines"
 	documentationCenter=""
@@ -100,12 +100,12 @@ Veillez à bien copier le webhook avant de fermer la boîte de dialogue, car vou
 3. Sélectionnez Ajouter une alerte
 4. Sélectionnez une valeur pour déclencher l’alerte
 5. Sélectionnez une condition, qui une fois remplie, va déclencher l’alerte
-6. Sélectionnez un seuil pour la condition de l’étape 5
+6. Sélectionnez un seuil pour la condition de l’étape 5
 7. Sélectionnez une période sur laquelle le service d’analyse vérifie l’état de la condition et du seuil dans les étapes 5 et 6
 8. Collez le webhook que vous avez copié dans la section précédente.
 
-![Ajouter une alerte à la machine virtuelle 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Ajouter une alerte à la machine virtuelle 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

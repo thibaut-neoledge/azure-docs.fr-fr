@@ -20,7 +20,7 @@
 # Tâches de préparation des données pour l'apprentissage automatique amélioré
 
 ## Introduction
-Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus d'analyse de Cortana (CAP) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus CAP, consultez les étapes décrites dans le [processus d'analyse de Cortana](cortana-analytics-process.md).
+Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus d'analyse de Cortana (CAP) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus CAP, consultez les étapes décrites dans le [processus d'analyse de Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Les tâches de traitement préalable et de nettoyage, comme la tâche d'exploration de données, peuvent être exécutées dans une grande variété d'environnements, tels que SQL ou Hive ou Azure Machine Learning Studio et avec différents outils et langages, tels que R ou Python, en fonction de l'emplacement de stockage de vos données et leur mise en forme. Étant donné que le processus CAP est itératif par nature, ces tâches peuvent avoir lieu à diverses étapes du flux de travail du processus.
 
@@ -47,9 +47,9 @@ Il est possible d’évaluer la qualité globale des données en vérifiant les 
 * Le nombre d'**attributs** (ou de **fonctionnalités**).
 * Le **type de données** des attributs (nominal, ordinal ou continu).
 * Le nombre de **valeurs manquantes**.
-* La **qualité de formation** des données. 
-	* Si les données sont au format TSV ou CSV, vérifiez que les séparateurs de colonne et de ligne séparent correctement et systématiquement les colonnes et les lignes. 
-	* Si les données sont au format HTML ou XML, vérifiez qu'elles sont conformes à leur standard respectif. 
+* La **qualité de formation** des données.
+	* Si les données sont au format TSV ou CSV, vérifiez que les séparateurs de colonne et de ligne séparent correctement et systématiquement les colonnes et les lignes.
+	* Si les données sont au format HTML ou XML, vérifiez qu'elles sont conformes à leur standard respectif.
 	* Une analyse peut également se révéler nécessaire pour obtenir des informations structurées à partir de données non ou semi-structurées.
 * **Enregistrements de données incohérents**. Vérifiez la plage des valeurs autorisées. Par exemple, si les données sont des notes moyennes d'étudiant, vérifiez qu'elles sont comprises dans la fourchette correcte.
 
@@ -92,13 +92,13 @@ Pour discrétiser les données, il faut convertir les valeurs continues en attri
 * **Compartimentage à largeur identique** : diviser la plage de toutes les valeurs possibles d’un attribut en N groupes de même taille et attribuer aux valeurs le numéro de compartiment qui leur correspond.
 * **Compartimentage à hauteur identique :** diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.  
 
-## Comment réduire les données ? 
+## Comment réduire les données ?
 
 Plusieurs méthodes permettent de réduire la taille des données pour en faciliter la manipulation. Selon la taille et le domaine, les méthodes applicables sont les suivantes :
 
 * **Échantillonnage des enregistrements** : échantillonner les enregistrements de données et ne choisir que le sous-ensemble représentatif.
 * **Échantillonnage des attributs** : ne sélectionner que les attributs importants dans les données.  
-* **Agrégation **: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
+* **Agrégation**: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
 
 ## Comment nettoyer les données textuelles ?
 
@@ -109,6 +109,5 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 ## Références
 
 >*Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016--->

@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèle dans la [galerie Azure Cortana Analytics](http://gallery.azureml.net/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
+Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèles dans la [galerie Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
 
 Certains de ces jeux de données sont disponibles dans le stockage d'objets blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Lecteur][reader].
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

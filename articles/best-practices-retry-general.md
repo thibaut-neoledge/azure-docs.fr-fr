@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Conseils généraux sur les nouvelles tentatives
@@ -115,4 +115,4 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
 * [Modèle de transaction de compensation](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modèles d’idempotence](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

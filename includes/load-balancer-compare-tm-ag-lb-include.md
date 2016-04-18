@@ -8,14 +8,14 @@ Il existe différentes options pour répartir le trafic réseau à l’aide de M
 
 - 	Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger le trafic de l’utilisateur final vers les points de terminaison globalement distribués. Les clients se connectent ensuite à ces points de terminaison directement. Le tableau suivant récapitule les fonctionnalités offertes par chaque service :
 
-|Équilibrage de charge Azure |	Application Gateway | Traffic Manager |
-|---|---|---|
-|Technology| Niveau Réseau (niveau 4) | Niveau Application (niveau 7) |	Niveau DNS |
+| Service | Équilibrage de charge Azure | Application Gateway | Traffic Manager |
+|---|---|---|---|
+|Technology| Niveau Réseau (niveau 4) | Niveau Application (niveau 7) | Niveau DNS |
 | Protocoles d’applications pris en charge |	Quelconque | HTTP et HTTPS | 	N’importe quelle option (un point de terminaison HTTP/S est requis pour l’analyse du point de terminaison) |
 | Points de terminaison | Instances de rôle de services cloud et de machines virtuelles Azure | Toute adresse IP interne Azure ou adresse IP Internet publique | Machines virtuelles Azure, Cloud Services, Azure Web Apps et points de terminaison externes |
 | Prise en charge de réseau virtuel | Peut être utilisé pour les applications internes (réseau virtuel) et les applications accessibles via Internet | Peut être utilisé pour les applications internes (réseau virtuel) et les applications accessibles via Internet |	Prend uniquement en charge les applications accessibles via Internet |
 Surveillance de point de terminaison | prise en charge via les sondes | prise en charge via les sondes | prise en charge via HTTP/HTTPS GET | 
-<BR> L’Équilibrage de charge Azure et Application Gateway dirigent le trafic réseau vers des points de terminaison, mais ils ont des scénarios d'utilisation différents concernant le trafic à gérer. Le tableau ci-dessous vous aide à comprendre la différence entre les deux équilibreurs de charge :
+<BR> L’équilibreur de charge Azure et Application Gateway dirigent le trafic réseau vers des points de terminaison, mais ils ne gèrent pas le même trafic. Le tableau ci-dessous vous aide à comprendre la différence entre les deux équilibreurs de charge :
 
 
 | Type | Équilibrage de charge Azure | Application Gateway |
@@ -30,4 +30,4 @@ Surveillance de point de terminaison | prise en charge via les sondes | prise en
 
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

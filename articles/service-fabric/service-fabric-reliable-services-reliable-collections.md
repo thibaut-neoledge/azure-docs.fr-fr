@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
@@ -39,13 +39,13 @@ Les Collections fiables fournissent des garanties de forte cohérence instantan�
 Les API de Collections fiables sont une évolution des API de collections simultanées (trouvées dans l’espace de noms **System.Collections.Concurrent**) :
 
 - Asynchrones : renvoie une tâche, car contrairement aux collections simultanées, les opérations sont répliquées et conservées.
-- Aucun paramètre de sortie : utilise **ConditionalResult<T>** pour renvoyer un paramètre booléen et une valeur à la place de paramètres de sortie. **ConditionalResult<T>** est similaire à **Nullable<T>**, mais ne nécessite ne pas que T soit une structure.
+- Aucun paramètre de sortie : utilise `ConditionalValue<T>` pour renvoyer un paramètre booléen et une valeur au lieu de paramètres. `ConditionalValue<T>` est similaire à `Nullable<T>` mais ne nécessite pas que T soit une structure.
 - Transactions : utilise un objet de transaction pour permettre à l'utilisateur de regrouper des actions sur plusieurs Collections fiables dans une transaction.
 
-Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient deux collections :
+Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient deux collections :
 
 - [Dictionnaire fiable](https://msdn.microsoft.com/library/azure/dn971511.aspx) : représente une collection répliquée, transactionnelle et asynchrone de paires clé/valeur. Semblables à celles de **ConcurrentDictionary**, la clé et la valeur peuvent être de tout type.
-- [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) : représente une file d’attente FIFO stricte, répliquée, transactionnelle et asynchrone. Semblable à celle de **ConcurrentQueue**, la valeur peut être de tout type.
+- [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) : représente une file d’attente FIFO stricte, répliquée, transactionnelle et asynchrone. Semblable à celle de **ConcurrentQueue**, la valeur peut être de tout type.
 
 ## Niveaux d'isolement
 Le niveau d’isolement est une mesure du degré d’isolement obtenu. L’isolement signifie qu’une transaction se comporte comme elle le ferait dans un système qui n’autorise qu’une seule transaction en cours à un moment donné.
@@ -54,8 +54,8 @@ Les Collections fiables choisissent automatiquement le niveau d'isolement à uti
 
 Il existe deux niveaux d'isolement pris en charge dans les Collections fiables :
 
-- **Lecture renouvelée** : spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Instantané** : spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Lecture renouvelée** : spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Instantané** : spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Le Dictionnaire fiable et la File d'attente fiable prennent en charge le protocole Read Your Writes. En d'autres termes, toute écriture dans une transaction sera visible pour une lecture suivante appartenant à la même transaction.
 
@@ -99,16 +99,16 @@ Notez que le scénario de blocage ci-dessus est un exemple illustrant parfaiteme
 
 ## Recommandations
 
-- Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, **TryPeekAsync** ou **TryGetAsync**). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
+- Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, `TryPeekAsync` ou `TryGetAsync`). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
 - Exécutez une copie complète de l’objet renvoyé de type personnalisé avant de le modifier. Comme les structures et les types intégrés ont une valeur de passage, vous n’avez pas besoin d’en effectuer une copie complète.
-- N’utilisez pas **TimeSpan.MaxValue** pour les délais d’expiration. Les délais d’expiration doivent être utilisés pour détecter des blocages.
+- N’utilisez pas `TimeSpan.MaxValue` pour les délais d’attente. Les délais d’expiration doivent être utilisés pour détecter des blocages.
 - Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
 
 Voici quelques points à retenir :
 
 - Le délai d’expiration par défaut est de 4 secondes pour toutes les API de Collections fiables. La plupart des utilisateurs ne doivent pas remplacer ce délai.
-- Le jeton d’annulation par défaut est **CancellationToken.None** dans toutes les API de Collections fiables.
-- Le paramètre de type de clé (*TKey*) pour un Dictionnaire fiable doit implémenter correctement **GetHashCode()** et **Equals()**. Les clés doivent être immuables.
+- Le jeton d'annulation par défaut est `CancellationToken.None` dans toutes les API de Collections fiables.
+- Le paramètre de type de clé (*TKey*) pour un Dictionnaire fiable doit implémenter correctement `GetHashCode()` et `Equals()`. Les clés doivent être immuables.
 - Les énumérations sont un instantané cohérent au sein d'une collection. Toutefois, les énumérations de plusieurs collections ne sont pas cohérentes d'une collection à l'autre.
 - Pour obtenir un haut niveau de disponibilité pour les Collections fiables, chaque service doit avoir au moins une taille de jeu de réplicas cible minimum égale à 3.
 
@@ -119,4 +119,4 @@ Voici quelques points à retenir :
 - [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

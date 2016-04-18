@@ -21,7 +21,7 @@
 
 # Didacticiel : Analyse des sentiments à l'aide de Stream Analytics et Machine Learning #
 
-Ce didacticiel est conçu pour vous aider à configurer rapidement un travail Stream Analytics simple avec l’intégration de Machine Learning. Nous allons mettre à profit un modèle d’analyse de sentiment Machine Learning de la galerie Analytique Cortana pour analyser la diffusion des données de texte et détermine l’évaluation du sentiment en temps réel. Il s’agit d’un didacticiel qui permet de comprendre les scénarios tels que l’analyse de sentiments en temps réel de la diffusion en continu des données twitter, l’analyse des enregistrements de conversation client grâce au personnel du support technique, aux commentaires sur les forums/blogs/vidéos et de nombreux autres scénarios d’évaluation prédictive en temps réel.
+Ce didacticiel est conçu pour vous aider à configurer rapidement un travail Stream Analytics simple avec l’intégration de Machine Learning. Nous allons mettre à profit un modèle d’analyse de sentiment Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation du sentiment en temps réel. Il s’agit d’un didacticiel qui permet de comprendre les scénarios tels que l’analyse de sentiments en temps réel de la diffusion en continu des données twitter, l’analyse des enregistrements de conversation client grâce au personnel du support technique, aux commentaires sur les forums/blogs/vidéos et de nombreux autres scénarios d’évaluation prédictive en temps réel.
   
 Dans ce didacticiel, un exemple de fichier CSV avec du texte (comme indiqué dans la figure 1 ci-dessous) est fourni en tant qu’entrée dans le magasin d’objets Blob Azure. La tâche applique le modèle d’analyse de sentiments en tant que fonction définie par l’utilisateur (UDF) sur l’exemple de données de texte à partir du magasin d’objets blob. Le résultat final sera placé dans le même magasin d’objets blob Azure, dans un autre fichier CSV. Un schéma de cette configuration est fourni dans la figure 2 ci-dessous). Pour un scénario plus réaliste, cette entrée de magasin d’objets blob peut être remplacée par la diffusion de données twitter en continu à partir d’une entrée Event Hub Azure. De plus, une visualisation [Power BI](https://powerbi.microsoft.com/) en temps réel agrégée du sentiment peut être générée. Les itérations à venir de cet article incluront ces extensions.
 
@@ -43,7 +43,7 @@ La configuration requise pour cet article est la suivante :
 À un haut niveau, les étapes suivantes vont être exécutées :
 
 1.	Téléchargement d’un fichier d’entrée CSV dans le stockage d’objets blob
-2.	Ajout d’un modèle d’analyse de sentiments à partir de la galerie Cortana Analytics à votre espace de travail Machine Learning
+2.	Ajout d’un modèle d’analyse de sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Machine Learning
 3.	Déploiement de ce modèle en tant que service web dans l’espace de travail Azure Machine Learning
 4.	Création d’un travail Stream Analytics qui appelle ce service web en tant que fonction afin de déterminer le sentiment de saisie de texte
 5.	Démarrage du travail Stream Analytics et observation du résultat 
@@ -63,9 +63,9 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, y compris 
 
 3.	Téléchargez le fichier CSV en cliquant sur l’icône **Charger l’objet blob**, puis choisissez un **fichier sur le disque local**.
 
-## Ajoutez le modèle d’analyse de sentiments de la galerie Cortana Analytics
+## Ajoutez le modèle d’analyse de sentiments de la galerie Cortana Intelligence
 
-1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Analytics  
+1.	Téléchargez le [modèle d’analyse prédictive de sentiment ](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) dans la galerie Cortana Intelligence.  
 2.	Cliquez sur **Ouvrir** dans Studio :  
 
     ![ouvrir le studio machine learning du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -140,7 +140,7 @@ Notez l’URL et la clé d’accès du service web depuis le fichier excel tél�
 
 ## Conclusion
 
-Dans ce didacticiel, un travail Stream Analytics a été créé et lit des données de texte diffusées en continu et applique l’analyse des sentiments à ces dernières en continu. Vous avez pu réaliser toutes ces opérations sans avoir à vous soucier des subtilités de la création d’un modèle d’analyse des sentiments. Il s’agit de l’un des avantages de la suite Cortana Analytics.
+Dans ce didacticiel, un travail Stream Analytics a été créé et lit des données de texte diffusées en continu et applique l’analyse des sentiments à ces dernières en continu. Vous avez pu réaliser toutes ces opérations sans avoir à vous soucier des subtilités de la création d’un modèle d’analyse des sentiments. Il s’agit de l’un des avantages de la suite Cortana Intelligence.
 
 Vous pouvez également observer les mesures liées à la fonction Azure Machine Learning. Cliquez sur l’onglet **SURVEILLER**. Trois fonctions liées aux métriques sont présentes.
   
@@ -150,4 +150,4 @@ Vous pouvez également observer les mesures liées à la fonction Azure Machine 
 
     ![affichage du moniteur ml du didacticiel machine learning de stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Création d’une machine virtuelle Linux | Microsoft Azure"
+	pageTitle="Création d’une machine virtuelle Linux | Microsoft Azure"
 	description="Découvrez comment créer une machine virtuelle personnalisée avec le modèle de déploiement classique exécutant le système d’exploitation Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -35,4 +35,4 @@ Cette rubrique décrit comment créer une machine virtuelle *personnalisée* ave
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

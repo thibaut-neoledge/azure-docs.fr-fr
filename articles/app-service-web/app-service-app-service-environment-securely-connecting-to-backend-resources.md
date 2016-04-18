@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>
 
 # Connexion sécurisée à des ressources de backend à partir d'un environnement App Service #
 
 ## Vue d’ensemble ##
-Étant donné qu’un environnement App Service est toujours créé dans un sous-réseau d’un [réseau virtuel][virtualnetwork] régional « v1 » classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel.
+Étant donné qu’un environnement App Service est toujours créé dans un sous-réseau d’un [réseau virtuel][virtualnetwork] régional « v1 » classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel. Notez que seuls les réseaux virtuels avec un espace d'adressage RFC1918 (c'est-à-dire des adresses privées) sont pris en charge..
 
 **Remarque :** un environnement App Service ne peut pas être créé sur un réseau virtuel géré par ARM « v2 ».
 
@@ -116,4 +116,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

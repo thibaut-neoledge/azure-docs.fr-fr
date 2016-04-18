@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+   editor="vturecek; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
-   ms.author="masnider;jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="masnider;vturecek"/>
 
 # Présentation de Reliable Services
 Azure Service Fabric simplifie l’écriture et la gestion de Reliable Services avec et sans état. Ce document abordera les thèmes suivants :
@@ -131,7 +131,7 @@ Si l’un des éléments suivants correspond aux besoins de votre service d’ap
 
 - Vous souhaitez développer ou utiliser des fournisseurs d’état personnalisé* développés par une tierce partie.
 
-> [AZURE.NOTE]*Fonctionnalités disponibles au moment de la disponibilité générale du Kit de développement logiciel (SDK).
+> [AZURE.NOTE] *Fonctionnalités disponibles au moment de la disponibilité générale du Kit de développement logiciel (SDK).
 
 
 ## Étapes suivantes
@@ -139,4 +139,4 @@ Si l’un des éléments suivants correspond aux besoins de votre service d’ap
 + [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 + [Modèle de programmation Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

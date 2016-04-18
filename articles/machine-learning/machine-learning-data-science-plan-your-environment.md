@@ -76,7 +76,7 @@ Prenons par exemple l’environnement Azure Machine Learning Studio :
 - Pour obtenir la liste des formats et des types de données pris en charge par Azure Machine Learning Studio, référez-vous à la section [Formats et types de données pris en charge](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported).
 - Pour plus d’informations sur les limitations en matière de données pour Azure Machine Learning Studio, référez-vous à la section **Quelle est la taille maximale du jeu de données de mes modules ?** de [Importation et exportation de données pour Machine Learning](machine-learning-faq.md#machine-learning-studio-questions).
 
-Pour plus d’informations sur les limitations des autres services Azure utilisés dans le processus d’analyse, référez-vous à [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md).
+Pour plus d’informations sur les limitations des autres services Azure utilisés dans le processus d’analyse, référez-vous à [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
 ## Questions sur la qualité des données : exploration et prétraitement
 
@@ -104,7 +104,7 @@ Il existe un grand nombre de possibilités en fonction des langues, des environn
 
 
 ## Identification de votre scénario d’analyse avancée
-Une fois que vous avez répondu aux questions de la section précédente, vous êtes prêt à déterminer le scénario qui vous convient le mieux. Les exemples de scénarios sont présentés dans la rubrique [Scénarios d’analyses avancées dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
+Une fois que vous avez répondu aux questions de la section précédente, vous êtes prêt à déterminer le scénario qui vous convient le mieux. Les exemples de scénarios sont présentés dans la rubrique [Scénarios d’analyses avancées dans Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 
 
@@ -114,4 +114,4 @@ Une fois que vous avez répondu aux questions de la section précédente, vous �
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

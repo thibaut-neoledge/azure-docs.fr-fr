@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Schéma d’un modèle de clé secrète de coffre de clés
@@ -38,19 +38,20 @@ Pour créer une clé secrète de coffre de clés, ajoutez le schéma suivant à 
 
 Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Oui | En tant que ressource enfant d'un coffre de clés :<br />**secrets**<br /><br />An tant que ressource de niveau supérieur :<br />**Microsoft.KeyVault/vaults/secrets** | Type de ressource à créer. |
-| apiVersion | enum | Oui | **2015-06-01** <br /> **2014-12-19-aperçu** | La version de l'API à utiliser pour la création de la ressource. | 
-| name | string | Oui | | Nom de la clé secrète à créer. Si vous déployez la clé secrète comme une ressource enfant d'un coffre de clés, entrez simplement un nom pour la clé secrète. Si vous déployez la clé secrète comme une ressource de niveau supérieur, les noms doivent être au format **{key-vault-name}/{secret-name}**. |
-| properties | objet | Oui | (voir ci-dessous) | Objet qui spécifie la valeur de la clé secrète à créer. |
-| dependsOn | array | Non | Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques. | La collection de ressources dont dépend de ce lien. Si le coffre de clés pour la clé secrète est déployé dans le même modèle, ajoutez le nom du coffre de clés à cet élément pour vous assurer qu'il est d'abord déployé. |
+| Nom | Valeur |
+| ---- | ---- | 
+| type | Enum<br />Requis<br />**secrets** (si déployé comme une ressource enfant d’un coffre de clés) ou <br /> **Microsoft.KeyVault/vaults/secrets** (si déployé comme une ressource de niveau supérieur)<br /><br />The Type de ressource à créer. |
+| apiVersion | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />La version de l’API à utiliser pour la création de la ressource. | 
+| name | String<br />Requis<br />Mot unique si déployé comme une ressource enfant d’un coffre de clés, ou au format **{key-vault-name}/{secret-name}** si déployé comme une ressource de niveau supérieur à ajouter à un coffre de clés existant.<br /><br />Nom de la clé secrète à créer. |
+| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui spécifie la valeur de la clé secrète à créer. |
+| dependsOn | Array<br />Facultatif<br />Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.<br /><br />La collection de ressources dont dépend ce lien. Si le coffre de clés pour la clé secrète est déployé dans le même modèle, ajoutez le nom du coffre de clés à cet élément pour vous assurer qu'il est d'abord déployé. |
 
+<a id="properties" />
 ### objet propriétés
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | string | Oui | | Valeur de clé secrète à stocker dans le coffre de clés. Lors du passage d'une valeur pour cette propriété, utilisez un paramètre de type **securestring**. |
+| Nom | Valeur |
+| ---- | ---- | 
+| value | String<br />Requis<br /><br />Valeur de clé secrète à stocker dans le coffre de clés. Lors du passage d'une valeur pour cette propriété, utilisez un paramètre de type **securestring**. |
 
 	
 ## Exemples
@@ -223,7 +224,7 @@ Le deuxième exemple déploie la clé secrète comme une ressource de niveau sup
 
 ## Étapes suivantes
 
-- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

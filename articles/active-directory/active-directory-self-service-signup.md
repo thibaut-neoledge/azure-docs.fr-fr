@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Qu’est-ce qu’une inscription libre-service à Azure ? | Microsoft Azure"
-	description="Présentation de l’inscription libre-service à Azure, gestion du processus d'inscription et ."
+	description="Présentation de l’inscription libre-service à Azure, gestion du processus d'inscription, et prise en charge d'un nom de domaine DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # Qu’est-ce qu’une inscription libre-service à Azure ?
@@ -232,4 +232,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

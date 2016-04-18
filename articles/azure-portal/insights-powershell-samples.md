@@ -90,7 +90,7 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` prend en charge de nombreux autres paramètres. Pour plus d'informations, consultez `Get-AzureRmLog`.
 
->[AZURE.NOTE] `Get-AzureRmLog` fournit uniquement 15 jours d'historique. Le paramètre **-MaxEvents** vous permet d'interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit de développement logiciel SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
+>[AZURE.NOTE] `Get-AzureRmLog` fournit uniquement 15 jours d'historique. Le paramètre **-MaxEvents** vous permet d'interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
 
 ## Récupérer l'historique des alertes
 Pour afficher tous les événements d'alerte, vous pouvez interroger les journaux Azure Resource Manager (ARM) en utilisant les exemples suivants.
@@ -228,12 +228,11 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible à la rubrique [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-Pour afficher une liste des mesures disponibles et leurs unités pour divers services Azure, consultez [TITRE DE LA PAGE WEB](http://link).
 
 ## Créer et gérer les paramètres de mise à l'échelle automatique
-Une ressource, par exemple une application Web, une machine virtuelle, un service cloud ou un jeu de mise à l’échelle de machine virtuelle ne peut avoir qu'un seul paramètre de mise à l'échelle automatique configuré. Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l'échelle en fonction des performances et un second pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d'informations sur la mise à l'échelle automatique, consultez [Mise à l'échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
+Une ressource, par exemple une application Web, une machine virtuelle, un service cloud ou un jeu de mise à l’échelle de machine virtuelle ne peut avoir qu'un seul paramètre de mise à l'échelle automatique configuré. Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l'échelle en fonction des performances et un second pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l'échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
 
-Voici la procédure que nous allons suivre :
+Voici la procédure que nous allons suivre :
 
 1. Créez une ou plusieurs règles.
 2. Créez un ou plusieurs profils correspondant aux règles que vous avez créées précédemment pour les profils.
@@ -278,7 +277,7 @@ Enfin, créez le paramètre de mise à l'échelle automatique pour ajouter le pr
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Pour plus d'informations sur la gestion des paramètres de mise à l'échelle automatique, consultez [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Pour plus d'informations sur la gestion des paramètres de mise à l’échelle automatique, consultez [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## Historique de la mise à l'échelle automatique
 L'exemple suivant vous montre comment consulter les dernières mises à l'échelle automatiques et les derniers événements d'alerte. Utilisez la recherche du journal d'audit pour afficher l'historique de mise à l'échelle automatique.
@@ -287,16 +286,16 @@ L'exemple suivant vous montre comment consulter les dernières mises à l'échel
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Vous pouvez utiliser l’applet de commande `Get-AzureRmAutoScaleHistory` pour récupérer l'historique de mise à l'échelle automatique.
+Vous pouvez utiliser l’applet de commande `Get-AzureRmAutoScaleHistory` pour récupérer l’historique de mise à l’échelle automatique.
 
 ```
 Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Pour plus d'informations, consultez [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Pour plus d’informations, consultez [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### Afficher les détails d'un paramètre de mise à l'échelle automatique
-Vous pouvez utiliser l’applet de commande `Get-Autoscalesetting` pour récupérer des informations sur le paramètre de mise à l'échelle automatique.
+Vous pouvez utiliser l’applet de commande `Get-Autoscalesetting` pour récupérer des informations supplémentaires sur le paramètre de mise à l’échelle automatique.
 
 L'exemple suivant affiche des détails concernant tous les paramètres de mise à l'échelle automatique dans le groupe de ressources ’myrg1’.
 
@@ -311,7 +310,7 @@ Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -Detai
 ```
 
 ### Supprimer un paramètre de mise à l'échelle automatique
-Vous pouvez utiliser l’applet de commande `Remove-Autoscalesetting` pour supprimer un paramètre de mise à l'échelle automatique.
+Vous pouvez utiliser l’applet de commande `Remove-Autoscalesetting` pour supprimer un paramètre de mise à l’échelle automatique.
 
 ```
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
@@ -319,7 +318,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Gérer les profils de journal pour les journaux d'audit
 
-Vous pouvez créer un *profil de journal* et exporter des données à partir de vos journaux d'audit pour un compte de stockage, et configurer la rétention des données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre concentrateur d'événements. Notez que cette fonctionnalité est actuellement en version préliminaire et vous ne pouvez créer qu'un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l'abonnement actuel, vous pouvez néanmoins modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer les journaux d'audit afin d’acheminer les données vers n'importe quel compte de stockage ou un concentrateur d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
+Vous pouvez créer un *profil de journal* et exporter les données de vos journaux d’audit vers un compte de stockage, et configurer la rétention de données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre hub d'événements. Notez que cette fonctionnalité est actuellement en version préliminaire et vous ne pouvez créer qu'un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l’abonnement actif, vous pouvez toujours modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer les journaux d'audit afin d’acheminer les données vers n'importe quel compte de stockage ou un hub d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
 
 ### Obtenir un profil de journal
 Pour extraire vos profils de journal existants, utilisez l’applet de commande `Get-AzureRmLogProfile`.
@@ -338,14 +337,14 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 
 ### Ajouter un profil de journal avec conservation des données
 
-Vous pouvez spécifier la propriété **-RetentionInDays** indiquant le nombre de jours (entier positif) où les données sont conservées.
+Vous pouvez spécifier la propriété **-RetentionInDays** en indiquant le nombre de jours (entier positif) durant lequel les données seront conservées.
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
-### Ajouter un profil de journal avec conservation des données et concentrateur d'événements
-En plus du routage de vos données vers un compte de stockage, vous pouvez également transmettre en continu ces données vers un concentrateur d'événements. Notez que dans cette version préliminaire, la configuration du compte de stockage est obligatoire mais la configuration du concentrateur d'événements est facultative.
+### Ajouter un profil de journal avec conservation des données et hub d'événements
+En plus du routage de vos données vers un compte de stockage, vous pouvez également transmettre en continu ces données vers un hub d'événements. Notez que dans cette version préliminaire, la configuration du compte de stockage est obligatoire mais la configuration du hub d'événements est facultative.
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
@@ -384,4 +383,4 @@ Activer un paramètre diagnostic avec conservation pour une catégorie de journa
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
