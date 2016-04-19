@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/25/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 # Obtenir des informations à partir des données du Centre de sécurité Azure à l’aide de Power BI
@@ -77,7 +77,7 @@ Vous pouvez également utiliser le tableau de bord du Centre de sécurité Azure
 
 1\. Dans le tableau de bord du **Centre de sécurité Azure**, cliquez sur le bouton **Explorer dans Power BI**.
 
-![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig9.png)
+![Se connecter au Centre de sécurité Azure à l’aide de Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
 
 2\. Le volet **Explorer dans Power BI** s’ouvre à droite de l’écran, comme indiqué ci-dessous :
 
@@ -95,6 +95,8 @@ Vous pouvez également utiliser le tableau de bord du Centre de sécurité Azure
 
 8\. Vous êtes redirigé vers une page d’authentification dans laquelle vous devez saisir les informations d’identification que vous utilisez pour vous connecter au Centre de sécurité Azure. Une fois le processus d’authentification effectué, Power BI commence à importer les données qui serviront de base à la génération de vos rapports.
 
+> [AZURE.NOTE] Une actualisation quotidienne du rapport est planifiée. Si vous rencontrez des problèmes liés à cette actualisation, lisez l’article [Problèmes potentiels d’actualisation avec Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) pour plus d’informations sur la manière de les résoudre.
+
 ## Étapes suivantes
 Dans ce document, vous avez vu comment utiliser le service Power BI depuis le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
@@ -103,4 +105,4 @@ Dans ce document, vous avez vu comment utiliser le service Power BI depuis le C
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

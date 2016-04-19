@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -79,11 +79,13 @@ Resource Manager fournit des extensions pour les cas qui nécessitent des opéra
 
 Lorsque vous créez une solution à partir de Marketplace, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques.
 
+Vous pouvez récupérer un modèle pour un groupe de ressources existant en exportant l'état actuel du groupe de ressources vers un modèle, ou en affichant le modèle qui avait été utilisé pour un déploiement particulier. Ces deux options sont présentées dans la rubrique [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
+
 Pour finir, le modèle devient partie intégrante du code source de votre application. Vous pouvez l’archiver dans votre référentiel de code source et le mettre à jour à mesure que votre application évolue. Le modèle est modifiable par le biais de Visual Studio.
 
 Pour plus d’informations sur la définition du modèle, voir [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 
-Pour plus d’informations sur l’utilisation d’un modèle pour le déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+Pour suivre la procédure pas à pas de création d'un modèle, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 
 Pour obtenir des instructions sur la façon de structurer vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
@@ -121,7 +123,7 @@ Pour plus d’informations sur PowerShell, voir [Utilisation d’Azure PowerShe
 
 Pour plus d’informations sur l’interface de ligne de commande Azure, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
-Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST du gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST du gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Pour afficher les opérations REST pourvos ressources déployées, consultez la rubrique [Affichage et modification des ressources à l’aide de l’Explorateur de ressources Azure](resource-manager-resource-explorer.md).
 
 Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
@@ -138,4 +140,4 @@ Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

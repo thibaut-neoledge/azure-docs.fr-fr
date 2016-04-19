@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
-   description="With Power BI Embedded, you can add interactive Power BI reports into your application"
+   description="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,9 +74,7 @@ Maintenant que vous avez une instance de Power BI pour votre application, ainsi 
 
 ## Création de rapports et de jeux de données à intégrer dans une application
 
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
-
-> [AZURE.NOTE] Pour savoir comment l’exemple PBIX Analyse des données de vente a été créé, consultez la section [Didacticiel : analyse des données de vente à partir d’Excel et d’un flux OData](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Avec **Power BI Desktop**, vous vous connectez à votre source de données en important une copie des données dans **Power BI Desktop** ou directement à l'aide de **DirectQuery**.
 
@@ -106,7 +104,7 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 - [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 - [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
-- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

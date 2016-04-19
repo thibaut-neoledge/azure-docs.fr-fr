@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Activation du proxy d’application Azure AD
@@ -96,4 +96,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Identité Azure](fundamentals-identity.md)
 - [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

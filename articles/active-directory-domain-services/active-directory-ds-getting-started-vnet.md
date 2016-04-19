@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)* : prise en main
@@ -22,7 +22,7 @@
 Quand vous sélectionnez un réseau virtuel en vue de l’utiliser avec les services de domaine Azure AD, gardez à l’esprit les instructions suivantes :
 
 - Veillez à sélectionner un réseau virtuel dans une région qui est prise en charge par les services de domaine Azure AD. Consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
-- Si vous prévoyez d’utiliser un réseau virtuel existant, assurez-vous qu’il s’agit d’un réseau virtuel régional. Les réseaux virtuels qui recourent au mécanisme des groupes d’affinités hérité ne peuvent pas être utilisés avec les services de domaine Azure AD. Dans ce cas de figure, vous devez [migrer les réseaux virtuels hérités vers des réseaux virtuels régionaux](../virtual-networks-migrate-to-regional-vnet.md).
+- Si vous prévoyez d’utiliser un réseau virtuel existant, assurez-vous qu’il s’agit d’un réseau virtuel régional. Les réseaux virtuels qui recourent au mécanisme des groupes d’affinités hérité ne peuvent pas être utilisés avec les services de domaine Azure AD. Dans ce cas de figure, vous devez [migrer les réseaux virtuels hérités vers des réseaux virtuels régionaux](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 - Si vous envisagez d’utiliser un réseau virtuel existant, assurez-vous qu’aucun serveur DNS personnalisé n’est configuré pour le réseau virtuel. Les services de domaine Azure AD ne prennent pas en charge les serveurs DNS personnalisés.
 - Si vous envisagez d’utiliser un réseau virtuel existant, vérifiez qu’aucun domaine existant sous le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Vous essayez ensuite d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
 - Sélectionnez le réseau virtuel qui héberge actuellement, ou qui hébergera, des machines virtuelles ayant besoin d’accéder aux services de domaine Azure AD. Vous ne pouvez pas déplacer les services de domaine vers un autre réseau virtuel une fois que vous avez activé le service.
@@ -58,4 +58,4 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 ---
 [**Étape suivante : activer les services de domaine Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

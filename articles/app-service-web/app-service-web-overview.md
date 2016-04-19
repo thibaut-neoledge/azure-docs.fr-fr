@@ -25,6 +25,8 @@ Grâce à la puissance d’[App Service Web Apps](http://go.microsoft.com/fwli
 
 ![Marketplace sur Internet](./media/app-service-web-overview/marketplace.png)
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 ## Bien plus que de simples sites web##
 
 Les entreprises modernes interagissent avec leurs clients de façon de plus en plus sophistiquée. Les entreprises de tous types considèrent leur présence sur le Web comme un élément essentiel de leur activité et comme un composant majeur de leur plan commercial. En conséquence, les entreprises recherchent une plate-forme qui leur fournira souplesse, sécurité et évolutivité. En outre, elles doivent être en mesure d'établir une liaison à leur au système métier existant, de déployer rapidement de nouveau code et de réaliser une rotation des instances dans le monde entier. Grâce à Azure App Service et à Web Apps, les entreprises peuvent répondre aux besoins de leurs clients rapidement et à moindre coût.
@@ -64,4 +66,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->
