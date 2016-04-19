@@ -69,7 +69,8 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Machines virtuelles IaaS Azure (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Machines virtuelles IaaS Azure (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Machines virtuelles IaaS Azure (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Machines virtuelles IaaS Azure (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Prise en charge ARM et Linux
 
@@ -178,7 +179,7 @@ Le fichier d’informations d’identification de coffre est un certificat qui e
 
 Les informations d’identification de coffre sont utilisées uniquement pendant le flux de travail d’inscription. Il est de votre responsabilité de vous assurer que le fichier d’informations d’identification de coffre n’est pas compromis. S’il tombe entre les mains d’un utilisateur non autorisé, le fichier d’informations d’identification de coffre peut servir à inscrire d’autres ordinateurs pour le même archivage. Toutefois, comme les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète appartenant au client, les données de sauvegarde existantes ne peuvent pas être compromises. Pour atténuer ce problème, les informations d’identification de coffre sont configurées pour expirer sous 48 heures. Vous pouvez télécharger les informations d’identification d’un archivage de sauvegarde autant de fois que nécessaire, seul le dernier fichier est applicable pendant le flux de travail d’inscription.
 
-## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
+## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
 De nombreux clients ont tendance à confondre récupération de sauvegarde et récupération d’urgence. Les deux opérations capturent des données et fournissent une sémantique de restauration, mais chacune est associée à une proposition de valeur bien spécifique.
 
 Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Azure Backup) *et* assurer la disponibilité de vos charges de travail (Azure Site Recovery) en cas de panne.
@@ -193,7 +194,7 @@ Les concepts qui suivent vous aideront à prendre des décisions importantes en 
 
 ## Étapes suivantes
 
-Essayez une simple sauvegarde Azure. Pour plus d’informations, consultez l’un des didacticiels suivants :
+Essayez une simple sauvegarde Azure. Pour plus d’informations, consultez l’un des didacticiels suivants :
 
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - [Test de la machine virtuelle Azure Backup](backup-azure-vms-first-look.md)

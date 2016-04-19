@@ -56,7 +56,7 @@ Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’aj
 
     ![Ajouter des bases de données](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Si les bases de données que vous utilisez disposent de données de télémétrie d’historique d’utilisation suffisantes, le graphique **Utilisation estimée des eDTU et des Go** et le graphique à barres **Utilisation effective des eDTU ** sont mis à jour pour vous aider à prendre des décisions en termes de configuration. Le service peut également vous envoyer un message de recommandation pour vous aider à rectifier la taille du pool. Consultez la section [Comprendre les recommandations relatives au pool](#understand-pool-recommendations).
+    Si les bases de données que vous utilisez disposent de données de télémétrie d’historique d’utilisation suffisantes, le graphique **Utilisation estimée des eDTU et des Go** et le graphique à barres **Utilisation effective des eDTU** sont mis à jour pour vous aider à prendre des décisions en termes de configuration. Le service peut également vous envoyer un message de recommandation pour vous aider à rectifier la taille du pool. Consultez la section [Comprendre les recommandations relatives au pool](#understand-pool-recommendations).
 
     ![recommandations dynamiques](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 

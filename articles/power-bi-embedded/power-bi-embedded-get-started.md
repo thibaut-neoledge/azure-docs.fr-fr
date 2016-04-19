@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
-   description=""
+   description="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,7 +74,7 @@ Maintenant que vous avez une instance de Power BI pour votre application, ainsi 
 
 ## Création de rapports et de jeux de données à intégrer dans une application
 
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Avec **Power BI Desktop**, vous vous connectez à votre source de données en important une copie des données dans **Power BI Desktop** ou directement à l'aide de **DirectQuery**.
 
