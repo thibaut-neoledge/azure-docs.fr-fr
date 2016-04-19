@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -48,11 +48,11 @@ Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’u
 
 La **clé unique** utilisée pour joindre trip\_data et trip\_fare se compose des trois champs suivants :
 
-- medallion (médaillon), 
-- hack\_licence (licence de taxi) et 
+- medallion (médaillon),
+- hack\_licence (licence de taxi) et
 - pickup\_datetime (date et heure d’embarquement).
 
-## <a name="mltasks"></a>Traiter trois types de tâches de prédiction 
+## <a name="mltasks"></a>Traiter trois types de tâches de prédiction
 
 Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amount* pour illustrer trois genres de tâches de modélisation :
 
@@ -75,23 +75,23 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Créez votre propre compte de stockage d’objets blob Azure**
 
-- Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **Centre-Sud des États-Unis**, ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec le Sud du centre des États-Unis. 
-- Pour créer votre propre compte de stockage Azure, suivez les étapes indiquées dans [À propos des comptes de stockage Azure](storage-create-storage-account.md). Veillez à noter les informations d’identification suivantes du compte de stockage, car vous en aurez besoin ultérieurement dans cette procédure. 
+- Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **Centre-Sud des États-Unis**, ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec le Sud du centre des États-Unis.
+- Pour créer votre propre compte de stockage Azure, suivez les étapes indiquées dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Notez les informations d’identification suivantes du compte de stockage, car vous en aurez besoin ultérieurement dans cette procédure.
 
   - **Nom du compte de stockage**
   - **Clé du compte de stockage**
   - **Nom du conteneur** (dans lequel vous souhaitez stocker les données dans l’espace de stockage d’objets blob Azure)
 
-**Approvisionnez votre instance Azure SQL DW.** Suivez les étapes indiquées dans [Créer un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
- 
+**Approvisionnez votre instance Azure SQL DW.** Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
+
   - **Nom du serveur** : <server Name>.database.windows.net
-  - **Nom SQL DW (base de données)** 
+  - **Nom SQL DW (base de données)**
   - **Nom d’utilisateur**
   - **Mot de passe**
 
-**Installez Visual Studio 2015 et SQL Server Data Tools.** Pour connaître les instructions à suivre, consultez l’article [Installer Visual Studio 2015 et/ou SSDT pour SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
+**Installez Visual Studio 2015 et SQL Server Data Tools.** Pour connaître les instructions à suivre, consultez l’article [Installer Visual Studio 2015 et/ou SSDT pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique de connexion) pour **créer une clé principale**.
 
@@ -114,7 +114,7 @@ Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes Powe
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 Une fois le script exécuté, *-DestDir* devient votre répertoire de travail. Vous devez voir un écran semblable à ce qui suit :
@@ -149,13 +149,13 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - **Copie des données vers votre compte de stockage privé d’objets blob** depuis l’espace de stockage public d’objets blob avec AzCopy.
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 
 
 - **Charge les données à l’aide de Polybase (en exécutant LoadDataToSQLDW.sql) dans votre Azure SQL DW** à partir de votre compte de stockage privé d’objets blob avec les commandes suivantes.
-	
+
 	- Créer un schéma
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- Créer un fichier d’informations d’identification de niveau base de données
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Créer une source de données externe pour un objet blob de stockage Azure
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 
 	- Créer un format de fichier externe pour un fichier csv. Les données ne sont pas compressées et les champs sont séparés par le caractère barre verticale.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
     			)
 			)
 			;
-		
+
 	- Créer des tables externes pour les prix et les courses correspondant au jeu de données NYC Taxi dans le stockage d’objets blob Azure.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 	- Charger les données à partir des tables externes du stockage d’objets blob Azure dans SQL Data Warehouse
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- Crée un exemple de table de données (NYCTaxi\_Sample) et y insère des données résultant de la sélection de requêtes SQL dans les tables des courses et des prix. (Certaines étapes de cette procédure nécessitent l’utilisation de cette table d’exemple.)
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -321,7 +321,7 @@ Ce fichier de **script PowerShell** exécute les tâches suivantes :
 ![Diagramme n°21][21]
 
 >[AZURE.TIP] **Utilisez vos propres données :** si vos données sont stockées sur votre ordinateur local dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales sur l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
-	
+
 >[AZURE.TIP] Si vos données figurent déjà dans votre espace de stockage privé d’objets blob Azure de votre application réelle, vous pouvez ignorer l’étape AzCopy dans le script PowerShell et charger directement les données vers Azure SQL DW. Pour effectuer cette opération, vous devez modifier le script afin de l’adapter au format de vos données.
 
 
@@ -453,7 +453,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@ Voici le script SQL qui définit la fonction de distance.
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@ Voici le script SQL qui définit la fonction de distance.
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 Voici un exemple d’appel de cette fonction pour générer des fonctionnalités dans votre requête SQL :
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@ Voici un exemple d’appel de cette fonction pour générer des fonctionnalités
 
 **Sortie :** cette requête génère une table (de 2 803 538 lignes) indiquant les latitudes et longitudes des points de prise en charge et de dépose, ainsi que les distances directes correspondantes en miles. Voici les résultats pour les 3 premières lignes :
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40,731804 | -74,001083 | 40,736622 | -73,988953 | 0,7169601222 |
 |2 | 40,715794 | -74,010635 | 40,725338 | -74,00399 | 0,7448343721 |
@@ -564,7 +564,7 @@ La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, g
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :
 
 1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou
-2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Lecteur. 
+2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Lecteur.
 
 
 ## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans IPython Notebook
@@ -575,7 +575,7 @@ Les informations d’Azure SQL DW nécessaires dans l’exemple de IPython Not
 
 Si vous avez déjà configuré un espace de travail AzureML, vous pouvez directement charger l’exemple de IPython Notebook vers le service AzureML IPython Notebook et commencer à l’exécuter. Pour effectuer le chargement vers le service AzureML IPython Notebook, procédez comme suit :
 
-1. Connectez-vous à votre espace de travail AzureML et cliquez successivement sur Studio en haut de l’écran et sur NOTEBOOKS sur la gauche de la page web. 
+1. Connectez-vous à votre espace de travail AzureML et cliquez successivement sur Studio en haut de l’écran et sur NOTEBOOKS sur la gauche de la page web.
 
 	![Diagramme n°22][22]
 
@@ -964,4 +964,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

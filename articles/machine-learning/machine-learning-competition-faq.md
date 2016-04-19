@@ -1,6 +1,6 @@
 <properties
-	pageTitle="FAQ sur les concours Cortana Analytics | Microsoft Azure"
-	description="Forum Aux Questions sur les concours Microsoft Cortana Analytics."
+	pageTitle="FAQ sur les concours Cortana Intelligence | Microsoft Azure"
+	description="Forum Aux Questions sur les concours Microsoft Cortana Intelligence."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,41 +16,44 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# FAQ sur les concours Microsoft Cortana Analytics
+# FAQ sur les concours Microsoft Cortana Intelligence
 
-**Qu’est-ce que les concours Cortana Analytics ?**
+**Que sont les concours Cortana Intelligence ?**
 
-Microsoft annonce les concours Cortana Analytics. Les concours Cortana Analytics nous permettent de rassembler une communauté mondiale de passionnés de données pour résoudre de manière collective certains des problèmes de science des données les plus complexes au monde. Les concours Cortana Analytics permettent aux passionnés de données du monde entier de se mesurer les uns aux autres et de créer des modèles de science des données très précis et intelligents. Nos concours hébergés sont basés sur des jeux de données uniques mis à la disposition du public pour la première fois. Les participants peuvent gagner des récompenses ou obtenir une reconnaissance via notre classement public des 10 premiers. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
+Microsoft présente les concours Cortana Intelligence. Les concours Cortana Intelligence nous permettent de rassembler une communauté mondiale de passionnés de données pour résoudre de manière collective certains des problèmes de science des données les plus complexes au monde. Les concours Cortana Intelligence permettent aux passionnés de données du monde entier de se mesurer les uns aux autres et de créer des modèles de science des données très précis et intelligents. Nos concours hébergés sont basés sur des jeux de données uniques mis à la disposition du public pour la première fois. Les participants peuvent gagner des récompenses ou obtenir une reconnaissance via notre classement public des 10 premiers. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
 
 **À quelle fréquence Microsoft lancera-t-il les nouveaux concours ?**
 
 Nous allons lancer des concours Microsoft propriétaires régulièrement, environ toutes les 8 à 12 semaines.
 
-**Où puis-je poser des questions générales sur la science des données ?**
+**Où puis-je poser des questions générales sur la science des données ?**
 
 Utilisez notre [forum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Comment participer à un concours ?**
+**Comment participer à un concours ?**
 
-Accédez à la page d’accueil des concours via la galerie Cortana Analytics. Cette page contient tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
+Accédez à la page d’accueil des concours via la galerie Cortana Intelligence. Cette page contient tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
 
-1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Analytics, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
+1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Intelligence, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
 
-2. Créez une expérience prédicative avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.
+2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.
 
-3. Déployez un service web en dehors de votre expérience prédicative. Testez votre service web à l’aide du bouton Test ou du modèle Excel créé automatiquement pour vous afin de vérifier que le service fonctionne correctement.
+3. Déployez un service web en dehors de votre expérience prédictive. Testez votre service web à l’aide du bouton Test ou du modèle Excel créé automatiquement pour vous afin de vérifier que le service fonctionne correctement.
 
-4. Envoyez votre service web, qui est votre contribution au concours, et consultez votre score public dans la page de concours de la galerie Cortana Intelligence. Enfin, réjouissez-vous si vous faites partie du classement. Une fois que vous avez correctement envoyé une contribution, vous pouvez revenir à l’expérience de démarrage que vous avez copiée, effectuer une itération, mettre à jour votre expérience prédicative, mettre à jour le service web et envoyer une nouvelle contribution.
+4. Envoyez votre service web, qui est votre contribution au concours, et consultez votre score public dans la page de concours de la galerie Cortana Intelligence. Enfin, réjouissez-vous si vous faites partie du classement. Une fois que vous avez correctement envoyé une contribution, vous pouvez revenir à l’expérience de démarrage que vous avez copiée, effectuer une itération, mettre à jour votre expérience prédictive, mettre à jour le service web et envoyer une nouvelle contribution.
 
 **Puis-je utiliser des outils open source pour participer à ces concours ?**
 
 Les participants au concours tirent parti d’Azure Machine Learning Studio, un service cloud intégré à Cortana Intelligence Suite pour développer les modèles de science des données et créer les contributions à envoyer dans le cadre du concours. ML Studio fournit non seulement une interface utilisateur graphique pour créer des expériences d’apprentissage automatique, mais il vous permet également de proposer vos propres scripts R et/ou Python pour une exécution native. Les runtimes R et Python dans ML Studio comprennent un ensemble complet de packages R/Python open source, et vous pouvez également importer vos propres packages dans le cadre de l’expérience. ML Studio comporte également un service JuPyteR Notebook intégré pour vous permettre d’explorer les données comme vous le souhaitez. Bien sûr, vous pouvez toujours télécharger les jeux de données utilisés dans le concours et les explorer dans l’outil de votre choix en dehors de ML Studio.
 
-**Dois-je être un scientifique de données pour participer ?**
+**Dois-je être un scientifique de données pour participer ?**
 
 Non. En fait, nous encourageons les passionnés de données, ceux qui s’intéressent à la science des données et les scientifiques de données en herbe à participer à notre concours. Nous avons conçu des documents de support pour permettre à tout le monde de participer. Notre public cible est le suivant :
+
 * Développeurs de données, scientifiques de données, professionnels du décisionnel et de l’analyse : ceux qui sont chargés de produire des données et du contenu d’analyse que d’autres utiliseront.
+
 * Gestionnaires de données : ceux qui disposent de connaissances sur les données, ce qu’elles signifient, comment elles sont censées être utilisées et dans quel but.
+
 * Étudiants et chercheurs : ceux qui étudient et acquièrent des compétences liées aux données par le biais de programmes académiques dans les universités ou ceux qui participent aux cours ouverts en ligne.
 
 
@@ -60,7 +63,7 @@ La plateforme de concours ne prend pas en charge la participation en équipe pou
 
 **Dois-je payer pour participer à un concours ?**
 
-La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Analytics Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous voulez acheter un abonnement Azure, cliquez [ici](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Consultez les informations de tarification Azure Machine Learning [ici](https://azure.microsoft.com/pricing/details/machine-learning/).
+La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous voulez acheter un abonnement Azure, cliquez [ici](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Consultez les informations de tarification Azure Machine Learning [ici](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -112,4 +115,4 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

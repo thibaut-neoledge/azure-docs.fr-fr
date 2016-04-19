@@ -1,20 +1,20 @@
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+Les jeux de mise à l’échelle de machine virtuelle vous permettent de gérer plusieurs machines virtuelles sous forme d’un ensemble. À un niveau élevé, les jeux de mise à l’échelle ont les avantages et inconvénients suivants :
 
-Pros:
+Avantages :
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+1. Haute disponibilité : Chaque ensemble de mise à l’échelle place ses machines virtuelles dans un groupe à haute disponibilité avec 5 domaines d’erreur et 5 domaines de mise à jour pour garantir la disponibilité (pour plus d’informations sur les domaines d’erreur et les domaines de mise à jour, consultez la rubrique sur la [disponibilité des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
+2. Intégration facile dans l’équilibreur de charge Azure et App Gateway.
+3. Intégration facile dans Azure Autoscale.
+4. Déploiement, gestion et nettoyage de machines virtuelles simplifiés.
+5. Prise en charge des versions courantes de Windows et Linux, ainsi que d’images personnalisées.
 
-Cons:
+Inconvénients :
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+1. Impossible d’attacher des disques de données à des instances de machine virtuelle dans un jeu de mise à l’échelle. Au lieu de cela, vous devez utiliser le stockage d’objets Blob (Blob Storage), des fichiers Azure, des tables Azure ou une autre solution de stockage.
 
-## Quick-Create Using Azure CLI
+## Création rapide de machines virtuelles à l’aide de l’interface de ligne de commande
 
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VM scale set:
+Si ce n’est pas déjà fait, vous pouvez vous procurer une [version d’essai gratuite d’abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) et [l’interface de ligne de commande Azure](../articles/xplat-cli-install.md) et [les connecter à votre compte Azure](../articles/xplat-cli-connect.md). Vous pouvez ensuite exécuter les commandes suivantes pour créer rapidement un jeu de mise à l’échelle de machine virtuelle :
 
 ```bash
 # make sure we are in resource manager mode 
@@ -29,9 +29,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4$$w0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Si vous souhaitez personnaliser l’emplacement ou l’URN de l’image, veuillez examiner les commandes `azure location list` et `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to SSH into our VMs:
+Une fois la commande exécutée, le jeu de la mise à l’échelle est créé. Ce jeu de mise à l’échelle a un équilibreur de charge avec des règles NAT qui mappe le port 50,000+i sur l’équilibreur de charge sur le port 22 sur la machine virtuelle i. Par conséquent, une fois que nous aurons déterminé le nom de domaine complet de l’équilibreur de charge, nous serons en mesure d’activer SSH dans nos ordinateurs virtuels :
 
 ```bash
 # list load balancers in the resource group we created
@@ -70,10 +70,12 @@ FQDN=${split_line[3]}
 ssh -p 50000 $FQDN
 ```
 
-## Next Steps
+## Étapes suivantes
 
-For general information, check out the [main landing page for VM scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Pour plus d’informations, consultez la [page d’accueil principale pour les jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For documentation, check out the [main documentation page for VM scale sets](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
+Pour rechercher de la documentation, consultez le [page de documentation principale pour les jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
 
-For example Azure resource manager templates using VM scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Pour les modèles Azure Resource Manager utilisant des jeux de mise à l’échelle de machine virtuelle, recherchez « vmss » dans le [référentiel github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
+
+<!---HONumber=AcomDC_0406_2016-->

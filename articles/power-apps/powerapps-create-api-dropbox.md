@@ -32,7 +32,7 @@ Ajoutez l’API Dropbox à l’environnement App Service (locataire) de votre or
 2. Dans la barre des tâches, sélectionnez **Parcourir** :  
 ![][12]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* :  
+3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* :  
 ![][13]
 
 4. Dans **POWERAPPS**, sélectionnez **GÉRER LES API** : 
@@ -115,4 +115,4 @@ Vous venez de voir comment ajouter l’API Dropbox à PowersApps Enterprise. Ens
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

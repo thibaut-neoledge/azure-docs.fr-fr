@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure | Microsoft Azure"
-   description="Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure."
+   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure | Microsoft Azure"
+   description="Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure."
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="iainfoulds"
    manager="timlt"
    editor="tysonn"
    tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="dkshir"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou"/>
 
 # Créer un nom de domaine complet dans le portail Azure
 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

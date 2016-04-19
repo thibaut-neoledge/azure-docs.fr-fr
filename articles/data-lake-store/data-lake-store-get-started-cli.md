@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec l'interface de ligne de commande Azure
 
 > [AZURE.SELECTOR]
-- [Utilisation du portail](data-lake-store-get-started-portal.md)
-- [Utiliser PowerShell](data-lake-store-get-started-powershell.md)
-- [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-- [Utilisation de l’interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
-- [Utilisation de Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portail](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Apprenez à utiliser l'interface de ligne de commande Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme la création de dossiers, le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble de Data Lake Store](data-lake-store-overview.md).
 
@@ -32,7 +34,7 @@ L’interface de ligne de commande Azure est implémentée dans Node.js. Elle pe
 
 ##Composants requis
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
@@ -47,7 +49,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
 Ouvrez une invite de commande, un shell ou une session de terminal et exécutez les commandes suivantes.
 
-1. Connectez-vous à votre abonnement Azure :
+1. Connectez-vous à votre abonnement Azure :
 
 		azure login
 
@@ -63,7 +65,7 @@ Ouvrez une invite de commande, un shell ou une session de terminal et exécutez 
 		azure account list
 
 
-4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l'abonnement que les commandes de l'interface de ligne de commande Azure utiliseront :
+4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l'abonnement que les commandes de l'interface de ligne de commande Azure utiliseront :
 
 		azure account set <subscriptionname>
 
@@ -71,7 +73,7 @@ Ouvrez une invite de commande, un shell ou une session de terminal et exécutez 
 
 		azure group create <resourceGroup> <location>
 
-	Si le nom de l'emplacement contient des espaces, entourez-le de guillemets. Par exemple, « East US 2 ».
+	Si le nom de l'emplacement contient des espaces, entourez-le de guillemets. Par exemple, « East US 2 ».
 
 5. Créez le compte Data Lake Store.
 
@@ -79,11 +81,11 @@ Ouvrez une invite de commande, un shell ou une session de terminal et exécutez 
 
 ## Création de dossiers dans votre Data Lake Store
 
-Vous pouvez créer des dossiers dans votre compte Azure Data Lake Store pour gérer et stocker des données. Utilisez la commande suivante pour créer un dossier nommé « mynewfolder » à la racine du Data Lake Store.
+Vous pouvez créer des dossiers dans votre compte Azure Data Lake Store pour gérer et stocker des données. Utilisez la commande suivante pour créer un dossier nommé « mynewfolder » à la racine du Data Lake Store.
 
 	azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
 
-Par exemple :
+Par exemple :
 
 	azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
@@ -95,7 +97,7 @@ Si vous recherchez des exemples de données à charger, vous pouvez récupérer 
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
-Par exemple :
+Par exemple :
 
 	azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
@@ -106,11 +108,11 @@ Utilisez la commande suivante pour afficher les fichiers dans un compte Data Lak
 
 	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
 
-Par exemple :
+Par exemple :
 
 	azure datalake store filesystem list mynewdatalakestore /mynewfolder
 
-Le résultat doit ressembler à ceci :
+Le résultat doit ressembler à ceci :
 
 	info:    Executing command datalake store filesystem list
 	data:    accessTime: 1446245025257
@@ -128,27 +130,27 @@ Le résultat doit ressembler à ceci :
 
 ## Renommer, télécharger et supprimer des données de votre Data Lake Store
 
-* Utilisez la commande suivante **pour renommer un fichier** :
+* Utilisez la commande suivante **pour renommer un fichier** :
 
     	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
-	Par exemple :
+	Par exemple :
 
 		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* Utilisez la commande suivante **pour télécharger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
+* Utilisez la commande suivante **pour télécharger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
 
 		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
-	Par exemple :
+	Par exemple :
 
 		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
-* Utilisez la commande suivante **pour supprimer un fichier** :
+* Utilisez la commande suivante **pour supprimer un fichier** :
 
 		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
-	Par exemple :
+	Par exemple :
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
 
@@ -160,7 +162,7 @@ Utilisez les commandes suivantes pour afficher les listes de contrôle d'accès 
 
 	azure datalake store permissions show <dataLakeStoreName> <path>
 
-Par exemple :
+Par exemple :
 
 	azure datalake store permissions show mynewdatalakestore /
 
@@ -171,17 +173,11 @@ Utilisez la commande suivante pour supprimer un compte Data Lake Store.
 
 	azure datalake store account delete <dataLakeStoreAccountName>
 
-Par exemple :
+Par exemple :
 
 	azure datalake store account delete mynewdatalakestore
 
-Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
-
-## Autres méthodes de création d'un compte Data Lake Store
-
-- [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
-- [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-- [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
+Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 
 ## Étapes suivantes
@@ -193,4 +189,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

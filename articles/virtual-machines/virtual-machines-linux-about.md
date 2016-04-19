@@ -32,7 +32,7 @@ Ce tableau vous permet de comparer les choix proposés par Azure.
 
 ## Étapes suivantes
 
-Essayez une machine virtuelle en en créant rapidement une simple. Pour obtenir des instructions, voir [Créer une machine virtuelle exécutant Linux](virtual-machines-linux-cli-create.md).
+Essayez une machine virtuelle en en créant rapidement une simple. Pour obtenir des instructions, consultez [Créer une machine virtuelle exécutant Linux](virtual-machines-linux-quick-create-cli.md).
 
 Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne vous montre qu’une seule façon de procéder au lieu de décrire les différents outils que vous pouvez utiliser pour cela. Pour obtenir un résumé de ces outils et des liens permettant d’accéder à des instructions, voir [Différentes façons de créer une machine virtuelle Linux](virtual-machines-linux-creation-choices.md).
 
@@ -42,4 +42,4 @@ Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Présentation de Linux dans Azure | Microsoft Azure"
-	description="Apprenez à utiliser des machines virtuelles Linux sur Azure."
+	pageTitle="Présentation de Linux dans Azure | Microsoft Azure"
+	description="Apprenez à utiliser des machines virtuelles Linux sur Azure."
 	services="virtual-machines-linux"
 	documentationCenter="python"
 	authors="szarkos"
@@ -22,18 +22,18 @@
 Cette rubrique présente quelques aspects de l'utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie.
 
 
-## Authentification : noms d’utilisateurs, mots de passe et clés SSH
+## Authentification : noms d’utilisateurs, mots de passe et clés SSH
 
-Lorsque vous créez une machine virtuelle Linux avec le portail Azure Classic, il vous est demandé de fournir un nom d'utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
+Lorsque vous créez une machine virtuelle Linux avec le portail Azure Classic, il vous est demandé de fournir un nom d'utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
 
 
- - Consultez la page [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-cli-create.md)
+ - Consultez la page [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-quick-create-cli.md)
  - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Obtention de privilèges de superutilisateur avec `sudo`
 
-Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l’agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l’utilitaire `sudo`. Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
+Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l’agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l’utilitaire `sudo`. Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
 
 	# sudo <COMMAND>
 
@@ -44,7 +44,7 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **su
 
 ## Configuration du pare-feu
 
-Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure Classic. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure Classic :
+Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure Classic. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure Classic :
 
  - Consultez la page [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md)
 
@@ -55,7 +55,7 @@ Les images Linux de la galerie Azure n'activent pas le pare-feu *iptables* par d
 
 Lorsque vous déployez initialement une instance d'une image Linux, vous devez fournir un nom d'hôte pour la machine virtuelle. Une fois que la machine virtuelle est en cours d'exécution, ce nom d'hôte est publié sur les serveurs DNS de la plateforme, si bien que plusieurs machines virtuelles interconnectées peuvent effectuer des recherches d'adresse IP avec des noms d'hôte.
 
-Si vous souhaitez procéder à des changements de nom après le déploiement d'une machine virtuelle, utilisez la commande suivante :
+Si vous souhaitez procéder à des changements de nom après le déploiement d'une machine virtuelle, utilisez la commande suivante :
 
 	# sudo hostname <newname>
 
@@ -69,20 +69,20 @@ Les images **Ubuntu** et **CoreOS** utilisent cloud-init pn Azure, qui fournit d
  - [Comment injecter des données personnalisées](virtual-machines-windows-classic-inject-custom-data.md)
  - [Données personnalisées et Cloud-Init sur Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Création de partitions d’échange Azure à l’aide de Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Utilisation de CoreOS dans Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [Utilisation de CoreOS dans Azure](virtual-machines-linux-classic-coreos-howto.md)
 
 
 ## Capture d’une image de machine virtuelle
 
-Azure vous permet de capturer l'état d'une machine virtuelle existante dans une image qui peut ensuite servir au déploiement d'autres instances de machine virtuelle. L'agent Linux Azure peut être utilisé pour restaurer une partie de la personnalisation réalisée pendant le processus de déploiement. Pour capturer une machine virtuelle en tant qu'image, vous pouvez procéder comme suit :
+Azure vous permet de capturer l'état d'une machine virtuelle existante dans une image qui peut ensuite servir au déploiement d'autres instances de machine virtuelle. L'agent Linux Azure peut être utilisé pour restaurer une partie de la personnalisation réalisée pendant le processus de déploiement. Pour capturer une machine virtuelle en tant qu'image, vous pouvez procéder comme suit :
 
 1. Exécutez **waagent -deprovision** pour annuler la personnalisation du déploiement. Ou exécutez **waagent -deprovision+user** pour éventuellement supprimer le compte utilisateur spécifié pendant le déploiement, avec toutes les données associées.
 
 2. Arrêtez/mettez hors tension la machine virtuelle.
 
-3. Cliquez sur *Capture* dans le portail Azure Classic ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
+3. Cliquez sur *Capture* dans le portail Azure Classic ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
 
- - Consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-classic-capture-image.md).
+ - Consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-classic-capture-image.md).
 
 
 ## Attachement de disques
@@ -94,8 +94,8 @@ Sous Linux, le disque de ressources est habituellement géré par l’agent Linu
 
 >[AZURE.NOTE] Notez que le disque de ressources est un disque **temporaire** et qu’il peut être effacé et reformaté lors du redémarrage de la machine virtuelle.
 
-Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. L’opération est couverte étape par étape dans le didacticiel [Association d’un disque de données avec une machine virtuelle](virtual-machines-linux-classic-attach-disk.md).
+Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. L’opération est couverte étape par étape dans le didacticiel [Association d’un disque de données avec une machine virtuelle](virtual-machines-linux-classic-attach-disk.md).
 
- - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
+ - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

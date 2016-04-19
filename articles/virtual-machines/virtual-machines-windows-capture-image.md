@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capturer une machine virtuelle Windows dans Resource Manager | Microsoft Azure"
-	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Windows, créée avec le modèle de déploiement Resource Manager."
+	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Windows, créée avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -25,6 +25,7 @@
 Cet article montre comment utiliser Azure PowerShell pour capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser pour créer d’autres machines virtuelles. Cette image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. Comme il n’inclut pas les ressources de réseau virtuel dont vous aurez besoin pour créer une machine virtuelle Windows, vous devrez les configurer avant de pouvoir créer une autre machine virtuelle qui utilise l’image. Cette image est également préparée pour être une [image Windows généralisée](https://technet.microsoft.com/library/hh824938.aspx).
 
 
+
 ## Configuration requise
 
 Ces étapes supposent que vous avez déjà créé une machine virtuelle Azure dans le modèle de déploiement Resource Manager et que vous avez configuré le système d’exploitation, dont l’attachement des disques de données et l’exécution de personnalisations telles que l’installation d’applications. Si ce n’est encore fait, lisez [Création d’une machine virtuelle Windows avec Resource Manager et PowerShell](virtual-machines-windows-ps-create.md). Vous pouvez tout aussi facilement créer une machine virtuelle Windows à l’aide du [portail Azure](https://portal.azure.com). Lisez [Création d’une machine virtuelle Windows dans le portail Azure](virtual-machines-windows-hero-tutorial.md).
@@ -34,7 +35,9 @@ Ces étapes supposent que vous avez déjà créé une machine virtuelle Azure da
 
 Cette section vous montre comment généraliser votre machine virtuelle Windows. Toutes les informations personnelles de votre compte, entre autres, sont ainsi supprimées. Vous voudrez généralement procéder ainsi quand vous souhaiterez utiliser cette image de machine virtuelle pour déployer rapidement des machines virtuelles similaires.
 
-1. Connectez-vous à votre machine virtuelle Windows. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > *Votre machine virtuelle Windows* > **Connexion**.
+> [AZURE.WARNING] Veuillez noter que vous ne pouvez pas vous connecter à la machine virtuelle via RDP une fois qu’elle est généralisée, car le processus supprime tous les comptes utilisateur. Il s’agit d’une modification irréversible.
+
+1. Connectez-vous à votre machine virtuelle Windows. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > Votre machine virtuelle Windows > **Connexion**.
 
 2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
 
@@ -59,9 +62,9 @@ Vous pouvez capturer la machine virtuelle Windows généralisée à l’aide d�
 
 ### Utiliser PowerShell
 
-Cet article suppose que vous avez installé Azure PowerShell 1.0.x. Nous vous recommandons d’utiliser cette version, car les nouvelles fonctionnalités Resource Manager ne seront pas ajoutées aux anciennes versions PowerShell. Consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) pour en savoir plus sur les différences de version.
+Cet article suppose que vous avez installé Azure PowerShell 1.0.x. Nous vous recommandons d’utiliser cette version, car les nouvelles fonctionnalités Resource Manager ne seront pas ajoutées aux anciennes versions PowerShell. Consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) pour en savoir plus sur les différences de version.
 
-1. Ouvrez Azure PowerShell 1.0.x et connectez-vous à votre compte Azure.
+1. Ouvrez Azure PowerShell 1.0.x et connectez-vous à votre compte Azure.
 
 		Login-AzureRmAccount
 
@@ -209,4 +212,4 @@ Vous devez voir la machine virtuelle nouvellement créée dans le [portail Azure
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gérer des machines virtuelles à l’aide d’Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

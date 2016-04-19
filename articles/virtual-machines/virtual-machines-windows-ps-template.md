@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer une machine virtuelle avec un modèle de machine virtuelle | Microsoft Azure"
+	pageTitle="Créer une machine virtuelle avec un modèle de machine virtuelle | Microsoft Azure"
 	description="Utilisez un modèle Resource Manager pour créer facilement une machine virtuelle Windows avec PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Modèle](virtual-machines-windows-ps-template.md)
 - [Portail - Linux](virtual-machines-linux-portal-create.md)
-- [INTERFACE DE LIGNE DE COMMANDE](virtual-machines-linux-cli-create.md)
+- [INTERFACE DE LIGNE DE COMMANDE](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -42,7 +42,7 @@ Vous pouvez facilement créer une machine virtuelle basée sur Windows à l’ai
 
 Procédez comme suit pour créer une machine virtuelle Windows à l'aide d'un modèle du Resource Manager dans le référentiel de modèles GitHub avec Azure PowerShell.
 
-### Étape 1 : examen du fichier JSON pour obtenir le modèle
+### Étape 1 : examen du fichier JSON pour obtenir le modèle
 
 Voici le contenu du fichier JSON relatif au modèle.
 
@@ -223,7 +223,7 @@ Voici le contenu du fichier JSON relatif au modèle.
 	}
 
 
-### Étape 2 : création de la machine virtuelle avec le modèle
+### Étape 2 : création de la machine virtuelle avec le modèle
 
 Entrez un nom de déploiement Azure, un nom de groupe de ressources et un emplacement de centre de données Azure, puis exécutez les commandes suivantes.
 
@@ -234,7 +234,7 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources et un emplac
 	New-AzureRmResourceGroup –Name $RGName –Location $locName
 	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Lorsque vous exécutez la commande **New-AzureRmResourceGroupDeployment**, vous êtes invité à entrer les valeurs des paramètres dans la section « parameters » du fichier JSON. Lorsque vous avez spécifié toutes les valeurs de paramètre, la commande crée le groupe de ressources et la machine virtuelle.
+Lorsque vous exécutez la commande **New-AzureRmResourceGroupDeployment**, vous êtes invité à entrer les valeurs des paramètres dans la section « parameters » du fichier JSON. Lorsque vous avez spécifié toutes les valeurs de paramètre, la commande crée le groupe de ressources et la machine virtuelle.
 
 Voici un exemple.
 
@@ -245,7 +245,7 @@ Voici un exemple.
 	New-AzureRmResourceGroup –Name $RGName –Location $locName
 	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Le résultat suivant doit s’afficher :
+Le résultat suivant doit s’afficher :
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -289,4 +289,4 @@ Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWi
 
 Pour savoir comment gérer la machine virtuelle que vous venez de créer, consultez la page [Gérer des machines virtuelles à l’aide d’Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

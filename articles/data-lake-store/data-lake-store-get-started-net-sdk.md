@@ -13,30 +13,32 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
-# Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
+# Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
 
 > [AZURE.SELECTOR]
-- [Utilisation du portail](data-lake-store-get-started-portal.md)
-- [Utiliser PowerShell](data-lake-store-get-started-powershell.md)
-- [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-- [Utilisation de l’interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
-- [Utilisation de Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portail](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
+Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Configuration requise
 
-* Visual Studio 2013 ou 2015. Les instructions ci-dessous utilisent Visual Studio 2015.
+* Visual Studio 2013 ou 2015. Les instructions ci-dessous utilisent Visual Studio 2015.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 * Créer une application Azure Active Directory (AAD) et récupérer son **ID client** et l’**URI de réponse**. Pour plus d’informations sur les applications AAD et des instructions sur la façon d’obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md). L’URI de réponse sera également disponible sur le portail une fois l’application créée.
 
-## Comment s’authentifier à l’aide d’Azure Active Directory ?
+## Comment s’authentifier à l’aide d’Azure Active Directory ?
 
-L’extrait de code ci-dessous fournit deux méthodes d’authentification :
+L’extrait de code ci-dessous fournit deux méthodes d’authentification :
 
 * **Interactive**, où un utilisateur s’inscrit à l’aide de l’application. Ceci est implémenté dans la méthode `AuthenticateUser` dans l’extrait de code ci-dessous.
 
@@ -54,7 +56,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
 2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	| Propriété | Valeur |
 	|----------|-----------------------------|
@@ -68,7 +70,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
 	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
 	2. Dans l’onglet **Gestionnaire de package Nuget**, assurez-vous que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
-	3. Recherchez et installez les packages Data Lake Store suivants :
+	3. Recherchez et installez les packages Data Lake Store suivants :
 
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
@@ -82,7 +84,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
 	5. Fermez le **Gestionnaire de package NuGet**.
 
-7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : Renseignez également les valeurs des paramètres inclus dans l’extrait de code, tels que **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** et **SUBSCRIPTION-ID**.
+7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : Renseignez également les valeurs des paramètres inclus dans l’extrait de code, tels que **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** et **SUBSCRIPTION-ID**.
 
 	Ce code déroule le processus de création d’un compte Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
@@ -186,7 +188,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see:
-                //   https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -200,7 +202,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see:
-                //   https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -307,12 +309,6 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
 8. Générez et exécutez l’application. Suivez les invites pour exécuter et terminer l’application.
 
-## Autres méthodes de création d’un compte Data Lake Store
-
-- [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
-- [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
-- [Prise en main de Data Lake Store avec l’interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
-
 
 ## Étapes suivantes
 
@@ -320,4 +316,4 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

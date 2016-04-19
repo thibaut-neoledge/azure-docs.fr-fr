@@ -3,7 +3,7 @@
     description="Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils"
     services="sql-database"
     documentationCenter=""
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="ddove"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/24/2016"
+    ms.date="04/04/2016"
     ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble des fonctionnalités de base de données élastique
@@ -23,7 +23,8 @@ Les fonctionnalités de **base de données élastique** vous permettent d'utilis
 * Outils de base de données élastique : ces deux outils simplifient le développement et la gestion des solutions de base de données partitionnées. Ces outils incluent la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fusion et de fractionnement de la base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md).
 * [Pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) (version préliminaire) : un pool est un ensemble de bases de données auquel vous pouvez à tout moment ajouter ou supprimer des bases de données. Les bases de données du pool partagent une quantité fixe de ressources (également appelées unités de transaction de bases de données ou DTU). Vous payez un prix fixe pour les ressources, ce qui vous permet de calculer facilement les coûts tout en gérant les performances.
 * [Tâches de base de données élastique](sql-database-elastic-jobs-overview.md) (version préliminaire) : utilisez des tâches pour gérer un grand nombre de bases de données SQL Azure. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
-* [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, PowerBI, Tableau, etc.
+* [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, PowerBI, Tableau, etc.
+* [Transactions élastiques](sql-database-elastic-transactions-overview.md) : cette fonctionnalité vous permet d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans Azure SQL Database. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 L’illustration ci-dessous montre une architecture qui inclut les **fonctionnalités de base de données élastique** liées à une collection de bases de données.
 
@@ -42,12 +43,12 @@ Dans ce graphique, les couleurs de la base de données représentent des schéma
 
 ## Défis et promesses
 
-Obtenir l'élasticité et l'échelle pour les applications en cloud a été simple pour le calcul et le stockage blob : il suffit d'ajouter ou de soustraire des unités. Mais cela reste un défi pour le traitement des informations de bases de données relationnelles. Nous avons vu ces défis émerger plus particulièrement dans les deux scénarios suivants :
+Obtenir l'élasticité et l'échelle pour les applications en cloud a été simple pour le calcul et le stockage blob : il suffit d'ajouter ou de soustraire des unités. Mais cela reste un défi pour le traitement des informations de bases de données relationnelles. Nous avons vu ces défis émerger plus particulièrement dans les deux scénarios suivants :
 
 * Agrandissement et réduction des capacités pour la partie base de données relationnelle de votre charge de travail.
 * Gestion des zones réactives susceptibles de survenir et d’affecter un sous-ensemble de données spécifique, comme un client final très occupé (locataire).
 
-Traditionnellement, ces types de scénarios ont été résolus en investissant dans des serveurs de base de données à plus grande échelle de manière à prendre en charge l’application. Toutefois, cette option est limitée dans le cloud où tous les traitements se produisent sur un matériel prédéfini. La distribution des données et le traitement sur plusieurs bases de données ayant la même structure (un schéma de montée en charge connu sous le terme « partitionnement ») constituent une alternative aux approches traditionnelles de montée en charge, à la fois en matière de coût et d’élasticité.
+Traditionnellement, ces types de scénarios ont été résolus en investissant dans des serveurs de base de données à plus grande échelle de manière à prendre en charge l’application. Toutefois, cette option est limitée dans le cloud où tous les traitements se produisent sur un matériel prédéfini. La distribution des données et le traitement sur plusieurs bases de données ayant la même structure (un schéma de montée en charge connu sous le terme « partitionnement ») constituent une alternative aux approches traditionnelles de montée en charge, à la fois en matière de coût et d’élasticité.
 
 ## Mise à l’échelle horizontale et verticale
 
@@ -67,7 +68,7 @@ La plupart des applications de base de données à l’échelle du cloud associe
 
 ## Modèles avec un ou plusieurs locataires
 
-Le *partitionnement* est une technique permettant de distribuer de grandes quantités de données structurées de façon identique entre plusieurs bases de données indépendantes. Il est particulièrement populaire auprès des développeurs cloud qui créent des offres Software as a Service (SAAS) pour les clients finaux ou les entreprises. Ces clients finaux sont souvent appelés « locataires ». Le partitionnement peut être nécessaire pour plusieurs raisons :
+Le *partitionnement* est une technique permettant de distribuer de grandes quantités de données structurées de façon identique entre plusieurs bases de données indépendantes. Il est particulièrement populaire auprès des développeurs cloud qui créent des offres Software as a Service (SAAS) pour les clients finaux ou les entreprises. Ces clients finaux sont souvent appelés « locataires ». Le partitionnement peut être nécessaire pour plusieurs raisons :
 
 * La quantité totale de données est trop grande pour tenir dans les contraintes d'une base de données unique
 * Le débit des transactions de la charge de travail globale dépasse les capacités d'une base de données unique
@@ -97,8 +98,8 @@ Pour plus de détails sur le pool de base de données élastique, voir [Considé
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-### Faites-nous part de vos commentaires !
-Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité clairement ? Ou y a-t-il encore quelque chose que vous ne comprenez pas ? Notre but est de vous satisfaire : utilisez les boutons de vote et indiquez-nous en quoi nous avons échoué (ou réussi). Et si vous souhaitez que nous vous contactions, incluez votre adresse de messagerie dans vos commentaires.
+### Faites-nous part de vos commentaires !
+Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité clairement ? Ou y a-t-il encore quelque chose que vous ne comprenez pas ? Notre but est de vous satisfaire : utilisez les boutons de vote et indiquez-nous en quoi nous avons échoué (ou réussi). Et si vous souhaitez que nous vous contactions, incluez votre adresse de messagerie dans vos commentaires.
 
 
 <!--Anchors-->
@@ -108,4 +109,4 @@ Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

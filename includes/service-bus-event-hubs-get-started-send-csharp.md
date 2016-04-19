@@ -8,29 +8,27 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 2. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution...**. 
 
-	La boîte de dialogue Gérer les packages NuGet s'affiche.
-
-3. Recherchez `Microsoft Azure Service Bus`, cliquez sur **Installer** et acceptez les conditions d'utilisation.
+3. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet (**Expéditeur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d'utilisation.
 
 	![][8]
 
 	Cette opération lance le téléchargement, l'installation et ajoute une référence au <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Package NuGet Azure Service Bus</a>.
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
 	```
 	using System.Threading;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs par le nom du hub d'événements que vous avez créé dans la section précédente et en attribuant les droits d'**envoi** à la chaîne de connexion :
+5. Ajoutez les champs suivants à la classe **Program** en remplaçant les valeurs par le nom d’Event Hub que vous avez créé dans la section précédente et en attribuant les droits d'**envoi** à la chaîne de connexion (la chaîne de connexion **SendRule**). Veillez à supprimer le suffixe `EntityPath` de la chaîne de connexion :
 
 	```
-	static string eventHubName = "{event hub name}";
+	static string eventHubName = "{Event Hub name}";
 	static string connectionString = "{send connection string}";
 	```
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 	```
 	static void SendingRandomMessages()
@@ -56,9 +54,9 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 	}
 	```
 
-	Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
+	Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
 	```
 	Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -72,4 +70,4 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -79,7 +79,7 @@ Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’a
 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
-1. [Création d’un compte de stockage](../storage-whatis-account.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Azure Blob. Les données utilisées dans les clusters HDInsight résident également ici.
+1. [Création d’un compte de stockage](../storage/storage-create-storage-account.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Azure Blob. Les données utilisées dans les clusters HDInsight résident également ici.
 
 2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
 
@@ -95,7 +95,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
 
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre machine.
 
-Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l'utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md).
+Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l'utilitaire de ligne de commande AzCopy](../storage/storage-use-azcopy.md).
 
 1. Dans une fenêtre d’invite de commandes, exécutez les commandes AzCopy suivantes en remplaçant *<path_to_data_folder>* par la destination souhaitée :
 
@@ -109,7 +109,7 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 >[AZURE.NOTE] Il s'agit généralement d’une tâche d’**administration**.
 
-Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifié lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
+Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifiées lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
 * ***& #60;path\_to\_data\_folder >*** le répertoire (ainsi que le chemin d'accès) sur votre ordinateur qui contiennent les fichiers de données décompressés  
 * ***&#60;storage account name of Hadoop cluster>*** le compte de stockage associé à votre cluster HDInsight
@@ -142,7 +142,7 @@ Pour préparer le cluster d’analyse exploratoire des données, nous téléchar
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\temp&#92;*** dans le nœud principal.
+Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette procédure pas à pas sur le répertoire local ***C:\\temp & #92 ;*** dans le nœud principal.
 
 ## <a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 
@@ -430,7 +430,7 @@ Les résultats de la requête sont écrits dans un fichier local C:\\temp\\query
 
 >[AZURE.NOTE] Il s'agit généralement d’une tâche de **données scientifiques**.
 
-Un objectif commun d'une analyse exploratoire des données est d'éliminer les enregistrements non valides ou incorrectes. L'exemple de cette section détermine si les champs de latitude ou de longitude contiennent une valeur en dehors de la zone NYC. Dans la mesure où il est probable que les valeurs de latitude-longitude de ces enregistrements soient erronées, nous souhaitons les éliminer des données devant être utilisées pour la modélisation.
+Un objectif commun d'une analyse exploratoire des données est d'éliminer les enregistrements non valides ou incorrects. L'exemple de cette section détermine si les champs de latitude ou de longitude contiennent une valeur en dehors de la zone NYC. Dans la mesure où il est probable que les valeurs de latitude-longitude de ces enregistrements soient erronées, nous souhaitons les éliminer des données devant être utilisées pour la modélisation.
 
 Voici le contenu du fichier *sample\_hive\_quality\_assessment.hql* pour l’inspection.
 
@@ -520,7 +520,7 @@ Pour afficher la comparaison entre la distance de course réelle et la [distance
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-Dans la requête ci-dessus, R est le rayon de la Terre en miles et pi est convertie en radians. Notez que les points de latitude-longitude sont « filtrés » pour supprimer les valeurs éloignées de la zone NYC.
+Dans la requête ci-dessus, R est le rayon de la Terre en miles et pi est converti en radians. Notez que les points de latitude-longitude sont « filtrés » pour supprimer les valeurs éloignées de la zone NYC.
 
 Dans ce cas, nous écrivons nos résultats sur un répertoire nommé « queryoutputdir ». La séquence de commandes affichée ci-dessous crée d'abord ce répertoire de sortie, puis exécute la commande Hive.
 
@@ -709,7 +709,7 @@ Certains détails sur le module [Lecteur][reader] et les paramètres d'entrée 
 
 **Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
-**Remarque importante :** **n'importe quelle table que nous souhaitons interroger à l'aide du module [Lecteur][reader] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
+**Remarque importante :** **n'importe quelle table que nous souhaitons interroger à l'aide du module [Lecteur][reader] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 
 À partir de l'invite du répertoire Hive, exécutez la commande :
 
@@ -749,7 +749,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse **: pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
@@ -786,7 +786,7 @@ b. Pour les problèmes de régression, nous évaluons la précision de nos prév
 
 Nous voyons que le coefficient de détermination est de 0,709, ce qui signifie que 71 % environ de la variance est expliquée par nos coefficients modèles.
 
-**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Analytics](https://gallery.azureml.net/) est une ressource très utile pour découvrir de nombreuses expériences d'apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une introduction approfondie sur la plage de capacités d’Azure Machine Learning.
+**Remarque importante :** pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, reportez-vous à [Qu’est-ce que l'apprentissage automatique ?](machine-learning-what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
 
 ## Informations de licence
 
@@ -810,4 +810,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="04/04/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’
 
 Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de la base de données SQL Azure. Au cours de ce didacticiel, vous allez créer un groupe de synchronisation hybride (instances SQL Server et base de données SQL) entièrement configuré et synchronisé avec la planification que vous avez définie.
 
-> [AZURE.NOTE]La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf. Téléchargez-le [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE] La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf. Téléchargez-le [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Étape 1 : se connecter à la base de données SQL Azure
 
@@ -52,11 +52,11 @@ Veillez à installer les composants suivants sur l’ordinateur sur lequel vous 
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
- Vous pouvez télécharger Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
+ Téléchargez Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 - **Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**
 
- Vous pouvez télécharger Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
+ Téléchargez Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 
 
@@ -114,7 +114,7 @@ Une fois l’agent client installé, inscrivez chaque base de données SQL Serve
 
 1. Dans la liste déroulante, sélectionnez l’instance de base de données SQL qui servira de hub de groupe de synchronisation.
 2. Entrez les informations d'identification de l'instance de base de données SQL (**HUB USERNAME** et **HUB PASSWORD**).
-3. Patientez jusqu'à ce que la synchronisation des données confirme le nom d'utilisateur et le mot de passe. Une coche verte apparaît à droite du mot de passe lorsque les informations d'identification sont confirmées.
+3. Patientez jusqu'à ce que la synchronisation des données confirme le nom d'utilisateur et le mot de passe. Une coche verte apparaît à droite du mot de passe lorsque les informations d’identification sont confirmées.
 4. Dans la liste déroulante, sélectionnez la stratégie **CONFLICT RESOLUTION**.
 
  **Hub Wins** : les modifications écrites dans la base de données hub sont écrites dans les bases de données de référence et écrasent les modifications apportées dans le même enregistrement de base de données de référence. En pratique, cela signifie que la première modification écrite dans le hub est propagée vers les autres bases de données.
@@ -174,7 +174,7 @@ La synchronisation des données SQL Azure vous permet de sélectionner les table
 
 ## Étape 6 : configurer votre groupe de synchronisation
 
-Vous pouvez toujours synchroniser un groupe de synchronisation en cliquant sur le bouton Synchroniser situé en bas de la page d’accueil de la synchronisation des données. Si vous souhaitez que le groupe de synchronisation se synchronise sur une planification, configurez-le dans ce sens.
+Vous pouvez toujours synchroniser un groupe de synchronisation en cliquant sur le bouton Synchroniser situé en bas de la page d’accueil de la synchronisation des données. Pour synchroniser sur une planification, configurez le groupe de synchronisation dans ce sens.
 
 1.	Revenez au [Portail Classic](http://manage.windowsazure.com).
 2.	Cliquez sur **SQL DATABASES**.
@@ -202,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

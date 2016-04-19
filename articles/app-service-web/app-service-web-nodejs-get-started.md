@@ -3,7 +3,7 @@
 	description="Découvrez comment déployer une application Node.js sur une application web dans Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -28,15 +28,13 @@
 
 Ce didacticiel explique comment créer une simple application [Node.js](http://nodejs.org) et la déployer sur une [application web](app-service-web-overview.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) à partir d’une ligne de commande de type cmd.exe ou bash. Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Node.js.
 
-[Azure App Service Web Apps](/services/app-service/web/)
-
 <a name="prereq"/>
 ## Configuration requise
 
-- Node.js. Vous trouverez les fichiers binaires d’installation [ici](https://nodejs.org/).
-- Yoeman. Vous trouverez les instructions d’installation [ici](http://yeoman.io/).
-- Git. Vous trouverez les fichiers binaires d’installation [ici](http://www.git-scm.com/downloads).
-- Interface de ligne de commande Azure Vous trouverez les instructions d’installation [ici](../xplat-cli-install.md).
+- Node.js. Vous trouverez des fichiers binaires d’installation [ici](https://nodejs.org/).
+- Yoeman. Vous trouverez des instructions d’installation [ici](http://yeoman.io/).
+- Git. Vous trouverez des fichiers binaires d’installation [ici](http://www.git-scm.com/downloads).
+- Interface de ligne de commande Azure Vous trouverez des instructions d’installation [ici](../xplat-cli-install.md).
 - Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez [vous inscrire à une version d’évaluation gratuite](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Création et déploiement d’une application Node.js simple
@@ -57,7 +55,7 @@ Ce didacticiel explique comment créer une simple application [Node.js](http://n
 
         npm start
 
-    Dans votre navigateur, accédez à [http://localhost: 3000](http://localhost:3000) pour vérifier que la page d’accueil Express s’affiche. Une fois que vous êtes sûr que votre application s’exécute correctement, utilisez la commande `Ctrl-C` pour l’arrêter.
+    Dans votre navigateur, accédez à [http://localhost:3000](http://localhost:3000) pour vérifier que la page d’accueil Express s’affiche. Une fois que vous êtes sûr que votre application s’exécute correctement, utilisez la commande `Ctrl-C` pour l’arrêter.
     
 1. Connectez-vous à Azure (vous avez besoin de la [CLI Azure](#prereq)) :
 
@@ -120,13 +118,13 @@ Si vous utilisez une infrastructure Node.js populaire, telle que [Sails.js](http
 
 Consultez les didacticiels suivant pour savoir comment utiliser une infrastructure spécifique dans App Service
 
-- [Deploy a Sails.js web app to Azure App Service](app-service-web-nodejs-sails.md) (Déployer une application web Sails.js dans Azure App Service)
+- [Deploy a Sails.js web app to Azure App Service (Déployer une application web Sails.js dans Azure App Service)](app-service-web-nodejs-sails.md)
 - [Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service](web-sites-nodejs-chat-app-socketio.md)
 - [Utilisation de io.js avec Azure App Service Web Apps](web-sites-nodejs-iojs.md)
 
 ## Utilisation d’un moteur Node.js spécifique
 
-Dans votre flux de travail classique, vous pouvez demander à App Service d’utiliser un moteur Node.js spécifique de la même manière que dans le fichier package.json. Par exemple :
+Dans votre flux de travail classique, vous pouvez demander à App Service d’utiliser un moteur Node.js spécifique de la même manière que dans le fichier package.json. Par exemple :
 
     "engines": {
         "node": "5.5.0"
@@ -211,4 +209,4 @@ Pour activer Node-Inspector, procédez comme suit :
 - [Centre de développement Node.js](/develop/nodejs/)
 - [Prise en main des applications web dans Azure App Service.](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

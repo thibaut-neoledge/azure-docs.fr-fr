@@ -1,6 +1,6 @@
 <properties
- pageTitle="Liste des Kits de développement logiciel (SDK) Azure IoT Hub | Microsoft Azure"
- description="Informations et liens à propos des différents Kits de développement logiciel (SDK) d’appareils et de services Azure IoT Hub."
+ pageTitle="Liste des Kits SDK Azure IoT Hub | Microsoft Azure"
+ description="Informations et liens sur les différents Kits SDK pour les appareils et services Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -13,70 +13,70 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/04/2016"
+ ms.date="04/05/2016"
  ms.author="dobett"/>
 
-# Kits de développement logiciel (SDK) IoT Hub
+# Kits SDK IoT Hub
 
-Cet article fournit des informations sur les différents [Kits de développement logiciel (SDK) Microsoft Azure IoT][] ainsi que des liens vers des ressources supplémentaires.
+Cet article fournit des informations sur les différents [Kits SDK Microsoft Azure IoT][] ainsi que des liens vers des ressources supplémentaires.
 
-## Kits de développement logiciel (SDK) d’appareils IoT Hub
+## Kits IoT Hub device SDK
 
-Les Kits de développement logiciel (SDK) d’appareils Microsoft Azure IoT contiennent du code qui facilite la création d’appareils et d’applications qui se connectent aux services Azure IoT Hub et sont gérés par eux.
+Les Kits Microsoft Azure IoT device SDK contiennent du code qui facilite la création d’appareils et d’applications qui se connectent aux services Azure IoT Hub et sont gérés par eux.
 
-Les Kits de développement logiciel (SDK) d’appareils IoT suivants peuvent être téléchargés à partir de GitHub :
+Les Kits IoT device SDK suivants peuvent être téléchargés à partir de GitHub :
 
-- [Kit de développement logiciel Azure IoT pour C][] : écrit en C ANSI (C99) pour la portabilité et la compatibilité de nombreuses plateformes.
-- [Kit de développement logiciel (SDK) d’appareils Azure IoT pour .NET][]
-- [Kit de développement logiciel (SDK) d’appareils Azure IoT pour Java][]
-- [Kit de développement logiciel (SDK) d’appareils Azure IoT pour Node.js][]
+- [Azure IoT device SDK pour C][] : écrit en C ANSI (C99) pour la portabilité et la compatibilité de nombreuses plateformes.
+- [Azure IoT device SDK pour .NET][]
+- [ Azure IoT device SDK pour Java][]
+- [Azure IoT device SDK pour Node.js][]
+- [Microsoft Azure IoT device SDK pour Python 2.7][]
 
 ### Compatibilité des plateformes de système d’exploitation et du matériel
 
-Ce [document][OS Platforms and hardware compatibility] décrit la compatibilité des Kit de développement logiciel (SDK) de l’appareil avec différentes plateformes de système d’exploitation, ainsi que les configurations d’appareils spécifiques incluses dans le [programme Microsoft Azure Certified for IoT][].
+Pour plus d’informations sur la compatibilité avec des appareils matériels spécifiques, consultez les articles suivants :
 
-## Kits de développement logiciel (SDK) du service IoT Hub
+- [Compatibilité des plateformes de système d’exploitation et du matériel avec les Kits SDK d’appareil][OS Platforms and hardware compatibility]
+- [Programme Microsoft Azure Certified pour IoT][].
 
-Les Kits de développement logiciel (SDK) du service Microsoft Azure IoT contiennent du code qui facilite la création d’applications qui interagissent directement avec IoT Hub pour gérer les appareils et la sécurité.
+## Kits IoT Hub service SDK
 
-Le Kit de développement logiciel (SDK) de service IoT suivant peut être téléchargé à partir de GitHub :
+Les Kits Microsoft Azure IoT service SDK contiennent du code qui facilite la création d’applications qui interagissent directement avec IoT Hub pour gérer les appareils et la sécurité.
 
-- [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][]
-- [Kit de développement logiciel (SDK) de service Azure IoT pour Java][]
+Les Kits IoT service SDK suivants peuvent être téléchargés à partir de GitHub :
+
+- [Azure IoT service SDK pour Node.js][]
+- [Azure IoT service SDK pour Java][]
 
 ## Documentation de référence d’API en ligne
 
-Voici une liste de liens de documentation de référence d’API en ligne pour les bibliothèques d’appareils Azure IoT :
-
-- [Internet des objets (IoT) .NET][]
-- [Kit de développement logiciel (SDK) d’appareil Azure IoT pour C][]
-- [Kit de développement logiciel (SDK) d’appareil Azure IoT pour Java][]
-- [Kit de développement logiciel (SDK) de service Azure IoT pour Java][]
-- [Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js][]
-- [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][]
-
-Voici une liste de liens de documentation de référence d’API en ligne pour les bibliothèques de services Azure IoT :
+Voici une liste de liens de documentation de référence d’API en ligne pour les bibliothèques d’appareils et de services Azure IoT :
 
 - [Internet des objets (IoT) .NET][]
 - [IoT Hub REST][]
+- [Microsoft Azure IoT device SDK pour C][]
+- [Microsoft Azure IoT device SDK pour Java][]
+- [Microsoft Azure IoT service SDK pour Java][]
+- [Microsoft Azure IoT device SDK pour Node.js][]
+- [Microsoft Azure IoT service SDK pour Node.js][]
 
-
-[Kits de développement logiciel (SDK) Microsoft Azure IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[Kit de développement logiciel Azure IoT pour C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[Kit de développement logiciel (SDK) d’appareils Azure IoT pour .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
-[Kit de développement logiciel (SDK) d’appareils Azure IoT pour Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
-[Kit de développement logiciel (SDK) de service Azure IoT pour Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
-[Kit de développement logiciel (SDK) d’appareils Azure IoT pour Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
-[Kit de développement logiciel (SDK) de service Azure IoT pour Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
+[Kits SDK Microsoft Azure IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT device SDK pour C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
+[Azure IoT device SDK pour .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
+[ Azure IoT device SDK pour Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
+[Azure IoT service SDK pour Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
+[Azure IoT device SDK pour Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
+[Azure IoT service SDK pour Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
+[Microsoft Azure IoT device SDK pour Python 2.7]: https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md
 [OS Platforms and hardware compatibility]: iot-hub-tested-configurations.md
-[programme Microsoft Azure Certified for IoT]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
+[Programme Microsoft Azure Certified pour IoT]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
 
 [Internet des objets (IoT) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
-[Kit de développement logiciel (SDK) d’appareil Azure IoT pour C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
-[Kit de développement logiciel (SDK) d’appareil Azure IoT pour Java]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.1/index.html
+[Microsoft Azure IoT device SDK pour C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
+[Microsoft Azure IoT device SDK pour Java]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
+[Microsoft Azure IoT device SDK pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.3/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
-[Kit de développement logiciel (SDK) de service Azure IoT pour Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[Kit de développement logiciel (SDK) de service Azure IoT pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.1/index.html
+[Microsoft Azure IoT service SDK pour Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
+[Microsoft Azure IoT service SDK pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.3/index.html
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

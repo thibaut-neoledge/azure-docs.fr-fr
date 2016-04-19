@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure"
+	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure"
 	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop."
 	editor="cgronlun"
 	manager="paulettm"
@@ -19,9 +19,9 @@
 
 # Envoi de tâches Hadoop dans HDInsight
 
-Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
+Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
 
-> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
+> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
 >
 > - [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 > - [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce 
 
 ##Composants requis
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions, consultez [Prendre en main HDInsight][hdinsight-get-started] ou [Créer des clusters Hadoop dans HDInsight][hdinsight-provision].
 - **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
@@ -42,9 +42,9 @@ Consultez [Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Win
 
 Consultez [Exécution de requêtes Hive avec PowerShell](hdinsight-hadoop-use-hive-powershell.md)
 
-## Soumission de tâches Hive avec Visual Studio
+## Soumission de tâches Hive avec Visual Studio
 
-Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsight-visual-studio-tools].
+Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsight-visual-studio-tools].
 
 ##Envoi de tâches Sqoop avec PowerShell
 
@@ -63,7 +63,7 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
-2. Utilisez le code suivant :
+2. Utilisez le code suivant :
 
 		using System;
 		using System.Collections.Generic;
@@ -100,7 +100,7 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		
 		        static void Main(string[] args)
 		        {
-                    System.Console.WriteLine("The application is running ...");
+		            System.Console.WriteLine("The application is running ...");
 		
 		            var tokenCreds = GetTokenCloudCredentials();
 		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
@@ -113,13 +113,13 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
 		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 		
+		            SubmitMapReduceStreamingJob();
 		            SubmitHiveJob();
 		            SubmitPigJob();
 		            SubmitSqoopJob();
 
-                    System.Console.WriteLine("Press ENTER to continue ...");
-                    System.Console.ReadLine();
-                    
+		            System.Console.WriteLine("Press ENTER to continue ...");
+		            System.Console.ReadLine();
 		        }
 		
 		        public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
@@ -144,6 +144,23 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		        {
 		            return new TokenCloudCredentials(subId.ToString(), creds.Token);
 		        }
+		        
+		        private static void SubmitMapReduceStreamingJob()
+		        {
+		        	System.Console.WriteLine("Submitting the MapReduce Streaming job to the cluster...");
+		        	
+		        	var parameters = new MapReduceStreamingJobSubmissionParameters
+		        	{
+		        		Mapper = "cat.exe",
+		        		Reducer = "wc.exe",
+		        		Input = "/example/data/gutenberg/davinci.txt",
+		        		Output = "/example/data/StreamingOutput/wc.txt”,
+		        		Files = new List<string>{"/example/apps/wc.exe","/example/apps/cat.exe"}
+		        	};
+		        	var response = _hdiJobManagementClient.JobManagement.SubmitMapReduceStreamingJob(parameters);
+		        	System.Console.WriteLine("Response status code is " + response.StatusCode);
+		        	System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		        }
 		
 		        private static void SubmitHiveJob()
 		        {
@@ -156,13 +173,13 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		                Arguments = args
 		            };
 		
-                    Console.WriteLine("Submitting the Hive job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
-                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
-                    Console.WriteLine("Response status code is " + jobResponse.StatusCode);
-                    Console.WriteLine("JobId is " + jobId);
+		            Console.WriteLine("Submitting the Hive job to the cluster...");
+		            var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+		            var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+		            Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+		            Console.WriteLine("JobId is " + jobId);
 
-                    Console.WriteLine("Waiting for the job completion ...");
+		            Console.WriteLine("Waiting for the job completion ...");
 		
 		            // Wait for job completion
 		            var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
@@ -178,14 +195,14 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 		            var output = (jobDetail.ExitValue == 0)
 		                ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
 		                : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
-                        
-                    Console.WriteLine("Job output is: ");
-                    
-                    using (var reader = new StreamReader(output, Encoding.UTF8))
-                    {
-                        string value = reader.ReadToEnd();
-                        Console.WriteLine(value);
-                    }
+		            
+		            Console.WriteLine("Job output is: ");
+		            
+		            using (var reader = new StreamReader(output, Encoding.UTF8))
+		            {
+		            	string value = reader.ReadToEnd();
+		            	Console.WriteLine(value);
+		            }
 		        }
                 
    		        private static void SubmitPigJob()
@@ -247,10 +264,10 @@ L’exemple suivant utilise l’authentification utilisateur interactive. Pour u
 
 ##Exécution de travaux Hive à l'aide des outils HDInsight pour Visual Studio
 
-Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ##Étapes suivantes
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 * [Créer des clusters Hadoop dans HDInsight][hdinsight-provision]
@@ -282,4 +299,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

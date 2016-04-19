@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
-   ms.author="dkshir;memccror"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou;memccror"/>
 
 # Balisage d’une machine virtuelle Windows dans Azure
 
 
-Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Windows dans Azure à l’aide d’Azure Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via Azure Resource Manager. Si vous souhaitez baliser une machine virtuelle Linux, consultez l’article [How to tag a Linux virtual machine in Azure](virtual-machines-linux-tag.md) (Balisage d’une machine virtuelle Linux dans Azure).
+Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Windows dans Azure à l’aide d’Azure Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via Azure Resource Manager. Si vous souhaitez baliser une machine virtuelle Linux, consultez l’article [How to tag a Linux virtual machine in Azure](virtual-machines-linux-tag.md) (Balisage d’une machine virtuelle Linux dans Azure).
 
 [AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
@@ -32,7 +32,7 @@ Accédez d’abord à une machine virtuelle via l’applet de commande `Get-Azur
 
         PS C:\> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
 
-Si votre machine virtuelle contient déjà des balises, vous verrez toutes les balises sur votre ressource :
+Si votre machine virtuelle contient déjà des balises, vous verrez toutes les balises sur votre ressource :
 
         Tags : {
                 "Application": "MyApp1",
@@ -101,4 +101,4 @@ Pour en savoir plus sur le balisage dans PowerShell, consultez les [applets de c
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

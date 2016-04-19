@@ -13,29 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ccompy"/>
 
 # Mise à l'échelle des applications dans un environnement App Service #
 
-À un niveau élevé, les environnements App Service sont essentiellement des déploiements personnels d'Azure App Service sur votre réseau virtuel et ne peuvent être gérés que par votre abonnement. Ils offrent de nouvelles fonctionnalités réseau, car ils sont dans votre réseau virtuel et peuvent également être mis à l'échelle au-delà de ce qui est normalement disponible dans les environnements Azure App Service. Pour plus d'informations sur ce qu'est un environnement App Service, consultez [Présentation d'un environnement App Service][WhatisASE]. Pour plus d'informations sur la création d'un environnement App Service ou la création d'une application web dans un environnement App Service, consultez [Comment créer un environnement App Service][HowtoCreateASE] et [Comment créer une application web dans un environnement App Service][CreateWebappinASE]
-
-À titre de bref rappel, lorsque, normalement, vous modifiez l'attribut d'échelle d'une application web, mobile ou API dans Azure App Service, vous le modifiez au niveau du plan App Service (ASP). Pour plus d'informations sur la mise à l'échelle des plans App Service ou sur les seuls plans App Service en dehors des environnements App Service, consultez [Mettre à l'échelle une application web dans Azure App Service][ScaleWebapp] et [Présentation détaillée des plans App Service][Appserviceplans].
-
-La mise à l'échelle d'une application dans un environnement App Service est très similaire à celle des applications dans un environnement normal. Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
+Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
 
 - Plan de tarification
-- Taille du travail (pour les instances dédiées)
+- Taille du travail 
 - Nombre d'instances
 
-Dans un environnement App Service, il est inutile de sélectionner ou de modifier le plan de tarification. En termes de fonctionnalités, il est déjà au niveau de tarification Premium. Dans un environnement App Service, il n'existe pas non plus de travaux partagés. Ce sont tous des travaux dédiés.
+Dans un environnement App Service, il est inutile de sélectionner ou de modifier le plan de tarification. En termes de fonctionnalités, il est déjà au niveau de tarification Premium.
 
 En ce qui concerne les tailles de travaux, l'administrateur de l'environnement App Service peut affecter la taille de la ressource de calcul à utiliser pour chaque pool de travaux. Cela signifie que vous pouvez avoir le pool de travaux 1 avec les ressources de calcul P4 et le pool de travaux 2 avec les ressources de calcul P1, si vous le souhaitez. Ils n'ont pas à être par ordre de taille. Pour plus d'informations sur les tailles et leurs tarifications, consultez le document [Tarification d'Azure App Service][AppServicePricing]. Les options de mise à l'échelle des applications web et des plans App Service d'un environnement App Service sont alors les suivantes :
 
 - Sélection du pool de travaux
 - Nombre d'instances
 
-La modification de l'un ou l'autre élément s'effectue via l'interface utilisateur appropriée pour vos plans App Service hébergés par ASE. Vous ne pourrez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP. Si besoin est, vous devez demander à l'administrateur de votre environnement App Service d'ajouter les ressources de calcul nécessaires au pool de travaux. Pour plus d'informations sur la reconfiguration de votre environnement App Service, consultez [Comment configurer un environnement App Service][HowtoConfigureASE]. Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures. Pour obtenir des informations sur la configuration de mise à l'échelle automatique de l'environnement ASE lui-même, consultez [Configuration de la mise à l'échelle automatique pour un environnement App Service][ASEAutoscale].
+La modification de l'un ou l'autre élément s'effectue via l'interface utilisateur appropriée pour vos plans App Service hébergés par ASE. Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP. Si vous avez besoin de ressources de calcul dans ce pool de travaux, vous devez demander à l'administrateur de votre environnement App Service de les ajouter. Pour plus d'informations sur la reconfiguration de votre environnement App Service, consultez [Comment configurer un environnement App Service][HowtoConfigureASE]. Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures. Pour obtenir des informations sur la configuration de mise à l'échelle automatique de l'environnement ASE lui-même, consultez [Configuration de la mise à l'échelle automatique pour un environnement App Service][ASEAutoscale].
 
 ![][1]
 
@@ -83,4 +79,4 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez la rubri
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

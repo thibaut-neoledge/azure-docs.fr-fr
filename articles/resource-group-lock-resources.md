@@ -13,22 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/04/2016" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
 
-En tant qu’administrateur, vous pouvez envisager de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer de manière accidentelle une ressource critique.
-
-Azure Resource Manager prend en charge la restriction des opérations sur les ressources, par le biais de verrous de gestion des ressources. Les verrous sont des stratégies qui appliquent un niveau de verrou sur une étendue particulière. Le verrou peut être appliqué à un abonnement, un groupe de ressources ou à une ressource. Le niveau de verrouillage identifie le type d’application de la stratégie, qui à l’heure actuelle, peut être défini sur **CanNotDelete**. **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier des ressources, mais ils peuvent supprimer aucune des ressources limitées.
+En tant qu’administrateur, vous pouvez envisager de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer de manière accidentelle des ressources critiques. Si les ressources sont verrouillées, les utilisateurs autorisés peuvent toujours lire et modifier ces ressources, mais ils ne peuvent pas les supprimer.
 
 Les verrous diffèrent de l'utilisation du contrôle d'accès basé sur les rôles pour autoriser les utilisateurs à effectuer certaines actions. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md). Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles, et vous appliquez généralement les verrous pour une durée limitée uniquement.
 
 Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou.
-
-## Scénarios courants
-
-Il n’est pas rare de disposer d’un groupe de ressources avec certaines ressources utilisées selon un modèle alterné d’activation/de désactivation. Les ressources de machines virtuelles sont régulièrement activées pour traiter les données pendant un intervalle considéré, puis désactivées une fois cet intervalle terminé. Dans ce scénario, vous pouvez envisager d’activer l’arrêt des machines virtuelles, mais le compte de stockage ne doit aucunement être supprimé. Dans ce scénario, vous utiliserez un verrou de ressource avec le niveau de verrouillage **CanNotDelete** sur le compte de stockage.
 
 ## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
@@ -36,30 +30,28 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux act
 
 ## Création d’un verrou dans un modèle
 
-L’exemple ci-dessous représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage sur lequel appliquer le verrou est fourni en tant que paramètre, utilisé conjointement avec la fonction concat(). Le résultat est que « Microsoft.Authorization » est ajouté au nom de la ressource, suivi du nom du verrou, en l’occurrence **myLock**.
+L’exemple ci-dessous représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou est créé en concaténant le nom de la ressource et **/Microsoft.Authorization/**, suivi du nom du verrou, en l’occurrence **myLock**.
 
 Le type fourni est spécifique au type de ressource. Pour le stockage, ce type est « Microsoft.Storage/storageaccounts/providers/locks ».
 
-Le niveau d’étendue est défini à l’aide de la propriété **level** de la ressource. Ici, comme l’exemple concerne la façon d’éviter les suppressions accidentelles, le niveau est défini sur **CannotDelete**.
-
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "lockedResource": {
-                "type": "string"
-            }
-        },
-        "resources": [
-            {
-                "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-                "type": "Microsoft.Storage/storageAccounts/providers/locks",
-                "apiVersion": "2015-01-01",
-                "properties": {
-	                "level": "CannotDelete"
-                }
-            }
-        ]
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "lockedResource": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
+          "type": "Microsoft.Storage/storageAccounts/providers/locks",
+          "apiVersion": "2015-01-01",
+          "properties": {
+            "level": "CannotDelete"
+          }
+        }
+      ]
     }
 
 ## Création d’un verrou avec l’API REST
@@ -75,23 +67,19 @@ Le verrou peut être appliqué à un abonnement, un groupe de ressources ou à u
 Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 
     {
-        "properties": {
-            "level": {lock-level},
-            "notes": "Optional text notes."
-        }
+      "properties": {
+        "level": "CanNotDelete",
+        "notes": "Optional text notes."
+      }
     } 
-
-Pour le niveau de verrouillage, spécifiez **CanNotDelete**.
 
 Pour obtenir des exemples, consultez [API REST pour les verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
 ## Création d’un verrou à l’aide d’Azure PowerShell
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous.
 
-Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous. Avec PowerShell, vous pouvez uniquement définir **LockLevel** sur **CanNotDelete**.
-
-    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+    New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
 
 Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **Set-AzureRmResourceLock** pour mettre à jour un verrou et **Remove-AzureRmResourceLock** pour supprimer un verrou.
 
@@ -102,4 +90,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->
