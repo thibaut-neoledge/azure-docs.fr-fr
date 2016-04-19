@@ -32,7 +32,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Comparaison des machines virtuelles, des sites web et des services cloud](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Fournisseurs de solutions de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md)
+[Fournisseurs de solutions de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md)
 
 [En savoir plus sur les déploiements Azure Resource Manager](../resource-group-overview.md)
 
@@ -57,7 +57,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Créer une machine virtuelle Windows dans le portail Azure](virtual-machines-windows-classic-tutorial.md)
 
-[Différentes méthodes de création de machine virtuelle Windows avec Resource Manager](virtual-machines-windows-creation-choices.md)
+[Différentes méthodes de création de machine virtuelle Windows avec Resource Manager](virtual-machines-windows-creation-choices.md)
 
 [Créer une machine virtuelle Windows avec Resource Manager et PowerShell](virtual-machines-windows-ps-create.md)
 
@@ -108,13 +108,13 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Utilisation de l’extension de script personnalisé avec les modèles Azure Resource Manager](virtual-machines-windows-extensions-customscript.md)
 
-[Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md)
+[Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md)
 	
-[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-windows-cli-deploy-templates.md)
+[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 [Mise à l’échelle automatique des machines dans un groupe de machines virtuelles à échelle identique](virtual-machines-windows-ps-vmss-create.md)
 
@@ -147,7 +147,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 ### Développement
 
-[Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET](virtual-machines-windows-csharp.md)
+[Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET](virtual-machines-windows-csharp.md)
 
 
 [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](virtual-machines-windows-extensions-authoring-templates.md)
@@ -161,9 +161,9 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
-[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-windows-lob.md)
+[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-windows-lob.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
@@ -281,9 +281,9 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Extension de script personnalisé pour machines virtuelles Windows classiques](virtual-machines-windows-classic-extensions-customscript.md)
 
-[Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -351,7 +351,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
@@ -375,4 +375,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

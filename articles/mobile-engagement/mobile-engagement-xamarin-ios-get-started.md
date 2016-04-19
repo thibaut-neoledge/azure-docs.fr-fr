@@ -22,18 +22,18 @@
 
 Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push aux utilisateurs segmentés d’une application Xamarin.iOS. Dans ce didacticiel, vous allez créer une application Xamarin.iOS vide qui collecte des données de base et reçoit des notifications Push à l’aide du service APN (Apple Push Notification).
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-+ [Xamarin Studio](http://xamarin.com/studio) 
++ [Xamarin Studio](http://xamarin.com/studio) Vous pouvez également utiliser Visual Studio avec Xamarin, mais ce didacticiel utilise Xamarin Studio. Pour obtenir des instructions sur l’installation, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 + [Kit de développement logiciel (SDK) Mobile Engagement pour Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
 
-##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
+##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
 
 [AZURE.INCLUDE [Création d’application Mobile Engagement dans le portail](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 
 Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push.
 
@@ -61,7 +61,7 @@ Nous allons créer une application de base à l’aide de Xamarin afin d’illus
  
 Xamarin Studio crée l’application de démonstration dans laquelle nous allons intégrer Mobile Engagement.
 
-###Connexion de votre application au serveur principal Mobile Engagement
+###Connexion de votre application au serveur principal Mobile Engagement
 
 1. Dans la fenêtre Solution, cliquez avec le bouton droit sur le dossier **Packages**, puis sélectionnez **Add Packages...**
 
@@ -99,7 +99,7 @@ Pour commencer à envoyer des données et à vous assurer que les utilisateurs s
 
 ##<a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
 
-Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
+Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
 
 ### Modifier votre délégué d'Application
 
@@ -168,4 +168,4 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

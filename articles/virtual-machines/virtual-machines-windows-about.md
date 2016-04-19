@@ -28,6 +28,8 @@ Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans
 
 Ce tableau vous permet de comparer les choix proposés par Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 
@@ -35,12 +37,6 @@ Ce tableau vous permet de comparer les choix proposés par Azure.
 
 Essayez une machine virtuelle en en créant rapidement une simple. Pour obtenir des instructions, consultez la page [Créer une machine virtuelle exécutant Windows dans le portail Azure](virtual-machines-windows-hero-tutorial.md).
 
-Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne vous montre qu’une seule façon de procéder au lieu de décrire les différents outils que vous pouvez utiliser pour créer des machines virtuelles. Pour obtenir un résumé de ces outils et les liens qui renvoient vers des instructions, consultez la page [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-creation-choices.md).
+Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne vous montre qu’une seule façon de procéder au lieu de décrire les différents outils que vous pouvez utiliser pour créer des machines virtuelles. Pour obtenir un résumé de ces outils et les liens qui renvoient vers des instructions, consultez la page [Différentes méthodes de création d’une machine virtuelle Windows](virtual-machines-windows-creation-choices.md).
 
-
-<!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

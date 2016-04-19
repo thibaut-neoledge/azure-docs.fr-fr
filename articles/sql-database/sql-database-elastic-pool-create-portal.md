@@ -1,24 +1,24 @@
 <properties
-	pageTitle="Créer des pools de base de données élastique évolutive| Microsoft Azure"
+	pageTitle="Créer des pools de base de données élastique évolutive| Microsoft Azure"
 	description="Comment ajouter un pool de base de données élastique évolutive à votre configuration de base de données SQL pour faciliter l’administration et le partage des ressources entre plusieurs bases de données."
 	keywords="base de données évolutive, configuration de la base de données"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Créer un pool de base de données élastique évolutif pour les bases de données SQL avec le portail Azure
+# Création d’un pool de bases de données élastique avec le portail Azure
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-create-portal.md)
@@ -70,7 +70,7 @@ Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’aj
     | **eDTU min** (par paramètre de base de données)| Nombre minimal d’eDTU du pool garanti pour toutes les bases de données à tout moment. Le paramètre **eDTU min** est généralement défini sur n’importe quelle valeur comprise entre 0 et l’utilisation moyenne eDTU de l’historique par base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. |
     | **eDTU max** (par paramètre de base de données) | Nombre maximal d’eDTU qu’une base de données du pool peut utiliser. Vous pouvez définir ce plafond au maximum sur la valeur du paramètre **eDTU du pool**. Définissez une valeur suffisamment élevée pour le paramètre **eDTU max** par base de données afin de gérer des rafales ou des pics max en fonction du pic d’utilisation de la base de données. Une certaine allocation excessive du groupe est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. **Exemple :** supposons que le pic d’utilisation par base de données soit défini sur 50 eDTU et que seuls 20 % des 100 bases de données du groupe connaissent simultanément un pic d’utilisation. Si le nombre d’eDTU maximal par base de données est défini sur 50 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le paramètre **eDTU du pool** sur 1 000. Le paramètre **eDTU max** n’est pas une garantie de ressource pour une base de données. Il s’agit d’un plafond du nombre d’eDTU qui peut être atteint s’il est défini. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. |
 
-    Pour plus d’informations sur les limites de chaque niveau de service, consultez l’article [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Pour obtenir des conseils détaillés sur la définition d’une taille de pool sur mesure, consultez l’article [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
+    Pour plus d’informations sur les limites de chaque niveau de service, consultez l’article [Référence du pool de base de données élastique](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Pour obtenir des conseils détaillés sur la définition d’une taille de pool sur mesure, consultez les [considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
 7. Lorsque vous avez terminé, cliquez sur **Sélectionner**, puis sur **OK** pour créer le pool.
 
@@ -82,7 +82,7 @@ Le service SQL Database évalue l’historique d’utilisation et recommande un 
 - Paramètres **eDTU max** et **eDTU min** par base de données
 - Liste des bases de données recommandées pour le pool
 
-Le service prend en compte les 30 derniers jours de télémétrie lors de la recommandation de pools. Pour qu’une base de données soit considérée comme candidate à un pool élastique de données, elle doit exister depuis au moins 7 jours. Les bases de données qui se trouvent déjà dans un pool élastique de bases de données ne sont pas considérées comme candidates pour les recommandations de pool élastique de bases de données.
+Le service prend en compte les 30 derniers jours de télémétrie lors de la recommandation de pools. Pour qu’une base de données soit considérée comme candidate à un pool élastique de données, elle doit exister depuis au moins 7 jours. Les bases de données qui se trouvent déjà dans un pool élastique de bases de données ne sont pas considérées comme candidates pour les recommandations de pool élastique de bases de données.
 
 Le service évalue les besoins en ressources et la rentabilité du déplacement des bases de données uniques dans chaque niveau de service vers des pools du même niveau. Par exemple, toutes les bases de données Standard d’un serveur sont évaluées pour leur compatibilité avec un pool élastique Standard. Cela signifie que le service n'effectue aucune recommandation multiniveau telle que le déplacement d'une base de données Standard dans un pool Premium.
 
@@ -90,7 +90,6 @@ Le service évalue les besoins en ressources et la rentabilité du déplacement 
 
 - [Gérer un pool élastique de base de données SQL avec le portail](sql-database-elastic-pool-manage-portal.md)
 - [Gérer un pool élastique de base de données SQL avec PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Gérer un pool élastique de base de données SQL en C#](sql-database-client-library.md)
-- [Référence de base de données élastique](sql-database-elastic-pool-reference.md)
+- [Gérer un pool élastique de base de données SQL en C#](sql-database-elastic-pool-manage-csharp.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

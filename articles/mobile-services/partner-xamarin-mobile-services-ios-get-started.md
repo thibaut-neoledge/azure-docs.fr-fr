@@ -26,17 +26,17 @@ Ce didacticiel vous montre comment ajouter un service principal cloud à une app
 
 Si vous préférez regarder une vidéo, sachez que celle ci-dessous suit la même procédure que ce didacticiel.
 
-Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig Dunn, évangéliste du développement pour Xamarin (durée : 10:05 min)
+Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig Dunn, évangéliste du développement pour Xamarin (durée : 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d'écran de l'application terminée :
 
 ![][0]
 
-Ce didacticiel nécessite XCode et [Xamarin Studio] pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. L'exemple s'exécute sur iOS 5.0 et les versions plus récentes.
+Ce didacticiel nécessite XCode et Xamarin Studio pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. Pour obtenir des instructions complètes sur l’installation, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -58,7 +58,7 @@ Dans cette section, vous allez créer une application Xamarin.iOS connectée à 
 
   	![][7]
 
-3. Si ce n’est déjà fait, téléchargez et installez Xcode (nous vous recommandons la dernière version, Xcode 6.0 ou une version plus récente) et [Xamarin Studio].
+3. Si ce n’est déjà fait, téléchargez et installez Xcode (nous vous recommandons la dernière version, Xcode 6.0 ou une version plus récente) et [Xamarin Studio].
 
 4. Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
@@ -96,7 +96,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 
 ## Étapes suivantes
-Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
+Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de la synchronisation des données hors connexion] Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l’application réactive et robuste.
 
@@ -136,4 +136,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -5,8 +5,8 @@
 	keywords="connecter excel à sql, importer des données vers excel"
 	documentationCenter=""
 	authors="joseidz"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
@@ -30,7 +30,7 @@ Apprenez à connecter Excel à une base de données SQL dans le cloud afin de po
 
 Vous avez besoin d’une base de données SQL dans Azure avant de commencer. Si vous n’en avez pas, consultez [Créer votre première base de données SQL](sql-database-get-started.md) pour obtenir une base de données avec des données exemple opérationnelle en quelques minutes. Dans cet article, vous allez importer des données d’exemple dans Excel à partir de cet article, mais vous pouvez suivre des étapes similaires sur vos propres données.
 
-Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel 2016](https://products.office.com/fr-FR/).
+Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel 2016](https://products.office.com/fr-FR/).
 
 ## Connecter Excel à une base de données SQL et créer un fichier odc
 
@@ -38,7 +38,7 @@ Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel 
 
 2.	Dans la barre de menus en haut de la page, cliquez sur **Données**, cliquez sur **À partir d’autres sources**, puis cliquez sur **À partir de SQL Server**.
 
-	![Sélectionner les données source : Connecter Excel à la base de données SQL.](./media/sql-database-connect-excel/excel_data_source.png)
+	![Sélectionner les données source : Connecter Excel à la base de données SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
 	L’Assistant Connexion de données s’ouvre.
 
@@ -83,4 +83,4 @@ Maintenant que vous avez établi la connexion et créé le fichier avec les donn
 - En savoir plus sur les avantages des [pools élastiques](sql-database-elastic-pool.md).
 - Découvrez comment [créer une application web qui se connecte à la base de données SQL sur le serveur principal](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

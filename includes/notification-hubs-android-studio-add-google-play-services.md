@@ -11,9 +11,9 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Ajoutez la ligne suivante sous *dépendances* :
+4. Ajoutez la ligne suivante sous *dépendances* :
 
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
+   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
 5. Sous *defaultConfig*, remplacez la valeur de *minSdkVersion* par 9.
  
@@ -25,4 +25,4 @@
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

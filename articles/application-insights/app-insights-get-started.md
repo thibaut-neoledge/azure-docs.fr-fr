@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de Visual Studio Application Insights | Microsoft Azure"
-	description="Analysez l’utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Visual Studio Application Insights."
+	pageTitle="Prise en main de Visual Studio Application Insights | Microsoft Azure"
+	description="Analysez l’utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Visual Studio Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -25,6 +25,8 @@ La configuration est très facile et les résultats sont visibles après quelque
 
 Pour l’instant, nous prenons en charge les applications iOS, Android et Windows, les applications web J2EE et ASP.NET, ainsi que les services WCF. Les applications web peuvent s’exécuter sur Azure ou sur vos propres serveurs locaux. Notre Kit de développement logiciel (SDK) JavaScript s’exécute sur n’importe quelle page web.
 
+[Consultez l’animation de présentation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 ## Prise en main
 
 Commencez par choisir certains points d’entrée du diagramme suivant dans l’ordre de votre choix. Suivez le chemin d’accès qui vous convient.
@@ -46,11 +48,11 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 ## Support et commentaires
 
 
-* Questions et problèmes :
+* Questions et problèmes :
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bogues :
+* Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
@@ -74,4 +76,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
