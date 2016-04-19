@@ -60,4 +60,4 @@ Cette version ajoute la prise en charge de [KeyVault](../resource-manager-keyvau
 
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!----HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
