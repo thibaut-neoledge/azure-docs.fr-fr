@@ -2,13 +2,13 @@
 
 Dans cette section, vous allez créer une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre d’identité des appareils. Reportez-vous à la section **Registre d’identité de l’appareil** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application console, elle génère un ID d’appareil et une clé uniques auxquels votre appareil peut s’identifier lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
-1. Créez un dossier vide appelé **createdeviceidentity**. Dans le dossier **createdeviceidentity**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
+1. Créez un dossier vide appelé **createdeviceidentity**. Dans le dossier **createdeviceidentity**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
     ```
     npm init
     ```
 
-2. À l’invite de commandes, dans le dossier **createdeviceidentity**, exécutez la commande suivante pour installer le package **azure-iothub** :
+2. À l’invite de commandes, dans le dossier **createdeviceidentity**, exécutez la commande suivante pour installer le package **azure-iothub** :
 
     ```
     npm install azure-iothub --save
@@ -16,7 +16,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
 
 3. Dans un éditeur de texte, créez un fichier **CreateDeviceIdentity.js** dans le dossier **createdeviceidentity**.
 
-4. Ajoutez l’instruction `require` ci-dessous au début du fichier **CreateDeviceIdentity.js** :
+4. Ajoutez l’instruction `require` ci-dessous au début du fichier **CreateDeviceIdentity.js** :
 
     ```
     'use strict';
@@ -24,7 +24,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
     var iothub = require('azure-iothub');
     ```
 
-5. Ajoutez le code suivant dans le fichier **CreateDeviceIdentity.js**, en remplaçant la valeur de l’espace réservé par la chaîne de connexion du IoT Hub créé dans la section précédente :
+5. Ajoutez le code suivant dans le fichier **CreateDeviceIdentity.js**, en remplaçant la valeur de l’espace réservé par la chaîne de connexion du IoT Hub créé dans la section précédente :
 
     ```
     var connectionString = '{iothub connection string}';
@@ -32,7 +32,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
 
-6. Ajoutez le code suivant pour créer une définition d’appareil dans le registre d’identité d’appareil dans votre IoT Hub. Ce code crée un appareil si l’ID correspondant n’existe pas dans le registre. Dans le cas contraire, il retourne la clé de l’appareil existant :
+6. Ajoutez le code suivant pour créer une définition d’appareil dans le registre d’identité d’appareil dans votre IoT Hub. Ce code crée un appareil si l’ID correspondant n’existe pas dans le registre. Dans le cas contraire, il retourne la clé de l’appareil existant :
 
     ```
     var device = new iothub.Device(null);
@@ -56,7 +56,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
 
 7. Enregistrez et fermez le fichier **CreateDeviceIdentity.js**.
 
-8. Pour exécuter l’application **createdeviceidentity**, exécutez la commande ci-après à l’invite de commandes dans le dossier createdeviceidentity :
+8. Pour exécuter l’application **createdeviceidentity**, exécutez la commande ci-après à l’invite de commandes dans le dossier createdeviceidentity :
 
     ```
     node CreateDeviceIdentity.js 
@@ -68,15 +68,17 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
 
 ## Recevoir des messages appareil-à-cloud
 
-Dans cette section, vous allez créer une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages appareil-à-cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traiter les messages appareil-à-cloud][lnk-processd2c-tutorial] vous indique comment traiter les messages appareil-à-cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur la façon de traiter les messages à partir d’Event Hubs et s’applique aux points de terminaison compatibles Event Hubs exposés par l’IoT Hub.
+Dans cette section, vous allez créer une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traitement de messages de type « Appareil vers cloud »][lnk-processd2c-tutorial] vous indique comment traiter les messages Appareil vers cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur la façon de traiter les messages à partir d’Event Hubs et s’applique aux points de terminaison compatibles Event Hubs exposés par l’IoT Hub.
 
-1. Créez un dossier vide appelé **readdevicetocloudmessages**. Dans le dossier **readdevicetocloudmessages**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
+> [AZURE.NOTE] Le point de terminaison compatible Event Hubs pour lire des messages de l'appareil vers le cloud utilise toujours le protocole AMQPS.
+
+1. Créez un dossier vide appelé **readdevicetocloudmessages**. Dans le dossier **readdevicetocloudmessages**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
     ```
     npm init
     ```
 
-2. À l’invite de commandes, dans le dossier **readdevicetocloudmessages**, exécutez la commande suivante pour installer les packages **amqp10** et **bluebird** :
+2. À l’invite de commandes, dans le dossier **readdevicetocloudmessages**, exécutez la commande suivante pour installer les packages **amqp10** et **bluebird** :
 
     ```
     npm install amqp10 bluebird --save
@@ -84,7 +86,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
 
 3. Dans un éditeur de texte, créez un fichier **ReadDeviceToCloudMessages.js** dans le dossier **readdevicetocloudmessages**.
 
-4. Ajoutez les instructions `require` ci-dessous au début du fichier **ReadDeviceToCloudMessages.js** :
+4. Ajoutez les instructions `require` ci-dessous au début du fichier **ReadDeviceToCloudMessages.js** :
 
     ```
     'use strict';
@@ -106,7 +108,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     var numPartitions = 2;
     ```
 
-    > [AZURE.NOTE] Ce code repose sur l’hypothèse selon laquelle vous avez créé votre IoT Hub dans le niveau F1 (gratuit). Un IoT Hub gratuit comporte deux partitions nommées « 0 » et « 1 ». Si vous avez créé votre IoT Hub en utilisant l’un des autres niveaux tarifaires, vous devez ajuster le code pour créer un objet **MessageReceiver** pour chaque partition.
+    > [AZURE.NOTE] Ce code repose sur l’hypothèse selon laquelle vous avez créé votre IoT Hub dans le niveau F1 (gratuit). Un IoT Hub gratuit comporte deux partitions nommées « 0 » et « 1 ». Si vous avez créé votre IoT Hub en utilisant l’un des autres niveaux tarifaires, vous devez ajuster le code pour créer un objet **MessageReceiver** pour chaque partition.
 
 6. Ajoutez la définition de filtre suivante. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car elle vous permet de voir l’ensemble actuel de messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traiter les messages appareil-à-cloud IoT Hub][lnk-processd2c-tutorial].
 
@@ -123,7 +125,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     }
     ```
 
-7. Ajoutez le code suivant pour créer l’adresse de réception et un client AMQP :
+7. Ajoutez le code suivant pour créer l’adresse de réception et un client AMQP :
 
     ```
     var uri = protocol + '://' + encodeURIComponent(sasName) + ':' + encodeURIComponent(sasKey) + '@' + eventHubHost;
@@ -132,7 +134,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     var client = new AMQPClient(Policy.EventHub);
     ```
 
-8. Ajoutez les deux fonctions suivantes qui impriment la sortie sur la console :
+8. Ajoutez les deux fonctions suivantes qui impriment la sortie sur la console :
 
     ```
     var messageHandler = function (partitionId, message) {
@@ -144,7 +146,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     };
     ```
 
-9. Ajoutez la fonction suivante qui sert de récepteur pour une partition donnée à l’aide du filtre :
+9. Ajoutez la fonction suivante qui sert de récepteur pour une partition donnée à l’aide du filtre :
 
     ```
     var createPartitionReceiver = function(partitionId, receiveAddress, filterOption) {
@@ -157,7 +159,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     };
     ```
 
-10. Ajoutez le code suivant pour vous connecter au point de terminaison compatible avec Event Hub et démarrer les récepteurs :
+10. Ajoutez le code suivant pour vous connecter au point de terminaison compatible avec Event Hub et démarrer les récepteurs :
 
     ```
     client.connect(uri)
@@ -177,9 +179,9 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

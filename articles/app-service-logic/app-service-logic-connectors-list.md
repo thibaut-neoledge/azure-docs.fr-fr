@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="04/11/2016"
 	ms.author="mandia"/>
 
 
 # Liste des connecteurs et des applications API à utiliser dans vos applications logiques
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version du schéma 2015-08-01-preview, cliquez sur [Liste des API](../connectors/apis-list.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [Liste des nouveaux connecteurs](../connectors/apis-list.md).
 
 Découvrez tous les connecteurs et les applications API disponibles créés par Microsoft et à utiliser dans votre application logique.
 
 Pour plus d’informations sur la tarification et une liste de ce qui est inclus dans chaque niveau de service, consultez la page [Tarification Azure App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Connecteurs principaux
 Le tableau suivant répertorie tous les connecteurs et toutes les applications API créés par Microsoft et disponibles dans les connecteurs principaux :
@@ -33,23 +33,13 @@ Nom | Description
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Utilisez ce connecteur pour créer un cluster Hadoop sur Azure, envoyer différentes tâches Hadoop, etc.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Permet d’envoyer des messages à partir de files d’attente et de rubriques Service Bus, et de recevoir des messages de files d’attente et d’abonnements Service Bus.
-[Azure Storage Blob](app-service-logic-connector-azurestorageblob.md) | Se connecte au stockage d'objets blob et permet notamment d’obtenir, de supprimer et de répertorier des objets blob. 
 [Bing Traduction](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Utilisez Bing pour traduire un texte dans une autre langue.
-[Box](app-service-logic-connector-box.md) | Se connecte à Box et permet notamment de télécharger, d’obtenir, de supprimer et de répertorier des fichiers.
 [Chatter](app-service-logic-connector-chatter.md) | Se connecte à Chatter et permet de publier des messages, de rechercher et même de récupérer de nouveaux messages.
-[Dropbox](app-service-logic-connector-dropbox.md) | Se connecte à Box et permet notamment d’obtenir, de supprimer et de répertorier des fichiers.
-[Facebook](app-service-logic-connector-facebook.md) | Se connecte à Facebook et permet notamment de publier des messages et des images. Vous pouvez également obtenir des messages et des commentaires, obtenir des informations utilisateur sur les différents » J’aime », comme les livres et les films.
 [HTTP](app-service-logic-connector-http.md) | L'écouteur HTTP ouvre un point de terminaison qui agit comme serveur HTTP et écoute les requêtes HTTP ou HTTPS entrantes. L'action HTTP ne nécessite aucune application API et est prise en charge en mode natif au sein des applications logiques.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365.
-[Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Se connecte à votre Microsoft OneDrive personnel et permet notamment de télécharger, de supprimer et de répertorier des fichiers.
-[Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | Se connecte au serveur Microsoft SharePoint Server local ou à SharePoint Online et permet de gérer des documents et éléments de liste. Différentes méthodes d'authentification comme les informations d'identification par défaut, OAuth 2.0, l'authentification Windows et l'authentification par formulaire sont prises en charge.
-[Microsoft Yammer](app-service-logic-connector-yammer.md) | Se connecte à Yammer pour publier des messages et obtenir de nouveaux messages.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Vous pouvez notamment créer, mettre à jour, lire, supprimer et interroger différentes entités d'Intuit QuickBooks, comme des clients, articles ou des factures.
 [Slack](app-service-logic-connector-slack.md) | Se connecte à Slack et publie des messages dans les canaux Slack.
-[Salesforce](app-service-logic-connector-salesforce.md) | Se connecte à votre compte Salesforce et permet notamment de gérer des comptes, des prospects et des opportunités.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | Se connecte à SugarCRM Online et permet notamment de créer, de mettre à jour, de lire et de supprimer différents types de modules comme des comptes ou des contacts.
-[Twilio](app-service-logic-connector-twilio.md) | Se connecte à Twilio et permet notamment d’envoyer et d’obtenir des messages, d’obtenir des numéros disponibles et de gérer des numéros de téléphone entrants.
-[Twitter](app-service-logic-connector-twitter.md) | Se connecte à Twitter et permet notamment de consulter des fils d’actualité et de publier des tweets.
 [Wait](app-service-logic-connector-wait.md) | Utilisez ce connecteur pour retarder l'exécution de votre application. Vous pouvez retarder l'application pour une durée spécifique ou jusqu'à une occurrence à un moment donné.
 
 
@@ -77,8 +67,6 @@ MQ | Se connecte à une base de données IBM WebSphere MQ Server version 8, sur
 [Oracle Database](app-service-logic-connector-oracle.md) | Se connecte à une base de données Oracle localement et permet de créer, de mettre à jour, d’obtenir et de supprimer des entrées dans une table de la base de données.
 [POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Se connecte à un serveur POP3 pour récupérer les messages électroniques avec des pièces jointes.
 [SAP](app-service-logic-connector-sap.md) | Se connecte à un serveur SAP local et appelle des RFC, BAPI et TRFC, et permet d'envoyer des IDOC.
-[SFTP](app-service-logic-connector-sftp.md) (SSH File Transfer Protocol)| Se connecte à SFTP et permet notamment de télécharger, d’obtenir et de supprimer des fichiers.
-[SMTP](app-service-logic-connector-smtp.md) (Simple Mail Transfer Protocol) | Se connecte à un serveur SMTP et permet d'envoyer du courrier électronique avec des pièces jointes.
 
 ## Connecteurs en tant que déclencheurs
 Plusieurs connecteurs fournissent des déclencheurs pour les applications logiques. Ces déclencheurs sont de deux types :
@@ -97,4 +85,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
 ## En savoir plus sur les connecteurs et les applications API
 [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md) [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

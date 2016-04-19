@@ -24,7 +24,7 @@ App Service prend en charge CORS (Cross Origin Resource Sharing), ce qui permet 
 
 [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) est un protocole Internet qui vous permet d’effectuer des appels API à partir de JavaScript vers un domaine différent de celui que le navigateur a chargé à partir de JavaScript. Sans CORS, vous pouvez effectuer un appel à partir d’une page web de contoso.com vers un point de terminaison d’API contoso.com, mais pas vers un point de terminaison fabrikam.com.
 
-Cet article contient deux sections :
+Cet article contient deux sections :
 
 * La section [Configuration de CORS](#corsconfig) explique de façon générale comment configurer CORS pour toute application API, application web ou application mobile. Cette section s’applique également à toutes les infrastructures prises en charge par App Service, y compris .NET, Node.js et Java. 
 
@@ -49,7 +49,7 @@ Vous pouvez configurer CORS dans le portail Azure ou à l’aide des outils [Azu
 11. Dans la zone de texte, saisissez la ou les URL depuis laquelle/lesquelles vous souhaitez autoriser les appels JavaScript.
 
 
-	Par exemple, si vous avez déployé votre application JavaScript sur une application web nommée todolistangular, saisissez « https://todolistangular.azurewebsites.net ». Vous pouvez également saisir un astérisque (*) pour indiquer que tous les domaines d’origine sont acceptés.
+	Par exemple, si vous avez déployé votre application JavaScript sur une application web nommée todolistangular, saisissez « https://todolistangular.azurewebsites.net ». Vous pouvez également saisir un astérisque (*) pour indiquer que tous les domaines d’origine sont acceptés.
 
 
 13. Cliquez sur **Enregistrer**.
@@ -58,11 +58,11 @@ Vous pouvez configurer CORS dans le portail Azure ou à l’aide des outils [Azu
 
 	Lorsque vous cliquez sur **Enregistrer**, l’application API accepte les appels JavaScript depuis les URL spécifiées.
 
-### Configurer CORS à l’aide des outils Azure Resource Manager
+#### Configurer CORS à l’aide des outils Azure Resource Manager
 
 Vous pouvez également configurer CORS pour une application API à l’aide des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) dans les outils de ligne de commande, par exemple [Azure PowerShell](../powershell-install-configure.md) et l’[interface de ligne de commande Azure](../xplat-cli-install.md).
 
-Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propriété CORS, ouvrez le [fichier azuredeploy.json dans le référentiel correspondant à l’exemple d’application de ce didacticiel](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Recherchez la section du modèle qui ressemble à l’exemple suivant :
+Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propriété CORS, ouvrez le [fichier azuredeploy.json dans le référentiel correspondant à l’exemple d’application de ce didacticiel](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Recherchez la section du modèle qui ressemble à l’exemple suivant :
 
 		"cors": {
 		    "allowedOrigins": [
@@ -214,7 +214,7 @@ Dans cette section, vous allez configurer l’application API ToDoListAPI pour a
 
 ### Tester l’application en activant CORS
 
-* Dans un navigateur, accédez à l’URL HTTPS de l’application web. 
+* Dans un navigateur, accédez à l’URL HTTPS de l’application web. 
 
 	L’application vous permet cette fois d’afficher, ajouter, modifier et supprimer des éléments d’action.
 
@@ -224,7 +224,7 @@ Dans cette section, vous allez configurer l’application API ToDoListAPI pour a
 
 Dans un projet d’API web, vous pouvez installer le package NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) pour spécifier dans le code les domaines à partir desquels votre API accepte des appels JavaScript.
  
-La prise en charge de CORS dans l’API web est plus flexible que celle offerte par App Service. Par exemple : dans le code, vous pouvez spécifier différentes origines acceptées pour différentes méthodes d’action, tandis que dans App Service, vous spécifiez un ensemble d’origines acceptées pour toutes les méthodes d’une application API.
+La prise en charge de CORS dans l’API web est plus flexible que celle offerte par App Service. Par exemple : dans le code, vous pouvez spécifier différentes origines acceptées pour différentes méthodes d’action, tandis que dans App Service, vous spécifiez un ensemble d’origines acceptées pour toutes les méthodes d’une application API.
 
 > [AZURE.NOTE] N’essayez pas d’utiliser le protocole CORS de l’API web et le protocole CORS d’App Service dans une même application API. Le protocole CORS d’App Service est prioritaire (CORS dans l’API web n’aura aucun effet). Par exemple, si vous activez un domaine d’origine dans App Service et activez tous les domaines d’origine dans votre code API Web, votre application API Azure accepte uniquement les appels en provenance du domaine spécifié dans Azure.
 
@@ -261,16 +261,14 @@ Les étapes suivantes résument le processus d’activation de la prise en charg
 		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
+		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
-	> **Remarque** : utilisez cet attribut avec précaution. Lorsque vous spécifiez des caractères génériques pour tous les paramètres, votre API s’ouvre à toutes les origines et à toutes les demandes HTTP. Les paramètres présentés ici sont fournis uniquement à des fins de démonstration.
-
 ## Résolution de problèmes
 
-Si vous rencontrez un problème pendant que vous progressez dans ce didacticiel, assurez-vous que vous utilisez la dernière version du kit de développement logiciel Azure pour .NET. Le moyen le plus simple de procéder consiste à [télécharger le kit de développement logiciel Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si la version actuelle est installée, le programme d’installation de la plate-forme web vous informe qu’aucune installation n’est nécessaire.
+Si vous rencontrez un problème pendant que vous progressez dans ce didacticiel, assurez-vous que vous utilisez la dernière version du kit de développement logiciel Azure pour .NET. Le moyen le plus simple pour ce faire consiste à [télécharger le kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si la version actuelle est installée, le programme d’installation de la plateforme web vous informe qu’aucune installation n’est nécessaire.
 
-Si vous continuez à recevoir des messages d’erreur CORS après avoir défini une URL dans le panneau CORS du portail, vérifiez que vous avez correctement appliqué vos modifications aux endroits appropriés. Par exemple :
+Si vous continuez à recevoir des messages d’erreur CORS après avoir défini une URL dans le panneau CORS du portail, vérifiez que vous avez correctement appliqué vos modifications aux endroits appropriés. Par exemple :
 
 * Assurez-vous que vous avez correctement entré le protocole (`https`, et non `http`) et assurez-vous que vous utilisez `https` pour exécuter l’application web frontale.
 * Assurez-vous que vous avez entré le paramètre CORS dans l’application API de niveau intermédiaire, et non dans l’application web frontale.
@@ -283,4 +281,4 @@ Pour en savoir plus sur les fonctionnalités de Visual Studio conçues pour faci
 
 Dans cet article, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Dans l’article suivant de la série dédiée à la prise en main d’API Apps, vous allez découvrir l’[authentification d’App Service API Apps](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

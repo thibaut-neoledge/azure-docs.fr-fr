@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights : exemples de démarrage rapide de l’interface de ligne de commande (CLI) Azure Insights | Microsoft Azure"
+	pageTitle="Azure Insights : exemples de démarrage rapide de l’interface de ligne de commande (CLI) Azure Insights | Microsoft Azure"
 	description="Les exemples de commandes de l’interface de ligne de commande (CLI) peuvent vous aider à accéder aux fonctionnalités de surveillance d’Azure Insights. Azure Insights est un service Microsoft Azure qui vous permet de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web, d’envoyer des notifications d’alerte, ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées."
 	authors="kamathashwin"
 	manager=""
@@ -20,18 +20,20 @@
 
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Insights. Azure Insights permet de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d’alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
-## Configuration requise
+>[AZURE.NOTE] Les dernières résolutions de bogues de l’interface de ligne de commande Azure Insights ne sont pas encore toutes finalisées. Pour cette raison, certaines fonctionnalités parmi les plus récentes ne sont pas encore disponibles dans la version actuelle de l’interface de ligne de commande Azure. En attendant, vous pouvez utiliser la dernière interface de ligne de commande Azure Insights qui intègre les correctifs en téléchargeant le tarball le plus récent via la branche de développement du [tarball Azure XPLAT CLI](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz), puis suivez les instructions de la page [Microsoft Azure Cross Platform Command Line repository](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository) (Dépôt de ligne de commande interplateforme Microsoft Azure) pour l’installer en utilisant le tarball que vous avez téléchargé. Azure Insights intègrera les résolutions de bogues de l’interface de ligne de commande dès sa prochaine mise à jour. Nous mettrons à jour ce document une fois les modifications disponibles dans la branche principale de l’interface de ligne de commande Azure.
 
-Si vous n’avez pas déjà installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md). Si vous ne connaissez pas bien l’interface de ligne de commande Azure, découvrez-la plus en détails dans l’article [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+## Composants requis
+
+Si vous n’avez pas déjà installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md). Si vous ne connaissez pas bien l’interface de ligne de commande Azure, découvrez-la plus en détail dans l’article [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 
-Dans Windows, installez npm à partir du [site web Node.js](https://nodejs.org/). Une fois l’installation terminée, à l’aide de CMD.exe avec les privilèges d’exécution en tant qu’administrateur, exécutez les commandes suivantes à partir du dossier où npm est installé :
+Dans Windows, installez npm à partir du [site web Node.js](https://nodejs.org/). Une fois l’installation terminée, à l’aide de CMD.exe avec les privilèges d’exécution en tant qu’administrateur, exécutez les commandes suivantes à partir du dossier où npm est installé :
 
 ```
 npm install azure-cli --global
 ```
 
-Accédez ensuite à un dossier/emplacement quelconque et tapez à la ligne de commande :
+Accédez ensuite à un dossier/emplacement quelconque et tapez à la ligne de commande :
 
 ```
 azure help
@@ -219,4 +221,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

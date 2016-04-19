@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Guide de la solution Vehicle Telemetry Analytics : découverte approfondie de la solution | Microsoft Azure" 
-	description="Utilisez les fonctions de Cortana Analytics pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite." 
+	description="Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Berline familiale
 
 [Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Concentrateur d'événement d'Azure](https://azure.microsoft.com/services/event-hubs/)
+[Hub d'événement d'Azure](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -155,9 +155,9 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 
 ### Références
 
-[Kit de développement logiciel (SDK) Azure Event Hub pour l’ingestion de flux](event-hubs-csharp-ephcs-getstarted.md)
+[Kit Azure Event Hub SDK pour la réception de flux](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Fonctionnalités de déplacement de données Azure Data Factory](data-factory-data-movement-activities.md) [Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md)
+[Fonctionnalités de déplacement de données Azure Data Factory](../data-factory/data-factory-data-movement-activities.md) [Azure Data Factory DotNet Activity](../data-factory/data-factory-use-custom-activities.md)
 
 [Solution Azure Data Factory DotNet Activity Visual Studio pour la préparation des exemples de données](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -165,7 +165,7 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 ## Préparation
 >[AZURE.ALERT] Cette étape de la solution s’applique uniquement au traitement par lots.
 
-Le jeu de données de signaux et de diagnostic brut semi-structuré est partitionné au cours de l’étape de préparation des données au format ANNÉE/MOIS pour permettre une interrogation efficace et un stockage évolutif à long terme (c’est-à-dire qu’il bascule d’un compte de stockage d’objets blob à un autre dès que le premier est alimenté). Les données de sortie (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « lac de données » du client. Les données d’entrée de ce pipeline sont généralement ignorées car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
+Le jeu de données de signaux et de diagnostic brut semi-structuré est partitionné au cours de l’étape de préparation des données au format ANNÉE/MOIS pour permettre une interrogation efficace et un stockage extensible à long terme (c’est-à-dire qu’il bascule d’un compte de stockage d’objets blob à un autre dès que le premier est alimenté). Les données de sortie (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « lac de données » du client. Les données d’entrée de ce pipeline sont généralement ignorées car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
@@ -376,7 +376,7 @@ Pour en savoir plus sur les fonctionnalités de « fenêtrage » dans Azure Stre
 
 Une application est incluse dans le cadre de la solution pour configurer le modèle d’apprentissage automatique en temps réel. Cette application appelée « RealTimeDashboardApp » est créée et configurée dans le cadre du déploiement de la solution. L’application exécute les tâches suivantes :
 
-1.	Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 – Requête Stream Analytics pour la publication des données vers une instance Event Hub de sortie* 
+1.	Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* Figure 16 – Requête Stream Analytics pour la publication des données vers une instance Event Hub de sortie * 
 
 2.	Pour chaque événement reçu par cette application :
 
@@ -387,7 +387,7 @@ Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez i
 
 Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations.
 
-**** Pour exécuter l’application de tableau de bord en temps réel **
+**Pour exécuter l’application de tableau de bord en temps réel**
 
 1.	Cliquez sur le nœud Power BI sur la vue schématique, puis cliquez sur le lien Download Real-time Dashboard Application dans le volet des propriétés. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 - Instructions de configuration du tableau de bord Power BI*
 2.	Extrayez le fichier et enregistrez-le en local ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 18 – Dossier RealtimeDashboardApp*
@@ -706,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

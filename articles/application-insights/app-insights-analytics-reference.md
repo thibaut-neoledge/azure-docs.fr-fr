@@ -1240,7 +1240,17 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo |
+||
+|`<` |Inférieur à
+|`<=`|Inférieur ou égal à
+|`>` |Supérieur à
+|`>=`|Supérieur ou égal à
+|`<>`|Non égal à
+|`!=`|Non égal à
 
 
 
@@ -2139,3 +2149,4 @@ Notez que « [0] » indique la présence d’un tableau, mais ne spécifie pas l
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!---HONumber=AcomDC_0330_2016-->
+

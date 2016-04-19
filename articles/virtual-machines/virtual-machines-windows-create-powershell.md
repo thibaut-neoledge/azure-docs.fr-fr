@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Modèle](virtual-machines-windows-ps-template.md)
 - [Portail - Linux](virtual-machines-linux-portal-create.md)
-- [INTERFACE DE LIGNE DE COMMANDE](virtual-machines-linux-cli-create.md)
+- [INTERFACE DE LIGNE DE COMMANDE](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -34,15 +34,15 @@
 
 Ces étapes vous montrent comment construire un jeu de commandes Azure PowerShell pour créer et configurer une machine virtuelle Azure. Vous pouvez utiliser ce processus de blocs de construction pour créer un jeu de commandes pour une nouvelle machine virtuelle Windows et pour développer un déploiement existant. Vous pouvez également l’utiliser pour créer plusieurs jeux de commandes qui créent rapidement un environnement de développement/test personnalisé ou un environnement pour professionnels de l’informatique.
 
-Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Si vous êtes un utilisateur avancé de PowerShell, vous pouvez utiliser vous-même ces commandes, en y substituant vos propres valeurs aux variables (les lignes commençant par « $ »).
+Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Si vous êtes un utilisateur avancé de PowerShell, vous pouvez utiliser vous-même ces commandes, en y substituant vos propres valeurs aux variables (les lignes commençant par « $ »).
 
-## Étape 1 : installer Azure PowerShell
+## Étape 1 : installer Azure PowerShell
 
-Il existe deux options principales pour l’installation : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [WebPI](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu.
+Il existe deux options principales pour l’installation : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [WebPI](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu.
 
-Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
-## Étape 2 : Définir votre abonnement
+## Étape 2 : Définir votre abonnement
 
 Commencez par démarrer une invite de commandes PowerShell.
 
@@ -60,7 +60,7 @@ Définissez votre abonnement Azure. Remplacez tous les éléments entre guilleme
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 
 
-## Étape 3 : Créer des ressources
+## Étape 3 : Créer des ressources
 
 Cette section vous montre comment créer chaque ressource pour votre nouvelle machine virtuelle.
 
@@ -97,7 +97,7 @@ Pour vérifier si le nom de compte de stockage choisi est unique, exécutez la c
 
 	Test-AzureName -Storage <Proposed storage account name>
 
-Si la commande Test-AzureName affiche « False », c’est que le nom proposé est unique.
+Si la commande Test-AzureName affiche « False », c’est que le nom proposé est unique.
 
 
 ### Étiquette de nom de domaine public
@@ -111,7 +111,7 @@ Pour tester si une étiquette de nom de domaine choisie est globalement unique, 
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
 	Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $loc
 
-Si DNSNameAvailability a la valeur « True », c’est que le nom proposé est globalement unique.
+Si DNSNameAvailability a la valeur « True », c’est que le nom proposé est globalement unique.
 
 ### Groupe à haute disponibilité
 
@@ -144,7 +144,7 @@ Utilisez ces commandes pour répertorier les réseaux virtuels existants.
 	$rgName="<resource group name>"
 	Get-AzureRmVirtualNetwork -ResourceGroupName $rgName | Sort Name | Select Name
 
-## Étape 4 : générer votre jeu de commandes
+## Étape 4 : générer votre jeu de commandes
 
 Ouvrez une nouvelle instance de l’éditeur de texte de votre choix ou l’environnement d’écriture de scripts intégré de PowerShell, et copiez les lignes suivantes au début de votre jeu de commandes. Spécifiez le nom du groupe de ressources, l’emplacement Azure et le compte de stockage pour cette nouvelle machine virtuelle. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
@@ -160,7 +160,7 @@ Vous devez spécifier le nom d’un réseau virtuel basé sur Resource Manager e
 
 L’index du sous-réseau est le numéro du sous-réseau dans le résultat affiché par cette commande, avec une numérotation consécutive de gauche à droite et commençant à 0.
 
-Pour cet exemple :
+Pour cet exemple :
 
 	PS C:\> Get-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
 
@@ -178,7 +178,7 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez un nom de réseau vi
 
 Ensuite, vous créez une carte d’interface réseau. Copiez une des deux options suivantes dans votre jeu de commandes et spécifiez les informations nécessaires.
 
-### Option 1 : spécifier un nom de carte d’interface réseau et affecter une adresse IP publique
+### Option 1 : spécifier un nom de carte d’interface réseau et affecter une adresse IP publique
 
 Copiez les lignes suivantes dans votre jeu de commandes et spécifiez le nom de la carte d’interface réseau.
 
@@ -186,7 +186,7 @@ Copiez les lignes suivantes dans votre jeu de commandes et spécifiez le nom de 
 	$pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-### Option 2 : spécifier un nom de carte d’interface réseau et une étiquette de nom de domaine DNS
+### Option 2 : spécifier un nom de carte d’interface réseau et une étiquette de nom de domaine DNS
 
 Copiez les lignes suivantes dans votre jeu de commandes, et spécifiez le nom de la carte d’interface réseau et l’étiquette du nom de domaine global unique.
 
@@ -195,7 +195,7 @@ Copiez les lignes suivantes dans votre jeu de commandes, et spécifiez le nom de
 	$pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-### Option 3 : spécifier un nom de carte d’interface réseau et affecter une adresse IP privée statique
+### Option 3 : spécifier un nom de carte d’interface réseau et affecter une adresse IP privée statique
 
 Copiez les lignes suivantes dans votre jeu de commandes et spécifiez le nom de la carte d’interface réseau.
 
@@ -204,12 +204,12 @@ Copiez les lignes suivantes dans votre jeu de commandes et spécifiez le nom de 
 	$pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
 
-### Option 4 : spécifier un nom de la carte d’interface réseau et une instance d’équilibreur de charge pour une règle NAT de trafic entrant
+### Option 4 : spécifier un nom de la carte d’interface réseau et une instance d’équilibreur de charge pour une règle NAT de trafic entrant
 
-Pour créer une carte d’interface réseau et l’ajouter à une instance d’équilibreur de charge pour une règle NAT de trafic entrant, vous avez besoin des éléments suivants :
+Pour créer une carte d’interface réseau et l’ajouter à une instance d’équilibreur de charge pour une règle NAT de trafic entrant, vous avez besoin des éléments suivants :
 
-- le nom d’une instance d’équilibrage de charge précédemment créée qui a une règle NAT de trafic entrant pour le trafic qui est transféré vers la machine virtuelle ;
-- le numéro d’index du pool d’adresses principal de l’instance d’équilibreur de charge à affecter à la carte d’interface réseau ;
+- le nom d’une instance d’équilibrage de charge précédemment créée qui a une règle NAT de trafic entrant pour le trafic qui est transféré vers la machine virtuelle ;
+- le numéro d’index du pool d’adresses principal de l’instance d’équilibreur de charge à affecter à la carte d’interface réseau ;
 - le numéro d’index de la règle NAT de trafic entrant à affecter à la carte d’interface réseau.
 
 Pour plus d’informations sur la création d’une instance d’équilibreur de charge avec des règles NAT de trafic entrant, consultez [Créer un équilibreur de charge à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
@@ -223,13 +223,13 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
-La chaîne $nicName doit être unique pour le groupe de ressources. Une meilleure pratique consiste à incorporer le nom de la machine virtuelle dans la chaîne, comme « LOB07-NIC ».
+La chaîne $nicName doit être unique pour le groupe de ressources. Une meilleure pratique consiste à incorporer le nom de la machine virtuelle dans la chaîne, comme « LOB07-NIC ».
 
-### Option 5 : spécifier un nom de carte d’interface réseau et une instance d’équilibreur de charge pour un ensemble à charge équilibrée
+### Option 5 : spécifier un nom de carte d’interface réseau et une instance d’équilibreur de charge pour un ensemble à charge équilibrée
 
-Pour créer une carte d’interface réseau et l’ajouter à une instance d’équilibreur de charge pour un ensemble à charge équilibrée, vous avez besoin des éléments suivants :
+Pour créer une carte d’interface réseau et l’ajouter à une instance d’équilibreur de charge pour un ensemble à charge équilibrée, vous avez besoin des éléments suivants :
 
-- le nom d’une instance d’équilibreur de charge précédemment créée ayant une règle pour le trafic à charge équilibrée ;
+- le nom d’une instance d’équilibreur de charge précédemment créée ayant une règle pour le trafic à charge équilibrée ;
 - le numéro d’index du pool d’adresses principal de l’instance d’équilibreur de charge à affecter à la carte d’interface réseau.
 
 Pour plus d’informations sur la création d’une instance d’équilibreur de charge avec des règles pour le trafic à charge équilibrée, consultez [Créer un équilibreur de charge à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
@@ -244,18 +244,18 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 
 Ensuite, créez un objet de machine virtuelle locale et éventuellement, ajoutez-le à un groupe à haute disponibilité. Copiez une des deux options suivantes dans votre jeu de commandes, et spécifiez le nom, la taille et le nom du groupe à haute disponibilité.
 
-Option 1 : spécifier un nom et une taille de machine virtuelle.
+Option 1 : spécifier un nom et une taille de machine virtuelle.
 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$vm=New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
-Pour déterminer les valeurs possibles de la chaîne de taille de machine virtuelle pour l’option 1, utilisez ces commandes.
+Pour déterminer les valeurs possibles de la chaîne de taille de machine virtuelle pour l’option 1, utilisez ces commandes.
 
 	$locName="<Azure location of your resource group>"
 	Get-AzureRmVMSize -Location $locName | Select Name
 
-Option 2 : spécifier un nom et une taille de machine virtuelle et les ajouter à un groupe à haute disponibilité.
+Option 2 : spécifier un nom et une taille de machine virtuelle et les ajouter à un groupe à haute disponibilité.
 
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
@@ -263,7 +263,7 @@ Option 2 : spécifier un nom et une taille de machine virtuelle et les ajouter �
 	$avSet=Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
-Pour déterminer les valeurs possibles de la chaîne de taille de machine virtuelle pour l’option 2, utilisez ces commandes.
+Pour déterminer les valeurs possibles de la chaîne de taille de machine virtuelle pour l’option 2, utilisez ces commandes.
 
 	$rgName="<resource group name>"
 	$avName="<availability set name>"
@@ -314,9 +314,9 @@ Enfin, copiez ces commandes dans votre jeu de commandes et spécifiez l’identi
 	$vm=Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-## Étape 5 : exécuter votre jeu de commandes
+## Étape 5 : exécuter votre jeu de commandes
 
-Passez en revue le jeu de commandes Azure PowerShell que vous avez créé à l'étape 4 dans votre éditeur de texte ou dans l'environnement d'écriture de scripts intégré de PowerShell (ISE). Vérifiez que vous avez spécifié toutes les variables et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
+Passez en revue le jeu de commandes Azure PowerShell que vous avez créé à l'étape 4 dans votre éditeur de texte ou dans l'environnement d'écriture de scripts intégré de PowerShell (ISE). Vérifiez que vous avez spécifié toutes les variables et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
 
 Si vos commandes sont dans un éditeur de texte, copiez le jeu dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell. Vous envoyez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez aussi exécuter le jeu de commandes depuis l’environnement d’écriture de scripts intégré d’Azure PowerShell.
 
@@ -324,13 +324,13 @@ Si vous souhaitez réutiliser ces informations pour créer des machines virtuell
 
 ## exemples
 
-J’ai besoin d’un jeu de commandes PowerShell pour créer une machine virtuelle supplémentaire pour une charge de travail métier web qui :
+J’ai besoin d’un jeu de commandes PowerShell pour créer une machine virtuelle supplémentaire pour une charge de travail métier web qui :
 
-- est placée dans le groupe de ressources existant LOBServers ;
-- utilise l’image Windows Server 2012 R2 Datacenter ;
-- porte le nom LOB07 et est dans le groupe à haute disponibilité WEB\_AS existant ;
-- a une carte d’interface réseau avec une adresse IP publique dans le sous-réseau FrontEnd (index de sous-réseau 0) du réseau virtuel AZDatacenter existant ;
-- a un disque de données supplémentaire de 200 Go.
+- est placée dans le groupe de ressources existant LOBServers ;
+- utilise l’image Windows Server 2012 R2 Datacenter ;
+- porte le nom LOB07 et est dans le groupe à haute disponibilité WEB\_AS existant ;
+- a une carte d’interface réseau avec une adresse IP publique dans le sous-réseau FrontEnd (index de sous-réseau 0) du réseau virtuel AZDatacenter existant ;
+- a un disque de données supplémentaire de 200 Go.
 
 Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine virtuelle.
 
@@ -383,7 +383,7 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 ## Ressources supplémentaires
 
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md)
+[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-windows-compare-deployment-models.md)
 
 [Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
@@ -393,4 +393,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

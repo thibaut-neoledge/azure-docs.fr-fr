@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory B2C en version préliminaire : configuration LinkedIn | Microsoft Azure"
-	description="Fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn dans vos applications sécurisées par Azure Active Directory B2C"
+	pageTitle="Azure Active Directory B2C en version préliminaire : configuration LinkedIn | Microsoft Azure"
+	description="Fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn dans vos applications sécurisées par Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn
@@ -22,7 +22,7 @@
 
 ## Création d’une application LinkedIn
 
-Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application LinkedIn et lui fournir les paramètres appropriés. Pour ce faire, vous avez besoin d’un compte LinkedIn. Si vous n’en avez pas, vous pouvez en obtenir un à l’adresse [https://www.linkedin.com/](https://www.linkedin.com/).
+Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application LinkedIn et lui fournir les paramètres appropriés. Pour ce faire, vous avez besoin d’un compte LinkedIn. Si vous n’en avez pas, vous pouvez en obtenir un à l’adresse [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Accédez au site web [Développeurs LinkedIn](https://www.developer.linkedin.com/) et connectez-vous à l’aide des informations d’identification de votre compte LinkedIn.
 2. Cliquez sur **My App** dans la barre de menu, puis sur **Create Application**.
@@ -44,12 +44,12 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 
 ## Configuration de LinkedIn en tant que fournisseur d’identité dans votre client
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
-2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
+1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
-4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « LI ».
+4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « LI ».
 5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **LinkedIn**, puis cliquez sur **OK**.
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’ID client et la clé secrète client de l’application LinkedIn que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration LinkedIn.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

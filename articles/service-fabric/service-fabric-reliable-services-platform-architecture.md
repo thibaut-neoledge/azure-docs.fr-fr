@@ -1,11 +1,11 @@
 <properties
    pageTitle="Architecture de service fiable | Microsoft Azure"
-   description="Présentation de l’architecture de service fiable pour les services avec ou sans état."
+   description="Présentation de l’architecture Reliable Service pour les services avec et sans état"
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -16,9 +16,9 @@
    ms.date="03/30/2016"
    ms.author="alanwar"/>
 
-# Architecture de services fiables avec ou sans état
+# Architecture de services Reliable Services avec et sans état
 
-Un service fiable Azure Service Fabric peut être avec état ou sans état. Chaque type de service s’exécute au sein d’une architecture spécifique. Ces architectures sont décrites dans cet article. Consultez la [présentation de service fiable](service-fabric-reliable-services-introduction.md) pour plus d'informations sur les différences entre les services avec ou sans état.
+Un service Reliable Service Azure Service Fabric peut être avec état ou sans état. Chaque type de service s’exécute au sein d’une architecture spécifique. Ces architectures sont décrites dans cet article. Consultez [Présentation de Reliable Services](service-fabric-reliable-services-introduction.md) pour plus d’informations sur les différences entre les services avec et sans état.
 
 ## Services fiables avec état
 
@@ -27,13 +27,13 @@ Un service fiable Azure Service Fabric peut être avec état ou sans état. Chaq
 
 ### Service fiable avec état
 
-Un service fiable avec état peut dériver de la classe StatefulServiceBase ou de la classe StatefulService. Les deux classes de base sont fournies par Service Fabric. Elles offrent différents niveaux de prise en charge et d’abstraction pour que le service avec état puisse échanger avec Service Fabric, et pour qu’il participe en tant que service au sein du cluster Service Fabric.
+Un service Reliable Service avec état peut dériver de la classe StatefulServiceBase ou de la classe StatefulService. Les deux classes de base sont fournies par Service Fabric. Elles offrent différents niveaux de prise en charge et d’abstraction pour que le service avec état puisse échanger avec Service Fabric, et pour qu’il participe en tant que service au sein du cluster Service Fabric.
 
-StatefulService provient de StatefulServiceBase. StatefulServiceBase propose aux services plus de souplesse, mais nécessite une meilleure compréhension des éléments internes de Service Fabric. Consultez la [présentation de service fiable](service-fabric-reliable-services-introduction.md) et l’[utilisation avancée du service fiable](service-fabric-reliable-services-advanced-usage.md) pour plus d’informations sur les spécificités de l’écriture de services à l’aide des classes StatefulService et StatefulServiceBase.
+StatefulService provient de StatefulServiceBase. StatefulServiceBase propose aux services plus de souplesse, mais nécessite une meilleure compréhension des éléments internes de Service Fabric. Consultez [Présentation de Reliable Services](service-fabric-reliable-services-introduction.md) et [Utilisation avancée du service fiable](service-fabric-reliable-services-advanced-usage.md) pour plus d’informations sur les spécificités de l’écriture de services à l’aide des classes StatefulService et StatefulServiceBase.
 
 Les deux classes de base gèrent la durée de vie et le rôle de la mise en œuvre du service. La mise en œuvre du service peut remplacer les méthodes virtuelles de l’une des classes de base si la mise en œuvre du service a du travail à faire sur ces points dans le cycle de vie de la mise en œuvre du service ou si elle souhaite créer un objet écouteur de communication. Notez que bien qu’une mise en œuvre de service peut implémenter son propre objet écouteur de communication exposant ICommunicationListener, dans le diagramme ci-dessus, l’écouteur de communication est mis en œuvre par Service Fabric car la mise en œuvre du service utilise un écouteur de communication implémenté par Service Fabric.
 
-Le service fiable avec état utilise le Gestionnaire d’état fiable pour tirer parti des collections fiables. Les collections fiables sont des structures de données locales qui sont hautement disponibles pour le service, c’est-à-dire qu’elles sont toujours disponibles, en dépit des basculements du service. Chaque type de collection fiable est implémenté par un fournisseur d'état fiable. Pour plus d’informations sur les collections fiables, consultez [la présentation des collections fiables](service-fabric-reliable-services-reliable-collections.md)
+Un service Reliable Service avec état utilise le Gestionnaire d’état fiable pour tirer parti des collections fiables. Les collections fiables sont des structures de données locales qui sont hautement disponibles pour le service, c’est-à-dire qu’elles sont toujours disponibles, en dépit des basculements du service. Chaque type de collection fiable est implémenté par un fournisseur d'état fiable. Pour plus d’informations sur les collections fiables, consultez [la présentation des collections fiables](service-fabric-reliable-services-reliable-collections.md)
 
 ### Fournisseurs et gestionnaire d'état fiable
 
@@ -67,7 +67,7 @@ Les lectures et écritures dans le journal partagé sont effectuées via des op�
 
 Outre une interface en mode utilisateur minime avec le journal, le journal est écrit comme un pilote de mode noyau. En s’exécutant comme un pilote de mode noyau, le journal peut fournir les meilleures performances pour tous les services qui l’utilisent.
 
-Pour plus d’informations sur la configuration du journal, consultez [Configuration des Reliable Services avec état](service-fabric-reliable-services-configuration.md).
+Pour plus d’informations sur la configuration du journal, consultez [Configuration de Reliable Services avec état](service-fabric-reliable-services-configuration.md).
 
 ## Service fiable sans état
 
@@ -78,14 +78,14 @@ Pour plus d’informations sur la configuration du journal, consultez [Configura
 
 Les implémentations de service sans état proviennent de la classe StatelessService ou StatelessServiceBase. La classe StatelessServiceBase offre davantage de flexibilité que la classe StatelessService. Les deux classes de base gèrent la durée de vie et le rôle du service.
 
-La mise en œuvre du service peut remplacer les méthodes virtuelles de l’une des classes de base si le service a du travail à faire sur ces points dans le cycle de vie du service ou s’il souhaite créer un objet écouteur de communication. Notez que bien que le service peut implémenter son propre objet écouteur de communication exposant ICommunicationListener, dans le diagramme ci-dessus, l’écouteur de communication est mis en œuvre par Service Fabric, car la mise en œuvre du service utilise un écouteur de communication implémenté par Service Fabric.
+La mise en œuvre du service peut remplacer les méthodes virtuelles de l’une des classes de base si le service a du travail à faire sur ces points dans le cycle de vie du service ou s’il souhaite créer un objet écouteur de communication. Notez que bien que le service peut implémenter son propre objet écouteur de communication exposant ICommunicationListener, dans le diagramme ci-dessus, l’écouteur de communication est mis en œuvre par Service Fabric, car la mise en œuvre du service utilise un écouteur de communication implémenté par Service Fabric.
 
-Consultez la [présentation de service fiable](service-fabric-reliable-services-introduction.md) et l’[utilisation avancée du service fiable](service-fabric-reliable-services-advanced-usage.md) pour plus d’informations sur les spécificités de l’écriture de services à l’aide des classes StatelessService et StatelessServiceBase.
+Consultez [Présentation de Reliable Services](service-fabric-reliable-services-introduction.md) et [Utilisation avancée du service fiable](service-fabric-reliable-services-advanced-usage.md) pour plus d’informations sur les spécificités de l’écriture de services à l’aide des classes StatelessService et StatelessServiceBase.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-Pour plus d'informations sur Service Fabric, consultez :
+Pour plus d'informations sur Service Fabric, consultez :
 
 [Présentation du service fiable](service-fabric-reliable-services-introduction.md)
 
@@ -97,4 +97,4 @@ Pour plus d'informations sur Service Fabric, consultez :
 
 [Configuration du service fiable](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

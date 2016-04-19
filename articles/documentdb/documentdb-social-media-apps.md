@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/28/2016" 
-	ms.author="ealsur@hotmail.com"/>
+	ms.author="mimig"/>
 
 # Réseaux sociaux avec DocumentDB
 
@@ -102,7 +102,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
 
 Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu une de ces listes, nous émettons une requête unique à DocumentDB à l’aide de l’[opérateur IN](documentdb-sql-query.md#where-clause) pour obtenir des pages de publications simultanément.
 
-Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide des [files d’attente](../storage/storage-dotnet-how-to-use-queues.md) et des tâches Webjobs d’[Azure Storage](https://azure.microsoft.com/services/storage/) déclenchées avec le [Kit de développement logiciel (SDK) Webjobs Azure](../app-service-web/websites-dotnet-webjobs-sdk.md), avec l’implémentation de la propagation ultérieure dans les flux basée sur notre propre logique personnalisée.
+Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide des [files d’attente](../storage/storage-dotnet-how-to-use-queues.md) et des tâches Webjobs d’[Azure Storage](https://azure.microsoft.com/services/storage/) déclenchées avec le Kit [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), avec l’implémentation de la propagation ultérieure dans les flux basée sur notre propre logique personnalisée.
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
@@ -182,7 +182,7 @@ Mais, que pouvons-nous apprendre ? Quelques exemples simples incluent l’[analy
 
 Maintenant que j’ai votre attention, vous pensez sans doute qu’il vous faut un doctorat en sciences mathématiques pour extraire ces modèles et ces informations de fichiers et de bases de données simples, mais vous avez tort.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_(programming_language)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_(programming_language)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 ## Conclusion
 
@@ -198,4 +198,4 @@ En savoir plus sur la modélisation des données avec l’article [Modélisation
 
 Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

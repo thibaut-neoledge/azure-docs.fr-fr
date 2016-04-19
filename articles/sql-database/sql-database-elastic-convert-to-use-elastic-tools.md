@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Conversion de bases de données existantes pour utiliser les outils de base de données élastique
 
-Si vous disposez déjà d’une solution partitionnée mise à l’échelle, vous pouvez tirer parti des outils de base de données élastique en utilisant les techniques décrites ici. Après conversion, vous pouvez utiliser la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fusion et de fractionnement de la base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md).
+Si vous disposez déjà d’une solution partitionnée mise à l’échelle, vous pouvez tirer parti des outils de base de données élastique, comme [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fractionnement et de fusion](sql-database-elastic-scale-overview-split-and-merge.md), en utilisant les techniques décrites ici.
 
 Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), ou les scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
 
-Il se compose de quatre étapes :
+Notez que vous devez créer les bases de données avant d’exécuter les applets de commande Add-Shard et New-ShardMapManager. Les applets de commande ne créent pas les bases de données pour vous.
+
+Il se compose de quatre étapes :
 
 1. Préparer la base de données pour le gestionnaire de cartes de partitions.
 2. Créer la carte de partitions.
@@ -32,7 +34,7 @@ Il se compose de quatre étapes :
 Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de bases de données élastiques, consultez la rubrique [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
 
 ## Préparation de la base de données du gestionnaire de cartes de partitions
-Vous pouvez utiliser une base de données nouvelle ou existante en tant que gestionnaire de cartes de partitions. Cette opération ne doit être exécutée qu’une seule fois.
+Vous pouvez utiliser une base de données nouvelle ou existante en tant que gestionnaire de cartes de partitions.
 
 ## Étape 1 : créer un gestionnaire de cartes de partitions
 Notez qu’une base de données agissant en tant que gestionnaire de cartes de partitions ne doit pas être la même base de données qu’une partition.
@@ -104,7 +106,7 @@ Notez que pour utiliser ce modèle de mappage, les valeurs d’id client doivent
 ## Étape 2, l’option 3 : mappages de liste sur une base de données unique
 La configuration de ce modèle nécessite également la création d’un mappage de liste comme indiqué à l’étape 2, option 1.
 
-## Étape 3 : préparer les partitions individuelles
+## Étape 3 : préparer les partitions individuelles
 
 Ajoutez chaque partition (base de données) dans le gestionnaire de cartes de partitions. Cela prépare les bases de données individuelles à stocker les informations de mappage. Exécutez cette méthode sur chaque partition.
 	 
@@ -179,4 +181,4 @@ Utilisez l’outil de fractionnement et de fusion pour déplacer des données, �
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

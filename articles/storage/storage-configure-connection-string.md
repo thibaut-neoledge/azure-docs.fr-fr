@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configuration d’une chaîne de connexion dans Azure Storage | Microsoft Azure"
-	description="Configuration d’une chaîne de connexion à un compte de stockage Azure Une chaîne de connexion inclut les informations nécessaires pour authentifier l'accès par programme aux ressources dans un compte de stockage. La chaîne de connexion peut encapsuler la clé d'accès d’un compte que vous possédez, ou bien inclure une signature d'accès partagé pour accéder aux ressources d’un compte sans clé d'accès."
+	description="Création d’une chaîne de connexion à un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour authentifier l’accès aux ressources dans un compte de stockage à partir de votre application."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -96,13 +96,13 @@ Par exemple, une chaîne de connexion à un point de terminaison d’objet blob 
 
 ### Spécification d’un point de terminaison d’objet blob avec une signature d’accès partagé
 
-Vous pouvez créer une chaîne de connexion avec des points de terminaison explicites pour accéder aux ressources de stockage via une signature d’accès partagé. Dans ce cas, vous pouvez spécifier la signature d’accès partagé dans le cadre de la chaîne de connexion, au lieu des informations d’identification de nom et de clé de compte. Le jeton de signature d'accès partagé encapsule des informations sur la ressource à laquelle vous devez accéder, la durée pendant laquelle elle est disponible et les autorisations accordées. Pour plus d’informations sur les signatures d’accès partagé, consultez la rubrique [Délégation d’accès avec une signature d’accès partagé](https://msdn.microsoft.com/library/ee395415.aspx).
+Vous pouvez créer une chaîne de connexion avec des points de terminaison explicites pour accéder aux ressources de stockage via une signature d’accès partagé. Dans ce cas, vous pouvez spécifier la signature d’accès partagé dans le cadre de la chaîne de connexion, au lieu des informations d’identification de nom et de clé de compte. Le jeton de signature d'accès partagé encapsule des informations sur la ressource à laquelle vous devez accéder, la durée pendant laquelle elle est disponible et les autorisations accordées. Pour plus d’informations sur les signatures d’accès partagé, consultez la page [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
 Pour créer une chaîne de connexion incluant une signature d’accès partagé, spécifiez la chaîne au format suivant :
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-Le point de terminaison peut être le point de terminaison de service par défaut ou un point de terminaison personnalisé. `base64Signature` correspond à la partie signature d'une signature d’accès partagé. La signature est un HMAC calculé sur une chaîne de signature et une clé valides à l’aide de l’algorithme SHA256, qui est ensuite encodé en Base64.
+Le point de terminaison peut être le point de terminaison de service par défaut ou un point de terminaison personnalisé. Le `sasToken` est la chaîne de requête qui suit le point d’interrogation (?) sur l’URL SAP.
 
 ### Création d’une chaîne de connexion avec un suffixe de point de terminaison
 
@@ -119,4 +119,9 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0218_2016-->
+## Étapes suivantes
+
+- [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md)
+- [Explorateurs du stockage Azure](storage-explorers.md)
+
+<!---HONumber=AcomDC_0406_2016-->

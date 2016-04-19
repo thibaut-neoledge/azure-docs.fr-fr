@@ -155,4 +155,4 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

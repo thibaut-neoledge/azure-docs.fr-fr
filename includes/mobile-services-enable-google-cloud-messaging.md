@@ -7,11 +7,14 @@
 
 	 Saisissez votre nouveau **Nom du projet**, et cliquez sur **Créer un projet**.
 
-3. Notez le numéro du projet dans la section **Projects**. Vous devez définir cette valeur en tant que variable *PROJECT\_ID* dans le client.
+3. Cliquez sur le bouton **Utilitaires et plus** puis sur **Informations sur le projet**. Notez le **numéro de projet**. Vous devez définir cette valeur en tant que variable `SenderId` dans l'application cliente.
 
-4. Dans le tableau de bord du projet, cliquez sur **Utiliser les API Google** > **Messagerie Cloud pour Android**, puis, sur la page suivante, cliquez sur **Activer l’API**.
+   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
-5. Dans le gestionnaire d’API, cliquez sur **Informations d’identification** > **Ajouter des informations d’identification** > **Clé API**.
+
+4. Dans le tableau de bord du projet, cliquez sur **API Mobile**, sur **Google Cloud Messaging**, puis, à la page suivante, cliquez sur **Activer**.
+
+5. Dans le tableau de bord du projet, cliquez sur **Informations d'identification** > **Créer des informations d'identification** > **Clé API**.
 
    	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
@@ -21,4 +24,4 @@
 
 	Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,8 +3,8 @@
    description="Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Manager pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
-   ms.author="v-sharos" />
+   ms.date="03/23/2016"
+   ms.author="alkohli" />
 
 # Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
@@ -25,7 +25,7 @@ La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés 
 
  ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-Ce didacticiel explique comment utiliser la page **Catalogue de sauvegarde** pour restaurer l’appareil à partir d’un jeu de sauvegarde.
+Ce didacticiel explique comment utiliser la page **Catalogue de sauvegarde** pour restaurer un volume sur l’appareil à partir d’un jeu de sauvegarde.
 
 ## Utilisation du catalogue de sauvegarde 
 
@@ -45,10 +45,11 @@ Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur
 
 ## Comment restaurer votre volume StorSimple à partir d’une sauvegarde
 
-Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre volume StorSimple à partir d’une sauvegarde spécifique. N’oubliez pas cependant que la restauration d’un volume rétablit l’état dans lequel il se trouvait au moment de la sauvegarde. Toutes les données qui ont été ajoutées après l’opération de sauvegarde seront perdues.
+Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre volume StorSimple à partir d’une sauvegarde spécifique.
 
 > [AZURE.WARNING] La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
 
+Avant de lancer la restauration d’un volume, assurez-vous que celui-ci est hors connexion. Vous devrez mettre le volume hors connexion sur l’ordinateur hôte en premier, puis sur l’appareil. Suivez les étapes de la [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline). Procédez comme suit pour restaurer un volume à partir d’un jeu de sauvegarde.
 
 ### Pour restaurer à partir d’un jeu de sauvegarde
 
@@ -64,13 +65,11 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
  
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes à la page **Conteneurs de volumes**, puis suivez les étapes de la rubrique [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline) pour les mettre hors connexion.
+3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Suivez les étapes de la [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Sans quoi, vous vous exposez à un risque d’altération des données.
 
-4. Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
-
-5. Cliquez sur **Restaurer** en bas de la page.
+4. Sélectionnez un jeu de sauvegarde. Cliquez sur **Restaurer** en bas de la page.
 
 6. Vous êtes invité à confirmer l’opération.
 
@@ -90,4 +89,4 @@ Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de cl
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

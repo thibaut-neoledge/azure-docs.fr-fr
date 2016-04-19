@@ -36,7 +36,7 @@ Cet article suppose que vous avez :
  
 * Créé un compte Azure Storage. Si vous avez besoin d'aide pour cette tâche, consultez [Création d'un compte Azure Storage](../hdinsight-get-started.md#storage). 
 * Approvisionné un cluster Hadoop avec le service HDInsight. Si vous avez besoin d'aide, consultez [Approvisionner un cluster HDInsight](../hdinsight-get-started.md#provision).
-* Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure décrite sous [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+* Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure décrite sous [Créer et charger des données dans les tables Hive](machine-learning-data-science-move-hive-tables.md).
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -127,7 +127,7 @@ Dans cette section, nous décrivons les tâches de retraitement des données ave
 1. [Exploration des données](#hive-dataexploration)
 2. [Génération de fonctionnalités](#hive-featureengineering)
 
-> [AZURE.NOTE] Ces exemples de requête Hive supposent que les données ont été téléchargées dans les tables Hive situées dans les clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+> [AZURE.NOTE] Ces exemples de requête Hive supposent que les données ont été téléchargées dans les tables Hive situées dans les clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-move-hive-tables.md).
 
 ###<a name="hive-dataexploration"></a>Exploration des données
 Voici quelques exemples de scripts Hive qui vous permettent d’explorer les données dans des tables Hive.
@@ -325,4 +325,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

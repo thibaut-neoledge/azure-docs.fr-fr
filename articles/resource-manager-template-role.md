@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Attributions de rôles, schéma de modèle
@@ -26,7 +26,7 @@ Pour créer une attribution de rôle, ajoutez le schéma suivant à la section d
     
     {
         "type": "Microsoft.Authorization/roleAssignments",
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2014-10-01-preview",
         "name": string,
         "dependsOn": [ array values ],
         "properties":
@@ -41,21 +41,22 @@ Pour créer une attribution de rôle, ajoutez le schéma suivant à la section d
 
 Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Oui | **Microsoft.Authorization/roleAssignments** | Le type de ressource à créer. |
-| apiVersion | enum | Oui | **2015-07-01** | La version de l'API à utiliser pour la création de la ressource. |  
-| name | string | Oui | Identificateur global unique | Un identificateur pour la nouvelle attribution de rôle. |
-| dependsOn | array | Non | Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques. | La collection de ressources dont cette attribution de rôle dépend. Si vous affectez un rôle qui s'étend sur une ressource et que la ressource est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource est tout d'abord déployée. | 
-| properties | objet | Oui | (voir ci-dessous) | Un objet qui identifie la définition de rôle, le principal et l'étendue. |  
+| Nom | Valeur |
+| ---- | ---- |
+| type | Enum<br />Requis<br />**Microsoft.Authorization/roleAssignments**<br /><br />Type de ressource à créer. |
+| apiVersion | Enum<br />Requis<br />**2014-10-01-preview**<br /><br />La version de l'API à utiliser pour la création de la ressource. |  
+| name | String<br />Requis<br />**Globally-unique identifier**<br /><br />Un identificateur pour la nouvelle attribution de rôle. |
+| dependsOn | Array<br />Facultatif<br />Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.<br /><br />La collection de ressources dont dépend cette affectation de rôle. Si vous affectez un rôle qui s'étend sur une ressource et que la ressource est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource est tout d'abord déployée. | 
+| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Un objet qui identifie la définition de rôle, le principal et l'étendue. |  
 
+<a id="properties" />
 ### objet propriétés
 
-| Nom | Type | Requis | Valeurs autorisées | Description |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId | string | Oui | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** | L'identificateur d'une définition de rôle existante à utiliser dans l'attribution de rôle. |
-| principalId | string | Oui | Identificateur global unique | L'identificateur d'un principal existant. Cette opération mappe l'ID au sein du répertoire et peut pointer vers un utilisateur, un principal du service ou un groupe de sécurité. |
-| scope | string | Oui | Pour un groupe de ressources :<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />Puor une ressource :<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | L'étendue avec laquelle l'attribution de rôle est appliquée. |
+| Nom | Valeur |
+| ------- | ---- |
+| roleDefinitionId | String<br />Requis<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />L'identificateur d'une définition de rôle existante à utiliser dans l'attribution de rôle. |
+| principalId | String<br />Requis<br />**Globally-unique identifier**<br /><br />L'identificateur d'un principal existant. Cette opération mappe l'ID au sein du répertoire et peut pointer vers un utilisateur, un principal du service ou un groupe de sécurité. |
+| scope | String<br />Requis<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (for resource groups) ou<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (pour les ressources)<br /><br />L'étendue avec laquelle l'attribution de rôle est appliquée. |
 
 
 ## Utilisation de la ressource d'attribution de rôle
@@ -123,13 +124,13 @@ L'exemple suivant affecte un groupe à un rôle pour le groupe de ressources.
 
 Les modèles suivants montrent comment utiliser la ressource d'attribution de rôle :
 
-- [Attribuer un rôle intégré au groupe de ressources](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
-- [Attribuer un rôle intégré à une machine virtuelle existante](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
-- [Attribuer un rôle intégré à plusieurs machines virtuelles existantes](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
+- [Attribuer un rôle intégré au groupe de ressources](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+- [Attribuer un rôle intégré à une machine virtuelle existante](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+- [Attribuer un rôle intégré à plusieurs machines virtuelles existantes](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour plus d'informations sur le contrôle d'accès en fonction du rôle, consultez [Contrôle d'accès en fonction du rôle Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

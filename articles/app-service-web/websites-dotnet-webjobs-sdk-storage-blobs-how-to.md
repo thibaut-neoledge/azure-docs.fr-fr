@@ -30,11 +30,11 @@ Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual St
 
 Cette section vous indique comment utiliser l’attribut `BlobTrigger`.
 
-> [AZURE.NOTE]Le kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blob qui ont été créés ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés sur la base du « meilleur effort »](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclenchements d’objets blob ne sont pas acceptables pour votre application, il est conseillé d’utiliser la méthode de création d’un message de file d’attente lorsque vous créez l’objet blob et l’attribut [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) à la place de l’attribut `BlobTrigger` sur la fonction qui traite l’objet blob.
+> [AZURE.NOTE] Le kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blob qui ont été créés ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés sur la base du « meilleur effort »](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclenchements d’objets blob ne sont pas acceptables pour votre application, il est conseillé d’utiliser la méthode de création d’un message de file d’attente lorsque vous créez l’objet blob et l’attribut [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) à la place de l’attribut `BlobTrigger` sur la fonction qui traite l’objet blob.
 
 ### Espace réservé unique pour le nom d’objet blob avec extension  
 
-L’exemple de code suivant copie les objets blob de texte qui apparaissent dans le conteneur *input* vers le conteneur *output* :
+L’exemple de code suivant copie les objets blob de texte qui apparaissent dans le conteneur *input* vers le conteneur *output* :
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("output/{name}")] out string output)
@@ -150,6 +150,21 @@ Le code de liaison du type `WebImage` est fourni dans une classe `WebImageBinder
 		    }
 		}
 
+## Obtenir le chemin d'accès aux objets blob pour l'objet blob de déclenchement
+
+Pour obtenir le nom du conteneur et le nom blob de l'objet blob qui a déclenché la fonction, incluez un paramètre de chaîne `blobTrigger` dans la signature de la fonction.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
+
 ## <a id="poison"></a> Gestion des objets blob incohérents
 
 Lorsqu’une fonction `BlobTrigger` échoue, le Kit de développement logiciel (SDK) l’appelle à nouveau, au cas où l’échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
@@ -238,4 +253,4 @@ Les sujets associés abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des objets blob Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016--->

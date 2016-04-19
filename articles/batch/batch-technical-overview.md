@@ -44,8 +44,6 @@ Batch peut également effectuer des calculs parallèles qui se terminent par une
 
 Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, consultez la page [Solutions Batch et HPC](batch-hpc-solutions.md).
 
->[AZURE.NOTE] À ce stade, Batch prend en charge uniquement les charges de travail qui s’exécutent sur des machines virtuelles Windows Server.
-
 ## Développement avec Batch
 
 Lorsque vous développez des solutions qui utilisent Microsoft Azure Batch pour le traitement de charges de travail parallèles, vous vous appuyez sur une programmation reposant sur les API Batch. Les API Batch vous permettent de créer et gérer des pools de nœuds de calcul (machines virtuelles) et de planifier les travaux et les tâches qui s’y exécutent. L’application cliente ou le service que vous créez utilisera les API Batch pour communiquer avec le service Batch. Vous pouvez efficacement traiter des charges de travail à grande échelle pour votre organisation, ou fournir un service frontal à vos clients afin qu’ils puissent exécuter des travaux et des tâches, à la demande ou selon un calendrier, sur un nœud ou sur des centaines voire des milliers. Vous pouvez également utiliser Batch dans le cadre d’un plus grand flux de travail, géré par des outils comme [Azure Data Factory][data_factory].
@@ -94,7 +92,7 @@ Dans ce scénario courant, votre application ou service traite une charge de tra
 
 3. Création d’un **travail** Batch pour exécuter la charge de travail sur le pool de nœuds de calcul. Lorsque vous créez un travail, vous devez l’associer à un pool Batch.
 
-4. Ajout de **tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
+4. Ajoutez des **tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
 
     - 4a. Avant son exécution, la tâche peut charger les données (les fichiers d’entrée) qu’elle devra traiter dans le nœud de calcul auquel elle est affectée. Si l’application n’a pas déjà été installée sur le nœud (voir l’étape 2), vous pouvez la télécharger à cet emplacement. Lorsque les téléchargements sont terminés, les tâches s’exécutent sur les nœuds qui leur sont attribués.
 
@@ -136,4 +134,4 @@ Maintenant que vous avez vu un exemple de scénario du service Batch, le moment 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -23,25 +23,25 @@
 
 Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les tâches MapReduce sur les clusters Hadoop en utilisant Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les cmdlets Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
 
-- [**Nombre de mots**][hdinsight-sample-wordcount] : nombre d'occurrences de mots dans un fichier texte.
-- [**Nombre de mots de diffusion en continu C#**][hdinsight-sample-csharp-streaming] : nombre d'occurrences de mots dans un fichier texte à l'aide de l'interface de diffusion Hadoop.
-- [**Estimateur de la valeur de Pi**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
-- [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go au moyen de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
+- [**Nombre de mots**][hdinsight-sample-wordcount] : nombre d'occurrences de mots dans un fichier texte.
+- [**Nombre de mots de diffusion en continu C#**][hdinsight-sample-csharp-streaming] : nombre d'occurrences de mots dans un fichier texte à l'aide de l'interface de diffusion Hadoop.
+- [**Estimateur de la valeur de Pi**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
+- [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go au moyen de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
 
 >[AZURE.NOTE] Vous trouverez le code source dans l'annexe.
 
-Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d'informations sur ces ressources, consultez :
+Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d'informations sur ces ressources, consultez :
 
 - [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 - [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Présentation d'Azure HDInsight][hdinsight-introduction]
 
-Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire de MapReduce. Pour plus d'informations, consultez les pages suivantes :
+Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire de MapReduce. Pour plus d'informations, consultez les pages suivantes :
 
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables** :
+**Conditions préalables** :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
@@ -49,7 +49,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java 
 
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -58,7 +58,7 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 **Pour envoyer une tâche MapReduce de comptage de mots**
 
 1. Ouvrez **Windows PowerShell ISE**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
-2. Collez le script PowerShell suivant :
+2. Collez le script PowerShell suivant :
 
 		$subscriptionName = "<Azure Subscription Name>"
 		$resourceGroupName = "<Resource Group Name>"
@@ -109,7 +109,7 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 		# Display the output file
 		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-	La tâche MapReduce produit un fichier nommé *part-r-00000* avec les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant *« there »*.
+	La tâche MapReduce produit un fichier nommé *part-r-00000* avec les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant *« there »*.
 
 3. Définissez les 3 premières variables, puis exécutez le script.
 
@@ -133,17 +133,17 @@ Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page 
 
 **Pour soumettre une tâche de comptage de diffusion en continu C#**
 
-- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
+- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-									-File "/example/apps/" `
-									-Mapper "cat.exe" `
-									-Reducer "wc.exe" `
-									-InputPath "/example/data/gutenberg/davinci.txt" `
-									-OutputPath "/example/data/StreamingOutput/wc.txt"
+    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
+    							-Mapper "cat.exe" `
+    							-Reducer "wc.exe" `
+    							-InputPath "/example/data/gutenberg/davinci.txt" `
+    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
 
 
-	Le fichier de sortie doit être :
+	Le fichier de sortie doit être :
 	
 		example/data/StreamingOutput/wc.txt/part-00000		
 								
@@ -151,22 +151,22 @@ Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page 
 
 L'estimateur de la valeur de Pi utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi. Des points placés aléatoirement à l’intérieur d’un carré unitaire se retrouvent également à l’intérieur d’un cercle inscrit dans ce carré avec une probabilité égale à l’aire du cercle, Pi/4. La valeur de Pi peut être estimée à partir de la valeur de 4R, où R est le rapport entre le nombre de points situés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré. Plus l'échantillon de points est grand, plus l'estimation est précise.
 
-Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et il est configuré pour fonctionner avec une valeur de 16 mappages qui sont tous requis pour le calcul de 10 millions de points d’échantillonnage par les valeurs de paramètre. Ces dernières peuvent être modifiées pour améliorer la valeur estimée de Pi. Pour référence, voici les 10 premières décimales de Pi : 3,1415926535.
+Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et il est configuré pour fonctionner avec une valeur de 16 mappages qui sont tous requis pour le calcul de 10 millions de points d’échantillonnage par les valeurs de paramètre. Ces dernières peuvent être modifiées pour améliorer la valeur estimée de Pi. Pour référence, voici les 10 premières décimales de Pi : 3,1415926535.
 
 **Pour soumettre une tâche d'estimateur Pi**
 
-- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
+- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
 
 		$mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
 									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
-## <a name="hdinsight-sample-10gb-graysort"></a>GraySort 10 Go
+## <a name="hdinsight-sample-10gb-graysort"></a>GraySort 10 Go
 
-Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/).
+Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/).
 
-Cet exemple utilise trois ensembles de programmes MapReduce :
+Cet exemple utilise trois ensembles de programmes MapReduce :
 
 1. **TeraGen** est un programme MapReduce que vous pouvez utiliser pour générer les lignes de données à trier.
 2. **TeraSort** échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale. TeraSort est un tri standard de fonctions MapReduce, sauf pour un partitionneur personnalisé qui utilise une liste triée de clés échantillonnées N-1 définissant le groupe de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] <= key < sample[i] sont envoyées pour réduire i. Cela garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
@@ -174,7 +174,7 @@ Cet exemple utilise trois ensembles de programmes MapReduce :
 
 Les formats d’entrée et de sortie utilisés par les trois applications lisent et écrivent les fichiers texte dans le bon format. La réplication de la sortie de la réduction est définie sur 1 au lieu de 3 par défaut, car le concours benchmark ne requiert pas la réplication des données de sortie sur plusieurs nœuds.
 
-Trois tâches sont requises par l'exemple, chacune correspondant à un des programmes MapReduce décrits dans l'introduction :
+Trois tâches sont requises par l'exemple, chacune correspondant à un des programmes MapReduce décrits dans l'introduction :
 
 1. Générez les données à trier en exécutant la tâche MapReduce **TeraGen**.
 2. Triez les données en exécutant la tâche MapReduce **TeraSort**.
@@ -182,7 +182,7 @@ Trois tâches sont requises par l'exemple, chacune correspondant à un des progr
 
 **Pour soumettre les tâches**
 
-- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis utilisez les définitions de tâche suivantes :
+- Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis utilisez les définitions de tâche suivantes :
 
 	$teragen = New-AzureRmHDInsightMapReduceJobDefinition `
 								-JarFile "/example/jars/hadoop-mapreduce-examples.jar" ` -ClassName "teragen" ` -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
@@ -196,14 +196,14 @@ Trois tâches sont requises par l'exemple, chacune correspondant à un des progr
 
 ##Étapes suivantes 
 
-Dans cet article et les articles liés à chacun des exemples, vous avez appris à exécuter les exemples inclus avec les clusters HDInsight au moyen d’Azure PowerShell. Pour des didacticiels sur l’utilisation de Pig, Hive et MapReduce avec HDInsight, consultez les rubriques suivantes :
+Dans cet article et les articles liés à chacun des exemples, vous avez appris à exécuter les exemples inclus avec les clusters HDInsight au moyen d’Azure PowerShell. Pour des didacticiels sur l’utilisation de Pig, Hive et MapReduce avec HDInsight, consultez les rubriques suivantes :
 
 * [Prise en main de Hadoop avec Hive dans HDInsight pour analyser l’utilisation des téléphones mobiles][hdinsight-get-started]
 * [Utilisation de Pig avec Hadoop sur HDInsight][hdinsight-use-pig]
 * [Utilisation de Hive avec Hadoop sur HDInsight][hdinsight-use-hive]
 * [Envoi de tâches Hadoop dans HDInsight][hdinsight-submit-jobs]
 * [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
-* [Débogage de Hadoop dans HDInsight : messages d’erreur][hdinsight-errors]
+* [Débogage de Hadoop dans HDInsight : messages d’erreur][hdinsight-errors]
 
 
 ## Annexe A - Le code source du nombre de mots
@@ -997,4 +997,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -40,7 +40,7 @@ De nos jours, d'importantes quantités de données transitent à haute vitesse s
 
 -   **Données de référence :** Stream Analytics permet aux utilisateurs de spécifier et d’utiliser des données de référence. Il peut s’agir de données d’historique ou simplement de données de non-diffusion, qui changent moins souvent au fil du temps. Le système simplifie l'utilisation des données de référence pour les traiter comme n'importe quel autre flux d'événement entrant à joindre avec d'autres flux d'événements reçus en temps réel pour effectuer des transformations.
 
--   **Connectivité :** Stream Analytics se connecte directement à Azure Event Hubs pour la réception de flux de données et au service blob Azure pour la réception de données d’historique. Les résultats peuvent être écrits à partir de Stream Analytics vers les objets blob ou tables de stockage Azure, les bases de données Azure SQL DB, les hubs d’événements Event Hubs, les rubriques ou files d’attente Service Bus Azure et Power BI, où ils peuvent être visualisés, faire l’objet d’un traitement plus poussé par les workflows, être utilisés dans les analyses par lot via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ou être traités à nouveau en tant que série d’événements. Lorsque vous utilisez Event Hubs, vous pouvez composer plusieurs Stream Analytics avec d’autres sources de données et moteurs de traitement sans dénaturer la capacité de diffusion des calculs.
+-   **Connectivité :** Stream Analytics se connecte directement aux Azure Event Hubs et aux Azure IOT Hubs pour la réception de flux de données et au service blob Azure pour la réception de données d’historique. Les résultats peuvent être écrits à partir de Stream Analytics vers les objets blob ou tables de stockage Azure, les bases de données Azure SQL DB, les hubs d’événements Event Hubs, les rubriques ou files d’attente Service Bus Azure et Power BI, où ils peuvent être visualisés, faire l’objet d’un traitement plus poussé par les workflows, être utilisés dans les analyses par lot via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ou être traités à nouveau en tant que série d’événements. Lorsque vous utilisez Event Hubs, vous pouvez composer plusieurs Stream Analytics avec d’autres sources de données et moteurs de traitement sans dénaturer la capacité de diffusion des calculs.
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -53,4 +53,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

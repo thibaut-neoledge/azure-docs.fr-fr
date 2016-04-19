@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Surveiller et gérer un pool de base de données élastique avec Transact-SQL  
@@ -27,7 +27,7 @@
 Utilisez les commandes [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) et [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) pour créer et déplacer les bases de données dans et en dehors des pools élastiques. Le pool élastique doit exister avant de pouvoir utiliser ces commandes. Ces commandes affectent uniquement les bases de données. La création de nouveaux pools et le paramétrage des propriétés du pool (telles qu’eDTU min. et max.) ne peuvent pas être modifiés avec les commandes T-SQL.
 
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
 
 ## Créer une base de données dans un pool de base de données élastique
@@ -81,8 +81,13 @@ Utilisez la vue [sys.elastic\_pool \_resource \_stats](https://msdn.microsoft.co
 ## Surveiller l’utilisation des ressources d’une base de données dans un pool élastique
 Utilisez la vue [sys.dm \_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) ou [sys.resource \_stats](https://msdn.microsoft.com/library/dn269979.aspx) pour examiner les statistiques d’utilisation des ressources d’une base de données dans un pool élastique. Ce processus revient à interroger l’utilisation des ressources de toutes les bases de données uniques.
 
+## Latence des opérations du pool élastique
+
+- En général, le processus de modification du nombre d’eDTU garanti à chaque base de données ou du nombre maximal d’eDTU pour chaque base de données prend 5 minutes au maximum.
+- Le processus de modification de la limite de stockage du pool dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification de la limite de stockage/eDTU du pool prend 3 heures au maximum.
+
 ## Étapes suivantes
 
 Après avoir créé un pool élastique de bases de données, vous pouvez gérer des bases de données élastiques du pool en créant des tâches élastiques. Les tâches élastiques facilitent l'exécution de scripts T-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
