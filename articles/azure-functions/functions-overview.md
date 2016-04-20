@@ -68,4 +68,8 @@ Dans un **plan Dynamic App Service**, vous n’avez pas à vous soucier de la ge
 
 Un **plan Classic App Service** vous permet d’exécuter des fonctions comme vos applications API, mobile et web. Il s’agit d’une solution idéale si vous utilisez déjà App Service pour d’autres applications : vos fonctions peuvent être exécutées dans le cadre du même plan, sans coûts supplémentaires. Vous trouverez plus de détails sur la [page Tarification App Service](/pricing/details/app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+## Problèmes liés aux rapports
+
+[AZURE.INCLUDE [Problèmes liés aux rapports](../../includes/functions-reporting-issues.md)]
+
+<!---HONumber=AcomDC_0413_2016-->

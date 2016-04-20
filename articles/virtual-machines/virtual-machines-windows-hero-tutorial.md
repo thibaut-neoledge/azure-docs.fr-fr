@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer une machine virtuelle Windows dans le portail Azure | Microsoft Azure"
-	description="Découvrir comment créer une machine virtuelle Azure ou un ordinateur virtuel à l’aide d’Azure Marketplace dans le portail Azure"
+	description="Découvrir comment créer une machine virtuelle Azure ou un ordinateur virtuel à l’aide d’Azure Marketplace dans le portail Azure"
 	keywords="machine virtuelle Windows,créer une machine virtuelle,ordinateur virtuel,configuration d’une machine virtuelle"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -25,7 +25,7 @@
 - [Modèle](virtual-machines-windows-ps-template.md)
 
 
-Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure en quelques minutes dans le portail Azure. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure en quelques minutes dans le portail Azure. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]<br>
 
@@ -46,13 +46,13 @@ Voici une procédure pas à pas de ce didacticiel.
 
 1. Connectez-vous au portail Azure.
 
-2. Dans le menu Hub, cliquez sur **Nouveau** > **Calcul** > **Windows Server 2012 R2 Datacenter**.
+2. Dans le menu Hub, cliquez sur **Nouveau** > **Calcul** > **Windows Server 2012 R2 Datacenter**.
 
 	![Capture d’écran affichant les images de machines virtuelles Azure disponibles dans la version préliminaire du portail](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] Pour rechercher d’autres images, cliquez sur **Marketplace**, puis recherchez ou filtrez les éléments disponibles.
 
-3. Sur la page **Windows Server 2012 R2 Datacenter**, sous **Sélectionner un modèle de déploiement**, sélectionnez **Gestionnaire de ressources**. Cliquez sur **Create**.
+3. Sur la page **Windows Server 2012 R2 Datacenter**, sous **Sélectionner un modèle de déploiement**, sélectionnez **Gestionnaire de ressources**. Cliquez sur **Create**.
 
 	![Capture d’écran affichant le modèle de déploiement à sélectionner pour une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/marketplace_search_select.png)
 
@@ -64,7 +64,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 2. Entrez le **Nom** de votre choix pour la machine virtuelle. Ce nom ne doit pas contenir de caractères spéciaux.
 
-3. Entrez un **Nom d’utilisateur** d’administration et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+3. Entrez un **Nom d’utilisateur** d’administration et un **Mot de passe** fort. Le mot de passe doit compter 8 à 123 caractères et au moins 3 des types de caractères suivants : 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
 
 4. Si vous possédez plusieurs abonnements, indiquez celui associé à la nouvelle machine virtuelle ainsi qu’un **groupe de ressources** nouveau ou existant et l’**emplacement** d’un centre de données Azure.
 
@@ -75,7 +75,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 	![Capture d’écran affichant les tailles de machine virtuelle Azure que vous pouvez sélectionner](./media/virtual-machines-windows-hero-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE] Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 3. Cliquez sur **Paramètres** pour voir les paramètres de stockage et de mise en réseau pour la nouvelle machine virtuelle. Pour une première machine virtuelle, vous pouvez généralement accepter les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle qui le prend en charge, vous pouvez essayer Premium Storage en sélectionnant **Premium (SSD)** sous **Type de disque**.
 
@@ -117,4 +117,4 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 * Automatisez le déploiement et la gestion des machines virtuelles et des charges de travail à l’aide des [modèles d’Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Vous pouvez également [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) rapidement à l’aide de l’interface de ligne de commande Azure.
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -11,14 +11,18 @@
 	ms.service="na"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
 # Présentation du portail Microsoft Azure
 
-Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos ressources Azure. Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes : - Un **marketplace complet** permettant de parcourir des milliers d'articles de Microsoft et d'autres fournisseurs qui peuvent être achetés et/ou mis en service. - Une **expérience de navigation unifiée et évolutive** qui permet de trouver facilement les ressources qui vous intéressent et d'effectuer diverses opérations de gestion. - Des **pages de gestion cohérente** (ou panneaux) qui permettent de gérer de nombreux services Azure grâce à un affichage cohérent des paramètres, des actions, des informations de facturation, des données d'utilisation et d'analyse d'intégrité, et bien plus encore. -Une **expérience personnelle** qui vous permet de créer un écran d'accueil personnalisé avec les informations que vous voulez voir chaque fois que vous vous connectez. Vous pouvez également personnaliser n'importe quel panneau contenant des vignettes.
+Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos ressources Azure. Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes :
+- Un **marketplace complet** permettant de parcourir des milliers d’articles de Microsoft et d’autres fournisseurs qui peuvent être achetés et/ou mis en service.
+- Une **expérience de navigation unifiée et évolutive** qui permet de trouver facilement les ressources qui vous intéressent et d’effectuer diverses opérations de gestion.
+- Des **pages de gestion cohérente** (ou panneaux) qui permettent de gérer de nombreux services Azure grâce à un affichage cohérent des paramètres, des actions, des informations de facturation, des données d’utilisation et d’analyse d’intégrité, et bien plus encore.
+- Une **expérience personnelle** qui vous permet de créer un écran d’accueil personnalisé avec les informations que vous voulez voir chaque fois que vous vous connectez. Vous pouvez également personnaliser n'importe quel panneau contenant des vignettes.
 
  ![Navigation au sein de l'interface utilisateur du portail Azure][UIOrientation]
 
@@ -47,7 +51,7 @@ Vous pouvez épingler à votre tableau d'accueil les ressources que vous utilise
 
 ## Comment gérer une ressource et déléguer son accès
 
-Depuis ce panneau, vous pouvez vous connecter à la machine virtuelle à l'aide du Bureau à distance, surveiller les mesures de performances clés, contrôler l'accès à la machine virtuelle à l'aide du contrôle d'accès en fonction du rôle (RBAC), configurer la machine virtuelle et effectuer d'autres tâches de gestion importantes. La délégation de l'accès basé sur le rôle est essentielle à la gestion à grande échelle. Cliquez [ici](role-based-access-control-configure.md) pour en savoir plus à ce sujet. Pour déléguer l'accès à une ressource, effectuez les actions suivantes :
+Depuis ce panneau, vous pouvez vous connecter à la machine virtuelle à l'aide du Bureau à distance, surveiller les mesures de performances clés, contrôler l'accès à la machine virtuelle à l'aide du contrôle d'accès en fonction du rôle (RBAC), configurer la machine virtuelle et effectuer d'autres tâches de gestion importantes. La délégation de l'accès basé sur le rôle est essentielle à la gestion à grande échelle. Cliquez [ici](./active-directory/role-based-access-control-configure.md) pour en savoir plus à ce sujet. Pour déléguer l'accès à une ressource, effectuez les actions suivantes :
 
 1.	Accédez à votre ressource.
 2.	Cliquez sur Tous les paramètres dans la section Essentials.
@@ -76,7 +80,14 @@ Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte 
 
 ## Résumé
 
-Passons en revue ce que vous avez appris dans ce didacticiel :- Vous avez vu comment vous inscrire, comment obtenir un abonnement et accéder au portail. - Vous avez vu comment naviguer dans le portail et comment créer et parcourir des ressources. - Vous avez vu comment créer une ressource et parcourir les ressources existantes. - Vous avez vu la structure et la gestion des panneaux et comment gérer de façon cohérente les différents types de ressources. - Vous avez vu comment personnaliser le portail pour afficher les informations qui vous intéressent. - Vous avez vu comment contrôler l'accès aux ressources à l'aide du contrôle d'accès en fonction du rôle (RBAC). - Vous avez vu comment obtenir de l'aide.
+Passons en revue ce que vous avez appris dans ce didacticiel :
+- Vous avez appris comment vous inscrire, obtenir un abonnement et accéder au portail
+- Vous vous êtes familiarisé avec l’interface utilisateur du portail et vous avez appris à créer des ressources et à les parcourir
+- Vous avez appris à créer une ressource et à parcourir les ressources
+- Vous avez découvert la structure ou les panneaux de gestion et comment gérer de façon cohérente différents types de ressources
+- Vous avez appris à personnaliser le portail pour afficher les informations importantes au premier plan
+- Vous avez appris à contrôler l’accès aux ressources à l’aide de l’accès en fonction du rôle (RBAC)
+- Vous avez appris comment obtenir de l’aide et un support
 
 Le portail Microsoft Azure simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](https://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](https://feedback.azure.com/forums/223579-azure-preview-portal/) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
 
@@ -87,4 +98,4 @@ Le portail Microsoft Azure simplifie grandement la création et la gestion de vo
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

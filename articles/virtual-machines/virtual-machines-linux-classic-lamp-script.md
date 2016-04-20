@@ -24,21 +24,21 @@
 
 L’extension CustomScript Microsoft Azure pour Linux vous permet de personnaliser vos machines virtuelles en exécutant du code arbitraire écrit dans n’importe quel langage de script pris en charge par la machine virtuelle (par exemple Python et Bash). Cela fournit un moyen très souple pour automatiser le déploiement d'application sur plusieurs machines.
 
-Vous pouvez déployer l'extension CustomScript à l'aide du portail Azure Classic, de Windows PowerShell ou de l'interface de ligne de commande Azure.
+Vous pouvez déployer l'extension CustomScript à l'aide du portail Azure Classic, de Windows PowerShell ou de l'interface de ligne de commande Azure.
 
 Dans cet article, nous allons utiliser l’interface de ligne de commande Azure pour déployer une machine virtuelle Ubuntu créée à l’aide du modèle de déploiement classique.
 
 ## Composants requis
 
-Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure exécutant Ubuntu 14.04 ou version ultérieure. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
+Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure exécutant Ubuntu 14.04 ou version ultérieure. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
 
-Vous avez également besoin d'un compte Azure Storage et d'une clé pour accéder à celui-ci (vous pouvez l'obtenir sur le portail Azure Classic).
+Vous avez également besoin d'un compte Azure Storage et d'une clé pour accéder à celui-ci (vous pouvez l'obtenir sur le portail Azure Classic).
 
-Si vous avez besoin d’aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-cli-create.md).
+Si vous avez besoin d’aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-classic-createportal.md).
 
 Les commandes d’installation sont adaptées pour Ubuntu, mais vous pouvez adapter l’installation à n’importe quelle distribution Linux prise en charge.
 
-La machine virtuelle script-vm doit disposer de l’interface de ligne de commande Azure, ainsi que d’une connexion opérationnelle à Azure. Pour obtenir de l’aide à ce sujet, reportez-vous à [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+La machine virtuelle script-vm doit disposer de l’interface de ligne de commande Azure, ainsi que d’une connexion opérationnelle à Azure. Pour obtenir de l’aide à ce sujet, reportez-vous à [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
 
 ## Télécharger un script
 
@@ -68,11 +68,11 @@ L’exemple de script installe une pile LAMP sur Ubuntu (y compris la configurat
 
 ### Télécharger le script
 
-Enregistrez le script dans un fichier texte, par exemple *lamp\_install.sh*, puis chargez-le dans Azure Storage. Vous pouvez le faire facilement avec l’interface de ligne de commande Microsoft Azure. L'exemple suivant télécharge le fichier dans un conteneur de stockage nommé « scripts ». Si le conteneur n'existe pas, vous devez d'abord le créer.
+Enregistrez le script dans un fichier texte, par exemple *lamp\_install.sh*, puis chargez-le dans Azure Storage. Vous pouvez le faire facilement avec l’interface de ligne de commande Microsoft Azure. L'exemple suivant télécharge le fichier dans un conteneur de stockage nommé « scripts ». Si le conteneur n'existe pas, vous devez d'abord le créer.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Créez également un fichier JSON qui décrit comment télécharger le script à partir d’Azure Storage. Enregistrez-le sous la forme *public\_config.json* (en remplaçant « mystorage » par le nom de votre compte de stockage) :
+Créez également un fichier JSON qui décrit comment télécharger le script à partir d’Azure Storage. Enregistrez-le sous la forme *public\_config.json* (en remplaçant « mystorage » par le nom de votre compte de stockage) :
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -108,6 +108,6 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 
 [Extensions Linux Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
+[Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

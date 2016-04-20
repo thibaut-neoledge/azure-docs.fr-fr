@@ -146,14 +146,15 @@ Le résultat de cette requête affiche le nombre de lignes de la table stockées
 Pour en savoir plus, consultez la page [Conception de table][].
 
 ## Étapes suivantes
-Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page Vue d’ensemble de référence. Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
 [Conception de table]: sql-data-warehouse-develop-table-design.md
-[reference overview]: sql-data-warehouse-overview-reference.md
+[Vue d’ensemble de référence]: sql-data-warehouse-overview-reference.md
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -165,3 +166,4 @@ Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DM
 <!--MSDN references-->
 
 <!---HONumber=AcomDC_0330_2016-->
+

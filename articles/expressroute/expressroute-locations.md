@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/06/2016"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -29,7 +29,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une un
 
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|
-|**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Toronto|
+|**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Toronto|
 |**Amérique du Sud**|Sud du Brésil|São Paulo|
 |**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Dublin, Londres|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
@@ -89,13 +89,13 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
 #### Cloud du gouvernement des États-Unis
 
-| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
+| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Chicago, New York+, Washington DC |
@@ -104,14 +104,14 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 #### Chine
 
-| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
+| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **China Telecom** | Pris en charge | Non pris en charge | Pékin, Shanghai +|
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
 
 #### Allemagne
 
-| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
+| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Bientôt disponible | Non pris en charge | Berlin+, Francfort+|
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Bientôt disponible | Non pris en charge | Francfort+|
@@ -134,7 +134,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 - Commandez un circuit ExpressRoute avec échange en tant que fournisseur de connectivité pour se connecter à Microsoft.
 	- Pour définir la connectivité, procédez de la manière décrite dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md).
 
-|**Fournisseur de connectivité**|**Microsoft Exchange**|**Emplacements d’homologation**|
+|**Fournisseur de connectivité**|**Microsoft Exchange**|**Emplacements d’homologation**|
 |---|---|---|
 |**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
@@ -145,7 +145,8 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 |**Intégrateur système**|**Continent**|
 |---|---|
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe|
+|**[Avanade Inc.](http://www.avanade.com/)**| Asie, Europe, États-Unis |
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europe |
 |**[Nimbo](http://www.nimbo.com/)**|FR||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
 |**[Efficacité](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
@@ -156,4 +157,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

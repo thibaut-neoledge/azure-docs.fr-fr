@@ -44,7 +44,7 @@ Les activités du tableau suivant sont utilisées pour accéder aux certificats 
 
 ## Création d’un certificat
 
-Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook ou la configuration DSC.
+Lorsque vous créez un certificat, vous téléchargez un fichier .cer ou .pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook ou la configuration DSC.
 
 ### Pour créer un certificat avec le portail Azure Classic
 

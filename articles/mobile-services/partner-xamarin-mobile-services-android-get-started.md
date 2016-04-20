@@ -28,17 +28,17 @@ Ce didacticiel vous montre comment ajouter un service principal cloud à une app
 
 Si vous préférez regarder une vidéo, sachez que celle ci-dessous suit la même procédure que ce didacticiel.
 
-Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig Dunn, évangéliste du développement pour Xamarin (durée : 10:05 min)
+Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig Dunn, évangéliste du développement pour Xamarin (durée : 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d'écran de l'application terminée :
 
 ![][0]
 
-Pour suivre ce didacticiel, vous avez besoin de [Xamarin.Android], qui installe Xamarin Studio et un plug-in Visual Studio (sous Windows), ainsi que la dernière plateforme Android. Le Kit de développement logiciel (SDK) Android 4.2 ou une version ultérieure est nécessaire.
+Ce didacticiel nécessite XCode et Xamarin Studio pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. Pour obtenir des instructions complètes sur l’installation, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-Le projet de démarrage rapide téléchargé contient le composant Azure Mobile Services pour Xamarin.Android. Alors que ce projet cible Android 4.2 ou une version ultérieure, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
+Le projet de démarrage rapide téléchargé contient le composant Azure Mobile Services pour Xamarin.Android. Alors que ce projet cible Android 4.2 ou une version ultérieure, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
 > [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
 
@@ -98,7 +98,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 	![][12]
 
 ## <a name="next-steps"> </a>Étapes suivantes
-Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
+Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de la synchronisation des données hors connexion] Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l’application réactive et robuste.
 
@@ -137,9 +137,8 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-xamarin-android-get-started-offline-data.md
 [Prise en main de l’authentification]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

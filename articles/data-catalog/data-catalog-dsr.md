@@ -1,6 +1,6 @@
 <properties
    pageTitle="Sources de données prises en charge par Azure Data Catalog | Microsoft Azure"
-   description="Spécification des sources de données actuellement prises en charge."
+   description="Cet article répertorie l’ensemble des sources de données et des types de ressources de données pris en charge pour l’inscription dans Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,23 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Sources de données prises en charge par Azure Data Catalog
 
-Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l’aide d’une API publique, en utilisant un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail Web de Data Catalog. Le tableau ci-dessous résume toutes les sources actuellement prises en charge par le catalogue ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source peut initier à partir du portail. Le deuxième tableau ci-dessous spécifie les propriétés de connexion de chaque source de données sous un angle plus technique.
+Les utilisateurs d’**Azure Data Catalog** peuvent publier des métadonnées à l’aide d’une API publique, en utilisant un outil de référencement de source de données ClickOnce, ou en entrant manuellement les informations directement dans le portail web Data Catalog.
+
+Le tableau ci-dessous récapitule toutes les sources actuellement prises en charge par Data Catalog, ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source peut lancer à partir du portail Data Catalog.
+
+Plus bas, un deuxième tableau fournit une spécification plus technique des propriétés de connexion de chaque source de données, ainsi que la spécification de référence de source de données (DSR) utilisée pour chaque ressource de données prise en charge lors de l’utilisation de l’API Data Catalog.
 
 
-## Liste des sources de données prises en charge
+## Liste des sources de données et des ressources prises en charge
 
 <table>
 
     <tr>
-       <td><b>Objet de la source de données</b></td>
+       <td><b>Ressource de données</b></td>
        <td><b>API</b></td>
        <td><b>Saisie manuelle</b></td>
-       <td><b>Outil d’inscription</b></td>
+       <td><b>Outil de référencement</b></td>
        <td><b>Outils d’ouverture intégrés</b></td>
        <td><b>Remarques</b></td>
     </tr>
@@ -398,7 +402,8 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
 
 
 <br> <br>
-## Spécification de référence de la source de données
+
+## Spécification de référence de source de données
 
 <table>
     <tr>
@@ -517,7 +522,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Conteneur</td>
       <td>Base de données</td>
       <td>N/A</td>
@@ -531,7 +536,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Table</td>
       <td>Table</td>
       <td>Base de données</td>
@@ -547,7 +552,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Table</td>
       <td>Affichage</td>
       <td>Base de données</td>
@@ -1284,4 +1289,4 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
 
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

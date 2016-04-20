@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Gérer et dimensionner un pool de base de données élastique avec C&#x23;
@@ -22,13 +22,14 @@
 - [Portail Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-Découvrez comment gérer un [pool de bases de données élastique](sql-database-elastic-pool.md) à l’aide de C#.
+Découvrez comment gérer un [pool de bases de données élastique](sql-database-elastic-pool.md) à l’aide de C&#x23;.
 
 Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
 Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), vous devez installer cette dernière. Vous pouvez l’installer en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
@@ -113,7 +114,7 @@ Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](h
 
 ## Répertorier toutes les bases de données dans un pool
 
-L'exemple suivant répertorie toutes les bases de données dans un pool :
+L'exemple suivant répertorie toutes les bases de données dans un pool :
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -457,4 +458,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

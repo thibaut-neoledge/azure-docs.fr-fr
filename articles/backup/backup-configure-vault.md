@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Sauvegarder un client Windows ou un serveur Windows Server dans Azure | Microsoft Azure"
-	description="Sauvegardez des serveurs Windows Server ou des clients Windows sur Azure en créant un coffre de sauvegarde, en téléchargeant des informations d’identification, en installant l’agent de sauvegarde et en effectuant une sauvegarde initiale de vos fichiers et dossiers."
+	pageTitle="Sauvegarder un serveur ou client Windows sur Azure | Microsoft Azure"
+	description="Sauvegardez des serveurs ou clients Windows sur Azure en créant un coffre de sauvegarde, en téléchargeant des informations d’identification, en installant l’agent de sauvegarde et en effectuant une sauvegarde initiale de vos fichiers et dossiers."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""
-	keywords="coffre de sauvegarde; sauvegarde un serveur Windows Server; sauvegarder windows;"/>
+	keywords="coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;"/>
 
 <tags
 	ms.service="backup"
@@ -18,202 +18,196 @@
 	ms.author="jimpark; trinadhk; markgal"/>
 
 
-# Sauvegarder un client Windows ou un serveur Windows Server dans Azure
-Cet article vous présente les procédures à exécuter pour préparer votre environnement et sauvegarder un serveur Windows Server (ou un client) sur Azure. Il aborde également les considérations de déploiement de votre solution de sauvegarde. Si vous souhaitez essayer Azure Backup pour la première fois, [cet article](backup-configure-vault.md) vous présente le processus.
+# Sauvegarder un serveur ou client Windows sur Azure
+Cet article vous présente les procédures à exécuter pour préparer votre environnement et sauvegarder un serveur (ou un client) Windows sur Azure. Il aborde également les considérations de déploiement de votre solution de sauvegarde. Si vous souhaitez essayer Azure Backup pour la première fois, cet article vous présente le processus.
 
 ![Créer le coffre](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Avant de commencer
-Pour sauvegarder un serveur Windows Server ou un client Windows sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
+Pour sauvegarder un serveur ou un client sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
 ## Étape 1 : Créer un coffre de sauvegarde
-Pour sauvegarder des fichiers et des dossiers d’un serveur ou d’un client Windows, vous devez créer un coffre de sauvegarde dans la région géographique où vous souhaitez stocker les données.
+Pour sauvegarder des fichiers et des dossiers d’un serveur ou d’un client, vous devez créer un coffre de sauvegarde dans la région géographique où vous souhaitez stocker les données.
 
-### Pour créer un coffre de sauvegarde
+### Pour créer un archivage de sauvegarde
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
 
-2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Coffre de sauvegarde**, puis sélectionnez **Création rapide**.
+2. Cliquez sur **Nouveau** > **Services de données** > **Services de récupération** > **Coffre de sauvegarde**, puis sélectionnez **Création rapide**.
 
-3. Pour le paramètre **Nom**, entrez un nom convivial permettant d’identifier l’archivage de sauvegarde. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union. Cette opération doit être unique pour chaque abonnement.
+3. Pour le paramètre **Nom**, entrez un nom convivial pour le coffre de sauvegarde. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union. Ce nom doit être unique pour chaque abonnement.
 
-    Pour le paramètre **Région**, sélectionnez la région géographique de l’archivage de sauvegarde. Le choix définit la région géographique où vos données de sauvegarde sont envoyées. En choisissant une région proche de votre emplacement, vous pouvez réduire la latence du réseau lors de la sauvegarde dans Azure.
+4. Pour le paramètre **Région**, sélectionnez la région géographique de l’archivage de sauvegarde. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées. En choisissant une région proche de votre emplacement, vous pouvez réduire la latence du réseau lors de la sauvegarde sur Azure.
 
-    Cliquez sur **Create vault**.
+5. Cliquez sur **Create vault**.
 
-    ![Créer le coffre](./media/backup-configure-vault/demo-vault-name.png)
+    ![Créer un coffre de sauvegarde](./media/backup-configure-vault/demo-vault-name.png)
 
-    La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, vous pouvez contrôler les notifications au bas du portail.
+    La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, contrôlez les notifications au bas du portail.
 
-    Une fois l’opération terminée, un message vous indique que l’archivage a bien été créé. Le coffre est également répertorié dans les ressources Recovery Services en tant que **Actif**.
+    Une fois l’opération terminée, un message vous indique que le coffre a bien été créé. Il est également indiqué comme **Actif** dans la liste de ressources **Recovery Services**.
 
-    ![Création d’un état de l’archivage](./media/backup-configure-vault/recovery-services-select-vault.png)
+    ![Création d’un état du coffre](./media/backup-configure-vault/recovery-services-select-vault.png)
 
-4. Sélection l’option de **redondance de stockage**.
+4. Sélectionnez l’option de redondance de stockage en suivant les étapes décrites ici.
 
-    >[AZURE.IMPORTANT] Nous vous recommandons d’identifier votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’une machine dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
+    >[AZURE.IMPORTANT] Nous vous recommandons d’identifier votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’une machine dans l’archivage. Une fois qu’un élément a été inscrit dans le coffre, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
 
-    Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de [stockage géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) (par défaut).
+    Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données sur Azure à partir d’un serveur Windows), choisissez l’option de [stockage géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) (par défaut).
 
-    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
+    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez System Center Data Protection Manager pour stocker une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
 
     **Pour sélectionner l’option de redondance de stockage :**
 
     a. Cliquez sur le coffre que vous venez de créer.
 
-    b. Dans la page **Démarrage rapide**, cliquez sur **Configurer**.
+    b. Dans la page Démarrage rapide, cliquez sur **Configurer**.
 
     ![Configurer l’état du coffre](./media/backup-configure-vault/configure-vault.png)
 
     c. Choisissez l’option de redondance de stockage appropriée.
 
-    Vous devez cliquer sur **Enregistrer** si vous avez sélectionné **Localement redondant**, car **Géo-redondant** est l’option par défaut.
+    Si vous sélectionnez **Localement redondant**, vous devez cliquer sur **Enregistrer** (car **Géo-redondant** est l’option par défaut).
 
-    d. Dans le volet de navigation gauche, cliquez sur **Recovery Services** pour revenir à la liste des ressources pour **Recovery Services**.
+    d. Dans le volet de navigation gauche, cliquez sur **Recovery Services** pour revenir à la liste des ressources pour Recovery Services.
 
-## Étape 2 : Télécharger le fichier d’informations d’identification de coffre
-L’ordinateur local (client Windows ou Windows Server) doit être authentifié avec un coffre de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des *informations d’identification du coffre*. Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure. Le service Azure Backup n’a pas connaissance de la clé privée du certificat et cette dernière n’est pas conservée dans le portail ou le service.
+## Étape 2 : Télécharger le fichier d’informations d’identification de coffre
+L’ordinateur local doit être authentifié avec un coffre de sauvegarde avant de pouvoir sauvegarder des données sur Azure. L’authentification s’effectue à l’aide des *informations d’identification du coffre*. Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure. La clé privée du certificat n’est pas conservée dans le portail ou le service.
 
-En savoir plus sur l’[utilisation des informations d’identification de coffre pour s’authentifier auprès du service Azure Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
+En savoir plus sur l’[utilisation des informations d’identification de coffre pour s’authentifier auprès du service Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### Pour télécharger les informations d’identification de coffre sur un ordinateur local
 
-1. Cliquez sur **Recovery Services** dans le volet de navigation gauche et sélectionnez le coffre de sauvegarde que vous avez créé.
+1. Dans le volet de navigation gauche, cliquez sur **Recovery Services** et sélectionnez le coffre de sauvegarde que vous avez créé.
 
     ![RI terminé](./media/backup-configure-vault/rs-left-nav.png)
 
-2.  Dans la page de **démarrage rapide**, cliquez sur **Télécharger les informations d’identification du coffre**.
+2.  Dans la page de démarrage rapide, cliquez sur **Télécharger les informations d’identification du coffre**.
 
-    Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Le fichier d’informations d’identification de coffre est utilisé uniquement pendant le flux de travail d’inscription et expire au bout de 48 heures.
+    Le portail génère une information d’identification de coffre en associant le nom du coffre à la date du jour. Le fichier d’informations d’identification du coffre est utilisé uniquement pendant le processus d’inscription et expire au bout de 48 heures.
 
     Le fichier d’informations d’identification de coffre peut être téléchargé à partir du portail.
 
-3. Cliquez sur **Save** pour télécharger les informations d'identification de coffre vers les dossier de téléchargements du compte local, ou sélectionnez **Save As** à partir du menu **Save** pour spécifier un emplacement pour les informations d'identification de coffre.
+3. Cliquez sur **Enregistrer** pour télécharger le fichier d’informations d’identification de coffre dans le dossier Téléchargements du compte local. Vous pouvez également sélectionner l’option **Enregistrer sous** à partir du menu **Enregistrer** pour spécifier un emplacement pour le fichier d’informations d’identification de coffre.
 
-    >[AZURE.NOTE] Vérifiez que le fichier des informations d’identification de coffre est enregistré dans un emplacement accessible à partir de votre ordinateur. Si elles sont stockées dans un partage de fichiers/SMB, vérifiez les autorisations d’accès.
+    >[AZURE.NOTE] Vérifiez que le fichier des informations d’identification de coffre est enregistré dans un emplacement accessible à partir de votre ordinateur. S’il est stocké dans un partage de fichiers ou un bloc de message serveur, vérifiez que vous disposez des autorisations pour y accéder.
 
-## Étape 3 : Télécharger, installer et inscrire l’agent Azure Backup
-Après avoir créé le coffre Azure Backup et téléchargé les informations d’identification associées, vous devez installer un agent sur chacune des machines Windows (Windows Server ou client Windows).
+## Étape 3 : Télécharger, installer et inscrire l’agent Backup
+Après avoir créé le coffre de sauvegarde et téléchargé le fichier d’informations d’identification de coffre, vous devez installer un agent sur chacun de vos ordinateurs Windows.
 
 ### Pour télécharger, installer et inscrire l’agent
 
-1. Cliquez sur **Recovery Services**, puis sélectionnez le coffre de sauvegarde que vous souhaitez enregistrer avec un serveur.
+1. Cliquez sur **Recovery Services**, puis sélectionnez le coffre de sauvegarde à inscrire auprès d’un serveur.
 
-2. Dans la page de démarrage rapide, cliquez sur **Agent pour Windows Server ou System Center Data Protection Manager ou Windows Client > Enregistrer**.
+2. Sur la page de démarrage rapide, cliquez sur **Agent pour Windows Server ou System Center Data Protection Manager ou Windows Client**. Cliquez ensuite sur **Enregistrer**.
 
     ![Enregistrer l’agent](./media/backup-configure-vault/agent.png)
 
-3. Une fois le téléchargement de *MARSagentinstaller.exe* terminé, cliquez sur **Exécuter** (ou double-cliquez sur **MARSAgentInstaller.exe** dans l’emplacement d’enregistrement).
+3. Une fois le téléchargement de MARSagentinstaller.exe terminé, cliquez sur **Exécuter** (ou double-cliquez sur **MARSAgentInstaller.exe** dans l’emplacement d’enregistrement).
 
-4. 	Choisissez le *dossier d’installation* et le *dossier de cache* requis pour l’agent, puis cliquez sur **Suivant**.
+4. Choisissez le dossier d’installation et le dossier de cache requis pour l’agent, puis cliquez sur **Suivant**. L’emplacement de cache spécifié doit présenter un espace libre au moins égal à 5 % du volume des données de sauvegarde.
 
-    L’emplacement de cache spécifié doit présenter un espace libre au moins égal à 5 % du volume des données de sauvegarde.
+5. Vous pouvez continuer à vous connecter à Internet avec les paramètres du proxy par défaut. Si vous utilisez un serveur proxy pour vous connecter à Internet, sur la page Configuration du proxy, sélectionnez **Utiliser les paramètres du proxy personnalisés** et entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe, puis cliquez sur **Suivant**.
 
-5. Vous pouvez continuer à vous connecter à Internet via les paramètres du proxy par défaut, ou si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy**, cochez la case **Utiliser les paramètres du proxy personnalisés** et saisissez les détails du serveur proxy.
+7. Cliquez sur **Installer** pour lancer le processus d’installation de l’agent. L’agent Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà installé) pour terminer l’installation.
 
-    Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe.
+8. Une fois l’agent installé, cliquez sur **Procéder à l’enregistrement** pour poursuivre le flux de travail.
 
-    Cliquez sur **Next**.
+9. Sur la page Identification du coffre, recherchez et sélectionnez le fichier d’informations d’identification de coffre téléchargé précédemment.
 
-6. Cliquez sur **Installer** pour lancer le processus d’installation de l’agent.
+    Le fichier d’informations d’identification de coffre est uniquement valide pendant 48 heures à partir de son téléchargement depuis le portail. Si vous rencontrez une erreur sur cette page (par exemple, « Le fichier d’informations d’identification de coffre fourni a expiré »), connectez-vous au portail et retéléchargez le fichier d’informations d’identification de coffre.
 
-    L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà installé) pour terminer l’installation.
+    Assurez-vous que le fichier d’informations d’identification de coffre se trouve à un emplacement accessible par le programme d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification de coffre dans un emplacement temporaire sur le même ordinateur et recommencez l’opération.
 
-7. Une fois l’agent installé, cliquez sur **Procéder à l’enregistrement** pour poursuivre le flux de travail.
+    Si vous rencontrez une erreur d’informations d’identification de coffre (par exemple, « Les informations d’identification de coffre fournies ne sont pas valides »), cela signifie que le fichier est endommagé ou qu’il ne possède pas les dernières informations d’identification associées au service de récupération. Recommencez l’opération après avoir téléchargé un nouveau fichier d’informations d’identification de coffre à partir du portail. Cette erreur peut également se produire si l’utilisateur clique sur l’option **Télécharger les informations d’identification du coffre** coup sur coup. Dans ce cas, seul le dernier fichier d’informations d’identification du coffre est valide.
 
-8. Dans l’écran **Identification du coffre**, recherchez et sélectionnez le *fichier d’informations d’identification du coffre* téléchargé précédemment.
+9. Sur la page Paramètre de chiffrement, vous pouvez générer ou fournir une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
 
-    Le fichier d’informations d’identification du coffre est uniquement valide pendant 48 heures (à partir de son téléchargement depuis le portail). Si vous rencontrez une erreur dans cet écran (par exemple, « Le fichier d’informations d’identification de coffre fourni a expiré »), connectez-vous au portail Azure et téléchargez de nouveau le fichier d’informations d’identification du coffre.
+10. Cliquez sur **Terminer**. L’Assistant Inscrire un serveur inscrit le serveur auprès d’Azure Backup.
 
-    Assurez-vous que le fichier d’informations d’identification du coffre se trouve dans un emplacement accessible par le programme d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
 
-    Si vous rencontrez une erreur d’informations d’identification de coffre non valides (par exemple, « Les informations d’identification de coffre fournies ne sont pas valides »), cela signifie que le fichier est endommagé ou qu’il ne possède pas les dernières informations d’identification associées au service de récupération. Recommencez l’opération après avoir téléchargé un nouveau fichier d’informations d’identification de coffre à partir du portail. Cette erreur se produit généralement si l’utilisateur clique sur l’option *Télécharger les informations d’identification du coffre* coup sur coup. Dans ce cas, seul le dernier fichier d’informations d’identification du coffre est valide.
+    > [AZURE.WARNING] En cas de perte ou d’oubli de la phrase secrète, Microsoft ne pourra pas vous aider à récupérer les données de sauvegarde. Vous êtes seul détenteur de la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette dernière. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pour les opérations de récupération.
 
-9. Sur l’écran **Paramètre de chiffrement**, vous pouvez *générer* ou *fournir* une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
-
-    Cliquez sur **Terminer**.
-
-    > [AZURE.WARNING] Si la phrase secrète est perdue ou oubliée, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde. L’utilisateur final détient la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette dernière. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pour les opérations de récupération.
-
-    L’**Assistant d’enregistrement du serveur** inscrit le serveur auprès de Microsoft Azure Backup.
-
-10. Une fois la **clé de chiffrement** définie, laissez la case **Démarrer Microsoft Azure Recovery Services Agent** cochée et cliquez sur **Fermer**.
+11. Une fois la clé de chiffrement définie, laissez la case **Démarrer Microsoft Azure Recovery Services Agent** cochée, puis cliquez sur **Fermer**.
 
 ## Étape 4 : Exécuter la sauvegarde initiale
 
-La sauvegarde initiale est composée de ces deux tâches : **établissement de la planification de sauvegarde** et **sauvegarde des fichiers et des dossiers pour la première fois**. Une fois la sauvegarde initiale effectuée, en fonction de la planification définie, la stratégie de sauvegarde crée des points de sauvegarde à utiliser lorsque vous souhaitez récupérer les données.
+La sauvegarde initiale comprend deux tâches principales :
 
-### Planifier la sauvegarde
+- Création de la planification de sauvegarde
+- Première sauvegarde des fichiers et dossiers
 
-1. Ouvrez l’**agent Microsoft Azure Backup** (il s’ouvre automatiquement si vous avez laissé la case **Démarrer Microsoft Azure Recovery Services Agent** cochée lors de la fermeture de l’**Assistant d’enregistrement du serveur**, sinon recherchez *Microsoft Azure Backup* dans votre ordinateur).
+Après avoir réalisé la sauvegarde initiale, la stratégie de sauvegarde crée des points de sauvegarde que vous pouvez utiliser si vous avez besoin de récupérer les données. Pour cela, la stratégie de sauvegarde suit la planification que vous définissez.
 
-    ![Planifier une sauvegarde de Windows Server](./media/backup-configure-vault/snap-in-search.png)
+### Pour planifier la sauvegarde
 
-2. Dans l’**agent Microsoft Azure Backup **, cliquez sur **Planifier la sauvegarde**.
+1. Ouvrez l’agent Microsoft Azure Backup. (Il s’ouvre automatiquement si vous avez laissé la case **Démarrer Microsoft Azure Recovery Services Agent** cochée à la fermeture de l’Assistant Inscrire un serveur.) Vous pouvez le trouver en recherchant **Microsoft Azure Backup** sur votre ordinateur.
+
+    ![Démarrer l’agent Azure Backup](./media/backup-configure-vault/snap-in-search.png)
+
+2. Dans l’agent Backup, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-configure-vault/schedule-backup-close.png)
 
-3. Dans l’écran ** Assistant Planifier la sauvegarde Prise en main**, cliquez sur **Suivant**.
+3. Sur la page Prise en main de l’Assistant Planifier la sauvegarde, cliquez sur **Suivant**.
 
-4. Dans l’écran **Sélectionner les éléments à sauvegarder**, cliquez sur **Ajouter des éléments**.
+4. Sur la page Sélectionner les éléments à sauvegarder, cliquez sur **Ajouter des éléments**.
 
 5. Sélectionnez les fichiers et les dossiers que vous souhaitez sauvegarder, puis cliquez sur **OK**.
 
 6. Cliquez sur **Next**.
 
-7. Sur l’écran **Spécifier la planification de sauvegarde**, spécifiez la **planification de sauvegarde**, puis cliquez sur **Suivant**.
+7. Sur la page **Spécifier la planification de sauvegarde**, spécifiez la **planification de sauvegarde**, puis cliquez sur **Suivant**.
 
     Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
 
     ![Éléments de sauvegarde de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] La définition de la planification de sauvegarde est décrite en détail dans cet [article](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Pour plus d’informations sur la spécification de la planification de sauvegarde, consultez l’article [Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 
-8. Dans l’écran **Sélectionnez une stratégie de rétention**, sélectionnez la **Stratégie de rétention** pour la copie de sauvegarde.
+8. Sur la page **Sélectionner une stratégie de rétention**, sélectionnez la **Stratégie de rétention** pour la copie de sauvegarde.
 
     La stratégie de rétention spécifie la durée de stockage de la sauvegarde. Au lieu de simplement spécifier une même stratégie pour tous les points de sauvegarde, vous pouvez spécifier différentes stratégies de rétention en fonction du moment où est effectuée la sauvegarde. Vous pouvez modifier les stratégies de rétention quotidiennes, hebdomadaires, mensuelles et annuelles pour répondre à vos besoins.
 
-     Cliquez sur **Next**.
+9. Sur la page Choisir un type de sauvegarde initiale, sélectionnez le type de sauvegarde initiale. Laissez l’option **Automatiquement sur le réseau** sélectionnée, puis cliquez sur **Suivant**.
 
-9. Sur l’écran **Choisir un type de sauvegarde initiale**, sélectionnez le type de sauvegarde initiale**.
+    Vous pouvez effectuer des sauvegardes automatiques sur le réseau ou vous pouvez sauvegarder en mode hors connexion. Le reste de cet article décrit le processus de sauvegarde automatique. Si vous préférez effectuer une sauvegarde en mode hors connexion, lisez l’article [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md) pour plus d’informations.
 
-    Vous pouvez effectuer des sauvegardes automatiques sur le réseau ou vous pouvez sauvegarder en mode hors connexion. Le reste de cet article décrit le processus de sauvegarde automatique. Si vous préférez effectuer une sauvegarde en mode hors connexion, lisez cet article pour en savoir plus sur le [flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
+10. Sur la page Confirmation, passez en revue les informations, puis cliquez sur **Terminer**.
 
-    Laissez l’option **Automatiquement sur le réseau** sélectionnée, puis cliquez sur **Suivant**.
-
-10. Dans l’écran **Confirmation**, passez en revue les informations, puis cliquez sur **Terminer**.
-
-11. Dès que l’Assistant a terminé la création de la **planification de sauvegarde**, cliquez sur **Fermer**.
+11. Lorsque l’Assistant a terminé la création de la planification de sauvegarde, cliquez sur **Fermer**.
 
 ### Activer la limitation du réseau (facultatif)
 
-L’agent Azure Backup prend en charge la limitation du réseau. La limitation contrôle l’utilisation de la bande passante réseau durant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
+L’agent Backup prend en charge la limitation du réseau. La limitation contrôle l’utilisation de la bande passante réseau durant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation s’applique aux activités de sauvegarde et de restauration.
 
-1. Dans **Backup Agent**, cliquez sur **Modifier les propriétés**.
+**Pour activer la limitation du réseau**
+
+1. Dans l’agent Backup, cliquez sur **Modifier les propriétés**.
 
     ![Modifier les propriétés](./media/backup-configure-vault/change-properties.png)
 
-2. Sur l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**.
+2. Dans l’onglet **Limitation**, activez la case à cocher **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**.
 
     ![Limitation du réseau](./media/backup-configure-vault/throttling-dialog.png)
 
 3. Une fois que vous avez activé la limitation, spécifiez la bande passante autorisée pour le transfert des données de sauvegarde durant les **Heures de travail** et les **Heures chômées**.
 
-    Les valeurs de bande passante, qui démarrent à 512 kilo-octets par seconde, peuvent aller jusqu’à 1 023 mégaoctets par seconde. Vous pouvez également définir le début et la fin des **Heures de travail**, et identifier les jours de la semaine considérés comme des jours de travail. Les intervalles de temps situés en dehors des heures de travail sont considérés comme des périodes (heures) chômées.
+    Les valeurs de bande passante, qui démarrent à 512 kilo-octets par seconde, peuvent aller jusqu’à 1,023 mégaoctets par seconde. Vous pouvez également définir le début et la fin des **Heures de travail** et identifier les jours de la semaine considérés comme des jours de travail. Les heures non comprises dans les heures de travail définies sont considérées comme des heures chômées.
 
 4. Cliquez sur **OK**.
 
-### Sauvegarder maintenant
+### Pour procéder à la sauvegarde
 
-1. Dans **Backup Agent**, cliquez sur **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
+1. Dans l’agent Backup, cliquez sur **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
 
     ![Sauvegarder Windows Server maintenant](./media/backup-configure-vault/backup-now.png)
 
-2. Dans l’écran **Confirmation**, vérifiez les paramètres utilisés par l’Assistant pour sauvegarder les données de l’ordinateur et cliquez sur **Sauvegarder**.
+2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
 
-3. Cliquez sur **Fermer** pour fermer l’Assistant. Vous pouvez effectuer cette opération avant la fin du **processus de sauvegarde**, lequel continuera de s’exécuter à l’arrière-plan.
+3. Cliquez sur **Fermer** pour fermer l’Assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 
-Une fois la sauvegarde initiale terminée, le statut *Tâche terminée* apparaît dans la **console Azure Backup**.
+Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
 
 ![RI terminé](./media/backup-configure-vault/ircomplete.png)
 
@@ -226,4 +220,4 @@ Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autr
 - [Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Préparation de la sauvegarde des charges de travail dans Azure avec DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

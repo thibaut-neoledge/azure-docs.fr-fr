@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="04/13/2016"
 	ms.author="andkjell;billmath"/>
 
 # Intégration de vos identités locales avec Azure Active Directory
 Azure AD Connect est l’outil permettant d’intégrer votre système d’identité local, par exemple Windows Server Active Directory avec Azure Active Directory, et de connecter vos utilisateurs à Office 365, Azure et à des milliers d’applications SaaS. Cette rubrique fournit un guide complet pour préparer et déployer les composants nécessaires afin que vos utilisateurs finaux accèdent aux services cloud avec la même identité que celle qu’ils utilisent aujourd’hui pour accéder aux applications d’entreprise existantes.
+
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
+
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![Qu’est-ce qu’Azure AD Connect ?](./media/active-directory-aadconnect/arch.png)
 
@@ -29,7 +33,7 @@ L’intégration de vos annuaires locaux avec Azure AD améliore la productivit�
 
 - Outil unique offrant une expérience de déploiement simple pour la synchronisation et la connexion.
 
-- Fournit les fonctionnalités les plus récentes pour vos scénarios. Azure AD Connect remplace les versions antérieures des outils d’intégration d’identité tels que DirSync et Azure AD Sync. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
+- Fournit les fonctionnalités les plus récentes pour vos scénarios. Azure AD Connect remplace les versions antérieures des outils d’intégration d’identité tels que DirSync et Azure AD Sync. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 
 ### Fonctionnement d’Azure AD Connect
@@ -44,7 +48,7 @@ Azure Active Directory Connect est constitué de trois parties principales. Il s
 
 ## Installer Azure AD Connect
 
-Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de téléchargement Microsoft]( http://go.microsoft.com/fwlink/?LinkId=615771).
 
 
 | Solution | Scénario |
@@ -62,7 +66,7 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 
 | Rubrique | |
 | --------- | --------- |
-| Téléchargez Azure AD Connect | [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| Téléchargez Azure AD Connect | [Téléchargez Azure AD Connect]( http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Installation à l’aide des paramètres Express | [Installation rapide pour Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
 | Effectuer une mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -144,4 +148,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0413_2016-->

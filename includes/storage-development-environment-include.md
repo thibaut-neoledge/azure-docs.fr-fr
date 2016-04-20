@@ -8,7 +8,9 @@ Dans Visual Studio, créez une application de console Windows, comme indiqué ic
 
 ![Créer une application de console Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-Vous pouvez utiliser la bibliothèque cliente d’Azure Storage à partir de n’importe quel type d’application .NET, y compris à partir d’un service cloud Azure, d’une application web Azure, d’une application de bureau ou d’une application mobile. Dans ce guide, nous allons utiliser une application de console pour plus de simplicité.
+Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à la méthode **Main()** dans `program.cs` dans votre application console.
+
+Notez que vous pouvez utiliser la bibliothèque cliente d’Azure Storage à partir de n’importe quel type d’application .NET, notamment un service cloud Azure, une application web Azure, une application de bureau ou une application mobile. Dans ce guide, nous utilisons une application console pour plus de simplicité.
 
 ### Utiliser NuGet pour installer les packages requis
 
@@ -17,11 +19,11 @@ Il existe deux packages que vous devez installer dans votre projet pour terminer
 - [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) : ce package fournit un accès par programme aux ressources de données dans votre compte de stockage.
 - [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier de configuration, quel que soit l’emplacement d’exécution de votre application.
 
-Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
+Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
 
 1. Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Manage NuGet Packages**.
-2. Effectuez une recherche en ligne sur « WindowsAzure.Storage », puis cliquez sur **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
-3. Effectuez une recherche en ligne sur « ConfigurationManager » et cliquez sur **Installer** pour installer Azure Configuration Manager.
+2. Recherchez « WindowsAzure.Storage » en ligne, puis cliquez sur **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
+3. Recherchez « ConfigurationManager » en ligne, puis cliquez sur **Installer** pour installer Azure Configuration Manager.
 
 >[AZURE.NOTE] Le package de bibliothèque cliente Azure Storage est également disponible dans le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Toutefois, nous vous recommandons d’installer également la bibliothèque cliente Azure Storage à partir de NuGet pour vous assurer que vous avez toujours la dernière version de la bibliothèque cliente.
 
@@ -44,7 +46,7 @@ Pour plus d’informations sur les chaînes de connexion, voir [Configuration d�
 
 > [AZURE.NOTE] Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Veillez toujours à protéger votre clé de compte de stockage. Évitez de la communiquer à d’autres utilisateurs, de la coder en dur ou de l’enregistrer dans un fichier texte brut accessible à d’autres personnes. Régénérez votre clé à l’aide du portail Azure si vous pensez que sa confidentialité est compromise.
 
-Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` à partir de l’Explorateur de solutions dans Visual Studio. Ajoutez le contenu de l’élément `<appSettings>` indiqué ci-dessous. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par votre clé d’accès au compte :
+Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` depuis l’Explorateur de solutions dans Visual Studio. Ajoutez le contenu de l’élément `<appSettings>` indiqué ci-dessous. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par votre clé d’accès au compte :
 
 	<configuration>
 	    <startup> 
@@ -57,10 +59,10 @@ Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` à pa
 
 Par exemple, votre paramètre de configuration sera semblable à :
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
 Pour cibler l’émulateur de stockage, vous pouvez utiliser un raccourci qui correspond à la clé et au nom de compte connus. Dans ce cas, le paramètre de votre chaîne de connexion sera :
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

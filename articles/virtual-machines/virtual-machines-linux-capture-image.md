@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capturer une machine virtuelle Linux à utiliser en tant que modèle | Microsoft Azure"
-	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Linux créée avec le modèle de déploiement Azure Resource Manager."
+	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Linux créée avec le modèle de déploiement Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dlepow"
@@ -27,37 +27,35 @@ Cet article montre comment utiliser l’interface de ligne de commande Azure pou
 
 ## Avant de commencer
 
-Ces opérations supposent que vous avez déjà créé une machine virtuelle Azure dans le modèle de déploiement de gestionnaire de ressources Azure et configuré les systèmes d’exploitation, incluant l’attachement des disques de données et en réalisant d’autres personnalisations comme l’installation de nouvelles applications. Si vous ne l’avez pas encore fait, voir ces instructions pour l’utilisation de l’interface CLI Azure en mode Azure Resource Manager :
+Ces opérations supposent que vous avez déjà créé une machine virtuelle Azure dans le modèle de déploiement de gestionnaire de ressources Azure et configuré les systèmes d’exploitation, incluant l’attachement des disques de données et en réalisant d’autres personnalisations comme l’installation de nouvelles applications. Si vous ne l’avez pas encore fait, voir ces instructions pour l’utilisation de l’interface CLI Azure en mode Azure Resource Manager :
 
-- [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md)
+- [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md)
 
 Par exemple, vous pouvez créer un groupe de ressources nommé *MyResourceGroup* dans la région centrale des États-Unis. Utilisez ensuite la commande **azure vm quick-create** semblable à la suivante pour déployer une machine virtuelle Ubuntu 14.04 LTS dans le groupe de ressources.
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-Une fois que la machine virtuelle est configurée et en cours d’exécution, vous pouvez attacher et monter un disque de données. Consultez les instructions [ici](virtual-machines-linux-cli-create.md#attach-and-mount-a-disk).
-
-Pour effectuer d’autres personnalisations, vous devrez vous connecter à la machine virtuelle à l’aide d’un client SSH de votre choix. Pour plus d’informations, consultez [Connectez-vous à votre machine virtuelle Linux Azure en utilisant ssh](virtual-machines-linux-portal-create.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
+Une fois que la machine virtuelle est configurée et en cours d’exécution, vous pouvez attacher et monter un disque de données. Consultez les instructions [ici](virtual-machines-linux-add-disk).
 
 
 ## Capture de la machine virtuelle
 
 1. Une fois que vous êtes prêt à capturer la machine virtuelle, connectez-vous à l’aide d’un client SSH.
 
-2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de **waagent** peut varier légèrement en fonction de la version utilisée :
+2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de **waagent** peut varier légèrement en fonction de la version utilisée :
 
 	`sudo waagent -deprovision+user`
 
-	Cette commande essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération effectue les tâches suivantes :
+	Cette commande essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération effectue les tâches suivantes :
 
-	- supprime toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
-	- efface la configuration de Nameserver dans /etc/resolv.conf ;
-	- supprime le mot de passe `root` de l’utilisateur de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
-	- supprime les baux du client DHCP mis en cache ;
+	- supprime toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
+	- efface la configuration de Nameserver dans /etc/resolv.conf ;
+	- supprime le mot de passe `root` de l’utilisateur de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
+	- supprime les baux du client DHCP mis en cache ;
 	- Réinitialise le nom d’hôte sur localhost.localdomain.
 	- Supprime le dernier compte d’utilisateur approvisionné (obtenu de /var/lib/waagent) et les données associées.
 
-	>[AZURE.NOTE] L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur une machine virtuelle que vous souhaitez capturer en tant qu’image. Cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution à des tiers.
+	>[AZURE.NOTE] L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur une machine virtuelle que vous souhaitez capturer en tant qu’image. Cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution à des tiers.
 
 3. Tapez **y** pour continuer. Vous pouvez ajouter le paramètre **-force** pour éviter cette étape de confirmation.
 
@@ -67,19 +65,19 @@ Pour effectuer d’autres personnalisations, vous devrez vous connecter à la ma
 
 5. À partir de votre ordinateur client, ouvrez l’interface de ligne de commande Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
-6. Assurez-vous que vous êtes en mode Gestionnaire de ressources :
+6. Assurez-vous que vous êtes en mode Gestionnaire de ressources :
 
 	`azure config mode arm`
 
-7. Arrêtez l’ordinateur virtuel que vous avez déjà annulé à l’aide de la commande suivante :
+7. Arrêtez l’ordinateur virtuel que vous avez déjà annulé à l’aide de la commande suivante :
 
 	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
-8. Généralisez la machine virtuelle en exécutant la commande suivante :
+8. Généralisez la machine virtuelle en exécutant la commande suivante :
 
 	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
-9. Capturez maintenant l’image et un modèle de fichier local avec la commande suivante :
+9. Capturez maintenant l’image et un modèle de fichier local avec la commande suivante :
 
 	`azure vm capture <your-resource-group-name>  <your-virtual-machine-name> <your-vhd-name-prefix> -t <your-template-file-name.json>`
 
@@ -92,7 +90,7 @@ Maintenant, utilisez l’image avec un modèle pour créer une nouvelle machine 
 
 ### Créer des ressources réseau
 
-Pour utiliser le modèle, vous devez d’abord configurer un réseau virtuel et une carte réseau pour votre nouvelle machine virtuelle. Nous vous recommandons de créer un nouveau groupe de ressources pour ces ressources. Exécutez des commandes comme suit en remplaçant les noms de vos ressources et de l’emplacement Azure approprié (« centralus » dans ces commandes) :
+Pour utiliser le modèle, vous devez d’abord configurer un réseau virtuel et une carte réseau pour votre nouvelle machine virtuelle. Nous vous recommandons de créer un nouveau groupe de ressources pour ces ressources. Exécutez des commandes comme suit en remplaçant les noms de vos ressources et de l’emplacement Azure approprié (« centralus » dans ces commandes) :
 
 	azure group create <your-new-resource-group-name> -l "centralus"
 
@@ -161,7 +159,7 @@ Si votre déploiement est exécuté avec succès, vous voyez une sortie ressembl
 
 ### Vérifier le déploiement
 
-Maintenant, exécutez le SSH sur la machine virtuelle que vous avez créée pour vérifier le déploiement et lancez le déploiement et le démarrage de l’utilisation de la nouvelle machine virtuelle. Pour vous connecter via SSH, recherchez l’adresse IP de la machine virtuelle que vous avez créée en exécutant la commande suivante :
+Maintenant, exécutez le SSH sur la machine virtuelle que vous avez créée pour vérifier le déploiement et lancez le déploiement et le démarrage de l’utilisation de la nouvelle machine virtuelle. Pour vous connecter via SSH, recherchez l’adresse IP de la machine virtuelle que vous avez créée en exécutant la commande suivante :
 
 	azure network public-ip show <your-new-resource-group-name> <your-ip-name>
 
@@ -182,7 +180,7 @@ Si vous souhaitez que le réseau soit automatiquement configuré lorsque vous cr
 
 En général, pour créer une machine virtuelle à partir de l’image, vous devez utiliser un modèle de gestionnaire de ressource. Toutefois, vous pouvez créer la machine virtuelle de façon _impérative_ à l’aide de la commande **azure vm create** avec le paramètre **--os-disk-vhd** (**-d**).
 
-Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
+Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
 1.	Créez un groupe de ressources ou identifiez un groupe de ressources existant pour le déploiement.
 
@@ -190,7 +188,7 @@ Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
 3.	Assurez-vous de copier l’image de disque dur virtuel vers un emplacement de conteneur d’objets blobs ne possédant pas de dossiers (répertoires virtuels). Par défaut, l’image capturée est stockée dans les dossiers imbriqués dans un conteneur de stockage d’objets blobs (URI semblable à `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. La commande **azure vm create** peut créer une machine virtuelle uniquement à partir d’un disque du système d’exploitation stocké de disque dur virtuel de haut niveau dans un conteneur d’objets blobs. Par exemple, vous pouvez copier l’image de disque dur virtuel vers `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`.
 
-Exécutez ensuite une commande similaire à la suivante :
+Exécutez ensuite une commande similaire à la suivante :
 
 	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
@@ -198,6 +196,6 @@ Pour obtenir d’autres options de commande supplémentaires, exécutez `azure h
 
 ## Étapes suivantes
 
-Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md).
+Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

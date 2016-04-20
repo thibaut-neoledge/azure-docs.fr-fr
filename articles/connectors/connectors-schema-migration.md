@@ -28,7 +28,6 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 >[AZURE.NOTE] Lorsque vous sélectionnez **Mettre à jour le schéma**, les étapes de migration sont automatiquement exécutées avec le code de sortie correspondant. Vous pouvez utiliser ce code pour mettre à jour la définition. Veillez cependant à respecter les bonnes pratiques de codage, telles que celles décrites dans la section **Meilleures pratiques** ci-dessous.
 
 ##Meilleures pratiques lors de la migration de vos applications logiques vers la dernière version du schéma :  
-ne pas écraser, passer aux nouvelles API
 
 - Copiez le script migré vers une nouvelle application logique : n’écrasez pas l’ancienne version tant que le test n’est pas terminé et que vous n’avez pas vérifié que l’application migrée fonctionne comme prévu.
 - Testez votre application logique **avant** sa mise en production
@@ -43,4 +42,4 @@ ne pas écraser, passer aux nouvelles API
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

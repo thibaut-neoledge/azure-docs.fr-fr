@@ -24,16 +24,16 @@ Lorsque vous déployez une définition d’application avec un modèle, vous pou
 
 ## Déploiements incrémentiels et complets
 
-Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
+Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
 
-- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
-- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
 - **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
 
-Dans le cadre d’un déploiement complet, Resource Manager :
+Dans le cadre d’un déploiement complet, Resource Manager :
 
-- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
-- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
 - **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
  
 Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiquent les exemples ci-dessous.
@@ -44,7 +44,7 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
@@ -75,7 +75,7 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande **New-AzureRmResourceGroupDeployment** et fournissez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario. Le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
    
      - Utiliser des paramètres incorporés.
 
@@ -136,7 +136,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
+3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
 
         azure config mode arm
    
@@ -164,9 +164,9 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande suivante et indiquez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
 
-     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -279,7 +279,7 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
        }
     }
 
-La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
+La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
 Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](../resource-group-authoring-templates/#parameters). Pour plus d’informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
 
@@ -292,4 +292,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
