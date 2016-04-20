@@ -61,7 +61,7 @@ La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistremen
 
 Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
 
-Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
+Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « \* », ou un nom dont la première étiquette est « \* », par exemple, « \*.foo ».
 
 #### Jeux d’enregistrements CNAME
 
@@ -104,4 +104,4 @@ Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig
 
 Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md). Pour plus d’informations sur l’automatisation de DNS, consultez [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->
