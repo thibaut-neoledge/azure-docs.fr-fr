@@ -46,7 +46,9 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | ---- | ---- |
 | type | Enum<br />Requis<br />**{namespace}/{type}/providers/links**<br /><br />Type de ressource à créer. Les valeurs {namespace} et {type} font référence au type de ressource et à l'espace de nom du fournisseur de la ressource source. |
 | apiVersion | Enum<br />Requis<br />**2015-01-01**<br /><br />Version de l’API à utiliser pour créer la ressource. |  
-| name | String<br />Requis<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> jusqu’à 64 caractères et ne peut pas contenir <, > %, &, ? ou les caractères de contrôle.<br /><br />Une valeur qui spécifie à la fois la source à verrouiller et le nom du verrou. | | dependsOn | Array<br />Facultatif<br />Liste séparée par des virgules de noms de ressources ou d’identificateurs de ressources uniques.<br /><br />La collection de ressources dont dépend ce verrou. Si la ressource que vous liez est déployée dans le même modèle, incluez ces noms de ressources dans cet élément pour garantir que les ressources sont déployées en premier. | | properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui identifie la ressource à lier et des remarques sur le lien. | 
+| name | String<br />Requis<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> jusqu’à 64 caractères et ne peut pas contenir <, > %, &, ? ou les caractères de contrôle.<br /><br />Une valeur qui spécifie à la fois la source à verrouiller et le nom du verrou. | 
+| dependsOn | Array<br />Facultatif<br />Liste séparée par des virgules de noms de ressources ou d’identificateurs de ressources uniques.<br /><br />La collection de ressources dont dépend ce verrou. Si la ressource que vous liez est déployée dans le même modèle, incluez ces noms de ressources dans cet élément pour garantir que les ressources sont déployées en premier. | 
+| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui identifie la ressource à lier et des remarques sur le lien. | 
 
 <a id="properties" />
 ### objet propriétés
