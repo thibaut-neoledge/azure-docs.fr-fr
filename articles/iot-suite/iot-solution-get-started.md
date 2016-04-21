@@ -51,7 +51,7 @@ Sur votre appareil :
     
         (Si vous utilisez Windows 10, utilisez le navigateur Edge).
 
-        *Participants à la build 2016* : connectez-vous avec le compte MSA que vous avez inscrit à la conférence, en utilisant l’un des boutons Microsoft. Vous êtes déjà inscrit à HockeyApp.
+        *Participants à la build 2016* : connectez-vous avec le compte MSA que vous avez inscrit à la conférence, en utilisant l’un des boutons Microsoft. Vous êtes déjà inscrit à HockeyApp.
 
         ![](./media/iot-solution-get-started/image1.png)
 
