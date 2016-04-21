@@ -21,14 +21,14 @@
 #Mise à l’échelle automatique et environnement App Service
 
 ##Introduction
-**Les environnements App Service** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de travail individuels par le biais d’indicateurs de mesure ou de la planification.
+**Les environnements App Service** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de Workers individuels par le biais d’indicateurs de mesure ou de la planification.
  
 ![][intro]
  
 La mise à l’échelle automatique vous permet d’optimiser l’utilisation des ressources en agrandissant et en réduisant automatiquement un **environnement App Service** afin de l’adapter à votre budget et/ou à votre profil de charge.
 
-##Configuration de la mise à l’échelle automatique des pools de travail 
-Vous pouvez accéder à la fonctionnalité de mise à l’échelle automatique à partir de l’onglet Paramètres du **pool de travail**.
+##Configuration de la mise à l’échelle automatique des pools de Workers 
+Vous pouvez accéder à la fonctionnalité de mise à l’échelle automatique à partir de l’onglet Paramètres du **pool de Workers** (pool de travail).
  
 ![][settings-scale]
 
@@ -44,11 +44,11 @@ Les profils de mise à l’échelle automatique sont utiles pour définir des li
  
 ![][scale-profile2]
  
-Une fois qu’un profil est défini, les règles de mise à l’échelle automatique en fonction de mesures peuvent être ajoutées pour augmenter ou réduire le nombre d’instances dans le **pool de travail** dans les limites définies par le profil.
+Une fois qu’un profil est défini, les règles de mise à l’échelle automatique en fonction de mesures peuvent être ajoutées pour augmenter ou réduire le nombre d’instances dans le **pool de Workers** dans les limites définies par le profil.
 
 ![][scale-rule]
 
- Toutes les règles de mesure du **pool de travail** ou du **serveur frontal** peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
+ Toutes les règles de mesure du **pool de Workers** ou du **serveur Front-end** peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
  
 ##Exemple de mise à l’échelle automatique
 La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario. Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service** hébergés dans une ASE.
@@ -57,12 +57,12 @@ La mise à l’échelle automatique d’un **environnement App Service** est mie
 Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service**.
 
 L’**environnement App Service** est configuré sur mise à l'échelle manuelle, comme suit :
-* Serveurs frontaux : 3
-* Pool de travail 1 : 10
-* Pool de travail 2 : 5
-* Pool de travail 3 : 5
+* Serveurs Front-end : 3
+* Pool de Workers 1 : 10
+* Pool de Workers 2 : 5
+* Pool de Workers 3 : 5
 
-Le **Pool de travail 1** est utilisé pour les charges de travail, tandis que le **pool de travail 2** et le **pool de travail 3** sont utilisés pour les charges de travail de développement et d’assurance qualité.
+Le **Pool de Workers 1** est utilisé pour les charges de travail, tandis que le **pool de Workers 2** et le **pool de Workers 3** sont utilisés pour les charges de travail de développement et d’assurance qualité.
 
 Les **plans de service d’application** utilisés pour l’assurance qualité et le développement sont configurés pour une **mise à l’échelle manuelle**, mais le **plan de service d’application** de production est défini sur **mise à l’échelle automatique** pour gérer les variations de charge et de trafic.
 
@@ -102,7 +102,7 @@ Frank connaît très bien l’application et sait que les heures de pointe de ch
 ###Taux d’inflation du plan de service de l’application
 Les **plans de service de l’application** sont configurés pour une mise à l’échelle automatique, et fonctionneront ainsi au taux maximal par heure. Cette vitesse peut être calculée en fonction des valeurs fournies sur la règle de mise à l’échelle automatique.
 
-La compréhension et le calcul du **taux d’inflation du plan de service d’application** est importante pour la mise à l’échelle du **pool de travail** de l’**environnement de Service d’application** car les modifications d’un **pool de travail** ne sont pas instantanées et prennent un certain temps à s’appliquer.
+La compréhension et le calcul du **taux d’inflation du plan de service d’application** est importante pour la mise à l’échelle du **pool de Workers** de l’**environnement de Service d’application** car les modifications d’un **pool de Workers** ne sont pas instantanées et prennent un certain temps à s’appliquer.
 
 Le taux d’inflation du **plan de service d’application** est calculé comme suit :
 
@@ -128,12 +128,12 @@ Dans le cas de la règle de *mise à l’échelle automatique – Mise à l’é
 
 Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
 
-Si plusieurs **plans App Service** sont hébergés dans un **pool de travail**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans App Service** hébergés dans ce **pool de travail**.
+Si plusieurs **plans App Service** sont hébergés dans un **pool de Workers**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans App Service** hébergés dans ce **pool de Workers**.
 
 ![][ASP-Total-Inflation]
 
-###Utilisation du taux d’inflation du plan de service d’application pour définir des règles de mise à l’échelle automatique du pool de travail
-Les **pools de travail** qui hébergent **des plans de service d’application** configurés avec mise à l’échelle automatique devront recevoir un espace tampon d’une capacité permettant des opérations d’augmentation/de réduction de mise à l’échelle automatique du **plan de service d’application** en fonction des besoins. La mémoire tampon minimale correspondrait au **taux total d’inflation du plan de service d’application** calculé.
+###Utilisation du taux d’inflation du plan de service d’application pour définir des règles de mise à l’échelle automatique du pool de Workers
+Les **pools de Workers** qui hébergent **des plans de service d’application** configurés avec mise à l’échelle automatique devront recevoir un espace tampon d’une capacité permettant des opérations d’augmentation/de réduction de mise à l’échelle automatique du **plan de service d’application** en fonction des besoins. La mémoire tampon minimale correspondrait au **taux total d’inflation du plan de service d’application** calculé.
 
 Comme les opérations de mise à l’échelle de **l’environnement de service d’application** prennent un certain temps, toute modification doit tenir compte des demandes de modification pouvant se produire lorsqu’une opération de mise à l’échelle est en cours. Pour ce faire, nous recommandons l’utilisation du **Taux d’inflation du plan de service d’application total** calculé en tant que nombre minimal d’instances ajoutées pour chaque Opération de mise à l’échelle automatique.
 
@@ -153,7 +153,7 @@ Avec cette information, Frank peut définir le profil et les règles de mise à 
 |	**Fuseau horaire :** UTC - 08 |	**Fuseau horaire :** UTC - 08 |
 | | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-|	**Ressource :** Pool de travail 1 |	**Ressource :** Pool de travail 1 |
+|	**Ressource :** Pool de Workers 1 |	**Ressource :** Pool de Workers 1 |
 |	**Mesure :** Employés disponibles |	**Mesure :** Employés disponibles |
 |	**Fonctionnement :** inférieur à 8 |	**Fonctionnement :** inférieur à 3 |
 |	**Durée :** 20 minutes |	**Durée :** 30 minutes |
@@ -162,7 +162,7 @@ Avec cette information, Frank peut définir le profil et les règles de mise à 
 |	**Refroidissement (minutes) :** 180 |	**Refroidissement (minutes) :** 180 |
 | | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-|	**Ressource :** Pool de travail 1 |	**Ressource :** Pool de travail 1 |
+|	**Ressource :** Pool de Workers 1 |	**Ressource :** Pool de Workers 1 |
 |	**Mesure :** Employés disponibles |	**Mesure :** Employés disponibles |
 |	**Fonctionnement :** supérieur à 8 |	**Fonctionnement :** supérieur à 3 |
 |	**Durée :** 20 minutes |	**Durée :** 15 minutes |
@@ -172,22 +172,22 @@ Avec cette information, Frank peut définir le profil et les règles de mise à 
 
 La plage cible définie dans le profil est calculée par le nombre d’instances minimales du profil pour le **plan de service d’application** + la mémoire tampon.
 
-La plage maximale est la somme du maximum de toutes les plages pour tous les **plans de service d’application** hébergés dans le **pool de travail**.
+La plage maximale est la somme du maximum de toutes les plages pour tous les **plans de service d’application** hébergés dans le **pool de Workers**.
 
 L’augmentation correspondant aux règles de mise à l’échelle doit être définie comme au moins 1 fois le **taux d’inflation du plan App Service** pour la mise à l’échelle supérieure.
 
 La réduction correspondant aux règles de mise à l’échelle doit être définie sur un chiffre compris entre 1/2 X et 1 X le **taux d’inflation du plan de service d’application** pour une mise à l’échelle inférieure.
 
-###Mise à l’échelle automatique de pool frontal
-Les règles de mise à l’échelle automatique du **serveur frontal** sont plus simples que celles qui s’appliquent aux **pools de travail**. Il faut s’assurer que la durée des mesures et les minuteurs de refroidissement tiennent compte du fait que la mise à l’échelle des opérations sur un **plan de service d’application** n’est pas instantanée.
+###Mise à l’échelle automatique de pool Front-end
+Les règles de mise à l’échelle automatique du **serveur Front-end** sont plus simples que celles qui s’appliquent aux **pools de Workers**. Il faut s’assurer que la durée des mesures et les minuteurs de refroidissement tiennent compte du fait que la mise à l’échelle des opérations sur un **plan de service d’application** n’est pas instantanée.
 
-Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les serveurs frontaux ont atteint un taux d’utilisation du processeur de 80 %. Pour éviter ce problème, il définit la règle de mise à l’échelle automatique pour augmenter le nombre d’instances comme suit :
+Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les serveurs Front-end ont atteint un taux d’utilisation du processeur de 80 %. Pour éviter ce problème, il définit la règle de mise à l’échelle automatique pour augmenter le nombre d’instances comme suit :
  
 ![][Front-End-Scale]
   
-|	**Profil de l’échelle automatique : serveurs frontaux** |
+|	**Profil de l’échelle automatique : serveurs Front-end** |
 |	--------------------------------------------	|
-|	**Nom :** Mise à l’échelle automatique – serveurs frontaux |
+|	**Nom :** Mise à l’échelle automatique – serveurs Front-end |
 |	**Mise à l’échelle selon :** Planification et règles de performances |
 |	**Profil :** tous les jours |
 |	**Type :** périodicité |
@@ -197,7 +197,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 |	**Fuseau horaire :** UTC - 08 |
 | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-|	**Ressource :** Pool frontal |
+|	**Ressource :** Pool Front-end |
 |	**Mesure :** % d’utilisation de l’unité centrale |
 |	**Fonctionnement :** supérieur à 60 % |
 |	**Durée :** 20 minutes |
@@ -206,7 +206,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 |	**Refroidissement (minutes) :** 120 |
 | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-|	**Ressource :** Pool de travail 1 |
+|	**Ressource :** Pool de Workers 1 |
 |	**Mesure :** % d’utilisation de l’unité centrale |
 |	**Fonctionnement :** inférieur à 30 % |
 |	**Durée :** 20 minutes |

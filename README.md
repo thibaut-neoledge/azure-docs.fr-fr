@@ -51,7 +51,6 @@ Le contenu du dépôt azure-content suit l’organisation de la documentation su
 
 Le dossier *\articles* contient les articles de la documentation mis en forme en tant que fichiers Markdown avec une extension *.md*.
 
-Les articles du répertoire racine sont publiés dans Azure.Microsoft.com. Chemin : *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Noms de fichier des articles :** consultez [nos instructions sur l’affectation des noms de fichier](./contributor-guide/file-names-and-locations.md).
 
