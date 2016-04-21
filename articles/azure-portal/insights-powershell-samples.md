@@ -149,7 +149,8 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
 |MetricName de l'alerte créée|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Voir l’applet de commande `Get-MetricDefinitions` ci-dessous pour récupérer les noms exacts des mesures|
-|operator| GreaterThan| |Valeur de seuil (nombre/sec pour cette mesure)| 1|
+|operator| GreaterThan| 
+|Valeur de seuil (nombre/sec pour cette mesure)| 1|
 |WindowSize (hh:mm:ss format)| 00:05:00|
 |aggregator (statistique de la mesure, qui utilise la valeur Average dans ce cas)| Average|
 |courriers électroniques personnalisés (string array)|'foo@example.com','bar@example.com'|
