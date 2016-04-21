@@ -97,7 +97,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S�
    > [AZURE.NOTE] Pour des raisons de sécurité, PostgreSQL utilise un utilisateur non-root pour initialiser, démarrer ou arrêter la base de données.
 
 
-4. Modifiez le fichier *bash\_profile* en entrant les commandes ci-dessous. Ces lignes seront ajoutées à la fin du fichier *bash\_profile* :
+4. Modifiez le fichier *bash\_profile* en entrant les commandes ci-dessous. Ces lignes seront ajoutées à la fin du fichier *bash\_profile* :
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -112,7 +112,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S�
 		alias ll='ls -lh'
 		EOF
 
-5. Exécutez le fichier *bash\_profile* :
+5. Exécutez le fichier *bash\_profile* :
 
 		$ source .bash_profile
 

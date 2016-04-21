@@ -42,4 +42,4 @@ Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->
