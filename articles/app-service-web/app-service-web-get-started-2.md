@@ -127,4 +127,4 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 - [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md)
 - [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
