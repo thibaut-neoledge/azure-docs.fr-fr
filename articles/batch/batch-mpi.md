@@ -142,7 +142,7 @@ Il existe deux ensembles de fichiers de ressources à prendre en compte pour les
 
 Vous pouvez indiquer un ou plusieurs **fichiers de ressources communs** dans les paramètres multi-instances d’une tâche. Ces fichiers de ressources communs sont téléchargés à partir de [Azure Storage](./../storage/storage-introduction.md) dans le répertoire partagé de tâche de chaque nœud, par la tâche principale et les tâches subordonnées. Vous pouvez accéder au répertoire partagé de la tâche à partir de l’application et des lignes de commande de coordination à l’aide de la variable d’environnement `AZ_BATCH_TASK_SHARED_DIR`.
 
-Les fichiers de ressources que vous indiquez dans la tâche multi-instances elle-même sont téléchargés dans le répertoire de travail de la tâche `AZ_BATCH_TASK_WORKING_DIR`, par la tâche principale *uniquement* : les tâches subordonnées ne téléchargent pas les fichiers de ressources indiqués par la tâche multi-instances.
+Les fichiers de ressources que vous indiquez dans la tâche multi-instances elle-même sont téléchargés dans le répertoire de travail de la tâche `AZ_BATCH_TASK_WORKING_DIR`, par la tâche principale *uniquement* : les tâches subordonnées ne téléchargent pas les fichiers de ressources indiqués par la tâche multi-instances.
 
 Le contenu du répertoire `AZ_BATCH_TASK_SHARED_DIR` est accessible par la tâche principale et toutes les tâches subordonnées qui s’exécutent sur un nœud. `tasks/mybatchjob/job-1/mymultiinstancetask/` est un exemple de répertoire partagé de tâche. La tâche principale et chaque tâche subordonnée possèdent également un répertoire de travail accessible par cette tâche uniquement, à l’aide de la variable d’environnement `AZ_BATCH_TASK_WORKING_DIR`.
 

@@ -272,7 +272,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
 
 	L’adresse IP **10.10.0.4** est généralement affectée à la première machine virtuelle que vous créez dans le sous-réseau **10.10.0.0/16** de votre réseau virtuel Azure. Vous devez vérifier qu’il s’agit bien de l’adresse de votre serveur contrôleur de domaine en exécutant la commande **IPCONFIG**.
 
-1. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster WSFC, nommé **ContosoQuorum** :
+1. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster WSFC, nommé **ContosoQuorum** :
 
 		New-AzureVMConfig `
 			-Name $quorumServerName `

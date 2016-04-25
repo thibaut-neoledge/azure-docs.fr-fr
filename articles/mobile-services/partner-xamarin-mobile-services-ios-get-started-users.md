@@ -80,7 +80,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 	> [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Déplacez la demande de la table **ToDoItem** du constructeur **ToDoService** vers une nouvelle méthode intitulée **CreateTable** :
+3. Déplacez la demande de la table **ToDoItem** du constructeur **ToDoService** vers une nouvelle méthode intitulée **CreateTable** :
 
         private async Task CreateTable()
         {

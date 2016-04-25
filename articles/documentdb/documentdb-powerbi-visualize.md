@@ -111,7 +111,8 @@ Prêt à vous lancer ? Allons-y.
 11. Cliquez sur **Modifier** pour lancer l’éditeur de requête et transformer les données.
 
 ## Mise à plat et transformation de documents JSON
-1. Dans l’éditeur de requête de Power BI, une colonne **Document** doit normalement apparaître dans le volet central. ![Power BI Desktop - Éditeur de requête](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. Dans l’éditeur de requête de Power BI, une colonne **Document** doit normalement apparaître dans le volet central.
+![Power BI Desktop - Éditeur de requête](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document**. Un menu contextuel s’affiche avec une liste de champs. Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue), puis cliquez sur **OK**.
 

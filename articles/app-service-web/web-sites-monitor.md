@@ -61,9 +61,9 @@ Pour déterminer dans quelle mesure les quotas d’utilisation des ressources so
 
 1. Ouvrez la page de gestion **Tableau de bord** de l’application web du [portail Classic](https://manage.windowsazure.com).
 2. La section **Présentation de l’utilisation** affiche les quotas d’utilisation de votre plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Il s’agit d’un sous-ensemble des éléments suivants :
-	-	**Données sorties**, **Temps processeur** et **Mémoire** : lorsque le quota est dépassé, Microsoft Azure arrête l’application web pendant le reste de l’intervalle de quota en cours. Microsoft Azure démarre l’application web au début de l’intervalle de quota défini suivant.
-	-	**Stockage de système de fichiers** : une fois ce quota atteint, l’espace de stockage du système de fichiers reste accessible pour les opérations de lecture, mais les opérations d’écriture (y compris celles que requiert l’activité normale de l’application web) sont bloquées. Les opérations d’écriture sont à nouveau exécutées lorsque l’utilisation des fichiers est restreinte ou que l’application web est déplacée vers un plan App Service associé à un quota plus important.
-	-	**Ressources liées** : les quotas des ressources liées à une application web, comme les bases de données ou le stockage, sont également affichés ici.
+	-	**Données sorties**, **Temps processeur** et **Mémoire** : lorsque le quota est dépassé, Microsoft Azure arrête l’application web pendant le reste de l’intervalle de quota en cours. Microsoft Azure démarre l’application web au début de l’intervalle de quota défini suivant.
+	-	**Stockage de système de fichiers** : une fois ce quota atteint, l’espace de stockage du système de fichiers reste accessible pour les opérations de lecture, mais les opérations d’écriture (y compris celles que requiert l’activité normale de l’application web) sont bloquées. Les opérations d’écriture sont à nouveau exécutées lorsque l’utilisation des fichiers est restreinte ou que l’application web est déplacée vers un plan App Service associé à un quota plus important.
+	-	**Ressources liées** : les quotas des ressources liées à une application web, comme les bases de données ou le stockage, sont également affichés ici.
 
 	Certains quotas peuvent être appliqués par plan d’hébergement web, tandis que d’autres sont appliqués par site. Pour plus d’informations sur les quotas d’utilisation de chaque plan d’hébergement web, consultez [Limites de sites web](azure-subscription-service-limits.md#websiteslimits).
 
@@ -119,7 +119,7 @@ Les diagnostics peuvent également être activés à partir du module Azure Powe
 
 La section **Site diagnostics** de la page d'administration **Configure** contrôle la journalisation effectuée par le serveur Web, qui porte notamment sur les demandes Web, ainsi que sur les échecs ou les temps d'accès aux pages. Vous pouvez activer ou désactiver les options suivantes :
 
-- **Journalisation du serveur Web** : permet d’activer la journalisation du serveur web pour enregistrer les journaux d’applications web au format de journal étendu W3C. La journalisation du serveur web génère un enregistrement de toutes les demandes entrantes adressées à votre application web, qui contient des informations telles que l’adresse IP du client, l’URI demandé, le code d’état HTTP de la réponse, ainsi que la chaîne de l’agent utilisateur du client. Vous pouvez enregistrer les journaux sur un compte de stockage Azure ou sur le système de fichiers.
+- **Journalisation du serveur Web** : permet d’activer la journalisation du serveur web pour enregistrer les journaux d’applications web au format de journal étendu W3C. La journalisation du serveur web génère un enregistrement de toutes les demandes entrantes adressées à votre application web, qui contient des informations telles que l’adresse IP du client, l’URI demandé, le code d’état HTTP de la réponse, ainsi que la chaîne de l’agent utilisateur du client. Vous pouvez enregistrer les journaux sur un compte de stockage Azure ou sur le système de fichiers.
 
  Pour enregistrer les journaux du serveur Web sur un compte de stockage Azure, choisissez **Stockage**, puis **manage storage** pour spécifier un compte de stockage et un conteneur d'objet blob Azure destiné à conserver les journaux. Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage](/manage/services/storage/how-to-manage-a-storage-account/).
 
@@ -138,7 +138,7 @@ Une fois la fonction de diagnostic activée pour une application web, cliquez s
 
 ### Configuration avancée ###
 
-Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires clé/valeur dans la section **app settings** de la page d'administration **Configure**. Les paramètres suivants peuvent être configurés à partir de **app settings** :
+Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires clé/valeur dans la section **app settings** de la page d'administration **Configure**. Les paramètres suivants peuvent être configurés à partir de **app settings** :
 
 **DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
@@ -227,13 +227,13 @@ Le contenu des fichiers journaux générés une fois que vous avez activé la jo
 
 Les fichiers .htm contiennent les sections suivantes :
 
-- **Informations détaillées sur l’erreur** : inclut des informations sur l’erreur, par exemple le <em>module</em>, le <em>gestionnaire</em>, le <em>code d’erreur</em> et l’<em>URL demandée</em>.
+- **Informations détaillées sur l’erreur** : inclut des informations sur l’erreur, par exemple le <em>module</em>, le <em>gestionnaire</em>, le <em>code d’erreur</em> et l’<em>URL demandée</em>.
 
-- **Causes les plus probables** : répertorie plusieurs causes possibles de l’erreur.
+- **Causes les plus probables** : répertorie plusieurs causes possibles de l’erreur.
 
-- **Actions à tenter** : répertorie les solutions possibles au problème signalé par l’erreur.
+- **Actions à tenter** : répertorie les solutions possibles au problème signalé par l’erreur.
 
-- **Liens et autres informations** : fournit des informations récapitulatives supplémentaires sur l’erreur, qui peuvent inclure des liens vers d’autres ressources, telles que des articles de la Base de connaissances Microsoft.
+- **Liens et autres informations** : fournit des informations récapitulatives supplémentaires sur l’erreur, qui peuvent inclure des liens vers d’autres ressources, telles que des articles de la Base de connaissances Microsoft.
 
 **Type de fichier journal : Journalisation du serveur Web**
 

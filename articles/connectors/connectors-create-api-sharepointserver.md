@@ -76,11 +76,14 @@ Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité
 
 Dans le concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
 
-1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint : ![Configurer SharePoint][1]  
+1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint :
+![Configurer SharePoint][1]  
 2. Sélectionnez **SharePoint Online - Quand un fichier est créé**   
-3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]    
+3. Sélectionnez **Connexion à SharePoint Online** :
+![Configurer SharePoint][2]    
 4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint ![Configurer SharePoint][3]     
-5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint. ![Configurer SharePoint][4]  
+5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint.
+![Configurer SharePoint][4]  
 6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.   
 7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.  
 
@@ -597,7 +600,7 @@ Propriétés requises pour DataSetsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -624,7 +627,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table** :
 
 Propriétés requises pour Table :
 
@@ -632,7 +635,7 @@ Propriétés requises pour Table :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |

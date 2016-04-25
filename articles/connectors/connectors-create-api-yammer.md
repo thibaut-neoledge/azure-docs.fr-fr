@@ -51,13 +51,17 @@ Suivez ces étapes pour vous connecter à Yammer et terminer la configuration de
 
 1. Sélectionnez **Périodicité**.
 2. Sélectionnez une **Fréquence** et entrez un **Intervalle**
-3. Sélectionnez **Ajouter une action**. ![Configurer Yammer][1]
+3. Sélectionnez **Ajouter une action**.
+![Configurer Yammer][1]
 4. Entrez Yammer dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Yammer dans leur nom
 5. Sélectionnez **Yammer - Obtenir tous les messages**
-6. Sélectionnez **Se connecter à Yammer** : ![Configurer Yammer][2]
+6. Sélectionnez **Se connecter à Yammer** :
+![Configurer Yammer][2]
 7. Entrez vos informations d’identification Yammer pour vous connecter et autoriser l’application ![Configurer Yammer][3]  
-8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Yammer à interagir avec votre application logique : ![Configurer Yammer][4] 
-9. Une fois que vous êtes connecté, revenez à votre application logique pour la terminer en configurant la section **Yammer - Obtenir tous les messages** et en ajoutant les autres déclencheurs et actions dont vous avez besoin. ![Configurer Yammer][5]  
+8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Yammer à interagir avec votre application logique :
+![Configurer Yammer][4] 
+9. Une fois que vous êtes connecté, revenez à votre application logique pour la terminer en configurant la section **Yammer - Obtenir tous les messages** et en ajoutant les autres déclencheurs et actions dont vous avez besoin.
+![Configurer Yammer][5]  
 10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.
 
 

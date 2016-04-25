@@ -217,7 +217,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             }
         }
 
-5. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
+5. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -234,7 +234,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             return true;
         }
 
-6. Dans **AppDelegate**, remplacez l'événement **RegisteredForRemoteNotifications** :
+6. Dans **AppDelegate**, remplacez l'événement **RegisteredForRemoteNotifications** :
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
@@ -251,7 +251,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             push.RegisterNativeAsync (DeviceToken, tag);
         }
 
-7. Dans **AppDelegate**, remplacez l'événement **ReceivedRemoteNotification** :
+7. Dans **AppDelegate**, remplacez l'événement **ReceivedRemoteNotification** :
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
@@ -292,7 +292,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
     La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
         function insert(item, user, request) {
             request.execute();

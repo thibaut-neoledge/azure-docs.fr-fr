@@ -76,7 +76,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	![](media/virtual-machines-windows-create-oracle-weblogic-server-12c/image12.png)
 
-10.	Dans la boîte de dialogue **Configure Administrator User Name and Password** :
+10.	Dans la boîte de dialogue **Configure Administrator User Name and Password** :
 
 	1.	[Facultatif] Remplacez le nom d'utilisateur **weblogic** par celui de votre choix.
 

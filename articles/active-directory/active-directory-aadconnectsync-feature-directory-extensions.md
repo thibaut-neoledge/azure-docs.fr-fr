@@ -21,7 +21,8 @@ Les extensions d'annuaire vous permettent d'étendre le schéma dans Azure AD av
 
 Actuellement, aucune charge de travail Office 365 n’utilise ces attributs.
 
-Vous pouvez configurer les attributs supplémentaires à synchroniser dans le chemin d’accès des paramètres personnalisés dans l’Assistant d’installation. ![Assistant d’extension de schéma](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L’installation affiche les attributs suivants, qui sont des candidats valides :
+Vous pouvez configurer les attributs supplémentaires à synchroniser dans le chemin d’accès des paramètres personnalisés dans l’Assistant d’installation.
+![Assistant d’extension de schéma](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L’installation affiche les attributs suivants, qui sont des candidats valides :
 
 - Types d’utilisateur et d’objet de groupe
 - Attributs à valeur unique : chaîne, booléen, entier, binaire
@@ -29,9 +30,11 @@ Vous pouvez configurer les attributs supplémentaires à synchroniser dans le ch
 
 Un objet peut avoir jusqu’à 100 attributs d’extension d’annuaire. La longueur maximale est de 250 caractères. Si une valeur d’attribut est plus longue, elle sera tronquée par le moteur de synchronisation.
 
-Lors de l’installation d’Azure AD Connect, une application dans laquelle ces attributs seront disponibles est enregistrée. Vous pouvez voir cette application dans le portail Azure. ![Application d’extension de schéma](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+Lors de l’installation d’Azure AD Connect, une application dans laquelle ces attributs seront disponibles est enregistrée. Vous pouvez voir cette application dans le portail Azure.
+![Application d’extension de schéma](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
 
-Ces attributs sont désormais disponibles via Graph : ![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+Ces attributs sont désormais disponibles via Graph :
+![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
 Les attributs ont pour préfixe extension\_{AppClientId} \_. L’AppClientId aura la même valeur pour tous les attributs de votre annuaire Azure AD.
 

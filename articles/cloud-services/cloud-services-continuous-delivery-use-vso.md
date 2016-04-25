@@ -134,7 +134,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés pour la publication Azure se trouvent dans la section **Déploiement**.
 
-	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
+	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
 
 	|Propriété|Valeur par défaut|
 	|---|---|

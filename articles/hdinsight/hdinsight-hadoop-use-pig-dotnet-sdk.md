@@ -40,7 +40,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez le [portail Azure][preview-portal].
+1. Visitez le [portail Azure](preview-portal).
 
 2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 

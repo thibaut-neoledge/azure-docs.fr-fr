@@ -470,11 +470,11 @@ Au lieu de générer une clé d’accès partagé à l’aide d’un code, vous 
 
     ![dessin][img-azstg-setup-6]
 
-    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
+    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
-    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
+    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
 
-    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
+    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
 
     d. Si vous avez correctement sélectionné votre fichier .vhd, ce dernier apparaît dans **Blob name to access** (Nom d’objet Blob auquel accéder) avec l’extension .vhd.
 

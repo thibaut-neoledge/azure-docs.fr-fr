@@ -52,7 +52,7 @@ Une fois l’instantané capturé, les données sont transférées par le servic
 ## Composants requis
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
-1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
+1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
 2. **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
 3. **Installer l'Agent Azure Backup et inscrire le serveur** : à partir d'Azure Backup, installez l'agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre de sauvegarde.
 

@@ -28,15 +28,18 @@ Ce didacticiel vous montre comment créer une API web ASP.Net, l’héberger sur
 * Visual Studio 2013 ou une version ultérieure
 
 ## Étape 1 : Créer une API web et la déployer sur Azure
-1. Ouvrez Visual Studio et créez une application web ASP.NET C# : ![](./media/powerapps-web-api-tutorial/newwebapp.png "Nouvelle application web")
+1. Ouvrez Visual Studio et créez une application web ASP.NET C# :
+![](./media/powerapps-web-api-tutorial/newwebapp.png "Nouvelle application web")
 
-2. Dans l’écran suivant, sélectionnez le modèle d’API web, puis sélectionnez **Aucune authentification** : ![](./media/powerapps-web-api-tutorial/noauth.png "Aucune autorisation")
+2. Dans l’écran suivant, sélectionnez le modèle d’API web, puis sélectionnez **Aucune authentification** :
+![](./media/powerapps-web-api-tutorial/noauth.png "Aucune autorisation")
 
 	>[AZURE.IMPORTANT] Assurez-vous de définir l’authentification sur « Aucune authentification ».
 
 3. Une fois que vous avez créé le projet, vous devez créer l’API web pour vos ressources. Dans ce didacticiel, nous ne voyons pas les étapes permettant de créer une API web.
 
-4. Ensuite, créez un fichier Swagger pour l’API web. Pour cela, ouvrez simplement la __console du Gestionnaire de package__ et installez __Swashbuckle__ : ![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Console Swashbuckle")
+4. Ensuite, créez un fichier Swagger pour l’API web. Pour cela, ouvrez simplement la __console du Gestionnaire de package__ et installez __Swashbuckle__ :
+![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Console Swashbuckle")
 
 5. Après avoir installé et activé Swashbuckle, accédez aux points de terminaison des documents et de l’interface utilisateur de Swagger, respectivement : **<your-root-url>/swagger/docs/v1**
 
@@ -59,7 +62,7 @@ Ce didacticiel part du principe que vous savez créer une application AAD dans A
 2. La deuxième application AAD permet de sécuriser l’inscription de l’API personnalisée et d’obtenir l’accès délégué à l’API web protégée par la première application. Nommez cette application **webAPI-customAPI**.
 3. Configurez **webAPI** comme indiqué ci-dessous :  
 
-  1. URL de connexion : ******https://login.windows.net***
+  1. URL de connexion : ***https://login.windows.net***
   2. URI ID d’application : ***https://\<your-root-url>*** (correspond en général à l’URL de votre site web déployé sur Azure)
   3. URL de réponse : ***https://\<your-root-url>/.auth/login/aad/callback***  
   
@@ -67,9 +70,9 @@ Ce didacticiel part du principe que vous savez créer une application AAD dans A
 
 4. Configurez **webAPI-customAPI** comme indiqué ci-dessous :
   
-  1. URL de connexion : ****https://login.windows.net**
+  1. URL de connexion : **https://login.windows.net**
   2. URI ID d’application : ***n’importe quelle URL unique***
-  3. URL de réponse : ******https://msmanaged-na.consent.azure-apim.net/redirect***
+  3. URL de réponse : ***https://msmanaged-na.consent.azure-apim.net/redirect***
   4. Ajoutez les autorisations nécessaires pour avoir l’accès délégué à l’API web.
   5. Notez l’ID client de cette application, car vous en aurez également besoin plus tard.
   6. Générez une clé et conservez-la en lieu sûr, car vous en aurez besoin plus tard.
@@ -112,7 +115,7 @@ Votre application web doit normalement être configurée avec l’authentificati
 
   1. ID client : ***ID client de l’application webAPI-CustomAPI*** noté au point 4.5 de l’**étape 2**, plus haut dans cette rubrique
   2. Clé secrète : ***Clé générée par webAPI-CustomAPI*** au point 4.6 de l’**étape 2**, plus haut dans cette rubrique
-  3. URL de connexion: ******https://login.windows.net***
+  3. URL de connexion: ***https://login.windows.net***
   4. URI de ressource : ***ID client de l’application webAPI*** noté au point 3.4 de l’**étape 2**, plus haut dans cette rubrique
 
 5. Sélectionnez **Créer**, puis essayez de créer une connexion sur l’API personnalisée. Si tout est correctement configuré, vous devez être en mesure de vous connecter.

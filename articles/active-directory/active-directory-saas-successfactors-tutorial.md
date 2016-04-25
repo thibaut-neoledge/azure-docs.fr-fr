@@ -84,8 +84,8 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : « **https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : « *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Cette valeur n’est qu’un espace réservé temporaire. La valeur réelle vous est fournie par votre équipe de support SuccessFactors. Plus loin dans ce didacticiel, vous trouverez des instructions pour contacter votre équipe de support SuccessFactors. Dans le cadre de cet échange, vous recevez votre URL de réponse SuccessFactors.
 

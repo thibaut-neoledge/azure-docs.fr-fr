@@ -98,9 +98,11 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 1.	Connectez-vous à http://azure.microsoft.com.
 2.	Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 3.	Dans le portail de gestion Azure Multi-Factor Authentication, si le nom de votre client ou fournisseur Azure MFA s'affiche à gauche avec le signe +, cliquez sur le signe + pour afficher les différents groupes de réplication du serveur MFA et le groupe Azure par défaut. Cliquez sur le groupe approprié.
-4.	Sous Administration des utilisateurs, cliquez sur **Contournement à usage unique**. ![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
+4.	Sous Administration des utilisateurs, cliquez sur **Contournement à usage unique**.
+![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
 5.	Dans la page Contournement à usage unique, cliquez sur **Nouveau contournement à usage unique**.
-6.	Saisissez le nom d'utilisateur, le nombre de secondes pendant lesquelles le contournement se produira, la raison du contournement, puis cliquez sur **Contourner**. ![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
+6.	Saisissez le nom d'utilisateur, le nombre de secondes pendant lesquelles le contournement se produira, la raison du contournement, puis cliquez sur **Contourner**.
+![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
 7.	À ce stade, l'utilisateur doit se connecter avant l'expiration du contournement à usage unique.
 
 
@@ -134,10 +136,14 @@ Avant de commencer, tenez compte des informations suivantes :
 2.	Connectez-vous à http://azure.microsoft.com.
 3.	Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 4.	Dans le portail de gestion Azure Multi-Factor Authentication, cliquez sur Messages vocaux dans la section Configurer.
-5.	Sous la section Messages vocaux, cliquez sur **Nouveau message vocal**. ![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	Dans la page Configurer : nouveaux messages vocaux, cliquez sur **Gérer les fichiers audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	Dans la page Configurer : fichiers audio, cliquez sur **Télécharger un fichier audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	Dans la page Configurer : télécharger un fichier audio, cliquez sur **Parcourir**, accédez à votre message vocal, puis cliquez sur **Ouvrir**. ![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
+5.	Sous la section Messages vocaux, cliquez sur **Nouveau message vocal**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	Dans la page Configurer : nouveaux messages vocaux, cliquez sur **Gérer les fichiers audio**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	Dans la page Configurer : fichiers audio, cliquez sur **Télécharger un fichier audio**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	Dans la page Configurer : télécharger un fichier audio, cliquez sur **Parcourir**, accédez à votre message vocal, puis cliquez sur **Ouvrir**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
 9.	Ajoutez une description et cliquez sur Télécharger.
 10.	Une fois cette opération terminée, vous verrez un message indiquant que vous avez téléchargé le fichier.
 11.	Sur la gauche, cliquez sur Messages vocaux.
@@ -146,7 +152,8 @@ Avant de commencer, tenez compte des informations suivantes :
 14.	Si ce message concerne une application spécifique, spécifiez-la dans la zone de l'application.
 15.	Dans le type de message, sélectionnez le type de message qui sera remplacé par notre nouveau message personnalisé.
 16.	Dans le menu déroulant du fichier audio, sélectionnez le fichier audio.
-17.	Cliquez sur **Create**. Vous verrez un message indiquant que vous avez créé un message vocal. ![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+17.	Cliquez sur **Create**. Vous verrez un message indiquant que vous avez créé un message vocal.
+![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 
@@ -349,7 +356,8 @@ Toutefois, étant donné que les utilisateurs sont autorisés à mémoriser MFA 
 3. Dans Active Directory, cliquez sur le répertoire pour lequel vous souhaitez configurer Mémoriser Multi-Factor Authentication pour les appareils.
 4. Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.
 5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
-6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur pour les appareils de confiance**. ![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
+6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur pour les appareils de confiance**.
+![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
 8. Définissez le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.

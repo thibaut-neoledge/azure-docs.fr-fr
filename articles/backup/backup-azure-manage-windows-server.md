@@ -57,8 +57,8 @@ Le filtre **Type** permet de filtrer les valeurs par défaut sur une machine vir
 
 Exécutez ensuite les tâches suivantes :
 
-- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent Microsoft Azure Backup local pour inscrire de nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
-- **Supprimer ** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
+- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent Microsoft Azure Backup local pour inscrire de nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
+- **Supprimer** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
 
     ![Éléments inscrits](./media/backup-azure-manage-windows-server/registered-items-tasks.png)
 

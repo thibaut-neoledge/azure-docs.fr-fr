@@ -165,7 +165,7 @@ L’application Hightail attend les assertions SAML dans un format spécifique. 
 
 	![Configurer l’authentification unique](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
 
-	a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Hightail au format suivant : ****https://www.hightail.com/loginSSO**. Il s’agit de la page de connexion commune à tous les clients qui veulent utiliser l’authentification unique.
+	a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Hightail au format suivant : **https://www.hightail.com/loginSSO**. Il s’agit de la page de connexion commune à tous les clients qui veulent utiliser l’authentification unique.
 
 	b. Cliquez sur **Suivant**
 

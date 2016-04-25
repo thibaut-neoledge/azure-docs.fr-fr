@@ -227,14 +227,14 @@ Pour afficher et modifier les informations de compte Azure, vous devez vous conn
 2.	Dans la page Abonnements, cliquez sur l’abonnement pour lequel vous voulez mettre à jour le moyen de paiement.
 3.	Dans la page de synthèse de l’**abonnement**, cliquez sur Modifier le moyen de paiement. L’outil **Modifier le moyen de paiement** apparaît dans une fenêtre séparée.
 
-**REMARQUE** : vous pouvez également accéder au Centre des comptes à partir du portail Microsoft Azure Classic. Pour ce faire, cliquez sur votre nom de compte, puis sur Afficher ma facture.
+**REMARQUE** : vous pouvez également accéder au Centre des comptes à partir du portail Microsoft Azure Classic. Pour ce faire, cliquez sur votre nom de compte, puis sur Afficher ma facture.
 4.	Dans la page **Choisir le moyen de paiement**, cliquez sur la liste déroulante, sélectionnez le moyen de paiement à mettre à jour, puis cliquez sur **Modifier**.
 5.	Dans la page des détails, vérifiez l’exactitude du type de carte bancaire sélectionné et du numéro de carte saisi.
 6.	Apportez les modifications nécessaires, puis cliquez sur **Suivant**.
 
 Pour plus d’informations, consultez l’article [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
 
-**REMARQUE** : pour l’instant, l’outil Modifier le moyen de paiement ne vous permet pas de supprimer une carte de crédit existante utilisée comme moyen de paiement. Pour plus d’informations sur la suppression d’une carte de crédit, consultez la question « Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ? » dans cet article.
+**REMARQUE** : pour l’instant, l’outil Modifier le moyen de paiement ne vous permet pas de supprimer une carte de crédit existante utilisée comme moyen de paiement. Pour plus d’informations sur la suppression d’une carte de crédit, consultez la question « Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ? » dans cet article.
 
 ### Pourquoi ne puis-je pas modifier ou ajouter des détails à mon abonnement ?
 

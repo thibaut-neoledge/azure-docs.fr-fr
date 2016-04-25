@@ -37,7 +37,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
 
-Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
+Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 * **Nom du travail** - entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
 * **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
@@ -99,11 +99,11 @@ Fournissez les valeurs suivantes :
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] De même, veuillez noter que si Power BI dispose déjà d'un groupe de données et d'un tableau portant le même nom que celui que vous avez saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
 
 
 ## Écrire une requête
@@ -149,7 +149,7 @@ Avec cela, vous obtenez automatiquement un graphique comme celui-ci :
 
 ![graphic8][graphic8]
 
-Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
+Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
 
 ![graphic9][graphic9]
 

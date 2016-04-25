@@ -27,11 +27,11 @@ Vous pouvez utiliser Azure Traffic Manager pour contrôler la façon dont les re
 ## Méthodes d'équilibrage de charge
 Azure Traffic Manager utilise trois méthodes d'équilibrage de charge. Elles sont décrites dans la liste suivante, car elles se rapportent aux applications web Azure.
 
-* **Basculement** : si vous avez des clones d’application web dans différentes régions, utilisez cette méthode pour configurer une application web qui traite l’ensemble du trafic des clients web, et en configurer une autre d’une région différente qui traite ce trafic en cas de défaillance de la première.
+* **Basculement** : si vous avez des clones d’application web dans différentes régions, utilisez cette méthode pour configurer une application web qui traite l’ensemble du trafic des clients web, et en configurer une autre d’une région différente qui traite ce trafic en cas de défaillance de la première.
 
-* **Tourniquet ** : si vous avez des clones d’application web dans différentes régions, utilisez cette méthode pour répartir le trafic équitablement entre les applications web des différentes régions.
+* **Tourniquet** : si vous avez des clones d’application web dans différentes régions, utilisez cette méthode pour répartir le trafic équitablement entre les applications web des différentes régions.
 
-* **Performance** : cette méthode répartit le trafic en fonction du trajet aller-retour le plus court avec les clients. Cette méthode peut être utilisée pour les applications web d’une même région ou de régions différentes.
+* **Performance** : cette méthode répartit le trafic en fonction du trajet aller-retour le plus court avec les clients. Cette méthode peut être utilisée pour les applications web d’une même région ou de régions différentes.
 
 ##Applications web et profils dans Traffic Manager
 Pour configurer le contrôle du trafic des applications web, vous pouvez créer un profil dans Azure Traffic Manager, qui utilise l’une des trois méthodes d’équilibrage de charge décrites précédemment, puis ajouter au profil les points de terminaison (ici, des applications web) dont vous souhaitez contrôler le trafic. Le statut de votre application web (en cours d’exécution, arrêtée ou supprimée) est régulièrement communiqué au profil, ce qui permet à Azure Traffic Manager de diriger le trafic.

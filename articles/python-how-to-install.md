@@ -49,7 +49,7 @@ Sauf en cas de nécessité particulière, nous vous recommandons d'opter pour l'
 
 ## Installation sur Windows, Linux et MacOS (bibliothèques client uniquement)
 
-Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index][] (PyPI).
+Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index](PyPI).
 
 Notez que vous devrez peut-être utiliser la commande `sudo` sur Linux et MacOS, soit `sudo pip install azure`.
 
@@ -81,7 +81,7 @@ Vous pouvez utiliser Web Platform Installer pour simplifier l'installation. Cell
 * [Kit de développement logiciel (SDK) Microsoft Azure pour Python 2.7][]
 * [Kit de développement logiciel (SDK) Microsoft Azure pour Python 3.4][]
 
-**Remarque** : pour télécharger le programme d’installation de WebPI sur Windows Server, vous devrez peut-être configurer les paramètres de configuration de sécurité renforcée (ESC) d’Internet Explorer (sélectionnez Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquez sur **Configuration de sécurité renforcée d’Internet Explorer** et désactivez cette option).
+**Remarque** : pour télécharger le programme d’installation de WebPI sur Windows Server, vous devrez peut-être configurer les paramètres de configuration de sécurité renforcée (ESC) d’Internet Explorer (sélectionnez Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquez sur **Configuration de sécurité renforcée d’Internet Explorer** et désactivez cette option).
 
 ### Python 2,7
 
@@ -124,12 +124,12 @@ Ensuite, réexécutez WebPI.
 
 ## Téléchargement d'autres packages
 
-[Python Package Index][] (PyPI) comporte une sélection étoffée de bibliothèques Python. Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour divers scénarios, du développement web au calcul technique.
+[Python Package Index](PyPI) comporte une sélection étoffée de bibliothèques Python. Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour divers scénarios, du développement web au calcul technique.
 
 
 ## Python Tools pour Visual Studio
 
-[Python Tools for Visual Studio][] (PTVS) est un plug-in gratuit/OSS de Microsoft qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
+[Python Tools for Visual Studio](PTVS) est un plug-in gratuit/OSS de Microsoft qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 

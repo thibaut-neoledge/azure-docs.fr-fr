@@ -167,7 +167,7 @@ Suivez ces étapes pour configurer le premier serveur SharePoint dans la batter
 2.	Dans la page **Bienvenue dans les produits SharePoint**, cliquez sur **Suivant**.
 3.	Une boîte de dialogue **Assistant Configuration des produits SharePoint** s’affiche et indique que les services (tels qu’IIS) seront redémarrés ou réinitialisés. Cliquez sur **Oui**.
 4.	Dans la page **Se connecter à une batterie de serveurs**, sélectionnez **Créer une batterie de serveurs**, puis cliquez sur **Suivant**.
-5.	Dans la page **Spécifier les paramètres de la base de données de configuration** :
+5.	Dans la page **Spécifier les paramètres de la base de données de configuration** :
  - Dans **Serveur de base de données**, tapez le nom du serveur de base de données primaire.
  - Dans **Nom d'utilisateur**, tapez [Domain]**\\sp\_farm\_db** (créé pendant la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-windows-ps-sp-intranet-ph2.md)). N’oubliez pas que le compte sp\_farm\_db dispose de privilèges sysadmin sur le serveur de base de données.
  - Dans **Mot de passe**, saisissez le mot de passe associé au compte sp\_farm\_db.

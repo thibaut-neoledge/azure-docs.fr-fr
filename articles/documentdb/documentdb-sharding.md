@@ -140,7 +140,7 @@ Les exemples sont open source et nous vous invitons à envoyer des requêtes d'e
 
 Oui, DocumentDB prend en charge le [partitionnement côté serveur](documentdb-partition-data.md). DocumentDB prend également en charge le partitionnement côté client via des programmes de résolution de partition côté client pour les cas d'usage plus complexes.
 
-** Quand dois-je utiliser le partitionnement côté serveur ou côté client ? ** Dans la majorité des cas d'usage, nous recommandons l'utilisation du partitionnement côté serveur car il gère les tâches d'administration du partitionnement des données et du routage des requêtes. Toutefois, si vous avez besoin d'un partitionnement par plage ou êtes confronté à un cas d'usage spécialisé pour l'isolement des performances entre les différentes valeurs de clés de partition, le partitionnement côté client peut être préférable.
+**Quand dois-je utiliser le partitionnement côté serveur ou côté client ?** Dans la majorité des cas d'usage, nous recommandons l'utilisation du partitionnement côté serveur car il gère les tâches d'administration du partitionnement des données et du routage des requêtes. Toutefois, si vous avez besoin d'un partitionnement par plage ou êtes confronté à un cas d'usage spécialisé pour l'isolement des performances entre les différentes valeurs de clés de partition, le partitionnement côté client peut être préférable.
 
 **Comment puis-je ajouter ou supprimer une collection à mon modèle de partitionnement ?**
 

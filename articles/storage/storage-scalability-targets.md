@@ -65,7 +65,7 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 
 - **Blobs** : la clé de partition d’un blob est le nom du compte + le nom du conteneur + le nom du blob. Cela signifie que chaque objet peut avoir sa propre partition si la charge sur le blob en fait la demande. Les blobs peuvent être répartis sur plusieurs serveurs afin d’offrir un accès horizontal. Toutefois, un blob donné ne peut être servi que par un seul serveur. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
 
-- **Fichiers** : la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
+- **Fichiers** : la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
 
 - **Messages** : la clé de partition d’un message est le nom du compte + le nom de la file d’attente : tous les messages d’une file d’attente sont regroupés en une seule partition et servis par un seul serveur. Plusieurs files d’attente peuvent être traitées par différents serveurs pour équilibrer la charge, quel que soit le nombre de files d’attente du compte de stockage.
 

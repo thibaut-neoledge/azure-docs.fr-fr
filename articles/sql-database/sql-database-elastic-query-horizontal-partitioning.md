@@ -99,11 +99,11 @@ Notez que les mêmes informations d’identification sont utilisées pour lire l
  
 Une requête élastique étend la table externe DDL pour faire référence à des tables externes qui sont partitionnées horizontalement sur plusieurs bases de données de table. La définition de table externe traite les aspects suivants :
 
-* **Schéma** : la table externe DDL définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables sur les partitions sur lesquelles sont stockées les données réelles. 
+* **Schéma** : la table externe DDL définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables sur les partitions sur lesquelles sont stockées les données réelles. 
 
-* **Distribution des données** : la table externe DDL définit la distribution des données utilisée pour répartir ces dernières sur l’ensemble de votre couche de données. Notez que base de données SQL Azure ne valide pas la distribution que vous définissez sur la table externe par rapport à la distribution réelle sur les partitions. Il est de votre responsabilité de vous assurer que la distribution de données sur les partitions effective correspond à votre définition de table externe.
+* **Distribution des données** : la table externe DDL définit la distribution des données utilisée pour répartir ces dernières sur l’ensemble de votre couche de données. Notez que base de données SQL Azure ne valide pas la distribution que vous définissez sur la table externe par rapport à la distribution réelle sur les partitions. Il est de votre responsabilité de vous assurer que la distribution de données sur les partitions effective correspond à votre définition de table externe.
 
-* **Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
+* **Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
 
 La syntaxe permettant de créer et supprimer des tables externes à l’aide de sources de données externes comme indiqué dans la section précédente est la suivante :
 
@@ -138,11 +138,11 @@ Vous pouvez utiliser l’instruction qui suit pour supprimer les tables externes
 
 	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
 
-Les autorisations **CREATE/DROP EXTERNAL TABLE** : ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
+Les autorisations **CREATE/DROP EXTERNAL TABLE** : ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
 
 **Considérations de sécurité :** les utilisateurs ayant accès à la table externe acquièrent un accès automatique aux tables distantes sous-jacentes avec les informations d’identification fournies dans la définition de source de données externe. Vous devez gérer l’accès à la table externe avec beaucoup d’attention pour éviter une élévation de privilèges non souhaitée par le biais d’informations d’identification de la source de données externe. Les autorisations SQL standard permettent de GRANT (OCTROYER) ou de REVOKE (RÉVOQUER) l’accès à une table externe comme s’il s’agissait d’une table normale.
 
-**Exemple** : l’exemple suivant montre la procédure de création d’une table externe :
+**Exemple** : l’exemple suivant montre la procédure de création d’une table externe :
 
 	CREATE EXTERNAL TABLE [dbo].[order_line]( 
 		 [ol_o_id] int NOT NULL, 
@@ -175,7 +175,7 @@ L’exemple suivant illustre comment récupérer la liste des tables externes à
 
 Une fois votre table externe et votre source de données externe définies, vous pouvez utiliser l’ensemble T-SQL complet sur vos tables externes.
 
-**Exemple de partitionnement horizontal** : la requête suivante effectue une jointure tridirectionnelle entre les entrepôts, les commandes et les lignes de commande, et utilise plusieurs agrégats et un filtre sélectif. Il suppose (1) un partitionnement horizontal (partitionnement) et (2) que les entrepôts, les commandes et lignes de commande sont partitionnées par la colonne d’id de l’entrepôt et que la requête élastique peut placer des jointures sur les partitions et traiter la partie coûteuse de la requête sur les partitions en parallèle.
+**Exemple de partitionnement horizontal** : la requête suivante effectue une jointure tridirectionnelle entre les entrepôts, les commandes et les lignes de commande, et utilise plusieurs agrégats et un filtre sélectif. Il suppose (1) un partitionnement horizontal (partitionnement) et (2) que les entrepôts, les commandes et lignes de commande sont partitionnées par la colonne d’id de l’entrepôt et que la requête élastique peut placer des jointures sur les partitions et traiter la partie coûteuse de la requête sur les partitions en parallèle.
 
 	select  
 		 w_id as warehouse,

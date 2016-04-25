@@ -282,7 +282,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             return base.FinishedLaunching(app, options);
         }
 
-6. Dans **AppDelegate**, remplacez l’événement **RegisteredForRemoteNotifications** :
+6. Dans **AppDelegate**, remplacez l’événement **RegisteredForRemoteNotifications** :
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
@@ -306,7 +306,7 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
             push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
-7. Dans **AppDelegate**, remplacez l’événement **ReceivedRemoteNotification** :
+7. Dans **AppDelegate**, remplacez l’événement **ReceivedRemoteNotification** :
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
@@ -335,7 +335,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
     La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.
@@ -405,7 +405,7 @@ Dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis sur l
 
 La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.
@@ -449,7 +449,7 @@ La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 		using Gcm.Client;
 
 
-4.	Dans la classe **MainActivity**, ajoutez le code suivant à la méthode **OnCreate**, après l’appel à la méthode **LoadApplication** :
+4.	Dans la classe **MainActivity**, ajoutez le code suivant à la méthode **OnCreate**, après l’appel à la méthode **LoadApplication** :
 
             try
             {
@@ -476,12 +476,12 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
 
 5. Dans le projet ToDoAzure.Droid, créez une classe dans le projet appelé `GcmService`.
 
-5. Ajoutez les instructions Using suivantes à la classe **GcmService** :
+5. Ajoutez les instructions Using suivantes à la classe **GcmService** :
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. Ajoutez les demandes d’autorisation suivantes entre les instructions **using** et la déclaration **namespace** :
+6. Ajoutez les demandes d’autorisation suivantes entre les instructions **using** et la déclaration **namespace** :
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -508,7 +508,7 @@ Vous pouvez maintenant ajouter des notifications Push à **MainActivity**.
 
 	Dans le code ci-dessus, vous devez remplacer _`<PROJECT_NUMBER>`_ par le numéro de projet attribué par Google lorsque vous avez configuré votre application dans le portail des développeurs Google.
 
-8. Dans le fichier de projet GcmService.cs, ajoutez le code suivant qui définit la classe **GcmService** :
+8. Dans le fichier de projet GcmService.cs, ajoutez le code suivant qui définit la classe **GcmService** :
 
          [Service]
          public class GcmService : GcmServiceBase
@@ -701,7 +701,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l’appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
@@ -729,7 +729,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l’opération d’inser
 
     La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
           function insert(item, user, request) {
           // Execute the request and send notifications.

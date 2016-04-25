@@ -75,15 +75,15 @@ Certaines distributions Linux n’incluant pas la mise en cache par défaut, il 
 
 Un certain nombre de packages de mise en cache DNS différents sont disponibles, par exemple, dnsmasq. Voici les étapes pour installer dnsmasq sur les distributions les plus courantes :
 
-- **Ubuntu (utilise resolvconf)** :
+- **Ubuntu (utilise resolvconf)** :
 	- installez simplement le package dnsmasq (« sudo apt-get install dnsmasq »).
-- **SUSE (utilise netconf)** :
+- **SUSE (utilise netconf)** :
 	- installez le package dnsmasq (« sudo zypper install dnsmasq ») 
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service ») 
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service ») 
 	- modifiez « /etc/sysconfig/network/config » et remplacez NETCONFIG\_DNS\_FORWARDER="" par « dnsmasq »
 	- mettez à jour resolv.conf (netconfig update) pour définir le cache en tant que programme de résolution DNS local
-- **OpenLogic (utilise NetworkManager)** :
+- **OpenLogic (utilise NetworkManager)** :
 	- installez le package dnsmasq (« sudo yum install dnsmasq »)
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)

@@ -74,7 +74,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     2.  Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
 
-2.  Sur la page **Paramètres de l’appareil** :
+2.  Sur la page **Paramètres de l’appareil** :
 
     1.  Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
 

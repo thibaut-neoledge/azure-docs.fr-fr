@@ -288,7 +288,7 @@ Les détails du stockage sont souvent partagés avec les modèles liés. Dans l'
 
 Si vous utilisez des modèles liés, vous devrez peut-être transmettre des paramètres de système d’exploitation à différents types de nœuds entre les différents types de configurations connus. Un objet complexe est pratique pour stocker et partager facilement des informations de système d’exploitation et facilite également la prise en charge de plusieurs options de système d’exploitation pour le déploiement.
 
-L’exemple suivant montre un objet pour *osSettings* :
+L’exemple suivant montre un objet pour *osSettings* :
 
     "osSettings": {
       "imageReference": {

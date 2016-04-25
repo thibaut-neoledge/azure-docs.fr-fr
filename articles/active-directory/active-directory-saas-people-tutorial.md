@@ -121,7 +121,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 	c. Dans la zone de texte **Identificateur**, tapez l’URL du locataire.
 
-    d. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : « ****https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+    d. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : « **https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
 
 	e. Cliquez sur **Suivant**
 

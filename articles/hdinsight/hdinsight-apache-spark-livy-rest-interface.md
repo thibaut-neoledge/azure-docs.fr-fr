@@ -66,7 +66,7 @@ Avant de soumettre un traitement par lots, vous devez télécharger le fichier .
 
 	curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 
-**Exemple** :
+**Exemple** :
 
 	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 

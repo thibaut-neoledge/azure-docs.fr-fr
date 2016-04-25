@@ -36,7 +36,8 @@ Exécutez le processus de découverte pour vous assurer que les nouvelles machin
 
 1. Connectez-vous au [portail Classic](http://manage.windowsazure.com/)
 
-2. Dans la liste des services Azure, cliquez sur **Recovery Services** pour ouvrir la liste des coffres de sauvegarde et Site Recovery. ![Ouvrir la liste d’archivage](./media/backup-azure-vms/choose-vault-list.png)
+2. Dans la liste des services Azure, cliquez sur **Recovery Services** pour ouvrir la liste des coffres de sauvegarde et Site Recovery.
+![Ouvrir la liste d’archivage](./media/backup-azure-vms/choose-vault-list.png)
 
 3. Dans la liste des archivages de sauvegarde, sélectionnez le coffre pour sauvegarder une machine virtuelle.
 
@@ -54,7 +55,8 @@ Exécutez le processus de découverte pour vous assurer que les nouvelles machin
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Cliquez sur **DÉCOUVRIR** en bas de la page. ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
+6. Cliquez sur **DÉCOUVRIR** en bas de la page.
+![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
 
     Le processus de découverte peut durer quelques minutes, le temps que les machines virtuelles soient affichées sous forme de tableau. Une notification affichée en bas de l’écran vous informe que le processus est en cours d’exécution.
 
@@ -75,7 +77,8 @@ Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Ba
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur **INSCRIRE** en bas de la page. ![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
+3. Cliquez sur **INSCRIRE** en bas de la page.
+![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
 
 4. Dans le menu contextuel **Inscrire les éléments**, choisissez les machines virtuelles que vous souhaitez inscrire. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
@@ -133,7 +136,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
 
     Dans cet exemple :
 
-    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
+    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
     - **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les dimanches sont conservées pendant 104 semaines.
     - **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier dimanche de chaque mois sont conservées pendant 120 mois.
     - **Stratégie de rétention annuelle** : les sauvegardes effectuées le premier dimanche de janvier de chaque année sont conservées pendant 99 ans.

@@ -148,7 +148,8 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Suivant**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Suivant**.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  Sur la page **Nom et emplacement**, spécifiez le nom de votre machine virtuelle. Ce nom doit correspondre au nom du dossier (recommandé) que vous avez spécifié à l'étape 8.
 

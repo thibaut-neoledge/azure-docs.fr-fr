@@ -126,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 	![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png)
 
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL qu’utilisent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile selon le modèle suivant : ** « https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<émetteur de client>&Target=<URL de la page cible> »**.
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL qu’utilisent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile selon le modèle suivant : **« https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<émetteur de client>&Target=<URL de la page cible> »**.
 
 	b. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **« https://sso.tangoe.com/sp/ACS.saml2 »**.
 

@@ -26,7 +26,7 @@ Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans V
 
 Quelques définitions pour commencer :
 
-* **Ressource** : une instance d’un service Microsoft Azure. Votre ressource Application Insights collecte, analyse et affiche les données de télémétrie envoyées par votre application. Les autres types de ressources Azure incluent des applications Web, des bases de données et des machines virtuelles.
+* **Ressource** : une instance d’un service Microsoft Azure. Votre ressource Application Insights collecte, analyse et affiche les données de télémétrie envoyées par votre application. Les autres types de ressources Azure incluent des applications Web, des bases de données et des machines virtuelles.
 
     Pour afficher toutes vos ressources, accédez au [portail Azure][portal], connectez-vous, puis cliquez sur Parcourir.
 

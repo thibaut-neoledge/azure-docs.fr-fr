@@ -53,14 +53,14 @@ Lorsque votre organisation ou votre société s’inscrit à un service cloud Mi
 Utilisez la procédure suivante pour déterminer si vous disposez déjà d’un client ou pour savoir comment en créer un.
 
 #### Vous avez un abonnement Office 365 en cours
-Si vous possédez un abonnement Office 365 en cours (ou Microsoft Dynamic CRM Online, Enterprise Mobility Suite ou autres services Microsoft), vous disposez d’un abonnement gratuit à Azure Active Directory. Vous pouvez utiliser Azure AD pour créer et gérer des comptes d’utilisateur et de groupe. Si vous ne pouvez pas vous connecter au portail Azure, il faut sans doute que vous activiez l’abonnement. Pour ce faire, accédez au [Portail Azure Classic](https://manage.windowsazure.com/) et procédez à l’inscription unique. Utilisez cette [procédure](https://technet.microsoft.com/library/dn832618.aspx) pour accéder à votre client Azure AD.
+Si vous possédez un abonnement Office 365 en cours (ou Microsoft Dynamic CRM Online, Enterprise Mobility Suite ou autres services Microsoft), vous disposez d’un abonnement gratuit à Azure Active Directory. Vous pouvez utiliser Azure AD pour créer et gérer des comptes d’utilisateur et de groupe. Si vous ne pouvez pas vous connecter au portail Azure, il faut sans doute que vous activiez l’abonnement. Pour ce faire, accédez au [Portail Azure Classic]( https://manage.windowsazure.com/) et procédez à l’inscription unique. Utilisez cette [procédure]( https://technet.microsoft.com/library/dn832618.aspx) pour accéder à votre client Azure AD.
 
 #### Vous avez un abonnement Azure en cours associé à un compte Microsoft
-Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte Microsoft individuel (hotmail ou live), vous avez déjà un client ! Dans le [Portail Azure Classic](https://manage.windowsazure.com/), **Client par défaut** est répertorié sous **Tous les éléments** et sous **Active Directory**. Vous êtes libre d'utiliser ce client selon vos besoins, mais vous avez la possibilité de créer un compte d'administrateur professionnel.
+Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte Microsoft individuel (hotmail ou live), vous avez déjà un client ! Dans le [Portail Azure Classic]( https://manage.windowsazure.com/), **Client par défaut** est répertorié sous **Tous les éléments** et sous **Active Directory**. Vous êtes libre d'utiliser ce client selon vos besoins, mais vous avez la possibilité de créer un compte d'administrateur professionnel.
 
 Pour ce faire, procédez comme suit. Autrement, vous pouvez créer un nouveau client et créer un administrateur dans ce client suivant un processus similaire.
 
-1.	Connectez-vous au [Portail Azure Classic ](https://manage.windowsazure.com/) avec votre compte individuel.
+1.	Connectez-vous au [Portail Azure Classic ]( https://manage.windowsazure.com/) avec votre compte individuel.
 2.	Dans la barre de menu de gauche, sélectionnez **Active Directory**.
 3.	Sélectionnez **Répertoire par défaut** dans la liste des répertoires disponibles.
 4.	Sélectionnez l’onglet **Utilisateurs** en haut. Un seul utilisateur apparaît avec la mention « Compte Microsoft » dans la colonne Provenance.
@@ -78,14 +78,14 @@ Facultatif | Activez Multi-Factor Authentication
 
 	Sélectionnez le bouton **CRÉER** pour terminer et pour afficher le mot de passe temporaire.
 
-Lorsque vous avez terminé, notez ce mot de passe temporaire pour le nouvel utilisateur administratif. Pour modifier le mot de passe temporaire, connectez-vous à [https://login.microsoftonline.com](https://login.microsoftonline.com) avec ce nouveau compte d’utilisateur et modifiez le mot de passe. Vous pouvez également envoyer le mot de passe directement à l'utilisateur, à l'aide d'un autre e-mail.
+Lorsque vous avez terminé, notez ce mot de passe temporaire pour le nouvel utilisateur administratif. Pour modifier le mot de passe temporaire, connectez-vous à [https://login.microsoftonline.com]( https://login.microsoftonline.com) avec ce nouveau compte d’utilisateur et modifiez le mot de passe. Vous pouvez également envoyer le mot de passe directement à l'utilisateur, à l'aide d'un autre e-mail.
 
 
 #### Vous avez un abonnement Azure en cours associé à un compte professionnel
-Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte professionnel, vous avez déjà un client. Dans le [Portail Azure Classic](https://manage.windowsazure.com/), le client est répertorié sous **Tous les éléments** et également sous **Active Directory**. Vous êtes libre d'utiliser ce client selon vos besoins. Vous pouvez également créer un client à l’aide du menu **Nouveau** dans la barre des tâches en bas.
+Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte professionnel, vous avez déjà un client. Dans le [Portail Azure Classic]( https://manage.windowsazure.com/), le client est répertorié sous **Tous les éléments** et également sous **Active Directory**. Vous êtes libre d'utiliser ce client selon vos besoins. Vous pouvez également créer un client à l’aide du menu **Nouveau** dans la barre des tâches en bas.
 
 #### Vous n’avez aucun des éléments ci-dessus et vous souhaitez commencer à partir de zéro
-Si aucune des situations ci-dessus ne s’applique à vous, accédez à la page [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation. Une fois inscrit, vous disposez de votre propre client Azure AD avec le nom de domaine que vous avez choisi. Dans le [Portail Azure Classic](https://manage.windowsazure.com/), vous pouvez voir le client dans **Active Directory** dans le menu de gauche.
+Si aucune des situations ci-dessus ne s’applique à vous, accédez à la page [https://account.windowsazure.com/organization]( https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation. Une fois inscrit, vous disposez de votre propre client Azure AD avec le nom de domaine que vous avez choisi. Dans le [Portail Azure Classic]( https://manage.windowsazure.com/), vous pouvez voir le client dans **Active Directory** dans le menu de gauche.
 
 ## Étape 2 : Créer un abonnement Azure ou utiliser un abonnement Azure en cours
 Maintenant que vous avez votre client AD, vous pouvez créer un abonnement Azure ou en utiliser un en cours. L’abonnement Azure AD comprend plusieurs éditions. Pour PowerApps Enterprise, vous pouvez utiliser l’édition gratuite. Toutefois, si vous devez utiliser le proxy AAD pour créer une connexion hybride aux données locales, vous avez besoin de l’édition De base ou Premium.
@@ -98,7 +98,7 @@ La page [Éditions d’Azure Active Directory](../active-directory/active-direct
 
 Maintenant que vous disposez de votre client AD et d’un abonnement Azure, l’administrateur de votre abonnement professionnel peut s’inscrire à PowerApps Enterprise. L’administrateur peut également ajouter des utilisateurs dans votre société pour administrer PowerApps, notamment pour accorder des autorisations aux utilisateurs et gérer les éléments PowerApps publiés dans votre abonnement Azure.
 
-Sans inscription à PowerApps Enterprise, un panneau d’accès refusé s’affiche lorsque vous accédez au [portail Azure](https://portal.azure.com/) et que vous recherchez PowerApps. Pour inscrire votre société, l’**administrateur d’abonnements** peut accéder à [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) pour nous contacter afin d’en savoir plus sur la tarification et le processus d’inscription.
+Sans inscription à PowerApps Enterprise, un panneau d’accès refusé s’affiche lorsque vous accédez au [portail Azure]( https://portal.azure.com/) et que vous recherchez PowerApps. Pour inscrire votre société, l’**administrateur d’abonnements** peut accéder à [PowerApps]( http://go.microsoft.com/fwlink/p/?LinkId=716848) pour nous contacter afin d’en savoir plus sur la tarification et le processus d’inscription.
 
 ![][4]
 
@@ -135,17 +135,27 @@ L’environnement normal Azure App Service Environment présente des fonctionnal
 ### Créer un App Service Environment
 > [AZURE.NOTE] Si vous ne voyez pas l’option de création de l’App Service Environment, il est déjà créé pour votre client. Pour afficher les détails, sélectionnez **Paramètres** pour ouvrir l’App Service Environment.
 
-1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
+1. Dans le [portail Azure]( https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
 
-2. Dans la barre des tâches, sélectionnez **Parcourir** : ![Accéder à PowerApps][1]
+2. Dans la barre des tâches, sélectionnez **Parcourir** :
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou saisir *powerapps* : ![Rechercher PowerApps][2]
+	![Accéder à PowerApps][1]
 
-4. Dans le panneau **PowerApps**, sélectionnez **Créer un App Service Environment pour commencer** ou sélectionnez **App Service Environment** sous *Paramètres* : ![][5]
+3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou saisir *powerapps* :
+
+	![Rechercher PowerApps][2]
+
+4. Dans le panneau **PowerApps**, sélectionnez **Créer un App Service Environment pour commencer** ou sélectionnez **App Service Environment** sous *Paramètres* :
+
+	![][5]
 
 	> [AZURE.NOTE] Si vous cliquez sur **Créer un App Service Environment pour commencer**, un panneau supplémentaire s’affiche avec des détails sur l’App Service Environment. Cliquez simplement sur Créer un lien dans ce panneau pour lancer le panneau de création.
 
-5. Ensuite, entrez le nom, sélectionnez l’abonnement que vous souhaitez utiliser, sélectionnez ou créez un groupe de ressources et sélectionnez un réseau virtuel. **Veuillez noter** qu’après avoir choisi un réseau virtuel, vous ne pourrez pas le modifier : ![][6] Pour savoir comment les réseaux virtuels fonctionnent avec un App Service Environment, consultez [Comment créer un environnement App Service](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
+5. Ensuite, entrez le nom, sélectionnez l’abonnement que vous souhaitez utiliser, sélectionnez ou créez un groupe de ressources et sélectionnez un réseau virtuel. **Veuillez noter** qu’après avoir choisi un réseau virtuel, vous ne pourrez pas le modifier :
+
+	![][6]
+
+Pour savoir comment les réseaux virtuels fonctionnent avec un App Service Environment, consultez [Comment créer un environnement App Service](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Sélectionnez **Ajouter** pour terminer la création de l’App Service Environment.
 
@@ -158,8 +168,15 @@ N’oubliez pas : vous pouvez également ajouter des applications web, des appl
 Pour obtenir l’accès à l’App Service Environment, créer des API, des connexions et d’autres ressources, les utilisateurs doivent être ajoutés avec le rôle de propriétaire.
 
 1. Sélectionnez l’App Service Environment que vous venez de créer.
-2. Dans Essentials, sélectionnez la propriété **Groupe de ressources**. Cette action ouvre le groupe de ressources qui contient l’App Service Environment : ![][7]
-3. Sélectionnez l’icône RBAC pour gérer les autorisations : ![][8] L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
+2. Dans Essentials, sélectionnez la propriété **Groupe de ressources**. Cette action ouvre le groupe de ressources qui contient l’App Service Environment :
+
+	![][7]
+
+3. Sélectionnez l’icône RBAC pour gérer les autorisations :
+
+	![][8]
+
+L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
 
 > [AZURE.NOTE] Actuellement, vous ne pouvez pas accorder des autorisations RBAC à l’App Service Environment. Vous pouvez accorder des autorisations RBAC au niveau du groupe de ressources parent.
 

@@ -1,7 +1,7 @@
 Si ce n’est pas déjà fait, vous pouvez vous inscrire gratuitement à un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) et [connecter l’interface de ligne de commande Azure](../articles/xplat-cli-install.md) [à votre compte Azure](../articles/xplat-cli-connect.md). Vous pouvez ensuite exécuter les commandes suivantes pour créer rapidement un jeu de mise à l’échelle :
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/fr-FR/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set

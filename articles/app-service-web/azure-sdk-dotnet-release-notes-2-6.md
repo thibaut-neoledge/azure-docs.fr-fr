@@ -34,7 +34,7 @@ Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouve
 
 ##Mises à jour des outils HDInsight pour Visual Studio
 
-- **Amélioration d'IntelliSense** : suggestion de métadonnées distantes
+- **Amélioration d'IntelliSense** : suggestion de métadonnées distantes
 
 	Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT * FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
 

@@ -40,11 +40,11 @@ L'API de création de rapports utilise [OAuth](https://msdn.microsoft.com/librar
 - Accédez à l’onglet **Applications**.
 - Dans la barre inférieure, cliquez sur **Ajouter**.
 	- Cliquez sur « Ajouter une application développée par mon organisation ».
-	- **Nom** : n'importe quel nom est correct. Quelque chose comme « Application API Création de rapports » est recommandé.
-	- **Type** : Sélectionnez « Application web et/ou API web ».
+	- **Nom** : n'importe quel nom est correct. Quelque chose comme « Application API Création de rapports » est recommandé.
+	- **Type** : Sélectionnez « Application web et/ou API web ».
 	- Cliquez sur la flèche pour passer à la page suivante.
-	- **URL d'authentification** : ```http://localhost```.
-	- **URI d'ID d'application** : ```http://localhost```.
+	- **URL d'authentification** : ```http://localhost```.
+	- **URI d'ID d'application** : ```http://localhost```.
 	- Cliquez sur la coche pour terminer l’ajout de l’application.
 
 ### Autorisation d'utilisation de l'API pour votre application

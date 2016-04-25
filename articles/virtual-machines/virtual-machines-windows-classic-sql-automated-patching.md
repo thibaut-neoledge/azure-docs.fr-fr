@@ -71,7 +71,7 @@ Pour désinstaller l’Agent IaaS de SQL Server, utilisez la syntaxe suivante�
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension –Uninstall | Update-AzureVM
 
-Vous pouvez également désinstaller l’extension à l’aide de la commande **Remove-AzureVMSqlServerExtension** :
+Vous pouvez également désinstaller l’extension à l’aide de la commande **Remove-AzureVMSqlServerExtension** :
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 

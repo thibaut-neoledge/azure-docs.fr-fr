@@ -54,8 +54,8 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
-- **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
+- **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
 
 
 ## Création d’une machine virtuelle de science des données Linux
@@ -66,7 +66,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
 2.	 Cliquez sur le bouton **Créer** au bas de l’écran pour accéder à un assistant.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les **entrées** de chacune des **5 étapes** (énumérées à droite de la figure ci-dessus) de l’Assistant utilisé pour créer la machine virtuelle de sciences de données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
-  **a. Paramètres de base** :
+  **a. Paramètres de base** :
 
    - **Name** (Nom) : nom du serveur Data Science que vous créez.
    - **User Name** (Nom d’utilisateur) : premier identifiant de connexion du compte.
@@ -75,7 +75,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
    - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
    - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
 
-  **b. Taille** :
+  **b. Taille** :
 
    - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « View All » (Afficher tout) pour obtenir d’autres choix de tailles de machines virtuelles
 
@@ -85,11 +85,11 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
    - **Storage Account** (Compte de stockage) : vous pouvez créer un nouveau compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même *emplacement* que celui que vous avez sélectionné à l’étape de définition des paramètres de base de l’Assistant.
    - **Other parameters** (Autres paramètres) : dans la plupart des cas, vous utiliserez simplement la valeur par défaut. Si vous ne souhaitez pas utiliser les valeurs par défaut, vous pouvez survoler le lien d'informations pour obtenir de l'aide sur des champs spécifiques.
 
-  **d. Résumé** :
+  **d. Résumé** :
 
    - Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
-  **e. Acheter** :
+  **e. Acheter** :
 
    - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**. 
 
@@ -110,11 +110,11 @@ La machine virtuelle Linux est déjà approvisionnée avec le serveur X2Go et el
 1. Téléchargez et installez le client X2Go pour votre plateforme cliente [ici](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Exécutez le client X2Go et sélectionnez *New Session* (Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants : 
     * **Onglet Session** :
-        - **Host ** (Hôte) : nom d’hôte ou adresse IP de votre machine virtuelle de science de données Linux.
+        - **Host** (Hôte) : nom d’hôte ou adresse IP de votre machine virtuelle de science de données Linux.
         - **Login** (Connexion) : nom d’utilisateur de la machine virtuelle VM.
         - **SSH Port** (Port SSH) : conservez la valeur par défaut 22.
         - **Session Type** (Type de session) : remplacez la valeur par XFCE. REMARQUE : la machine virtuelle Linux ne prend actuellement en charge que le bureau XFCE.
-    * **Onglet Media ** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin. 
+    * **Onglet Media** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin. 
     * **Shared folders** (Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet. 
 
 Une fois que vous êtes connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils qui sont installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications pour la plupart des outils.

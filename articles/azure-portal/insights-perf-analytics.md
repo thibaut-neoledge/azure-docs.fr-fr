@@ -56,7 +56,8 @@ Le Kit de développement logiciel (SDK) contient une API qui vous permet d’[é
 Utilisez votre application pendant un certain temps afin de générer un certain volume de télémétrie.
 
 1. Ensuite, l’extension est affichée comme étant installée dans le panneau de votre application web ou machine virtuelle.
-2. Cliquez sur la ligne qui représente votre application pour accéder à ce fournisseur : ![Cliquer sur Actualiser.](./media/insights-perf-analytics/06-overview.png)
+2. Cliquez sur la ligne qui représente votre application pour accéder à ce fournisseur :
+![Cliquer sur Actualiser.](./media/insights-perf-analytics/06-overview.png)
 
 Vous pouvez également utiliser **Parcourir** pour accéder directement au composant Application Insights ou au compte New Relic que vous avez utilisé.
 

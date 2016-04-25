@@ -30,9 +30,11 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les pa
 ##Activation de la journalisation
 La journalisation d’audit est automatiquement activée systématiquement pour chaque ressource Resource Manager. Vous devez activer la journalisation de l’accès et des performances pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, procédez comme suit.
 
-1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation seront stockées. Cet ID se présente au format : /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations. ![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation seront stockées. Cet ID se présente au format : /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
+![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Notez l’ID de ressource de votre Application Gateway pour laquelle la journalisation doit être activée. Cet ID se présente au format : /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations. ![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Notez l’ID de ressource de votre Application Gateway pour laquelle la journalisation doit être activée. Cet ID se présente au format : /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
+![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Activez la journalisation des diagnostics à l’aide de l’applet de commande PowerShell suivante.
 

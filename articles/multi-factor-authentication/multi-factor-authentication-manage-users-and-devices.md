@@ -48,7 +48,8 @@ Ce paramètre forcera l'utilisateur à réexécuter le processus d'inscription l
 5. En bas de la page, cliquez sur Gérer Multi-Factor Auth. Cette action ouvre la page relative à l’authentification multifacteur.
 6. Recherchez l’utilisateur que vous souhaitez gérer et cochez la case située à côté du nom. Vous devrez peut-être modifier l'affichage en haut de la page.
 7. Cela fera apparaître le lien **Gérer les paramètres utilisateur** à droite de la page. Cliquez dessus.
-8. Cochez la case **Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact**. ![Fournir des méthodes de contact](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
+8. Cochez la case **Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact**.
+![Fournir des méthodes de contact](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
 10. Cliquez sur Enregistrer.
 11. Cliquez sur Fermer
 
@@ -65,7 +66,8 @@ Cela supprime tous les mots de passe d'application créés par un utilisateur. L
 5. En bas de la page, cliquez sur Gérer Multi-Factor Auth. Cette action ouvre la page relative à l’authentification multifacteur.
 6. Recherchez l’utilisateur que vous souhaitez gérer et cochez la case située à côté du nom. Vous devrez peut-être modifier l'affichage en haut de la page.
 7. Cela fera apparaître le lien **Gérer les paramètres utilisateur** à droite de la page. Cliquez dessus. 
-8. Cochez la case **Supprimer tous les mots de passe d’application existants, générés par les utilisateurs sélectionnés**. ![Supprimer des mots de passe d'application](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
+8. Cochez la case **Supprimer tous les mots de passe d’application existants, générés par les utilisateurs sélectionnés**.
+![Supprimer des mots de passe d'application](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
 10. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 

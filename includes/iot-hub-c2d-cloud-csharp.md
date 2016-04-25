@@ -14,7 +14,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure IoT - Service SDK NuGet].
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices;
 
@@ -23,7 +23,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -33,7 +33,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette méthode envoie un nouveau message cloud-à-appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre en conséquence, au cas où vous avez modifié celui utilisé dans [Prise en main d’IoT Hub].
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Send Cloud-to-Device message\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
@@ -45,7 +45,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 8. Dans Visual Studio, cliquez avec le bouton droit sur votre solution et sélectionnez **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis l’action **Démarrer** pour les applications **ProcessDeviceToCloudMessages**, **SimulatedDevice** et **SendCloudToDevice**.
 
-9.  Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée.
+9.  Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée.
 
     ![][21]
 
@@ -84,7 +84,7 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** po
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée et après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice**.
+4.  Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée et après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice**.
 
     ![][22]
 

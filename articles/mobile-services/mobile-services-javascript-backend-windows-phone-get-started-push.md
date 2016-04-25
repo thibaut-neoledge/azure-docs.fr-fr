@@ -66,7 +66,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l’appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
@@ -86,7 +86,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 1. Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**.
 
-2. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+2. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
 		function insert(item, user, request) {
 		// Define a payload for the Windows Phone toast notification.

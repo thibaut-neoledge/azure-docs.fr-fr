@@ -47,11 +47,11 @@ Les raisons motivant l’exécution de sauvegardes de base de données et la tec
 
 La version préliminaire CTP3 (Community Technology Preview 3) de Microsoft SQL Server 2016 prend en charge les fonctionnalités de [sauvegarde et restauration avec les objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) de SQL Server 2014, qui sont décrites ci-dessous. Elle inclut également les améliorations suivantes :
 
-- **Répartition** : lors de la sauvegarde dans le stockage d’objets blob Microsoft Azure, SQL Server 2016 prend en charge la sauvegarde dans plusieurs objets blob, ce qui permet de sauvegarder des bases de données volumineuses allant jusqu’à 12,8 To.
+- **Répartition** : lors de la sauvegarde dans le stockage d’objets blob Microsoft Azure, SQL Server 2016 prend en charge la sauvegarde dans plusieurs objets blob, ce qui permet de sauvegarder des bases de données volumineuses allant jusqu’à 12,8 To.
 
-- **Sauvegarde instantanée** : via l’utilisation d’instantanés Azure, la fonctionnalité Sauvegarde instantanée de fichier SQL Server fournit des sauvegardes quasi instantanées et des restaurations rapides des fichiers de base de données stockés à l’aide du service de stockage d’objets blob Azure. Cette fonctionnalité vous permet de simplifier vos stratégies de sauvegarde et de restauration. La sauvegarde instantanée de fichier prend également en charge la limite de restauration dans le temps. Pour plus d'informations, consultez [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx)(en anglais).
+- **Sauvegarde instantanée** : via l’utilisation d’instantanés Azure, la fonctionnalité Sauvegarde instantanée de fichier SQL Server fournit des sauvegardes quasi instantanées et des restaurations rapides des fichiers de base de données stockés à l’aide du service de stockage d’objets blob Azure. Cette fonctionnalité vous permet de simplifier vos stratégies de sauvegarde et de restauration. La sauvegarde instantanée de fichier prend également en charge la limite de restauration dans le temps. Pour plus d'informations, consultez [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx)(en anglais).
 
-- **Planification de sauvegarde gérée** : la sauvegarde de SQL Server gérée dans Azure prend désormais en charge des planifications personnalisées. Pour plus d’informations, voir [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) (en anglais).
+- **Planification de sauvegarde gérée** : la sauvegarde de SQL Server gérée dans Azure prend désormais en charge des planifications personnalisées. Pour plus d’informations, voir [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) (en anglais).
 
 >[AZURE.NOTE] Pour suivre un didacticiel sur les fonctionnalités de SQL Server 2016 en cas d’utilisation du stockage d’objets blob Azure, voir [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx) (en anglais).
 
@@ -59,14 +59,14 @@ La version préliminaire CTP3 (Community Technology Preview 3) de Microsoft S
 
 SQL Server 2014 inclut l’amélioration suivante :
 
-1. **Sauvegarde et restauration dans Azure** :
+1. **Sauvegarde et restauration dans Azure** :
 
  - La *sauvegarde de SQL Server vers une URL* est désormais prise en charge dans SQL Server Management Studio. L’option de sauvegarde vers Azure est désormais disponible lors de l’utilisation d’une tâche de sauvegarde ou de restauration, ou de l’Assistant Plan de maintenance dans SQL Server Management Studio. Pour plus d’informations, voir [SQL Server Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx) (en anglais).
  - La *sauvegarde de SQL Server gérée dans Azure* dispose d’une nouvelle fonctionnalité qui permet d’automatiser la gestion des sauvegardes. Cela est particulièrement utile pour automatiser la gestion des sauvegardes pour les instances SQL Server 2014 s’exécutant sur une machine virtuelle Azure. Pour plus d’informations, voir [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx) (en anglais).
  - La *Sauvegarde automatisée* fournit une automatisation supplémentaire pour activer automatiquement la *sauvegarde de SQL Server gérée dans Azure* dans l’ensemble des bases de données nouvelles et existantes d’une machine virtuelle SQL Server dans Azure. Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
  - Pour une vue d’ensemble de toutes les options de sauvegarde SQL Server 2014 dans Azure, voir [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx) (en anglais).
 
-1. **Chiffrement** : SQL Server 2014 prend en charge le chiffrement des données lors de la création d’une sauvegarde. Il gère plusieurs algorithmes de chiffrement ainsi que l’utilisation d’un certificat ou d’une clé asymétrique. Pour plus d’informations, voir [Chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
+1. **Chiffrement** : SQL Server 2014 prend en charge le chiffrement des données lors de la création d’une sauvegarde. Il gère plusieurs algorithmes de chiffrement ainsi que l’utilisation d’un certificat ou d’une clé asymétrique. Pour plus d’informations, voir [Chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
 ## Sauvegarde et restauration dans SQL Server 2012
 

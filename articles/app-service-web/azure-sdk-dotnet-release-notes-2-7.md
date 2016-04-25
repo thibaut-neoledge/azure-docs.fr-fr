@@ -106,13 +106,13 @@ Si vous utilisez un projet de groupe de ressources Azure issu d’une version pr
 
 Introduction des **outils d’Azure Data Factory** pour Visual Studio. La liste ci-dessous répertorie les fonctionnalités activées. Pour plus d’informations, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=617530).
 
-- **Création basée sur un modèle** : sélectionnez des modèles reposant sur des cas d’utilisation, des modèles de déplacement des données ou des modèles de traitement des données pour déployer une solution d’intégration de données de bout en bout et commencer à utiliser rapidement Data Factory. 
-- **Intégration à l’Explorateur de solutions pour la création et le déploiement d’entités Data Factory** : créez et déployez des pipelines et des entités associées sous la forme de projets Visual Studio. 
-- **Intégration à la vue Diagramme à des fins d’interaction visuelle pendant la création** : créez visuellement des pipelines et des jeux de données à l’aide de la vue Diagramme. 
-- **Intégration à l’Explorateur de serveurs à des fins de navigation et d’interaction avec les entités déjà déployées** : tirez parti de l’Explorateur de serveurs pour parcourir les fabriques de données déjà déployées et les entités correspondantes. Importez une fabrique de données déployée ou n’importe quelle entité (pipeline, service lié, jeux de données) dans votre projet. 
-- **Modification du code JSON avec validation de schéma et fonctionnalité IntelliSense enrichie** : configurez et modifiez efficacement les documents JSON des entités Data Factory grâce à la puissante fonctionnalité IntelliSense et à la validation de schéma. 
-- **Publication multi-environnement** : publiez des pipelines créés dans un environnement de développement, de test ou de production en créant des fichiers de configuration distincts pour chaque environnement.
-- **Prise en charge du traitement de données reposant sur Pig, Hive et .NET** : prenez en charge les scripts Pig et Hive dans vos projets Data Factory. Prenez également en charge le référencement de projets C# pour la gestion de .Net Activity.
+- **Création basée sur un modèle** : sélectionnez des modèles reposant sur des cas d’utilisation, des modèles de déplacement des données ou des modèles de traitement des données pour déployer une solution d’intégration de données de bout en bout et commencer à utiliser rapidement Data Factory. 
+- **Intégration à l’Explorateur de solutions pour la création et le déploiement d’entités Data Factory** : créez et déployez des pipelines et des entités associées sous la forme de projets Visual Studio. 
+- **Intégration à la vue Diagramme à des fins d’interaction visuelle pendant la création** : créez visuellement des pipelines et des jeux de données à l’aide de la vue Diagramme. 
+- **Intégration à l’Explorateur de serveurs à des fins de navigation et d’interaction avec les entités déjà déployées** : tirez parti de l’Explorateur de serveurs pour parcourir les fabriques de données déjà déployées et les entités correspondantes. Importez une fabrique de données déployée ou n’importe quelle entité (pipeline, service lié, jeux de données) dans votre projet. 
+- **Modification du code JSON avec validation de schéma et fonctionnalité IntelliSense enrichie** : configurez et modifiez efficacement les documents JSON des entités Data Factory grâce à la puissante fonctionnalité IntelliSense et à la validation de schéma. 
+- **Publication multi-environnement** : publiez des pipelines créés dans un environnement de développement, de test ou de production en créant des fichiers de configuration distincts pour chaque environnement.
+- **Prise en charge du traitement de données reposant sur Pig, Hive et .NET** : prenez en charge les scripts Pig et Hive dans vos projets Data Factory. Prenez également en charge le référencement de projets C# pour la gestion de .Net Activity.
 
 ##Kit de développement logiciel (SDK) Azure pour .NET 2.7.1
 

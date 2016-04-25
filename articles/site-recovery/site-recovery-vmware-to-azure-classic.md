@@ -28,8 +28,8 @@ Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de co
 
 Cet article explique comment :
 
-- **Répliquer les machines virtuelles VMware dans Azure** : déployez Site Recovery pour coordonner la réplication, le basculement et la récupération des machines virtuelles VMware locales vers le stockage Azure.
-- **Répliquer les serveurs physiques dans Azure** : déployez Azure Site Recovery pour coordonner la réplication, le basculement et la récupération des serveurs physiques Windows et Linux locaux vers Azure.
+- **Répliquer les machines virtuelles VMware dans Azure** : déployez Site Recovery pour coordonner la réplication, le basculement et la récupération des machines virtuelles VMware locales vers le stockage Azure.
+- **Répliquer les serveurs physiques dans Azure** : déployez Azure Site Recovery pour coordonner la réplication, le basculement et la récupération des serveurs physiques Windows et Linux locaux vers Azure.
 
 >[AZURE.NOTE] Cet article décrit comment exécuter une réplication sur Azure Si vous souhaitez répliquer des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur un centre de données secondaire, suivez les instructions de [cet article](site-recovery-vmware-to-vmware.md).
 
@@ -41,14 +41,14 @@ Cet article contient des instructions relatives à un déploiement amélioré da
 
 Le déploiement amélioré est une mise à jour majeure. Voici un récapitulatif des améliorations que nous avons apportées :
 
-- **Aucune machine virtuelle d’infrastructure dans Azure** : les données se répliquent directement dans un compte de stockage Azure. En outre, pour la réplication et le basculement, aucune machine virtuelle d’infrastructure n’est configurée (serveur de configuration, serveur cible maître), comme cela était le cas dans le déploiement hérité.  
-- **Installation unifiée** : une seule installation offre une configuration simple et l’extensibilité des composants locaux.
-- **Déploiement sécurisé** : l’ensemble du trafic est chiffré et les communications de gestion de la réplication sont envoyées par le biais du port HTTPS 443.
-- **Points de récupération** : prise en charge des points de récupération après incident cohérents d’application pour les environnements Windows et Linux, et les configurations avec machine virtuelle unique et multiples.
-- **Test de basculement** : prise en charge du basculement de test sans interruption de service vers Azure, sans impact sur la production ou suspension de la réplication.
-- **Basculement non planifié** : prise en charge du basculement non planifié vers Azure avec une option améliorée permettant d’arrêter automatiquement les machines virtuelles avant le basculement.
-- **Restauration automatique** : restauration intégrée qui réplique uniquement les changements delta vers le site local.
-- **vSphere 6.0** : prise en charge limitée des déploiements VMware Vsphere 6.0.
+- **Aucune machine virtuelle d’infrastructure dans Azure** : les données se répliquent directement dans un compte de stockage Azure. En outre, pour la réplication et le basculement, aucune machine virtuelle d’infrastructure n’est configurée (serveur de configuration, serveur cible maître), comme cela était le cas dans le déploiement hérité.  
+- **Installation unifiée** : une seule installation offre une configuration simple et l’extensibilité des composants locaux.
+- **Déploiement sécurisé** : l’ensemble du trafic est chiffré et les communications de gestion de la réplication sont envoyées par le biais du port HTTPS 443.
+- **Points de récupération** : prise en charge des points de récupération après incident cohérents d’application pour les environnements Windows et Linux, et les configurations avec machine virtuelle unique et multiples.
+- **Test de basculement** : prise en charge du basculement de test sans interruption de service vers Azure, sans impact sur la production ou suspension de la réplication.
+- **Basculement non planifié** : prise en charge du basculement non planifié vers Azure avec une option améliorée permettant d’arrêter automatiquement les machines virtuelles avant le basculement.
+- **Restauration automatique** : restauration intégrée qui réplique uniquement les changements delta vers le site local.
+- **vSphere 6.0** : prise en charge limitée des déploiements VMware Vsphere 6.0.
 
 
 ## Comment Site Recovery permet-il de protéger des serveurs physiques et virtuels ?
@@ -64,12 +64,12 @@ Le déploiement amélioré est une mise à jour majeure. Voici un récapitulatif
 
 Composants du scénario :
 
-- **Un serveur d’administration local** : le serveur d’administration exécute les composants Site Recovery :
-	- **Serveur de configuration** : coordonne la communication et gère les processus de réplication et de récupération des données.
-	- **Serveur de traitement** : fait office de passerelle de réplication. Il reçoit les données d’ordinateurs source protégés, les optimise grâce à la mise en cache, la compression et le chiffrement et envoie les données de réplication vers le stockage Azure. Il gère également l’installation Push du service Mobilité sur des machines protégées et assure la détection automatique des machines virtuelles VMware.
-	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure. Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
-- **Service Mobilité** : ce composant est déployé sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Il enregistre les écritures de données sur la machine et les transmet au serveur de traitement.
-- **Azure** : vous n’avez pas besoin de créer de machines virtuelles Azure pour gérer la réplication et le basculement. Le service Site Recovery assure la gestion, puis la réplication des données directement sur le stockage Azure. Les machines virtuelles Azure répliquées sont automatiquement tournées uniquement en cas de basculement vers Azure. Toutefois, si vous souhaitez effectuer une restauration à partir d’Azure vers le site local, vous devrez configurer une machine virtuelle Azure pour qu’elle serve de serveur de traitement.
+- **Un serveur d’administration local** : le serveur d’administration exécute les composants Site Recovery :
+	- **Serveur de configuration** : coordonne la communication et gère les processus de réplication et de récupération des données.
+	- **Serveur de traitement** : fait office de passerelle de réplication. Il reçoit les données d’ordinateurs source protégés, les optimise grâce à la mise en cache, la compression et le chiffrement et envoie les données de réplication vers le stockage Azure. Il gère également l’installation Push du service Mobilité sur des machines protégées et assure la détection automatique des machines virtuelles VMware.
+	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure. Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
+- **Service Mobilité** : ce composant est déployé sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Il enregistre les écritures de données sur la machine et les transmet au serveur de traitement.
+- **Azure** : vous n’avez pas besoin de créer de machines virtuelles Azure pour gérer la réplication et le basculement. Le service Site Recovery assure la gestion, puis la réplication des données directement sur le stockage Azure. Les machines virtuelles Azure répliquées sont automatiquement tournées uniquement en cas de basculement vers Azure. Toutefois, si vous souhaitez effectuer une restauration à partir d’Azure vers le site local, vous devrez configurer une machine virtuelle Azure pour qu’elle serve de serveur de traitement.
 
 
 Le diagramme montre comment ces composants interagissent.
@@ -80,14 +80,14 @@ Le diagramme montre comment ces composants interagissent.
 
 Lorsque vous planifiez vos capacités, vous devez prendre en compte les environnements suivants :
 
-- **Environnement source** : planification de la capacité ou exigences d’infrastructure et des machines VMware sources.
-- **Serveur d’administration** : planification des serveurs d’administration locaux qui exécutent des composants Site Recovery.
-- **Bande passante réseau entre la source et la cible** : planification de la bande passante réseau requise pour la réplication entre la source et Azure.
+- **Environnement source** : planification de la capacité ou exigences d’infrastructure et des machines VMware sources.
+- **Serveur d’administration** : planification des serveurs d’administration locaux qui exécutent des composants Site Recovery.
+- **Bande passante réseau entre la source et la cible** : planification de la bande passante réseau requise pour la réplication entre la source et Azure.
 
 ### Considérations relatives à l’environnement source
 
-- **Taux de modification par jour maximal** : un ordinateur protégé ne peut utiliser qu’un serveur de traitement, et un serveur de traitement peut gérer un taux de modification par jour de 2 To. Par conséquent, 2 To est le taux de modification quotidien maximal de données pris en charge pour une machine protégée.
-- **Débit maximum** : un ordinateur répliqué peut appartenir à un compte de stockage dans Azure. Un compte de stockage standard peut gérer un maximum de 20 000 requêtes par seconde, et nous vous recommandons de conserver le nombre d’IOPS sur un ordinateur source à 20 000. Pour exemple, si vous disposez d’une machine source à 5 disques et si chaque disque génère 120 IOPS (taille de 8 Ko) sur la source, la limite de 500 IOPS sur le disque Azure est respectée. Nombre de comptes de stockage requis = nombre total d’IOPS source/20 000.
+- **Taux de modification par jour maximal** : un ordinateur protégé ne peut utiliser qu’un serveur de traitement, et un serveur de traitement peut gérer un taux de modification par jour de 2 To. Par conséquent, 2 To est le taux de modification quotidien maximal de données pris en charge pour une machine protégée.
+- **Débit maximum** : un ordinateur répliqué peut appartenir à un compte de stockage dans Azure. Un compte de stockage standard peut gérer un maximum de 20 000 requêtes par seconde, et nous vous recommandons de conserver le nombre d’IOPS sur un ordinateur source à 20 000. Pour exemple, si vous disposez d’une machine source à 5 disques et si chaque disque génère 120 IOPS (taille de 8 Ko) sur la source, la limite de 500 IOPS sur le disque Azure est respectée. Nombre de comptes de stockage requis = nombre total d’IOPS source/20 000.
 
 
 ### Considérations relatives aux serveurs d’administration
@@ -204,7 +204,8 @@ Uniquement pour la machine virtuelle Linux : vérifiez que vous avez défini le 
 3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
-6. Cliquez sur **Créer un archivage**. ![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. Cliquez sur **Créer un archivage**.
+	![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Vérifiez la barre d'état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** dans la page **Recovery Services**.
 
@@ -237,11 +238,11 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 ## Étape 5 : Installer le serveur d’administration
 > [AZURE.TIP] Assurez-vous que ces URL sont accessibles depuis le serveur d’administration :
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -302,10 +303,14 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 13.  Dans **Résumé**, passez en revue les informations.
 
 	![Résumé](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé. Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
+>[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé. 
+>Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
-
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
+	 
 
 
 ### Exécution depuis la ligne de commande
@@ -389,10 +394,10 @@ Un groupe de protection contient des machines virtuelles ou des serveurs physiqu
 
 	![Réplication du groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups3.png)
 
-	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
+	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
 	- **Seuil d’objectif de point de récupération** : définit l’objectif de point de récupération. Des alertes sont générées lorsque la réplication de la protection continue des données dépasse la valeur de seuil d’objectif de point de récupération configurée.
-	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
-	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
+	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
+	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
 
 Lorsque vous cliquez sur la coche, un groupe de protection est créé avec le nom spécifié. En outre, un deuxième groupe de protection est créé avec le nom <protection-group-name-Failback). Ce groupe de protection est utilisé si vous ne procédez pas à la restauration automatique du site local après le basculement vers Azure. Vous pouvez surveiller les groupes de protection à mesure qu’ils sont créés dans la page **Éléments protégés**.
 
@@ -459,7 +464,8 @@ Les programmes d’installation sont disponibles dans C:\\Program Files (x86)\\M
 Système d’exploitation source | Fichier d’installation du service Mobilité
 --- | ---
 Windows Server (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 

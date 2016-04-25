@@ -119,7 +119,7 @@ Pour voir le modèle terminé, consultez [Appels de Logic App dans une API perso
 
 ### Partie 3 : Remplir la section Autorisation dans l’application logique
 
-Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
+Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
 
 | Élément | Description |
 |---------|-------------|

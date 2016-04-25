@@ -27,15 +27,19 @@ Vous devez avoir installé la version 2.7 du kit de développement logiciel (SD
 
 ## Création d’un projet
 
-1. Accédez au menu **Fichier** et sélectionnez **Nouveau** > **Projet** (ou accédez à **Ajouter**, puis sélectionnez **Nouveau projet** pour l’ajouter à une solution existante) : ![Menu Fichier](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Accédez au menu **Fichier** et sélectionnez **Nouveau** > **Projet** (ou accédez à **Ajouter**, puis sélectionnez **Nouveau projet** pour l’ajouter à une solution existante) :
+![Menu Fichier](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. Dans la boîte de dialogue, recherchez **Cloud**, puis sélectionnez **Groupe de ressources Azure**. Entrez un **Nom** puis cliquez sur **OK**. ![Ajouter un nouveau projet](./media/app-service-logic-deploy-from-vs/addnewproject.png)
+2. Dans la boîte de dialogue, recherchez **Cloud**, puis sélectionnez **Groupe de ressources Azure**. Entrez un **Nom** puis cliquez sur **OK**.
+![Ajouter un nouveau projet](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Vous devez maintenant choisir entre **Application logique** ou **Application logique et application API**. Si vous choisissez **Application logique**, vous devez pointer vers des API existantes. Si vous choisissez **Application logique et application API**, vous pouvez également créer simultanément une application API vide. Dans ce document, j’ai sélectionné Application logique. ![Sélection du modèle Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Vous devez maintenant choisir entre **Application logique** ou **Application logique et application API**. Si vous choisissez **Application logique**, vous devez pointer vers des API existantes. Si vous choisissez **Application logique et application API**, vous pouvez également créer simultanément une application API vide. Dans ce document, j’ai sélectionné Application logique.
+![Sélection du modèle Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Une fois que vous avez sélectionné votre **modèle**, appuyez sur **OK**.
 
-Maintenant, votre projet d’application logique est ajouté à votre solution. Vous devez voir le déploiement dans l'Explorateur de solutions : ![Déploiement](./media/app-service-logic-deploy-from-vs/deployment.png)
+Maintenant, votre projet d’application logique est ajouté à votre solution. Vous devez voir le déploiement dans l'Explorateur de solutions :
+![Déploiement](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configuration de votre application logique
 
@@ -59,12 +63,14 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 2. Vous êtes invité à vous connecter à votre abonnement Azure.
 
-3. Vous devez maintenant choisir les détails du groupe de ressources dans lequel vous souhaitez déployer l'application logique. ![Déploiement vers un groupe de ressources](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
+3. Vous devez maintenant choisir les détails du groupe de ressources dans lequel vous souhaitez déployer l'application logique.
+![Déploiement vers un groupe de ressources](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
      > [AZURE.NOTE]    Veillez à sélectionner les fichiers de modèle et de paramètres correspondant le groupe de ressources (par exemple si vous procédez au déploiement dans un environnement de production, choisissez le fichier de paramètres de production). 
 4.  Sélectionnez le bouton Déployer.
     
-5. L’état du déploiement s’affiche dans la fenêtre **Sortie** (vous devrez peut-être choisir **Approvisionnement Azure**). ![Sortie](./media/app-service-logic-deploy-from-vs/output.png)
+5. L’état du déploiement s’affiche dans la fenêtre **Sortie** (vous devrez peut-être choisir **Approvisionnement Azure**).
+![Sortie](./media/app-service-logic-deploy-from-vs/output.png)
 
 À l’avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions.
 
