@@ -1,22 +1,21 @@
 
 ## Ressources
 
-* [Présentation du Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md)
-* [Liste complète des ressources WebJobs](../app-service-web/websites-webjobs-resources.md)
-* [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-* [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-* [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md)
+* [Liste complète des ressources WebJobs](../articles/app-service-web/websites-webjobs-resources.md)
+* [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-service-bus.md)
 * [Documentation sur les paramètres de WebJobs dans GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
-* [Déploiement d’Azure WebJobs à l’aide de Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
-* [Déploiement de WebJobs à l’aide du portail de gestion Azure](../app-service-web/web-sites-create-web-jobs.md)
-* [Boîte de dialogue Ajouter une tâche web Azure](../app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Créer une tâche web planifiée dans le portail de gestion Azure](../app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Déploiement d’Azure WebJobs à l’aide de Visual Studio](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Déploiement de WebJobs à l’aide du portail de gestion Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
+* [Boîte de dialogue Ajouter une tâche web Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
+* [Créer une tâche web planifiée dans le portail de gestion Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
 * [Planification de tâches web Azure avec des expressions cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
-* [Afficher le tableau de bord WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
-* [Écriture de journaux à l’aide du Kit de développement logiciel (SDK) WebJobs et affichage de ces derniers dans le tableau de bord](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
-* [Débogage à distance de WebJobs](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
+* [Afficher le tableau de bord WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
+* [Écriture de journaux à l’aide du Kit de développement logiciel (SDK) WebJobs et affichage de ces derniers dans le tableau de bord](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
+* [Débogage à distance de WebJobs](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## Vidéos
 
@@ -32,4 +31,4 @@
 * [Série de vidéos Azure WebJobs sur Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [Série de vidéos Azure WebJobs sur Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

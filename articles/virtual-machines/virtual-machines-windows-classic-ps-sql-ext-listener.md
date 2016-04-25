@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn | Microsoft Azure"
+	pageTitle="Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn | Microsoft Azure"
 	description="Ce didacticiel vous guide tout au long des étapes de création d'un écouteur de groupe de disponibilité AlwaysOn dans Azure qui est accessible en externe à l'aide de l'adresse IP virtuelle publique du service cloud associé."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure
 
@@ -27,17 +27,17 @@ Cette rubrique explique comment configurer un écouteur pour un groupe de dispon
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-availability.md), mais pas un écouteur.
+Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
 
 ## Instructions et limitations pour les écouteurs externes
 
-Notez que les instructions suivantes s'appliquent pour l'écouteur du groupe de disponibilité dans Azure lorsque vous effectuez un déploiement à l'aide de l'adresse IP virtuelle publique du service cloud :
+Notez que les instructions suivantes s'appliquent pour l'écouteur du groupe de disponibilité dans Azure lorsque vous effectuez un déploiement à l'aide de l'adresse IP virtuelle publique du service cloud :
 
 - L'écouteur du groupe de disponibilité est pris en charge sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
 
 - L'application cliente doit se trouver dans un service cloud différent de celui qui contient vos machines virtuelles de groupe de disponibilité. Azure ne prend pas en charge le retour direct du serveur avec un client et un serveur se trouvant dans le même service cloud.
 
-- Par défaut, les étapes décrites dans cet article montrent comment configurer un écouteur pour utiliser l'adresse IP virtuelle (VIP) du service cloud. Toutefois, il est possible de réserver et de créer plusieurs adresses IP virtuelles pour votre service cloud. Cela vous permet d'utiliser les étapes dans cet article pour créer plusieurs écouteurs associés à une adresse IP virtuelle différente. Pour plus d'informations sur la création de plusieurs adresses IP virtuelles, consultez la section [Plusieurs adresses IP virtuelles par service cloud](load-balancer-multivip.md).
+- Par défaut, les étapes décrites dans cet article montrent comment configurer un écouteur pour utiliser l'adresse IP virtuelle (VIP) du service cloud. Toutefois, il est possible de réserver et de créer plusieurs adresses IP virtuelles pour votre service cloud. Cela vous permet d'utiliser les étapes dans cet article pour créer plusieurs écouteurs associés à une adresse IP virtuelle différente. Pour plus d'informations sur la création de plusieurs adresses IP virtuelles, consultez la section [Plusieurs adresses IP virtuelles par service cloud](../load-balancer/load-balancer-multivip.md).
 
 - Si vous créez un écouteur pour un environnement hybride, le réseau local doit disposer de la connectivité à l'Internet public en plus du VPN de site à site avec le réseau virtuel Azure. Dans le sous-réseau Azure, l'écouteur du groupe de disponibilité est accessible uniquement par l'adresse IP publique du service cloud respectif.
 
@@ -118,7 +118,7 @@ L'équilibrage de charge externe utilise l'adresse IP virtuelle publique du serv
 
 ## Tester l'écouteur du groupe de disponibilité (sur Internet)
 
-Pour accéder à l'écouteur depuis l'extérieur du réseau virtuel, vous devez utiliser l'équilibrage de charge externe/public (décrit dans cette rubrique) au lieu de l'équilibrage de charge interne, qui est accessible uniquement dans le même réseau virtuel. Dans la chaîne de connexion, vous spécifiez le nom du service cloud. Par exemple, si vous avez un service cloud nommé *mycloudservice*, l’instruction sqlcmd se présente comme suit :
+Pour accéder à l'écouteur depuis l'extérieur du réseau virtuel, vous devez utiliser l'équilibrage de charge externe/public (décrit dans cette rubrique) au lieu de l'équilibrage de charge interne, qui est accessible uniquement dans le même réseau virtuel. Dans la chaîne de connexion, vous spécifiez le nom du service cloud. Par exemple, si vous avez un service cloud nommé *mycloudservice*, l’instruction sqlcmd se présente comme suit :
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
@@ -130,4 +130,4 @@ Si les réplicas AlwaysOn se situent dans des sous-réseaux différents, les cli
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

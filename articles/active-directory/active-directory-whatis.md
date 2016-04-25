@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="04/07/2016"
     ms.author="markusvi"/>
 
 
@@ -84,13 +84,13 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 - [Activation de votre annuaire pour la gestion hybride avec Azure AD Connect](active-directory-aadconnect.md)
 
-- [Sécurité supplémentaire pour un monde toujours connecté](multi-factor-authentication.md)
+- [Sécurité supplémentaire pour un monde toujours connecté](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [Prise en main de la création de rapports Azure AD](active-directory-reporting-getting-started.md)
 
-- [Gestion de vos mots de passe en tout lieu](articles/active-directory-passwords.md)
+- [Gestion de vos mots de passe en tout lieu](active-directory-passwords.md)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
@@ -104,4 +104,4 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 - [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’un environnement de cloud hybride pour le test
@@ -130,7 +130,7 @@ Pour commencer, ouvrez une session sur le [Portail de gestion Azure](https://man
 	- Cliquez sur **Ajouter un sous-réseau de passerelle**.
 11.	Cliquez sur l’icône Terminer. Attendez que le réseau virtuel soit créé avant de continuer.
 
-Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local.
+Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour installer Azure PowerShell sur votre ordinateur local.
 
 Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer TestVNET-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud TestVNET-Tailspin.
 
@@ -293,7 +293,7 @@ Votre environnement de cloud hybride est maintenant prêt à être testé.
 
 ## Réduction des coûts récurrents de cet environnement
 
-Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test\_VNET à la fin de chaque journée. Pour plus d’informations, voir l’article [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md).
+Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test\_VNET à la fin de chaque journée.
 
 La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent un coût continu. Pour plus d’informations, voir la page [Virtual Network - Tarification](https://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts de la passerelle VPN, créez l'environnement de test et exécutez vos tests et démonstrations requis aussi rapidement que possible ou supprimez la passerelle en procédant comme suit.
 
@@ -316,6 +316,6 @@ Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et atte
  
 ## Étapes suivantes
 
-- Configurez une [batterie de serveurs intranet SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), une [application métier web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ou un [serveur de synchronisation de l’annuaire Office 365 (DirSync)](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) dans cet environnement.
+- Configurez une [batterie de serveurs intranet SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), une [application métier web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ou un [serveur de synchronisation d’annuaires Office 365 (DirSync)](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

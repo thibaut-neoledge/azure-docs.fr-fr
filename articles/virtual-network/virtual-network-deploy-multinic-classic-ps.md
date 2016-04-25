@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Déploiement de machines virtuelles à plusieurs cartes réseau à l'aide de PowerShell dans le modèle de déploiement classique | Microsoft Azure"
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l'aide de PowerShell dans le modèle de déploiement classique"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Étant donné que vous ne pouvez pas pour l’instant avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau dans le même service cloud, vous allez implémenter les serveurs principaux dans un service cloud différent, ainsi que tous les autres composants dans le scénario. Les étapes ci-dessous utilisent un service cloud nommé *IaaSStory* pour les ressources principales et *IaaSStory-BackEnd* pour les serveurs principaux.
+Actuellement, dans un même service cloud, vous ne pouvez pas avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau. Par conséquent, vous devez implémenter les serveurs principaux dans un service cloud différent de celui des autres composants du scénario. Les étapes ci-dessous utilisent un service cloud nommé *IaaSStory* pour les ressources principales et *IaaSStory-BackEnd* pour les serveurs principaux.
 
 ## Composants requis
 
@@ -41,7 +41,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 
 - **Sous-réseau principal**. Les serveurs de base de données font partie d'un sous-réseau distinct, pour répartir le trafic. Le script ci-dessous s'attend à ce que le sous-réseau se trouve dans un réseau virtuel nommé *WTestVnet*.
 - **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l'emplacement Azure de déploiement prend en charge le stockage Premium.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance.
 
 ### Étape 1 : démarrage de votre script
 
@@ -129,7 +129,7 @@ Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que 
 		    Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
 		        -SubnetName $backendSubnetName `
 		        -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
-		        -VM $vmConfig 
+		        -VM $vmConfig
 
 6. Pour chaque machine virtuelle, créez deux disques de données.
 
@@ -138,7 +138,7 @@ Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que 
 		        -DiskSizeInGB $diskSize `
 		        -DiskLabel $dataDisk1Name `
 		        -LUN 0       
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
 		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
 		        -DiskSizeInGB $diskSize `
@@ -163,12 +163,12 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		--------------------    -----------                          ---------------
 		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-		                                                                            
+
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
 2. Complétez les informations nécessaires dans l'invite d'informations d'identification et cliquez sur **OK**. Le résultat ci-dessous s'affiche.
 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

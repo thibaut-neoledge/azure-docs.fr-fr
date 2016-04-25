@@ -21,7 +21,7 @@ ms.author="mandia"/>
 
 Connectez-vous à Twilio pour envoyer et recevoir des SMS, des MMS, et des adresses IP.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
 Avec Twilio, vous pouvez :
 
@@ -40,24 +40,24 @@ L’API Twilio inclut les actions suivantes. Il n'y a aucun déclencheur.
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Twilio
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs Twilio suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs Twilio suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
 |ID de compte|Oui|Entrez votre ID de compte Twilio|
 |Jeton d'accès|Oui|Entrez votre jeton d’accès Twilio|
 
-Consultez la section [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) pour créer un jeton d'accès.
+Consultez la section [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) pour créer un jeton d’accès.
 
-Après avoir créé la connexion, vous entrez les propriétés de Twilio. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés de Twilio. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Twilio dans d'autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-#### Cette documentation concerne la version 1.0.
+#### Cette documentation concerne la version 1.0.
 
 ### Obtenir le message.
-Renvoie un message unique spécifié par l'ID du message fourni. ```GET: /Messages/{MessageId}.json```
+Renvoie un message unique spécifié par l’ID du message fourni. ```GET: /Messages/{MessageId}.json```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -247,4 +247,4 @@ Envoyez un message à un numéro de téléphone portable. ```POST: /Messages.jso
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

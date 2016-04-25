@@ -17,13 +17,21 @@
 	ms.date="03/15/2016"
 	ms.author="cynthn"/>
 
+
 # Création d’une machine virtuelle personnalisée exécutant Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
+
+
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+[AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
+
+## Étapes suivantes
+
+Vous pouvez également [créer une machine virtuelle personnalisée exécutant Windows](virtual-machines-windows-classic-createportal.md) dans le portail Azure Classic.
+
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Environnement de test de configuration de base avec Azure Resource Manager"
-	description="Découvrez comment créer un environnement de développement ou de test simple qui simule un intranet simplifié dans Microsoft Azure."
+	description="Découvrez comment créer un environnement de développement ou de test simple qui simule un intranet simplifié dans Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
@@ -14,33 +14,33 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
-# Environnement de test de configuration de base avec Azure Resource Manager
+# Environnement de test de la configuration de base
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-test-config-env.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
-Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Microsoft Azure, à l’aide de machines virtuelles créées dans le Gestionnaire de ressources.
+Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Microsoft Azure, à l’aide de machines virtuelles créées dans le Gestionnaire de ressources.
 
-Vous pouvez utiliser l’environnement de test obtenu :
+Vous pouvez utiliser l’environnement de test obtenu :
 
 - Pour le développement et le test d’applications.
 - En tant que configuration initiale d'un environnement de test étendu personnalisé qui inclut des machines virtuelles et des services Azure supplémentaires.
 
 L’environnement de test de la configuration de base se compose du sous-réseau Corpnet dans un réseau virtuel sur le cloud appelé TestLab, qui simule un intranet privé simplifié connecté à Internet.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
-Il contient :
+Il contient :
 
-- Une machine virtuelle Azure exécutant Windows Server 2012 R2, appelée DC1, configurée en tant que contrôleur de domaine intranet et serveur DNS.
-- Une machine virtuelle Azure exécutant Windows Server 2012 R2, appelée APP1, configurée en tant que serveur d’applications et serveur Web.
-- Une machine virtuelle Azure exécutant Windows Server 2012 R2 appelée CLIENT1, qui agit en tant que client intranet.
+- Une machine virtuelle Azure exécutant Windows Server 2012 R2, appelée DC1, configurée en tant que contrôleur de domaine intranet et serveur DNS.
+- Une machine virtuelle Azure exécutant Windows Server 2012 R2, appelée APP1, configurée en tant que serveur d’applications et serveur Web.
+- Une machine virtuelle Azure exécutant Windows Server 2012 R2 appelée CLIENT1, qui agit en tant que client intranet.
 
-Cette configuration permet aux ordinateurs DC1, APP1, CLIENT1 et autres ordinateurs du sous-réseau Corpnet d’effectuer les opérations suivantes :
+Cette configuration permet aux ordinateurs DC1, APP1, CLIENT1 et autres ordinateurs du sous-réseau Corpnet d’effectuer les opérations suivantes :
 
-- Se connecter à Internet pour installer les mises à jour, accéder aux ressources Internet en temps réel et participer aux technologies de cloud public, comme Microsoft Office 365 et autres services Azure.
+- Se connecter à Internet pour installer les mises à jour, accéder aux ressources Internet en temps réel et participer aux technologies de cloud public, comme Microsoft Office 365 et autres services Azure.
 - Être gérés à distance à l’aide de connexions Bureau à distance à partir de votre ordinateur connecté à Internet ou au réseau de votre organisation.
 
 La configuration du sous-réseau de réseau d’entreprise de l’environnement de test de la configuration de base de Windows Server 2012 R2 dans Azure comporte quatre phases.
@@ -50,15 +50,15 @@ La configuration du sous-réseau de réseau d’entreprise de l’environnement 
 3.	Configuration d’APP1
 4.	Configuration de CLIENT1
 
-Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit sur la page [Essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit sur la page [Essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE] Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](https://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
 
-## Phase 1 : création du réseau virtuel
+## Phase 1 : création du réseau virtuel
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Connectez-vous à votre compte.
 
@@ -94,18 +94,24 @@ Créez un compte de stockage pour votre nouvel environnement de test avec ces co
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Puis, créez le réseau virtuel Azure TestLab qui hébergera le sous-réseau Corpnet de la configuration de base.
+Puis, créez le réseau virtuel Azure TestLab qui hébergera le sous-réseau Corpnet de la configuration de base et protégez-le avec un groupe de sécurité réseau.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
+	$locShortName="<the location of your new resource group in lowercase with spaces removed, example: westus>"
 	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
 	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+	$rule1=New-AzureRMNetworkSecurityRuleConfig -Name "RDPTraffic" -Description "Allow RDP to all VMs on the subnet" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+	New-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName -Location $locShortName -SecurityRules $rule1
+	$vnet=Get-AzureRMVirtualNetwork -ResourceGroupName $rgName -Name TestLab
+	$nsg=Get-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName
+	Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name Corpnet -AddressPrefix "10.0.0.0/24" -NetworkSecurityGroup $nsg
 
 Ceci est votre configuration actuelle.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG01.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph1.png)
 
-## Phase 2 : configuration de DC1
+## Phase 2 : configuration de DC1
 
 DC1 est un contrôleur de domaine du domaine de Services de domaine Active Directory (AD DS) corp.contoso.com et un serveur DNS pour les machines virtuelles du réseau virtuel TestLab.
 
@@ -129,31 +135,31 @@ Commencez par entrer le nom de votre groupe de ressources, de votre emplacement 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Ensuite, connectez-vous à la machine virtuelle DC1.
+Ensuite, connectez-vous à la machine virtuelle DC1.
 
 1.	Dans le portail Azure, cliquez sur **Machines virtuelles**, puis sur la machine virtuelle **DC1**.  
 2.	Dans le volet **DC1**, cliquez sur **Se connecter**.
 3.	Lorsque vous y êtes invité, ouvrez le fichier DC1.rdp téléchargé.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
-5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **DC1\**[Nom de compte d’administrateur local]
-- Mot de passe : [Mot de passe de compte d’administrateur local]
+5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
+- Nom : **DC1\**[Nom de compte d’administrateur local]
+- Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
 Ensuite, ajoutez le disque de données supplémentaire en tant que nouveau volume avec la lettre de lecteur F:.
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
-2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
+2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
 7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
 8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
 9.	À la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
-Ensuite, configurez DC1 comme contrôleur de domaine et serveur DNS pour le domaine corp.contoso.com. Exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
+Ensuite, configurez DC1 comme contrôleur de domaine et serveur DNS pour le domaine corp.contoso.com. Exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
@@ -166,16 +172,16 @@ Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 2.	Dans le volet **DC1**, cliquez sur **Se connecter**.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
-5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **CORP\**[Nom de compte d’administrateur local]
-- Mot de passe : [Mot de passe de compte d’administrateur local]
+5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
+- Nom : **CORP\**[Nom de compte d’administrateur local]
+- Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
 Ensuite, créez un compte utilisateur dans Active Directory qui sera utilisé pour la connexion aux ordinateurs membres du domaine CORP. Exécutez cette commande à partir d'une invite de commandes Windows PowerShell de niveau administrateur.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-Notez que cette commande vous invite à fournir le mot de passe du compte User1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, *choisissez un mot de passe fort*. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
+Notez que cette commande vous invite à fournir le mot de passe du compte User1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, *choisissez un mot de passe fort*. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
 
 Ensuite, configurez le nouveau compte User1 en tant qu'administrateur d'entreprise. Exécutez cette commande à partir d'une invite de commandes Windows PowerShell de niveau administrateur.
 
@@ -189,9 +195,9 @@ Ensuite, pour autoriser le trafic de l’utilitaire Ping, exécutez cette comman
 
 Ceci est votre configuration actuelle.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG02.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph2.png)
 
-## Phase 3 : configuration d’APP1
+## Phase 3 : configuration d’APP1
 
 App1 fournit les service web et de partage de fichiers.
 
@@ -238,13 +244,13 @@ Puis créez un dossier partagé et un fichier texte dans ce dossier, sur APP1, a
 
 Ceci est votre configuration actuelle.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG03.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph3.png)
 
-## Phase 4 : configuration de CLIENT1
+## Phase 4 : configuration de CLIENT1
 
 CLIENT1 agit comme un ordinateur portable, une tablette ou un ordinateur de bureau classique sur l’intranet de Contoso.
 
-> [AZURE.NOTE] La commande suivante crée CLIENT1 exécutant Windows Server 2012 R2 Datacenter, opération réalisable pour tous les types d’abonnements Azure. Si vous avez un abonnement Azure MSDN, vous pouvez créer CLIENT1 exécutant Windows 10, Windows 8 ou Windows 7 à l’aide du [portail Azure](virtual-machines-windows-hero-tutorial.md).
+> [AZURE.NOTE] La commande suivante crée CLIENT1 exécutant Windows Server 2012 R2 Datacenter, opération réalisable pour tous les types d’abonnements Azure. Si vous avez un abonnement Azure MSDN, vous pouvez créer CLIENT1 exécutant Windows 10, Windows 8 ou Windows 7 à l’aide du [portail Azure](virtual-machines-windows-hero-tutorial.md).
 
 Commencez par entrer le nom de votre groupe de ressources, de votre emplacement Azure et de votre compte de stockage et exécutez les commandes suivantes à partir de l’invite de commandes Azure PowerShell sur votre ordinateur local pour créer une machine virtuelle Azure pour CLIENT1.
 
@@ -292,18 +298,18 @@ Ensuite, vérifiez que vous pouvez accéder au web et aux ressources de partage 
 
 Ceci est votre configuration finale.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 Votre configuration de base dans Azure est maintenant prête pour le développement et le test d’applications ou pour d’autres environnements de test.
 
 ## Étape suivante
 
-- [Ajout d’une nouvelle machine virtuelle](virtual-machines-windows-create-powershell.md) au sous-réseau de réseau d’entreprise, par exemple une machine virtuelle exécutant Microsoft SQL Server.
+- Ajoutez une nouvelle machine virtuelle en utilisant le [portail Azure](virtual-machines-windows-hero-tutorial.md) ou créez l’[environnement test de cloud hybride simulé](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
 
 
 ## <a id="costs"></a>Réduction des coûts des machines virtuelles de l’environnement de test dans Azure
 
-Pour réduire le coût des machines virtuelles de l’environnement de test, vous pouvez effectuer une des actions suivantes :
+Pour réduire le coût des machines virtuelles de l’environnement de test, vous pouvez effectuer une des actions suivantes :
 
 - Créez l’environnement de test et exécutez les tests et démonstrations nécessaires aussi rapidement que possible. Lorsque vous avez terminé, supprimez les machines virtuelles de l’environnement de test.
 - Arrêtez les machines virtuelles de l’environnement de test en état désalloué.
@@ -315,7 +321,7 @@ Pour arrêter les machines virtuelles avec Azure PowerShell, indiquez le nom du 
 	Stop-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Stop-AzureRMVM -ResourceGroupName $rgName -Name "DC1" -Force -StayProvisioned
 
-Pour vous assurer que vos machines virtuelles fonctionnent correctement lorsque vous les démarrez toutes à partir de l’état Arrêtée (Désallouée), vous devez les démarrer dans l’ordre suivant :
+Pour vous assurer que vos machines virtuelles fonctionnent correctement lorsque vous les démarrez toutes à partir de l’état Arrêtée (Désallouée), vous devez les démarrer dans l’ordre suivant :
 
 1.	DC1
 2.	APP1
@@ -328,4 +334,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -105,7 +105,14 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
 * Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure Classic. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
-<table border="1"> <tr><th>Version HDInsight</th><th>Version HDP</a><th>Haute disponibilité</th></th><th>Date de publication</th><th>Disponible sur le portail Azure Classic</th><th>Date d’expiration de la prise en charge</th><th>Date d’obsolescence</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Oui</td><td>18/02/2015</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Oui</td><td>24/06/2014</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Oui</td><td>11/02/2014</td><td>Oui</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Oui</td><td>28/10/2013</td><td>Non</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Non</td><td>28/10/2013</td><td>Non</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+<table border="1">
+<tr><th>Version de HDInsight</th><th>Version de HDP</a><th>Haute disponibilité</th></th><th>Date de lancement</th><th>Disponible sur le portail Azure Classic</th><th>Date d'expiration du support</th><th>Date d'obsolescence</th></tr>
+<tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Oui</td><td>2/18/2015</td><td>Oui</td><td></td><td></td></tr>
+<tr><td>HDI 3,1</td><td>HDP 2,1</td><td>Oui</td><td>6/24/2014</td><td>Oui</td><td></td><td></td></tr>
+<tr><td>HDI 3,0</td><td>HDP 2,0</td><td>Oui</td><td>02/11/2014</td><td>Oui</td><td>09/17/2014</td><td>06/30/2015</td></tr>
+<tr><td>HDI 2,1</td><td>HDP 1,3</td><td>Oui</td><td>10/28/2013</td><td>Non</td><td>05/12/2014</td><td>05/31/2015</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Non</td><td>10/28/2013</td><td>Non</td><td>04/26/2014</td><td>05/31/2015</td></tr>
+</table><br>
 
 **Déploiement des clusters autres que les clusters par défaut**
 
@@ -120,7 +127,7 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 
 La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight.
 
-> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
+> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services/cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
@@ -160,4 +167,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

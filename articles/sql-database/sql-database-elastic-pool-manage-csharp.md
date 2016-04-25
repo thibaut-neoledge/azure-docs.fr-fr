@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Gérer et dimensionner un pool de base de données élastique avec C&#x23;
@@ -34,7 +34,6 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), vous devez installer cette dernière. Vous pouvez l’installer en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## Mettre à jour un pool
@@ -124,7 +123,10 @@ L'exemple suivant répertorie toutes les bases de données dans un pool :
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## Latence des opérations du pool élastique
 
+- En général, le processus de modification du nombre d’eDTU garanti à chaque base de données (paramètre databaseDtuMin) ou du nombre maximal d’eDTU pour chaque base de données (paramètre databaseDtuMax) prend 5 minutes au maximum.
+- Le processus de modification du nombre d’eDTU/de la limite de stockage (paramètre storageMB) dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification de la limite de stockage/eDTU du pool prend 3 heures au maximum.
 
 
 ## Exemple de gestion d’un pool C&#x23;
@@ -458,4 +460,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

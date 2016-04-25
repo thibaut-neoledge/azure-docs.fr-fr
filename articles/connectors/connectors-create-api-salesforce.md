@@ -18,24 +18,24 @@ ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l’API Salesforce
-Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
+Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-salesforce.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-salesforce.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
 
 &nbsp;
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec Salesforce, vous pouvez effectuer les opérations suivantes :
+Avec Salesforce, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Salesforce. 
 - Utiliser des déclencheurs quand un objet est créé ou mis à jour.
-- Utiliser des actions pour créer un objet, supprimer un objet et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un objet est créé dans Salesforce, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+- Utiliser des actions pour créer un objet, supprimer un objet et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un objet est créé dans Salesforce, vous pouvez envoyer un message électronique à l’aide d’Office 365.
 - Ajouter l’API Salesforce à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
@@ -63,7 +63,7 @@ Après avoir créé la connexion, vous entrez les propriétés Salesforce, telle
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
 
 ## Informations de référence sur l’API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 
 ### Créer un objet
@@ -71,7 +71,7 @@ Crée un objet Salesforce. ```POST: /datasets/default/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |item| |yes|body|(aucun)|Objet Salesforce à créer|
 
 ### Response
@@ -87,7 +87,7 @@ Récupère un objet Salesforce. ```GET: /datasets/default/tables/{table}/items/{
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à récupérer|
 
 ### Response
@@ -104,7 +104,7 @@ Supprime un objet Salesforce. ```DELETE: /datasets/default/tables/{table}/items/
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à supprimer|
 
 ### Response
@@ -120,7 +120,7 @@ Met à jour un objet Salesforce. ```PATCH: /datasets/default/tables/{table}/item
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à mettre à jour|
 |item| |yes|body|(aucun)|Objet Salesforce avec des propriétés modifiées|
 
@@ -137,9 +137,9 @@ Déclenche un flux quand un objet est créé dans Salesforce. ```GET: /datasets/
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -156,9 +156,9 @@ Déclenche un flux quand un objet est modifié dans Salesforce. ```GET: /dataset
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -256,9 +256,9 @@ Déclenche un flux quand un objet est modifié dans Salesforce. ```GET: /dataset
 
 ## Étapes suivantes
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Revenez à la [liste des API](apis-list.md).
+Revenir à la [liste des API](apis-list.md)
 
 
 [5]: https://developer.salesforce.com
@@ -266,4 +266,4 @@ Revenez à la [liste des API](apis-list.md).
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,8 +3,8 @@
 	description="Ce didacticiel présente la synchronisation des données SQL Azure (aperçu)."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jhubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -202,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

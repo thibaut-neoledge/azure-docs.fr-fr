@@ -27,7 +27,7 @@
 
 Cette rubrique décrit les fonctionnalités de synchronisation hors connexion d'Azure Mobile Services dans l'application de démarrage rapide todo list. La synchronisation hors connexion vous permet de créer facilement des applications qui sont utilisables même lorsque l'utilisateur final n'a pas accès au réseau.
 
-La synchronisation hors connexion possède plusieurs utilisations potentielles :
+La synchronisation hors connexion possède plusieurs utilisations potentielles :
 
 * Améliorer la réactivité de l'application en mettant en cache les données de serveur localement sur l'appareil
 * Rendre les applications résistantes à une connectivité réseau intermittente
@@ -38,17 +38,18 @@ La synchronisation hors connexion possède plusieurs utilisations potentielles :
 >
 > Si vous n'avez aucune expérience de Mobile Services, commencez par suivre entièrement le didacticiel [Prise en main de Mobile Services].
 
-Ce didacticiel vous familiarise avec ces étapes de base :
+Ce didacticiel vous familiarise avec ces étapes de base :
 
 1. [Examiner le code de synchronisation de Mobile Services]
 2. [Mettre à jour le comportement de synchronisation de l'application]
 3. [Mettre à jour l'application pour reconnecter votre service mobile]
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* Visual Studio avec l'[extension Xamarin] **ou** [Xamarin Studio] sur OS X
-* XCode 4.5 et iOS 6.0 (ou versions ultérieures)
-* Exécution du didacticiel [Prise en main de Mobile Services]
+* Visual Studio avec Xamarin. Pour obtenir des instructions, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Un Mac sur lequel sont installés Xcode v7.0 ou version ultérieure et Xamarin Studio Community. Consultez les pages [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) et [Configuration, installation et vérifications pour les utilisateurs de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Achèvement du didacticiel [Prise en main de Mobile Services].
+
 
 ## <a name="review-offline"></a>Examiner le code de synchronisation de Mobile Services
 
@@ -60,7 +61,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     La méthode `GetSyncTable()` permet d’obtenir une référence à une table de synchronisation. Pour supprimer la fonctionnalité de synchronisation hors connexion, vous utiliseriez plutôt `GetTable()`.
 
-3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Cette opération est effectuée dans la méthode `InitializeStoreAsync` :
+3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Cette opération est effectuée dans la méthode `InitializeStoreAsync` :
 
         public async Task InitializeStoreAsync()
         {
@@ -77,7 +78,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     Cette surcharge de `InitializeAsync` utilise le gestionnaire de conflits par défaut qui échoue en cas de conflit. Pour obtenir un gestionnaire de conflits personnalisé, consultez le didacticiel [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services].
 
-4. La méthode `SyncAsync` déclenche l'opération de synchronisation réelle :
+4. La méthode `SyncAsync` déclenche l'opération de synchronisation réelle :
 
         public async Task SyncAsync()
         {
@@ -111,7 +112,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
 Dans cette section, vous allez modifier l'application pour qu'elle ne se synchronise ni lors de son démarrage, ni lors des opérations d'insertion et de mise à jour, mais uniquement lors d'une actualisation. Ensuite, vous allez rompre la connexion de l'application avec le service mobile pour simuler un scénario hors connexion. Lorsque vous ajoutez des éléments data, ils seront stockés dans le magasin local, sans être immédiatement synchronisés vers le service mobile.
 
-1. Ouvrez `QSTodoService.cs`. Commentez les appels à `SyncAsync()` dans les méthodes suivantes :
+1. Ouvrez `QSTodoService.cs`. Commentez les appels à `SyncAsync()` dans les méthodes suivantes :
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
@@ -119,12 +120,12 @@ Dans cette section, vous allez modifier l'application pour qu'elle ne se synchro
 
     Désormais, `RefreshAsync()` chargera uniquement les données à partir du magasin local, mais ne se connectera pas au backend de l'application.
 
-2. Dans `QSTodoService.cs`, commentez les définitions des membres `applicationURL` et `applicationKey`. Ajoutez les lignes suivantes, qui font référence à une URL de service mobile incorrecte :
+2. Dans `QSTodoService.cs`, commentez les définitions des membres `applicationURL` et `applicationKey`. Ajoutez les lignes suivantes, qui font référence à une URL de service mobile incorrecte :
 
         const string applicationURL = @"https://your-mobile-service.azure-mobile.xxx/";
         const string applicationKey = @"AppKey";
 
-3. Pour vous assurer que les données sont synchronisées lors de la demande d'actualisation, modifiez la méthode `QSTodoListViewController.RefreshAsync()`. Ajoutez un appel à `SyncAsync()` avant l’appel à `RefreshDataAsync()` :
+3. Pour vous assurer que les données sont synchronisées lors de la demande d'actualisation, modifiez la méthode `QSTodoListViewController.RefreshAsync()`. Ajoutez un appel à `SyncAsync()` avant l’appel à `RefreshDataAsync()` :
 
         private async Task RefreshAsync ()
         {
@@ -180,9 +181,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
 [Utilisation du client Xamarin Component pour Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Suppression réversible]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[extension Xamarin]: http://xamarin.com/visual-studio
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

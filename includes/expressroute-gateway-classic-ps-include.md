@@ -1,25 +1,27 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Vous devez créer un réseau virtuel et un sous-réseau de passerelle avant d’effectuer les tâches suivantes. Pour plus d’informations, consultez [Configurer un réseau virtuel à l’aide du portail Azure Classic](../articles/expressroute/expressroute-howto-vnet-portal-classic.md).
 
-## Add a gateway
+## Ajout d’une passerelle
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Utilisez la commande suivante pour créer une passerelle. Veillez à remplacer les valeurs pas les vôtres.
 
 	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 
-## Verify the gateway was created
+## Vérification de la création de la passerelle
 
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Utilisez la commande suivante pour vérifier que la passerelle a été créée. Cette commande récupère également l’ID de passerelle dont vous avez besoin pour d’autres opérations.
 
 	Get-AzureVirtualNetworkGateway
 
-## Resize a gateway
+## Redimensionner une passerelle
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+Il existe 3 [références de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Vous pouvez utiliser la commande suivante pour modifier la référence de passerelle à tout moment.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## Remove a gateway
+## Supprimer une passerelle
 
-Use the command below to remove a gateway
+Utilisez la commande suivante pour supprimer une passerelle.
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+
+<!---HONumber=AcomDC_0413_2016-->

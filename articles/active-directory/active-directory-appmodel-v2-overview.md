@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble du modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Vue d’ensemble du modèle d’application v2.0 | Microsoft Azure"
 	description="Introduction à la création d’applications avec une connexion de compte Microsoft et Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
@@ -37,16 +37,17 @@ Les informations conceptuelles ici seront utiles pour comprendre ce qui est et c
 - Familiarisez-vous avec les [limites, les restrictions et les contraintes](active-directory-v2-limitations.md) du point de terminaison v2.0.
 
 ## Référence
-Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeur :
+Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeur :
 
+- Build 2016 : [Prise en main des identités Microsoft : authentification de niveau entreprise pour vos applications](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - Pour obtenir une aide sur le dépassement de capacité de pile, utilisez les mots-clés [azure active directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Référence sur le protocole v2.0](active-directory-v2-protocols.md)
-- [Référence sur le jeton v2.0](active-directory-v2-tokens.md)
+- [Référence sur le jeton v2.0](active-directory-v2-tokens.md)
 - [Étendues et consentement dans le point de terminaison v2.0](active-directory-v2-scopes.md)
 - [Le portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com)
-- [Informations de référence sur les API Office 365 REST](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Informations de référence sur les API Office 365 REST](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0.
+- Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0.
 
   - [Serveur d’identité WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
@@ -56,10 +57,4 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
   - [Client OAuth2 Android](https://github.com/wuman/android-oauth-client)
   - [Client OpenID Connect Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

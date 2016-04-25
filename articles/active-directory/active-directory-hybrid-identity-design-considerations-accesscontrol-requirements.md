@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
@@ -25,9 +25,10 @@ Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut éga
 - Autorisation
 - Audit
 
-Les sections suivantes couvriront l'authentification et l'autorisation de manière plus détaillée, l'administration et l'audit font partie du cycle de vie de l'identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
+Les sections suivantes couvriront l'authentification et l'autorisation de manière plus détaillée, l'administration et l'audit font partie du cycle de vie de l'identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
 
->[AZURE.NOTE]Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
+>[AZURE.NOTE]
+Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
 
 ## Authentification et autorisation
 Il existe différents scénarios d'authentification et d'autorisation aux exigences spécifiques desquelles la solution d'identité hybride que l'entreprise va adopter devra satisfaire. Les scénarios impliquant une communication interentreprises (B2B) peuvent constituer un défi supplémentaire pour les administrateurs informatiques, qui devront s'assurer que la méthode d'authentification et d'autorisation utilisée par l'organisation peut communiquer avec leurs partenaires commerciaux. Pendant le processus de conception des exigences d'authentification et d'autorisation, vérifiez que les questions suivantes sont traitées :
@@ -37,7 +38,9 @@ Il existe différents scénarios d'authentification et d'autorisation aux exigen
  - Si oui, savez-vous déjà quels protocoles (SAML, OAuth, Kerberos, jetons ou certificats) seront utilisés pour connecter les deux entreprises ?
 - La solution d'identité hybride que vous vous apprêtez à adopter prend-elle en charge ces protocoles ?
 
-Un autre point important à prendre en compte est l'endroit où se trouvera le référentiel d'authentification qui sera utilisé par les utilisateurs et les partenaires et le modèle d'administration à utiliser. Envisagez les deux options principales suivantes: - Centralisée : dans ce modèle les informations d'identification de l'utilisateur, les stratégies et l'administration peuvent être centralisées en local ou dans le cloud. - Hybride : dans ce modèle, les informations d'identification de l'utilisateur, les stratégies et l'administration seront centralisées en local site et répliquées dans le cloud.
+Un autre point important à prendre en compte est l'endroit où se trouvera le référentiel d'authentification qui sera utilisé par les utilisateurs et les partenaires et le modèle d'administration à utiliser. Examinez les deux options principales suivantes :
+- Centralisée : dans ce modèle, les informations d’identification de l’utilisateur, les stratégies et l’administration peuvent être centralisées localement ou dans le cloud.
+- Hybride : dans ce modèle, les informations d’identification de l’utilisateur, les stratégies et l’administration peuvent être centralisées localement et répliquées dans le cloud.
 
 Le modèle adopté par votre organisation variera en fonction de ses besoins métiers. Veuillez répondre aux questions suivantes pour identifier où le système de gestion d'identité se trouvera et quel mode d'administration devra être utilisé :
 
@@ -53,14 +56,15 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 - Votre entreprise a-t-elle plus d'un utilisateur avec des privilèges élevés pour gérer votre système d'identité ?
  - Si oui, chaque utilisateur a-t-il besoin du même niveau d'accès ?
 - Votre entreprise devrait-elle déléguer l'accès aux utilisateurs pour gérer des ressources spécifiques ?
- - Si oui, à quelle fréquence ? 
+ - Si oui, à quelle fréquence ?
 - Votre entreprise devrait-elle intégrer les fonctionnalités de contrôle d'accès entre les ressources locales site et de cloud ?
 - Votre entreprise devrait-elle limiter l'accès aux ressources sous certaines conditions ?
 - Votre entreprise aurait-elle une application qui nécessite un accès avec contrôle personnalisé à certaines ressources ?
  - Si oui, où se trouvent ces applications (locales ou dans le cloud) ?
  - Si oui, où se trouvent ces ressources cibles (locales ou dans le cloud) ?
- 
->[AZURE.NOTE]Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
+
+>[AZURE.NOTE]
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
 
 ## Étapes suivantes
 
@@ -69,4 +73,4 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

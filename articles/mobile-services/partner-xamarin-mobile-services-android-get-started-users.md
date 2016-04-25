@@ -27,7 +27,7 @@
 
 <p>Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application Xamarin.Android. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.</p>
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
 2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
@@ -35,7 +35,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une version ultérieure sont requis pour suivre ce didacticiel.
+Ce didacticiel requiert Visual Studio avec Xamarin sur Windows ou Xamarin Studio sur Mac OS X. Des instructions d’installation complètes sont disponibles dans [Configurer et installer Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -49,7 +49,7 @@ Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une ve
 
 3. Dans Xamarin Studio, ouvrez le projet que vous avez créé quand vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
-4. Dans le menu **Exécuter**, cliquez sur **Démarrer le débogage** pour démarrer l’application ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
+4. Dans le menu **Exécuter**, cliquez sur **Démarrer le débogage** pour démarrer l’application ; vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -57,11 +57,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
-1. Ajoutez la propriété suivante à la classe **ToDoActivity** :
+1. Ajoutez la propriété suivante à la classe **ToDoActivity** :
 
 		private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
+2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
 
         private async Task Authenticate()
         {
@@ -78,7 +78,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
     Cela crée une méthode pour gérer le processus d’authentification. L'utilisateur est authentifié à l'aide d'une connexion Microsoft Account. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité que Microsoft, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité que Microsoft, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet `MobileServiceClient`.
 
@@ -86,7 +86,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 	Ceci démarre le processus d'authentification et l'attend de façon asynchrone.
 
-4. Déplacez le code restant après `await Authenticate();` dans la méthode **OnCreate** vers une nouvelle méthode **CreateTable** qui ressemble à ceci :
+4. Déplacez le code restant après `await Authenticate();` dans la méthode **OnCreate** vers une nouvelle méthode **CreateTable** qui ressemble à ceci :
 
         private async Task CreateTable()
         {
@@ -107,7 +107,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             await RefreshItemsFromTableAsync();
         }
 
-5. Appelez ensuite la nouvelle méthode **CreateTable** dans **OnCreate** après l'appel **Authenticate** ajouté à l'étape 2 :
+5. Appelez ensuite la nouvelle méthode **CreateTable** dans **OnCreate** après l'appel **Authenticate** ajouté à l'étape 2 :
 
 		await CreateTable();
 
@@ -142,4 +142,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

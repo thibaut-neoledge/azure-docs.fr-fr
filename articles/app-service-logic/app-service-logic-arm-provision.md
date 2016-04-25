@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="04/04/2016" 
 	ms.author="tomfitz"/>
 
 # Créer une application logique à l'aide d'un modèle
 
 Utilisez un modèle Azure Resource Manager pour créer une application logique vide qui peut être utilisée pour définir des workflows. Vous pouvez définir les ressources à déployer et les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour plus d'informations sur les propriétés de l'application logique, consultez l'[API de gestion du flux de travail d'application logique](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+Pour plus d'informations sur les propriétés de l'application logique, consultez l'[API de gestion du flux de travail d'application logique](https://msdn.microsoft.com/library/azure/mt643788.aspx).
 
 Pour obtenir des exemples sur la définition proprement dite, consultez [Créer des définitions d'application logique](app-service-logic-author-definitions.md).
 
@@ -34,7 +34,7 @@ Avec ce modèle, vous déployez une application logique.
 
 Pour exécuter automatiquement le déploiement, sélectionnez le bouton ci-dessous :
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Déploiement sur Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Paramètres
 
@@ -142,4 +142,4 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

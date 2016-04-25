@@ -3,9 +3,9 @@
 	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité AlwaysOn dans Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Étendre des groupes de disponibilité AlwaysOn locaux à Azure
 
@@ -23,9 +23,9 @@ Les groupes de disponibilité AlwaysOn fournissent une haute disponibilité pour
 
 Pour étendre les groupes de disponibilité locaux à Microsoft Azure, vous pouvez approvisionner une ou plusieurs machines virtuelles Azure avec SQL Server et les ajouter en tant que réplicas à vos groupes de disponibilité locaux.
 
-Ce didacticiel part du principe que vous disposez des éléments suivants :
+Ce didacticiel part du principe que vous disposez des éléments suivants :
 
-- Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 - Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, consultez la page [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -47,7 +47,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 
 1. Vous devrez vous connecter à tous les réplicas secondaires existants. Vous pouvez cliquer sur **Connecter...** en regard de chaque réplica ou sur **Connecter tout...** en bas de l’écran. Une fois authentifié, cliquez sur **Suivant** pour accéder à l’écran suivant.
 
-1. Sur la page **Spécifier les réplicas**, plusieurs onglets apparaissent dans la partie supérieure : **Réplicas**, **Points de terminaison**, **Préférences de sauvegarde** et **Écouteur**. Sous l’onglet **Réplicas**, cliquez sur **Ajouter un réplica Azure…** pour démarrer l’Assistant Ajout d’un réplica Azure.
+1. Sur la page **Spécifier les réplicas**, plusieurs onglets apparaissent dans la partie supérieure : **Réplicas**, **Points de terminaison**, **Préférences de sauvegarde** et **Écouteur**. Sous l’onglet **Réplicas**, cliquez sur **Ajouter un réplica Azure…** pour démarrer l’Assistant Ajout d’un réplica Azure.
 
 	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 
@@ -61,7 +61,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 |---|---|
 |**Image**|Sélectionnez la combinaison système d’exploitation- SQL Server souhaitée|
 |**Taille de la machine virtuelle**|Sélectionnez la taille de machine virtuelle qui correspond le mieux à vos besoins|
-|**Nom de la machine virtuelle**|Spécifiez un nom unique pour la nouvelle machine virtuelle. Le nom doit contenir entre 3 et 15 caractères, peut contenir uniquement des lettres, des chiffres et des traits d’union, et doit commencer par une lettre et se terminer par une lettre ou un chiffre.|
+|**Nom de la machine virtuelle**|Spécifiez un nom unique pour la nouvelle machine virtuelle. Le nom doit contenir entre 3 et 15 caractères, peut contenir uniquement des lettres, des chiffres et des traits d’union, et doit commencer par une lettre et se terminer par une lettre ou un chiffre.|
 |**Nom d’utilisateur de la machine virtuelle**|Spécifiez un nom d’utilisateur qui deviendra le compte d’administrateur sur la machine virtuelle|
 |**Mot de passe administrateur de la machine virtuelle**|Indiquez un mot de passe pour le nouveau compte|
 |**Confirmer le mot de passe**|Confirmez le mot de passe du nouveau compte|
@@ -101,6 +101,6 @@ Après avoir créé le groupe de disponibilité, vous devez créer un écouteur 
 
 En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité AlwaysOn dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-overview.md).
+Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

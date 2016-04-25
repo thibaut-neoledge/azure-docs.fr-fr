@@ -1,234 +1,150 @@
-<properties 
-	pageTitle="Configurer la mise à l’échelle automatique pour un service cloud | Microsoft Azure" 
-	description="Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour un service cloud et les ressources liées dans Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+<properties
+	pageTitle="Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Azure"
+	description="Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015"
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/06/2016"
 	ms.author="adegeo"/>
 
 
+# Mise à l’échelle automatique d’un service cloud
 
+Dans la page Mettre à l’échelle du portail Azure Classic, vous pouvez procéder à une mise à l’échelle manuelle de votre rôle web ou de travail, ou vous pouvez activer la mise à l’échelle automatique en fonction de la charge de l’UC ou d’une file d’attente de messages.
 
+>[AZURE.NOTE] Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Quand vous créez directement une machine virtuelle, elle est hébergée dans un service cloud. Certaines de ces informations s’appliquent à ces types de machines virtuelles. La mise à l’échelle d’un groupe à haute disponibilité de machines virtuelles consiste simplement à les démarrer et à les arrêter selon les règles de mise à l’échelle que vous configurez. Pour plus d’informations sur les machines virtuelles et les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
 
-# Mise à l’échelle automatique d’une application
+Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :
 
-Sur la page Scale du portail Azure Classic, vous pouvez mettre à l'échelle manuellement votre application ou définir des paramètres afin que la mise à l'échelle soit automatique. Vous pouvez mettre à l'échelle des applications qui exécutent des rôles Web, des rôles de travail ou des machines virtuelles. Pour mettre à l'échelle une application qui exécute des instances de rôles Web ou de rôles de travail, vous ajoutez ou supprimez des instances de rôle pour absorber la charge de travail.
+- L'utilisation des cœurs a une incidence sur la mise à l'échelle. Le nombre de cœurs utilisés varie en fonction de la taille des instances de rôle. Vous pouvez mettre à l’échelle une application uniquement dans la limite des cœurs de votre abonnement. Par exemple, si la limite de votre abonnement est de vingt cœurs et que vous exécutez une application avec deux services cloud de taille moyenne (quatre cœurs au total), vous pouvez faire monter en charge les autres déploiements de service cloud de votre abonnement de seize cœurs seulement. Pour plus d’informations sur les tailles, consultez [Tailles de services cloud](cloud-services-sizes-specs.md).
 
-Lorsque vous augmentez ou diminuez l'échelle d'une application qui exécute des machines virtuelles, les nouvelles machines ne sont pas créées ni supprimées, mais sont activées ou désactivées à partir d'un groupe à haute disponibilité de machines précédemment créées. Vous pouvez spécifier la mise à l'échelle en fonction du pourcentage moyen d'utilisation de l'unité centrale ou du nombre de messages dans une file d'attente.
-
-Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :
-
-- Vous devez ajouter les machines virtuelles que vous créez dans un groupe à haute disponibilité pour mettre à l'échelle une application qui les utilise. Les machines virtuelles que vous ajoutez peuvent être initialement activées ou désactivées, mais elles seront activées pour une action d'augmentation et désactivées pour une action de diminution. Pour plus d'informations sur la gestion des machines virtuelles et des groupes à haute disponibilité, consultez la page [Gestion de la disponibilité des machines virtuelles](../virtual/machines/virtual-machines-windows-manage-availability.md).
-
-- L'utilisation des cœurs a une incidence sur la mise à l'échelle. Des machines virtuelles ou des instances de rôle plus importantes utilisent davantage de cœurs. Vous ne pouvez mettre à l'échelle une application que dans les limites des cœurs de votre abonnement. Par exemple, si la limite de votre abonnement est de vingt cœurs et que vous exécutez une application avec deux machines virtuelles de taille moyenne (quatre cœurs au total), vous pouvez uniquement augmenter l'échelle des autres déploiements de service cloud de votre abonnement en ajoutant seize cœurs. Toutes les machines virtuelles appartenant à un groupe à haute disponibilité qui sont utilisées dans la mise à l'échelle d'une application doivent avoir la même taille. Pour plus d'informations sur l'utilisation des cœurs et la taille des machines, consultez la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/library/dn197896.aspx).
-
-- Vous devez créer une file d'attente et l'associer à un rôle ou à un groupe à haute disponibilité avant de mettre à l'échelle une application en fonction d'un seuil de message. Pour plus d'informations, consultez la page [Utilisation du service de stockage de file d'attente](../storage-dotnet-how-to-use-queues.md).
+- Vous devez créer une file d’attente et l’associer à un rôle avant de pouvoir mettre à l’échelle une application en fonction d’un seuil de messages. Pour plus d'informations, consultez la page [Utilisation du service de stockage de file d'attente](../storage/storage-dotnet-how-to-use-queues.md).
 
 - Vous pouvez mettre à l'échelle des ressources qui sont liées à votre service cloud. Pour plus d’informations sur la liaison des ressources, consultez la rubrique [Liaison d’une ressource à un service cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- Pour permettre la haute disponibilité de votre application, vous devez vous assurer qu'elle est déployée avec plusieurs instances de rôle ou machines virtuelles. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
+- Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
 
-## Mise à l'échelle manuelle d'une application exécutant des rôles Web ou de travail
 
-Sur la page Scale, vous pouvez augmenter ou diminuer manuellement le nombre des instances s'exécutant dans un service cloud.
+## Planifier la mise à l'échelle
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+Par défaut, tous les rôles ne suivent pas une planification spécifique. Par conséquent, les paramètres modifiés s’appliquent à toutes les heures et à tous les jours de l’année. Si vous le souhaitez, vous pouvez configurer une mise à l’échelle manuelle ou automatique pour :
 
-2. Cliquez sur **Scale**. La mise à l'échelle automatique est désactivée par défaut pour tous les rôles, ce qui signifie que vous pouvez modifier manuellement le nombre d'instances utilisées par votre application.
+- Les jours de la semaine
+- Les week-ends
+- Les nuits de la semaine
+- Les matinées de la semaine
+- Des dates spécifiques
+- Des plages de dates spécifiques
 
-    ![Scale page][manual_scale]
+Ces paramètres sont configurés dans le [portail Azure Classic](https://manage.windowsazure.com/) dans la page **Cloud Services** > **[Votre service cloud]** > **Mettre à l’échelle** > **[Production ou Intermédiaire]**.
 
-3. Chaque rôle dans le service cloud est doté d'un curseur permettant de modifier le nombre d'instances à utiliser. Pour ajouter une instance de rôle, faites glisser la barre vers la droite. Pour supprimer une instance, faites glisser la barre vers la gauche.
-    
-    ![Mettre à l'échelle le rôle][slider_role]
-    
-    Vous pouvez uniquement augmenter le nombre d'instances utilisées si le nombre approprié de cœurs est disponible pour prendre en charge les instances. Les couleurs du curseur représentent les cœurs utilisés et disponibles dans votre abonnement :
-    
-    - Le bleu représente les cœurs utilisés par le rôle sélectionné.
-    
-    - Le gris foncé représente les cœurs utilisés par tous les rôles et les machines virtuelles de l'abonnement.
-    
-    - Le gris clair représente les cœurs disponibles à utiliser pour la mise à l'échelle.
-    
-    - Le rose représente une modification effectuée qui n'a pas été enregistrée.
+Cliquez sur le bouton **Configurer des heures de planification** pour chaque rôle à modifier.
 
-4. Cliquez sur **Enregistrer**. Les instances de rôle sont ajoutées ou supprimées en fonction de vos sélections.
+![Mise à l’échelle automatique d’un service cloud en fonction d’une planification][scale_schedules]
 
-## Mise à l'échelle automatique d'une application exécutant des rôles Web, des rôles de travail ou des machines virtuelles
 
-Sur la page Scale, vous pouvez configurer votre service cloud pour augmenter ou diminuer automatiquement le nombre d'instances ou de machines virtuelles utilisées par votre application. Vous pouvez configurer la mise à l'échelle à l'aide des paramètres suivants :
 
-- [Average CPU usage](#averagecpu) : si le pourcentage moyen d'utilisation de l'unité centrale est supérieur ou inférieur aux seuils spécifiés, les instances de rôle sont créées ou supprimées, ou les machines virtuelles sont activées ou désactivées d'un groupe à haute disponibilité.
-- [Queue messages](#queuemessages) : si le nombre de messages dans une file d'attente est supérieur ou inférieur au seuil spécifié, les instances de rôle sont créées ou supprimées, ou les machines virtuelles sont activées ou désactivées d'un groupe à haute disponibilité.
+## Mise à l’échelle manuelle
 
-## Utilisation moyenne de l'UC
+Dans la page **Mettre à l’échelle**, vous pouvez augmenter ou diminuer manuellement le nombre d’instances s’exécutant dans un service cloud. Cette configuration s’applique à chaque planification que vous avez créée ou tout le temps si vous n’en avez pas créé.
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-2. Cliquez sur **Scale**.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
 
-3. Faites défiler jusqu'à la section du rôle ou du groupe à haute disponibilité, puis cliquez sur **CPU**. Cela permet d'activer la mise à l'échelle automatique de votre application en fonction du pourcentage moyen d'utilisation des ressources de l'unité centrale utilisées.
+2. Cliquez sur **Mettre à l’échelle**.
 
-    ![Mise à l'échelle automatique activée][autoscale_on]
+3. Sélectionnez la planification dont vous voulez modifier les options de mise à l’échelle. La valeur par défaut est *Aucune heure planifiée* si vous n’avez pas défini de planification.
 
-4. Chaque rôle ou groupe à haute disponibilité est doté d'un curseur permettant de modifier le nombre d'instances à utiliser. Pour définir le nombre maximal d'instances à utiliser, faites glisser la barre située à droite vers la droite. Pour définir le nombre minimal d'instances à utiliser, faites glisser la barre située à gauche vers la gauche.
-    
-    **Remarque :** sur la page Échelle, **Instance** représente un rôle d’instance ou une instance de machine virtuelle.
-    
-    ![Plage d'instances][instance_range]
-    
-    Le nombre maximal d'instances se limite au nombre de cœurs disponibles dans l'abonnement. Les couleurs du curseur représentent les cœurs utilisés et disponibles dans votre abonnement :
-    
-    - Le bleu représente le nombre maximal de cœurs utilisés par le rôle.
-    
-    - Le gris foncé représente les cœurs utilisés par tous les rôles et les machines virtuelles de l'abonnement. Lorsque cette valeur chevauche les cœurs utilisés par le rôle, la couleur passe au bleu foncé.
-    
-    - Le gris clair représente les cœurs disponibles à utiliser pour la mise à l'échelle.
-    
-    - Le rose représente une modification effectuée qui n'a pas été enregistrée.
+4. Recherchez la section **Mettre à l’échelle par métrique**, puis sélectionnez **AUCUN**. Il s’agit du paramètre par défaut pour tous les rôles.
 
-5. Un curseur est utilisé pour spécifier la plage de pourcentage moyen d'utilisation de l'unité centrale. Lorsque ce pourcentage est supérieur au paramètre maximal, davantage d'instances de rôle sont créées ou supprimées, ou des machines virtuelles sont activées. Lorsque ce pourcentage est inférieur au paramètre minimal, des instances de rôle sont supprimées ou des machines virtuelles sont désactivées. Pour définir le pourcentage moyen d'utilisation de l'unité centrale maximal, faites glisser la barre située à droite vers la droite. Pour définir le pourcentage minimal moyen d'utilisation de l'unité centrale, faites glisser la barre située à gauche vers la gauche.
+5. Chaque rôle dans le service cloud est doté d'un curseur permettant de modifier le nombre d'instances à utiliser.
 
-    ![UC cible][target_cpu]
+    ![Mise à l’échelle manuelle d’un rôle de service cloud][manual_scale]
 
-6. Vous pouvez spécifier le nombre d'instances à ajouter ou à activer à chaque fois que votre application augmente d'échelle. Pour augmenter le nombre d'instances créées ou activées lorsque votre application est mise à l'échelle, faites glisser la barre vers la droite. Pour en diminuer le nombre, faites glisser la barre vers la gauche.
+    Si vous avez besoin d’instances supplémentaires, vous devrez peut-être modifier la [taille des machines virtuelles du service cloud](cloud-services-sizes-specs.md).
 
-    ![Augmenter l'échelle de l'UC][scale_cpuup]
+6. Cliquez sur **Enregistrer**. Les instances de rôle sont ajoutées ou supprimées en fonction de vos sélections.
 
-7. Définissez le nombre de minutes d'attente entre la dernière action de mise à l'échelle et l'action d'augmentation d'échelle suivante. La dernière action de mise à l'échelle peut être une augmentation ou une diminution d'échelle.
+>[AZURE.TIP] Chaque fois que l’icône ![][tip_icon] apparaît, pointez dessus avec le curseur de la souris pour obtenir de l’aide concernant la fonction d’un paramètre spécifique.
 
-    ![Durée d'augmentation][scale_uptime]
 
-    Toutes les instances sont incluses lors du calcul du pourcentage moyen d'utilisation de l'unité centrale et la moyenne est calculée sur l'utilisation au cours de la dernière heure. Selon le nombre d'instances que votre application utilise, le délai d'attente peut être supérieur à celui spécifié pour l'action de mise à l'échelle, si ce délai a été défini avec une valeur très faible. La durée minimale entre les actions de mise à l'échelle est de cinq minutes. Les actions de mise à l'échelle ne peuvent pas se produire si aucune des instances n'est en état de transition.
+## Mise à l’échelle automatique - UC
 
-8. Vous pouvez également spécifier le nombre d'instances à supprimer ou à désactiver lorsque votre application diminue d'échelle. Pour augmenter le nombre d'instances supprimées ou désactivées lorsque votre application est mise à l'échelle, faites glisser la barre vers la droite. Pour en diminuer le nombre, faites glisser la barre vers la gauche.
+Une mise à l’échelle se produit si le pourcentage moyen d’utilisation de l’unité centrale est supérieur ou inférieur aux seuils spécifiés ; des instances de rôle sont créées ou supprimées.
 
-    ![Diminuer l'échelle de l'UC][scale_cpudown]
-    
-    Si votre application connaît des pics soudains d'utilisation de l'unité centrale, assurez-vous de disposer d'un nombre minimal d'instances suffisant pour gérer ces pics.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-9. Définissez le nombre de minutes d'attente entre la dernière action de mise à l'échelle et l'action de diminution d'échelle suivante. La dernière action de mise à l'échelle peut être une augmentation ou une diminution d'échelle.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
 
-    ![Durée de diminution][scale_downtime]
+2. Cliquez sur **Mettre à l’échelle**.
 
-10. Cliquez sur **Save**. L'action de mise à l'échelle peut durer jusqu'à cinq minutes.
+3. Sélectionnez la planification dont vous voulez modifier les options de mise à l’échelle. La valeur par défaut est *Aucune heure planifiée* si vous n’avez pas défini de planification.
 
-## Messages de file d'attente
+4. Recherchez la section **Mettre à l’échelle par métrique**, puis sélectionnez **UC**.
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
-2. Cliquez sur **Scale**.
-3. Faites défiler jusqu'à la section du rôle ou du groupe à haute disponibilité, puis cliquez sur **File d'attente**. Cela permet d'activer la mise à l'échelle automatique de votre application en fonction du nombre cible de messages de file d'attente.
+5. Vous pouvez maintenant configurer une plage minimale et maximale d’instances de rôles, l’utilisation d’unité centrale cible (pour déclencher une montée en charge) et le nombre d’instances devant faire l’objet d’une montée ou d’une descente en charge.
 
-    ![File d'attente de mise à l'échelle][scale_queue]
+![Mise à l’échelle d’un rôle de service cloud par charge d’UC][cpu_scale]
 
-4. Chaque rôle ou groupe à haute disponibilité défini dans le service cloud est doté d'un curseur permettant de modifier le nombre d'instances à utiliser. Pour définir le nombre maximal d'instances à utiliser, faites glisser la barre située à droite vers la droite. Pour définir le nombre minimal d'instances à utiliser, faites glisser la barre située à gauche vers la gauche.
+>[AZURE.TIP] Chaque fois que l’icône ![][tip_icon] apparaît, pointez dessus avec le curseur de la souris pour obtenir de l’aide concernant la fonction d’un paramètre spécifique.
 
-    ![Plage de file d'attente][queue_range]
-    
-    **Remarque :** sur la page Échelle, **Instance** représente un rôle d’instance ou une instance de machine virtuelle.
-    
-    Le nombre maximal d'instances se limite au nombre de cœurs disponibles dans l'abonnement. Les couleurs du curseur représentent les cœurs utilisés et disponibles dans votre abonnement :
-    - Le bleu représente le nombre maximal de cœurs utilisés par le rôle.
-    - Le gris foncé représente les cœurs utilisés par tous les rôles et les machines virtuelles de l'abonnement. Lorsque cette valeur chevauche les cœurs utilisés par le rôle, la couleur passe au bleu foncé.
-    - Le gris clair représente les cœurs disponibles à utiliser pour la mise à l'échelle.
-    - Le rose représente une modification effectuée qui n'a pas été enregistrée.
 
-5. Sélectionnez le compte de stockage associé à la file d'attente que vous souhaitez utiliser.
 
-    ![Nom de stockage][storage_name]
 
-6. Sélectionnez la file d'attente.
 
-    ![Nom de la file d'attente][queue_name]
+## Mise à l’échelle automatique - File d’attente
 
-7. Spécifiez le nombre de messages que chaque instance peut prendre en charge. Les instances sont mises à l'échelle en fonction du nombre total de messages divisé par le nombre cible de messages par machine.
+Une mise à l’échelle automatique se produit si le nombre de messages dans une file d’attente monte ou descend au-delà d’un seuil spécifié ; des instances de rôle sont créées ou supprimées.
 
-    ![Nombre de messages][message_number]
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
 
-8. Vous pouvez spécifier le nombre d'instances à ajouter ou à activer à chaque fois que votre application augmente d'échelle. Pour augmenter le nombre d'instances ajoutées ou activées lorsque votre application est mise à l'échelle, faites glisser la barre vers la droite. Pour en diminuer le nombre, faites glisser la barre vers la gauche.
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
 
-    ![Augmenter l'échelle de l'UC][scale_cpuup]
+2. Cliquez sur **Mettre à l’échelle**.
 
-9. Définissez le nombre de minutes d'attente entre la dernière action de mise à l'échelle et l'action d'augmentation d'échelle suivante. La dernière action de mise à l'échelle peut être une augmentation ou une diminution d'échelle.
+3. Recherchez la section **Mettre à l’échelle par métrique**, puis sélectionnez **File d’attente**.
 
-    ![Durée d'augmentation][scale_uptime]
-    
-    La durée minimale entre les actions de mise à l'échelle est de cinq minutes. Les actions de mise à l'échelle ne peuvent pas se produire si aucune des instances n'est en état de transition.
+4. Vous pouvez maintenant configurer une plage minimale et maximale d’instances de rôles, la file d’attente et la quantité de messages de file d’attente à traiter pour chaque instance, ainsi que le nombre d’instances devant faire l’objet d’une montée ou d’une descente en charge.
 
-10. Vous pouvez également spécifier le nombre d'instances à supprimer ou à ne pas utiliser lorsque votre application diminue d'échelle. Un curseur permet de spécifier l'augmentation d'échelle. Pour augmenter le nombre d'instances supprimées ou non utilisées lorsque votre application diminue d'échelle, faites glisser la barre vers la droite. Pour en diminuer le nombre, faites glisser la barre vers la gauche.
+![Mise à l’échelle d’un rôle de service cloud par une file d’attente de messages][queue_scale]
 
-    ![Diminuer l'échelle de l'UC][scale_cpudown]
+>[AZURE.TIP] Chaque fois que l’icône ![][tip_icon] apparaît, pointez dessus avec le curseur de la souris pour obtenir de l’aide concernant la fonction d’un paramètre spécifique.
 
-11.	Définissez le nombre de minutes d'attente entre la dernière action de mise à l'échelle et l'action de diminution d'échelle suivante. La dernière action de mise à l'échelle peut être une augmentation ou une diminution d'échelle.
-
-    ![Durée de diminution][scale_downtime]
-
-12. Cliquez sur **Save**. L'action de mise à l'échelle peut durer jusqu'à cinq minutes.
 
 ## Mise à l'échelle des ressources liées
 
-Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre également à l'échelle la base de données qui est utilisée par l'application. Si vous liez la base de données au service cloud, vous modifiez l'édition de la base de données SQL et redimensionnez la base de données sur la page Scale.
+Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre également à l'échelle la base de données qui est utilisée par l'application. Si vous liez la base de données au service cloud, vous pouvez accéder aux paramètres de mise à l’échelle de cette ressource en cliquant sur le lien approprié.
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
+
+    > [AZURE.TIP] Si votre service cloud n’y figure pas, vous devrez peut-être remplacer **Production** par **Intermédiaire** ou vice versa.
+
 2. Cliquez sur **Scale**.
-3. Dans la section Linked Resources, sélectionnez l'édition à utiliser pour la base de données.
 
-    ![Ressources liées][linked_resources]
+3. Recherchez la section **Ressources liées** et cliquez sur **Gérer la mise à l’échelle pour cette base de données**.
 
-4. Sélectionnez la taille de la base de données.
-5. Cliquez sur **Enregistrer** pour mettre à jour les ressources liées.
+    > [AZURE.NOTE] Si vous ne voyez pas de section **Ressources liées**, c’est que vous n’avez probablement pas de ressources liées.
 
-## Planification de la mise à l'échelle de votre application
+![][linked_resource]
 
-Vous pouvez planifier la mise à l'échelle automatique de votre application en configurant des planifications à différentes heures. Les options suivantes vous permettent d'effectuer une mise à l'échelle automatique :
 
-- **No schedule** : option par défaut qui permet de mettre à l'échelle votre application automatiquement, de la même façon, à tout moment.
+[manual_scale]: ./media/cloud-services-how-to-scale/manual-scale.png
+[queue_scale]: ./media/cloud-services-how-to-scale/queue-scale.png
+[cpu_scale]: ./media/cloud-services-how-to-scale/cpu-scale.png
+[tip_icon]: ./media/cloud-services-how-to-scale/tip.png
+[scale_schedules]: ./media/cloud-services-how-to-scale/schedules.png
+[scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
+[linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-- **Day and night** : option qui permet de spécifier une mise à l'échelle à des heures précises du jour et de la nuit.
-
-**Remarque :** actuellement, les planifications ne sont pas disponibles pour les applications qui utilisent des machines virtuelles.
-
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Cloud Services**, puis sur le nom du service cloud pour ouvrir le tableau de bord.
-2. Cliquez sur **Scale**.
-3. Sur la page Scale, cliquez sur **set up schedule times**.
-
-    ![Planifier la mise à l'échelle][scale_schedule]
-
-4. Sélectionnez le type de planification de mise à l'échelle que vous souhaitez configurer.
-
-5. Spécifiez les heures de début et de fin de la journée et définissez le fuseau horaire. Pour la planification de jour et de nuit, les heures représentent le début et la fin de la journée, les heures restantes correspondant à la nuit.
-
-6. Cliquez sur la coche en bas de la page pour enregistrer les planifications.
-
-7. Une fois les planifications enregistrées, elles apparaissent dans la liste. Vous pouvez sélectionner la planification horaire que vous voulez utiliser, puis modifier les paramètres de mise à l'échelle. Ces derniers s'appliqueront uniquement pendant la planification sélectionnée. Pour modifier les planifications, cliquez sur **set up schedule times**.
-
-[manual_scale]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png
-[slider_role]: ./media/cloud-services-how-to-scale/CloudServices_SliderRole.png
-[autoscale_on]: ./media/cloud-services-how-to-scale/CloudServices_AutoscaleOn.png
-[instance_range]: ./media/cloud-services-how-to-scale/CloudServices_InstanceRange.png
-[target_cpu]: ./media/cloud-services-how-to-scale/CloudServices_TargetCPURange.png
-[scale_cpuup]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpBy.png
-[scale_uptime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleUpWaitTime.png
-[scale_cpudown]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownBy.png
-[scale_downtime]: ./media/cloud-services-how-to-scale/CloudServices_ScaleDownWaitTime.png
-[scale_queue]: ./media/cloud-services-how-to-scale/CloudServices_QueueScale.png
-[queue_range]: ./media/cloud-services-how-to-scale/CloudServices_QueueRange.png
-[storage_name]: ./media/cloud-services-how-to-scale/CloudServices_StorageAccountName.png
-[queue_name]: ./media/cloud-services-how-to-scale/CloudServices_QueueName.png
-[message_number]: ./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png
-[linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
-[scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

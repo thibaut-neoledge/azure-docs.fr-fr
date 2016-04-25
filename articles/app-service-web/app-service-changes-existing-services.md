@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Azure App Service et son impact sur les services Azure existants"
 	description="Explique l'impact d'Azure App Service et de ses fonctionnalités sur les services existants d'Azure."
-	authors="yochayk"
-	writer="yochayk"
-	editor="yochayk"
-	manager="nirma"
 	services="app-service"
-	documentationCenter=""/>
+    documentationCenter=""
+	authors="yochay"
+	manager="nirma"
+	editor=""/>
 
 <tags
 	ms.service="app-service"
@@ -92,4 +91,4 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 
 Pour plus d’informations, consultez la [documentation App Service](https://azure.microsoft.com/documentation/services/app-service/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

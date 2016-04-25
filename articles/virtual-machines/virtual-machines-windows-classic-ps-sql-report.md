@@ -23,25 +23,25 @@
 
 Cette rubrique explique comment déployer et configurer un serveur de rapports SQL Server Reporting Services en mode natif dans une machine virtuelle Azure. Les procédures décrites dans ce document comportent une combinaison d’étapes manuelles permettant de créer la machine virtuelle et un script Windows PowerShell afin de configurer Reporting Services sur la machine virtuelle. Le script de configuration inclut l’ouverture d’un port de pare-feu pour HTTP ou HTTPs.
 
->[AZURE.NOTE] Si vous n’avez pas besoin de **HTTPS** sur le serveur de rapports, **ignorez l’étape 2**.
+>[AZURE.NOTE] Si vous n’avez pas besoin de **HTTPS** sur le serveur de rapports, **ignorez l’étape 2**.
 >
->Après avoir créé la machine virtuelle à l’étape 1, passez à la section Utiliser un script pour configurer le serveur de rapports et HTTP. Le serveur de rapports est prêt à l’emploi après l’exécution du script.
+>Après avoir créé la machine virtuelle à l’étape 1, passez à la section Utiliser un script pour configurer le serveur de rapports et HTTP. Le serveur de rapports est prêt à l’emploi après l’exécution du script.
 
 ## Configuration requise et hypothèses
 
-- **Abonnement Azure** : vérifiez le nombre de mémoires à tores magnétiques disponibles dans votre abonnement Azure. Si vous créez une machine virtuelle de la taille recommandée **A3**, vous devez disposer de **4** mémoires à tores magnétiques. Si vous utilisez une machine virtuelle de taille **A2**, vous devez disposer de **2** mémoires à tores magnétiques.
+- **Abonnement Azure** : vérifiez le nombre de mémoires à tores magnétiques disponibles dans votre abonnement Azure. Si vous créez une machine virtuelle de la taille recommandée **A3**, vous devez disposer de **4** mémoires à tores magnétiques. Si vous utilisez une machine virtuelle de taille **A2**, vous devez disposer de **2** mémoires à tores magnétiques.
 	
 	- Pour vérifier la limite de mémoires à tores magnétiques de votre abonnement, dans le portail Azure Classic, cliquez sur PARAMÈTRES dans le volet de gauche, puis sur UTILISATION dans le menu supérieur.
 	
 	- Pour augmenter le quota de mémoires à tores magnétiques, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). Pour plus d’informations sur les tailles de machines virtuelles, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-linux-sizes.md).
 
-- **Écriture de scripts avec Windows PowerShell** : la rubrique part du principe que vous avez une connaissance de base de Windows PowerShell. Pour plus d’informations sur l’utilisation de Windows PowerShell, consultez les rubriques suivantes :
+- **Écriture de scripts avec Windows PowerShell** : la rubrique part du principe que vous avez une connaissance de base de Windows PowerShell. Pour plus d’informations sur l’utilisation de Windows PowerShell, consultez les rubriques suivantes :
 
 	- [Démarrage de Windows PowerShell sur Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
 	
 	- [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
-## Étape 1 : Approvisionner une machine virtuelle Azure
+## Étape 1 : Approvisionner une machine virtuelle Azure
 
 1. Connectez-vous au portail Azure Classic.
 
@@ -57,61 +57,61 @@ Cette rubrique explique comment déployer et configurer un serveur de rapports S
 
 	![nouvelle machine virtuelle à partir de la galerie](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 
-1. Cliquez sur **SQL Server 2014 RTM Standard – Windows Server 2012 R2**, puis sur la flèche pour continuer.
+1. Cliquez sur **SQL Server 2014 RTM Standard – Windows Server 2012 R2**, puis sur la flèche pour continuer.
 
 	![suivant](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
-	Si vous avez besoin de la fonctionnalité d’abonnements pilotés par les données de Reporting Services, choisissez **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Pour plus d’informations sur les éditions de SQL Server et les fonctionnalités prises en charge, consultez la page [Fonctionnalités prises en charge par les éditions de SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
+	Si vous avez besoin de la fonctionnalité d’abonnements pilotés par les données de Reporting Services, choisissez **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Pour plus d’informations sur les éditions de SQL Server et les fonctionnalités prises en charge, consultez la page [Fonctionnalités prises en charge par les éditions de SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 
-1. Sur la page **Configuration de la machine virtuelle**, renseignez les champs suivants comme indiqué :
+1. Sur la page **Configuration de la machine virtuelle**, renseignez les champs suivants comme indiqué :
 									
 	- S’il existe plusieurs **DATES DE SORTIE DE LA VERSION**, sélectionnez la version la plus récente.
 	
-	- **Nom de la machine virtuelle** : le nom de la machine est également utilisé sur la page de configuration suivante comme nom DNS par défaut du service cloud. Le nom DNS doit être unique dans le service Azure. Envisagez de configurer la machine virtuelle avec un nom qui décrit à quoi elle sert. Par exemple, ssrsnativecloud.
+	- **Nom de la machine virtuelle** : le nom de la machine est également utilisé sur la page de configuration suivante comme nom DNS par défaut du service cloud. Le nom DNS doit être unique dans le service Azure. Envisagez de configurer la machine virtuelle avec un nom qui décrit à quoi elle sert. Par exemple, ssrsnativecloud.
 	
-	- **Niveau** : Standard
+	- **Niveau** : Standard
 	
-	- **Taille : A3** est la taille de machine virtuelle recommandée pour les charges de travail SQL Server. Si une machine virtuelle est utilisée uniquement comme serveur de rapports, la taille A2 est suffisante, sauf si la charge de travail du serveur est importante. Pour connaître les informations de tarification des machines virtuelles, consultez la page [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
+	- **Taille : A3** est la taille de machine virtuelle recommandée pour les charges de travail SQL Server. Si une machine virtuelle est utilisée uniquement comme serveur de rapports, la taille A2 est suffisante, sauf si la charge de travail du serveur est importante. Pour connaître les informations de tarification des machines virtuelles, consultez la page [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 	
-	- **Nouveau nom d’utilisateur** : le nom que vous fournissez est créé en tant qu’administrateur sur la machine virtuelle.
+	- **Nouveau nom d’utilisateur** : le nom que vous fournissez est créé en tant qu’administrateur sur la machine virtuelle.
 	
 	- **Nouveau mot de passe** et **confirmation**. Ce mot de passe est utilisé pour le nouveau compte Administrateur. Il est recommandé d’utiliser un mot de passe fort.
 	
 	- Cliquez sur **Suivant**. ![suivant](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
-1. Sur la page suivante, renseignez les champs suivants comme indiqué :
+1. Sur la page suivante, renseignez les champs suivants comme indiqué :
 
-	- **Service cloud** : sélectionnez **Créer un service cloud**.
+	- **Service cloud** : sélectionnez **Créer un service cloud**.
 	
-	- **Nom DNS du service cloud** : il s’agit du nom DNS public du service cloud associé à la machine virtuelle. Le nom par défaut est le nom que vous avez saisi comme nom de la machine virtuelle. Si, dans les étapes ultérieures de la rubrique, vous créez un certificat SSL approuvé, le nom DNS est utilisé pour la valeur « **Issued to** » du certificat.
+	- **Nom DNS du service cloud** : il s’agit du nom DNS public du service cloud associé à la machine virtuelle. Le nom par défaut est le nom que vous avez saisi comme nom de la machine virtuelle. Si, dans les étapes ultérieures de la rubrique, vous créez un certificat SSL approuvé, le nom DNS est utilisé pour la valeur « **Issued to** » du certificat.
 	
-	- **Région/Groupe d’affinités/Réseau virtuel** : sélectionnez la région la plus proche de vos utilisateurs finaux.
+	- **Région/Groupe d’affinités/Réseau virtuel** : sélectionnez la région la plus proche de vos utilisateurs finaux.
 	
-	- **Compte de stockage** : utilisez un compte de stockage généré automatiquement.
+	- **Compte de stockage** : utilisez un compte de stockage généré automatiquement.
 	
-	- **Groupe à haute disponibilité** : Aucun.
+	- **Groupe à haute disponibilité** : Aucun.
 	
 	- **POINTS DE TERMINAISON** Conservez les points de terminaison **Bureau à distance** et **PowerShell**, puis ajoutez un point de terminaison HTTP ou HTTPS, selon votre environnement.
 
-		- **HTTP** : les ports public et privé par défaut ont le numéro **80**. Notez que si vous utilisez un port privé autre que 80, vous devez modifier **$HTTPport = 80** dans le script HTTP.
+		- **HTTP** : les ports public et privé par défaut ont le numéro **80**. Notez que si vous utilisez un port privé autre que 80, vous devez modifier **$HTTPport = 80** dans le script HTTP.
 
-		- **HTTPS** : les ports public et privé par défaut sont **443**. Il est considéré comme meilleure pratique de sécurité de modifier le port privé et de configurer le pare-feu et le serveur de rapports pour qu’ils utilisent le port privé. Pour plus d’informations sur les points de terminaison, consultez la page [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md). Notez que si vous utilisez un port autre que 443, vous devez modifier le paramètre **$HTTPsport = 443** dans le script HTTPS.
+		- **HTTPS** : les ports public et privé par défaut sont **443**. Il est considéré comme meilleure pratique de sécurité de modifier le port privé et de configurer le pare-feu et le serveur de rapports pour qu’ils utilisent le port privé. Pour plus d’informations sur les points de terminaison, consultez la page [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md). Notez que si vous utilisez un port autre que 443, vous devez modifier le paramètre **$HTTPsport = 443** dans le script HTTPS.
 	
 	- Cliquez sur suivant. ![suivant](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
-1. Sur la dernière page de l’Assistant, conservez la valeur par défaut **Installer l’agent de machine virtuelle** sélectionnée. Les étapes décrites dans cette rubrique n’utilisent pas l’agent de machine virtuelle, mais si vous envisagez de conserver cette machine virtuelle, l’agent de machine virtuelle et les extensions vous permettront d’améliorer la machine virtuelle. Pour plus d’informations, consultez le billet de blog [Agent de machine virtuelle et extensions – 1re partie](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). L’une des extensions par défaut installées et exécutées est l’extension « BGINFO », qui affiche sur le bureau de la machine virtuelle les informations système telles que l’adresse IP interne et l’espace libre sur le disque.
+1. Sur la dernière page de l’Assistant, conservez la valeur par défaut **Installer l’agent de machine virtuelle** sélectionnée. Les étapes décrites dans cette rubrique n’utilisent pas l’agent de machine virtuelle, mais si vous envisagez de conserver cette machine virtuelle, l’agent de machine virtuelle et les extensions vous permettront d’améliorer la machine virtuelle. Pour plus d’informations, consultez le billet de blog [Agent de machine virtuelle et extensions – 1re partie](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). L’une des extensions par défaut installées et exécutées est l’extension « BGINFO », qui affiche sur le bureau de la machine virtuelle les informations système telles que l’adresse IP interne et l’espace libre sur le disque.
 
 1. Cliquez Terminé . ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. L’**État** de la machine virtuelle affiché indique **Démarrage (Approvisionnement)** pendant le processus d’approvisionnement, puis **En cours d’exécution** une fois que la machine virtuelle a été approvisionnée et qu’elle est prête à l’emploi.
 
-## Étape 2 : Créer un certificat de serveur
+## Étape 2 : Créer un certificat de serveur
 
->[AZURE.NOTE] Si vous n’avez pas besoin de HTTPS sur le serveur de rapports, vous pouvez **ignorer l’étape 2** et passer à la section **Utiliser un script pour configurer le serveur de rapports et HTTP**. Utilisez le script HTTP pour configurer rapidement le serveur de rapports afin qu’il soit prêt à l’emploi.
+>[AZURE.NOTE] Si vous n’avez pas besoin de HTTPS sur le serveur de rapports, vous pouvez **ignorer l’étape 2** et passer à la section **Utiliser un script pour configurer le serveur de rapports et HTTP**. Utilisez le script HTTP pour configurer rapidement le serveur de rapports afin qu’il soit prêt à l’emploi.
 
-Pour utiliser HTTPS sur la machine virtuelle, vous devez disposer d’un certificat SSL approuvé. Selon votre scénario, vous pouvez utiliser l’une des deux méthodes suivantes :
+Pour utiliser HTTPS sur la machine virtuelle, vous devez disposer d’un certificat SSL approuvé. Selon votre scénario, vous pouvez utiliser l’une des deux méthodes suivantes :
 
-- Un certificat SSL valide émis par une autorité de certification et approuvé par Microsoft. Les certificats racines de l’autorité de certification doivent être distribués via le programme de certificat racine Microsoft. Pour plus d’informations sur ce programme, consultez les pages [Programme de certificat racine SSL Windows et Windows Phone 8 (autorités de certification membres)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) et [Introduction au programme de certificat racine Microsoft](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+- Un certificat SSL valide émis par une autorité de certification et approuvé par Microsoft. Les certificats racines de l’autorité de certification doivent être distribués via le programme de certificat racine Microsoft. Pour plus d’informations sur ce programme, consultez les pages [Programme de certificat racine SSL Windows et Windows Phone 8 (autorités de certification membres)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) et [Introduction au programme de certificat racine Microsoft](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 
 - Un certificat auto-signé. Les certificats auto-signés sont déconseillés pour les environnements de production.
 
@@ -119,15 +119,15 @@ Pour utiliser HTTPS sur la machine virtuelle, vous devez disposer d’un certifi
 
 1. **Demandez un certificat de serveur pour le site web auprès d’une autorité de certification**. 
 
-	Vous pouvez utiliser l’Assistant Certificat de serveur Web pour générer un fichier de demande de certificat (Certreq.txt) à envoyer à une autorité de certification ou générer une demande destinée à une autorité de certification en ligne. Par exemple, les services de certificats Microsoft dans Windows Server 2012. Selon le niveau d’assurance offert par votre certificat de serveur en termes d’identification, l’autorité de certification peut prendre plusieurs jours à plusieurs mois pour approuver votre demande et vous envoyer un fichier de certificat.
+	Vous pouvez utiliser l’Assistant Certificat de serveur Web pour générer un fichier de demande de certificat (Certreq.txt) à envoyer à une autorité de certification ou générer une demande destinée à une autorité de certification en ligne. Par exemple, les services de certificats Microsoft dans Windows Server 2012. Selon le niveau d’assurance offert par votre certificat de serveur en termes d’identification, l’autorité de certification peut prendre plusieurs jours à plusieurs mois pour approuver votre demande et vous envoyer un fichier de certificat.
 
-	Pour plus d’informations sur la demande d’un certificat de serveur, consultez les rubriques suivantes :
+	Pour plus d’informations sur la demande d’un certificat de serveur, consultez les rubriques suivantes :
 	
 	- Utiliser [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
 	
-	- Outils de sécurité pour administrer Windows Server 2012.
+	- Outils de sécurité pour administrer Windows Server 2012.
 
-	[Outils de sécurité pour administrer Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
+	[Outils de sécurité pour administrer Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
 
 	>[AZURE.NOTE] Le champ **Délivré à** du certificat SSL approuvé doit être le même que le **NOM DNS du service cloud** utilisé pour la nouvelle machine virtuelle.
 
@@ -177,9 +177,9 @@ Un certificat auto-signé a été créé sur la machine virtuelle lors de son ap
 
 Si vous utilisez un certificat SSL auto-signé, le nom du certificat correspond déjà au nom d’hôte de la machine virtuelle. Par conséquent, le DNS de l’ordinateur est déjà enregistré globalement et accessible à partir de n’importe quel client.
 
-## Étape 3 : Configurer le serveur de rapports
+## Étape 3 : Configurer le serveur de rapports
 
-Cette section vous explique comment configurer la machine virtuelle comme serveur de rapports Reporting Services en mode natif. Vous pouvez utiliser une des méthodes suivantes pour configurer le serveur de rapports :
+Cette section vous explique comment configurer la machine virtuelle comme serveur de rapports Reporting Services en mode natif. Vous pouvez utiliser une des méthodes suivantes pour configurer le serveur de rapports :
 
 - Utiliser le script pour configurer le serveur de rapports
 
@@ -187,11 +187,11 @@ Cette section vous explique comment configurer la machine virtuelle comme serveu
 
 Pour obtenir la procédure détaillée, consultez la section [Se connecter à la machine virtuelle et démarrer le Gestionnaire de configuration de Reporting Services](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Remarque sur l’authentification :** l’authentification Windows est la méthode d’authentification recommandée et l’authentification de Reporting Services par défaut. Seuls les utilisateurs configurés sur la machine virtuelle peuvent accéder à Reporting Services et être affectés à des rôles Reporting Services.
+**Remarque sur l’authentification :** l’authentification Windows est la méthode d’authentification recommandée et l’authentification de Reporting Services par défaut. Seuls les utilisateurs configurés sur la machine virtuelle peuvent accéder à Reporting Services et être affectés à des rôles Reporting Services.
 
 ### Utiliser le script pour configurer le serveur de rapports et HTTP
 
-Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapports, procédez comme suit. La configuration inclut HTTP, pas HTTPS :
+Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapports, procédez comme suit. La configuration inclut HTTP, pas HTTPS :
 
 1. Dans le portail Azure Classic, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
 
@@ -201,7 +201,7 @@ Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapp
 	
 	![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
-1. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
+1. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 
 1. Dans Windows PowerShell ISE, cliquez sur le menu **Affichage**, puis sur **Afficher le volet de script**.
 
@@ -324,11 +324,11 @@ Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapp
 
 1. Si vous avez créé la machine virtuelle avec un port HTTP autre que 80, modifiez le paramètre $HTTPport = 80.
 
-1. Le script est actuellement configuré pour Reporting Services. Si vous souhaitez exécuter le script pour Reporting Services, remplacez la partie de la version du chemin d’accès à l’espace de noms « v11 » par l’instruction Get-WmiObject.
+1. Le script est actuellement configuré pour Reporting Services. Si vous souhaitez exécuter le script pour Reporting Services, remplacez la partie de la version du chemin d’accès à l’espace de noms « v11 » par l’instruction Get-WmiObject.
 
 1. Exécutez le script.
 
-**Validation** : pour vérifier que les fonctions de base du serveur de rapports fonctionnent, consultez la section [Vérifier la configuration](#verify-the-configuration) plus loin dans cette rubrique.
+**Validation** : pour vérifier que les fonctions de base du serveur de rapports fonctionnent, consultez la section [Vérifier la configuration](#verify-the-configuration) plus loin dans cette rubrique.
 
 ### Utiliser le script pour configurer le serveur de rapports et HTTPS
 
@@ -342,13 +342,13 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
 
 	![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
-1. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
+1. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 
-1. Pour activer les scripts en cours d’exécution, exécutez la commande Windows PowerShell suivante :
+1. Pour activer les scripts en cours d’exécution, exécutez la commande Windows PowerShell suivante :
 
 		Set-ExecutionPolicy RemoteSigned
 
-	Vous pouvez ensuite exécuter la commande suivante pour vérifier la stratégie :
+	Vous pouvez ensuite exécuter la commande suivante pour vérifier la stratégie :
 
 		Get-ExecutionPolicy
 
@@ -507,15 +507,15 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
 		$time=Get-Date
 		write-host -foregroundcolor DarkGray $time
 
-1. Modifiez le paramètre **$certificatehash** dans le script :
+1. Modifiez le paramètre **$certificatehash** dans le script :
 
-	- Il s’agit d’un paramètre **obligatoire**. Si vous n’avez pas enregistré la valeur de certificat de la procédure précédente, utilisez une des méthodes suivantes pour copier la valeur de hachage du certificat à partir de l’empreinte numérique de certificats :
+	- Il s’agit d’un paramètre **obligatoire**. Si vous n’avez pas enregistré la valeur de certificat de la procédure précédente, utilisez une des méthodes suivantes pour copier la valeur de hachage du certificat à partir de l’empreinte numérique de certificats :
 
-		Sur la machine virtuelle, ouvrez Windows PowerShell ISE et exécutez la commande suivante :
+		Sur la machine virtuelle, ouvrez Windows PowerShell ISE et exécutez la commande suivante :
 
 			dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
 
-		Le résultat ressemble à ce qui suit : Si le script renvoie une ligne vide, par exemple que la machine virtuelle n’a pas de certificat configuré, consultez la section [Utiliser le certificat auto-signé Virtual Machines](#to-use-the-virtual-machines-self-signed-certificate).
+		Le résultat ressemble à ce qui suit : Si le script renvoie une ligne vide, par exemple que la machine virtuelle n’a pas de certificat configuré, consultez la section [Utiliser le certificat auto-signé Virtual Machines](#to-use-the-virtual-machines-self-signed-certificate).
 	
 	OU
 	
@@ -529,25 +529,25 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
 	
 	- **Avant d’exécuter le script**, supprimez les espaces entre les paires de valeurs. Par exemple af1160b64b288d890a8212ff6ba9c3664f319048
 
-1. Modifiez le paramètre **$httpsport** :
+1. Modifiez le paramètre **$httpsport** :
 
-	- Si vous avez utilisé le port 443 pour le point de terminaison HTTPS, vous n’avez pas besoin de mettre à jour ce paramètre dans le script. Sinon, utilisez la valeur de port que vous avez sélectionnée lors de la configuration du point de terminaison privé HTTPS sur la machine virtuelle.
+	- Si vous avez utilisé le port 443 pour le point de terminaison HTTPS, vous n’avez pas besoin de mettre à jour ce paramètre dans le script. Sinon, utilisez la valeur de port que vous avez sélectionnée lors de la configuration du point de terminaison privé HTTPS sur la machine virtuelle.
 
-1. Modifiez le paramètre **$DNSName** :
+1. Modifiez le paramètre **$DNSName** :
 
 	- Le script est configuré pour un certificat à caractères génériques $DNSName = "+". Si vous ne souhaitez pas configurer pour une liaison de certificat à caractères génériques, placez $DNSName ="+" en commentaires et activez la ligne suivante, la référence complète $DNSNAme, ##$DNSName="$server.cloudapp.net".
 
 		Modifiez la valeur $DNSName si vous ne souhaitez pas utiliser le nom DNS de la machine virtuelle pour Reporting Services. Si vous utilisez le paramètre, le certificat doit également utiliser ce nom, et vous inscrivez ce nom globalement sur un serveur DNS.
 
-1. Le script est actuellement configuré pour Reporting Services. Si vous souhaitez exécuter le script pour Reporting Services, remplacez la partie de la version du chemin d’accès à l’espace de noms « v11 » par l’instruction Get-WmiObject.
+1. Le script est actuellement configuré pour Reporting Services. Si vous souhaitez exécuter le script pour Reporting Services, remplacez la partie de la version du chemin d’accès à l’espace de noms « v11 » par l’instruction Get-WmiObject.
 
 1. Exécutez le script.
 
-**Validation** : pour vérifier que les fonctions de base du serveur de rapports fonctionnent, consultez la section [Vérifier la configuration](#verify-the-connection) plus loin dans cette rubrique. Pour vérifier la liaison de certificat, ouvrez une invite de commandes avec des privilèges administratifs, puis exécutez la commande suivante :
+**Validation** : pour vérifier que les fonctions de base du serveur de rapports fonctionnent, consultez la section [Vérifier la configuration](#verify-the-connection) plus loin dans cette rubrique. Pour vérifier la liaison de certificat, ouvrez une invite de commandes avec des privilèges administratifs, puis exécutez la commande suivante :
 
 	netsh http show sslcert
 
-Le résultat comprend les éléments suivants :
+Le résultat comprend les éléments suivants :
 
 	IP:port                      : 0.0.0.0:443
 
@@ -569,11 +569,11 @@ Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serve
 
 1. Dans le volet gauche, cliquez sur **URL du service Web**.
 
-1. Par défaut, Reporting Services est configuré pour le port HTTP 80 avec l’adresse IP « entièrement affectée ». Pour ajouter HTTPS :
+1. Par défaut, Reporting Services est configuré pour le port HTTP 80 avec l’adresse IP « entièrement affectée ». Pour ajouter HTTPS :
 
-	1. Dans **Certificat SSL** : sélectionnez le certificat que vous souhaitez utiliser, par exemple [nom de la machine virtuelle].cloudapp.net. Si aucun certificat n’est répertorié, consultez la section **Étape 2 : Créer un certificat de serveur** pour obtenir les instructions d’installation et d’approbation du certificat sur la machine virtuelle.
+	1. Dans **Certificat SSL** : sélectionnez le certificat que vous souhaitez utiliser, par exemple [nom de la machine virtuelle].cloudapp.net. Si aucun certificat n’est répertorié, consultez la section **Étape 2 : Créer un certificat de serveur** pour obtenir les instructions d’installation et d’approbation du certificat sur la machine virtuelle.
 	
-	1. Sous **Port SSL** : sélectionnez 443. Si vous avez configuré le point de terminaison privé HTTPS dans la machine virtuelle avec un autre port privé, utilisez cette valeur ici.
+	1. Sous **Port SSL** : sélectionnez 443. Si vous avez configuré le point de terminaison privé HTTPS dans la machine virtuelle avec un autre port privé, utilisez cette valeur ici.
 	
 	1. Cliquez sur **Appliquer** et attendez que l’opération soit terminée.
 
@@ -583,7 +583,7 @@ Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serve
 	
 	1. Cliquez sur **Créer une nouvelle base de données de serveur de rapports**, puis sur **Suivant**.
 	
-	1. Laissez la valeur par défaut **Nom du serveur** : comme nom de la machine virtuelle et la valeur par défaut **Type d’authentification** sur **Utilisateur actuel** – **Sécurité intégrée**. Cliquez sur **Next**.
+	1. Laissez la valeur par défaut **Nom du serveur** : comme nom de la machine virtuelle et la valeur par défaut **Type d’authentification** sur **Utilisateur actuel** – **Sécurité intégrée**. Cliquez sur **Next**.
 	
 	1. Laissez la valeur par défaut **Nom de la base de données** sur **ReportServer** et cliquez sur **Suivant**.
 	
@@ -597,9 +597,9 @@ Si vous ne souhaitez pas exécuter le script PowerShell pour configurer le serve
 
 1. Cliquez sur **Quitter** pour fermer le Gestionnaire de configuration de Reporting Services.
 
-## Étape 4 : Ouvrir le port du pare-feu Windows
+## Étape 4 : Ouvrir le port du pare-feu Windows
 
->[AZURE.NOTE] Si vous avez utilisé un des scripts pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu. La valeur par défaut est le port 80 pour HTTP et le port 443 pour HTTPS.
+>[AZURE.NOTE] Si vous avez utilisé un des scripts pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu. La valeur par défaut est le port 80 pour HTTP et le port 443 pour HTTPS.
 
 Pour vous connecter à distance au Gestionnaire de rapports ou au serveur de rapports sur la machine virtuelle, vous devez disposer d’un point de terminaison TCP sur la machine virtuelle. Il est nécessaire d’ouvrir le même port dans le pare-feu de la machine virtuelle. Le point de terminaison a été créé lors de l’approvisionnement de la machine virtuelle.
 
@@ -607,43 +607,43 @@ Cette section fournit des informations de base sur l’ouverture du port du pare
 
 >[AZURE.NOTE] Si vous avez utilisé le script pour configurer le serveur de rapports, vous pouvez ignorer cette section. Le script inclut une étape pour ouvrir le port du pare-feu.
 
-Si vous avez configuré un port privé pour HTTPS autre que 443, modifiez le script suivant en conséquence. Pour ouvrir le port **443** sur le pare-feu Windows, procédez comme suit :
+Si vous avez configuré un port privé pour HTTPS autre que 443, modifiez le script suivant en conséquence. Pour ouvrir le port **443** sur le pare-feu Windows, procédez comme suit :
 
 1. Ouvrez une fenêtre Windows PowerShell avec des privilèges administratifs.
 
-1. Si vous avez utilisé un port autre que 443 lors de la configuration du point de terminaison HTTPS sur la machine virtuelle, mettez à jour le port dans la commande suivante, puis exécutez la commande :
+1. Si vous avez utilisé un port autre que 443 lors de la configuration du point de terminaison HTTPS sur la machine virtuelle, mettez à jour le port dans la commande suivante, puis exécutez la commande :
 
 		New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
 
 1. Lorsque la commande est terminée, **OK** s’affiche dans l’invite de commandes.
 
-Pour vérifier que le port est bien ouvert, ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante :
+Pour vérifier que le port est bien ouvert, ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante :
 
 	get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
 ## Vérifier la configuration
 
-Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ouvrez votre navigateur avec des privilèges administratifs, puis accédez aux URL de serveur de rapports et de Gestionnaire de rapports suivants :
+Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ouvrez votre navigateur avec des privilèges administratifs, puis accédez aux URL de serveur de rapports et de Gestionnaire de rapports suivants :
 
-- Sur la machine virtuelle, accédez à l’URL du serveur de rapports :
+- Sur la machine virtuelle, accédez à l’URL du serveur de rapports :
 
 		http://localhost/reportserver
 
-- Sur la machine virtuelle, accédez à l’URL du Gestionnaire de rapports :
+- Sur la machine virtuelle, accédez à l’URL du Gestionnaire de rapports :
 
 		http://localhost/Reports
 
-- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine]\[nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
+- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine][nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
-- À partir de votre ordinateur local, accédez à l’URL du serveur de rapports distant. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Si vous n’utilisez pas HTTPS, supprimez le « s » dans l’URL.
+- À partir de votre ordinateur local, accédez à l’URL du serveur de rapports distant. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Si vous n’utilisez pas HTTPS, supprimez le « s » dans l’URL.
 
 		https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## Créer des utilisateurs et attribuer des rôles
 
-Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les liens suivants :
+Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les liens suivants :
 
 - [Créer un compte d’utilisateur local](https://technet.microsoft.com/library/cc770642.aspx)
 
@@ -653,11 +653,11 @@ Une fois le serveur de rapports configuré et vérifié, il est courant d’effe
 
 ## Pour créer et publier des rapports sur la machine virtuelle Azure
 
-Le tableau suivant résume certaines des options disponibles pour publier des rapports existants à partir d’un ordinateur local vers le serveur de rapports hébergé sur la machine virtuelle Microsoft Azure :
+Le tableau suivant résume certaines des options disponibles pour publier des rapports existants à partir d’un ordinateur local vers le serveur de rapports hébergé sur la machine virtuelle Microsoft Azure :
 
-- **Script RS.exe** : utilisez le script RS.exe pour copier des éléments de rapport à partir du serveur de rapports existant vers la machine virtuelle Microsoft Azure. Pour plus d’informations, consultez la section « Mode natif vers mode natif – Machine virtuelle Microsoft Azure » dans [Exemple de script Reporting Services rs.exe pour migrer le contenu entre des serveurs de rapports](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Script RS.exe** : utilisez le script RS.exe pour copier des éléments de rapport à partir du serveur de rapports existant vers la machine virtuelle Microsoft Azure. Pour plus d’informations, consultez la section « Mode natif vers mode natif – Machine virtuelle Microsoft Azure » dans [Exemple de script Reporting Services rs.exe pour migrer le contenu entre des serveurs de rapports](https://msdn.microsoft.com/library/dn531017.aspx).
 
-- **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
+- **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
 
 	1. Démarrez votre navigateur avec des privilèges administratifs.
 	
@@ -665,9 +665,9 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 	Pour plus d’informations, consultez [Installation, désinstallation et prise en charge du Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 
-- **SQL Server Data Tools : machine virtuelle** : si vous avez créé la machine virtuelle à l’aide de SQL Server 2012, SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **Projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
+- **SQL Server Data Tools : machine virtuelle** : si vous avez créé la machine virtuelle à l’aide de SQL Server 2012, SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **Projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 	
-	Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les liens suivants :
+	Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les liens suivants :
 
 	- [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
 
@@ -675,11 +675,11 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 	- [SQL Server Data Tools et SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
 
-- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
+- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
 
 	![propriétés de projet ssdt pour un projet SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 
-- **Utiliser le script** : utilisez le script pour copier le contenu du serveur de rapports. Pour plus d’informations, consultez la page [Exemple de script Reporting Services rs.exe pour migrer le contenu entre des serveurs de rapports](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Utiliser le script** : utilisez le script pour copier le contenu du serveur de rapports. Pour plus d’informations, consultez la page [Exemple de script Reporting Services rs.exe pour migrer le contenu entre des serveurs de rapports](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## Réduire les coûts si vous n’utilisez pas la machine virtuelle
 
@@ -689,9 +689,9 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 ### Ressources
 
-- Pour obtenir un contenu similaire relatif au déploiement sur un seul serveur de SQL Server Business Intelligence et SharePoint 2013, consultez la page [Utiliser Windows PowerShell pour créer une machine virtuelle Azure avec SQL Server BI et SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
+- Pour obtenir un contenu similaire relatif au déploiement sur un seul serveur de SQL Server Business Intelligence et SharePoint 2013, consultez la page [Utiliser Windows PowerShell pour créer une machine virtuelle Azure avec SQL Server BI et SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
 
-- Pour obtenir un contenu similaire relatif au déploiement sur plusieurs serveurs de SQL Server Business Intelligence et SharePoint 2013, consultez la page [Déployer SQL Server Business Intelligence dans Azure Virtual Machines](https://msdn.microsoft.com/library/dn321998.aspx).
+- Pour obtenir un contenu similaire relatif au déploiement sur plusieurs serveurs de SQL Server Business Intelligence et SharePoint 2013, consultez la page [Déployer SQL Server Business Intelligence dans Azure Virtual Machines](https://msdn.microsoft.com/library/dn321998.aspx).
 
 - Pour des informations d’ordre général sur les déploiements de SQL Server Business Intelligence dans Azure Virtual Machines, consultez la page [SQL Server Business Intelligence dans Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md).
 
@@ -703,6 +703,6 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 ### Liens vers d’autres ressources pour SQL Server dans les machines virtuelles Azure
 
-[Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-overview.md)
+[Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

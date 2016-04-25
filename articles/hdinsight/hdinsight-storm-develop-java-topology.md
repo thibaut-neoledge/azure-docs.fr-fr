@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="04/11/2016"
    ms.author="larryfr"/>
 
 #Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight
@@ -107,6 +107,7 @@ Pour les topologies Storm, le <a href="http://mojo.codehaus.org/exec-maven-plugi
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>exec-maven-plugin</artifactId>
+      <version>1.4.0</version>
       <executions>
         <execution>
         <goals>
@@ -130,6 +131,7 @@ Ajoutez le code suivant dans la section `<plugins>` du fichier **pom.xml** pour 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.3</version>
       <configuration>
         <source>1.7</source>
         <target>1.7</target>
@@ -469,4 +471,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

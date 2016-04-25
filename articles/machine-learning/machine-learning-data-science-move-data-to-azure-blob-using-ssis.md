@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS | Microsoft Azure" 
-	description="Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS | Microsoft Azure"
+	description="Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 # Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS
@@ -32,14 +32,14 @@ Il s’agit généralement de la première étape pour les procédures pas à pa
 
 Pour une présentation de scénarios canoniques utilisant SSIS pour répondre aux besoins de l’entreprise communs dans les scénarios d’intégration hybrides, reportez-vous à la section [En faire plus avec le Feature Pack SQL Server Integration Services pour Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
 
-> [AZURE.NOTE] Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Configuration requise
 
 Pour exécuter les tâches décrites dans cet article, vous devez disposer d’un abonnement Azure et configurer un compte de stockage Azure. Pour charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
 - Pour configurer un **abonnement Azure**, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
-- Pour obtenir des instructions sur la création d’**un compte de stockage** et obtenir des informations sur le compte et la clé, consultez la section [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+- Pour obtenir des instructions sur la création d’**un compte de stockage** et obtenir des informations sur le compte et la clé, consultez la section [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
 
 Pour utiliser les **connecteurs SSIS** vous devez télécharger :
@@ -77,7 +77,7 @@ Champ|Description|
 
 
 > [AZURE.NOTE] Les informations d’identification **AzureStorageConnection** doivent être correctes et **BlobContainer** doit exister avant que le transfert soit tenté.
- 
+
 ## Télécharger les données depuis le stockage d’objets blobs Azure
 
 Pour télécharger des données depuis le stockage d’objets blobs Azure vers le stockage sur site avec SSIS, utilisez une instance de la [tâche de téléchargement d’objets blobs Azure](https://msdn.microsoft.com/library/mt146779.aspx).
@@ -88,4 +88,4 @@ Nous remarquons ici que le pack de fonctionnalités SSIS permet de gérer des fl
 - Pour exécuter un script Hive sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Hive](https://msdn.microsoft.com/library/mt146771.aspx).
 - Pour exécuter un script Pig sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Pig](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

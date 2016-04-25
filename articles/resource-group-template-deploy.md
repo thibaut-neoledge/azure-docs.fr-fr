@@ -4,8 +4,8 @@
    description="Utilisez Azure Resource Manager pour déployer des ressources sur Azure. Un modèle est un fichier JSON qui peut être utilisé à partir du portail, de PowerShell, d’Azure CLI pour Mac, Linux et Windows, ou de REST."
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Déployer des ressources à l’aide de modèles Azure Resource Manager
@@ -42,20 +42,22 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
 
 1. Connectez-vous à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
-        PS C:\> Login-AzureRmAccount
+        Add-AzureRmAccount
+
+     Un résumé de votre compte est renvoyé.
 
         Environment : AzureCloud
         Account    : someone@example.com
         ...
 
 
-2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Select-AzureRmSubscription**.
+2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement avec la commande **Set-AzureRmContext**.
 
-        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+        Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 3. Si vous ne disposez pas d’un groupe de ressources existant, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement dont vous avez besoin pour votre solution.
 
-        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
+        New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
      Un résumé du nouveau groupe de ressources est retourné.
    
@@ -71,26 +73,26 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
 
 4. Validez votre déploiement avant son exécution en exécutant l’applet de commande **Test-AzureRmResourceGroupDeployment**. Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement (voir l'étape suivante).
 
-        PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+        Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande **New-AzureRmResourceGroupDeployment** et fournissez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario. Le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des trois options suivantes pour fournir les valeurs des paramètres :
    
-     - Utiliser des paramètres incorporés.
+     1. Utiliser des paramètres incorporés.
 
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-     - Utiliser un objet de paramètres.
+     2. Utiliser un objet de paramètres.
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
-     - Utilisation d’un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
+     3. Utilisation d’un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
 
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
-     Une fois le groupe de ressources déployé, un résumé du déploiement apparaît.
+     Une fois les ressources déployées à l’aide d’une des trois méthodes ci-dessus, un résumé du déploiement apparaît.
 
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleResourceGroup
@@ -99,9 +101,12 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
         Mode              : Incremental
         ...
 
-     Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**. Notez que vous êtes invité à confirmer que vous voulez utiliser le mode complet, qui peut impliquer la suppression de ressources.
+     Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete**.
 
-        PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
+        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
+        
+     Vous êtes invité à confirmer que vous voulez utiliser le mode complet, qui peut impliquer la suppression de ressources.
+        
         Confirm
         Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
         included in the template will be deleted.
@@ -109,10 +114,12 @@ Spécifiez le type de déploiement via la propriété **Mode**, comme l’indiqu
 
      Si le modèle inclut un paramètre avec un nom correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur pour un paramètre avec le suffixe **FromTemplate** (tel que **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
-6. Pour obtenir des informations sur les échecs de déploiement.
+6. Si vous souhaitez consigner des informations supplémentaires sur le déploiement qui peuvent vous aider à résoudre des erreurs de déploiement, utilisez le paramètre **DeploymentDebugLogLevel**. Vous pouvez demander à ce que le contenu de la demande et/ou de la réponse soit consigné avec l’opération de déploiement.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
+        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
+     Pour plus d’informations sur l’utilisation du contenu relatif au débogage pour résoudre les problèmes liés aux déploiements, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+       
         
 ### Vidéo
 
@@ -164,21 +171,21 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande suivante et indiquez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des trois options suivantes pour fournir les valeurs des paramètres :
 
-     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     1. Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     - Utiliser des paramètres incorporés et un lien vers un modèle.
+     2. Utiliser des paramètres incorporés et un lien vers un modèle.
 
             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     - Utiliser un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
+     3. Utiliser un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     Une fois le groupe de ressources déployé, un résumé du déploiement apparaît.
+     Une fois les ressources déployées à l’aide d’une des trois méthodes ci-dessus, un résumé du déploiement apparaît.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -190,13 +197,9 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Pour obtenir des informations sur votre dernier déploiement.
+6. Si vous souhaitez consigner des informations supplémentaires sur le déploiement qui peuvent vous aider à résoudre des erreurs de déploiement, utilisez le paramètre **debug-setting**. Vous pouvez demander à ce que le contenu de la demande et/ou de la réponse soit consigné avec l’opération de déploiement.
 
-        azure group log show -l ExampleResourceGroup
-
-7. Pour obtenir des informations détaillées sur les échecs de déploiement.
-      
-        azure group log show -l -v ExampleResourceGroup
+        azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
 ## Déployer avec l’API REST
 1. Définissez [des en-têtes et des paramètres communs](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), y compris des jetons d’authentification.
@@ -231,6 +234,13 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
             }
           }
    
+      Si vous souhaitez consigner le contenu de la réponse et/ou le contenu de la demande, incluez **debugSetting** dans la demande.
+
+        "debugSetting": {
+          "detailLevel": "requestContent, responseContent"
+        }
+
+
 4. Obtenez l’état du déploiement du modèle. Pour plus d’informations, consultez [Obtenir des informations sur le déploiement d’un modèle](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
@@ -292,4 +302,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

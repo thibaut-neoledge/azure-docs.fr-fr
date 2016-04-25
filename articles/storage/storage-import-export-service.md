@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/06/2016"
 	ms.author="renash"/>
 
 
@@ -34,7 +34,7 @@ Cet article offre une vue d’ensemble du service Import/Export et explique comm
 
 ## Présentation du service Import/Export ##
 
-Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
+Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
 
 - Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
 - Une tâche d'exportation vise à transférer des données stockées sous forme d'objets blob dans votre compte de stockage sur des disques durs qui vous sont ensuite expédiés.
@@ -58,7 +58,7 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 4.	**Cibles de stockage d’objets blob** : les données peuvent être téléchargées vers ou à partir d’objets blob de blocs ou de pages.
 5.	**Nombre de tâches :** un client peut avoir au maximum 20 tâches actives par compte de stockage.
 6.	**Taille maximale des tâches :** la taille d'une tâche dépend de la capacité des disques durs utilisés et de la quantité maximale de données qu'un compte de stockage peut accueillir. Chaque tâche peut contenir au maximum 10 disques durs.
-7.  **Système d'exploitation pris en charge :** le client peut utiliser l'un des systèmes d'exploitation 64 bits suivants pour préparer le disque dur à l'utilisation de l'outil Azure Import/Export avant l'expédition à Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
+7.  **Système d’exploitation pris en charge :** le client peut utiliser l’un des systèmes d’exploitation 64 bits suivants pour préparer le disque dur à l’utilisation de l’outil Azure Import/Export avant l’expédition à Azure - Windows 7 Entreprise, Windows 7 Édition Intégrale, Windows 8 Professionnel, Windows 8 Entreprise, Windows 8.1 Professionnel, Windows 8.1 Entreprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Tous ces systèmes d’exploitation prennent en charge le chiffrement de lecteur BitLocker.  
 
   > [AZURE.IMPORTANT]
   >  
@@ -102,7 +102,7 @@ L'outil Azure Import/Export génère un fichier *journal de lecteur* lors de la 
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'importation une fois mon colis envoyé**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
 
 7. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -288,4 +288,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

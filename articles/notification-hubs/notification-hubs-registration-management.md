@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Gestion des inscriptions
 
 ##Vue d’ensemble
 
-Cette rubrique explique comment inscrire des appareils auprès des hubs de notification en vue de recevoir des notifications Push. Elle donne une description générale des inscriptions, puis présente les deux principaux modes d’inscription des appareils : l’inscription de l’appareil directement auprès du hub de notification et l’inscription via un serveur principal d’application.
+Cette rubrique explique comment inscrire des appareils auprès des hubs de notification en vue de recevoir des notifications Push. Elle donne une description générale des inscriptions, puis présente les deux principaux modes d’inscription des appareils : l’inscription de l’appareil directement auprès du hub de notification et l’inscription via un serveur principal d’application.
 
 
 ##Présentation de l’inscription d’un appareil
@@ -33,13 +33,13 @@ Une inscription associe le handle PNS (Platform Notification Service, service de
 #### Installations
 Une installation est une inscription améliorée qui inclut un conteneur de propriétés associées à des opérations push. C’est la meilleure approche, et la plus récente, pour inscrire vos appareils. Toutefois, elle n’est actuellement pas prise en charge par le Kit de développement logiciel .NET côté client ([SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)). Cela signifie que si vous vous inscrivez à partir de l'appareil client lui-même, vous devrez utiliser l’approche [API REST Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx) pour prendre en charge ces installations. Si vous utilisez un service principal, vous devriez être en mesure d'utiliser [SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Voici certains avantages essentiels que présente l’utilisation d’installations :
+Voici certains avantages essentiels que présente l’utilisation d’installations :
 
 * La création ou la mise à jour d’une installation est entièrement idempotente. Vous pouvez donc la retenter sans vous soucier des inscriptions en double.
-* Le modèle Installation facilite les opérations push individuelles, ciblant des appareils spécifiques. Une balise système **« $InstallationId:[installationId] »** est ajoutée automatiquement avec chaque inscription basée sur l’installation. Vous pouvez donc appeler un envoi à cette balise pour cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
+* Le modèle Installation facilite les opérations push individuelles, ciblant des appareils spécifiques. Une balise système **« $InstallationId:[installationId] »** est ajoutée automatiquement avec chaque inscription basée sur l’installation. Vous pouvez donc appeler un envoi à cette balise pour cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
 * L’utilisation d’installations vous permet également d’effectuer des mises à jour partielles d’inscriptions. La mise à jour partielle d’une installation est demandée avec une méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902). Cela est particulièrement utile lorsque vous voulez mettre à jour des balises sur l’inscription. Il n’est pas nécessaire de retirer la totalité de l’inscription et de renvoyer à nouveau toutes les balises précédentes.
 
-Une installation peut contenir les propriétés suivantes : Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Une installation peut contenir les propriétés suivantes : Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 	// Example installation format to show some supported properties
 	{
@@ -77,15 +77,15 @@ Une installation peut contenir les propriétés suivantes : Pour obtenir la list
 
  
 
-Il est important de noter que les inscriptions et les installations, tout comme les handles PNS qu’elles contiennent, ont un délai d’expiration. Vous pouvez définir la durée de vie d’une inscription dans le hub de notification, avec une valeur maximale de 90 jours. Cette limite signifie qu’ils doivent être actualisés régulièrement, mais aussi qu’ils ne doivent pas représenter le seul magasin de stockage des informations importantes. Cette expiration automatique simplifie également le nettoyage lors de la désinstallation de l’application mobile.
+Il est important de noter que les inscriptions et les installations par défaut n'expirent plus.
 
-Les inscriptions et les installations doivent contenir le handle PNS le plus récent pour chaque appareil/canal. Comme les handles PNS peuvent être obtenus uniquement dans une application cliente sur l’appareil, l’une des méthodes consiste à effectuer l’inscription directement sur cet appareil avec l’application cliente. D’un autre côté, les considérations sur la sécurité et la logique métier associée aux balises impliquent que vous devez gérer l’inscription des appareils dans le serveur principal de l’application.
+Les inscriptions et les installations doivent contenir un handle PNS valide pour chaque appareil/canal. Comme les handles PNS peuvent être obtenus uniquement dans une application cliente sur l’appareil, l’une des méthodes consiste à effectuer l’inscription directement sur cet appareil avec l’application cliente. D’un autre côté, les considérations sur la sécurité et la logique métier associée aux balises impliquent que vous devez gérer l’inscription des appareils dans le serveur principal de l’application.
 
 #### Modèles
 
 Si vous voulez utiliser des [modèles](notification-hubs-templates.md), l’installation de l’appareil contient également tous les modèles associés à cet appareil au format JSON (voir l’exemple ci-dessus). Les noms de modèles permettent de cibler différents modèles pour le même appareil.
 
-Notez que le nom de chaque modèle mappe à un corps de modèle et à un ensemble de balises en option. De plus, chaque plateforme peut avoir des propriétés de modèle supplémentaires. Dans le cas de Windows Store (via WNS) et de Windows Phone 8 (à l’aide de MPNS), un ensemble supplémentaire d’en-têtes peut faire partie du modèle. Dans le cas d’APNs, vous pouvez définir une propriété d’expiration sur une constante ou une expression de modèle. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec REST](https://msdn.microsoft.com/library/azure/mt621153.aspx).
+Notez que le nom de chaque modèle mappe à un corps de modèle et à un ensemble de balises en option. De plus, chaque plateforme peut avoir des propriétés de modèle supplémentaires. Dans le cas de Windows Store (via WNS) et de Windows Phone 8 (à l’aide de MPNS), un ensemble supplémentaire d’en-têtes peut faire partie du modèle. Dans le cas d’APNs, vous pouvez définir une propriété d’expiration sur une constante ou une expression de modèle. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec REST](https://msdn.microsoft.com/library/azure/mt621153.aspx).
 
 #### Vignettes secondaires pour les applications Windows Store
 
@@ -96,13 +96,13 @@ Le dictionnaire SecondaryTiles utilise le même paramètre TileId que celui qui 
 
 ##Gestion de l’inscription à partir de l’appareil
 
-Lors de la gestion de l’inscription d’un appareil à partir des applications clientes, le serveur principal est uniquement chargé d’envoyer des notifications. Les applications clientes conservent les handles PNS à jour et inscrivent les balises. L’image suivante illustre ce modèle :
+Lors de la gestion de l’inscription d’un appareil à partir des applications clientes, le serveur principal est uniquement chargé d’envoyer des notifications. Les applications clientes conservent les handles PNS à jour et inscrivent les balises. L’image suivante illustre ce modèle :
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 L’appareil extrait d’abord le handle PNS du PNS, puis s’inscrit directement auprès du hub de notification. Une fois l’inscription effectuée, le serveur principal de l’application peut envoyer une notification ciblant cette inscription. Pour plus d’informations sur l’envoi de notifications, consultez [Routage et expressions de balises](notification-hubs-routing-tag-expressions.md). Notez que, dans ce cas, vous utiliserez les droits Listen (Écouter) pour accéder à vos hubs de notification à partir de l’appareil. Pour plus d’informations, consultez [Sécurité](notification-hubs-security.md).
 
-L’inscription à partir de l’appareil est la méthode la plus simple, mais présente quelques inconvénients. Le premier inconvénient est qu’une application cliente peut mettre à jour ses balises uniquement lorsqu’elle est active. Par exemple, si un utilisateur a deux appareils qui inscrivent des balises associées à des équipes sportives, lorsque le premier appareil inscrit une balise supplémentaire (par exemple, Seahawks), le second appareil ne reçoit pas les notifications concernant les Seahawks tant que l’application présente sur le second appareil n’a pas été exécutée une deuxième fois. De manière plus générale, lorsque les balises sont affectées par plusieurs appareils, la gestion des balises à partir du serveur principal est une option intéressante. Le second inconvénient de la gestion des inscriptions à partir de l’application cliente réside dans le fait qu’étant donné que les applications peuvent être piratées, la limitation de l’inscription à des balises spécifiques nécessite de prendre des précautions supplémentaires, comme décrit dans la section « Sécurité au niveau des balises ».
+L’inscription à partir de l’appareil est la méthode la plus simple, mais présente quelques inconvénients. Le premier inconvénient est qu’une application cliente peut mettre à jour ses balises uniquement lorsqu’elle est active. Par exemple, si un utilisateur a deux appareils qui inscrivent des balises associées à des équipes sportives, lorsque le premier appareil inscrit une balise supplémentaire (par exemple, Seahawks), le second appareil ne reçoit pas les notifications concernant les Seahawks tant que l’application présente sur le second appareil n’a pas été exécutée une deuxième fois. De manière plus générale, lorsque les balises sont affectées par plusieurs appareils, la gestion des balises à partir du serveur principal est une option intéressante. Le second inconvénient de la gestion des inscriptions à partir de l’application cliente réside dans le fait qu’étant donné que les applications peuvent être piratées, la limitation de l’inscription à des balises spécifiques nécessite de prendre des précautions supplémentaires, comme décrit dans la section « Sécurité au niveau des balises ».
 
 
 
@@ -241,14 +241,13 @@ Ces méthodes créent ou mettent à jour une inscription de l’appareil sur leq
 	}
 	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 	{
-		// regId likely expired, delete from local storage and try again
 		settings.Remove("__NHRegistrationId");
 	}
 
 
 ## Gestion des inscriptions à partir d’un serveur principal
 
-La gestion des inscriptions à partir du serveur principal nécessite l’écriture de code supplémentaire. L’application de l’appareil doit fournir le handle PNS mis à jour au serveur principal à chaque démarrage de l’application (avec les balises et les modèles), et le serveur principal doit mettre à jour ce handle sur le hub de notification. L’image suivante illustre cette conception :
+La gestion des inscriptions à partir du serveur principal nécessite l’écriture de code supplémentaire. L’application de l’appareil doit fournir le handle PNS mis à jour au serveur principal à chaque démarrage de l’application (avec les balises et les modèles), et le serveur principal doit mettre à jour ce handle sur le hub de notification. L’image suivante illustre cette conception :
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
@@ -305,7 +304,7 @@ Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch
 
 #### Exemple de code permettant de s’inscrire auprès d’un hub de notification à partir d’un appareil à l’aide d’un ID d’inscription
 
-À partir de votre serveur principal d’application, vous pouvez effectuer les opérations CRUD de base sur les inscriptions. Par exemple :
+À partir de votre serveur principal d’application, vous pouvez effectuer les opérations CRUD de base sur les inscriptions. Par exemple :
 
 	var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
             
@@ -330,4 +329,4 @@ Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch
 
 Le serveur principal doit gérer l’accès concurrentiel entre les mises à jour des inscriptions. Service Bus offre un contrôle de l’accès concurrentiel optimiste pour la gestion des inscriptions. Au niveau HTTP, cette implémentation est effectuée à l’aide d’ETag lors des opérations de gestion des inscriptions. Cette fonctionnalité est utilisée de manière transparente dans les Kits de développement logiciel (SDK) Microsoft, lesquels lèvent une exception si une mise à jour est refusée en raison d’accès concurrentiel. Le serveur principal d’application est chargé de gérer ces exceptions et, le cas échéant, de tenter une nouvelle mise à jour.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

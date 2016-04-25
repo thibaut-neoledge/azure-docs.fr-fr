@@ -17,7 +17,7 @@
 
 # Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure
 
-Lorsque vous devez dépanner un service cloud ou une machine virtuelle Azure, vous pouvez configurer les diagnostics Azure plus facilement à l’aide de Visual Studio. Le service diagnostics Azure capture les données système et les données de journalisation sur les machines virtuelles et instances de machine virtuelle qui exécutent votre service cloud, puis les transfère vers un compte de stockage de votre choix. Pour plus d’informations sur la journalisation des diagnostics dans Azure, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](/app-service-web/web-sites-enable-diagnostic-log.md).
+Lorsque vous devez dépanner un service cloud ou une machine virtuelle Azure, vous pouvez configurer les diagnostics Azure plus facilement à l’aide de Visual Studio. Le service diagnostics Azure capture les données système et les données de journalisation sur les machines virtuelles et instances de machine virtuelle qui exécutent votre service cloud, puis les transfère vers un compte de stockage de votre choix. Pour plus d’informations sur la journalisation des diagnostics dans Azure, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
 Cette rubrique explique comment activer et configurer le service diagnostics Azure dans Visual Studio, tant avant et qu’après le déploiement, ainsi que sur des machines virtuelles Azure. Elle explique également comment sélectionner les types d’informations de diagnostic à collecter et comment les afficher après leur collecte.
 
@@ -169,7 +169,7 @@ Après avoir activé la collecte des données de diagnostic, vous pouvez sélect
 
   ![Journaux d’application](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  Pour plus d’informations sur les journaux d’application, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](web-sites-enable-diagnostic-log.md).
+  Pour plus d’informations sur les journaux d’application, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
 ### Journaux d’événements Windows
 
@@ -221,7 +221,7 @@ Les événements sont capturés à partir de sources d’événements et de fich
 
   ![Journaux de suivi des événements ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  Dans ASP.NET, l’infrastructure ETW est prise en charge via des classes dans l’espace de noms [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). L’espace de noms Microsoft.WindowsAzure.Diagnostics, qui hérite des classes [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard et les étend, permet d’utiliser [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) comme infrastructure de journalisation dans l’environnement Azure. Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) et [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](/cloud-services/cloud-services-dotnet-diagnostics.md).
+  Dans ASP.NET, l’infrastructure ETW est prise en charge via des classes dans l’espace de noms [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). L’espace de noms Microsoft.WindowsAzure.Diagnostics, qui hérite des classes [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard et les étend, permet d’utiliser [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) comme infrastructure de journalisation dans l’environnement Azure. Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) et [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Vidages sur incident
 
@@ -355,6 +355,6 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](web-sites-enable-diagnostic-log.md).
+Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

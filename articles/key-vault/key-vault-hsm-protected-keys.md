@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="04/07/2016"
 	ms.author="cabailey"/>
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -99,17 +99,65 @@ Ne fermez pas la fenêtre Azure PowerShell.
 
 ###Étape 1.3 : Téléchargez le jeu d’outils BYOK pour Azure clé de coffre
 
-Accédez au centre de téléchargement Microsoft Download Center et [téléchargez l’ensemble d’outils BYOK du coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45345) correspondant à votre région géographique ou à votre instance d’Azure :
+Accédez au centre de téléchargement Microsoft Download Center et [téléchargez l’ensemble d’outils BYOK du coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45345) correspondant à votre région géographique ou à votre instance d’Azure : Utilisez les informations suivantes pour identifier le nom du package à télécharger et son package de hachage SHA-256 correspondant :
 
-|Région géographique ou instance d’Azure|Nom du package|Package de hachage SHA-256|
-|---|---|---|
-|Amérique du Nord|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
-|Europe|KeyVault-BYOK-outils-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
-|Asie|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
-|Amérique latine|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
-|Japon|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
-|Australie|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
-|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
+---
+
+**Amérique du Nord :**
+
+KeyVault-BYOK-Tools-UnitedStates.zip
+
+D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
+
+---
+
+**Europe :**
+
+KeyVault-BYOK-outils-Europe.zip
+
+81DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3
+
+---
+
+**Asie :**
+
+KeyVault-BYOK-Tools-AsiaPacific.zip
+
+0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E
+
+---
+
+**Amérique latine :**
+
+KeyVault-BYOK-Tools-LatinAmerica.zip
+	
+B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
+
+---
+
+**Japon :**
+
+KeyVault-BYOK-Tools-Japan.zip
+
+DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
+
+---
+
+**Australie :**
+
+KeyVault-BYOK-Tools-Australia.zip
+
+8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967
+
+---
+
+[**Azure Government :**](../../../../features/gov/)
+
+KeyVault-BYOK-Tools-USGovCloud.zip
+
+4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8
+
+---
 
 Pour valider l’intégrité de votre jeux d’outils BYOK, dans votre session Azure PowerShell, utilisez l’applet de commande [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -332,4 +380,4 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

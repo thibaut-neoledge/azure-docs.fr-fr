@@ -162,6 +162,8 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 
 - [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
+- [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md)
+- [Utilisation d’Oozie avec HDInsight](hdinsight-use-oozie.md)
 - [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
@@ -194,7 +196,7 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
@@ -204,4 +206,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

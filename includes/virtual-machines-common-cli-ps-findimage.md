@@ -4,7 +4,7 @@
 
 > [AZURE.NOTE] Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`.
 
-La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur (qui ne respecte pas la casse) et une offre (si vous connaissez l'offre). La liste suivante en est un petit exemple (de nombreuses listes sont assez longues) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
+La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur (qui ne respecte pas la casse) et une offre (si vous connaissez l'offre). La liste suivante en est un petit exemple (de nombreuses listes sont assez longues) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -23,7 +23,7 @@ La façon la plus simple et la plus rapide de rechercher une image à utiliser a
 
 La colonne **Urn** aura le même format que celui que vous passez à `azure vm quick-create`.
 
-Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en recherchant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite de localisation avec l’emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
+Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en recherchant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite de localisation avec l’emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -37,7 +37,7 @@ Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans
     data:    AlertLogic.Extension                            westus  
 
 
-Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci-dessus est simplement un extrait de code. Supposons que vous ayez remarqué que « Canonical » est, en fait, un éditeur d'image présent dans l'emplacement « West US ». Vous pouvez maintenant rechercher ses offres en appelant `azure vm image list-offers` et en indiquant l’emplacement et l’éditeur aux invites, comme dans l’exemple suivant :
+Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci-dessus est simplement un extrait de code. Supposons que vous ayez remarqué que « Canonical » est, en fait, un éditeur d'image présent dans l'emplacement « West US ». Vous pouvez maintenant rechercher ses offres en appelant `azure vm image list-offers` et en indiquant l’emplacement et l’éditeur aux invites, comme dans l’exemple suivant :
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -49,7 +49,7 @@ Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-Nous savons maintenant que dans la région « West US », « Canonical »publie l'offre **UbuntuServer** sur Azure. Mais quelles sont les références SKU ? Pour les obtenir, vous appelez `azure vm image list-skus` et répondez à l’invite en indiquant l’emplacement, l’éditeur et l’offre que vous avez détectée.
+Nous savons maintenant que dans la région « West US », « Canonical »publie l'offre **UbuntuServer** sur Azure. Mais quelles sont les références SKU ? Pour les obtenir, vous appelez `azure vm image list-skus` et répondez à l’invite en indiquant l’emplacement, l’éditeur et l’offre que vous avez détectée.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -99,7 +99,7 @@ Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les ru
 > [AZURE.NOTE] L’applet de commande `Switch-AzureMode` a été supprimée dans les modules Azure PowerShell supérieurs à 1.0. Avec cette version et les plus récentes, remplacez les commandes ci-dessous par la portion `Azure` partie remplacée par `AzureRm`. Si vous utilisez les modules Azure PowerShell antérieurs à 1.0, utilisez les commandes ci-dessous. Cependant, vous devez d’abord `Switch-AzureMode AzureResourceManager`.
 
 
-Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Azure, vous devez, dans certains cas, spécifier une image en combinant les propriétés d'image suivantes :
+Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Azure, vous devez, dans certains cas, spécifier une image en combinant les propriétés d'image suivantes :
 
 - Publisher
 - Offer
@@ -107,11 +107,11 @@ Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Az
 
 Par exemple, ces valeurs sont nécessaires pour l'applet de commande PowerShell **Set-AzureVMSourceImage** ou avec un fichier de modèle de groupe de ressources dans lequel vous devez spécifier le type de machine virtuelle à créer.
 
-Si vous devez déterminer ces valeurs, vous pouvez parcourir les images à cette fin en procédant ainsi :
+Si vous devez déterminer ces valeurs, vous pouvez parcourir les images à cette fin en procédant ainsi :
 
-1. en répertoriant les éditeurs d’images ;
-2. pour un éditeur donné, en répertoriant ses offres ;
-3. pour une offre donnée, en répertoriant ses références SKU.
+1. en répertoriant les éditeurs d’images ;
+2. pour un éditeur donné, en répertoriant ses offres ;
+3. pour une offre donnée, en répertoriant ses références SKU.
 
 Pour ce faire dans PowerShell, commencez par passer en mode Gestionnaire des ressources d'Azure PowerShell.
 
@@ -153,7 +153,7 @@ Voici un exemple.
 	Canonical
 	...
 
-Pour l'éditeur « MicrosoftWindowsServer » :
+Pour l'éditeur « MicrosoftWindowsServer » :
 
 	PS C:\> $pubName="MicrosoftWindowsServer"
 	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
@@ -162,7 +162,7 @@ Pour l'éditeur « MicrosoftWindowsServer » :
 	-----
 	WindowsServer
 
-Pour l'offre « WindowsServer » :
+Pour l'offre « WindowsServer » :
 
 	PS C:\> $offerName="WindowsServer"
 	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
@@ -174,13 +174,8 @@ Pour l'offre « WindowsServer » :
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-Dans cette liste, copiez le nom de la référence SKU choisie. Vous avez alors toutes les informations pour l’applet de commande PowerShell **Set-AzureVMSourceImage** ou pour un fichier de modèle de groupe de ressources pour lequel vous devez spécifier l’éditeur, l’offre et la référence SKU pour une image.
+Dans cette liste, copiez le nom de la référence SKU choisie. Vous avez alors toutes les informations pour l’applet de commande PowerShell **Set-AzureVMSourceImage** ou pour un fichier de modèle de groupe de ressources pour lequel vous devez spécifier l’éditeur, l’offre et la référence SKU pour une image.
 
-### Vidéo de procédure pas à pas
-
-Cette vidéo illustre les étapes ci-dessus à l'aide de PowerShell.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-posh]
 
 
 <!--Image references-->
@@ -194,4 +189,4 @@ Cette vidéo illustre les étapes ci-dessus à l'aide de PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

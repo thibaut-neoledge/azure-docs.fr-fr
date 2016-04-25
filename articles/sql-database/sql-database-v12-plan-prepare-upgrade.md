@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la ver
 Pour obtenir des informations détaillées sur les niveaux de service De base, Standard et Premium, voir :
 
 - [Niveaux de service SQL Database](sql-database-service-tiers.md)
-- [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
+- [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md)
 
 
 
@@ -225,7 +225,7 @@ Le scénario suivant explique qu’une base de données SQL Azure V11 supprimée
 
 Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers Azure SQL Database V12, à partir d’une version 11 ou antérieure.
 
-- [Mise à niveau vers SQL Database V12 à l’aide de PowerShell](sql-database-upgrade-server.md)
+- [Mise à niveau vers SQL Database V12 à l’aide de PowerShell](sql-database-upgrade-server-powershell.md)
 
 Pour obtenir une documentation de référence sur ces applets de commande Powershell, consultez :
 
@@ -252,6 +252,5 @@ Si la mise à niveau échoue pour une raison quelconque, votre base de données 
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

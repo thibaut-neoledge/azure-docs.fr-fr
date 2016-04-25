@@ -91,7 +91,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l'aide du
 
 Une fois votre machine virtuelle créée et approvisionnée, vous pouvez commencer à utiliser les outils qui y sont installés et configurés. Pour la plupart des outils, vous disposez d'icônes de bureau et de vignettes dans le menu de démarrage.
 
-## Création d'un mot de passe fort sur le serveur Jupyter Notebook 
+##Création d'un mot de passe fort sur le serveur Jupyter Notebook 
 
 Exécutez la commande suivante à partir de l'invite de commandes sur la machine virtuelle de sciences de données pour créer votre propre mot de passe fort pour le serveur Jupyter Notebook installé sur la machine.
 
@@ -149,4 +149,4 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Apprenez à créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu Démarrer et sur le bureau de la machine virtuelle pour un accès aisé. 
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

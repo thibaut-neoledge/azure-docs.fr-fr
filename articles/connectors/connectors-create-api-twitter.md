@@ -19,20 +19,20 @@
 
 
 # Prendre en main l’API Twitter
-Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
+Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-twitter.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-twitter.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
 
 &nbsp;
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec Twitter, vous pouvez effectuer les opérations suivantes :
+Avec Twitter, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Twitter. 
 - Utiliser des déclencheurs quand il y a un nouveau tweet.
@@ -67,7 +67,7 @@ Après avoir créé la connexion, vous entrez les propriétés Twitter, telles q
 
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Publier un nouveau tweet 
 Tweet. ```POST: /posttweet```
@@ -267,7 +267,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 
 ## Définitions d’objet
 
-### TweetModel : représentation d’un objet tweet
+### TweetModel : représentation d’un objet tweet
 
 | Nom de la propriété | Type de données | Requis |
 |---|---| --- | 
@@ -278,7 +278,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 |TweetedBy|string|yes|
 |MediaUrls|array|no|
 
-### UserDetailsModel : représentation des détails d’un utilisateur Twitter
+### UserDetailsModel : représentation des détails d’un utilisateur Twitter
 
 |Nom de la propriété | Type de données | Requis |
 |---|---|---|
@@ -291,7 +291,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 |StatusesCount|integer|no|
 |FriendsCount|integer|no|
 
-### TweetResponseModel : modèle de représentation d’un tweet publié
+### TweetResponseModel : modèle de représentation d’un tweet publié
 
 | Nom | Type de données | Requis |
 |---|---|---|
@@ -306,13 +306,13 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Revenir à la [liste des API](apis-list.md).
+Revenir à la [liste des API](apis-list.md)
 
 <!--References-->
 
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

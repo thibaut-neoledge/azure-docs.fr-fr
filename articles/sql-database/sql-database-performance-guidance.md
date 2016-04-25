@@ -3,9 +3,9 @@
 	description="Cette rubrique fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application et fournit des recommandations pour le paramétrage de votre application pour tirer le meilleur parti de votre base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+	ms.date="04/11/2016"
+	ms.author="carlrab" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
 
@@ -23,7 +23,7 @@
 
 La base de données SQL Microsoft Azure compte trois [niveaux de service](sql-database-service-tiers.md) : De base, Standard et Premium. Tous ces niveaux isolent strictement les ressources fournies à votre base de données SQL Azure et garantissent des performances prévisibles. Le débit garanti pour votre base de données augmente du niveau De base à Standard, puis passe à Premium.
 
->[AZURE.NOTE] Les niveaux de service Web et Business seront retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Pour plus d’informations sur la mise à niveau des bases de données Web et Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md).
+>[AZURE.NOTE] Les niveaux de service Web et Business seront retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Pour plus d’informations sur la mise à niveau des bases de données Web et Business existantes vers les nouveaux niveaux de service, consultez [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md).
 
 Ce document fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application, ainsi que des recommandations pour le paramétrage de votre application afin que vous tiriez le meilleur parti de votre base de données SQL Azure.
 
@@ -324,7 +324,7 @@ Dans l’exemple suivant, le plan de requête sélectionné contient une analyse
 
 La base de données SQL Azure contient des fonctionnalités pour indiquer aux administrateurs de base de données comment rechercher et résoudre les situations courantes d’index manquants. Les vues de gestion dynamique (DMV) intégrées à la base de données SQL Azure examinent la compilation de requêtes là où un index réduirait de manière significative le coût estimé d’exécution d’une requête. Pendant l’exécution de requêtes, elles suivent la fréquence selon laquelle chaque plan de requête est exécuté, ainsi que l’écart estimé entre le plan de requête en cours d’exécution et le plan imaginé dans lequel cet index existait. Cela permet à un administrateur de base de données de supposer rapidement quelles modifications de conception physique de la base de données amélioreraient le coût total de la charge de travail pour une base de données spécifiée et sa charge de travail réelle.
 
->[AZURE.NOTE] Avant d'utiliser les DMV pour rechercher les index manquants, lisez d'abord la section de la rubrique [Query Performance Insight et assistant Index](query-performance-insight-and-index-advisor.md).
+>[AZURE.NOTE] Avant d'utiliser les DMV pour rechercher les index manquants, lisez d'abord la section de la rubrique [Query Performance Insight et assistant Index](#query-performance-insight-and-index-advisor).
 
 La requête suivante peut être utilisée pour évaluer les index manquants éventuels.
 
@@ -491,4 +491,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

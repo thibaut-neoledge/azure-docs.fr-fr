@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Suivi de l’intégrité du service" 
-	description="Déterminez à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Suivi de l’intégrité du service"
+	description="Déterminez à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Suivi de l’intégrité du service
@@ -45,12 +45,11 @@ Azure publie chaque interruption du service et chaque dégradation des performan
 7. Vous voyez maintenant tous les événements de contrôle d’intégrité de service qui ont un impact sur votre abonnement : ![Groupes de ressources](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. Vous pouvez vous rendre ainsi dans le panneau des détails pour découvrir les détails de l’événement.
-   
+
 ## Étapes suivantes
 
 * [Réception de notifications d'alerte](insights-receive-alert-notifications.md) lorsqu’un événement se produit.
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
-* [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
- 
+* [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

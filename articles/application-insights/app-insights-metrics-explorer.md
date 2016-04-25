@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -21,11 +21,11 @@ Les mesures dans [Application Insights][start] sont des mesures et le nombre des
 
 Les mesures et le nombre des événements sont affichés dans des graphiques présentant les valeurs agrégées, comme la somme, la moyenne ou le décompte.
 
-Voici un exemple de graphique :
+Voici un exemple de graphique :
 
 ![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/app-insights-metrics-explorer/01-overview.png)
 
-Certains graphiques sont segmentés : la hauteur totale du graphique correspond à la somme des mesures affichées. La légende par défaut affiche les plus grandes quantités.
+Certains graphiques sont segmentés : la hauteur totale du graphique correspond à la somme des mesures affichées. La légende par défaut affiche les plus grandes quantités.
 
 Les pointillés indiquent la valeur de la mesure une semaine auparavant.
 
@@ -40,7 +40,7 @@ Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques e
 
 Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
 
-Pour effectuer un zoom sur une partie d’un graphique, sélectionnez la partie souhaitée, puis cliquez sur l’icône de loupe :
+Pour effectuer un zoom sur une partie d’un graphique, sélectionnez la partie souhaitée, puis cliquez sur l’icône de loupe :
 
 ![Sélectionnez une partie d'un graphique.](./media/app-insights-metrics-explorer/12-drag.png)
 
@@ -54,15 +54,15 @@ Pointez votre souris sur le graphique pour afficher les valeurs des mesures à c
 
 La valeur de la mesure à un moment donné est agrégée à l'intervalle d'échantillonnage précédent.
 
-L’intervalle d’échantillonnage, ou « granularité », s’affiche en haut du panneau.
+L’intervalle d’échantillonnage, ou « granularité », s’affiche en haut du panneau.
 
 ![En-tête du panneau.](./media/app-insights-metrics-explorer/11-grain.png)
 
-Vous pouvez ajuster le niveau de granularité dans le panneau Période :
+Vous pouvez ajuster le niveau de granularité dans le panneau Période :
 
 ![En-tête du panneau.](./media/app-insights-metrics-explorer/grain.png)
 
-Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
+Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
 
 ## Metrics Explorer
 
@@ -70,40 +70,41 @@ Cliquez sur les graphiques du panneau Vue d'ensemble pour afficher un jeu plus d
 
 Ou vous pouvez simplement cliquer sur le bouton Metrics Explorer dans l'en-tête du panneau Vue d'ensemble.
 
-Par exemple, parcourez le graphique des demandes ayant échoué pour l'application web :
+Par exemple, parcourez le graphique des demandes ayant échoué pour l'application web :
 
 ![Dans le panneau Vue d'ensemble, cliquez sur un graphique](./media/app-insights-metrics-explorer/14-trix.png)
 
 
-## Que veulent dire les chiffres ?
+## Que veulent dire les chiffres ?
 
 La légende sur le côté affiche généralement par défaut la valeur agrégée sur la période couverte par le graphique. Si vous pointez sur le graphique, il affiche la valeur au niveau de ce point.
 
-Chaque point de données du graphique est un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
+Chaque point de données du graphique est un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
 
-Les mesures sont agrégées de différentes façons :
+Les mesures sont agrégées de différentes façons :
 
  * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
  * **Average** divise la somme par le nombre de points de données reçus durant l'intervalle.
  * **Unique** est utilisé pour comptabiliser les nombres d'utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
 
 
-Vous pouvez changer de méthode d’agrégation :
+Vous pouvez changer de méthode d’agrégation :
 
 ![Sélectionnez le graphique, puis l’agrégation](./media/app-insights-metrics-explorer/05-aggregation.png)
 
-La méthode par défaut de chaque mesure s’affiche lorsque vous créez un graphique :
+La méthode par défaut de chaque mesure s’affiche lorsque vous créez un graphique :
 
 ![Désélectionnez toutes les métriques afin d’afficher les valeurs par défaut](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## Modification des graphiques et des grilles
 
-Pour ajouter un nouveau graphique au panneau :
+Pour ajouter un nouveau graphique au panneau :
 
 ![Dans Metrics Explorer, sélectionnez Ajouter un graphique](./media/app-insights-metrics-explorer/04-add.png)
 
-Sélectionnez un graphique existant ou un nouveau graphique pour modifier ce qu'il présente :
+Sélectionnez **Modifier** sur un graphique nouveau ou existant pour modifier ce qui est affiché :
 
 ![Sélectionner une ou plusieurs mesures](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -113,13 +114,13 @@ Si vous avez ajouté des [mesures personnalisées][track] au code de votre appli
 
 ## Segmenter vos données
 
-Sélectionnez un graphique ou une grille, basculez vers le regroupement et choisissez une propriété de regroupement :
+Sélectionnez un graphique ou une grille, basculez vers le regroupement et choisissez une propriété de regroupement :
 
 ![Activez le regroupement, puis une propriété de regroupement](./media/app-insights-metrics-explorer/15-segment.png)
 
 Si vous avez ajouté des [mesures personnalisées][track] au code de votre application et qu'elles incluent des valeurs de propriétés, vous pourrez sélectionner la propriété dans la liste.
 
-Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
+Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
 
 
 ![Ajustez le curseur.](./media/app-insights-metrics-explorer/18-height.png)
@@ -127,29 +128,33 @@ Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
 
 ## Filtrer vos données
 
-Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
+Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
 
 ![Cliquez sur le filtre, développez une propriété et vérifiez les valeurs](./media/app-insights-metrics-explorer/19-filter.png)
 
-Si vous ne sélectionnez aucune valeur pour une propriété particulière, c'est la même chose que si vous aviez sélectionné toutes les valeurs : il n'existe aucun filtre sur cette propriété.
+Si vous ne sélectionnez aucune valeur pour une propriété particulière, c'est la même chose que si vous aviez sélectionné toutes les valeurs : il n'existe aucun filtre sur cette propriété.
 
 Notez le nombre d'événements en même temps que chaque valeur de propriété. Lorsque vous sélectionnez les valeurs d'une propriété, le nombre est modifié, en même temps que les autres valeurs de la propriété.
 
-### Pour ajouter des propriétés à la liste de filtres
+Les filtres s’appliquent à tous les graphiques dans un panneau. Si vous souhaitez que différents filtres s’appliquent à différents graphiques, créez et enregistrez des panneaux de mesure différents. Si vous le souhaitez, vous pouvez épingler des graphiques à partir de différents panneaux au tableau de bord, afin de les afficher parallèlement.
 
-Vous souhaitez filtrer la télémétrie pour une catégorie de votre choix ? Par exemple, vous pouvez diviser vos utilisateurs en catégories différentes et segmenter vos données à l’aide de ces catégories.
 
-[Créez votre propriété](app-insights-api-custom-events-metrics.md#properties). Définissez-la dans un [Initialiseur de télémétrie](app-insights-api-custom-events-metrics.md#telemetry-initializers) pour qu'elle s'affiche dans toute la télémétrie, notamment la télémétrie standard envoyée par différents modules de kit de développement logiciel (SDK).
-
-## Supprimer le robot et tester le trafic web
+### Supprimer le robot et tester le trafic web
 
 Utilisez le filtre de **trafic réel ou synthétique** et activez l'option **réel**.
 
 Vous pouvez également filtrer par **source du trafic synthétique**.
 
+### Pour ajouter des propriétés à la liste de filtres
+
+Vous souhaitez filtrer la télémétrie pour une catégorie de votre choix ? Par exemple, vous pouvez diviser vos utilisateurs en catégories différentes et segmenter vos données à l’aide de ces catégories.
+
+[Créez votre propriété](app-insights-api-custom-events-metrics.md#properties). Définissez-la dans un [Initialiseur de télémétrie](app-insights-api-custom-events-metrics.md#telemetry-initializers) pour qu'elle s'affiche dans toute la télémétrie, notamment la télémétrie standard envoyée par différents modules de kit de développement logiciel (SDK).
+
+
 ## Modifier le type de graphique
 
-En particulier, notez que vous pouvez basculer entre les grilles et les graphiques :
+Notez que vous pouvez basculer entre les grilles et les graphiques :
 
 ![Sélectionnez une grille ou un graphique, puis choisissez un type de graphique](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -159,7 +164,7 @@ Une fois que vous avez créé des graphiques, enregistrez-les en tant que favori
 
 ![Choisissez Favori](./media/app-insights-metrics-explorer/21-favorite-save.png)
 
-Pour réafficher le panneau, **allez dans le panneau Vue d'ensemble** et ouvrez Favoris :
+Pour réafficher le panneau, **allez dans le panneau Vue d'ensemble** et ouvrez Favoris :
 
 ![Dans le panneau Vue d'ensemble, cliquez sur Favoris](./media/app-insights-metrics-explorer/22-favorite-get.png)
 
@@ -200,6 +205,23 @@ Si vous souhaitez mettre en place une exportation continue des données pour les
 
 Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [exporter vers Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
+## Analyse
+
+L’[analyse](app-insights-analytics.md) est un moyen plus souple d’analyser vos données de télémétrie à l’aide d’un langage de requête puissant. Utilisez l’analyse si vous souhaitez combiner ou calculer les résultats à partir des mesures ou effectuer une exploration approfondie des performances récentes de votre application. En revanche, utilisez Metrics Explorer si vous souhaitez obtenir l’actualisation automatique, les graphiques sur le tableau de bord et les alertes.
+
+## Résolution des problèmes
+
+*Mon graphique ne contient aucune donnée.*
+
+* Les filtres s’appliquent à tous les graphiques du panneau. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique. 
+
+    Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
+
+* Si vous regroupez un graphique en fonction d’une propriété qui n’est pas définie dans la mesure, alors il n’y aura rien à afficher sur le graphique. Essayez de désélectionner l’option « regrouper par » ou choisissez une propriété de regroupement différente.
+* Les données de performances (UC, taux E/S, et ainsi de suite) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état](app-insights-monitor-performance-live-website-now.md) et [Azure Cloud Services](app-insights-azure.md). Ces données ne sont pas disponibles pour les sites web Azure.
+
+
+
 ## Étapes suivantes
 
 * [Surveillance de l’utilisation avec Application Insights](app-insights-overview-usage.md)
@@ -214,4 +236,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,7 +17,7 @@
 	ms.author="inhenk"/>
 
 # Azure AD et applications : affectation de groupes à une application
-Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour savoir comment demander l’affectation de l'utilisateur, consultez l’article [Demande de l’affectation de l’utilisateur](active-directory-applications-guiding-developers-requiring-user-assignment.md).
+Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour savoir comment demander l’affectation d’utilisateurs, consultez l’article [Demande de l’affectation de l’utilisateur](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
 Cet article suppose que vous avez déjà créé des groupes dans le répertoire actif que vous utilisez pour cette application.
 
@@ -36,4 +36,4 @@ Cet article suppose que vous avez déjà créé des groupes dans le répertoire 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

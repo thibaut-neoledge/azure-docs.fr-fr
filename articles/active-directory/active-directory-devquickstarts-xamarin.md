@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Xamarin permet d’écrire des applications en C#, qui peuvent être exécutées sur différentes plateformes, y compris sur les appareils mobiles et les PC. Si vous créez une application à l’aide de Xamarin, Azure AD facilite l’authentification de vos utilisateurs avec leurs comptes Active Directory. Il permet également à votre application d’utiliser en toute sécurité une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
+Xamarin vous permet d’écrire des applications mobiles en C# qui peuvent s’exécuter sur iOS, Android et Windows (appareils mobiles et PC). Si vous créez une application à l’aide de Xamarin, Azure AD facilite l’authentification de vos utilisateurs avec leurs comptes Active Directory. Il permet également à votre application d’utiliser en toute sécurité une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
 
 Pour les applications Xamarin qui doivent accéder à des ressources protégées, Azure AD fournit la bibliothèque d’authentification Active Directory (bibliothèque ADAL). Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d’accès pour votre application. Pour illustrer cette simplicité, nous créerons une application « Directory Searcher » effectuant les actions suivantes :
 
@@ -41,12 +41,9 @@ Pour générer l’application fonctionnelle complète, vous devez :
 Pour commencer, téléchargez [la structure du projet](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Chaque option est une solution Visual Studio 2013. Vous avez également besoin d’un client Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
 
 ## *0. Configuration de votre environnement de développement Xamarin*
-Il existe différentes façons de configurer Xamarin en fonction des plateformes spécifiques que vous souhaitez cibler. Dans la mesure où ce didacticiel inclut des projets pour iOS, Android et Windows, nous avons choisi d’utiliser Visual Studio 2013 et l’[hôte de génération Xamarin.iOS](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), qui requièrent les éléments suivants : - Un ordinateur Windows pour exécuter Visual Studio et les applications Windows - Un ordinateur OSX (si vous souhaitez être en mesure d’exécuter l’application iOS) - Un abonnement professionnel à Xamarin (une [version d’évaluation gratuite](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) est suffisante) - [Xamarin pour Windows](https://xamarin.com/download), qui inclut l’intégration Visual Studio (recommandé pour cet exemple), Xamarin.iOS et Xamarin.Android. - [Xamarin pour OS X](https://xamarin.com/download), qui inclut Xamarin.iOS (et l’hôte de génération Xamarin.iOS), Xamarin.Android, Xamarin.Mac et Xamarin Studio.
-
-Nous vous recommandons de commencer par la [page de téléchargement de Xamarin](https://xamarin.com/download) et d’installer Xamarin sur votre Mac et votre PC. Si vous ne disposez pas de ces deux ordinateurs, vous pouvez toujours exécuter l’exemple, mais certains projets devront être omis. Suivez les [guides d’installation détaillée](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/) pour iOS et Android et, si vous souhaitez en savoir plus sur les options disponibles pour le développement, consultez le guide [Création d’applications multiplateformes](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/). Pour le moment, vous n’avez pas besoin de configurer un appareil pour le développement, ni de disposer d’un abonnement au programme pour développeurs Apple (à moins, bien sûr, que vous souhaitiez exécuter l’application iOS sur un appareil).
+Étant donné que ce didacticiel inclut des projets pour iOS, Android et Windows, vous avez besoin de Visual Studio et de Xamarin. Pour créer l’environnement nécessaire, suivez les instructions complètes à la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) sur MSDN. Ces instructions incluent des documents que vous pouvez consulter pour en savoir plus sur Xamarin pendant que l’exécution des programmes d’installation se termine.
 
 Une fois vous avez terminé la configuration nécessaire, ouvrez la solution dans Visual Studio pour commencer. Vous trouverez six projets : cinq projets propres à la plateforme et une bibliothèque de classes portable partagée par toutes les plateformes, `DirectorySearcher.cs`.
-
 
 ## *1. Inscription de l’application Directory Searcher*
 Pour autoriser votre application à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
@@ -62,7 +59,8 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
 - Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Pour l’application Azure Active Directory, ajoutez l’autorisation **Accéder au répertoire de l’organisation** sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## *2. Installation et configuration de la bibliothèque ADAL*
-Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, vous devez lui fournir des informations concernant l’inscription de votre application. - Commencez par ajouter la bibliothèque ADAL à chacun des projets dans la solution, à l’aide de la console du gestionnaire de package.
+Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour permettre à ADAL de communiquer avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
+-	Commencez par ajouter ADAL à chaque projet de la solution à l’aide de la console du gestionnaire de package.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
@@ -201,4 +199,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

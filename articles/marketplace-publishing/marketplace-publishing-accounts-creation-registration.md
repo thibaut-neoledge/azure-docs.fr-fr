@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/07/2016"
    ms.author="hascipio"/>
 
 # Créer un compte de développeur Microsoft
@@ -163,10 +163,10 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 
 || Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
 |----|-----|-----|-----|-----|
-|**Étape 2 : Créer votre offre** |[Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)|
-|| [Conditions préalables techniques de l’image de machine virtuelle][link-single-vm-prereq] | Conditions préalables techniques des services de développement | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guide de publication de l’image de machine virtuelle][link-single-vm] | Guide de publication de service de développeur | [Guide de publication de service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
-|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
+|**Étape 2 : Créer votre offre** |[Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| Version préliminaire privée | [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)|
+|| [Conditions préalables techniques de l’image de machine virtuelle][link-single-vm-prereq] | Version préliminaire privée | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guide de publication de l’image de machine virtuelle][link-single-vm] | Version préliminaire privée | [Guide de publication de service de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
+|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | Version préliminaire privée | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
 
 ## Voir aussi
 - [Mise en route : publication d'une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +198,4 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

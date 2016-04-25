@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect Sync : extensions d’annuaire
@@ -24,8 +24,8 @@ Actuellement, aucune charge de travail Office 365 n’utilise ces attributs.
 Vous pouvez configurer les attributs supplémentaires à synchroniser dans le chemin d’accès des paramètres personnalisés dans l’Assistant d’installation. ![Assistant d’extension de schéma](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L’installation affiche les attributs suivants, qui sont des candidats valides :
 
 - Types d’utilisateur et d’objet de groupe
-- Attributs à valeur unique
-- Chaînes, entier, binaire
+- Attributs à valeur unique : chaîne, booléen, entier, binaire
+- Attributs à valeurs multiples : chaîne, binaire
 
 Un objet peut avoir jusqu’à 100 attributs d’extension d’annuaire. La longueur maximale est de 250 caractères. Si une valeur d’attribut est plus longue, elle sera tronquée par le moteur de synchronisation.
 
@@ -40,4 +40,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

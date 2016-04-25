@@ -3,7 +3,7 @@
 	description="Prise en main de PowerApps Enterprise et création d’un App Service Environment"
 	services=""
     suite="powerapps"
-	documentationCenter="" 
+	documentationCenter=""
 	authors="linhtranms"
 	manager="dwrede"
 	editor=""/>
@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="11/29/2015"
    ms.author="litran"/>
 
@@ -33,8 +33,8 @@ Microsoft PowerApps Enterprise est un nouveau service Microsoft Azure. PowerApps
 Les administrateurs informatiques peuvent gérer les applications créées par les utilisateurs professionnels dans leur entreprise, notamment :
 
 - Gérer ces applications et gérer l’accès des utilisateurs à ces applications.
-- Créer des API et des connexions aux sources de données différentes. 
-- Gérer l’accès des utilisateurs pour les API et les connexions à ces sources de données. 
+- Créer des API et des connexions aux sources de données différentes.
+- Gérer l’accès des utilisateurs pour les API et les connexions à ces sources de données.
 
 ## Comment faire pour démarrer ?
 
@@ -61,12 +61,12 @@ Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte Micro
 Pour ce faire, procédez comme suit. Autrement, vous pouvez créer un nouveau client et créer un administrateur dans ce client suivant un processus similaire.
 
 1.	Connectez-vous au [Portail Azure Classic ](https://manage.windowsazure.com/) avec votre compte individuel.
-2.	Dans la barre de menu de gauche, sélectionnez **Active Directory**. 
+2.	Dans la barre de menu de gauche, sélectionnez **Active Directory**.
 3.	Sélectionnez **Répertoire par défaut** dans la liste des répertoires disponibles.
 4.	Sélectionnez l’onglet **Utilisateurs** en haut. Un seul utilisateur apparaît avec la mention « Compte Microsoft » dans la colonne Provenance.
-5.	Sélectionnez **Ajouter un utilisateur** en bas. 
+5.	Sélectionnez **Ajouter un utilisateur** en bas.
 6.	Dans le **formulaire Ajouter un utilisateur**, fournissez les informations suivantes :  
-	
+
 	Propriété | Description
 --- | ---
 Type d’utilisateur | Nouvel utilisateur dans votre organisation
@@ -75,7 +75,7 @@ Prénom/Nom/Nom d’affichage | Entrez vos valeurs
 Rôle | Administrateur général
 Autre adresse de messagerie | Entrez votre valeur
 Facultatif | Activez Multi-Factor Authentication  
-	
+
 	Sélectionnez le bouton **CRÉER** pour terminer et pour afficher le mot de passe temporaire.
 
 Lorsque vous avez terminé, notez ce mot de passe temporaire pour le nouvel utilisateur administratif. Pour modifier le mot de passe temporaire, connectez-vous à [https://login.microsoftonline.com](https://login.microsoftonline.com) avec ce nouveau compte d’utilisateur et modifiez le mot de passe. Vous pouvez également envoyer le mot de passe directement à l'utilisateur, à l'aide d'un autre e-mail.
@@ -104,7 +104,7 @@ Sans inscription à PowerApps Enterprise, un panneau d’accès refusé s’affi
 
 Une fois que vous avez terminé le processus d’inscription et que vous êtes prêt à utiliser PowerApps Enterprise, vous pouvez :
 
-- Ajouter des utilisateurs au sein de votre société et, à l’aide du [contrôle d’accès en fonction du rôle](../role-based-access-control-configure.md), attribuer à ces utilisateurs des rôles d’administrateurs PowerApps pour l’accès au portail PowerApps Enterprise.
+- Ajouter des utilisateurs au sein de votre société et, à l’aide du [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md), attribuer à ces utilisateurs des rôles d’administrateurs PowerApps pour l’accès au portail PowerApps Enterprise.
 - Créer un App Service Environment dédié pour héberger vos PowerApps.
 - Créer des API et connexions s’exécutant au sein de votre App Service Environment dédié.
 - Outre les applications créées dans PowerApps, vous pouvez ajouter des applications supplémentaires à votre App Service Environment, notamment des applications web, des applications mobiles, des API Apps et des Logic Apps.
@@ -120,11 +120,11 @@ Créez un App Service Environment pour héberger vos API et connexions PowerApps
 Un App Service Environment est un environnement isolé et dédié qui exécute l’ensemble de vos applications en toute sécurité. Les ressources de calcul sont par App Service Environment et sont exclusivement dédiées à l’exécution de vos applications uniquement. Lorsque vous vous inscrivez à PowerApps Enterprise, un App Service Environment dédié est utilisé pour héberger les API et connexions utilisées par vos applications. Cet App Service Environment est un type spécial d’App Service Environment. Plus précisément :
 
 - Vous pouvez utiliser cet App Service Environment comme bon vous semble. Il est lié à votre société, et non à l’abonnement.
-- Vous configurez les API et connexions à utiliser par vos applications créées dans PowerApps. Toutefois, vous pouvez également ajouter des applications web, des applications mobiles, des Logic Apps et des API Apps à ce même App Service Environment. 
+- Vous configurez les API et connexions à utiliser par vos applications créées dans PowerApps. Toutefois, vous pouvez également ajouter des applications web, des applications mobiles, des Logic Apps et des API Apps à ce même App Service Environment.
 - La facturation est fixe et incluse avec PowerApps Enterprise.  
 - La mise à l’échelle est automatiquement gérée pour vous. Vous n’avez pas à surveiller l’environnement pour déterminer si des ressources de calcul supplémentaires sont nécessaires.
 
-L’environnement normal Azure App Service Environment présente des fonctionnalités différentes. Consultez la page [Présentation de l’environnement App Service](../app-service-app-service-environment-intro.md) pour découvrir ces détails.
+L’environnement normal Azure App Service Environment présente des fonctionnalités différentes. Consultez la page [Présentation de l’environnement App Service](../app-service-web/app-service-app-service-environment-intro.md) pour découvrir ces détails.
 
 #### Conditions préalables requises
 
@@ -136,16 +136,16 @@ L’environnement normal Azure App Service Environment présente des fonctionnal
 > [AZURE.NOTE] Si vous ne voyez pas l’option de création de l’App Service Environment, il est déjà créé pour votre client. Pour afficher les détails, sélectionnez **Paramètres** pour ouvrir l’App Service Environment.
 
 1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
- 
+
 2. Dans la barre des tâches, sélectionnez **Parcourir** : ![Accéder à PowerApps][1]
-  
+
 3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou saisir *powerapps* : ![Rechercher PowerApps][2]
 
 4. Dans le panneau **PowerApps**, sélectionnez **Créer un App Service Environment pour commencer** ou sélectionnez **App Service Environment** sous *Paramètres* : ![][5]
 
 	> [AZURE.NOTE] Si vous cliquez sur **Créer un App Service Environment pour commencer**, un panneau supplémentaire s’affiche avec des détails sur l’App Service Environment. Cliquez simplement sur Créer un lien dans ce panneau pour lancer le panneau de création.
 
-5. Ensuite, entrez le nom, sélectionnez l’abonnement que vous souhaitez utiliser, sélectionnez ou créez un groupe de ressources et sélectionnez un réseau virtuel. **Veuillez noter** qu’après avoir choisi un réseau virtuel, vous ne pourrez pas le modifier : ![][6] Pour savoir comment les réseaux virtuels fonctionnent avec un App Service Environment, consultez [Comment créer un environnement App Service](../app-service-web-how-to-create-an-app-service-environment.md).
+5. Ensuite, entrez le nom, sélectionnez l’abonnement que vous souhaitez utiliser, sélectionnez ou créez un groupe de ressources et sélectionnez un réseau virtuel. **Veuillez noter** qu’après avoir choisi un réseau virtuel, vous ne pourrez pas le modifier : ![][6] Pour savoir comment les réseaux virtuels fonctionnent avec un App Service Environment, consultez [Comment créer un environnement App Service](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Sélectionnez **Ajouter** pour terminer la création de l’App Service Environment.
 
@@ -159,7 +159,7 @@ Pour obtenir l’accès à l’App Service Environment, créer des API, des conn
 
 1. Sélectionnez l’App Service Environment que vous venez de créer.
 2. Dans Essentials, sélectionnez la propriété **Groupe de ressources**. Cette action ouvre le groupe de ressources qui contient l’App Service Environment : ![][7]
-3. Sélectionnez l’icône RBAC pour gérer les autorisations : ![][8] L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
+3. Sélectionnez l’icône RBAC pour gérer les autorisations : ![][8] L’ajout d’utilisateurs et l’attribution de rôles reviennent à utiliser le [contrôle d’accès en fonction du rôle](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dans Azure.
 
 > [AZURE.NOTE] Actuellement, vous ne pouvez pas accorder des autorisations RBAC à l’App Service Environment. Vous pouvez accorder des autorisations RBAC au niveau du groupe de ressources parent.
 
@@ -181,4 +181,4 @@ Votre société est désormais inscrite à PowerApps et possède un App Service 
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

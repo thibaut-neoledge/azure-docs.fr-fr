@@ -20,7 +20,7 @@
 
 ## Introduction
 
-Le [contrôle d’accès basé sur un rôle](../role-based-access-control-configure.md) est une fonctionnalité puissante qui vous permet de déléguer l’accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu’elle a besoin de faire, sans plus. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
+Le [contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) est une fonctionnalité puissante qui vous permet de déléguer l’accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu’elle a besoin de faire, sans plus. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
 
 Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vous utilisez les rôles sur le portail Azure. Trois rôles courants sont inclus, qui couvrent tous les types de ressources :
 
@@ -28,7 +28,7 @@ Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vou
 - Collaborateur  
 - Lecteur  
 
-Les propriétaires et collaborateurs disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. Consultez l’[article Prise en main du contrôle d’accès en fonction du rôle](../role-based-access-control-configure.md) pour plus d’informations sur la façon d’octroyer l’accès.
+Les propriétaires et collaborateurs disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. Consultez l’[article Prise en main du contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) pour plus d’informations sur la façon d’octroyer l’accès.
 
 ## Charges de travail App Service
 
@@ -92,4 +92,4 @@ Les ressources suivantes sont associées aux machines virtuelles :
 
 Si vous n'accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l'accès Collaborateur au groupe de ressources.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

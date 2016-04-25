@@ -32,9 +32,6 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 
 Vous devez utiliser Azure PowerShell 1.0 ou une version supérieure. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-
-
-
 ## Créer une base de données élastique dans un pool
 
 Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) et définissez le paramètre **ElasticPoolName**.
@@ -132,6 +129,12 @@ Exportez vers un fichier CSV :
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## Latence des opérations du pool élastique
+
+- En général, le processus de modification du nombre d’eDTU garanti à chaque base de données (paramètre databaseDtuMin) ou du nombre maximal d’eDTU pour chaque base de données (paramètre databaseDtuMax) prend 5 minutes au maximum.
+- Le processus de modification du nombre d’eDTU/de la limite de stockage (paramètre DTU) du pool dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification de la limite de stockage/eDTU du pool prend 3 heures au maximum.
+
+
 ## Exemple PowerShell de surveillance et de gestion d’un pool
 
 
@@ -173,9 +176,4 @@ Exportez vers un fichier CSV :
 
 - [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 
-
-## Référence des bases de données élastiques
-
-Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

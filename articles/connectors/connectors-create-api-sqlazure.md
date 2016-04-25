@@ -21,18 +21,18 @@
 # Prise en main de l'API SQL Azure
 Connectez-vous à SQL Azure pour gérer vos tables et vos lignes, par exemple pour insérer des lignes, obtenir des tables, et bien plus encore.
 
-L’API SQL Azure peut être utilisée à partir de :
+L’API SQL Azure peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SQL](../app-service-logic/app-service-logic-connector-sql.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec SQL Azure, vous pouvez :
+Avec SQL Azure, vous pouvez :
 
 - Créer votre flux d'activité en fonction des données que vous obtenez de SQL Azure. 
 - Utiliser des actions pour obtenir une ligne, insérer une ligne, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, vous pouvez obtenir une ligne de données à partir de SQL Azure, puis ajouter ces données à Excel. 
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Déclencheurs et actions
@@ -45,7 +45,7 @@ Aucun | <ul><li>Obtenir une ligne</li><li>Obtenir des lignes</li><li>Insérer un
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer la connexion à SQL
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -56,7 +56,7 @@ Après avoir créé la connexion, vous entrez vos propriétés SQL, telles que l
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Obtenir une ligne 
 Récupère une seule ligne d’une table SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
@@ -79,8 +79,8 @@ Extrait des lignes d’une table SQL. ```GET: /datasets/default/tables/{table}/i
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Nom de la table SQL|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -225,6 +225,6 @@ Met à jour une ligne existante dans une table SQL. ```PATCH: /datasets/default/
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

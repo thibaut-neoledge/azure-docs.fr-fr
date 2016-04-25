@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="04/06/2016"
 	ms.author="robinsh"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer
@@ -34,7 +34,9 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 - **Azure Storage Analytics**. [Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) fournit des métriques et une journalisation pour Azure Storage.
 	- **Storage Metrics** assure le suivi des métriques de transaction et des métriques de capacité pour votre compte de stockage. Les métriques vous permettent de déterminer comment votre application s'exécute en fonction de plusieurs mesures différentes. Pour plus d'informations sur les types de métrique suivis par Storage Analytics, consultez la page [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
-	- **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d'informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, consultez la page [Format de journal de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx).
+	- **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx).
+
+> [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
 
 - **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
 
@@ -339,18 +341,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
 | HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| Messages HTTP 403 (interdit) |  HTTP.Response.StatusCode == 403 | Réseau |
-| Messages HTTP 404 (introuvable) | HTTP.Response.StatusCode == 404  | Réseau |
-| 404 (tous)  | *StatusCode == 404 | Tous |
-| Problème d'autorisation de la signature d'accès partagé (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Réseau |
-| Messages HTTP 409 (conflit) | HTTP.Response.StatusCode == 409 | Réseau |
-| 409 (tous) | *StatusCode == 409 | Tous |
-| Valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors  | AzureStorageLog.RequestStatus == "ClientOtherError" | Serveur |
-| Avertissement de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Serveur |
-| Plage horaire dans les journaux serveur et réseau | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Serveur, Réseau |
-| Plage horaire dans les journaux serveur | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Serveur |
+| Augmentation de la valeur PercentTimeoutError (tous) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes
@@ -363,4 +354,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

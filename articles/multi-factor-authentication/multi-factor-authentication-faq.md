@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Forum Aux Questions d’Azure Multi-Factor Authentication
@@ -161,6 +161,11 @@ La façon dont le serveur Azure MFA était raccordé au package de sécurité LS
 
 Toutefois, si vous utilisez Windows Server 2012 R2, alors vous devrez utiliser une passerelle RD.
 
+**Q : Pourquoi reçois-je un appel MFA d'un appelant anonyme après avoir configuré l'ID de l'appelant ?**
+
+Parfois, lorsque des appels MFA sont transmis sur le réseau téléphonique public, ces appels sont acheminés via un opérateur qui ne prend pas en charge les ID d'appelant. Par conséquent, l'ID de l'appelant n'est pas garanti, même si le système MFA l'envoie toujours.
+
+
 ## Erreurs
 
 **Q : Que faire lorsqu'une erreur « La demande d'authentification ne concerne pas un compte activé » s'affiche lorsque je m'authentifie à l'aide des notifications de l'application mobile ?**
@@ -180,4 +185,4 @@ Actuellement, une vérification de sécurité supplémentaire est utilisable uni
 
 La solution consiste à disposer d'un compte d'utilisateur distinct pour les opérations liées aux administrateurs et les autres. Vous pouvez ultérieurement lier les boîtes de réception de votre compte d'administrateur et d’un compte non administrateur pour vous connecter à Outlook à l'aide de votre compte non administrateur. Pour plus d'informations, consultez [Permettre à un administrateur d'ouvrir et d'afficher le contenu de la boîte aux lettres d'un utilisateur] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

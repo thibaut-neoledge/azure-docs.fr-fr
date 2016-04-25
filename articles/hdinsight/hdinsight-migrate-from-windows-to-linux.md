@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
@@ -21,6 +21,8 @@ ms.author="larryfr"/>
 Même si HDInsight Windows représente un moyen facile d’utiliser Hadoop dans le cloud, vous découvrirez peut-être que vous avez besoin d’un cluster Linux pour tirer parti des outils et technologies nécessaires pour votre solution. De nombreux éléments de l’écosystème Hadoop sont développés sur des systèmes Linux et certains peuvent ne pas être utilisables avec HDInsight Windows. En outre, un grand nombre de livres, de vidéos et d’autres documents de formation supposent que vous employez un système Linux quand vous utilisez Hadoop.
 
 Ce document fournit des détails sur les différences entre HDInsight sur Windows et Linux ainsi que des conseils sur la migration de charges de travail existantes vers un cluster Linux.
+
+> [AZURE.NOTE] Ubuntu 12.04.05 LTS est la distribution Linux utilisée pour les clusters HDInsight sous Linux.
 
 ## Tâches de migration
 
@@ -30,7 +32,7 @@ Le workflow général pour la migration se présente comme suit.
 
 1.  Lisez chaque section de ce document pour comprendre les modifications qui peuvent être nécessaires lors de la migration du workflow existant, des tâches, etc., vers un cluster Linux.
 
-2.  Créez un cluster Linux comme environnement de test ou d’assurance qualité. Pour plus d’informations sur la création d’un cluster Linux, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+2.  Créez un cluster Linux comme environnement de test ou d’assurance qualité. Pour plus d’informations sur la création d’un cluster Linux, consultez [Création de clusters Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3.  Copiez les tâches, sources de données et récepteurs existants dans le nouvel environnement. Pour plus d’informations, consultez la section Copier des données dans l’environnement de test.
 
@@ -67,7 +69,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
 3. Dans le panneau Configuration facultative, sélectionnez **Comptes de stockage liés**.
 
-4. Sélectionnez **Ajouter une clé de stockage** puis sélectionnez le compte de stockage retourné par le script PowerShell à l’étape 1, quand vous y êtes invité. Cliquez sur **Sélectionner** dans chaque panneau pour les fermer. Enfin, créez le cluster.
+4. Sélectionnez **Ajouter une clé de stockage** puis sélectionnez le compte de stockage renvoyé par le script PowerShell à l’étape 1, quand vous y êtes invité. Cliquez sur **Sélectionner** dans chaque panneau pour les fermer. Enfin, créez le cluster.
 
 5. Une fois le cluster créé, connectez-vous à celui-ci à l’aide de **SSH**. Si l’utilisation de SSH avec HDInsight ne vous est pas familière, consultez l’un des articles suivants.
 
@@ -75,7 +77,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
     * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-6. Dans la session SSH, utilisez la commande suivante pour copier les fichiers à partir du compte de stockage lié vers le nouveau compte de stockage par défaut. Remplacez CONTAINER et ACCOUNT par les informations sur le conteneur et le compte retournées par le script PowerShell à l’étape 1. Remplacez le chemin d’accès aux données par le chemin d’accès à un fichier de données.
+6. Dans la session SSH, utilisez la commande suivante pour copier les fichiers à partir du compte de stockage lié vers le nouveau compte de stockage par défaut. Remplacez CONTAINER et ACCOUNT par les informations sur le conteneur et le compte retournées par le script PowerShell à l’étape 1. Remplacez le chemin d’accès aux données par le chemin d’accès à un fichier de données.
 
         hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
@@ -87,7 +89,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
 #### Copie directe entre les objets blob Azure Storage
 
-Vous pouvez également utiliser l’applet de commande `Start-AzureStorageBlobCopy` Azure PowerShell pour copier des objets blob entre des comptes de stockage externes à HDInsight. Pour plus d’informations, consultez la section Gestion des objets blob Azure dans Utilisation d’Azure PowerShell avec Azure Storage.
+Vous pouvez également utiliser l’applet de commande `Start-AzureStorageBlobCopy` Azure PowerShell pour copier des blobs entre des comptes de stockage externes à HDInsight. Pour plus d’informations, consultez la section Gestion des objets blob Azure dans Utilisation d’Azure PowerShell avec Azure Storage.
 
 ##Technologies côté client
 
@@ -100,7 +102,7 @@ Le tableau suivant fournit des conseils sur la migration des composants côté s
 | Si vous utilisez cette technologie... | Procédez comme suit... |
 | ----- | ----- |
 | **PowerShell** (scripts côté serveur, notamment les actions de script utilisées lors de la création du cluster) | Réécrivez-les en tant que scripts Bash. En ce qui concerne les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) et [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Interface de ligne de commande Azure** (scripts côté serveur) | Même si l’interface de ligne de commande Azure est disponible sous Linux, elle n’est pas préinstallée sur les nœuds principaux du cluster HDInsight. Si vous en avez besoin pour les scripts côté serveur, consultez [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md) pour plus d’informations sur l’installation sur les plateformes Linux. |
+| **Interface de ligne de commande Azure** (scripts côté serveur) | Même si l’interface de ligne de commande Azure est disponible sous Linux, elle n’est pas préinstallée sur les nœuds principaux du cluster HDInsight. Si vous en avez besoin pour les scripts côté serveur, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour plus d’informations sur l’installation sur les plateformes Linux. |
 | **Composants .NET** | .NET n’est actuellement pas pris en charge sur les clusters HDInsight Linux, mais sera ajouté dans une prochaine mise à jour. Si vous devez effectuer la migration maintenant, vous devez réécrire vos composants en Java ou Python. |
 | **Composants Win32 ou autre technologie propre à Windows** | Les conseils varient selon le composant ou la technologie ; vous pouvez trouver une version compatible avec Linux ou être amené à trouver une autre solution ou réécrire ce composant. |
 
@@ -138,7 +140,7 @@ Pour plus d’informations sur la configuration requise pour utiliser des résea
 
 ##Gestion et surveillance
 
-La plupart des interfaces utilisateur web que vous avez peut-être utilisées avec HDInsight Windows, telles que l’historique de la tâche ou l’interface utilisateur Yarn, sont disponibles via Ambari. En outre, l’affichage Ambari Hive fournit un moyen d’exécuter des requêtes Hive à l’aide de votre navigateur web. L’interface utilisateur web Ambari est disponible sur les clusters Linux sur https://CLUSTERNAME.azurehdinsight.net.
+La plupart des interfaces utilisateur web que vous avez peut-être utilisées avec HDInsight Windows, telles que l’historique de la tâche ou l’interface utilisateur Yarn, sont disponibles via Ambari. En outre, l’affichage Ambari Hive fournit un moyen d’exécuter des requêtes Hive à l’aide de votre navigateur web. L’interface utilisateur Ambari Web est disponible sur les clusters Linux à l’adresse https://CLUSTERNAME.azurehdinsight.net.
 
 Pour plus d’informations sur l’utilisation d’Ambari, consultez les documents suivants :
 
@@ -196,8 +198,8 @@ Le tableau suivant fournit des conseils sur la migration de vos charges de trava
 
 | Sur Windows, j’utilise... | Sur Linux, j’utilise... |
 | ----- | ----- |
-| Tableau de bord Storm | Le tableau de bord Storm n’est pas disponible. Pour connaître des façons de soumettre des topologies, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md) |
-| Interface utilisateur de Storm | L’interface utilisateur Storm est disponible sur https://CLUSTERNAME.azurehdinsight.net/stormui |
+| Tableau de bord Storm | Le tableau de bord Storm n’est pas disponible. Pour connaître des façons de soumettre des topologies, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md). |
+| Interface utilisateur de Storm | L’interface utilisateur Storm est disponible à l’adresse https://CLUSTERNAME.azurehdinsight.net/stormui. |
 | Visual Studio pour créer, déployer et gérer des topologies C# ou hybrides | Les clusters Linux ne prennent actuellement pas en charge les topologies .NET, mais cette prise en charge sera ajoutée dans une prochaine mise à jour. Si vous devez effectuer la migration avant cela, vous devez réimplémenter vos topologies en Java. Pour plus d’informations sur la création de topologies Java, consultez [Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight](hdinsight-storm-develop-java-topology.md). |
 
 ##HBase
@@ -216,7 +218,7 @@ Les clusters Spark étaient disponibles sur les clusters Windows en version pré
 
 Les activités .NET personnalisées Azure Data Factory ne sont actuellement pas prises en charge sur les clusters HDInsight Linux. Au lieu de cela, vous devez utiliser l’une des méthodes suivantes pour implémenter les activités personnalisées dans le cadre de votre pipeline ADF.
 
--   Exécutez les activités .NET sur le pool Azure Batch. Consultez la section Utilisation du service lié Azure Batch dans [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](../data-factory/data-factory-use-custom-activities.md/#AzureBatch)
+-   Exécutez les activités .NET sur le pool Azure Batch. Consultez la section Utilisation du service lié Azure Batch dans [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](../data-factory/data-factory-use-custom-activities.md/#AzureBatch).
 
 -   Implémentez l’activité comme une activité MapReduce. Pour plus d’informations, consultez [Appeler des programmes MapReduce à partir de Data Factory](../data-factory/data-factory-map-reduce.md).
 
@@ -230,7 +232,7 @@ Si vous avez des scripts qui seront exécutés directement sur les nœuds de clu
 
 Si vous savez que les scripts ne contiennent pas de chaînes avec des caractères CR incorporés, vous pouvez modifier en bloc les fins de ligne à l’aide de l’une des méthodes suivantes :
 
--   **Si vous avez des scripts que vous prévoyez de charger sur le cluster**, utilisez les instructions PowerShell suivantes pour remplacer les fins de ligne CRLF par LF avant de charger le script sur le cluster.
+-   **Si vous avez des scripts que vous prévoyez de télécharger sur le cluster**, utilisez les instructions PowerShell suivantes pour remplacer les fins de ligne CRLF par LF avant de charger le script sur le cluster.
 
         $original_file ='c:\path\to\script.py'
         $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
@@ -252,4 +254,4 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 -   [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

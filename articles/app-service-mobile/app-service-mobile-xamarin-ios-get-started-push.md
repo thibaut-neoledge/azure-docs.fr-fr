@@ -24,20 +24,11 @@
 
 Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), que vous devez effectuer en premier. Vous ajoutez des notifications Push au projet Démarrage rapide Xamarin.iOS afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##Composants requis
-
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
-
-* Un compte Azure actif. Si vous n’avez pas encore de compte, inscrivez-vous pour obtenir une version d’essai Azure et jusqu’à 10 backends d’application mobile gratuits. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* Un Mac sur lequel sont installés [Xamarin Studio] et [Xcode] v4.4 ou version ultérieure. Vous pouvez exécuter l'application Xamarin.Forms à l'aide de Visual Studio sur un ordinateur Windows si vous le souhaitez. Mais c'est une opération peu plus compliqué, car vous devez vous connecter à un Mac en réseau exécutant l'hôte de build Xamarin.iOS. Si vous souhaitez effectuer cette opération, consultez la rubrique [Installation de Xamarin.iOS sur Windows].
-
-* Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
-
-* Pour vous inscrire au Apple Push Notification Service (APNS), vous devez faire partie du [programme de développement Apple](https://developer.apple.com/programs/ios/).
+##Configuration requise
 
 * Terminez le [didacticiel de démarrage rapide Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
+* Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
 
 ##Inscrire l'application pour les notifications push dans le portail de développeurs d'Apple
 
@@ -164,9 +155,5 @@ Vous avez terminé ce didacticiel.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

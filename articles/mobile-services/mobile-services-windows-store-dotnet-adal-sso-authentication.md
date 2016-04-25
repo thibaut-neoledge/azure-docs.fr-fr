@@ -27,7 +27,7 @@
 
 ##Vue d'ensemble
 
-Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory afin de prendre en charge les [opérations de connexion dirigées vers le client](http://msdn.microsoft.com/library/azure/jj710106.aspx) avec Azure Active Directory. Pour la prise en charge des [opérations de connexion dirigées vers le service](http://msdn.microsoft.com/library/azure/dn283952.aspx) avec Azure Active Directory, commencez par le didacticiel [Ajouter l'authentification à votre application Mobile Services](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
+Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory afin de prendre en charge les [opérations de connexion dirigées vers le client](http://msdn.microsoft.com/library/azure/jj710106.aspx) avec Azure Active Directory. Pour la prise en charge des [opérations de connexion dirigées vers le service](http://msdn.microsoft.com/library/azure/dn283952.aspx) avec Azure Active Directory, commencez par le didacticiel [Ajouter l'authentification à votre application Mobile Services](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire votre application auprès d'Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service mobile et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application Windows Store et lui accorder l'accès à ces autorisations.
 
@@ -215,4 +215,4 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

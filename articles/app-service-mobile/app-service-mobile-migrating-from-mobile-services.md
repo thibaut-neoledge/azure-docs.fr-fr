@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -285,7 +285,7 @@ Pour plus d’informations, voir la documentation de [Notification Hubs].
 
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -344,6 +344,14 @@ Comment afficher les journaux :
 
 Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont générés. Vous pouvez également télécharger les journaux pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Journalisation].
 
+## <a name="known-issues"></a>Problèmes connus
+
+### La suppression d’un clone d’application mobile migré entraîne un arrêt du site
+
+Si vous clonez votre service mobile migré à l’aide d’Azure PowerShell, puis que vous supprimez le clone, l’entrée DNS du service de production est supprimée. Par conséquent, votre site n’est plus accessible sur Internet.
+
+Résolution : Nous travaillons actuellement à la correction de ce problème. Si vous souhaitez cloner votre site, utilisez le portail.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 À présent que votre application a été migrée vers App Service, vous pouvez tirer parti de davantage de fonctionnalités :
@@ -394,4 +402,4 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Didacticiel : Intégration de Secure Deliver à Azure Active Directory | Microsoft Azure"
-	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Secure Deliver."
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Azure"
+	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et SECURE DELIVER."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
@@ -13,48 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
-# Didacticiel : Intégration de Secure Deliver à Azure Active Directory
+# Didacticiel : Intégration de SECURE DELIVER à Azure Active Directory
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer Secure Deliver à Azure Active Directory (Azure AD).<br>L’intégration de Secure Deliver à Azure AD vous offre les avantages suivants :
+L’objectif de ce didacticiel est de vous montrer comment intégrer SECURE DELIVER à Azure Active Directory (Azure AD).<br> L’intégration de SECURE DELIVER à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Secure Deliver.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Secure Deliver (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
+- Dans Azure AD, vous pouvez contrôler qui a accès à SECURE DELIVER.
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SECURE DELIVER (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise
+## Composants requis
 
-Pour configurer l’intégration de Secure Deliver à Azure AD, vous avez besoin des éléments suivants :
+Pour configurer l’intégration de SECURE DELIVER à Azure AD, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement avec authentification unique Secure Deliver
+- Un abonnement Azure
+- Un abonnement avec authentification unique SECURE DELIVER
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Secure Deliver à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
 ## Ajout de Secure Deliver à partir de la galerie
-Pour configurer l’intégration de Secure Deliver à Azure AD, vous devez ajouter Secure Deliver depuis la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de SECURE DELIVER à Azure AD, vous devez ajouter SECURE DELIVER depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Secure Deliver à partir de la galerie, procédez comme suit :**
+**Pour ajouter SECURE DELIVER à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **Portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
@@ -62,58 +62,67 @@ Pour configurer l’intégration de Secure Deliver à Azure AD, vous devez ajout
 
 3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
-6. Dans la zone de recherche, entrez **Secure Deliver**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. Dans le volet des résultats, sélectionnez **Secure Deliver**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
+6. Dans la zone de recherche, entrez **SECURE DELIVER**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
+7. Dans le volet des résultats, sélectionnez **SECURE DELIVER**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Logo et nom de l’application dans la galerie](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_06.png)<br>
+
 ##  Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Secure Deliver au moyen d’un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec SECURE DELIVER au moyen d’un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Secure Deliver équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Secure Deliver associé.<br>
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SECURE DELIVER équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur SECURE DELIVER associé.<br> Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans SECURE DELIVER.
 
-
-Pour configurer et tester l’authentification unique Azure AD avec Secure Deliver, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec SECURE DELIVER, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Secure Deliver](#creating-a-secure-deliver-test-user)** pour avoir un équivalent de Britta Simon dans Secure Deliver lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test SECURE DELIVER](#creating-a-secure-deliver-test-user)** pour avoir un équivalent de Britta Simon dans SECURE DELIVER lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application Secure Deliver.
-
-
-
-**Pour configurer l’authentification unique Azure AD avec Secure Deliver, procédez comme suit :**
-
-1. Dans le portail Azure AD, puis dans la page d’intégration d’application **Secure Deliver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
-
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Secure Deliver**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
-
-3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application SECURE DELIVER.
 
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Secure Deliver, au format suivant : **https://<nom\_entreprise>.i-securedeliver.jp/sd/<nom\_entreprise>**.
 
-    b. Cliquez sur **Next**.
+**Pour configurer l’authentification unique Azure AD avec SECURE DELIVER, procédez comme suit :**
+
+1. Dans le portail Azure AD, puis dans la page d’intégration d’application **SECURE DELIVER**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à SECURE DELIVER**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
+
+3. Dans la boîte de dialogue **Configurer les paramètres de l’application**, procédez comme suit, puis cliquez sur **Suivant** : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
 
-4. Sur la page **Configurer l’authentification unique sur Secure Deliver**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SECURE DELIVER, au format suivant : **https://i-securedeliver.jp/sd/<nom de l’entreprise>/jsf/login/sso**.
+
+    b. Contactez l’équipe de support SECURE DELIVER via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) pour obtenir l’URL du locataire si vous ne la connaissez pas.
+
+	c. Dans la zone de texte **Identificateur**, tapez l’URL du locataire.
+
+	d. Cliquez sur **Suivant**
+
+
+4. Dans la boîte de dialogue **Configurer l'authentification unique sur SECURE DELIVER**, procédez comme suit, puis cliquez sur **Suivant**: <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
     b. Cliquez sur **Next**.
 
 
-5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Secure Deliver à l’adresse [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com), en lui fournissant les éléments suivants :
-   
-    - Le fichier de certificat téléchargé
-    - L’**ID d’entité**
-    - L’**URL du service d’authentification unique**
-    - L’**URL du service de déconnexion unique**
+5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support SECURE DELIVER à l’adresse [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com), en lui fournissant les éléments suivants : <br>
+	
+	• Le fichier de certificat téléchargé
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
+	• L’**ID d’entité**
+
+	• L’**URL du service d’authentification unique**
+
+	• L’**URL du service de déconnexion unique**
+
+
+
+6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
 7. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
@@ -123,7 +132,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 ### Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test SECURE DELIVER dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation de gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_09.png) <br>
 
@@ -133,7 +142,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_04.png) <br>
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_05.png) <br>
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -141,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) <br>
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) <br>
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -155,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_07.png) <br>
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_08.png) <br>
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_08.png) <br>
 
     a. Notez la valeur du **Nouveau mot de passe**.
 
@@ -163,24 +172,22 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 
 
-### Création d’un utilisateur de test Secure Deliver
+### Création d’un utilisateur de test SECURE DELIVER
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Secure Deliver. Secure Deliver prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans SECURE DELIVER. Collaborez avec l’équipe du support technique SECURE DELIVER pour ajouter des utilisateurs dans le compte SECURE DELIVER.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Secure Deliver s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe de support Secure Deliver.
+> [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe de support SECURE DELIVER.
 
 
 ### Affectation de l’utilisateur de test Azure AD
 
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Secure Deliver. <br><br>![Affecter des utilisateurs][200] <br>
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à SECURE DELIVER. <br><br>![Affecter des utilisateurs][200] <br>
 
-**Pour affecter Britta Simon à Secure Deliver, procédez comme suit :**
+**Pour affecter Britta Simon à SECURE DELIVER, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
-2. Dans la liste des applications, sélectionnez **Secure Deliver**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) <br>
+2. Dans la liste des applications, sélectionnez **SECURE DELIVER**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) <br>
 
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
 
@@ -192,13 +199,13 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Quand vous cliquez sur la vignette Secure Deliver dans le volet d’accès, vous êtes connecté automatiquement à votre application Secure Deliver.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Quand vous cliquez sur la mosaïque SECURE DELIVER dans le volet d’accès, vous êtes connecté automatiquement à votre application SECURE DELIVER.
 
 
 ## Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -219,4 +226,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,9 +3,9 @@
 	description="Compare les outils et les options de gestion de bases de données SQL Microsoft Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # Vue d’ensemble des outils de gestion de la base de données SQL
 
@@ -36,4 +36,12 @@ Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour g�
 
 Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, consultez [Gestion d'une base de données SQL avec PowerShell](sql-database-command-line-tools.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+## Outils de base de données élastique
+Utilisez les outils de base de données élastique pour effectuer les actions suivantes :
+
+* Exécution d’un script T-SQL sur un ensemble de bases de données en utilisant une [tâche élastique](sql-database-elastic-jobs-overview.md)
+* Déplacement des bases de données d’un modèle multi-locataire dans un modèle à un seul locataire avec [l’outil de fractionnement et de fusion](sql-database-elastic-scale-overview-split-and-merge.md)
+* Gestion des bases de données dans un modèle avec un seul locataire ou un modèle multi-locataire avec la [bibliothèque cliente de mise à l’échelle élastique](sql-database-elastic-database-client-library.md).
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

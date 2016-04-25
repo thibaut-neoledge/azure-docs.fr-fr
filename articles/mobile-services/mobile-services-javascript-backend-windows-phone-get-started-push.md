@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Ajouter des notifications Push à votre application Mobile Services (Windows Phone) | Microsoft Azure" 
-	description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application Windows Phone." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Ajouter des notifications Push à votre application Mobile Services (Windows Phone) | Microsoft Azure"
+	description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application Windows Phone."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 
@@ -27,7 +27,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 
 Ce didacticiel est basé sur l'exemple d'application TodoList. Avant de commencer ce didacticiel, vous devez suivre la rubrique [Ajout de Mobile Services à une application existante] pour connecter votre projet au service mobile. Quand un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push peut créer cette connexion pour vous.
 
->[AZURE.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, suivez la version [application Windows Store](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) de ce didacticiel.
+>[AZURE.NOTE] Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, suivez la version [application Windows Store](mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md) de ce didacticiel.
 
 ##<a id="update-app"></a> Mise à jour de l'application pour l'inscription aux notifications
 
@@ -38,7 +38,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
         using Microsoft.Phone.Notification;
 
 3. Ajoutez le code suivant à App.xaml.cs :
-	
+
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
         private void AcquirePushChannel()
@@ -73,7 +73,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 	Cela permet de s’assurer que l’inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
 
 5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s’affiche avec la clé d’inscription.
-  
+
 6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** soit activée.
 
    	![Activer les notifications dans VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
@@ -84,7 +84,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion sur la table TodoItem pour envoyer les notifications.
 
-1. Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**. 
+1. Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**.
 
 2. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
@@ -92,9 +92,9 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 		// Define a payload for the Windows Phone toast notification.
 		var payload = '<?xml version="1.0" encoding="utf-8"?>' +
 		    '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
 		    '</wp:Text2></wp:Toast></wp:Notification>';
-		
+
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.
@@ -124,7 +124,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l’application.
 
-    >[AZURE.NOTE]Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l’émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l'horloge dans l'émulateur avant les tests.
+    >[AZURE.NOTE] Vous pouvez rencontrer une exception « 401 Unauthorized RegistrationAuthorizationException » lors de tests sur l’émulateur Windows Phone. Cela peut se produire pendant l'appel de `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Un jeton de sécurité pourrait être rejeté. Pour résoudre ce problème, il vous suffit de paramétrer manuellement l'horloge dans l'émulateur avant les tests.
 
 5. Dans l'application, entrez le texte « hello push » dans la zone de texte, cliquez sur **Enregistrer**, puis cliquez immédiatement sur le bouton Démarrer ou sur le bouton Précédent pour quitter l'application.
 
@@ -140,14 +140,14 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
 
-+ [Envoi de notifications diffusées aux abonnés](../notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
++ [Envoi de notifications diffusées aux abonnés](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-+ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
++ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
+* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs/notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
@@ -174,8 +174,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[Présentation de Notification Hubs]: ../notification-hubs-overview.md
+[Présentation de Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 
- 
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

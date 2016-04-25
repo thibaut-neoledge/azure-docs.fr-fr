@@ -22,7 +22,7 @@ La fonctionnalité packages d’applications d’Azure Batch offre une gestion f
 
 Dans cet article, vous allez apprendre à télécharger et à gérer des packages d’applications à l’aide du portail Azure, puis à les installer sur les nœuds de calcul d’un pool à l’aide de la bibliothèque [Batch .NET][api_net].
 
-> [AZURE.NOTE] La fonctionnalité de packages d’applications décrite ici remplace la fonctionnalité « Batch Apps » disponible dans les versions précédentes du service.
+> [AZURE.NOTE] La fonctionnalité de packages d’applications décrite ici remplace la fonctionnalité « Batch Apps » disponible dans les versions précédentes du service.
 
 ## Configuration requise des packages d’applications
 
@@ -198,10 +198,11 @@ La classe [ApplicationPackageReference][net_pkgref] spécifie un ID et la versio
 ```csharp
 // Create the unbound CloudPool
 CloudPool myCloudPool =
-    batchClient.PoolOperations.CreatePool(poolId: "myPool",
-                                          osFamily: "4",
-                                          virtualMachineSize: "small",
-                                          targetDedicated: "1");
+    batchClient.PoolOperations.CreatePool(
+        poolId: "myPool",
+        targetDedicated: "1",
+        virtualMachineSize: "small",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -218,7 +219,7 @@ await myCloudPool.CommitAsync();
 
 ## Exécution des applications installées
 
-Lorsque chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
+Lorsque chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
 
 `AZ_BATCH_APP_PACKAGE_appid#version`
 
@@ -303,7 +304,7 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagramme détaillée des packages d’applications"
-[2]: ./media/batch-application-packages/app_pkg_02.png "Mosaïque Applications dans le portail Azure"
+[2]: ./media/batch-application-packages/app_pkg_02.png "Mosaïque Applications dans le portail Azure"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Panneau Application dans le portail Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Panneau Détails de l’application dans le portail Azure"
 [5]: ./media/batch-application-packages/app_pkg_05.png "Panneau Nouvelle application dans le portail Azure"
@@ -316,4 +317,4 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le portail Azure"
 [13]: ./media/batch-application-packages/app_pkg_13.png "Détail de la sélection d’un fichier de métadonnées"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

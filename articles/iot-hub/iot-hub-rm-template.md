@@ -24,9 +24,9 @@
 
 Vous pouvez utiliser Azure Resource Manager (ARM) pour créer et gérer des Azure IoT Hubs de façon programmée. Ce didacticiel vous montre comment utiliser un modèle de gestionnaire de ressources pour créer un hub IoT à partir d'un programme C#.
 
-> [AZURE.NOTE] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+> [AZURE.NOTE] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Microsoft Visual Studio 2015.
 - Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
@@ -47,7 +47,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 5. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.Azure.Common**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
-6. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
+6. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
 
     ```
     using System;
@@ -115,7 +115,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Ajoutez un nouveau fichier JSON appelé **parameters.json** à votre projet.
 
-4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub sur **mynewiothub** :
+4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub sur **mynewiothub** (notez que ce nom doit être globalement unique) :
 
     ```
     {
@@ -129,14 +129,14 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 5. Dans l’**Explorateur de serveurs**, connectez-vous à votre abonnement Azure et, dans votre compte de stockage, créez un conteneur appelé **modèles**. Dans le panneau **Propriétés**, définissez les autorisations **Accès public en lecture** pour le conteneur **modèles** sur **Blob**.
 
-6. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur le conteneur **modèles**, puis cliquez sur Afficher le conteneur d'objets blob. Cliquez sur le bouton Télécharger l’objet Blob, sélectionnez les deux fichiers, **parameters.json** et **templates.json**, puis cliquez sur Ouvrir pour télécharger les fichiers JSON dans le conteneur **modèles**. Les URL des objets blob contenant les données JSON sont :
+6. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur le conteneur **modèles**, puis cliquez sur Afficher le conteneur d'objets blob. Cliquez sur le bouton Télécharger l’objet Blob, sélectionnez les deux fichiers, **parameters.json** et **templates.json**, puis cliquez sur Ouvrir pour télécharger les fichiers JSON dans le conteneur **modèles**. Les URL des objets blob contenant les données JSON sont :
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.windows.net/templates/template.json
     ```
 
-7. Ajoutez la méthode suivante au fichier Program.cs :
+7. Ajoutez la méthode suivante au fichier Program.cs :
     
     ```
     static void CreateIoTHub(ResourceManagementClient client)
@@ -145,7 +145,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
     }
     ```
 
-5. Ajoutez le code suivant à la méthode **CreateIoTHub** pour envoyer le fichier de modèle et le fichier de paramètres à Azure Resource Manager :
+5. Ajoutez le code suivant à la méthode **CreateIoTHub** pour envoyer le fichier de modèle et le fichier de paramètres à Azure Resource Manager :
 
     ```
     var createResponse = client.Deployments.CreateOrUpdate(
@@ -168,7 +168,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
         });
     ```
 
-6. Ajoutez le code suivant à la méthode **CreateIoTHub** qui affiche l’état et les clés du nouvel IoT Hub :
+6. Ajoutez le code suivant à la méthode **CreateIoTHub** qui affiche l’état et les clés du nouvel IoT Hub :
 
     ```
     string state = createResponse.Properties.ProvisioningState;
@@ -185,7 +185,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(client);
@@ -202,7 +202,7 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 
 ## Étapes suivantes
 
-Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec un programme C#, vous pouvez aller encore plus loin :
+Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec un programme C#, vous pouvez aller encore plus loin :
 
 - Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 - Pour plus d’informations sur les capacités d’Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager][lnk-azure-rm-overview].
@@ -215,4 +215,4 @@ Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

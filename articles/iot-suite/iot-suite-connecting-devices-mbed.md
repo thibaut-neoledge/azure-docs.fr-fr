@@ -48,7 +48,7 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 
     ![][7]
 
-5. Vous pouvez voir dans la fenêtre du compilateur mbed que l’importation de ce projet a entraîné l’importation de différentes bibliothèques. Certaines sont fournies et gérées par l’équipe Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), tandis que d’autres sont des bibliothèques tierces disponibles dans le catalogue de bibliothèques mbed.
+5. Vous pouvez voir dans la fenêtre du compilateur mbed que l’importation de ce projet a entraîné l’importation de différentes bibliothèques. Certaines sont fournies et gérées par l’équipe Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), tandis que d’autres sont des bibliothèques tierces disponibles dans le catalogue de bibliothèques mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Remplacez [Device Id], [Device Key] par les données de votre appareil. Utilisez le nom d’hôte IoT Hub pour remplacer les espaces réservés [Nom IoTHub] et [Suffixe IoTHub, c’est-à-dire azure-devices.net]. Par exemple, si votre nom d’hôte IoT Hub est contoso.azure-devices.net, contoso est le **nom du hub** et tous les éléments suivants constituent le **suffixe du hub** :
+7. Remplacez [Device Id] et [Device Key] par les données de votre appareil pour activer le programme d'exemple afin de vous connecter à votre hub IoT. Utilisez le nom d’hôte IoT Hub pour remplacer les espaces réservés [Nom IoTHub] et [Suffixe IoTHub, c’est-à-dire azure-devices.net]. Par exemple, si votre nom d’hôte IoT Hub est contoso.azure-devices.net, contoso est le **nom du hub** et tous les éléments suivants constituent le **suffixe du hub** :
 
     ```
     static const char* deviceId = "mydevice";
@@ -72,6 +72,123 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 
     ![][9]
 
+### Examinez le code
+
+Si vous êtes intéressé par le fonctionnement du programme, cette section décrit certains éléments clés de l'exemple de code. Si vous souhaitez simplement exécuter le code, passez directement à la rubrique [Générer et exécuter le programme](#buildandrun).
+
+#### Définition du modèle
+
+Cet exemple utilise la bibliothèque du [sérialiseur][lnk-serializer] pour définir un modèle qui spécifie les messages que l'appareil peut envoyer à IoT Hub et recevoir de IoT Hub. Dans cet exemple, l'espace de noms **Contoso** définit un modèle **Thermostat** qui spécifie les données de télémétrie **Temperature**, **ExternalTemperature** et **Humidity** ainsi que des métadonnées telles que l'ID de l'appareil, les propriétés de l'appareil et les commandes auxquelles l'appareil répond :
+
+```
+BEGIN_NAMESPACE(Contoso);
+
+DECLARE_STRUCT(SystemProperties,
+    ascii_char_ptr, DeviceID,
+    _Bool, Enabled
+);
+
+DECLARE_STRUCT(DeviceProperties,
+ascii_char_ptr, DeviceID,
+_Bool, HubEnabledState
+);
+
+DECLARE_MODEL(Thermostat,
+
+    /* Event data (temperature, external temperature and humidity) */
+    WITH_DATA(int, Temperature),
+    WITH_DATA(int, ExternalTemperature),
+    WITH_DATA(int, Humidity),
+    WITH_DATA(ascii_char_ptr, DeviceId),
+
+    /* Device Info - This is command metadata + some extra fields */
+    WITH_DATA(ascii_char_ptr, ObjectType),
+    WITH_DATA(_Bool, IsSimulatedDevice),
+    WITH_DATA(ascii_char_ptr, Version),
+    WITH_DATA(DeviceProperties, DeviceProperties),
+    WITH_DATA(ascii_char_ptr_no_quotes, Commands),
+
+    /* Commands implemented by the device */
+    WITH_ACTION(SetTemperature, int, temperature),
+    WITH_ACTION(SetHumidity, int, humidity)
+);
+
+END_NAMESPACE(Contoso);
+```
+
+Les définitions des commandes **SetTemperature** et **SetHumidity** auxquelles l'appareil répond sont liées à la définition du modèle :
+
+```
+EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
+{
+    (void)printf("Received temperature %d\r\n", temperature);
+    thermostat->Temperature = temperature;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
+{
+    (void)printf("Received humidity %d\r\n", humidity);
+    thermostat->Humidity = humidity;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+```
+
+#### Connexion d'un modèle à la bibliothèque
+
+Les fonctions **sendMessage** et **IoTHubMessage** représentent un code réutilisable pour envoyer la télémétrie à partir de l'appareil et pour connecter des messages de IoT Hub aux gestionnaires de commandes.
+
+#### La fonction remote\_monitoring\_run
+
+La fonction **main** du programme appelle la fonction **remote\_monitoring\_run** lorsque l'application commence à exécuter le comportement de l'appareil comme un client d'appareil IoT Hub. Cette fonction **remote\_monitoring\_run** se compose essentiellement des paires de fonctions imbriquées :
+
+- **platform\_init** et **platform\_deinit** effectuent des opérations d'initialisation et d'arrêt spécifiques à la plateforme.
+- **serializer\_init** et **serializer\_deinit** initialisent et désinitialisent la bibliothèque du sérialiseur.
+- **IoTHubClient\_Create** et **IoTHubClient\_Destroy** créent un handle client, **iotHubClientHandle**, en utilisant les informations d'identification de l'appareil pour se connecter à votre hub IoT.
+
+Dans la section principale de la fonction **remote\_monitoring\_run**, le programme effectue les opérations suivantes à l'aide du handle **iotHubClientHandle** :
+
+- Crée une instance du modèle de thermostat Contoso et définit les rappels de message pour les deux commandes.
+- Envoie des informations sur l'appareil lui-même, y compris les commandes prises en charge, à votre hub IoT à l'aide de la bibliothèque du sérialiseur. Lorsque le concentrateur reçoit ce message, il fait passer l'état de l'appareil dans le tableau de bord de **En attente** à **Exécution**.
+- Démarre une boucle **while** qui envoie chaque seconde les valeurs de température, de température externe et d'humidité à IoT Hub.
+
+Pour référence, voici un exemple de message **DeviceInfo** envoyé à IoT Hub au démarrage :
+
+```
+{
+  "ObjectType":"DeviceInfo",
+  "Version":"1.0",
+  "IsSimulatedDevice":false,
+  "DeviceProperties":
+  {
+    "DeviceID":"mydevice01", "HubEnabledState":true
+  }, 
+  "Commands":
+  [
+    {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
+    { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
+  ]
+}
+```
+
+Pour référence, voici un exemple de message **Telemetry** envoyé à IoT Hub :
+
+```
+{"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
+```
+
+Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
+
+```
+{
+  "Name":"SetHumidity",
+  "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
+  "CreatedTime":"2016-03-11T15:09:44.2231295Z",
+  "Parameters":{"humidity":23}
+}
+```
+
+<a id="buildandrun"/>
 ### Créez et exécutez le projet.
 
 1. Cliquez sur **Compiler** pour générer le programme. Vous pouvez sans risque ignorer les avertissements, mais si le traitement génère des erreurs, corrigez-les avant de continuer.
@@ -101,5 +218,6 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
+[lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/06/2016"
 	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
@@ -25,6 +25,8 @@
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou selon une formule combinée. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser diverses technologies de stockage telles que les tables, les objets blob, les files d'attente ou les fichiers de Microsoft Azure Storage, en plus d'autres magasins de données tels que les bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l’analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
+
+> [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting/).
 
@@ -668,7 +670,10 @@ Chaque fois qu’elle crée des conteneurs, l’application cliente utilise des 
 
 La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme non réussies et réduisent la valeur de la métrique **PercentSucess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
 
-Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d’opérations qui s’exécutent avec succès, mais qui génèrent des codes d’état HTTP d’échec : - **ResourceNotFound** (Not Found 404), par exemple, à partir d’une demande GET vers un objet blob qui n’existe pas. - **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d’une opération **CreateIfNotExist** où la ressource existe déjà. - **ConditionNotMet** (Not Modified 304), par exemple, à partir d’une opération conditionnelle, comme quand un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
+Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d'opérations qui s'exécutent avec succès, mais qui génèrent des codes d'état HTTP d'échec :
+- **ResourceNotFound** (Not Found 404), par exemple, à partir d'une demande GET vers un objet blob qui n'existe pas.
+- **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d'une opération **CreateIfNotExist** où la ressource existe déjà.
+- **ConditionNotMet** (Not Modified 304), par exemple, à partir d'une opération conditionnelle, comme lorsqu'un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
 
 Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST communs</a>.
 
@@ -916,4 +921,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

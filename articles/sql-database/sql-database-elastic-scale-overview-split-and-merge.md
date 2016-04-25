@@ -3,7 +3,7 @@
     description="Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l'aide des API de base de données élastique." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
@@ -27,7 +27,13 @@ Pour commencer, consultez l'[outil de fusion et de fractionnement de bases de do
 
 La version 1.1.0 de l'outil de fusion et de fractionnement offre la possibilité de nettoyer automatiquement les métadonnées à partir de la requête terminée. Une option de configuration contrôle la durée de conservation de ces métadonnées avant leur suppression.
 
-La version 1.0.0 de l'outil de fusion et de fractionnement offre les améliorations suivantes : * Les API .NET sont incluses dans l'interface de fusion et de fractionnement, le rôle web est désormais facultatif * Les types de date et d'heure sont désormais pris en charge pour les clés de partitionnement * Les listes des partitions mappées sont maintenant prises en charge. * Les limites de plage des requêtes peuvent correspondre plus facilement aux plages stockées dans le mappage de la partition. * Plusieurs instances de rôle de travail sont désormais prises en charge pour améliorer la disponibilité. * Les informations d’identification stockées dans le cadre de votre opération de fractionnement et de fusion sont maintenant chiffrées au repos.
+La version 1.0.0 de l’outil de fractionnement et de fusion apporte les améliorations suivantes :
+* Des .NET API sont incluses dans l'interface de fractionnement et de fusion, le rôle Web est désormais facultatif 
+* Les types de date et d'heure sont désormais pris en charge pour les clés de partitionnement 
+* Les listes des partitions mappées sont maintenant prises en charge. 
+* Les limites de plage de requêtes peuvent correspondre plus facilement aux plages stockées dans le mappage de la partition.
+* Plusieurs instances de rôle de travail sont désormais prises en charge pour améliorer la disponibilité. 
+* Les informations d’identification stockées dans le cadre de votre opération de fractionnement et de fusion sont maintenant chiffrées au repos.
 
 ## Mise à niveau
 
@@ -169,7 +175,7 @@ Le service de fractionnement et de fusion fournit la table **RequestStatus** dan
 
 ### Azure Diagnostics
 
-Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics, comme indiqué ici : [Activation des diagnostics dans Azure Cloud Services et Virtual Machines](../service-fabric/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Ces configurations de diagnostics pour le service suivent les instructions des [Concepts de base de Cloud Service dans Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Elle inclut les définitions permettant d'enregistrer les compteurs de performances, les journaux IIS, les journaux des événements Windows et les journaux des événements de l'application de fractionnement et de fusion.
+Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics, comme indiqué ici : [Activation des diagnostics dans Azure Cloud Services et Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Ces configurations de diagnostics pour le service suivent les instructions des [Concepts de base de Cloud Service dans Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Elle inclut les définitions permettant d'enregistrer les compteurs de performances, les journaux IIS, les journaux des événements Windows et les journaux des événements de l'application de fractionnement et de fusion.
 
 ## Déploiement de Diagnostics 
 
@@ -195,7 +201,7 @@ Pour activer la surveillance et le diagnostic à l'aide de la configuration de d
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Vous trouverez plus d'informations sur la façon de configurer et de déployer les paramètres de diagnostic ici : [Activation de diagnostics dans Azure Cloud Services et Virtual Machines](../cloud-services-dotnet-diagnostics.md).
+Vous trouverez plus d'informations sur la façon de configurer et de déployer les paramètres de diagnostic ici : [Activation de diagnostics dans Azure Cloud Services et Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Récupération des diagnostics 
 
@@ -239,4 +245,4 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

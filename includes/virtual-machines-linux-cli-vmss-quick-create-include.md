@@ -1,7 +1,7 @@
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
+Si ce n’est pas déjà fait, vous pouvez vous inscrire gratuitement à un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) et [connecter l’interface de ligne de commande Azure](../articles/xplat-cli-install.md) [à votre compte Azure](../articles/xplat-cli-connect.md). Vous pouvez ensuite exécuter les commandes suivantes pour créer rapidement un jeu de mise à l’échelle :
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/fr-FR/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -13,9 +13,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Si vous souhaitez personnaliser l’emplacement ou l’URN de l’image, examinez les commandes `azure location list` et `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
+Une fois la commande exécutée, le jeu de la mise à l’échelle est créé. Ce jeu de mise à l’échelle a un équilibreur de charge avec des règles NAT qui mappe le port 50,000+i sur l’équilibreur de charge sur le port 22 sur la machine virtuelle i. Par conséquent, une fois que nous avons déterminé le nom de domaine complet de l’équilibreur de charge, nous pouvons nous connecter au moyen de SSH à nos machines virtuelles :
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -55,3 +55,5 @@ FQDN=${split_line[3]}
 # example to connct via ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
+
+<!---HONumber=AcomDC_0413_2016-->

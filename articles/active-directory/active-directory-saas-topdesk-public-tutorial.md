@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Public | Microsoft Azure" 
-    description="Découvrez comment utiliser TOPdesk - Public avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec TOPdesk - Public | Microsoft Azure" 
+    description="Découvrez comment utiliser TOPdesk - Public avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à TOPdesk - Public
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Public.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Public. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement TOPdesk - Public pour lequel l’authentification unique est activée
@@ -67,8 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TOPdesk - Public avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour TOPdesk - Public vous oblige à télécharger le fichier d’une icône. Pour obtenir ce fichier d’icône, contactez l’équipe de support TOPdesk.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TOPdesk - Public avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour TOPdesk - Public vous oblige à télécharger le fichier d’une icône. Pour obtenir ce fichier d’icône, contactez l’équipe de support TOPdesk.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -90,12 +88,11 @@ La configuration de l’authentification unique pour TOPdesk - Public vous oblig
 
     ![Technical Settings](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Technical Settings")
 
-    1.  Cliquez sur **Télécharger** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
-    2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.
-        ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
+    1.  Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
+    2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copiez la valeur de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
+        >[AZURE.NOTE] Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
 6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail **Azure Active Directory** en tant qu’administrateur.
 
@@ -111,9 +108,9 @@ La configuration de l’authentification unique pour TOPdesk - Public vous oblig
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : *https://qssolutions.topdesk.net*").
-    2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : *https://qssolutions.topdesk.net/tas/public/login/saml*").
-    3.  Cliquez sur **Next**.
+    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Public**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Public (par exemple : "**https://qssolutions.topdesk.net*").
+2.  Dans la zone de texte **URL de réponse TOPdesk - Public**, collez l’**URL d’AssertionConsumerService TOPdesk - Public** (par exemple : "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+3.  Cliquez sur **Next**.
 
 10. Dans la page **Configurer l’authentification unique sur TOPdesk - Public**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
 
@@ -151,8 +148,8 @@ La configuration de l’authentification unique pour TOPdesk - Public vous oblig
     1.  Pour charger votre fichier de métadonnées téléchargé, dans **Federation Metadata**, cliquez sur **Browse**.
     2.  Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
     3.  Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
-    4.  Dans la zone de texte **User name attribute**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
+    4.  Dans la zone de texte **User name attribute**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
     6.  Cliquez sur **Enregistrer**.
 
 17. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -161,8 +158,7 @@ La configuration de l’authentification unique pour TOPdesk - Public vous oblig
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à TOPdesk - Public, les utilisateurs d’Azure AD doivent être approvisionnés dans TOPdesk - Public.  
-Dans le cas de TOPdesk - Public, l’approvisionnement est une tâche manuelle.
+Pour se connecter à TOPdesk - Public, les utilisateurs d’Azure AD doivent être approvisionnés dans TOPdesk - Public. Dans le cas de TOPdesk - Public, l’approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
@@ -181,7 +177,7 @@ Dans le cas de TOPdesk - Public, l’approvisionnement est une tâche manuelle.
     3.  Sélectionnez un **Site** pour le compte.
     4.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TOPdesk - Public, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TOPdesk - Public, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -201,4 +197,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

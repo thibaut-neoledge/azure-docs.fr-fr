@@ -14,16 +14,16 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure IoT - Service SDK NuGet].
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices;
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant la valeur d’espace réservé par la chaîne de connexion du hub IoT de la section [Prise en main d’IoT Hub] :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant la valeur d’espace réservé par la chaîne de connexion du concentrateur IoT de la section [Prise en main d’IoT Hub] :
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -33,7 +33,7 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 	Cette méthode envoie un nouveau message cloud-à-appareil avec l’ID `myFirstDevice`. Modifiez ce paramètre en conséquence, au cas où vous avez modifié celui utilisé dans [Prise en main d’IoT Hub].
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Send Cloud-to-Device message\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
@@ -45,12 +45,12 @@ Dans cette section, vous allez écrire une application console Windows qui envoi
 
 8. Dans Visual Studio, cliquez avec le bouton droit sur votre solution et sélectionnez **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis l’action **Démarrer** pour les applications **ProcessDeviceToCloudMessages**, **SimulatedDevice** et **SendCloudToDevice**.
 
-9.  Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée.
+9.  Appuyez sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée.
 
     ![][21]
 
 ## Réception des commentaires de livraison
-Il est possible de demander des accusés de livraison (ou d’expiration) à IoT Hub pour chaque message cloud-à-appareil. Cela permet au serveur principal cloud d’instruire facilement une nouvelle tentative ou une logique de compensation. Reportez-vous au [Guide du développeur IoT Hub][IoT Hub Developer Guide - C2D] pour plus d’informations sur les commentaires cloud-à-appareil.
+Il est possible de demander des accusés de livraison (ou d’expiration) à IoT Hub pour chaque message cloud-à-appareil. Cela permet au serveur principal cloud d’instruire facilement une nouvelle tentative ou une logique de compensation. Reportez-vous au [Guide du développeur IoT Hub][IoT Hub Developer Guide - C2D] pour plus d’informations sur les commentaires du cloud à l’appareil.
 
 Dans cette section, vous allez modifier l’application **SendCloudToDevice** pour obtenir des commentaires et en recevoir d’IoT Hub.
 
@@ -76,15 +76,15 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** po
 
     Notez que le modèle de réception est le même que celui utilisé pour recevoir des messages cloud-à-appareil à partir de l’application de l’appareil.
 
-2. Ajoutez la méthode suivante dans la méthode **Main** juste après la ligne `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` :
+2. Ajoutez la méthode suivante dans la méthode **Main** juste après la ligne `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` :
 
         ReceiveFeedbackAsync();
 
-3. Pour obtenir des commentaires sur la livraison de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
+3. Pour obtenir des commentaires sur la livraison de votre message cloud-à-appareil, vous devez spécifier une propriété dans la méthode **SendCloudToDeviceMessageAsync**. Ajoutez la ligne suivante, immédiatement après la ligne `var commandMessage = new Message(...);` :
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée et après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice**.
+4.  Exécutez les applications en appuyant sur **F5**. Les trois applications doivent démarrer. Sélectionnez les fenêtres **SendCloudToDevice** et appuyez sur **Entrée** : vous devez voir le message reçu par l’application simulée et après quelques secondes, le message de commentaires reçu par votre application **SendCloudToDevice**.
 
     ![][22]
 
@@ -92,14 +92,14 @@ Dans cette section, vous allez modifier l’application **SendCloudToDevice** po
 
 <!-- Links -->
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 [package Azure IoT - Service SDK NuGet]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Gestion des erreurs temporaires]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Prise en main d’IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 [20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

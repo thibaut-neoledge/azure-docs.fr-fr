@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Application locale avec stockage d’objets blob (Java) | Microsoft Azure"
+	pageTitle="Application locale avec stockage d’objets blob (Java) | Microsoft Azure"
 	description="Découvrez comment créer une application console qui charge une image dans Azure, puis l'affiche dans votre navigateur. Les exemples de code sont écrits en Java."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="04/08/2016"
 	ms.author="rmcmurray"/>
 
 # Application locale avec stockage d’objets blob
@@ -24,7 +24,7 @@ L’exemple suivant montre comment utiliser le stockage Azure pour stocker des i
 
 ## Composants requis
 
-- Le Kit de développement logiciel Java (JDK) version 1.6 ou ultérieure est installé.
+- Le Kit de développement logiciel Java (JDK) version 1.6 ou ultérieure est installé.
 - Le Kit de développement logiciel (SDK) Azure est installé.
 - L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java](java-download-azure-sdk.md).
 - Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code figurant dans cet article. Consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account) pour des informations sur la création d’un compte de stockage et la page [Afficher et copier les clés d’accès de stockage](storage-create-storage-account.md#view-and-copy-storage-access-keys) pour des informations sur la récupération de la clé de compte.
@@ -37,7 +37,7 @@ L’exemple suivant montre comment utiliser le stockage Azure pour stocker des i
 
 La procédure présentée ici détaille chaque étape. Si vous souhaitez la passer, le code est intégralement présenté plus avant dans cet article.
 
-Commencez le code en important les classes de stockage de base Azure, les classes du client d’objets blob Azure, les classes d’E/S Java et la classe **URISyntaxException**:
+Commencez le code en important les classes de stockage de base Azure, les classes du client d’objets blob Azure, les classes d’E/S Java et la classe **URISyntaxException** :
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -62,12 +62,12 @@ Ajoutez votre déclaration pour **main**, incluez un bloc **try** ainsi que les 
         try
         {
 
-Déclarez les variables du type suivant (les descriptions se rapportent à la façon dont elles sont utilisées dans cet exemple) :
+Déclarez les variables du type suivant (les descriptions se rapportent à la façon dont elles sont utilisées dans cet exemple) :
 
--   **CloudStorageAccount**: permet d’initialiser le compte avec le nom et la clé de votre compte de stockage Azure, et de créer l’objet client du blob.
--   **CloudBlobClient**: permet d’accéder au service BLOB.
--   **CloudBlobContainer**: permet de créer un conteneur d’objets blob, de répertorier les objets blob dans le conteneur et de supprimer ce dernier.
--   **CloudBlockBlob**: permet de charger un fichier image local dans le conteneur.
+-   **CloudStorageAccount** : permet d’initialiser le compte avec le nom et la clé de votre compte de stockage Azure, et de créer l’objet client du blob.
+-   **CloudBlobClient** : permet d’accéder au service BLOB.
+-   **CloudBlobContainer** : permet de créer un conteneur d’objets blob, de répertorier les objets blob dans le conteneur et de supprimer ce dernier.
+-   **CloudBlockBlob** : permet de charger un fichier image local dans le conteneur.
 
 <!-- -->
 
@@ -122,14 +122,14 @@ Imprimez un message d’état et des informations sur la page HTML créée.
     System.out.println("Processing complete.");
     System.out.println("Open index.html to see the images stored in your storage account.");
 
-Fermez le bloc **try** en insérant une parenthèse fermante : **}**
+Fermez le bloc **try** en insérant une parenthèse fermante : **}**
 
-Gérez les exceptions suivantes :
+Gérez les exceptions suivantes :
 
--   **FileNotFoundException**: peut être émise par les constructeurs **FileInputStream** et **FileOutputStream**.
--   **StorageException**: peut être émise par la bibliothèque de stockage cliente Azure.
--   **URISyntaxException**: peut être émise par la méthode **ListBlobItem.getUri**.
--   **Exception**: traitement d’une exception générique.
+-   **FileNotFoundException** : peut être émise par les constructeurs **FileInputStream** et **FileOutputStream**.
+-   **StorageException** : peut être émise par la bibliothèque de stockage cliente Azure.
+-   **URISyntaxException** : peut être émise par la méthode **ListBlobItem.getUri**.
+-   **Exception** : traitement d’une exception générique.
 
 <!-- -->
 
@@ -158,7 +158,7 @@ Gérez les exceptions suivantes :
         System.exit(-1);
     }
 
-Fermez **main** en insérant une parenthèse fermante : **}**
+Fermez **main** en insérant une parenthèse fermante : **}**
 
 Pour créer une page HTML de base, créez une méthode nommée **MakeHTMLPage**. Cette méthode dispose d'un paramètre du type **CloudBlobContainer** qui est utilisé pour effectuer une itération dans la liste des objets blob chargés. Cette méthode lève des exceptions du type **FileNotFoundException** pouvant être levées par le constructeur **FileOutputStream** et du type **URISyntaxException** pouvant être levées par la méthode **ListBlobItem.getUri**. Incluez le crochet ouvrant **{**.
 
@@ -195,9 +195,9 @@ Fermez le fichier local.
 
     stream.close();
 
-Fermez **MakeHTMLPage** en insérant une parenthèse fermante : **}**
+Fermez **MakeHTMLPage** en insérant une parenthèse fermante : **}**
 
-Fermez **StorageSample** en insérant une parenthèse fermante : **}**
+Fermez **StorageSample** en insérant une parenthèse fermante : **}**
 
 Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs des espaces réservés **your\_account\_name** et **your\_account\_key** pour utiliser respectivement votre nom et votre clé de compte.
 
@@ -354,9 +354,9 @@ Pour une présentation d’autres classes et méthodes de stockage d’objets bl
 
 Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les liens ci-dessous.
 
-- [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
-- [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+- [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

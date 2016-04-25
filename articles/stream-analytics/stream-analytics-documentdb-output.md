@@ -30,11 +30,11 @@ Vous trouverez ci-dessous le détail de certaines options de collection Document
 
 ## Régler la cohérence, la disponibilité et la latence
 
-Pour respecter les exigences de votre application, DocumentDB vous permet d’ajuster la base de données et les collections et de faire les meilleurs compromis entre cohérence, disponibilité et latence. Selon les niveaux de cohérence de lecture qui s’appliquent à votre scénario compte tenu de la latence de lecture et d’écriture, vous pouvez choisir un niveau de cohérence sur votre compte de base de données. Par défaut, DocumentDB permet également une indexation synchrone sur chaque opération CRUD exécutée sur votre collection. Cette option est également utile pour contrôler les performances de lecture/écriture dans DocumentDB. Pour plus d’informations à ce sujet, consultez l’article [Modifier le niveau de cohérence des bases de données et des requêtes](../articles/documentdb-consistency-levels.md).
+Pour respecter les exigences de votre application, DocumentDB vous permet d’ajuster la base de données et les collections et de faire les meilleurs compromis entre cohérence, disponibilité et latence. Selon les niveaux de cohérence de lecture qui s’appliquent à votre scénario compte tenu de la latence de lecture et d’écriture, vous pouvez choisir un niveau de cohérence sur votre compte de base de données. Par défaut, DocumentDB permet également une indexation synchrone sur chaque opération CRUD exécutée sur votre collection. Cette option est également utile pour contrôler les performances de lecture/écriture dans DocumentDB. Pour plus d’informations à ce sujet, consultez l’article [Modifier le niveau de cohérence des bases de données et des requêtes](../documentdb/documentdb-consistency-levels.md).
 
 ## Choisir un niveau de performance
 
-Vous pouvez créer des collections DocumentDB sur 3 différents niveaux de performances (S1, S2 ou S3) qui déterminent le débit de CRUD pour cette collection. Les performances sont affectées par les niveaux d’indexation/de cohérence sur votre collection. Pour comprendre en détail ces niveaux de performance, consultez [cet article](../articles/documentdb-performance-levels.md).
+Vous pouvez créer des collections DocumentDB sur 3 différents niveaux de performances (S1, S2 ou S3) qui déterminent le débit de CRUD pour cette collection. Les performances sont affectées par les niveaux d’indexation/de cohérence sur votre collection. Pour comprendre en détail ces niveaux de performance, consultez [cet article](../documentdb/documentdb-performance-levels.md).
 
 ## Upserts à partir de Stream Analytics
 
@@ -62,4 +62,4 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 -   **Clé de partition** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 -   **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

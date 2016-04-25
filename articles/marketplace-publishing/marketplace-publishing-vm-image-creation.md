@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’une image de machine virtuelle pour Azure Marketplace | Microsoft Azure"
+   pageTitle="Création d’une image de machine virtuelle pour Azure Marketplace | Microsoft Azure"
    description="Instructions détaillées sur la façon de créer une image de machine virtuelle pour Azure Marketplace et en permettre la commercialisation auprès des autres utilisateurs."
    services="Azure Marketplace"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="03/07/2016"
+   ms.date="04/13/2016"
    ms.author="hascipio; v-divte"/>
 
-# Guide à la création d’une image de machine virtuelle pour Azure Marketplace
+# Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
 
@@ -24,11 +24,11 @@ Cet article, **étape 2**, vous guide dans la préparation des disques durs virt
 
 Dans cette section, vous apprenez à définir les offres et leurs références SKU associées.
 
-Une offre constitue le « parent » des références SKU associées. Vous pouvez proposer plusieurs offres. Il vous revient de définir les modalités de structuration de vos offres. Lorsqu’une offre est déployée dans un environnement intermédiaire, les références SKU associées le sont également. Choisissez avec soin vos identificateurs SKU, car ceux-ci apparaissent dans l’URL.
+Une offre constitue le « parent » des références SKU associées. Vous pouvez proposer plusieurs offres. Il vous revient de définir les modalités de structuration de vos offres. Lorsqu’une offre est déployée dans un environnement intermédiaire, les références SKU associées le sont également. Choisissez avec soin vos identificateurs SKU, car ceux-ci apparaissent dans l’URL.
 
 - Azure.com – http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 
-- Version préliminaire du portail Azure : https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}
+- Version préliminaire du portail Azure : https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}
 
 Une référence SKU désigne le nom commercial d’une image de machine virtuelle. Une image de machine virtuelle contient un disque de système d’exploitation et aucun ou plusieurs disques de données. Il s’agit en fait du profil de stockage complet d’une machine virtuelle. Chaque disque a un disque dur virtuel est nécessaire par disque. Même les disques de données vides ont besoin de la création d’un disque dur virtuel.
 
@@ -45,96 +45,13 @@ Une fois que vous avez ajouté une offre, vous devez définir/identifier vos ré
 
 1. **Ajoutez une référence SKU.** La référence SKU requiert un identificateur qui est utilisé dans l’URL. L’identificateur doit être unique dans votre profil de publication. Il n’y a pas de risque de conflit avec les identificateurs d’autres éditeurs.
 
-> [AZURE.NOTE] Les identificateurs de l’offre et de la référence SKU s’afficheront dans l’URL de l’offre sur Marketplace.
+    > [AZURE.NOTE] Les identificateurs de l’offre et de la référence SKU s’afficheront dans l’URL de l’offre sur Marketplace.
 
-2. **Ajoutez une description de votre référence SKU.** Des descriptions résumées sont visibles pour les clients, donc, vous devez les rendre facilement lisibles. Ces informations ne doivent pas être verrouillées jusqu’à la phase « Envoi vers staging »/ intermédiaire.
+2. **Ajoutez une description de votre référence SKU.** Des descriptions résumées sont visibles pour les clients, donc, vous devez les rendre facilement lisibles. Ces informations ne doivent pas être verrouillées jusqu’à la phase « Envoi vers staging »/ intermédiaire.
 3. Si vous utilisez des références SKU basées sur Windows, suivez les liens suggérés pour acquérir les versions approuvées de Windows Server.
 
 ## 2\. Créer un disque dur virtuel compatible avec Azure (Linux)
-Cette section se concerne sur les meilleures pratiques pour la création d’une image de machine virtuelle Linux pour Azure Marketplace. Pour consulter la procédure détaillée, consultez la documentation suivante : [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux][link-azure-vm-1]
-
-> [AZURE.TIP] La plupart des étapes suivantes (installation de l’agent, paramètres de démarrage du noyau) sont déjà prises en charge pour les images Linux disponibles à partir de la galerie d’images de Microsoft Azure. Par conséquent, vous pouvez gagner du temps en travaillant à partir de l’une de ces images sans avoir à configurer une image Linux ne connaissant pas Azure.
-
-### 2\.1 Choisir la taille du disque dur virtuel
-Les références SKU publiées (images de machine virtuelle) doivent être compatibles avec toutes les tailles de machine virtuelle prenant en charge le nombre de disques pour la référence SKU. Vous pouvez fournir des instructions en matière de taille. Celles-ci seront toutefois traitées comme des recommandations et leur application ne sera pas obligatoire.
-
-1. Disque dur virtuel du système d’exploitation Linux : le disque dur virtuel de système d’exploitation Linux de votre image de machine virtuelle doit être créé en tant que disque dur virtuel au format fixe de 30 Go à 50 Go. La taille ne peut pas être inférieure à 30 Go. Si la taille physique est inférieure à celle du disque dur virtuel, le disque dur virtuel doit être fragmenté. Les disques durs virtuels Linux dont la taille est supérieure à 50 Go seront évalués individuellement. Si vous possédez déjà un disque dur virtuel dans un autre format, vous pouvez utiliser l’[applet de commande PowerShell Convert-VHD pour modifier le format][link-technet-1].
-2. Disque dur virtuel de type disque de données : les disques de données peuvent avoir une taille maximale de 1 To. Ce type de disque dur virtuel doit être créé comme disque dur virtuel au format fixe. Ils doivent également être fragmentés. Lorsque vous définissez la taille du disque, rappelez-vous que les clients ne peuvent pas redimensionner les disques durs virtuels dans une image.
-
-### 2\.2 Vérifier que le dernier agent Linux Azure est installé
-Lorsque vous préparez le disque dur virtuel du système d’exploitation, vérifiez que c’est l’[agent Linux Azure][link-azure-vm-2] le plus récent qui est installé Utilisation de packages RPM ou Deb. Le package est souvent nommé walinuxagent ou WALinuxAgent, mais vérifiez auprès de votre distribution pour en avoir la certitude. L’agent fournit des fonctions clés pour le déploiement d’une infrastructure Linux IaaS dans Azure, telles que des fonctionnalités de déploiement de machines virtuelles et de mise en réseau.
-
-Bien que l’agent puisse être configuré de différentes façons, nous vous recommandons d’utiliser une configuration d’agent générique afin d’optimiser la compatibilité. Il est possible d’installer l’agent manuellement, mais il est fortement recommandé d’utiliser les packages préconfigurés avec votre distribution si c’est possible.
-
-Si vous choisissez d’installer l’agent manuellement à partir du [référentiel GitHub][link-github-waagent], commencez par copier le fichier « waagent » dans /usr/sbin, puis exécutez les commandes suivantes sous le répertoire racine :
-
-    # chmod 755 /usr/sbin/waagent
-    # /usr/sbin/waagent -install
-
-Le fichier de configuration de l’agent sera placé dans /etc/waagent.conf.
-
-### 2\.3 Vérifier que les bibliothèques requises sont incluses
-Outre l’agent Linux Azure, les bibliothèques suivantes doivent être incluses :
-
-1. Les [services d’intégration Linux][link-intsvc] version 3.0 ou ultérieure doivent être activés sur votre noyau. Voir [Conditions requises pour le noyau Linux](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
-2. [Kernel Patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) pour la stabilité Azure I/O (probablement inutile pour les noyaux récents. Doit faire l’objet d’une vérification)
-3. [Python][link-python] 2.6 ou version ultérieure
-4. Python pyasn1, s’il n’est pas déjà installé
-5. [OpenSSL][link-openssl] (version 1.0 ou ultérieure recommandée)
-
-### 2\.4 Configurer les partitions de disque
-Nous vous conseillons de ne pas utiliser le gestionnaire de volume logique. Créez une partition à racine unique pour le disque système d’exploitation. N’utilisez pas de partition swap sur le système d’exploitation ou le disque de données. Nous vous recommandons de supprimer une partition SWAP, même si celle-ci n’est pas montée dans /etc/fstab. Le cas échéant, une partition SWAP peut être créée sur le disque de ressources local (/dev/sdb) par l’agent Linux.
-
-### 2\.5 Ajouter les paramètres requis pour la ligne de démarrage du noyau
-Les paramètres suivants doivent également être ajoutés à la ligne de démarrage du noyau :
-
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-
-Ainsi, le support Azure peut fournir aux clients une sortie console série si nécessaire. Cela permet également un délai d’expiration approprié pour le montage du disque de système d’exploitation à partir du stockage cloud. Même si votre référence SKU empêche les clients finaux d’accéder directement par SSH à la machine virtuelle, la sortie série de la console doit être activée.
-
-### 2\.6 Inclure un serveur SSH par défaut
-Nous recommandons vivement d’activer SSH pour le client. Si le serveur SSH est activé, ajoutez l’option de maintien de la connexion au fichier de configuration du serveur sshd avec l’option suivante : **ClientAliveInterval 180**.. Il est certes recommandé d’utiliser la valeur 180. Cependant la plage autorisée est comprise entre 30 et 235. Toutes les applications ne souhaitent pas donner aux clients un accès SSH direct à la machine virtuelle. Si le protocole SSH est bloqué de façon explicite, il n’est pas utile de définir l’option **ClientAliveInterval**.
-
-### 2\.7 Respecter les spécifications réseau
-Les spécifications réseau suivantes sont requises pour une image de machine virtuelle Linux compatible avec Azure.
-
-- Dans de nombreux cas, il est préférable de désactiver NetworkManager, à l’exception des systèmes CentOS 7.x (et leurs dérivés) pour lesquels il convient de laisser NetworkManager activé.
-- La configuration réseau doit être contrôlée via les scripts **ifup**et **ifdown**. L’agent Linux peut utiliser ces commandes pour redémarrer la mise en réseau lors du déploiement.
-- Vous ne devez pas utiliser de configuration réseau personnalisée. Le fichier resolv.conf doit être supprimé à la fin de la procédure. Cette opération est généralement effectuée dans le cadre de la désaffectation (voir [Guide d’utilisation de l’agent Linux Azure](./virtual-machines-linux-agent-user-guide/)). Vous pouvez également effectuer cette étape manuellement en utilisant la commande suivante :
-
-        rm /etc/resolv.conf
-
-- L’appareil réseau doit être monté au démarrage et utiliser le protocole DHCP.
-- Le protocole IPv6 n’est pas pris en charge sur Azure. Si cette propriété est activée, il ne fonctionnera pas.
-
-### 2\.8 S’assurer que les meilleures pratiques de sécurité sont en place
-Les références SKU dans Azure Marketplace doivent impérativement suivre les pratiques recommandées en matière de sécurité, Elles comprennent notamment les éléments suivants :
-
-- Installez tous les correctifs de sécurité pour votre distribution.
-- Suivez les recommandations relatives à la sécurité de la distribution.
-- Évitez de créer des comptes par défaut (lesquels ne changent pas) entre les instances de configuration.
-- Effacez les entrées de l’historique de bash.
-- Incluez le logiciel iptables (pare-feu), mais n’activez aucune règle. Ceci permet d’offrir une expérience par défaut cohérente aux clients. Les clients qui souhaitent utiliser un pare-feu de machine virtuelle pour une configuration supplémentaire peuvent définir les règles d’iptables de façon à satisfaire leurs besoins spécifiques.
-
-### 2\.9 Généraliser l’image
-Toutes les images dans Azure Marketplace doivent être réutilisables de manière générique, ce qui implique de supprimer certaines de leurs caractéristiques de configuration. Pour effectuer ceci dans Linux, vous devez désaffecter le disque dur virtuel de système d’exploitation.
-
-La commande Linux suivante permet d’effectuer une désaffectation :
-
-        # waagent -deprovision
-
-Cette commande automatique :
-
-- supprime la configuration du serveur de noms dans /etc/resolv.conf,
-- supprime les baux du client DHCP mis en cache,
-- Réinitialise le nom d’hôte sur localhost.localdomain.
-
-Il est recommandé de définir le fichier de configuration (/etc/waagent.conf) de façon à ce que les actions suivantes soient également effectuées :
-
-- Définissez Provisioning.RegenerateSshHostKeyPair sur « y » dans le fichier de configuration pour supprimer toutes les clés d’hôte SSH.
-- Définissez Provisioning.DeleteRootPassword sur « y » dans le fichier de configuration pour supprimer le mot de passe racine de /etc/shadow. Pour plus d’informations sur le contenu du fichier de configuration, consultez la section « CONFIGURATION » du fichier README disponible sur la page de référentiel de l’agent Github (rendez-vous sur le site [https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) et faites défiler la page vers le bas).  
-
-Vous avez à présent terminé la phase de généralisation de la machine virtuelle Linux. Arrêtez la machine virtuelle à partir du portail Azure, à l’aide de la ligne de commande ou depuis la machine virtuelle. Une fois la machine virtuelle désactivée, passez à l’étape 3.4.
+Cette section se concerne sur les meilleures pratiques pour la création d’une image de machine virtuelle Linux pour Azure Marketplace. Pour consulter la procédure détaillée, consultez la documentation suivante : [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 
 ## 3\. Créer un disque dur virtuel compatible avec Azure (Windows)
 Cette section décrit la procédure de création d’une référence SKU basée sur Windows Server pour Azure Marketplace.
@@ -142,15 +59,15 @@ Cette section décrit la procédure de création d’une référence SKU basée 
 ### 3\.1 Vérifier que vous utilisez les disques durs virtuels de base corrects
 Le disque dur virtuel de système d’exploitation pour votre image de machine virtuelle doit être basé sur une image de base approuvée par Azure contenant Windows Server ou SQL Server.
 
-Pour commencer, créez une machine virtuelle à partir d’une des images suivantes, situées dans le [portail Microsoft Azure][link-azure-portal] :
+Pour commencer, créez une machine virtuelle à partir d’une des images suivantes, situées dans le [portail Microsoft Azure][link-azure-portal] :
 
 - Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-- SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
-- SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+- SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
+- SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Ces liens sont également disponibles dans le Portail de publication sous la page des références SKU.
 
-> [AZURE.TIP] Si vous utilisez le portail Azure actuel ou PowerShell, les images Windows Server publiées à compter du 8 septembre 2014 sont approuvées.
+> [AZURE.TIP] Si vous utilisez le portail Azure actuel ou PowerShell, les images Windows Server publiées à compter du 8 septembre 2014 sont approuvées.
 
 
 ### 3\.2 Créer votre machine virtuelle Windows
@@ -165,7 +82,7 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 
     ![dessin][img-portal-vm-create]
 
-4. Sélectionnez la taille de la machine virtuelle à déployer :
+4. Sélectionnez la taille de la machine virtuelle à déployer :
 
     a. Si vous envisagez de développer le disque dur virtuel localement, la taille n’a pas d’importance. Vous pouvez utiliser une des machines virtuelles plus petites.
 
@@ -175,14 +92,14 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 
     ![dessin][img-portal-vm-size]
 
-5. Définissez les propriétés :
+5. Définissez les propriétés :
 
     a. Pour accélérer le déploiement, vous pouvez conserver les valeurs par défaut des propriétés qui figurent sous **Configuration facultative** et **Groupe de ressources**.
 
     b. Sous **Compte de stockage**, vous pouvez éventuellement sélectionner le compte de stockage du disque dur virtuel.
 
     c. Sous **Groupe de ressources**, vous pouvez éventuellement sélectionner le groupe logique dans lequel placer la machine virtuelle.
-6. Sélectionnez l’**emplacement** de déploiement :
+6. Sélectionnez l’**emplacement** de déploiement :
 
     a. Si vous envisagez de développer le disque dur virtuel localement, l’emplacement n’a pas d’importance, car vous téléchargerez l’image sur Azure ultérieurement.
 
@@ -207,7 +124,7 @@ Il est vivement recommandé de développer votre disque dur virtuel dans le clou
 
 **Se connecter via RDP à l’aide de PowerShell**
 
-Pour télécharger un fichier de bureau à distance sur une machine locale, utilisez l’[applet de commande Get-AzureRemoteDesktopFile][link-technet-2]. Pour utiliser cette applet de commande, vous devez connaître les noms du service et de la machine virtuelle. Si vous avez créé la machine virtuelle à partir du [Portail Microsoft Azure][link-azure-portal], ces informations sont disponibles sous Propriétés de la machine virtuelle :
+Pour télécharger un fichier de bureau à distance sur une machine locale, utilisez l’[applet de commande Get-AzureRemoteDesktopFile][link-technet-2]. Pour utiliser cette applet de commande, vous devez connaître les noms du service et de la machine virtuelle. Si vous avez créé la machine virtuelle à partir du [Portail Microsoft Azure][link-azure-portal], ces informations sont disponibles sous Propriétés de la machine virtuelle :
 
 1. Dans le Portail Microsoft Azure, sélectionnez **Parcourir** > **Machines virtuelles**.
 2. Le panneau Machines virtuelles s’ouvre. Sélectionnez la machine virtuelle que vous avez déployée.
@@ -228,36 +145,36 @@ Des informations supplémentaires sont disponibles sur RDP dans l’article [Se 
 Une fois le disque dur virtuel de système d’exploitation téléchargé, utilisez Hyper-V et configurez une machine virtuelle pour commencer à créer votre référence SKU. L’article TechNet [Installer le rôle Hyper-V et configurer un ordinateur virtuel](http://technet.microsoft.com/library/hh846766.aspx) décrit la procédure détaillée.
 
 ### 3\.4 Choisir la taille du disque dur virtuel
-Le disque dur virtuel de système d’exploitation Windows de votre image de machine virtuelle doit être créé en tant que disque dur virtuel au format fixe de 128 Go.
+Le disque dur virtuel de système d’exploitation Windows de votre image de machine virtuelle doit être créé en tant que disque dur virtuel au format fixe de 128 Go.
 
-Si la taille physique est inférieure à 128 Go, le disque dur virtuel doit être fragmenté. Les images Windows et SQL Server de base fournies satisfont déjà les exigences requises alors, ne modifiez pas le format ou la taille du disque dur virtuel obtenu.
+Si la taille physique est inférieure à 128 Go, le disque dur virtuel doit être fragmenté. Les images Windows et SQL Server de base fournies satisfont déjà les exigences requises alors, ne modifiez pas le format ou la taille du disque dur virtuel obtenu.
 
-Les disques de données peuvent avoir une taille maximale de 1 To. Lorsque vous choisissez la taille du disque, rappelez-vous que les clients ne peuvent pas redimensionner les disques durs virtuels dans une image lors du déploiement. Ce type de disque dur virtuel doit être créé comme disque dur virtuel au format fixe. Ils doivent également être fragmentés. Les disques de données peuvent être vides ou contenir des données.
+Les disques de données peuvent avoir une taille maximale de 1 To. Lorsque vous choisissez la taille du disque, rappelez-vous que les clients ne peuvent pas redimensionner les disques durs virtuels dans une image lors du déploiement. Ce type de disque dur virtuel doit être créé comme disque dur virtuel au format fixe. Ils doivent également être fragmentés. Les disques de données peuvent être vides ou contenir des données.
 
 
 ### 3\.5 Installer les derniers correctifs Windows
 Les images de base contiennent les derniers correctifs jusqu’à leur date de publication. Avant de publier le disque dur virtuel de système d’exploitation que vous avez créé, vérifiez que Windows Update a été exécuté et que les dernières mises à jour de sécurité critiques et importantes ont été installées.
 
 ### 3\.6 Effectuer les autres tâches de configuration et de planification utiles
-Si d’autres étapes de configuration sont requises, vous pouvez utiliser une tâche planifiée exécutée au démarrage pour apporter des modifications finales à la machine virtuelle après que celle-ci a été déployée :
+Si d’autres étapes de configuration sont requises, vous pouvez utiliser une tâche planifiée exécutée au démarrage pour apporter des modifications finales à la machine virtuelle après que celle-ci a été déployée :
 
 - Il est recommandé de supprimer automatiquement la tâche suite à une exécution réussie.
-- Aucune configuration ne doit utiliser de lecteurs autres que C ou D, car ceux-ci sont les deux seuls qui lecteurs qui existent à coup sûr. Le lecteur C est le disque du système d’exploitation et le lecteur D est le disque local temporaire.
+- Aucune configuration ne doit utiliser de lecteurs autres que C ou D, car ceux-ci sont les deux seuls qui lecteurs qui existent à coup sûr. Le lecteur C est le disque du système d’exploitation et le lecteur D est le disque local temporaire.
 
 ### 3\.7 Généraliser l’image
-Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. En d’autres termes, le disque dur virtuel de système d’exploitation doit être généralisé :
+Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. En d’autres termes, le disque dur virtuel de système d’exploitation doit être généralisé :
 
-- Pour Windows, l’image doit être préparée avec « sysprepped » et les opérations de configuration effectuées doivent toutes prendre en charge la commande **sysprep**.
+- Pour Windows, l’image doit être préparée avec « sysprepped » et les opérations de configuration effectuées doivent toutes prendre en charge la commande **sysprep**.
 - Vous pouvez exécuter la commande qui suit à partir du répertoire % windir%\\System32\\Sysprep.
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Des instructions sur la préparation du système d’exploitation avec Sysprep sont fournies à l’étape de l’article MSDN intitulée [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](./virtual-machines-create-upload-vhd-windows-server/).
+  Des instructions sur la préparation du système d’exploitation avec Sysprep sont fournies à l’étape de l’article MSDN intitulée [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## 4\. Déployer une machine virtuelle à partir de vos disques durs virtuels
 Une fois les disques durs virtuels (disque dur virtuel de système d’exploitation généralisé, et zéro ou plusieurs disques durs virtuels de disque de données) téléchargés sur un compte de stockage Azure, vous pouvez les inscrire en tant qu’image de machine virtuelle d’utilisateur. Vous pouvez tester cette image. Veuillez noter que, comme votre disque dur virtuel de système d’exploitation est généralisé, vous ne pouvez pas déployer directement la machine virtuelle en fournissant l’URL du disque dur virtuel.
 
-Pour en savoir plus sur les images de machine virtuelle, consultez les articles de blog suivants :
+Pour en savoir plus sur les images de machine virtuelle, consultez les articles de blog suivants :
 
 - [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
@@ -317,7 +234,7 @@ Vous pouvez utiliser l’applet de commande **Invoke-WebRequest** pour créer un
 
 En exécutant ce script, vous créez une image de machine virtuelle d’utilisateur avec le nom que vous avez fourni au paramètre ImageName (myVMImage). Celle-ci est constituée d’un disque de système d’exploitation et d’un disque de données.
 
-Cette API est une opération asynchrone et renvoie la réponse un code « 202 - Accepté ». Pour déterminer si l’image de machine virtuelle a été créée, vous devez interroger l’état de l’opération. La valeur x-ms-request-id dans la réponse indique l’ID de l’opération. Cet ID doit être défini dans $opId ci-dessous.
+Cette API est une opération asynchrone et renvoie la réponse un code « 202 - Accepté ». Pour déterminer si l’image de machine virtuelle a été créée, vous devez interroger l’état de l’opération. La valeur x-ms-request-id dans la réponse indique l’ID de l’opération. Cet ID doit être défini dans $opId ci-dessous.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "opId"
@@ -375,7 +292,7 @@ Pour créer une image de machine virtuelle à partir d’un disque dur virtuel d
 
 En exécutant ce script, vous créez une image de machine virtuelle d’utilisateur avec le nom que vous avez fourni au paramètre ImageName (myVMImage). Celle-ci est constituée d’un disque de système d’exploitation et d’un disque de données.
 
-Cette API est une opération asynchrone et renvoie la réponse un code « 202 - Accepté ». Pour déterminer si l’image de machine virtuelle a été créée, vous devez interroger l’état de l’opération. La valeur x-ms-request-id dans la réponse indique l’ID de l’opération. Cet ID doit être défini dans $opId ci-dessous.
+Cette API est une opération asynchrone et renvoie la réponse un code « 202 - Accepté ». Pour déterminer si l’image de machine virtuelle a été créée, vous devez interroger l’état de l’opération. La valeur x-ms-request-id dans la réponse indique l’ID de l’opération. Cet ID doit être défini dans $opId ci-dessous.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "$opId"
@@ -426,7 +343,7 @@ Pour créer une image de machine virtuelle à partir d’un disque dur virtuel d
         { echo "Not Accepted"
         }
 
-En exécutant ce script, vous créez une image de machine virtuelle d’utilisateur avec le nom que vous avez fourni au paramètre ImageName (myVMImage). Il est constitué d’un disque dur de système d’exploitation basé sur le disque dur virtuel que vous avez transmis et d’un disque de données vide de 32 Go.
+En exécutant ce script, vous créez une image de machine virtuelle d’utilisateur avec le nom que vous avez fourni au paramètre ImageName (myVMImage). Il est constitué d’un disque dur de système d’exploitation basé sur le disque dur virtuel que vous avez transmis et d’un disque de données vide de 32 Go.
 
 ### 4\.2 Déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur
 Pour déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur, vous pouvez utiliser le [Portail Azure](https://manage.windowsazure.com) ou PowerShell actuel.
@@ -437,7 +354,7 @@ Pour déployer une machine virtuelle à partir d’une image de machine virtuell
 
     ![dessin][img-manage-vm-new]
 
-2. Accédez à **Mes images**, puis sélectionnez l’image de machine virtuelle à partir de laquelle déployer une machine virtuelle :
+2. Accédez à **Mes images**, puis sélectionnez l’image de machine virtuelle à partir de laquelle déployer une machine virtuelle :
   1. Sélectionnez celle-ci avec soin, car l’affichage **Mes images** répertorie les images de système d’exploitation et les images de machine virtuelle.
   2. L’examen du nombre de disques peut vous aider à déterminer le type d’image que vous déployez, car la majorité des images de machine virtuelle inclut plusieurs disques. Il est toutefois toujours possible d’avoir une image de machine virtuelle avec un seul disque de système d’exploitation dont le **nombre de disques** est défini sur 1.
 
@@ -460,10 +377,10 @@ L’étape suivante de la préparation de votre image de machine virtuelle pour 
 
 Dans le cadre de ce processus, vous allez exécuter un outil de certification spécial, télécharger les résultats de la vérification dans le conteneur Azure dans lequel se trouvent vos disques durs virtuels, ajouter une offre, définir votre référence SKU et soumettre votre image de machine virtuelle pour certification.
 
-### 5\.1 Téléchargez exécutez l’outil « Certification Test Tool for Azure Certified »
+### 5\.1 Téléchargez exécutez l’outil « Certification Test Tool for Azure Certified »
 L’outil de certification s’exécute sur une machine virtuelle, configurée à partir de votre image de machine virtuelle d’utilisateur, afin de garantir que l’image de machine virtuelle est compatible avec Microsoft Azure. Celui-ci vérifie que les recommandations et exigences relatives à la préparation de votre disque dur virtuel sont respectées. L’outil génère un rapport de compatibilité, qui doit être téléchargé sur le portail de publication lors de la demande de certification.
 
-L’outil de certification peut être utilisé avec les machines virtuelles Windows et Linux. Il se connecte aux machines virtuelles Windows via PowerShell, et se connecte aux machines virtuelles Linux via SSH.Net :
+L’outil de certification peut être utilisé avec les machines virtuelles Windows et Linux. Il se connecte aux machines virtuelles Windows via PowerShell, et se connecte aux machines virtuelles Linux via SSH.Net :
 
 1. Commencez par télécharger l’outil de certification sur le [site de téléchargement Microsoft][link-msft-download]
 2. Ouvrez l’outil de certification, puis cliquez sur le bouton **Start New Test** (Commencer un nouveau test).
@@ -472,7 +389,7 @@ L’outil de certification peut être utilisé avec les machines virtuelles Wind
 
 ### **Connexion de l’outil de certification Tool à une image de machine virtuelle Linux**
 
-1. Sélectionnez le mode d’authentification SSH : mot de passe ou fichier de clé.
+1. Sélectionnez le mode d’authentification SSH : mot de passe ou fichier de clé.
 2. Si vous utilisez l’authentification basée sur le mot de passe, entrez le nom du système de nom de domaine (DNS), le nom d’utilisateur et le mot de passe.
 3. Si vous utilisez l’authentification par fichier de clé, saisissez le nom DNS, le nom d’utilisateur et l’emplacement de la clé privée.
 
@@ -511,25 +428,25 @@ Après avoir répondu au questionnaire, vous pouvez fournir des informations sup
 
 Dans le cadre du processus de publication, vous devrez spécifier les URI (identificateur de ressource uniforme) qui permettent d’accéder aux disques durs virtuels que vous avez créés pour votre référence SKU. Microsoft doit accéder à ces disques durs virtuels pendant le processus de certification. Par conséquent, vous devez créer un URI de signature d’accès partagé pour chaque disque dur virtuel. Cet URI doit être saisi dans l’onglet **Images** du Portail de publication.
 
-L’URI de signature d’accès partagé créé doit respecter les exigences suivantes :
+L’URI de signature d’accès partagé créé doit respecter les exigences suivantes :
 
 - Lors de la génération des URI de signature d’accès partagé pour vos disques durs virtuels, les autorisations de liste et de lecture seule sont suffisantes. Ne fournissez pas d’accès en écriture ou en suppression.
-- La durée d’accès doit être d’au minimum sept jours ouvrés à compter de la date de création de l’URI de signature d’accès partagé.
-- Pour éviter les erreurs immédiates liées aux variations d’horloges, spécifiez un délai de 15 minutes avant l’heure actuelle.
+- La durée d’accès doit être d’au minimum sept jours ouvrés à compter de la date de création de l’URI de signature d’accès partagé.
+- Pour éviter les erreurs immédiates liées aux variations d’horloges, spécifiez un délai de 15 minutes avant l’heure actuelle.
 
-Pour créer un URI de signature d’accès partagé, vous pouvez suivre les instructions fournies dans [Signatures d’accès partagé, partie 1 : présentation du modèle SAP][link-azure-1] et [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service blob Azure][link-azure-2].
+Pour créer un URI de signature d’accès partagé, vous pouvez suivre les instructions fournies dans [Signatures d’accès partagé, partie 1 : présentation du modèle SAP][link-azure-1] et [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service blob Azure][link-azure-2].
 
 Au lieu de générer une clé d’accès partagé à l’aide d’un code, vous pouvez également utiliser des outils de stockage tels que [Azure Storage Explorer][link-azure-codeplex].
 
 **Utiliser Azure Storage Explorer pour générer une clé d’accès partagé**
 
-1. Téléchargez [Azure Storage Explorer][link-azure-codeplex] 6 ou version ultérieure à partir de CodePlex.
+1. Téléchargez [Azure Storage Explorer][link-azure-codeplex] 6 ou version ultérieure à partir de CodePlex.
 2. Après l’installation, ouvrez l’application.
 3. Cliquez sur **Ajouter un compte**.
 
     ![dessin][img-azstg-add]
 
-4. Spécifiez le nom du compte de stockage, la clé du compte de stockage et le domaine des points de terminaison de stockage. **Ne cochez pas** la case « Use HTTPS » (Utiliser HTTPS)
+4. Spécifiez le nom du compte de stockage, la clé du compte de stockage et le domaine des points de terminaison de stockage. **Ne cochez pas** la case « Use HTTPS » (Utiliser HTTPS)
 
     ![dessin][img-azstg-setup-1]
 
@@ -549,25 +466,25 @@ Au lieu de générer une clé d’accès partagé à l’aide d’un code, vous 
 
     ![dessin][img-azstg-setup-5]
 
-9. Suivez les étapes ci-dessous pour générer une signature d’accès partagé URI de l’image .vhd :
+9. Suivez les étapes ci-dessous pour générer une signature d’accès partagé URI de l’image .vhd :
 
     ![dessin][img-azstg-setup-6]
 
-    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
+    a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
-    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
+    b. **Accès autorisé à** : sélectionnez une date située au moins 7 à 8 jours après l’**accès autorisé à partir de** date.
 
-    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
+    c. **Actions autorisées** : sélectionnez les autorisations **Liste** et **en lecture**.
 
     d. Si vous avez correctement sélectionné votre fichier .vhd, ce dernier apparaît dans **Blob name to access** (Nom d’objet Blob auquel accéder) avec l’extension .vhd.
 
     e. Cliquez sur **Generate Signature** (Générer la signature).
 
-    f. Dans l’**URI de signature d’accès partagé ainsi généré de ce conteneur**, vérifiez les points suivants comme indiqué ci-dessus :
+    f. Dans l’**URI de signature d’accès partagé ainsi généré de ce conteneur**, vérifiez les points suivants comme indiqué ci-dessus :
 
-    - 	Assurez-vous que l’URL ne commence pas par « https ».
-    - 	Assurez-vous que votre nom de fichier d’image et le « .vhd » sont dans l’URI.
-    - 	À la fin de la signature, assurez-vous que « =rl » s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
+    - 	Assurez-vous que l’URL ne commence pas par « https ».
+    - 	Assurez-vous que votre nom de fichier d’image et le « .vhd » sont dans l’URI.
+    - 	À la fin de la signature, assurez-vous que « =rl » s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
 
     g. Pour vous assurer que l’URI de signature d’accès partagé fonctionne, cliquez sur **Test in Browser** (Test dans le navigateur). Le téléchargement doit normalement démarrer.
 10. Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
@@ -581,9 +498,9 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 3. L’identificateur figurant en haut de la page est en fait l’identificateur de l’offre et non l’identificateur de la référence SKU.
 4. Renseignez les propriétés sous la section **SKU** (Références SKU).
 5. Sous **Famille de système d’exploitation**, sélectionnez le type de système d’exploitation associé au disque dur virtuel du système d’exploitation.
-6. Sous **Système d’exploitation**, décrivez le système d’exploitation. Envisagez un format du type Famille de systèmes d’exploitation, Type, Version et Mises à jour, Par exemple, « Windows Server Datacenter 2014 R2 ».
+6. Sous **Système d’exploitation**, décrivez le système d’exploitation. Envisagez un format du type Famille de systèmes d’exploitation, Type, Version et Mises à jour, Par exemple, « Windows Server Datacenter 2014 R2 ».
 7. Sélectionnez jusqu’à six tailles de machine virtuelle recommandées. Ces recommandations sont présentées à l’utilisateur dans le panneau Niveau tarifaire du portail de gestion Azure s’il décide d’acheter et de déployer votre image. **Il s’agit uniquement de recommandations. Le client peut sélectionner n’importe quelle taille de machine virtuelle prenant en charge les disques spécifiés dans votre image.**
-8. Indiquez la version. Le champ version encapsule une version sémantique pour identifier le produit et ses mises à jour :
+8. Indiquez la version. Le champ version encapsule une version sémantique pour identifier le produit et ses mises à jour :
   -	Les versions doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
   -	Les images contenues dans des références SKU différentes peuvent avoir différentes versions majeures et mineures.
   -	Les versions au sein d’une même référence SKU ne doivent impliquer que des modifications incrémentielles, qui augmentent la version du correctif (Z de X.Y.Z).
@@ -594,10 +511,10 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
     ![dessin](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Étape suivante
-Une fois que vous avez terminé avec les détails de la référence SKU, vous pouvez consulter le [Guide de contenu marketing Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’**étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.
+Une fois que vous avez terminé avec les détails de la référence SKU, vous pouvez consulter le [Guide de contenu marketing Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’**étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.
 
 ## Voir aussi
-- [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
+- [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]: media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]: media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png
@@ -644,11 +561,10 @@ Une fois que vous avez terminé avec les détails de la référence SKU, vous po
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

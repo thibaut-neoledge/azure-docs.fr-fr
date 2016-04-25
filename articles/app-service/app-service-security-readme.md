@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Sécurité dans Azure App Service" 
-	description="Découvrez comment sécuriser des applications logiques, API, web et mobiles dans Azure App Service." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="yochayk" 
+<properties
+	pageTitle="Sécurité dans Azure App Service"
+	description="Découvrez comment sécuriser des applications logiques, API, web et mobiles dans Azure App Service."
+	services="app-service"
+	documentationCenter=""
+	authors="naziml"
+	manager="yochayk"
 	editor="wpickett"/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
 	ms.author="naziml"/>
 
 # Sécurité dans Azure App Service
@@ -22,4 +22,4 @@ Azure App Service respecte les principaux standards du secteur en termes de séc
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

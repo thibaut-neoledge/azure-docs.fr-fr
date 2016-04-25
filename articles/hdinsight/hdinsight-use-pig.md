@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 # Utilisation de Pig avec Hadoop sur HDInsight
@@ -115,6 +115,8 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
+* [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md)
+* [Utilisation d’Oozie avec HDInsight](hdinsight-use-oozie.md)
 * [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-pig/hdi.checkmark.png
@@ -137,7 +139,7 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
@@ -146,4 +148,4 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

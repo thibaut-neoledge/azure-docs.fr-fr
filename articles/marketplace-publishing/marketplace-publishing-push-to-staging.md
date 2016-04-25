@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -25,6 +25,8 @@ Dans cette étape du processus de publication, vous devez fournir du contenu mar
   1. Accédez au portail de publication à l’adresse [https://publish.windowsazure.com](https://publish.windowsazure.com)
   2. Dans le menu de gauche, cliquez sur l’onglet **Marketing**.
   3. Dans le volet principal, cliquez sur le bouton **English (US)**.
+
+  > [AZURE.IMPORTANT] Tous les champs doivent avoir des entrées, y compris les images, pour que vous puissiez procéder au déploiement dans un environnement intermédiaire.
 
 ### Détails
 1. Entrez un bref résumé, un résumé plus long et une description de votre offre.
@@ -52,8 +54,7 @@ Sous l’onglet **Sample Images** (Images d’exemple) dans le menu de gauche, c
 ### Informations juridiques
 Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre politique ou vos conditions d’utilisation. Entrez ou collez les conditions d’utilisation dans la grande zone **Conditions d’utilisation**.
 
-> [AZURE.IMPORTANT] Tous les champs doivent avoir des entrées, y compris les images, pour que vous puissiez procéder au déploiement dans un environnement intermédiaire.
-
+> [AZURE.NOTE] Pour les machines virtuelles, vous ne pouvez pas modifier ce qui suit une fois qu'une référence SKU est publiée de manière intermédiaire ou en direct : **Identificateur de l'offre**, **Identificateur de l'éditeur** et **SKU de l'identificateur**.
 
 ## Étape 2 : Définir vos tarifs
 ### Modèles de tarification
@@ -83,10 +84,12 @@ Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre p
 3.	Si votre référence SKU est BYOL, cochez la case correspondant à la disponibilité des produits dotés d’une licence externe (« Externally-licensed (BYOL) SKU availability »).
 4.	Si votre produit est payable à l’heure, entrez le prix de votre logiciel. Les références SKU sans prix ne pourront pas être achetées ou utilisées.
 
-  >[AZURE.NOTE] Si vous avez des références SKU BYOL et horaires, veillez à ce que les conditions requises soient remplies pour chacune : case à cocher BYOL et valeurs de prix pour Horaire.
+  > [AZURE.NOTE] Si vous avez des références SKU BYOL et horaires, veillez à ce que les conditions requises soient remplies pour chacune : case à cocher BYOL et valeurs de prix pour Horaire.
 
 5.	Un Assistant de tarification s’ouvre. Complétez-en les étapes pour indiquer vos tarifs, y compris les tarifs pour les autres pays, si vous choisissez d’autoriser les achats en dehors du marché que vous avez spécifié.
 6.	Certains pays sont des pays de remise ISV. Pour vendre dans un pays de remise ISV, vous devez facturer et collecter les taxes sur vos références SKU, puis calculer et payer celles-ci auprès de l’administration fiscale du pays. Microsoft n’est pas en position de fournir des conseils juridiques ou fiscaux. Consultez la section « Pays de vente de l’offre » sous l’introduction de ce document pour en savoir plus sur les pays de vente.
+
+  > [AZURE.NOTE] Pour les machines virtuelles, vous ne pouvez pas modifier ce qui suit une fois qu'une référence SKU est publiée en direct car cela a un impact sur la facturation des clients existants : **Changement de tarification**, **Changement du modèle de facturation** et **Suppression de régions de facturation**.
 
 ### 2\.2. Définir le prix de vos services de développement
 Les offres peuvent constituer une combinaison quelconque de tarifs De base + Consommation, où De base est le tarif mensuel et Dépassement est le tarif à l’utilisation. (Voir détails ci-dessous)
@@ -144,9 +147,9 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 ## Étapes suivantes
 Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
 
-|Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
+||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
 |----|----|----|----|----|
-| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | [Tester votre offre de service de développement dans un environnement intermédiaire] (marketplace-publishing-dev-service-test-in-staging.md) | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Version préliminaire privée | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +163,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

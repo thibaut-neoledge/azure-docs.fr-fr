@@ -2,7 +2,7 @@
    pageTitle="Intégration de Data Lake Store à d'autres services Azure | Azure"
    description="Présentation de l'intégration de Data Lake Store à d'autres services Azure"
    documentationCenter=""
-   services="data-lake-store" 
+   services="data-lake-store"
    authors="nitinme"
    manager="paulettm"
    editor="cgronlun"/>
@@ -32,16 +32,16 @@ Pour savoir comment approvisionner un cluster HDInsight avec Data Lake Store, co
 
 ## Utiliser Data Lake Store avec Azure Data Lake Analytics
 
-[Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-overview.md) vous permet de travailler avec le Big Data à l'échelle du cloud. Il approvisionne dynamiquement des ressources et vous permet d'effectuer des analyses sur des téraoctets, voire des exaoctets, de données stockées dans plusieurs sources de données prises en charge, parmi lesquelles Data Lake Store. Data Lake Analytics est spécialement optimisé pour fonctionner avec Azure Data Lake Store, fournissant ainsi le plus haut niveau de performances, de débit et de parallélisation pour vos charges de travail de Big Data.
+[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) vous permet de travailler avec le Big Data à l'échelle du cloud. Il approvisionne dynamiquement des ressources et vous permet d'effectuer des analyses sur des téraoctets, voire des exaoctets, de données stockées dans plusieurs sources de données prises en charge, parmi lesquelles Data Lake Store. Data Lake Analytics est spécialement optimisé pour fonctionner avec Azure Data Lake Store, fournissant ainsi le plus haut niveau de performances, de débit et de parallélisation pour vos charges de travail de Big Data.
 
-Pour obtenir des instructions sur l'utilisation de Data Lake Analytics avec Data Lake Store, consultez [Prise en main de Data Lake Analytics avec Data Lake Store](data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Pour obtenir des instructions sur l'utilisation de Data Lake Analytics avec Data Lake Store, consultez [Prise en main de Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## Utiliser Data Lake Store avec Azure Data Factory
 
 Vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour recevoir des données à partir de tables Azure, de bases de données SQL Azure, d'Azure SQL DataWarehouse, d'objets Blob Azure Storage et de bases de données locales. Jouissant d'un statut de premier ordre dans l'écosystème Azure, Azure Data Factory peut être utilisé pour orchestrer l'ingestion de données de ces sources vers Azure Data Lake Store.
 
-Pour obtenir des instructions sur l'utilisation d'Azure Data Factory avec Data Lake Store, consultez [Déplacer des données vers et depuis Data Lake Store avec Data Factory](data-factory/data-factory-azure-datalake-connector.md).
+Pour obtenir des instructions sur l'utilisation d'Azure Data Factory avec Data Lake Store, consultez [Déplacer des données vers et depuis Data Lake Store avec Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## Copier des données d’objets blob Azure Storage dans Data Lake Store
 
@@ -54,4 +54,4 @@ Azure Data Lake Store fournit un outil en ligne de commande, AdlCopy, qui vous p
 - [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

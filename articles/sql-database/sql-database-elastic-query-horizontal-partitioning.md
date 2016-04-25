@@ -3,7 +3,7 @@
     description="comment configurer des requêtes élastiques sur les partitions horizontales"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ Une fois votre table externe et votre source de données externe définies, vous
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Procédure stockée SP\_ EXECUTE\_FANOUT 
+### 2\.2 Procédure stockée pour l’exécution de T-SQL à distance
 
-La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée sp\_execute\_fanout et accepte les paramètres suivants :
+La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée sp\_execute\_remote et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte :
+* Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
+* Requête (nvarchar) : requête T-SQL à exécuter sur chaque partition. 
+* Déclaration de paramètre (nvarchar) : facultatif : chaîne contenant des définitions de type de données correspondant aux paramètres utilisés dans le paramètre de requête (par exemple, sp\_executesql). 
+* Liste de valeurs de paramètre : facultative : valeurs de paramètre de liste séparées par des virgules (par exemple, sp\_executesql).
 
-* Nom du serveur (nvarchar) : nom qualifié complet du serveur logique hébergeant le mappage de partition. 
-* Nom de la base de données du mappage de partitions (nvarchar) : nom de la base de données du mappage de partitions. 
-* Nom d’utilisateur (nvarchar) : nom d’utilisateur pour se connecter à la base de données de mappage de partitions. 
-* Mot de passe (nvarchar) : mot de passe de l’utilisateur. 
-* Nom du mappage de partitions (nvarchar) : nom du mappage de partitions à utiliser pour la requête. Le nom se trouve dans la table \_ShardManagement.ShardMapsGlobal. Il s’agit du nom par défaut utilisé lors de la création de bases de données à l’aide de l’exemple d’application disponible dans la rubrique [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md). Le nom par défaut qui se trouve dans l’application est « CustomerIDShardMap ».
-*  Requête : requête T-SQL à exécuter sur chaque partition. 
-*  Déclaration de paramètre (nvarchar) : facultatif : chaîne contenant des définitions de type de données correspondant aux paramètres utilisés dans le paramètre de requête (par exemple, sp\_executesql). 
-*  Liste de valeurs de paramètre : facultative : valeurs de paramètre de liste séparées par des virgules (par exemple, sp\_executesql)  
-
-sp\_execute\_fanout utilise le mappage des informations de partition fourni dans les paramètres d’appel pour exécuter l’instruction T-SQLsur toutes les partitions enregistrées avec le mappage de partitions. Tous les résultats sont fusionnés à l’aide de la syntaxe UNION ALL. Le résultat inclut également la colonne « virtuelle » supplémentaire avec le nom de la partition.
-
-Notez que les mêmes informations d’identification sont utilisées pour se connecter à la base de données de la carte de partitions et aux partitions.
+sp\_execute\_remote utilise la source de données externe fournie dans les paramètres d’appel pour exécuter l’instruction T-SQL donnée sur toutes les bases de données distantes. Il utilise les informations d’identification de la source de données externe pour se connecter à la base de données shardmap et aux bases de données distantes.
 
 Exemple :
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Connectivité des outils  
@@ -241,4 +230,4 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->
