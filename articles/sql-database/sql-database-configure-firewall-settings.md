@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/16/2016"
-	ms.author="rickbyh"/>
+	ms.date="04/12/2016"
+	ms.author="rickbyh;carlrab"/>
 
 
 # Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure
@@ -27,17 +27,11 @@
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [API REST](sql-database-configure-firewall-settings-rest.md)
 
-
 Azure SQL Server utilise des règles de pare-feu pour autoriser les connexions à vos serveurs et bases de données. Vous pouvez définir des paramètres de pare-feu au niveau du serveur et au niveau de la base de données pour la base de données MASTER ou une base de données utilisateur dans votre serveur logique Azure SQL Server pour autoriser l’accès à la base de données de façon sélective.
 
-> [AZURE.IMPORTANT] Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, les connexions Azure doivent être activées. Pour comprendre le fonctionnement des règles de pare-feu, consultez [Pare-feu Azure SQL Database](sql-database-firewall-configure.md). Si vous effectuez des connexions dans la limite du cloud Azure, vous devez peut-être ouvrir des ports TCP supplémentaires. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+> [AZURE.IMPORTANT] Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, les connexions Azure doivent être activées. Pour comprendre le fonctionnement des règles de pare-feu, consultez [Pare-feu Azure SQL Database](sql-database-firewall-configure.md). Si vous effectuez des connexions dans la limite du cloud Azure, vous devez peut-être ouvrir des ports TCP supplémentaires. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-
-### Ajouter une règle de pare-feu au niveau du serveur via le portail Azure
-
-
-[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
-
+[AZURE.INCLUDE [Créer une base de données SQL Database](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Gérer des règles de pare-feu au niveau du serveur existantes via le portail Azure
 
@@ -50,10 +44,9 @@ Répétez les étapes pour gérer les règles de pare-feu au niveau du serveur.
 
 Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-
 ## Étapes suivantes
 
-Une règle de pare-feu du serveur affecte toutes les bases de données SQL sur Azure SQL Server. Pour configurer une règle de pare-feu au niveau de la base de données qui n’affectera qu’une seule base de données, consultez [sp\_set\_firewall\_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270017.aspx").
+Une règle de pare-feu du serveur affecte toutes les bases de données SQL sur Azure SQL Server. Pour configurer une règle de pare-feu au niveau de la base de données qui n’affectera qu’une base de données unique, consultez [sp\_set\_database\_firewall\_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx").
 
 Pour consulter un didacticiel sur la création d’une base de données, voir [Création de votre première base de données SQL Azure](sql-database-get-started.md). Pour obtenir de l’aide pour vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Instructions de connexion par programmation à Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer les bases de données et les connexions dans Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,4 +57,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

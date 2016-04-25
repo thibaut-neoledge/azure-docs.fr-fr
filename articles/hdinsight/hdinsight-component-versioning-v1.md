@@ -59,7 +59,7 @@ Si vous utilisez l’option **Création rapide**, vous obtenez la version 3.1 d
 ##Présentation des fonctionnalités
 Les caractéristiques principales de la plateforme HDInsight sont notamment les suivantes :
 
-- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
+- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
 
 	Spark permet également d'effectuer des opérations standard de traitement des données sur disque. En évitant les écritures sur disque lors des étapes intermédiaires, Spark améliore l’infrastructure MapReduce traditionnelle. En outre, Spark est compatible avec le système HDFS (Hadoop Distributed File System) et le stockage d’objets blob Azure ; les données existantes peuvent dont être traitées facilement via Spark.
 
@@ -68,7 +68,7 @@ Les caractéristiques principales de la plateforme HDInsight sont notamment les 
 
 - **Storm** - Storm sur Azure HDInsight est désormais disponible. Cette fonction permet de déployer rapidement et simplement des analyses en temps réel en quelques clics et en quelques minutes. Apache Storm sur Azure HDInsight est un projet open source dans l’écosystème Apache Hadoop qui permet d’accéder à une plateforme d’analyse capable de traiter de manière fiable des millions d’événements. Dorénavant, les utilisateurs de Hadoop peuvent interpréter les données en temps réel, tout en disposant des analyses d’événements passés. Microsoft a également ajouté une intégration avec Visual Studio, facilitant ainsi l’interaction des développeurs avec Storm. Vous pouvez maintenant développer, déployer et déboguer les topologies Storm à partir de Visual Studio.
 
-- **HDInsight sur Linux** : Azure HDInsight fournit l'option d'approvisionnement des clusters Hadoop qui s'exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez approvisionner un cluster HDInsight sur Linux à partir d’un ordinateur client fonctionnant sous Windows ou Linux à l’aide du portail Azure Classic, de l’interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
+- **HDInsight sur Linux** : Azure HDInsight fournit l'option d'approvisionnement des clusters Hadoop qui s'exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez approvisionner un cluster HDInsight sur Linux à partir d’un ordinateur client fonctionnant sous Windows ou Linux à l’aide du portail Azure Classic, de l’interface de ligne de commande Azure ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
 
 - **Tailles des machines virtuelles supplémentaires** - Les clusters HDInsight sont désormais disponibles sur plusieurs tailles et types de machines virtuelles. Les clusters HDInsight peuvent à présent utiliser des tailles A2 à A7 conçues pour un usage général ; des nœuds de série D possédant des disques SSD et des processeurs 60 % plus rapides ; et des tailles A8 et A9 prenant en charge InfiniBand pour une mise en réseau rapide. Les clients Apache HBase sur Azure HDInsight peuvent tirer parti de configurations supérieures au niveau de la mémoire de série D pour augmenter les performances. Les clients Apache Storm sur Azure HDInsight peuvent également bénéficier d’une mémoire supplémentaire pour le chargement des jeux de données de référence plus volumineux, ainsi que de processeurs plus rapides pour augmenter le débit.
 
@@ -105,7 +105,14 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
 * Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure Classic. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
-<table border="1"> <tr><th>Version HDInsight</th><th>Version HDP</a><th>Haute disponibilité</th></th><th>Date de publication</th><th>Disponible sur le portail Azure Classic</th><th>Date d’expiration de la prise en charge</th><th>Date d’obsolescence</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Oui</td><td>18/02/2015</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Oui</td><td>24/06/2014</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Oui</td><td>11/02/2014</td><td>Oui</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Oui</td><td>28/10/2013</td><td>Non</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Non</td><td>28/10/2013</td><td>Non</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+<table border="1">
+<tr><th>Version de HDInsight</th><th>Version de HDP</a><th>Haute disponibilité</th></th><th>Date de lancement</th><th>Disponible sur le portail Azure Classic</th><th>Date d'expiration du support</th><th>Date d'obsolescence</th></tr>
+<tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Oui</td><td>2/18/2015</td><td>Oui</td><td></td><td></td></tr>
+<tr><td>HDI 3,1</td><td>HDP 2,1</td><td>Oui</td><td>6/24/2014</td><td>Oui</td><td></td><td></td></tr>
+<tr><td>HDI 3,0</td><td>HDP 2,0</td><td>Oui</td><td>02/11/2014</td><td>Oui</td><td>09/17/2014</td><td>06/30/2015</td></tr>
+<tr><td>HDI 2,1</td><td>HDP 1,3</td><td>Oui</td><td>10/28/2013</td><td>Non</td><td>05/12/2014</td><td>05/31/2015</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Non</td><td>10/28/2013</td><td>Non</td><td>04/26/2014</td><td>05/31/2015</td></tr>
+</table><br>
 
 **Déploiement des clusters autres que les clusters par défaut**
 
@@ -120,7 +127,7 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 
 La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight.
 
-> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
+> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services/cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
@@ -160,4 +167,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

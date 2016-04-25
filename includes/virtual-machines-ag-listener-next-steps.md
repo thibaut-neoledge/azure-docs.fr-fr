@@ -2,6 +2,6 @@ Outre la connexion automatique des clients au réplica principal, un écouteur p
 
 >[AZURE.NOTE] Pour obtenir des conseils de dépannage sur les écouteurs Azure, consultez [Dépannage de l’écouteur du groupe de disponibilité dans Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) sur le [blog](http://blogs.msdn.com/b/alwaysonpro/) de l’équipe de Support AlwaysOn.
 
-Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

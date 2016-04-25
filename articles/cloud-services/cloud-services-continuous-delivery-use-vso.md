@@ -32,7 +32,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 ## Étape 2 : archivage d'un projet dans le contrôle de code source
 
-1. Dans Visual Studio, ouvrez la solution à déployer, ou créez-en une. Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Si vous voulez créer une solution, créez un projet de service cloud Azure ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**. Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](/app-service-web/web-sites-dotnet-get-started.md).
+1. Dans Visual Studio, ouvrez la solution à déployer, ou créez-en une. Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Si vous voulez créer une solution, créez un projet de service cloud Azure ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**. Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] Actuellement, Visual Studio Team Services ne prend en charge que les déploiements CI des applications web Visual Studio. Les projets de site web n’entrent pas dans ce cadre.
 
@@ -134,7 +134,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés pour la publication Azure se trouvent dans la section **Déploiement**.
 
-	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
+	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
 
 	|Propriété|Valeur par défaut|
 	|---|---|
@@ -264,7 +264,7 @@ Cette étape s'applique uniquement aux applications Web, et non aux services clo
 	![][50]
 
 ## Étapes suivantes
-Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu à l'aide de GIT dans Azure App Service](/app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu à l'aide de GIT dans Azure App Service](../app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -317,4 +317,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

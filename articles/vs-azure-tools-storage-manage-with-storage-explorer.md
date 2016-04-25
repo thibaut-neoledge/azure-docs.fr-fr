@@ -158,7 +158,7 @@ Pour contrôler l’accès aux conteneurs d’objets blob, vous pouvez choisir l
 	![][20]
 
 ## Étapes suivantes
-En savoir plus sur les fonctionnalités dans les services Azure Storage en lisant les articles de la page [Introduction à Microsoft Azure Storage](/storage/storage-introduction.md).
+En savoir plus sur les fonctionnalités dans les services Azure Storage en lisant les articles de la page [Introduction à Microsoft Azure Storage](./storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ En savoir plus sur les fonctionnalités dans les services Azure Storage en lisan
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

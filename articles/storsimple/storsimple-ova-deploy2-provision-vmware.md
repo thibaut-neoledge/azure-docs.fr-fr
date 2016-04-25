@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="04/12/2016"
    ms.author="alkohli"/>
 
 
@@ -33,7 +33,7 @@ Vous trouverez ici les conditions requises pour configurer un appareil virtuel s
 
 ### Pour le service StorSimple Manager
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
@@ -57,9 +57,9 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 
 ### Pour le réseau dans le centre de données 
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
--   Vous avez passé en revue la configuration réseau requise pour déployer un appareil virtuel StorSimple et configuré le réseau du centre de données conformément à la configuration requise. Pour plus d'informations, consultez le Guide des spécifications système Microsoft Azure StorSimple Virtual Array.
+-   Vous avez passé en revue la configuration réseau requise pour déployer un appareil virtuel StorSimple et configuré le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
 ## Configuration étape par étape 
 
@@ -91,7 +91,9 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
 Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
-1.  Copiez l'image de l’appareil virtuel sur votre système. Il s'agit de l'image que vous avez téléchargée via le portail Azure Classic. Prenez note de l'emplacement où vous avez copié l'image car vous l’utiliserez plus loin dans la procédure.
+1.  Copiez l'image de l’appareil virtuel sur votre système. Il s'agit de l'image que vous avez téléchargée via le portail Azure Classic. 
+	1.  Vérifiez qu’il s’agit de l’image la plus récente que vous avez téléchargée. Si vous avez téléchargé l’image précédemment, téléchargez-la à nouveau pour être certain d’avoir l’image la plus récente. La dernière image comprend deux fichiers (au lieu d’un).
+	2.  Prenez note de l'emplacement où vous avez copié l'image car vous l’utiliserez plus loin dans la procédure.
 
 2.  Connectez-vous au serveur ESXi à l'aide du client vSphere. Vous devez disposer de privilèges d'administrateur pour créer une machine virtuelle.
 
@@ -113,39 +115,41 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image5.png)
 
-1.  Une fenêtre **Navigateur de magasins de données** s'affiche.
+1.  Une fenêtre **Navigateur de magasins de données** s’ouvre.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
 
-1.  Dans la barre d'outils, cliquez sur l’icône ![](./media/storsimple-ova-deploy2-provision-vmware/image7.png) pour créer un nouveau dossier. Spécifiez et notez le nom du dossier. Vous utiliserez ce nom de dossier plus tard lors de la création d'une machine virtuelle (recommandée). Cliquez sur **OK**.
+1.  Dans la barre d’outils, cliquez sur l’icône ![](./media/storsimple-ova-deploy2-provision-vmware/image7.png) pour créer un dossier. Spécifiez et notez le nom du dossier. Vous utiliserez ce nom de dossier plus tard lors de la création d'une machine virtuelle (recommandée). Cliquez sur **OK**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
 
-1.  Le nouveau dossier s'affiche dans le panneau gauche du **Navigateur de magasins de données**.
+1.  Le nouveau dossier s’affiche dans le panneau gauche du **Navigateur de magasins de données**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
 
-1.  Cliquez sur l'icône de chargement ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) et sélectionnez **Charger un fichier**.
+1.  Cliquez sur l’icône de chargement ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) et sélectionnez **Charger un fichier**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
-1.  Vous devez maintenant rechercher et sélectionner le fichier VMDK que vous avez téléchargé.
+1.  Vous devez maintenant rechercher et sélectionner les fichiers VMDK que vous avez téléchargés. Deux fichiers sont disponibles. Sélectionnez un fichier à télécharger.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image12.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  Cliquez sur **Ouvrir**. Ceci démarrera le téléchargement du fichier VMDK vers le magasin de données spécifié.
+1.  Cliquez sur **Ouvrir**. Ceci démarrera le téléchargement du fichier VMDK vers le magasin de données spécifié. Le téléchargement du fichier peut prendre plusieurs minutes.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image13.png)
 
-1.  Le téléchargement du fichier peut prendre plusieurs minutes. Une fois le téléchargement terminé, le fichier apparaît dans le magasin de données, dans le dossier que vous avez créé.
+1.  Une fois le téléchargement terminé, le fichier apparaît dans le magasin de données, dans le dossier que vous avez créé.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+
+	Vous devez maintenant télécharger le deuxième fichier VMDK dans le même magasin de données.
 
 1.  Revenez à la fenêtre du client vSphere. Sélectionnez le serveur ESXi, cliquez avec le bouton droit et choisissez **Nouvelle machine virtuelle**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Suivant**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Une fenêtre **Créer une machine virtuelle** s'affiche. Sur la page **Configuration**, sélectionnez l’option **Personnalisé**. Cliquez sur **Suivant**.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  Sur la page **Nom et emplacement**, spécifiez le nom de votre machine virtuelle. Ce nom doit correspondre au nom du dossier (recommandé) que vous avez spécifié à l'étape 8.
 
@@ -155,11 +159,11 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  Sur la page **Version de la machine virtuelle**, sélectionnez **Version de la machine virtuelle : 8**. Notez qu’il s’agit de la seule option prise en charge pour cette version.
+1.  Sur la page **Version de la machine virtuelle**, sélectionnez **Version de la machine virtuelle : 8**. Notez que les versions 8 à 11 sont toutes prises en charge.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
-1.  Sur la page **Système d'exploitation invité**, sélectionnez le **Système d'exploitation invité** **Windows**. Comme **Version**, sélectionnez **Microsoft Windows Server 2012 (64 bits)** dans la liste déroulante.
+1.  Sur la page **Système d'exploitation invité**, sélectionnez le **système d'exploitation invité** **Windows**. Pour **Version**, dans la liste déroulante, sélectionnez **Microsoft Windows Server 2012 (64 bits)**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
@@ -183,7 +187,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  Sur la page **Sélectionner un disque existant** sous **Chemin d'accès du fichier de disque**, cliquez sur **Parcourir**. Cette opération ouvre une boîte de dialogue **Parcourir les magasins de données**. Naviguez jusqu'à l'emplacement où vous avez téléchargé le fichier VMDK. Sélectionnez le fichier et cliquez sur **OK**. Cliquez sur **Next**.
+1.  Sur la page **Sélectionner un disque existant** sous **Chemin d'accès du fichier de disque**, cliquez sur **Parcourir**. Cette opération ouvre une boîte de dialogue **Parcourir les magasins de données**. Naviguez jusqu'à l'emplacement où vous avez téléchargé le fichier VMDK. Le magasin de données inclut désormais un seul fichier, car les deux fichiers que vous avez téléchargés au départ ont été fusionnés. Sélectionnez le fichier et cliquez sur **OK**. Cliquez sur **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
@@ -191,19 +195,19 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
 
-1.  Sur la page **Prêt à finaliser**, passez en revue tous les paramètres associés à la nouvelle machine virtuelle. Cochez la case **Modifier les paramètres de la machine virtuelle avant de finaliser**. Cliquez sur **Continuer**.
+1.  Sur la page **Prêt à finaliser**, passez en revue tous les paramètres associés à la nouvelle machine virtuelle. cochez la case **Modifier les paramètres de la machine virtuelle avant de finaliser**. Cliquez sur **Continuer**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
 
-1.  Sur la page **Propriétés des machines virtuelles**, dans l’onglet **Matériel**, localisez le matériel du périphérique. Sélectionnez **Nouveau disque dur**. Cliquez sur **Ajouter**.
+1.  Sur la page **Propriétés des machines virtuelles**, dans l’onglet **Matériel**, localisez le matériel du périphérique. Sélectionnez **Nouveau disque dur**. Cliquez sur **Add**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  Cette opération affiche la fenêtre **Ajout de matériel**. Sur la page **Type d'appareil**, sous **Choisir le type d’appareil à ajouter**, sélectionnez **Disque dur**, puis cliquez sur **Suivant**.
+1.  Cette opération affiche la fenêtre **Ajout de matériel**. Sur la page **Type d'appareil**, sous **Choisir le type d’appareil à ajouter**, sélectionnez **Disque**, puis cliquez sur **Suivant**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
-1.  Sur la page **Sélectionner un disque**, choisissez **Créer un nouveau disque virtuel**. Cliquez sur **Next**.
+1.  Sur la page **Sélectionner un disque**, choisissez **Créer un disque virtuel**. Cliquez sur **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
 
@@ -223,7 +227,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
   
 	![](./media/storsimple-ova-deploy2-provision-vmware/image35.png)
 
-2.  Sélectionnez votre machine virtuelle dans le panneau droit, puis accédez à l’onglet **Résumé**. Passez en revue les paramètres de votre machine virtuelle.
+2.  Sélectionnez votre machine virtuelle dans le volet droit, puis accédez à l’onglet **Résumé**. Passez en revue les paramètres de votre machine virtuelle.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image36.png)
 
@@ -235,7 +239,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 #### Pour démarrer l’appareil virtuel
 
-1.  Démarrez l’appareil virtuel. Dans le volet gauche du Gestionnaire de Configuration vSphere, sélectionnez votre appareil et cliquez avec le bouton droit pour afficher le menu contextuel. Sélectionnez **Alimentation** puis **Mise sous tension**. Cette opération met votre machine virtuelle sous tension. Vous pouvez afficher l'état de l’opération dans le panneau inférieur **Tâches récentes** du client vSphere.
+1.  Démarrez l’appareil virtuel. Dans le volet gauche du Gestionnaire de Configuration vSphere, sélectionnez votre appareil et cliquez avec le bouton droit pour afficher le menu contextuel. Sélectionnez **Alimentation** puis **Mise sous tension**. Cette opération met votre machine virtuelle sous tension. Vous pouvez afficher l'état de l’opération dans le volet inférieur **Tâches récentes** du client vSphere.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
 
@@ -247,7 +251,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image39.png)
 
-1.  Entrez un mot de passe contenant au moins 8 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux. Entrez de nouveau le mot de passe pour le confirmer. Un message vous avertit que le mot de passe a été modifié.
+1.  Entrez un mot de passe contenant au moins 8 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux. Entrez de nouveau le mot de passe pour le confirmer. Un message vous avertit que le mot de passe a été modifié.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image40.png)
 
@@ -265,7 +269,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
+1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -291,7 +295,7 @@ Si votre périphérique ne répond pas à la configuration minimale requise, une
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-Si vous rencontrez une autre erreur lors de la configuration initiale à l’aide de l’interface utilisateur web locale, reportez-vous aux flux de travail suivants dans la rubrique concernant la [gestion de votre StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
+Si vous rencontrez une autre erreur lors de la configuration initiale à l’aide de l’interface utilisateur web locale, reportez-vous aux flux de travail suivants dans la rubrique concernant la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
 -   Exécutez les tests de diagnostic pour [dépanner la configuration de l’interface utilisateur web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -303,4 +307,4 @@ Si vous rencontrez une autre erreur lors de la configuration initiale à l’aid
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

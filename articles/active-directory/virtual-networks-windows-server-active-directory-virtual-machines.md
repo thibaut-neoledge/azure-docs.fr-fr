@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -33,8 +33,8 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 ## Articles Comment
 
 - [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md)
-- [Installer un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](../virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Configuration d’un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Installer un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Configuration d’un environnement de cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 ## Ressources supplémentaires
@@ -47,4 +47,4 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

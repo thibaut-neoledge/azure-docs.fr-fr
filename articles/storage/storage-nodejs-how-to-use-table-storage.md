@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/08/2016"
 	ms.author="micurd"/>
 
 
@@ -75,7 +75,7 @@ Pour obtenir un exemple de configuration des variables d’environnement dans le
 
 ## Création d'une table
 
-Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
+Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
 
 	var tableSvc = azure.createTableService();
 
@@ -101,7 +101,7 @@ Après le prétraitement des options de la requête, la méthode doit appeler «
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **TableService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **TableService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableSvc = azure.createTableService().withFilter(retryOperations);
@@ -110,9 +110,9 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 
 Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l'entité.
 
-* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée
+* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée
 
-* **RowKey** : identifie de façon unique l’entité dans la partition
+* **RowKey** : identifie de façon unique l’entité dans la partition
 
 **PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -159,15 +159,15 @@ Exemple de réponse :
 
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **replaceEntity** : met à jour une entité existante en la remplaçant
+* **replaceEntity** : met à jour une entité existante en la remplaçant
 
-* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
+* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
 
-* **insertOrReplaceEntity** : met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
+* **insertOrReplaceEntity** : met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 
-* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
+* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
 
-L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntity** :
+L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntity** :
 
 	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
 	  if(!error) {
@@ -225,15 +225,15 @@ Pour les opérations de traitement par lot réussies, `result` contient les info
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations :
 
-* **clear** : permet de supprimer toutes les opérations d’un lot
+* **clear** : permet de supprimer toutes les opérations d’un lot
 
-* **getOperations** : permet d’obtenir une opération du lot
+* **getOperations** : permet d’obtenir une opération du lot
 
-* **hasOperations** : permet de renvoyer true si le lot contient des opérations
+* **hasOperations** : permet de renvoyer true si le lot contient des opérations
 
-* **removeOperations** : permet de supprimer une opération
+* **removeOperations** : permet de supprimer une opération
 
-* **size** : permet de renvoyer le nombre d’opérations du lot
+* **size** : permet de renvoyer le nombre d’opérations du lot
 
 ## Récupération d'une entité par clé
 
@@ -251,15 +251,15 @@ Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **
 
 Pour interroger une table, utilisez l’objet **TableQuery** pour générer une expression de requête en utilisant les clauses suivantes :
 
-* **select** : champs à renvoyer par la requête
+* **select** : champs à renvoyer par la requête
 
-* **where** : clause where
+* **where** : clause where
 
-	* **and** : condition where `and`
+	* **and** : condition where `and`
 
-	* **or** : condition where `or`
+	* **or** : condition where `or`
 
-* **top** : nombre d’éléments à extraire
+* **top** : nombre d’éléments à extraire
 
 
 L’exemple suivant crée une requête qui renvoie les cinq premiers éléments avec une PartitionKey « hometasks ».
@@ -442,4 +442,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec le service de Table Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

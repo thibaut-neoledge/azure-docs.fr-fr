@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Niveaux de performances dans DocumentDB
@@ -97,23 +97,23 @@ Il est recommandé que votre application utilise un petit nombre de collections 
 
 ## Modification des niveaux de performances à l’aide du portail Azure
 
-Le portail Azure est une option qui est mise à votre disposition lorsque vous gérez les niveaux de performances de vos collections. Pour modifier le niveau de performances d’une collection à partir du portail Azure Classic, procédez comme suit.
+Le portail Azure est une option qui est mise à votre disposition lorsque vous gérez les niveaux de performances de vos collections. Suivez ces étapes pour passer de l’utilisation de niveaux de performances prédéfinis à l’utilisation de niveaux de performances définis par l’utilisateur dans le portail Azure ou regardez la [vidéo Channel 9](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance) de 75 secondes. Pour plus d’informations sur la modification des options de tarification, consultez le billet de blog [DocumentDB : tout ce que vous devez savoir sur l’utilisation des nouvelles options de tarification](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
-1. Accédez au [**portail Microsoft Azure**](https://portal.azure.com) depuis votre navigateur.
+1. Accédez au [**portail Azure**](https://portal.azure.com) à partir de votre navigateur.
 2. Dans la barre d’index de gauche, cliquez sur **Parcourir**.
 3. Dans le hub **Parcourir**, cliquez sur **Comptes DocumentDB** sous l’étiquette **Filtrer par**.
 4. Dans le panneau **Comptes DocumentDB**, cliquez sur le compte DocumentDB qui contient la collection souhaitée.
 5. Faites défiler le panneau **Compte DocumentDB** vers le bas jusqu’au filtre **Bases de données**, puis cliquez sur la base de données qui contient la collection souhaitée. 
 6. Faites défiler le panneau **Base de données** récemment ouvert vers le bas jusqu’au filtre **Collections**, puis sélectionnez la collection souhaitée.
-7. Dans le panneau **Gérer la collection**, cliquez sur **Niveau tarifaire**.
+7. Dans le panneau **Gérer la collection**, cliquez sur **Niveau de tarification**.
 
     ![Capture d’écran des panneaux Gérer la collection et Choisir votre niveau tarifaire pour Azure DocumentDB montrant où modifier le niveau tarifaire de la collection][1]
 
-8. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**
+8. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
 
-9. Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Sélectionner**
+9. Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Sélectionner**.
 
-10. De retour dans le panneau **Gérer la collection**, le **Niveau tarifaire** est passé à **Standard** et la zone **Débit (UR/s)** s’est affichée.
+10. De retour dans le panneau **Gérer la collection**, le **Niveau de tarification** est passé à **Standard** et la zone **Débit (UR/s)** s’est affichée.
 
     Remplacez la valeur de la zone **Débit** par une valeur comprise entre 400 et 10 000 [unités de requête](documentdb-request-units.md)/seconde (UR/s). Le **Résumé de la tarification** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel.
 
@@ -127,7 +127,7 @@ Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 0
 
 ## Modification des niveaux de performances à l’aide du Kit SDK .NET
 
-Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit SDK .NET, visitez notre [didacticiel de prise en main](documentdb-get-started.md).
+Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit de développement logiciel (SDK) .NET, visitez notre [didacticiel de mise en route](documentdb-get-started.md).
 
 Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités de demande par seconde :
 
@@ -176,4 +176,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.m
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

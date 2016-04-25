@@ -2,16 +2,17 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à TeamSeer | Microsoft Azure" 
     description="Découvrez comment utiliser TeamSeer avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à TeamSeer
   
@@ -106,7 +107,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la page **Configurer l’authentification unique sur TeamSeer** du portail Azure, copiez la valeur de **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL**.
     2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate**.
 
@@ -146,7 +147,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être appro
 
 4.  Suivez les instructions à l’écran pour ajouter un nouvel utilisateur, puis cliquez sur **Finish**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TeamSeer, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TeamSeer, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -166,4 +167,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

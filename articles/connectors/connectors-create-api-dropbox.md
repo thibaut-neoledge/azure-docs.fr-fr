@@ -19,25 +19,25 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API Dropbox 
-Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers. L’API Dropbox peut être utilisée à partir de :
+Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers. L’API Dropbox peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-dropbox.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 &nbsp;
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
 
-Avec Dropbox, vous pouvez effectuer les opérations suivantes :
+Avec Dropbox, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Dropbox. 
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans Dropbox, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
+- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans Dropbox, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
 - Ajouter l’API Dropbox à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
@@ -65,7 +65,7 @@ Après avoir créé la connexion, vous entrez les propriétés Dropbox, telles q
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Dropbox dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier    
 Charge un fichier sur Dropbox. ```POST: /datasets/default/files```
@@ -104,7 +104,7 @@ Copie un fichier vers Dropbox. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |URL du fichier source|
 |destination|string|yes|query| (aucun)|Chemin de destination du fichier dans Dropbox, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -134,7 +134,7 @@ Extrait un fichier d’archive dans un dossier de Dropbox (exemple : .zip). **``
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin dans Dropbox indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -158,7 +158,7 @@ Récupère le contenu d’un fichier de Dropbox à partir de son identifiant. ``
 
 
 ### Obtenir le contenu d’un fichier à l’aide du chemin    
-Récupère le contenu d’un fichier de Dropbox à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier de Dropbox à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -186,7 +186,7 @@ Récupère les métadonnées d’un fichier de Dropbox à l’aide de son identi
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide du chemin    
-Récupère les métadonnées d’un fichier de Dropbox à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier de Dropbox à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -272,9 +272,9 @@ Déclenche un flux quand un fichier est modifié dans un dossier Dropbox. ```GET
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Revenir à la [liste des API](apis-list.md).
+Revenir à la [liste des API](apis-list.md)
 
 
 <!--References-->
@@ -286,4 +286,4 @@ Revenir à la [liste des API](apis-list.md).
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

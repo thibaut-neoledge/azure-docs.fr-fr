@@ -3,8 +3,8 @@
 	description="Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer considérablement la rapidité et l’évolutivité de vos applications de base de données SQL Azure. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,15 +15,15 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="02/04/2016"
-	ms.author="jroth" />
+	ms.author="carlrab" />
 
 # Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
 Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
 
-**Auteurs** : Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
+**Auteurs** : Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
 
-**Réviseurs** : Conor Cunningham, Michael Thomassy
+**Réviseurs** : Conor Cunningham, Michael Thomassy
 
 ## Pourquoi le traitement par lots est-il important pour une base de données SQL ?
 L’envoi d’appels de traitement par lots sur un service distant constitue une stratégie réputée pour améliorer les performances et l’évolutivité. Toute interaction avec un service distant, notamment la sérialisation, le transfert réseau et la désérialisation, entraîne des coûts de traitement fixes. L’empaquetage de plusieurs transactions distinctes dans un seul lot contribue à réduire ces coûts.
@@ -89,7 +89,7 @@ Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier
 
 Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (à l’ouest des États-Unis). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
-**Local vers Azure** :
+**Local vers Azure** :
 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 |---|---|---|
@@ -99,7 +99,7 @@ Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont
 | 1 000 | 128 852 | 102 917 |
 
 
-**Azure vers Azure (même centre de données)** :
+**Azure vers Azure (même centre de données)** :
 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 |---|---|---|
@@ -604,4 +604,4 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 
 Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

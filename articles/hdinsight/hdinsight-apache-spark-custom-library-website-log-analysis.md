@@ -14,45 +14,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 # Analyse des journaux dans HDInsight Spark à l'aide d'une bibliothèque personnalisée (Linux)
 
 Ce bloc-notes montre comment analyser les données de journal à l'aide d'une bibliothèque personnalisée avec Spark sur HDInsight. La bibliothèque personnalisée que nous utilisons est une bibliothèque Python appelée **iislogparser.py**.
 
-> [AZURE.TIP] Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface de bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour effectuer le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Analyse des journaux avec Spark à l’aide d’une bibliothèque personnalisée au format .ipynb** sous le dossier **PySpark**.
+> [AZURE.TIP] Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface de bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour effectuer le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Analyse des journaux avec Spark à l’aide d’une bibliothèque personnalisée au format .ipynb** sous le dossier **PySpark**.
 
-**Configuration requise :**
+**Configuration requise :**
 
-Vous devez disposer des éléments suivants :
+Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Enregistrer des données brutes en tant que RDD
 
-Dans cette section, nous utilisons le bloc-notes [Jupyter](https://jupyter.org) associé à un cluster Apache Spark dans HDInsight pour exécuter les travaux traitant vos exemples de données brutes et les enregistrer dans une table Hive. L’exemple de données est un fichier .csv (hvac.csv), qui est disponible par défaut sur tous les clusters.
+Dans cette section, nous utilisons le bloc-notes [Jupyter](https://jupyter.org) associé à un cluster Apache Spark dans HDInsight pour exécuter les travaux traitant vos exemples de données brutes et les enregistrer dans une table Hive. L’exemple de données est un fichier .csv (hvac.csv), qui est disponible par défaut sur tous les clusters.
 
-Une fois vos données enregistrées dans une table Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
+Une fois vos données enregistrées dans une table Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
-2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
 	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
+2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
 	![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
 
-3. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
+3. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark, Hive et SQL sont créés automatiquement lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 
 		from pyspark.sql import Row
@@ -69,7 +69,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 		logs.take(5)
 
-	Le résultat doit ressembler à ce qui suit :
+	Le résultat doit ressembler à ce qui suit :
 
 		# -----------------
 		# THIS IS AN OUTPUT
@@ -91,7 +91,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-9. `iislogparser` fournit une fonction `parse_log_line` qui retourne `None` si une ligne de journal est une ligne d'en-tête et retourne une instance de la classe `LogLine` si elle rencontre une ligne de journal. Utilisez la classe `LogLine` pour extraire uniquement les lignes de journal du RDD :
+9. `iislogparser` fournit une fonction `parse_log_line` qui retourne `None` si une ligne de journal est une ligne d'en-tête et retourne une instance de la classe `LogLine` si elle rencontre une ligne de journal. Utilisez la classe `LogLine` pour extraire uniquement les lignes de journal du RDD :
 
 		def parse_line(l):
 		    import iislogparser
@@ -103,7 +103,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 		logLines.take(2)
 
-	Le résultat doit ressembler à ce qui suit :
+	Le résultat doit ressembler à ce qui suit :
 
 		# -----------------
 		# THIS IS AN OUTPUT
@@ -121,7 +121,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		print 'There are', numErrors, 'errors and', numLines, 'log entries'
 		errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
-	Un résultat similaire à ce qui suit s’affiche normalement :
+	Un résultat similaire à ce qui suit s’affiche normalement :
 
 		# -----------------
 		# THIS IS AN OUTPUT
@@ -129,7 +129,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 		There are 30 errors and 646 log entries
 
-12. **Matplotlib** permet également de construire une visualisation des données. Par exemple, si vous souhaitez isoler la cause des requêtes qui s'exécutent pendant une longue période, il se peut que vous souhaitiez trouver les fichiers qui mettent le plus de temps à répondre en moyenne. L’extrait de code ci-dessous récupère les 25 ressources qui mettent le plus de temps à répondre à une requête.
+12. **Matplotlib** permet également de construire une visualisation des données. Par exemple, si vous souhaitez isoler la cause des requêtes qui s'exécutent pendant une longue période, il se peut que vous souhaitiez trouver les fichiers qui mettent le plus de temps à répondre en moyenne. L’extrait de code ci-dessous récupère les 25 ressources qui mettent le plus de temps à répondre à une requête.
 
 		def avgTimeTakenByKey(rdd):
 		    return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -139,7 +139,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		    
 		avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
 
-	Un résultat similaire à ce qui suit s’affiche normalement :
+	Un résultat similaire à ce qui suit s’affiche normalement :
 
 		# -----------------
 		# THIS IS AN OUTPUT
@@ -188,7 +188,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 	La méthode magique `%%sql` suivie par `-o averagetime` garantit que le résultat de la requête est conservé localement sur le serveur Jupyter (généralement le nœud principal du cluster). Le résultat est conservé sous forme d’un tableau de données [Pandas](http://pandas.pydata.org/) avec le nom spécifié **averagetime**.
 
-	Un résultat similaire à ce qui suit s’affiche normalement :
+	Un résultat similaire à ce qui suit s’affiche normalement :
 
 	![Sortie de requête SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Sortie de requête SQL")
 
@@ -204,7 +204,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		plt.xlabel('Time (min)')
 		plt.ylabel('Average time taken for request (ms)')
 
-	Un résultat similaire à ce qui suit s’affiche normalement :
+	Un résultat similaire à ce qui suit s’affiche normalement :
 
 	![Sortie Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Sortie Matplotlib")
 
@@ -214,17 +214,17 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 ## <a name="seealso"></a>Voir aussi
 
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scénarios
 
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### Création et exécution d’applications
 
@@ -242,6 +242,6 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 ### Gérer des ressources
 
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

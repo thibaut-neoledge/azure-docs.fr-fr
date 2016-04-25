@@ -3,8 +3,8 @@
    description="Cette page décrit certaines limitations générales de la base de données SQL Azure, ainsi que les zones d’interopérabilité et de prise en charge."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.date="04/11/2016"
+   ms.author="carlrab" />
 
 # Consignes et limitations générales de base de données SQL Azure
 
@@ -59,8 +59,8 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour des informations sur la sécurité, consultez [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md).
 
-- Un autre domaine connexe entoure la compatibilité de la base de données SQL Azure avec les versions locales de SQL Server, comme SQL Server 2014. La dernière version (V12) de la base de données SQL Azure a introduit de nombreuses améliorations dans ce domaine. Pour plus d'informations, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md).
+- Un autre domaine connexe entoure la compatibilité de la base de données SQL Azure avec les versions locales de SQL Server, comme SQL Server 2014 et SQL Server 2016. La dernière version (V12) de la base de données SQL Azure a introduit de nombreuses améliorations dans ce domaine. Pour plus d'informations, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md).
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

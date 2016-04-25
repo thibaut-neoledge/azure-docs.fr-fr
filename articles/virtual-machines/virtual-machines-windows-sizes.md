@@ -17,10 +17,10 @@ ms.service="virtual-machines-windows"
  ms.date="04/04/2016"
  ms.author="cynthn"/>
 
-# Tailles des machines virtuelles Windows dans Azure
+# Tailles des machines virtuelles dans Azure
 
-Cet article décrit les tailles et options disponibles pour les machines virtuelles Windows que vous pouvez utiliser pour exécuter vos applications et charges de travail. Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources. Pour plus d'informations sur la tarification des différentes tailles, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/). Si vous souhaitez obtenir des informations sur les machines virtuelles Linux, consultez l’article [Tailles des machines virtuelles Linux dans Azure](virtual-machines-linux-sizes.md).
+Cet article décrit les tailles et options disponibles pour les machines virtuelles Azure que vous pouvez utiliser pour exécuter vos applications et charges de travail Windows. Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources. Pour plus d'informations sur la tarification des différentes tailles, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Cet article est également disponible pour les [machines virtuelles Linux](virtual-machines-linux-sizes.md).
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

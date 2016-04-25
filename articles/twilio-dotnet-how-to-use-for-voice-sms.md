@@ -1,24 +1,20 @@
-<properties 
-	pageTitle="Utilisation de Twilio pour les fonctionnalités vocales et de SMS (.NET) | Microsoft Azure" 
-	description="Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="Utilisation de Twilio pour les fonctionnalités vocales et de SMS (.NET) | Microsoft Azure"
+	description="Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET."
+	services=""
+	documentationCenter=".net"
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="devinrader"/>
-
-
-
-
 
 # Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 
@@ -44,16 +40,16 @@ L'API utilise les verbes Twilio ; par exemple, le verbe **&lt;Say&gt;** (Dire) 
 
 La liste suivante présente les verbes Twilio. Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language](http://www.twilio.com/docs/api/twiml).
 
-* **&lt;Dial&gt;** : connecte l'appelant à un autre téléphone.
-* **&lt;Gather&gt;** : rassemble les chiffres numériques entrés sur le clavier du téléphone.
-* **&lt;Hangup&gt;** : met fin à un appel.
-* **&lt;Play&gt;** : lit un fichier audio.
-* **&lt;Pause&gt;** : patiente silencieusement pendant un nombre déterminé de secondes.
-* **&lt;Record&gt;** : enregistre la voix de l'appelant et renvoie une URL permettant d'accéder à un fichier contenant l'enregistrement.
-* **&lt;Redirect&gt;** : transfère le contrôle d'un appel ou d'un SMS au TwiML à une autre URL.
-* **&lt;Reject&gt;** : refuse un appel entrant sur votre numéro Twilio sans vous facturer.
-* **&lt;Say&gt;** : convertit le texte d'un appel en parole.
-* **&lt;Sms&gt;** : envoie un SMS.
+* **&lt;Dial&gt;** : connecte l'appelant à un autre téléphone.
+* **&lt;Gather&gt;** : rassemble les chiffres numériques entrés sur le clavier du téléphone.
+* **&lt;Hangup&gt;** : met fin à un appel.
+* **&lt;Play&gt;** : lit un fichier audio.
+* **&lt;Pause&gt;** : patiente silencieusement pendant un nombre déterminé de secondes.
+* **&lt;Record&gt;** : enregistre la voix de l'appelant et renvoie une URL permettant d'accéder à un fichier contenant l'enregistrement.
+* **&lt;Redirect&gt;** : transfère le contrôle d'un appel ou d'un SMS au TwiML à une autre URL.
+* **&lt;Reject&gt;** : refuse un appel entrant sur votre numéro Twilio sans vous facturer.
+* **&lt;Say&gt;** : convertit le texte d'un appel en parole.
+* **&lt;Sms&gt;** : envoie un SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML est un jeu d'instructions XML reposant sur les verbes Twilio qui informent Twilio sur la façon de traiter un appel ou un SMS.
@@ -80,7 +76,14 @@ Une application Azure qui héberge une application Twilio n'est pas différente 
 ## <a id="configure_app"></a>Configurer l’application pour utiliser les bibliothèques Twilio
 Twilio offre un ensemble de bibliothèques d'aide .NET qui couvrent différents aspects de Twilio afin de fournir des moyens simples et faciles d'interaction avec l'API REST Twilio et le client Twilio en vue de générer des réponses TwiML.
 
-Twilio propose cinq bibliothèques aux développeurs .NET : Bibliothèque|Description ---|--- Twilio.API|La bibliothèque Twilio principale qui encapsule l'API REST Twilio dans une bibliothèque conviviale .NET. Cette bibliothèque est disponible pour .NET, Silverlight et Windows Phone 7. Twilio.TwiML|Offre un moyen pratique de générer du balisage TwiML via .NET. Twilio.MVC|Pour les développeurs qui utilisent ASP.NET MVC, cette bibliothèque propose TwilioController, TwiML ActionResult et un attribut de validation de demande. Twilio.WebMatrix|Pour les développeurs qui utilisent l'outil de développement gratuit WebMatrix de Microsoft, cette bibliothèque contient les aides à la syntaxe Razor pour différentes actions Twilio. Twilio.Client.Capability|Contient le générateur de jetons de capacité à utiliser avec le Kit de développement logiciel (SDK) JavaScript du client Twilio.
+Twilio offre cinq bibliothèques destinées aux développeurs .NET :
+Bibliothèque|Description
+---|---
+Twilio.API|Bibliothèque Twilio principale qui englobe l'API REST Twilio dans une bibliothèque .NET conviviale. Cette bibliothèque est disponible pour .NET, Silverlight et Windows Phone 7.
+Twilio.TwiML|Offre un moyen .NET convivial pour générer le balisage TwiML.
+Twilio.MVC|Pour les développeurs utilisant ASP.NET MVC, cette bibliothèque inclut TwilioController, TwiML ActionResult et un attribut de validation de demande.
+Twilio.WebMatrix|Pour les développeurs utilisant l'outil de développement WebMatrix gratuit de Microsoft, cette bibliothèque contient les aides à la syntaxe Razor pour différentes actions Twilio.
+Twilio.Client.Capability|Contient le générateur de jetons de capacité à utiliser avec le Kit de développement logiciel (SDK) JavaScript du client Twilio.
 
 Notez que toutes les bibliothèques nécessitent .NET 3.5, Silverlight 4 ou Windows Phone 7 ou version ultérieure.
 
@@ -90,7 +93,7 @@ Les bibliothèques peuvent être [installées à l’aide de NuGet Package Man
 
 Par défaut, Microsoft Visual Studio 2010 installe la version 1.2 de NuGet. L'installation des bibliothèques Twilio requiert la version 1.6 de NuGet ou ultérieure. Pour plus d'informations sur l'installation ou la mise à jour de NuGet, consultez le site [http://nuget.org/][nuget].
 
-> [AZURE.NOTE]Pour installer la dernière version de NuGet, vous devez au préalable désinstaller la version chargée à l'aide du gestionnaire d'extensions de Visual Studio. Pour ce faire, vous devez exécuter Visual Studio en tant qu'administrateur. Sinon, le bouton Désinstaller est désactivé.
+> [AZURE.NOTE] Pour installer la dernière version de NuGet, vous devez au préalable désinstaller la version chargée à l'aide du gestionnaire d'extensions de Visual Studio. Pour ce faire, vous devez exécuter Visual Studio en tant qu'administrateur. Sinon, le bouton Désinstaller est désactivé.
 
 ### <a id="use_nuget"></a>Pour ajouter les bibliothèques Twilio à vos projets Visual Studio :
 
@@ -161,7 +164,7 @@ La capture d'écran suivante montre comment envoyer un SMS à l'aide de la class
 ## <a id="howto_provide_twiml_responses"></a>Procédure : envoi de réponses TwiML depuis votre propre site Web
 Lorsque votre application démarre un appel à l'API Twilio, par exemple via la méthode **client.InitiateOutboundCall**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple dans [Exécution d’un appel téléphonique](#howto_make_call) utilise l’URL fournie par Twilio [http://twimlets.com/message][twimlet_message_url] pour renvoyer la réponse.
 
-> [AZURE.NOTE]TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [http://twimlets.com/message](twimlet_message_url) pour envoyer un élément vide &lt;Response&gt;. Comme autre exemple, cliquez sur [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) pour voir un élément &lt;Response&gt; contenant un élément &lt;Say&gt;.
+> [AZURE.NOTE] TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [http://twimlets.com/message](twimlet_message_url) pour envoyer un élément vide &lt;Response&gt;. Comme autre exemple, cliquez sur [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) pour voir un élément &lt;Response&gt; contenant un élément &lt;Say&gt;.
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site d'URL qui renvoie des réponses HTTP. Vous pouvez créer le site dans tout langage qui renvoie des réponses HTTP. Cette rubrique part du principe que vous hébergerez l'URL à partir d'un gestionnaire générique ASP.NET.
 
@@ -252,7 +255,7 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 
 Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, consultez la page [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure][howto_phonecall_dotnet].
 
-[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
 
 
 
@@ -279,4 +282,4 @@ Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, con
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

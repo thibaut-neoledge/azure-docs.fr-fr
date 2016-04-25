@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération | Microsoft Azure" 
-   description="Cet article explique comment Microsoft Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de Microsoft Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers Microsoft Azure" 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="ruturaj" 
-   manager="mkjain" 
+<properties
+   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération | Microsoft Azure"
+   description="Cet article explique comment Microsoft Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de Microsoft Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers Microsoft Azure"
+   services="site-recovery"
+   documentationCenter=""
+   authors="ruturaj"
+   manager="mkjain"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
@@ -103,7 +103,7 @@ Désormais, ces deux paramètres sont disponibles dans vos ressources.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Pour en savoir plus sur la connexion à votre abonnement via PowerShell, cliquez [ici](../install-configure-powershell.md).
+Pour en savoir plus sur la connexion à votre abonnement via PowerShell, cliquez [ici](../powershell-install-configure.md).
 
 Ensuite, vous allez créer un Runbook dans Microsoft Azure Automation, capable d’ajouter un point de terminaison pour la machine virtuelle frontale après le basculement.
 
@@ -137,11 +137,11 @@ Le tableau ci-dessous contient le nom et la description de chaque variable dans 
 **Nom de la variable** | **Description**
 ---|---
 RecoveryPlanName | Nom du plan en cours d'exécution. Vous permet d'entreprendre une action basée sur le nom à l'aide du même script
-FailoverType | Indique si le basculement est un test, planifié ou non planifié. 
+FailoverType | Indique si le basculement est un test, planifié ou non planifié.
 FailoverDirection | Indique si la récupération est principale ou secondaire
 GroupID | Identifie le numéro de groupe dans le plan de récupération lorsque le plan est en cours d'exécution.
 VmMap | Tableau de toutes les machines virtuelles du groupe.
-Clé VMMap | Clé unique (GUID) pour chaque machine virtuelle. Ce GUID est identique à l’ID VMM de la machine virtuelle, le cas échéant. 
+Clé VMMap | Clé unique (GUID) pour chaque machine virtuelle. Ce GUID est identique à l’ID VMM de la machine virtuelle, le cas échéant.
 RoleName | Nom de la machine virtuelle Azure qui est en cours de récupération
 CloudServiceName | Nom Azure Cloud Service sous lequel la machine virtuelle est créée.
 
@@ -161,7 +161,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 2.  Accédez à la vue Auteur du Runbook et optez pour le mode brouillon.
 
 3.  Commencez par spécifier la variable à utiliser en tant que contexte du plan de récupération.
-  
+
 	```
 		param (
 			[Object]$RecoveryPlanContext
@@ -173,7 +173,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 		# Connect to Azure
 		$AzureAccount = Add-AzureAccount -Credential $Cred
 		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -229,7 +229,7 @@ Le script complet est indiqué ci-dessous, à titre de référence.
 	)
 
 	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 	# Connect to Azure
 	$AzureAccount = Add-AzureAccount -Credential $Cred
 	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -241,7 +241,7 @@ Le script complet est indiqué ci-dessous, à titre de référence.
 	$AEPublicPort = 80
 	$AEName = "Port 80 for HTTP"
 	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
+
 	#Read the VM GUID from the context
 	$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -266,7 +266,8 @@ Le script complet est indiqué ci-dessous, à titre de référence.
 
 Une fois que le script est prêt, vous pouvez l’ajouter au plan de récupération créé précédemment.
 
-1.  Dans le plan de récupération que vous avez créé, optez pour l’ajout d’un script après le groupe 2. ![](media/site-recovery-runbook-automation/15.png)
+1.  Dans le plan de récupération que vous avez créé, optez pour l’ajout d’un script après le groupe 2.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  Spécifiez un nom de script. Il s’agit simplement d’un nom convivial pour ce script, qui doit s’afficher dans le plan de récupération.
 
@@ -308,6 +309,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
 [Exemples de scripts Microsoft Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemples de scripts Microsoft Azure Automation")
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

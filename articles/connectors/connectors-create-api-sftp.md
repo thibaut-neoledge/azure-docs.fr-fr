@@ -18,13 +18,13 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API SFTP
-Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers. L’API SFTP peut être utilisée à partir de :
+Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers. L’API SFTP peut être utilisée à partir de :
 
-- Logic Apps
+- Logic Apps
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec SFTP, vous pouvez effectuer les opérations suivantes :
+Avec SFTP, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de SFTP. 
 - Utiliser un déclencheur quand un fichier est mis à jour.
@@ -38,20 +38,20 @@ L’API SFTP propose les déclencheurs et les actions suivants.
 
 Déclencheurs | Actions
 --- | ---
-<ul><li>Quand un fichier est créé ou modifié </li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est créé ou modifié</li></ul>
+<ul><li>Quand un fichier est créé ou modifié</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est créé ou modifié</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 
 ## Créer une connexion à SFTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
 |Adresse du serveur hôte| Oui | Entrez le nom de domaine complet (FQDN) ou l’adresse IP du serveur SFTP.|
 |Nom d'utilisateur| Oui | Entrez le nom d’utilisateur pour vous connecter au serveur SFTP.|
 |Mot de passe | Oui | Entrez le mot de passe de l’utilisateur.|
-|Empreinte de la clé d’hôte du serveur SSH | Oui | Entrez l’empreinte de la clé d’hôte publique du serveur SSH. <br/><br/>En règle générale, l’administrateur du serveur peut vous fournir cette clé. Vous pouvez également utiliser les outils ```WinSCP``` ou ```ssh-keygen-g3 -F``` pour obtenir l’empreinte de la clé. | 
+|Empreinte de la clé d’hôte du serveur SSH | Oui | Entrez l’empreinte de la clé d’hôte publique du serveur SSH. <br/><br/>En règle générale, l’administrateur du serveur peut vous fournir cette clé. Vous pouvez également utiliser les outils ```WinSCP``` ou ```ssh-keygen-g3 -F``` pour obtenir l’empreinte de la clé. | 
 
 Après avoir créé la connexion, vous entrez les propriétés SFTP, telles que le chemin du dossier ou le fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -59,7 +59,7 @@ Après avoir créé la connexion, vous entrez les propriétés SFTP, telles que 
 
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Charge un fichier dans SFTP. ```POST: /datasets/default/files```
@@ -77,13 +77,13 @@ Charge un fichier dans SFTP. ```POST: /datasets/default/files```
 |default|L’opération a échoué.|
 
 ### Copier un fichier
-Copie un fichier vers SFTP. ```POST: /datasets/default/copyFile```
+Copie un fichier dans SFTP. ```POST: /datasets/default/copyFile```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|Chemin du fichier source|
 |destination|string|yes|query|(aucun) |Chemin du fichier de destination, y compris le nom du fichier|
-|overwrite|booléenne|no|query|(aucun)|Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun)|Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -111,7 +111,7 @@ Extrait un fichier d’archive dans un dossier à l’aide de SFTP (exemple : .z
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin du dossier de destination|
-|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -134,7 +134,7 @@ Récupère le contenu d’un fichier de SFTP à partir de son identifiant. ```GE
 
 
 ### Obtenir le contenu d’un fichier à l’aide du chemin
-Récupère le contenu d’un fichier de SFTP à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier de SFTP à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -162,7 +162,7 @@ Récupère les métadonnées d’un fichier de SFTP à l’aide de son identifia
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide du chemin
-Récupère les métadonnées d’un fichier de SFTP à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier de SFTP à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -248,6 +248,6 @@ Déclenche un flux quand un fichier est modifié dans SFTP. ```GET: /datasets/de
 
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

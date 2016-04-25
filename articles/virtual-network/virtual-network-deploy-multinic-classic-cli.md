@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Déploiement de machines virtuelles à plusieurs cartes réseau à l'aide de l'Interface de ligne de commande (CLI) Azure dans le modèle de déploiement classique | Microsoft Azure"
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l'aide de l'Interface de ligne de commande Azure dans le modèle de déploiement classique"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Étant donné que vous ne pouvez pas pour l’instant avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau dans le même service cloud, vous allez implémenter les serveurs principaux dans un service cloud différent, ainsi que tous les autres composants dans le scénario. Les étapes ci-dessous utilisent un service cloud nommé *IaaSStory* pour les ressources principales et *IaaSStory-BackEnd* pour les serveurs principaux.
+Actuellement, dans un même service cloud, vous ne pouvez pas avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau. Par conséquent, vous devez implémenter les serveurs principaux dans un service cloud différent de celui des autres composants du scénario. Les étapes ci-dessous utilisent un service cloud nommé *IaaSStory* pour les ressources principales et *IaaSStory-BackEnd* pour les serveurs principaux.
 
 ## Composants requis
 
@@ -41,7 +41,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 
 - **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l’emplacement Azure de déploiement prend en charge le stockage Premium.
 - **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l’accès à la base de données et l’autre pour la gestion.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance.
 
 ### Étape 1 : démarrage de votre script
 
@@ -81,7 +81,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 
 		azure storage account create $prmStorageAccountName \
 		    --location $location \
-		    --type PLRS 
+		    --type PLRS
 
 ### Étape 3 : création de machines virtuelles avec plusieurs cartes d’interface réseau
 
@@ -95,7 +95,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		    nic1Name=$vmNamePrefix$suffixNumber-DA
 		    x=$((suffixNumber+3))
 		    ipAddress1=$ipAddressPrefix$x
-		
+
 		    nic2Name=$vmNamePrefix$suffixNumber-RA
 		    x=$((suffixNumber+53))
 		    ipAddress2=$ipAddressPrefix$x
@@ -117,7 +117,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-		
+
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
@@ -174,4 +174,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

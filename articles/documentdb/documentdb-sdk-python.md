@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/08/2016" 
+	ms.author="rnagpal"/>
 
-# Kit de développement logiciel (SDK) DocumentDB
+# Kit SDK DocumentDB
 
 > [AZURE.SELECTOR]
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](documentdb-sdk-dotnet.md)
-- [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md)
-- [Kit de développement logiciel (SDK) Java](documentdb-sdk-java.md)
+- [Kit SDK .NET](documentdb-sdk-dotnet.md)
+- [Kit SDK Node.js](documentdb-sdk-node.md)
+- [Kit SDK Java](documentdb-sdk-java.md)
 - [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
 
 ##Kit de développement logiciel (SDK) Python DocumentDB
@@ -36,6 +36,9 @@
 
 ## Notes de publication
 
+### <a name="1.6.1"/>[1\.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+- Résolution des bogues liés au partitionnement côté serveur pour autoriser des caractères spéciaux dans le chemin d’accès à la clé de partition.
+
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
 - Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
 
@@ -49,7 +52,7 @@
 ### <a name="1.2.0"/>[1\.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
 - Prise en charge de l'index géospatial.
 - Valide la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \\ ou se terminer par un espace.
-- Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
+- Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
 ### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
 - Implémente la stratégie d'indexation V2
@@ -61,9 +64,9 @@
 - Kit de développement logiciel (SDK) GA
 
 ## Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
+Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
 Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
@@ -74,18 +77,19 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1.6.0](#1.6.0) | 29 mars 2016 |--- 
-| [1.5.0](#1.5.0) | 03 janvier 2016 |--- 
-| [1.4.2](#1.4.2) | 06 octobre 2015 |--- 
-| [1.4.1](#1.4.1) | 06 octobre 2015 |--- 
-| [1.2.0](#1.2.0) | 06 août 2015 |--- 
-| [1.1.0](#1.1.0) | 09 juillet 2015 |--- 
-| [1.0.1](#1.0.1) | 25 mai 2015 |--- 
-| [1.0.0](#1.0.0) | 07 avril 2015 |--- 
-| Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016 
-| Version préliminaire 0.9.3 | 09 décembre 2014 | 29 février 2016 
-| Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016 
-| Version préliminaire 0.9.1 | 23 septembre 2014 | 29 février 2016 
+| [1\.6.1](#1.6.1) | 8 avril 2016 |---
+| [1\.6.0](#1.6.0) | 29 mars 2016 |---
+| [1\.5.0](#1.5.0) | 3 janvier 2016 |---
+| [1\.4.2](#1.4.2) | 6 octobre 2015 |---
+| [1\.4.1](#1.4.1) | 6 octobre 2015 |---
+| [1\.2.0](#1.2.0) | 6 août 2015 |---
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |---
+| [1\.0.1](#1.0.1) | 25 mai 2015 |---
+| [1\.0.0](#1.0.0) | 7 avril 2015 |---
+| Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016
+| Version préliminaire 0.9.3 | 9 décembre 2014 | 29 février 2016
+| Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016
+|Version préliminaire 0.9.1 | 23 septembre 2014 | 29 février 2016
 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -95,4 +99,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

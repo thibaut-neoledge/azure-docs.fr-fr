@@ -24,13 +24,13 @@ Cet article explique comment utiliser PowerShell pour accorder des autorisations
 
 ## Stratégies en tant que ressources
 
-Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle](/role-based-access-control-configure.md) RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
+Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md), RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 Dans DevTest Lab, une stratégie est un type de ressource qui permet l'action RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Chaque stratégie DevTest Lab est une ressource de type stratégie et peut être affectée comme une étendue à un rôle RBAC.
 
 Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture à une stratégie **Tailles de machine virtuelle autorisées**, vous devez créer un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/*** puis affectez les utilisateurs appropriés à ce rôle personnalisé dans la portée de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Pour en savoir plus sur les rôles personnalisés dans RBAC, consultez la section [Rôles personnalisés dans Azure RBAC](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) de l’article [Contrôle d’accès en fonction du rôle Azure](/role-based-access-control-configure.md).
+Pour en savoir plus sur les rôles personnalisés dans RBAC, consultez la section [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) de l’article [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Création d'un rôle DevTest Lab personnalisé à l'aide de PowerShell
 Pour commencer, vous devez lire l'article suivant, qui explique comment installer et configurer les cmdlets PowerShell Azure : [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -95,4 +95,4 @@ Après avoir accordé aux utilisateurs les autorisations à des stratégies DevT
 
 - [Ajouter une machine virtuelle avec des artefacts à un laboratoire de test et développement Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,7 +17,7 @@
 
 # Conserver une adresse IP virtuelle constante pour un service cloud
 
-Lors de la mise à jour d’un service cloud hébergé dans Azure, vérifiez que l’adresse IP virtuelle du service n’est pas modifiée. De nombreux services de gestion de domaine utilisent la méthode DNS (Domain Name System), une méthode d’enregistrement pour stocker des noms de domaine et qui fonctionne uniquement si l’adresse IP virtuelle est inchangée. Utilisez l’**Assistant Publication** dans Azure Tools pour garantir que l’adresse IP virtuelle de votre service cloud ne change pas lors de sa mise à jour. Pour plus d’informations sur l’utilisation de la gestion de domaine DNS pour les services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](/cloud-services/cloud-services-custom-domain-name.md).
+Lors de la mise à jour d’un service cloud hébergé dans Azure, vérifiez que l’adresse IP virtuelle du service n’est pas modifiée. De nombreux services de gestion de domaine utilisent la méthode DNS (Domain Name System), une méthode d’enregistrement pour stocker des noms de domaine et qui fonctionne uniquement si l’adresse IP virtuelle est inchangée. Utilisez l’**Assistant Publication** dans Azure Tools pour garantir que l’adresse IP virtuelle de votre service cloud ne change pas lors de sa mise à jour. Pour plus d’informations sur l’utilisation de la gestion de domaine DNS pour les services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](./cloud-services/cloud-services-custom-domain-name.md).
 
 ## Publication d’un service cloud sans modifier son adresse IP virtuelle
 
@@ -45,4 +45,4 @@ L’adresse IP virtuelle d’un service cloud est allouée la première fois qu
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

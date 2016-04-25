@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec HackerOne | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 
 Pour configurer l’intégration d’Azure AD à HackerOne, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
+- Un abonnement Azure
 - Un abonnement HackerOne pour lequel l’authentification unique est activée
 
 
@@ -86,38 +86,60 @@ Pour configurer et tester l’authentification unique Azure AD avec HackerOne, 
 
 Vous allez maintenant activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application HackerOne.
 
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+
 **Pour configurer l’authentification unique Azure AD avec HackerOne, procédez comme suit :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **HackerOne**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à HackerOne**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à HackerOne**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
 
-3. Dans la boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit, puis cliquez sur **Suivant** : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
-
-
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application HackerOne, au format suivant : **"https://hackerone.com/nomentreprise/authentication"**. Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.<br>
-
-	b. Dans la zone de texte IDENTIFIER, tapez l'URL du locataire. Veuillez contacter l'équipe de support HackerOne via support@hackerone.com pour obtenir l'URL du locataire.
-
-	c. Cliquez sur **Suivant**
+3. Dans la boîte de dialogue **Configurer les paramètres de l’application**, procédez comme suit, puis cliquez sur **Suivant** : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-4. Dans la boîte de dialogue **Configurer l'authentification unique sur HackerOne**, procédez comme suit, puis cliquez sur **Suivant**: <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application HackerOne, au format suivant : **https://hackerone.com/<nomentreprise>/authentication**.
+
+    b. Contactez l’équipe de support HackerOne à l’adresse [support@hackerone.com](mailto:support@hackerone.com) pour obtenir l’URL du locataire.
+
+	c. Dans la zone de texte **Identificateur**, tapez l’URL du locataire.
+
+	d. Cliquez sur **Next**.
+
+
+4. Dans la boîte de dialogue **Configurer l’authentification unique sur HackerOne**, procédez comme suit, puis cliquez sur **Suivant** : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
     b. Cliquez sur **Next**.
 
 
-5. Pour obtenir l'authentification unique configurée pour votre application, vous devez vous connecter au locataire HackerOne en tant qu'utilisateur admin.
+1. Connectez-vous à votre client HackerOne en tant qu’administrateur.
+
+1. Dans le menu situé en haut, cliquez sur **Settings**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. Accédez à **Authentication** et cliquez sur **Add SAML settings**.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. Dans la boîte de dialogue **SAML Settings**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. Dans la zone de texte **Email Domain**, entrez un domaine enregistré.
+
+	b. Dans le portail Azure Classic, copiez la valeur de l’**URL du service d’authentification unique** et collez-la dans la zone de texte URL d’authentification unique.
+
+    c. Créez un fichier **codé en base 64** à partir du certificat téléchargé.
+
+       >[AZURE.TIP] Pour plus d’informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 	
-	a. Accédez au tableau de bord et cliquez sur l'option **Paramètres** le coin droit supérieur de la page.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X509 Certificate**.
 
-	b. Accédez à **Authentication** et cliquez sur le bouton "**Add SAML settings**".<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. Cliquez sur **Enregistrer**.
 
-	c. Remplissez le formulaire **SAML Settings**.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. Entrez un domaine enregistré dans la zone de texte **Email Domain**. Pour enregistrer le domaine HackerOne, contactez support@hackerone.com.<br><br> c2. Copiez l'URL du service d'authentification unique Azure AD dans la zone **Single Sign On URL** de HackerOne.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. Convertissez le certificat téléchargé en un fichier base64, ouvrez-le dans Bloc-notes, puis copiez-collez-le dans la zone de texte **Certificat X509** de HackerOne.<br>
 
-	d. Cliquez sur le bouton **Save**.<br><br> e. Cliquez sur le bouton **Run test** et assurez-vous que le test fonctionne. Si tel est le cas, demandez à l'équipe de support HackerOne de vérifier vos paramètres SAML via support@hackerone.com afin qu'elle les approuve.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. Dans la boîte de dialogue Authentication Settings, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. Cliquez sur **Run test**.
+
+    b. Si la valeur du champ **Status** est égale à **Last test status: created**, contactez votre équipe de support HackerOne à l’adresse [support@hackerone.com](mailto:support@hackerone.com) pour demander une révision de votre configuration.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
@@ -200,7 +222,7 @@ Vous allez maintenant autoriser Britta Simon à utiliser l’authentification un
 
 ### Test de l’authentification unique
 
-Pour terminer, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Quand vous cliquez sur la vignette HackerOne dans le volet d’accès, vous devez être connecté automatiquement à votre application HackerOne.
+Pour terminer, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Quand vous cliquez sur la vignette HackerOne dans le volet d’accès, vous devez être connecté automatiquement à votre application HackerOne.
 
 
 ## Ressources supplémentaires
@@ -227,4 +249,4 @@ Pour terminer, vous allez tester la configuration de l’authentification unique
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

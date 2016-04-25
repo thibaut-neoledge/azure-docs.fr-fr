@@ -19,24 +19,24 @@ ms.author="mandia"/>
 
 # Prendre en main l’API OneDrive
 
-Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
+Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-onedrive.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 &nbsp;
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec OneDrive, vous pouvez effectuer les opérations suivantes :
+Avec OneDrive, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de OneDrive. 
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
+- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
 - Ajouter l’API OneDrive à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
@@ -64,7 +64,7 @@ Après avoir créé la connexion, vous entrez les propriétés OneDrive, telles 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide de l’identifiant
@@ -112,7 +112,7 @@ Supprime un fichier de OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide du chemin
-Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin.
 
 
 ### Obtenir le contenu d’un fichier à l’aide du chemin
-Récupère le contenu d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier dans OneDrive à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -190,7 +190,7 @@ Copie un fichier dans OneDrive. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun)|URL du fichier source|
 |destination|string|yes|query|(aucun)|Chemin de destination du fichier dans OneDrive, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
 
 
 ### Response
@@ -243,7 +243,7 @@ Extrait un dossier dans OneDrive. ```POST: /datasets/default/extractFolderV2```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun)|Chemin dans OneDrive indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
 
 
 ### Response
@@ -312,4 +312,4 @@ Revenir à la [liste des API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

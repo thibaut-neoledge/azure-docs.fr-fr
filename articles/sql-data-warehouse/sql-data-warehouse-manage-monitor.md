@@ -3,7 +3,7 @@
    description="Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="04/12/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -72,7 +72,7 @@ Les résultats de la requête ci-dessus affichent l’état d’attente de votre
 - Si la requête est en attente de ressources de la part d'une autre requête, l'état sera **AcquireResources**.
 - Si la requête possède toutes les ressources requises et n'est pas en attente, l'état sera **Granted**. Dans ce cas, passez à l’analyse des étapes de la requête.
 
-### ÉTAPE 3 : rechercher l’étape la plus longue du plan de requête
+### ÉTAPE 3 : rechercher l’étape la plus longue du plan de requête
 
 Utilisez l’ID de requête pour récupérer une liste des étapes du plan de requête à partir de [sys.dm\_pdw\_request\_steps][]. Recherchez l'étape la plus longue en examinant le temps total écoulé.
 
@@ -88,12 +88,12 @@ ORDER BY step_index;
 
 Enregistrez l'Index d'étape de l’étape la plus longue.
 
-Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
+Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
 - Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
+### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
 
 Utilisez l’ID de requête et l’index des étapes pour récupérer des informations à partir de [sys.dm\_pdw\_sql\_requests][] qui contient des détails sur l’exécution de la requête sur les instances distribuées de SQL Server. Notez l’ID de distribution et le SPID si la requête est en cours d’exécution et si vous souhaitez obtenir le plan à partir de la distribution de SQL Server.
 
@@ -132,6 +132,17 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particulière prend beaucoup plus de temps que les autres pour le déplacement des données.
 - Consultez la colonne *rows\_processed* de la distribution la plus longue pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que d’autres. Dans ce cas, cela peut indiquer un décalage des données sous-jacentes.
 
+Si la requête est en cours d’exécution, [DBCC PDW\_SHOWEXECUTIONPLAN][] peut être utilisé pour récupérer le plan d’exécution de SQL Server pour l’étape DMS en cours d’exécution pour une distribution spécifique.
+
+```sql
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
+```
+
+
 ## Analyse de l’inclinaison de données
 
 Utilisez [DBCC PDW\_SHOWSPACEUSED][] pour rechercher l’espace utilisé par une table.
@@ -143,18 +154,21 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 Le résultat de cette requête affiche le nombre de lignes de la table stockées dans chacune des 60 distributions de votre base de données. Pour des performances optimales, les lignes de votre table distribuée doivent être partagées uniformément entre toutes les distributions.
 
-Pour en savoir plus, consultez la page [Conception de table][].
+Pour plus d’informations, consultez [Gérer l’inclinaison de données pour les tables distribuées][] ou [Conception de tables][].
 
 ## Étapes suivantes
 Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
-Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
-[Conception de table]: sql-data-warehouse-develop-table-design.md
+[Conception de tables]: sql-data-warehouse-develop-table-design.md
 [Vue d’ensemble de référence]: sql-data-warehouse-overview-reference.md
+[Gérer l’inclinaison de données pour les tables distribuées]: sql-data-warehouse-manage-distributed-data-skew.md
+
+<!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -163,7 +177,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!--MSDN references-->
-
-<!---HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0413_2016-->

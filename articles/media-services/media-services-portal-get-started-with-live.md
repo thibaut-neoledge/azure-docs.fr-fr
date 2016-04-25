@@ -3,16 +3,16 @@
 	description="Ce didacticiel vous guide dans les étapes de mise en place d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako,cenkdin"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
 	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
@@ -37,7 +37,7 @@ Dans ce didacticiel, le portail Azure Classic permet d’effectuer les tâches s
 ## Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-- Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+- Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 - Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
 - Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire multiple.
 
@@ -88,7 +88,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](media-services-channels-overview.md).
+Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](media-services-manage-channels-overview.md).
 
 ## Configurer un encodeur dynamique et recevoir un flux dynamique
 
@@ -212,4 +212,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

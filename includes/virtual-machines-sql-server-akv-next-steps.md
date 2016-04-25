@@ -1,7 +1,7 @@
 ## Étapes suivantes
 Après avoir activé Azure Key Vault Integration, vous pouvez activer le chiffrement SQL Server sur votre machine virtuelle SQL. Tout d'abord, vous devez créer une clé asymétrique à l'intérieur de votre coffre de clés et une clé symétrique dans SQL Server sur votre machine virtuelle. Ensuite, vous serez en mesure d'exécuter les instructions T-SQL pour activer le chiffrement pour vos bases de données et sauvegardes.
 
-Il existe plusieurs types de chiffrement que vous pouvez exploiter :
+Il existe plusieurs types de chiffrement que vous pouvez exploiter :
 
 - [Chiffrement transparent des données (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Sauvegardes chiffrées](https://msdn.microsoft.com/library/dn449489.aspx)
@@ -9,7 +9,7 @@ Il existe plusieurs types de chiffrement que vous pouvez exploiter :
 
 Les scripts Transact-SQL suivants fournissent des exemples pour chacune de ces options.
 
->[AZURE.NOTE] Chaque exemple est basé sur les deux conditions préalables : une clé asymétrique de votre coffre de clés appelée **CONTOSO\_KEY** et des informations d'identification créées via la fonctionnalité AKV Integration appelées **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Chaque exemple est basé sur les deux conditions préalables : une clé asymétrique de votre coffre de clés appelée **CONTOSO\_KEY** et des informations d'identification créées via la fonctionnalité AKV Integration appelées **Azure\_EKM\_TDE\_cred**.
 
 ### Chiffrement transparent des données (TDE)
 1. Créez une connexion SQL Server utilisable par le moteur de base de données pour le chiffrement transparent des données, puis ajoutez-lui les informations d'identification.
@@ -93,6 +93,6 @@ Ce script crée une clé symétrique protégée par la clé asymétrique dans le
 ## Ressources supplémentaires
 Pour plus d'informations sur l'utilisation de ces fonctionnalités de chiffrement, consultez [Utilisation d'EKM avec les fonctionnalités de chiffrement SQL Server (en Anglais)](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Notez que cet article suppose que vous disposez déjà de SQL Server exécuté sur une machine virtuelle Azure. Dans le cas contraire, consultez[Approvisionnement d'une machine virtuelle SQL Server dans Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) Pour d'autres conseils sur l'utilisation de SQL Server sur des machines virtuelles Azure, voir [Vue d'ensemble de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Notez que cet article suppose que vous disposez déjà de SQL Server exécuté sur une machine virtuelle Azure. Dans le cas contraire, consultez[Approvisionnement d'une machine virtuelle SQL Server dans Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) Pour d'autres conseils sur l'utilisation de SQL Server sur des machines virtuelles Azure, voir [Vue d'ensemble de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

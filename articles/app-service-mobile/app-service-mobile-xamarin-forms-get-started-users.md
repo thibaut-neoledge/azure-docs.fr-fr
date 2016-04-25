@@ -22,10 +22,9 @@
 
 ##Vue d’ensemble
 
-Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide Xamarin.Forms à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche ; vous pouvez alors accéder aux données de table limitées.
+Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide Xamarin.Forms à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l’utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l’ID utilisateur s’affiche ; vous pouvez alors accéder aux données de table limitées.
 
-Vous devez d'abord terminer le [didacticiel de démarrage rapide Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
-
+Vous devez commencer par suivre le didacticiel [Création d’une application Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Inscription de votre application pour l'authentification et configuration d'App Services
 
@@ -418,10 +417,6 @@ Dans cette section, vous allez ajouter une authentification pour le projet WinPh
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

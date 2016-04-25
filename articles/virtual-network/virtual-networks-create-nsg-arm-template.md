@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Création de NSG en mode ARM à l’aide d’un modèle | Microsoft Azure"
    description="Apprenez à créer et déployer des NSG dans ARM en utilisant un modèle"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -98,26 +98,26 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
 3. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **`New-AzureRmResourceGroup`**.
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
 	Sortie attendue :
 
 		ResourceGroupName : TestRG
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                Type                                     Location
 		                    ==================  =======================================  ========
 		                    sqlAvSet            Microsoft.Compute/availabilitySets       westus  
@@ -139,14 +139,14 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		                    TestVNet            Microsoft.Network/virtualNetworks        westus  
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
 
 Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **`azure config mode`** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -181,4 +181,4 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 	- **-f (ou --template-file)**. Chemin d'accès à votre fichier de modèle ARM.
 	- **-e (ou --parameters-file)**. Chemin d'accès à votre fichier de paramètres ARM.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

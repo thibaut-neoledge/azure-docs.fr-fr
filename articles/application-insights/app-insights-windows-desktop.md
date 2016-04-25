@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="04/06/2016" 
 	ms.author="awills"/>
 
 # Application Insights sur des rôles de travail, des services et des applications de bureau Windows
@@ -31,15 +31,15 @@ Vous pouvez choisir les collecteurs de données standard que vous souhaitez util
 ## <a name="add"></a> Création d’une ressource Application Insights
 
 
-1.  Dans le [portail Azure][portal], créez une ressource Application Insights. Choisissez le type d’application Windows Store. 
+1.  Dans le [portail Azure][portal], créez une ressource Application Insights. Choisissez ASP.NET comme type d’application. 
 
     ![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
-    Le choix du type d'application définit le contenu du volet Vue d'ensemble et les propriétés disponibles dans [Metrics Explorer][metrics].
+    (Vous pouvez choisir un type d’application différent si vous le souhaitez. Celui-ci définit le contenu du volet Vue d’ensemble et les propriétés disponibles dans [Metrics Explorer][metrics].)
 
-2.  Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer.
+2.  Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer. Fermez le plan de l’application ou faites défiler vers la gauche vers le volet Vue d’ensemble de la ressource.
 
-    ![Cliquez sur Essentials, sélectionnez la clé et appuyez sur Ctrl + C](./media/app-insights-windows-desktop/02-props.png)
+    ![Cliquez sur Essentials, sélectionnez la clé et appuyez sur Ctrl + C](./media/app-insights-windows-desktop/10.png)
 
 ## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans votre application
 
@@ -89,7 +89,7 @@ Par exemple, dans une application Windows Forms, vous pouvez écrire :
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -123,19 +123,20 @@ Utilisez l’une des [API Application Insights][api] pour envoyer des données d
 * `Flush()` pour vous assurer que toutes les données de télémétrie sont envoyées avant la fermeture de l’application Utiliser uniquement si vous utilisez l’API de base (Microsoft.ApplicationInsights). Les Kits de développement logiciel (SDK) web implémentent automatiquement ce comportement. (Si votre application s’exécute dans des contextes où Internet n’est pas toujours disponible, consultez aussi [Canal de persistance](#persistence-channel).)
 
 
-#### Initialiseurs de contexte
+#### Initialiseurs de télémétrie
 
-Pour afficher le nombre d'utilisateurs et de sessions, vous pouvez définir les valeurs de chaque instance `TelemetryClient`. Vous pouvez également utiliser un initialiseur de contexte afin d’effectuer cet ajout pour tous les clients :
+Pour afficher le nombre d'utilisateurs et de sessions, vous pouvez définir les valeurs de chaque instance `TelemetryClient`. Vous pouvez également utiliser un initialiseur de télémétrie afin d’effectuer cet ajout pour tous les clients :
 
 ```C#
 
-    class UserSessionInitializer: IContextInitializer
+    class UserSessionInitializer : ITelemetryInitializer
     {
-        public void Initialize(TelemetryContext context)
+        public void Initialize(ITelemetry telemetry)
         {
-            context.User.Id = Environment.UserName;
-            context.Session.Id = Guid.NewGuid().ToString();
+            telemetry.Context.User.Id = Environment.UserName;
+            telemetry.Context.Session.Id = Guid.NewGuid().ToString();
         }
+        
     }
 
     static class Program
@@ -143,7 +144,7 @@ Pour afficher le nombre d'utilisateurs et de sessions, vous pouvez définir les 
         ...
         static void Main()
         {
-            TelemetryConfiguration.Active.ContextInitializers.Add(
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(
                 new UserSessionInitializer());
             ...
 
@@ -159,15 +160,13 @@ Un décompte des événements envoyés s'affiche dans Visual Studio.
 
 ![](./media/app-insights-windows-desktop/appinsights-09eventcount.png)
 
-
+Les événements s’affichent également dans les fenêtres de diagnostics et de sortie.
 
 ## <a name="monitor"></a>Affichage des données d’analyse
 
 Revenez au volet de votre application dans le portail Azure.
 
 Les premiers événements s’affichent dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
-
-Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
 Si vous avez utilisé TrackMetric ou le paramètre de mesures de TrackEvent, ouvrez [Metric Explorer][metrics] et le panneau Filtres. Vos mesures devraient apparaître ici, mais elles peuvent quelquefois prendre un moment pour traverser le pipeline, et vous devez donc fermer le panneau Filtres, attendre un peu, puis actualiser.
 
@@ -299,4 +298,4 @@ Le code du canal de persistance est disponible sur [github](https://github.com/M
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -18,7 +18,7 @@
 
 # Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale
 
-Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul](/storage/storage-use-emulator.md). L’émulateur express a été introduit dans le Kit de développement logiciel (SDK) Azure 2.1 et, depuis le Kit de développement logiciel (SDK) Azure 2.3, il s’agit de l’émulateur par défaut.
+Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul](./storage/storage-use-emulator.md). L’émulateur express a été introduit dans le Kit de développement logiciel (SDK) Azure 2.1 et, depuis le Kit de développement logiciel (SDK) Azure 2.3, il s’agit de l’émulateur par défaut.
 
 ## Utilisation de l’émulateur express dans l’IDE Visual Studio
 
@@ -28,7 +28,7 @@ Quand vous créez un projet dans le Kit de développement logiciel (SDK) Azure 
 
 1. Dans le menu contextuel du projet Azure, choisissez **Propriétés**, puis l’onglet **Web**.
 
-1. Sous ** Serveur de développement local**, choisissez la case d’option ** Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
+1. Sous **Serveur de développement local**, choisissez la case d’option **Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
 
 1. Sous **Émulateur**, choisissez la case d’option **Utiliser l’émulateur express**.
 
@@ -54,4 +54,4 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 [Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez comment gérer les comptes Data Lake Store et le système de fichiers." 
    services="data-lake-store" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/07/2016"
+   ms.author="nitinme"/>
 
 # Gérer Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Azure pour Node.js
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
-
+- [Portail](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Le Kit de développement logiciel (SDK) Azure pour Node.js peut être utilisé pour gérer les comptes Azure Data Lake Store et le système de fichiers :
 
@@ -37,11 +38,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un compte Azure Data Lake Store**. Pour créer un compte, consultez [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
-- **Un principal de service avec des autorisations d’accès au compte Data Lake Analytics**. Consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- **Un principal de service avec des autorisations d’accès au compte Data Lake Analytics**. Consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 ## Installer le Kit de développement logiciel (SDK)
 
-Effectuez les étapes suivantes pour installer le Kit de développement logiciel (SDK) :
+Suivez les étapes suivantes pour installer le Kit de développement logiciel (SDK) :
 
 1. Installez [Node.js](https://nodejs.org/).
 2. Exécutez les commandes suivantes à partir d’une invite de commandes, d’une fenêtre de terminal ou d’un script bash :
@@ -110,6 +111,6 @@ L’exemple suivant crée un fichier dans un compte Data Lake Store et y ajoute 
 ##Voir aussi 
 
 - [Kit de développement logiciel (SDK) Azure pour Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Gérer Azure Data Lake Analytics à l’aide de Node.js](data-lake-analytics-use-nodejs.md)
+- [Gérer Azure Data Lake Analytics à l’aide de Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -18,11 +18,11 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API FTP
-Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
+Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
 
-- Logic Apps
+- Logic Apps
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
 Avec FTP, vous pouvez :
 
@@ -38,12 +38,12 @@ FTP propose les déclencheurs et les actions suivants.
 
 Déclencheurs | Actions
 --- | ---
-<ul><li>Obtient un fichier mis à jour</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Obtenir un fichier mis à jour</li><li>Mettre à jour un fichier</li></ul>
+<ul><li>Obtenir un fichier mis à jour</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Obtenir un fichier mis à jour</li><li>Mettre à jour un fichier</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à FTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -51,12 +51,12 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs su
 |Nom d'utilisateur| Oui | Entrez le nom d'utilisateur pour vous connecter au serveur FTP.|
 |Mot de passe | Oui | Entrez le mot de passe de l’utilisateur.|
 
-Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion FTP dans d'autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Charge un fichier sur le serveur FTP. ```POST: /datasets/default/files```
@@ -80,7 +80,7 @@ Copie un fichier sur le serveur FTP. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |URL du fichier source|
 |destination|string|yes|query|(aucun) |Chemin de destination du fichier sur le serveur FTP, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -108,7 +108,7 @@ Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zi
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query| (aucun)|Chemin du dossier de destination|
-|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -131,7 +131,7 @@ Récupère le contenu d’un fichier sur le serveur FTP à partir de son identif
 
 
 ### Obtenir le contenu d’un fichier à l'aide du chemin
-Récupère le contenu d’un fichier sur le serveur FTP à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier sur le serveur FTP à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -159,7 +159,7 @@ Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide de son 
 
 
 ### Obtenir les métadonnées d’un fichier à l'aide du chemin
-Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide du chemin. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -245,6 +245,6 @@ Met à jour un fichier sur le serveur FTP. ```PUT: /datasets/default/files/{id}`
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

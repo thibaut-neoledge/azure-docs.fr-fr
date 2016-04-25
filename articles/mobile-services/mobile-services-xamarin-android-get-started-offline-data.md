@@ -27,7 +27,7 @@
 
 Cette rubrique décrit les fonctionnalités de synchronisation hors connexion d'Azure Mobile Services dans l'application de démarrage rapide todo list. La synchronisation hors connexion vous permet de créer facilement des applications qui sont utilisables même lorsque l'utilisateur final n'a pas accès au réseau.
 
-La synchronisation hors connexion possède plusieurs utilisations potentielles :
+La synchronisation hors connexion possède plusieurs utilisations potentielles :
 
 * Améliorer la réactivité de l'application en mettant en cache les données de serveur localement sur l'appareil
 * Rendre les applications résistantes à une connectivité réseau intermittente
@@ -38,17 +38,17 @@ La synchronisation hors connexion possède plusieurs utilisations potentielles :
 >
 > Si vous n'avez aucune expérience de Mobile Services, commencez par suivre entièrement le didacticiel [Prise en main de Mobile Services].
 
-Ce didacticiel vous familiarise avec ces étapes de base :
+Ce didacticiel vous familiarise avec ces étapes de base :
 
 1. [Examiner le code de synchronisation de Mobile Services]
 2. [Mettre à jour le comportement de synchronisation de l'application]
 3. [Mettre à jour l'application pour reconnecter votre service mobile]
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* Visual Studio avec l'extension [Xamarin] **ou** [Xamarin Studio] sur OS X
-* Exécution du didacticiel [Prise en main de Mobile Services]
-
+* Visual Studio avec Xamarin sur Windows ou Xamarin Studio sur Mac OS X. Des instructions d’installation complètes sont disponibles dans [Configurer et installer Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* Achèvement du didacticiel [Prise en main de Mobile Services].
+ 
 ## <a name="review-offline"></a>Examiner le code de synchronisation de Mobile Services
 
 La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateurs d'interagir avec une base de données locale lorsque le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l’interface `IMobileServiceSyncTable`. Cette section décrit le code associé à la synchronisation hors connexion dans `ToDoActivity.cs`.
@@ -59,7 +59,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     La méthode `GetSyncTable()` permet d’obtenir une référence à une table de synchronisation. Pour supprimer la fonctionnalité de synchronisation hors connexion, vous utiliseriez plutôt `GetTable()`.
 
-3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Cette opération est effectuée dans la méthode `InitLocalStoreAsync` :
+3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Cette opération est effectuée dans la méthode `InitLocalStoreAsync` :
 
         private async Task InitLocalStoreAsync()
         {
@@ -84,7 +84,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
 
     Cette surcharge de `InitializeAsync` utilise le gestionnaire de conflits par défaut qui échoue en cas de conflit. Pour obtenir un gestionnaire de conflits personnalisé, consultez le didacticiel [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services].
 
-4. La méthode `SyncAsync` déclenche l'opération de synchronisation réelle :
+4. La méthode `SyncAsync` déclenche l'opération de synchronisation réelle :
 
         private async Task SyncAsync()
         {
@@ -112,12 +112,12 @@ Dans cette section, vous allez modifier l'application pour qu'elle ne se synchro
 
 1. Dans la classe `ToDoActivity`, modifiez les méthodes `AddItem()` et `CheckItem()` pour commenter les appels vers `SyncAsync()`.
 
-2. Dans `ToDoActivity`, commentez les définitions des membres `applicationURL` et `applicationKey`. Ajoutez les lignes suivantes, qui font référence à une URL de service mobile incorrecte :
+2. Dans `ToDoActivity`, commentez les définitions des membres `applicationURL` et `applicationKey`. Ajoutez les lignes suivantes, qui font référence à une URL de service mobile incorrecte :
 
         const string applicationURL = @"https://your-mobile-service.azure-mobile.xxx/";
         const string applicationKey = @"AppKey";
 
-3. Dans `ToDoActivity.OnCreate()`, supprimez l'appel vers `OnRefreshItemsSelected()` et remplacez-le par :
+3. Dans `ToDoActivity.OnCreate()`, supprimez l'appel vers `OnRefreshItemsSelected()` et remplacez-le par :
 
         // Load the items from the Mobile Service
         // OnRefreshItemsSelected (); // don't sync on app launch
@@ -171,9 +171,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/visual-studio
-[NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

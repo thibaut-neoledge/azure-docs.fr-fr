@@ -40,8 +40,6 @@ La gestion des API peut être effectuée dans Azure Automation à l'aide de l’
 
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour la gestion des API Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
-* Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
 * Consultez le billet de blog de la communauté intitulé [Module PowerShell pour les API REST de gestion d’API #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

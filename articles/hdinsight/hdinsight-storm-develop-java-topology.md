@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="04/11/2016"
    ms.author="larryfr"/>
 
 #Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight
@@ -39,9 +39,9 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d’u
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -51,7 +51,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Création d’un projet Maven
 
-À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
+À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -59,11 +59,11 @@ Cela créera un répertoire nommé **WordCount** à l’emplacement actuel, qui 
 
 Le répertoire **WordCount** contiendra les éléments suivants :
 
-* **pom.xml** : contient les paramètres du projet Maven.
+* **pom.xml** : contient les paramètres du projet Maven.
 
-* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
+* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
 
-* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
+* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
 
 ###Suppression de l’exemple de code
 
@@ -75,7 +75,7 @@ Le répertoire **WordCount** contiendra les éléments suivants :
 
 ##Ajout de dépendances
 
-Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
+Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
@@ -107,6 +107,7 @@ Pour les topologies Storm, le <a href="http://mojo.codehaus.org/exec-maven-plugi
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>exec-maven-plugin</artifactId>
+      <version>1.4.0</version>
       <executions>
         <execution>
         <goals>
@@ -130,6 +131,7 @@ Ajoutez le code suivant dans la section `<plugins>` du fichier **pom.xml** pour 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.3</version>
       <configuration>
         <source>1.7</source>
         <target>1.7</target>
@@ -140,11 +142,11 @@ Ajoutez le code suivant dans la section `<plugins>` du fichier **pom.xml** pour 
 
 Une topologie Storm basée sur Java comprend trois composants que vous devez créer (ou référencer) en tant que dépendance.
 
-* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
+* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
 
-* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
+* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
 
-* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
+* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
 
 ###Création du spout
 
@@ -248,9 +250,9 @@ Prenez un moment pour lire les commentaires du code afin de comprendre le foncti
 
 Les bolts gèrent le traitement des données. Dans cette topologie, nous en avons deux :
 
-* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
+* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
 
-* **WordCount** : compte le nombre d’occurrences de chaque mot.
+* **WordCount** : compte le nombre d’occurrences de chaque mot.
 
 > [AZURE.NOTE] Les bolts peuvent tout faire : des calculs, la persistance, la communication avec des composants externes, etc.
 
@@ -469,4 +471,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

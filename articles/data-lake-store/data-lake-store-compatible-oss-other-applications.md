@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Applications Big Data compatibles avec Data Lake Store | Azure" 
-   description="Liste des applications open source qui fonctionnent avec Azure Data Lake Store" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Applications Big Data compatibles avec Data Lake Store | Azure"
+   description="Liste des applications open source qui fonctionnent avec Azure Data Lake Store"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Ouvrir des applications Big Data open source qui fonctionnent avec le magasin Azure Data Lake
 
-Cet article répertorie les applications Big Data open source qui fonctionnent avec le magasin Azure Data Lake. Pour les applications répertoriées ci-dessous, seules les versions disponibles avec la distribution indiquée sont prises en charge. Pour connaître les versions de ces applications qui sont disponibles avec HDInsight, consultez [Contrôle de versions des composants HDInsight](/hdinsight/hdinsight-component-versioning.md).
+Cet article répertorie les applications Big Data open source qui fonctionnent avec le magasin Azure Data Lake. Pour les applications répertoriées ci-dessous, seules les versions disponibles avec la distribution indiquée sont prises en charge. Pour connaître les versions de ces applications qui sont disponibles avec HDInsight, consultez [Contrôle de versions des composants HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Logiciel open source | Distribution |
@@ -39,6 +39,5 @@ Cet article répertorie les applications Big Data open source qui fonctionnent a
 ## Voir aussi
 
 - [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Offrir un accès à distance sécurisé aux applications locales
@@ -63,4 +63,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Créer des clusters Hadoop, HBase, Storm ou Spark sur Linux dans HDInsight à l’aide du kit de développement logiciel HDInsight .NET | Microsoft Azure"
+   	pageTitle="Créer des clusters Hadoop, HBase, Storm ou Spark sur Linux dans HDInsight à l’aide du kit de développement logiciel HDInsight .NET | Microsoft Azure"
    	description="Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight avec le kit de développement logiciel HDInsight .NET."
    	services="hdinsight"
    	documentationCenter=""
@@ -17,13 +17,13 @@
    	ms.date="03/08/2016"
    	ms.author="jgao"/>
 
-#Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
+#Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
 [AZURE.INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
 
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Ce document montre comment créer un cluster HDInsight basé sur Linux à l’aide du Kit de développement logiciel (SDK) .NET.
+Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Ce document montre comment créer un cluster HDInsight basé sur Linux à l’aide du Kit de développement logiciel (SDK) .NET.
 
-> [AZURE.IMPORTANT] Les étapes décrites dans ce document créent un cluster avec un nœud de travail. Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
+> [AZURE.IMPORTANT] Les étapes décrites dans ce document créent un cluster avec un nœud de travail. Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -32,12 +32,11 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 ou 2015__
 
 ## Créer des clusters
 
-1. Ouvrir Visual Studio 2013 ou 2015
+1. Ouvrir Visual Studio 2013 ou 2015
 
 2. Création d’un projet Visual Studio avec les paramètres suivants
 
@@ -48,7 +47,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**.
 
-6. Exécutez la commande suivante dans la console pour installer les packages :
+6. Exécutez la commande suivante dans la console pour installer les packages :
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -56,7 +55,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
     Ces commandes ajoutent des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
 
-6. Dans l’Explorateur de solutions, double-cliquez sur **Program.cs** pour l’ouvrir, collez le code suivant et fournissez des valeurs pour les variables :
+6. Dans l’Explorateur de solutions, double-cliquez sur **Program.cs** pour l’ouvrir, collez le code suivant et fournissez des valeurs pour les variables :
 
         using System;
         using System.Security;
@@ -164,13 +163,13 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 		
 10. Remplacez les valeurs de membre de classe.
 
-7. Appuyez sur **F5** pour exécuter l'application. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. Vous êtes invité à saisir les informations d’identification de votre compte Azure. La création d’un cluster HDInsight peut prendre un certain temps, normalement 15 minutes.
+7. Appuyez sur **F5** pour exécuter l'application. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. Vous êtes invité à saisir les informations d’identification de votre compte Azure. La création d’un cluster HDInsight peut prendre un certain temps, normalement 15 minutes.
 
 ## Utilisation de Bootstrap
 
 Pour plus d’informations, consultez la page [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
 
-Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) pour configurer un paramètre Hive :
+Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) pour configurer un paramètre Hive :
 
     static void Main(string[] args)
     {
@@ -295,7 +294,7 @@ Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) pour
 
 Pour plus d’informations, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) afin d’appeler une action de script pour installer R :
+Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) afin d’appeler une action de script pour installer R :
 
     static void Main(string[] args)
     {
@@ -361,8 +360,15 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 
 * [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+### Exécuter des tâches
+
+- [Exécuter des tâches Hive dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Exécuter des tâches Pig dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Exécuter des tâches Sqoop dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Exécuter des tâches Oozie dans HDInsight](hdinsight-use-oozie.md)
+
+<!---HONumber=AcomDC_0413_2016-->

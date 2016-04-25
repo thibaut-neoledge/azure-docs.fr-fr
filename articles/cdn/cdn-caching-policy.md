@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services" 
-	description="Cette rubrique fournit une vue d'ensemble d'une stratégie de mise cache CDM dans l'extension Media Services." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services"
+	description="Cette rubrique fournit une vue d'ensemble d'une stratégie de mise cache CDM dans l'extension Media Services."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/01/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="juliako"/>
 
 #Stratégie de mise en cache CDN dans l'extension Media Services
@@ -32,7 +32,7 @@ Azure Media Services fournit un [CDN intégré](https://azure.microsoft.com/up
 
 Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Services pour configurer les valeurs des en-têtes de cache.
 
-1. Pour configurer les en-têtes de cache à l'aide du portail de gestion, reportez-vous à la section [Gestion des points de terminaison de diffusion en continu](../media-services-manage-origins.md) de la page relative à la configuration du point de terminaison de diffusion en continu.
+1. Pour configurer les en-têtes de cache à l'aide du portail de gestion, reportez-vous à la section [Gestion des points de terminaison de diffusion en continu](../media-services/media-services-manage-origins.md) de la page relative à la configuration du point de terminaison de diffusion en continu.
 2. API REST d'Azure Media Services, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. Kit de développement logiciel (SDK) .NET Azure Media Services, [Propriétés StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
 
@@ -41,6 +41,5 @@ Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Se
 1. La valeur configurée du cache Azure Media Services remplace la valeur par défaut.
 2. S'il n'existe aucune configuration manuelle, les valeurs par défaut s'appliquent.
 3. Des en-têtes de cache de 2 secondes s’appliquent par défaut aux fichiers manifestes de diffusion en continu en direct (ou sélections) quelle que soit la configuration d'Azure Media ou d’Azure Storage, et elles sont irremplaçables.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

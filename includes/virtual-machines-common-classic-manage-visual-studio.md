@@ -26,7 +26,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     - **Images publiques** : images de machines virtuelles des systèmes d’exploitation et des logiciels serveurs, tels que Windows Server et SQL Server.
 
-    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
+    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
 
     - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
 
@@ -36,7 +36,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
         >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
 
-    Si vous êtes un abonné MSDN avec un abonnement de niveau Visual Studio, vous pouvez créer une machine virtuelle Azure préconfigurée contenant Visual Studio, ainsi que plusieurs autres images. Pour plus d’informations, consultez [Créer une machine virtuelle dans Visual Studio à l’aide de la galerie d’images Visual Studio 2013 pour les abonnés MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) et [Abonnements MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
+    Si vous êtes un abonné MSDN avec un abonnement de niveau Visual Studio, vous pouvez créer une machine virtuelle Azure préconfigurée contenant Visual Studio, ainsi que plusieurs autres images. Pour plus d’informations, consultez [Créer une machine virtuelle dans Visual Studio à l’aide de la galerie d’images Visual Studio 2013 pour les abonnés MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) et [Abonnements MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
 1. Dans la page **Paramètres de base de la machine virtuelle**, entrez un nom de machine virtuelle, puis ajoutez les informations associées à celle-ci, telles que sa taille, le nom d’utilisateur et le mot de passe. Quand vous avez terminé, cliquez sur **Suivant**.
 
@@ -54,7 +54,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     L’ajout de votre machine virtuelle à un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d’un disque dur local et de temps d’arrêt planifiés. Vous devez utiliser le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=253103) pour créer des réseaux virtuels, des sous-réseaux et des groupes à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/).
 
-1. Dans la page **Points de terminaison**, spécifiez les points de terminaison publics que vous voulez mettre à disposition des utilisateurs de votre machine virtuelle. Par exemple, vous pouvez choisir d’activer le protocole HTTP (port 80) en plus du Bureau à distance et des points de terminaison PowerShell, qui sont activés par défaut. Pour ajouter un point de terminaison, sélectionnez-en un dans la liste déroulante **Nom du port**, puis cliquez sur le bouton **Ajouter**. Pour supprimer un point de terminaison, cliquez sur la croix rouge (**X**) à côté de son nom dans la liste des points de terminaison.
+1. Dans la page **Points de terminaison**, spécifiez les points de terminaison publics que vous voulez mettre à disposition des utilisateurs de votre machine virtuelle. Par exemple, vous pouvez choisir d’activer le protocole HTTP (port 80) en plus du Bureau à distance et des points de terminaison PowerShell, qui sont activés par défaut. Pour ajouter un point de terminaison, sélectionnez-en un dans la liste déroulante **Nom du port**, puis cliquez sur le bouton **Ajouter**. Pour supprimer un point de terminaison, cliquez sur la croix rouge (**X**) à côté de son nom dans la liste des points de terminaison.
 
     ![Page Points de terminaison de l’Assistant Machines virtuelles](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
@@ -66,11 +66,11 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Étant donné que la machine virtuelle est créée par Azure, le **journal des activités Azure** indique la progression de l’opération de création des machines virtuelles.
 
-    ![Journal des activités de la machine virtuelle – En cours](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+    ![Journal des activités de la machine virtuelle – En cours](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
 
     Pour afficher uniquement les informations relatives à la machine virtuelle, cliquez sur l’onglet **Machines virtuelles** du **journal des activités Azure**.
 
-    ![Journal des activités de la machine virtuelle – Terminé](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+    ![Journal des activités de la machine virtuelle – Terminé](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
 
     Si l’opération se termine avec succès, la nouvelle machine virtuelle s’affiche sous le nœud **Machines virtuelles** dans l’Explorateur de serveurs. Vous pouvez vous connecter à celui-ci en cliquant sur le raccourci **Connexion à l’aide de Bureau à distance**.
 
@@ -78,15 +78,15 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
 ## Gérer vos machines virtuelles
 
-Dans la page de configuration des machines virtuelles, en plus des fonctions d’arrêt, de connexion, d’actualisation et d’ajout de points de contrôle à la machine virtuelle sélectionnée, vous pouvez également utiliser les fonctions d’affichage et de modification des paramètres de la machine virtuelle. Vous pouvez :
+Dans la page de configuration des machines virtuelles, en plus des fonctions d’arrêt, de connexion, d’actualisation et d’ajout de points de contrôle à la machine virtuelle sélectionnée, vous pouvez également utiliser les fonctions d’affichage et de modification des paramètres de la machine virtuelle. Vous pouvez :
 
-- modifier la taille de la machine virtuelle ;
+- modifier la taille de la machine virtuelle ;
 
-- sélectionner le groupe à haute disponibilité à utiliser avec la machine virtuelle ;
+- sélectionner le groupe à haute disponibilité à utiliser avec la machine virtuelle ;
 
-- ajouter, supprimer et modifier les paramètres des points de terminaison publics ;
+- ajouter, supprimer et modifier les paramètres des points de terminaison publics ;
 
-- ajouter, supprimer et configurer les extensions des machines virtuelles ;
+- ajouter, supprimer et configurer les extensions des machines virtuelles ;
 
 - afficher les informations sur les disques associés aux machines virtuelles.
 
@@ -138,7 +138,7 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 ### Pour restaurer une machine virtuelle à un état précédemment enregistré
 
-- Suivez les étapes décrites dans [Pas-à-pas : restauration cloud de machines virtuelles Microsoft Azure à l’aide de PowerShell – Deuxième partie](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Suivez les étapes décrites dans [Pas-à-pas : restauration cloud de machines virtuelles Microsoft Azure à l’aide de PowerShell – Deuxième partie](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
 ### Pour supprimer un point de contrôle
 
@@ -156,6 +156,6 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-cli-create.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-tutorial.md).
+Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

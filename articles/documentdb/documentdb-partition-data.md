@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/10/2016" 
 	ms.author="arramac"/>
 
 # Partitionnement et mise à l’échelle dans Azure DocumentDB
@@ -210,7 +210,7 @@ Nous allons lire le document avec sa clé de partition et son ID, le mettre à j
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
     DeviceReading reading = (DeviceReading)(dynamic)result;
 
@@ -225,7 +225,7 @@ Nous allons lire le document avec sa clé de partition et son ID, le mettre à j
     // Delete document. Needs partition key
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 
 
@@ -261,11 +261,9 @@ Dans la section suivante, nous examinons la manière de passer de collections à
 ### Migration de collections à partition unique vers des collections partitionnées
 Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (> 10 000 unités de requête/s) ou d’un stockage de données plus important (> 10 Go), vous pouvez utiliser l’[outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée.
 
-En outre, étant donné que vous ne pouvez spécifier des clés de partition que lors de la création d’une collection, pour créer une collection partitionnée, vous devez exporter, puis ré-importer vos données à l’aide de l’[outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d).
-
 Pour migrer une collection à partition unique vers une collection partitionnée
 
-1. Exportez les données de la collection à partition unique vers un fichier JSON. Pour plus de détails, voir [Exporter vers un fichier JSON](documentdb-import-data.md#export-to-json-file).
+1. Exportez les données de la collection à partition unique vers un fichier JSON. Pour plus de détails, voir [Exportation vers un fichier JSON](documentdb-import-data.md#export-to-json-file).
 2. Importez les données dans une collection partitionnée créée avec une définition de clé de partition et un débit supérieur à 10 000 unités de requête par seconde, comme indiqué dans l’exemple ci-dessous. Pour plus de détails, voir [Importer dans DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget).
 
 ![Migration de données vers une collection partitionnée dans DocumentDB][3]
@@ -278,10 +276,10 @@ Après avoir découvert les principes de base, nous allons maintenant examiner q
 Le choix de la clé de partition est une décision importante que vous devrez prendre au moment de la conception. Cette section décrit certains des inconvénients liés à la sélection d’une clé de partition pour votre collection.
 
 ### Clé de partition en tant que limite de la transaction
-Votre choix de clé de partition doit équilibrer la nécessité d’utiliser des transactions et la nécessité de répartir les entités sur plusieurs partitions pour garantir une solution évolutive. D’un côté, vous pouvez stocker toutes vos entités dans une seule partition, mais cela peut limiter l’extensibilité de votre solution. D’un autre côté, vous pouvez stocker un document par clé de partition, ce qui optimise l’évolutivité, mais peut vous empêcher d’utiliser des transactions entre les documents par le biais des procédures stockées et des déclencheurs. Une clé de partition idéale vous permet d’utiliser des requêtes efficaces et possède assez de partitions pour garantir l’évolutivité de votre solution.
+Votre choix de clé de partition doit équilibrer la nécessité d’utiliser des transactions et la nécessité de répartir les entités sur plusieurs clés de partitions pour garantir une solution évolutive. D’un côté, vous pouvez définir la même clé de partition pour tous vos documents, mais cela peut limiter l’extensibilité de votre solution. D’un autre côté, vous pouvez attribuer une clé de partition unique à chaque document, ce qui optimise l’évolutivité, mais peut vous empêcher d’utiliser des transactions entre les documents par le biais des procédures stockées et des déclencheurs. Une clé de partition idéale vous permet d’utiliser des requêtes efficaces et possède une cardinalité suffisante pour garantir l’évolutivité de votre solution.
 
 ### Éviter les goulots d’étranglement des performances et du stockage 
-Il est également important de choisir une propriété qui permet de distribuer les écritures entre plusieurs valeurs distinctes. Les demandes auprès de la même clé de partition ne peuvent pas surpasser le débit d’une partition unique et sont limitées. Il est donc important de choisir une clé de partition qui n’entraîne pas de **« zones réactives »** au sein de votre application. La taille totale de stockage des documents avec la même clé de partition ne peut pas non plus dépasser 10 Go de stockage.
+Il est également important de choisir une propriété qui permet de distribuer les écritures entre plusieurs valeurs distinctes. Les demandes auprès de la même clé de partition ne peuvent pas surpasser le débit d’une partition unique et sont limitées. Il est donc important de choisir une clé de partition qui n’entraîne pas de **« zones réactives »** au sein de votre application. La taille totale de stockage des documents avec la même clé de partition ne peut pas non plus dépasser 10 Go de stockage.
 
 ### Exemples de clés de partition adéquates
 Voici quelques exemples pour savoir comment sélectionner la clé de partition pour votre application :
@@ -321,4 +319,4 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

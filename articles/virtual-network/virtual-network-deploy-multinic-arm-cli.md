@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Déploiement de machines virtuelles à plusieurs cartes réseau à l'aide de l'Interface de ligne de commande (CLI) Azure dans Resource Manager | Microsoft Azure"
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l'aide de l'Interface de ligne de commande Azure dans Resource Manager."
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Étant donné que vous ne pouvez pas pour l’instant avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau dans le même groupe de ressources, vous devez implémenter les serveurs principaux dans un groupe de ressources différent des autres composants. Les étapes ci-dessous utilisent un groupe de ressources nommé *IaaSStory* pour le groupe de ressources principal et *IaaSStory-BackEnd* pour les serveurs principaux.
+Actuellement, un même groupe de ressources ne peut pas avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau. Par conséquent, vous devez implémenter les serveurs principaux dans un groupe de ressources différent de celui des autres composants. Les étapes ci-dessous utilisent un groupe de ressources nommé *IaaSStory* pour le groupe de ressources principal et *IaaSStory-BackEnd* pour les serveurs principaux.
 
 ## Composants requis
 
@@ -47,7 +47,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 
 - **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l’emplacement Azure de déploiement prend en charge le stockage Premium.
 - **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l’accès à la base de données et l’autre pour la gestion.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance.
 
 ### Étape 1 : démarrage de votre script
 
@@ -60,7 +60,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. Modifiez les valeurs des variables suivantes, selon les valeurs que vous souhaitez utiliser pour le déploiement de votre serveur principal.
 
 		backendRGName="IaaSStory-Backend"
@@ -107,7 +107,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. Créez un groupe à haute disponibilité pour les machines virtuelles
 
@@ -171,7 +171,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

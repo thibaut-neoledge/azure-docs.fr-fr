@@ -20,7 +20,7 @@
 
 La surveillance des opérations IoT Hub permet aux utilisateurs de surveiller l’état des opérations sur leur hub IoT en temps réel. IoT Hub effectue le suivi des événements entre les différentes catégories d’opérations, et les utilisateurs peuvent opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de leur hub IoT en vue de leur traitement. Les utilisateurs peuvent surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
-IoT Hub surveille quatre catégories d’événements :
+IoT Hub surveille quatre catégories d’événements :
 
 - Opérations d’identité des appareils
 - Télémétrie d’appareil
@@ -35,7 +35,7 @@ IoT Hub surveille quatre catégories d’événements :
 
     ![][1]
 
-3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**.
+3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s'appelle `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -124,11 +124,11 @@ La catégorie de connexions effectue le suivi des erreurs provoquées par la con
 
 ## Étapes suivantes
 
-La surveillance des opérations n’étant plus un secret pour vous, vous pouvez suivre les liens ci-après :
+La surveillance des opérations n’étant plus un secret pour vous, vous pouvez suivre les liens ci-après :
 
 - [Métriques de diagnostic IoT Hub][lnk-diagnostic-metrics]
 - [Mise à l’échelle IoT Hub][lnk-scaling]
-- [Haute disponibilité et récupération d’urgence IoT Hub :][lnk-dr]
+- [Haute disponibilité et récupération d’urgence IoT Hub :][lnk-dr]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -139,4 +139,4 @@ La surveillance des opérations n’étant plus un secret pour vous, vous pouvez
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -40,7 +40,6 @@ Dans Azure Automation, une application web Azure est gérée à l’aide d’app
 
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour gérer une application web Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
-* Consultez le [Didacticiel de prise en main](../automation-intro.md) d'Azure Automation
- 
+* Consultez le [Didacticiel de prise en main](../automation/automation-intro.md) d'Azure Automation
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

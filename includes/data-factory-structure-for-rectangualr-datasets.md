@@ -24,7 +24,7 @@ Suivez les recommandations suivantes pour savoir quand inclure les informations 
 1.	**Pour les sources de données structurées** qui stockent le schéma de données et les informations de type, ainsi que les données proprement dites (sources telles qu’une table Azure, SQL Server, Oracle, etc.), vous devez spécifier la section « structure » uniquement si vous voulez effectuer un mappage des colonnes sources spécifiques aux colonnes spécifiques du récepteur et si leurs noms ne sont pas identiques (voir les détails de la section de mappage des colonnes ci-dessous). 
 
 	Comme mentionné ci-dessus, les informations de type sont facultatives dans la section « structure ». Pour les sources structurées, les informations de type sont déjà disponibles dans le cadre de la définition du jeu de données dans le magasin de données. Vous ne devez donc pas les inclure lorsque vous incluez la section « structure ».
-2. **Pour un schéma sur les sources de données de lecture (en particulier les objets blob Azure)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de source de données, vous devez inclure « structure » dans les 2 cas suivants :
+2. **Pour un schéma des sources de données de lecture (en particulier les objets blob Azure)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de source de données, vous devez inclure « structure » dans les 2 cas suivants :
 	1. Vous souhaitez effectuer un mappage de colonnes.
 	2. Si le jeu de données est une source dans une activité de copie, vous pouvez fournir des informations de type dans la « structure », et la fabrique de données utilisera ces informations de type pour la conversion en types natifs pour le récepteur. Pour plus d’informations, consultez l’article [Déplacer des données vers et depuis un stockage d’objets blob Azure](../articles/data-factory/data-factory-azure-blob-connector.md).
 
@@ -47,4 +47,4 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 
 Pour Datetime et Datetimeoffset, vous pouvez également spécifier une chaîne « culture » et « format » pour faciliter l’analyse de votre chaîne Datetime personnalisée. Consultez l’exemple de conversion de type ci-dessous.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

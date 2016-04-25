@@ -15,6 +15,6 @@ Type de disque de stockage Premium | P10 | P20 | P30
 Taille du disque | 128 Go | 512 Go | 1024 Go (1 To)
 Nb max. d'E/S par seconde par disque | 500 | 2 300 | 5 000
 Débit max. par disque | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde
-Nombre maximal de disques fortement utilisés | 62 | 41 | 31
+Nombre maximal de disques par compte de stockage | 280 | 140 | 35
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

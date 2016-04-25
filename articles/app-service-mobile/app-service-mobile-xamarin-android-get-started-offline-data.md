@@ -28,12 +28,6 @@ Dans ce didacticiel vous allez mettre à jour le projet client du didacticiel [C
 
 Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## Configuration requise
-
-* Visual Studio 2013
-* [Extension Xamarin] Visual Studio **ou** [Xamarin Studio]
-* Réalisation du didacticiel [Création d’une application Xamarin Android]. Le présent didacticiel utilise l’application terminée abordée dans ce didacticiel.
-
 ## Examiner le code de synchronisation client
 
 Le projet client Xamarin que vous avez téléchargé pendant l’exécution du didacticiel [Création d’une application Xamarin Android] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données SQLite locale. Voici un bref aperçu de ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
@@ -73,7 +67,9 @@ Le projet client Xamarin que vous avez téléchargé pendant l’exécution du d
     Dans le code fourni, tous les enregistrements de la table `TodoItem` distante sont interrogés, mais il est également possible de filtrer les enregistrements en transmettant un ID de requête et une requête à `PushAsync`. Pour plus d’informations, consultez la section *Synchronisation incrémentielle* dans [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->	
+	-->
+
+
 		// ToDoActivity.cs
         private async Task SyncAsync()
         {
@@ -170,8 +166,8 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Extension Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

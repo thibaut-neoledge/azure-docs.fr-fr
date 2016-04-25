@@ -34,7 +34,7 @@ Cet article est consacré au mode de connexion à une machine virtuelle SQL Serv
 
 ## Scénarios de connexion
 
-La méthode utilisée par un client pour se connecter à un serveur SQL Server exécuté sur une machine virtuelle diffère selon l’emplacement du client et la configuration de la machine ou du réseau. Ces scénarios sont les suivants :
+La méthode utilisée par un client pour se connecter à un serveur SQL Server exécuté sur une machine virtuelle diffère selon l’emplacement du client et la configuration de la machine ou du réseau. Ces scénarios sont les suivants :
 
 - [se connecter à SQL Server dans le même service de cloud computing](#connect-to-sql-server-in-the-same-cloud-service)
 - [Se connecter à SQL Server via Internet](#connect-to-sql-server-over-the-internet)
@@ -46,7 +46,7 @@ Plusieurs machines virtuelles peuvent être créées dans le même service cloud
 
 Commencez par effectuer la [procédure décrite dans cet article pour configurer la connectivité](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Notez qu’il est inutile de configurer un point de terminaison public si vous devez connecter des machines situées dans le même service cloud.
 
-Vous pouvez utiliser le **nom d’hôte** de la machine virtuelle dans la chaîne de connexion du client. Il s’agit du nom que vous avez donné à votre machine virtuelle lors de sa création. Par exemple, si votre machine virtuelle SQL se nomme **mysqlvm** et le nom DNS de service cloud est **mycloudservice.cloudapp.net**, une machine virtuelle cliente du même service cloud peut utiliser la chaîne de connexion suivante pour se connecter :
+Vous pouvez utiliser le **nom d’hôte** de la machine virtuelle dans la chaîne de connexion du client. Il s’agit du nom que vous avez donné à votre machine virtuelle lors de sa création. Par exemple, si votre machine virtuelle SQL se nomme **mysqlvm** et le nom DNS de service cloud est **mycloudservice.cloudapp.net**, une machine virtuelle cliente du même service cloud peut utiliser la chaîne de connexion suivante pour se connecter :
 
 	"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
@@ -80,17 +80,17 @@ Notez que dans ce scénario, vous pouvez également spécifier l’adresse IP de
 
 Les étapes suivantes montrent comment se connecter à l’instance SQL Server sur Internet à l’aide de SQL Server Management Studio (SSMS). Toutefois, les mêmes étapes s’appliquent pour rendre votre machine virtuelle SQL Server accessible pour vos applications exécutées en local et dans Azure.
 
-Avant de pouvoir vous connecter à l’instance de SQL Server à partir d’une autre machine virtuelle ou d’Internet, vous devez effectuer les tâches suivantes, comme indiqué dans les sections ci-dessous :
+Avant de pouvoir vous connecter à l’instance de SQL Server à partir d’une autre machine virtuelle ou d’Internet, vous devez effectuer les tâches suivantes, comme indiqué dans les sections ci-dessous :
 
 - [Créer un point de terminaison TCP pour la machine virtuelle](#create-a-tcp-endpoint-for-the-virtual-machine)
 - [Ouvrir des ports TCP dans le pare-feu Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configurer SQL Server pour l’écoute du protocole TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configurer SQL Server pour l’authentification en mode mixte](#configure-sql-server-for-mixed-mode-authentication)
-- [Créer des connexions d’authentification SQL Server](#create-sql-server-authentication-logins)
+- [Configurer SQL Server pour l’écoute du protocole TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configurer SQL Server pour l’authentification en mode mixte](#configure-sql-server-for-mixed-mode-authentication)
+- [Créer des connexions d’authentification SQL Server](#create-sql-server-authentication-logins)
 - [Déterminer le nom DNS de la machine virtuelle](#determine-the-dns-name-of-the-virtual-machine)
 - [Se connecter au moteur de base de données à partir d’un autre ordinateur](#connect-to-the-database-engine-from-another-computer)
 
-Le chemin de connexion est résumé dans le schéma suivant :
+Le chemin de connexion est résumé dans le schéma suivant :
 
 ![Connexion à une machine virtuelle SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
@@ -104,8 +104,8 @@ Le chemin de connexion est résumé dans le schéma suivant :
 
 Si vous envisagez également d’utiliser des groupes de disponibilité AlwaysOn pour la haute disponibilité et la récupération d’urgence, nous vous recommandons d’implémenter un écouteur. Les clients de base de données se connectent à l’écouteur plutôt que directement à l’une des instances SQL Server. L’écouteur achemine les clients vers le réplica principal du groupe de disponibilité. Pour plus d’informations, voir [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d’informations, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-security.md).
+Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d’informations, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-security.md).
 
-Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-overview.md).
+Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

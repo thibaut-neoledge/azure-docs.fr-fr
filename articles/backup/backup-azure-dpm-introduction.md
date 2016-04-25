@@ -23,7 +23,7 @@
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
-Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos serveurs System Center Data Protection Manager (DPM) et vos charges de travail. En le lisant, vous comprendrez :
+Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos serveurs System Center Data Protection Manager (DPM) et vos charges de travail. En le lisant, vous comprendrez :
 
 - le fonctionnement de la sauvegarde du serveur Azure DPM ;
 - les conditions requises pour une expérience de sauvegarde fluide ;
@@ -52,7 +52,7 @@ Une fois l’instantané capturé, les données sont transférées par le servic
 ## Composants requis
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
-1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
+1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
 2. **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
 3. **Installer l'Agent Azure Backup et inscrire le serveur** : à partir d'Azure Backup, installez l'agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre de sauvegarde.
 
@@ -93,4 +93,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!----HONumber=AcomDC_0218_2016--->
+<!---HONumber=AcomDC_0413_2016-->

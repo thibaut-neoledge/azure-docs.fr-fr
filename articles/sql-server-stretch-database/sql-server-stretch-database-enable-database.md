@@ -34,7 +34,7 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 -   Recueillez les informations dont vous avez besoin pour créer une base de données distante ou sélectionner une base de données distante existante, et pour créer une règle de pare-feu qui autorise votre serveur local à communiquer avec le serveur distant.
 
-## <a name="EnableTSQLServer"></a>Condition préalable : Autorisation pour activer Stretch Database sur le serveur
+## <a name="EnableTSQLServer"></a>Condition préalable : Autorisation pour activer Stretch Database sur le serveur
 Avant de pouvoir activer Stretch Database sur une base de données ou une table, vous devez l’activer sur le serveur local. Cette opération nécessite des autorisations sysadmin ou serveradmin.
 
 -   Si vous disposez des autorisations d’administration nécessaires, l’Assistant **Activer la base de données pour Stretch** configure le serveur pour Stretch.
@@ -69,7 +69,7 @@ L’activation de Stretch Database sur une table ou une base de données nécess
     USE <database>
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
     ```
 
 4.  Quand vous configurez une base de données pour Stretch Database, vous devez fournir les informations d’identification que Stretch Database doit utiliser pour les communications entre l’ordinateur SQL Server local et le serveur Azure distant. Deux options s’offrent à vous.
@@ -108,7 +108,7 @@ L’activation de Stretch Database sur une table ou une base de données nécess
     ALTER DATABASE <database name>
         SET REMOTE_DATA_ARCHIVE = ON
             (
-                SERVER = <server_name> ,
+                SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
     GO;
@@ -133,4 +133,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

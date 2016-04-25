@@ -28,12 +28,12 @@
 ##Vue d’ensemble
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Xamarin.Android. Dans ce didacticiel, vous allez ajouter des notifications push au projet [Prise en main de Mobile Services] à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
 + Un compte Google actif.
 + Le composant client [Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
 
-Les composants [Xamarin.Android] et [Azure Mobile Services] doivent déjà être installés dans votre projet dès la fin du didacticiel [Prise en main de Mobile Services].
+Les composants Xamarin et [Azure Mobile Services] doivent déjà être installés dans votre projet dès la fin du didacticiel [Prise en main de Mobile Services].
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
@@ -68,13 +68,13 @@ Vous avez terminé ce didacticiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main de l'authentification](mobile-services-android-get-started-users.md) <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
 * [Présentation de Notification Hubs](../notification-hubs/notification-hubs-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
-* [Déboguer les applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
+* [Déboguer les applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 
 * [Utilisation de la bibliothèque cliente .NET pour Mobile Services](mobile-services-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec le code Xamarin C#.
 
@@ -84,7 +84,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
 
 [Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

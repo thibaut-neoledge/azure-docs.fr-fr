@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer une machine virtuelle Azure exécutant Linux dans le portail Azure Classic | Microsoft Azure"
+	pageTitle="Créer une machine virtuelle Azure exécutant Linux dans le portail Azure Classic | Microsoft Azure"
 	description="Utilisez le portail Azure pour créer une machine virtuelle Azure (VM) exécutant Linux avec les groupes de ressources Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -25,8 +25,6 @@
 La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure pour en créer une rapidement. Il utilise le fichier de clé publique `~/.ssh/id_rsa.pub` pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-classic-create-upload-vhd.md).
 
 
-[AZURE.NOTE] Ce didacticiel crée une machine virtuelle Azure qui est gérée par l’API de groupe de ressources Azure. Pour plus d’informations, consultez la section [Vue d’ensemble du groupe de ressources Azure](../resource-group-overview.md).
-
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Sélectionnez l'image
@@ -51,7 +49,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
 
-1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un ** emplacement** de centre de données Azure.
+1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
 
 	![](media/virtual-machines-linux-portal-create/step-1-thebasics.png)
 
@@ -59,7 +57,7 @@ Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par dé
 
 2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d'autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l’image que vous choisissez. Une fois que vous avez terminé, cliquez sur ![sélectionner le bouton](media/virtual-machines-linux-portal-create/selectbutton-size.png).
 
-	>[AZURE.NOTE] Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+	>[AZURE.NOTE] Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 3. Cliquez sur **Paramètres** pour voir les paramètres de réseau et de stockage de la nouvelle machine virtuelle. Pour une première machine virtuelle, vous pouvez généralement accepter les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle prenant en charge le stockage Premium, vous pouvez faire un essai en sélectionnant **Premium (SSD)** sous **Type de disque**. Une fois que vous avez terminé, cliquez sur ![bouton OK](media/virtual-machines-linux-portal-create/okbutton.png).
 
@@ -75,7 +73,7 @@ Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par dé
 
 ## Connectez-vous à votre machine virtuelle Linux Azure en utilisant **ssh**
 
-Vous pouvez désormais vous connecter à votre machine virtuelle Ubuntu à l’aide de **ssh** selon la méthode standard. Toutefois, vous devrez découvrir l’adresse IP allouée à la machine virtuelle Azure en ouvrant la vignette correspondant à la machine virtuelle et à ses ressources. Vous pouvez pour cela cliquer sur **Parcourir**, puis sélectionner **Récent** et rechercher la machine virtuelle créée, ou cliquer sur la vignette créée pour vous dans le tableau d’accueil. Dans les deux cas, localisez et copiez la valeur **Adresse IP publique** comme indiqué dans le graphique suivant.
+Vous pouvez désormais vous connecter à votre machine virtuelle Ubuntu à l’aide de **ssh** selon la méthode standard. Toutefois, vous devrez découvrir l’adresse IP allouée à la machine virtuelle Azure en ouvrant la vignette correspondant à la machine virtuelle et à ses ressources. Vous pouvez pour cela cliquer sur **Parcourir**, puis sélectionner **Récent** et rechercher la machine virtuelle créée, ou cliquer sur la vignette créée pour vous dans le tableau d’accueil. Dans les deux cas, localisez et copiez la valeur **Adresse IP publique** comme indiqué dans le graphique suivant.
 
 ![résumé de création réussie](media/virtual-machines-linux-portal-create/successresultwithip.png)
 
@@ -118,14 +116,14 @@ Vous pouvez maintenant exécuter la commande **ssh** dans votre machine virtuell
 
 ## Étapes suivantes
 
-Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivantes :
+Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivantes :
 
-- [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
+- [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
 
 - [Utilisation des outils en ligne de commande Azure pour Mac et Linux](azure-cli-arm-commands.md)
 
 - [Déployer une application LAMP à l’aide de l’extension CustomScript Azure pour Linux](virtual-machines-linux-classic-lamp-script.md)
 
-- [Extension Docker VM pour Linux sur Azure](virtual-machines-linux-dockerextension.md)
+- [Extension Docker VM pour Linux sur Azure](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

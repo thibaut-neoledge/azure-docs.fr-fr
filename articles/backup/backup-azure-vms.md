@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Sauvegarde des machines virtuelles Azure | Microsoft Azure"
+	pageTitle="Sauvegarde des machines virtuelles Azure | Microsoft Azure"
 	description="Découvrez, inscrivez et sauvegardez vos machines virtuelles avec ces procédures pour la sauvegarde de la machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
 	manager="jwhit"
 	editor=""
-	keywords="sauvegarde de machine virtuelle ; sauvegarder la machine virtuelle ; sauvegarde et récupération d’urgence ; sauvegarde de machine virtuelle"/>
+	keywords="sauvegarde de machine virtuelle ; sauvegarder la machine virtuelle ; sauvegarde et récupération d’urgence ; sauvegarde de machine virtuelle"/>
 
 <tags
 	ms.service="backup"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -25,32 +25,50 @@ Tout d’abord, vous devez prendre en compte certains éléments avant de sauveg
 
 Pour obtenir des informations supplémentaires, consultez les articles sur la [planification de votre infrastructure de sauvegarde des machines virtuelles dans Azure](backup-azure-vms-introduction.md) et les [machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-Les trois principales étapes de la sauvegarde des machines virtuelles sont les suivantes :
+Les trois principales étapes de la sauvegarde des machines virtuelles sont les suivantes :
 
 ![Trois étapes pour sauvegarder une machine virtuelle IaaS Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE] La sauvegarde des machines virtuelles est un processus local. Vous ne pouvez pas sauvegarder les machines virtuelles dans une région donnée vers un archivage de sauvegarde d’une autre région. Par conséquent, vous devez créer un archivage de sauvegarde dans chaque région Azure dans laquelle des machines virtuelles seront sauvegardées.
 
-## Étape 1 - Découverte des machines virtuelles Azure
+## Étape 1 - Découverte des machines virtuelles Azure
 Exécutez le processus de découverte pour vous assurer que les nouvelles machines virtuelles ajoutées à l’abonnement sont bien identifiées avant l’inscription. Le processus interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
-1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur **Éléments inscrits**.
+1. Connectez-vous au [portail Classic](http://manage.windowsazure.com/)
 
-2. Sélectionnez **Machine virtuelle Azure** dans le menu déroulant.
+2. Dans la liste des services Azure, cliquez sur **Recovery Services** pour ouvrir la liste des coffres de sauvegarde et Site Recovery.
+![Ouvrir la liste d’archivage](./media/backup-azure-vms/choose-vault-list.png)
+
+3. Dans la liste des archivages de sauvegarde, sélectionnez le coffre pour sauvegarder une machine virtuelle.
+
+    S’il s’agit d’un nouveau coffre, le portail affiche la page **Démarrage rapide**.
+
+    ![Ouvrir le menu Éléments inscrits](./media/backup-azure-vms/vault-quick-start.png)
+
+    Si le coffre a été précédemment configuré, le portail ouvre le dernier menu utilisé.
+
+4. Dans le menu du coffre (en haut de la page), cliquez sur **Éléments inscrits**.
+
+    ![Ouvrir le menu Éléments inscrits](./media/backup-azure-vms/vault-menu.png)
+
+5. Dans le menu **Type**, sélectionnez **Machine virtuelle Azure**.
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur **DÉCOUVRIR** en bas de la page. ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
+6. Cliquez sur **DÉCOUVRIR** en bas de la page.
+![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
 
     Le processus de découverte peut durer quelques minutes, le temps que les machines virtuelles soient affichées sous forme de tableau. Une notification affichée en bas de l’écran vous informe que le processus est en cours d’exécution.
 
     ![Détection des machines virtuelles](./media/backup-azure-vms/discovering-vms.png)
 
-    La notification change lorsque le processus est terminé.
+    La notification change lorsque le processus est terminé. Si le processus de découverte n’a pas trouvé les machines virtuelles, vérifiez tout d’abord que les machines virtuelles existent. Si les machines virtuelles existent, vérifiez qu’elles se situent dans la même région que le coffre de sauvegarde. Si les machines virtuelles existent et se situent dans la même région, vérifiez qu’elles ne sont pas déjà inscrites dans un coffre de sauvegarde. Si une machine virtuelle est assignée à un coffre de sauvegarde, elle ne peut pas être affectée à d’autres coffres de sauvegarde.
 
     ![Détection exécutée](./media/backup-azure-vms/discovery-complete.png)
 
-##  Étape 2 - Inscription des machines virtuelles Azure
+    Une fois les nouveaux éléments découverts, passez à l’étape 2 et inscrivez vos machines virtuelles.
+
+##  Étape 2 - Inscription des machines virtuelles Azure
 Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Backup. L’inscription est généralement une activité unique.
 
 1. Accédez à l’archivage de sauvegarde se trouvant sous **Services de récupération** dans le portail Azure, puis cliquez sur **Éléments inscrits**.
@@ -59,7 +77,8 @@ Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Ba
 
     ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur **INSCRIRE** en bas de la page. ![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
+3. Cliquez sur **INSCRIRE** en bas de la page.
+![Bouton inscription](./media/backup-azure-vms/register-button-only.png)
 
 4. Dans le menu contextuel **Inscrire les éléments**, choisissez les machines virtuelles que vous souhaitez inscrire. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
@@ -73,16 +92,16 @@ Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Ba
 
     La machine virtuelle est également affichée dans la liste des éléments inscrits avec l’état de l’opération d’inscription.
 
-    ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
+    ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
 
     Une fois l’opération terminée, l’état change pour refléter l’état *inscrit*.
 
-    ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
+    ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
-## Étape 3 - Protection des machines virtuelles Azure
+## Étape 3 - Protection des machines virtuelles Azure
 Vous pouvez désormais configurer une stratégie de sauvegarde et de rétention pour la machine virtuelle. Plusieurs machines virtuelles peuvent être protégées par la même action de protection.
 
-Les archivages Azure Backup créés après mai 2015 sont livrés avec une stratégie par défaut intégrée. Cette stratégie par défaut est fournie avec une durée de conservation par défaut de 30 jours et une fréquence de sauvegarde quotidienne d’une fois par jour.
+Les archivages Azure Backup créés après mai 2015 sont livrés avec une stratégie par défaut intégrée. Cette stratégie par défaut est fournie avec une durée de conservation par défaut de 30 jours et une fréquence de sauvegarde quotidienne d’une fois par jour.
 
 1. Accédez à l’archivage de sauvegarde se trouvant sous **Services de récupération** dans le portail Azure, puis cliquez sur **Éléments inscrits**.
 2. Sélectionnez **Machine virtuelle Azure** dans le menu déroulant.
@@ -115,9 +134,9 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat�
 
     ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/long-term-retention.png)
 
-    Dans cet exemple :
+    Dans cet exemple :
 
-    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
+    - **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
     - **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les dimanches sont conservées pendant 104 semaines.
     - **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier dimanche de chaque mois sont conservées pendant 120 mois.
     - **Stratégie de rétention annuelle** : les sauvegardes effectuées le premier dimanche de janvier de chaque année sont conservées pendant 99 ans.
@@ -131,7 +150,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat�
 ## Sauvegarde initiale
 Une fois la machine virtuelle protégée par une stratégie, elle apparaît sous l’onglet **Éléments protégés** avec l’état *Protégé (sauvegarde initiale en attente)*. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
-Pour déclencher la sauvegarde initiale immédiatement après la configuration de la protection :
+Pour déclencher la sauvegarde initiale immédiatement après la configuration de la protection :
 
 1. Cliquez sur le bouton **Sauvegarder maintenant** en bas de la page **Éléments protégés**.
 
@@ -152,7 +171,7 @@ Une fois la protection appliquée, le nombre de machines virtuelles augmente ég
 
 ![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
 
-Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
+Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
 
 ## Résolution des erreurs
 Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuelle, consultez l’[article sur le dépannage des machines virtuelles](backup-azure-vms-troubleshoot.md) pour obtenir de l’aide.
@@ -162,4 +181,4 @@ Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuel
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

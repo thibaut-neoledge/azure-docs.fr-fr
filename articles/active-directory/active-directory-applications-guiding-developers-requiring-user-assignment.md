@@ -28,9 +28,9 @@
 7. Définissez **Affectation de l’utilisateur requise pour accéder à l'application** sur Oui.
 8. Cliquez sur le bouton **Enregistrer** au bas de l’écran.
 
-Vous devez alors affecter des utilisateurs et/ou des groupes à l’application. Voir [Affectation d’utilisateurs à une application](active-directory-guiding-developers-assigning-users.md) et [Affectation de groupes à une application](active-directory-guiding-developers-assigning-groups.md).
+Vous devez alors affecter des utilisateurs et/ou des groupes à l’application. Voir [Affectation d’utilisateurs à une application](active-directory-applications-guiding-developers-assigning-users.md) et [Affectation de groupes à une application](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Création de groupes de sécurité réseau en mode classique à l’aide de PowerShell | Microsoft Azure"
    description="Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de PowerShell"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -32,7 +32,7 @@ Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement 
 ## Création du groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
 3. Création d’un groupe de sécurité réseau nommé **NSG-FrontEnd**.
 
@@ -52,17 +52,17 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		| Set-AzureNetworkSecurityRule -Name rdp-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '3389' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '3389'
 
 	Sortie attendue :
 
 		Name     : NSG-FrontEnd
 		Location : Central US
 		Label    : Front end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -71,10 +71,10 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -89,18 +89,18 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		| Set-AzureNetworkSecurityRule -Name web-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
 		    -SourceAddressPrefix Internet  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '80' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '80'
 
 	Sortie attendue :
-		
+
 
 		Name     : NSG-FrontEnd
 		Location : Central US
 		Label    : Front end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -110,10 +110,10 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -141,17 +141,17 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		| Set-AzureNetworkSecurityRule -Name rdp-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
 		    -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '1433' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '1433'
 
 	Sortie attendue :
 
 		Name     : NSG-BackEnd
 		Location : Central US
 		Label    : Back end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -160,10 +160,10 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -178,17 +178,17 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		| Set-AzureNetworkSecurityRule -Name block-internet `
 		    -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
 		    -SourceAddressPrefix '*'  -SourcePortRange '*' `
-		    -DestinationAddressPrefix Internet -DestinationPortRange '*' 
+		    -DestinationAddressPrefix Internet -DestinationPortRange '*'
 
 	Sortie attendue :
 
 		Name     : NSG-BackEnd
 		Location : Central US
 		Label    : Back end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -197,10 +197,10 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -210,4 +210,4 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

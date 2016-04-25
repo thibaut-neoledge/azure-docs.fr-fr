@@ -3,8 +3,8 @@
 	description="Prise en main de l’audit de base de données SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="ronitr"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="jeffreyg; ronitr"/>
+	ms.date="04/11/2016"
+	ms.author="carlrabeler; ronitr"/>
  
 # Prise en main de l’audit de base de données SQL
 L’audit de base de données SQL Azure effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage. L’audit est en disponibilité générale pour les services De base, Standard et Premium.
@@ -178,4 +178,4 @@ Vous pouvez utiliser différentes applets de commande PowerShell pour configurer
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

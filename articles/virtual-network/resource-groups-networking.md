@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Vue d’ensemble du fournisseur de ressources réseau | Microsoft Azure"
    description="En savoir plus sur le nouveau fournisseur de ressources réseau dans Azure Resource Manager"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -18,16 +18,16 @@
 # Fournisseur de ressources réseau
 Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
 
-Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès à vos ressources. Il existe trois fournisseurs de ressources principaux : réseau, stockage et calcul. Ce document présente les caractéristiques et les avantages du fournisseur de ressources réseau, à savoir :
+Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès à vos ressources. Il existe trois fournisseurs de ressources principaux : réseau, stockage et calcul. Ce document présente les caractéristiques et les avantages du fournisseur de ressources réseau, à savoir :
 
 - **Métadonnées** : vous pouvez ajouter des informations aux ressources à l'aide de balises. Ces balises peuvent être utilisées pour suivre l'utilisation des ressources entre les groupes de ressources et les abonnements.
 - **Contrôle accru de votre réseau** : les ressources réseau sont faiblement couplées et vous pouvez les contrôler de manière plus précise. Cela signifie que vous disposez de davantage de flexibilité dans la gestion des ressources réseau.
 - **Configuration plus rapide** : étant donné que les ressources réseau sont faiblement couplées, vous pouvez créer et organiser les ressources réseau en parallèle. Cela a considérablement réduit le temps de configuration.
-- **Contrôle d'accès en fonction du rôle (RBAC) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée. 
+- **Contrôle d'accès en fonction du rôle (RBAC) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée.
 - **Gestion et déploiement facilités** : il est plus facile de déployer et de gérer des applications dans la mesure où vous pouvez créer toute une pile d'applications sous la forme d'une collection unique de ressources dans un groupe de ressources. Le déploiement est également plus rapide, car vous pouvez l'effectuer en fournissant simplement une charge utile JSON de modèle.
-- **Personnalisation rapide** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements. 
+- **Personnalisation rapide** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
 - **Personnalisation reproductible** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
-- **Interfaces de gestion** : vous pouvez utiliser une des interfaces suivantes pour gérer vos ressources :
+- **Interfaces de gestion** : vous pouvez utiliser une des interfaces suivantes pour gérer vos ressources :
 	- API REST
 	- PowerShell
 	- Kit de développement logiciel (SDK) .NET
@@ -37,14 +37,14 @@ Azure Resource Manager s’appuie sur différents fournisseurs de ressources pou
 	- Portail en version préliminaire
 	- Langue du modèle ARM
 
-## Ressources réseau 
+## Ressources réseau
 Vous pouvez désormais gérer les ressources réseau indépendamment, au lieu qu'elles soient toutes gérées via une ressource de calcul unique (un machine virtuelle). Cela garantit un degré de flexibilité et de souplesse plus élevé dans la composition d'une infrastructure complexe et à grande échelle dans un groupe de ressources.
 
 Une vue conceptuelle d'un exemple de déploiement impliquant une application multicouche est présentée ci-dessous. Chaque ressource que vous voyez, par exemple, les cartes réseau, les adresses IP publiques et les machines virtuelles, peut être gérée indépendamment.
 
 ![Modèle de ressource réseau](./media/resource-groups-networking/Figure2.png)
 
-Chaque ressource contient un ensemble commun de propriétés et son jeu de propriétés individuelles. Les propriétés communes sont les suivantes :
+Chaque ressource contient un ensemble commun de propriétés et son jeu de propriétés individuelles. Les propriétés communes sont les suivantes :
 
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
@@ -75,24 +75,24 @@ Vous pouvez vérifier les propriétés individuelles des ressources dans les sec
 [AZURE.INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
 
 ## Interfaces de gestion
-Vous pouvez gérer vos ressources de réseau Azure à l’aide de différentes interfaces. Dans ce document nous allons nous concentrer sur le dépannage de ces interfaces : API REST et modèles.
+Vous pouvez gérer vos ressources de réseau Azure à l’aide de différentes interfaces. Dans ce document nous allons nous concentrer sur le dépannage de ces interfaces : API REST et modèles.
 
-### API REST 
+### API REST
 Comme mentionné précédemment, les ressources réseau peuvent être gérées via une variété d'interfaces, notamment l'API REST, le Kit de développement logiciel (SDK) .NET, le Kit de développement logiciel (SDK) Node.JS, le Kit de développement logiciel (SDK) Java, PowerShell, l'interface en ligne de commande, le portail Azure et des modèles.
 
-Les API Rest sont conformes à la spécification du protocole HTTP 1.1. La structure d'URI générale de l'API est présentée ci-dessous :
+Les API Rest sont conformes à la spécification du protocole HTTP 1.1. La structure d'URI générale de l'API est présentée ci-dessous :
 
 	https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
-Et les paramètres entre accolades représentent les éléments suivants :
+Et les paramètres entre accolades représentent les éléments suivants :
 
 - **subscription-id** : ID de votre abonnement Azure.
 - **resource-provider-namespace** : espace de noms pour le fournisseur utilisé. La valeur pour le fournisseur de ressources réseau est *Microsoft.Network*.
 - **region-name** : nom de la région Azure.
 
-Les méthodes HTTP suivantes sont prises en charge lors des appels à l'API REST :
+Les méthodes HTTP suivantes sont prises en charge lors des appels à l'API REST :
 
-- **PUT** : utilisée pour créer une ressource d'un type donné, modifier une propriété de ressource ou changer une association entre des ressources. 
+- **PUT** : utilisée pour créer une ressource d'un type donné, modifier une propriété de ressource ou changer une association entre des ressources.
 - **GET** : utilisée pour récupérer des informations concernant une ressource configurée.
 - **DELETE** : utilisée pour supprimer une ressource existante.
 
@@ -101,7 +101,7 @@ La demande et la réponse sont toutes les deux conformes à un format de charge 
 ### Langue du modèle ARM
 Outre la gestion des ressources de manière impérative (via des API ou un Kit de développement logiciel (SDK)), vous pouvez également utiliser un style de programmation déclaratif pour créer et gérer les ressources réseau en utilisant la langue du modèle ARM.
 
-Un exemple de représentation d'un modèle est fourni ci-dessous :
+Un exemple de représentation d'un modèle est fourni ci-dessous :
 
 	{
 	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -138,7 +138,7 @@ Le modèle est essentiellement une description JSON des ressources et des valeur
 	        "metadata" : {
 	          "Description" : "Address prefix"
 	        }
-	
+
 	      },
 	      "subnet1Name": {
 	        "type" : "string",
@@ -200,7 +200,7 @@ Le modèle est essentiellement une description JSON des ressources et des valeur
 	    ]
 	}
 
-Lorsqu'un modèle est utilisé, vous avez la possibilité de fournir manuellement les valeurs de paramètre, ou vous pouvez utiliser un fichier de paramètres. L'exemple ci-dessous montre un ensemble possible de valeurs de paramètre à utiliser avec le modèle ci-dessus :
+Lorsqu'un modèle est utilisé, vous avez la possibilité de fournir manuellement les valeurs de paramètre, ou vous pouvez utiliser un fichier de paramètres. L'exemple ci-dessous montre un ensemble possible de valeurs de paramètre à utiliser avec le modèle ci-dessus :
 
 	{
 	  "location": {
@@ -227,21 +227,21 @@ Lorsqu'un modèle est utilisé, vous avez la possibilité de fournir manuellemen
 	}
 
 
-Les principaux avantages de l'utilisation de modèles sont les suivants :
+Les principaux avantages de l'utilisation de modèles sont les suivants :
 
-- Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L'orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par le gestionnaire des ressources Azure (ARM). 
-- L'infrastructure peut être créée de manière reproductible entre diverses régions et dans une région en modifiant simplement les paramètres. 
-- Le style déclaratif entraîne un délai de création des modèles et de déploiement de l'infrastructure plus court. 
+- Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L'orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par le gestionnaire des ressources Azure (ARM).
+- L'infrastructure peut être créée de manière reproductible entre diverses régions et dans une région en modifiant simplement les paramètres.
+- Le style déclaratif entraîne un délai de création des modèles et de déploiement de l'infrastructure plus court.
 
 Pour obtenir des exemples de modèles, consultez [Modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Pour plus d'informations sur la langue du modèle ARM, consultez [Langue de modèle de gestionnaire des ressources Azure](../resource-group-authoring-templates.md).
 
-L'exemple de modèle ci-dessus utilise le réseau virtuel et des ressources de sous-réseau. Il existe d'autres ressources réseau que vous pouvez utiliser, comme indiqué ci-dessous :
+L'exemple de modèle ci-dessus utilise le réseau virtuel et des ressources de sous-réseau. Il existe d'autres ressources réseau que vous pouvez utiliser, comme indiqué ci-dessous :
 
 ### Utilisation d’un modèle
 
-Vous pouvez déployer des services dans Azure à partir d’un modèle à l’aide de PowerShell, AzureCLI, ou en cliquant pour les déployer à partir de GitHub. Pour déployer des services à partir d’un modèle dans GitHub, procédez comme suit :
+Vous pouvez déployer des services dans Azure à partir d’un modèle à l’aide de PowerShell, AzureCLI, ou en cliquant pour les déployer à partir de GitHub. Pour déployer des services à partir d’un modèle dans GitHub, procédez comme suit :
 
 1. Ouvrez le fichier template3 dans GitHub. Par exemple, ouvrez [Réseau virtuel avec deux sous-réseaux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
 2. Cliquez sur **Déployer dans Azure**, puis connectez-vous au portail Azure avec vos informations d’identification.
@@ -256,12 +256,12 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 ## Étapes suivantes
 
-[Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md)
+[Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md)
 
-[Mise en réseau Azure : modèles couramment utilisés](https://github.com/Azure/azure-quickstart-templates)
+[Mise en réseau Azure : modèles couramment utilisés](https://github.com/Azure/azure-quickstart-templates)
 
-[Fournisseur de ressources de calcul](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Fournisseur de ressources de calcul](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
 [Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

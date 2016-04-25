@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Didacticiel : Intégration d’Azure AD à XMatters OnDemand | Microsoft Azure"
-    description="Découvrez comment utiliser XMatters OnDemand avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    description="Découvrez comment utiliser XMatters OnDemand avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à xMatters OnDemand
   
@@ -102,7 +102,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure, copiez la valeur **ID du fournisseur d’identité**, puis collez-la dans la zone de texte **Identity Provider ID**.
     3.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Single Sign On URL**.
     4.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Single Logout URL**.
-    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**. ![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
+    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**.
+![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
 
 8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -151,4 +152,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

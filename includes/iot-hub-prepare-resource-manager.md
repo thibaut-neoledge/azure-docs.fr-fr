@@ -2,7 +2,7 @@
 
 Vous devez authentifier toutes les opérations que vous effectuez sur des ressources à l’aide d’[Azure Resource Manager][lnk-authenticate-arm] avec Azure Active Directory (AD). La manière la plus simple de configurer cela consiste à utiliser PowerShell ou l’interface de ligne de commande Azure.
 
-Vous devez installer [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure avant de continuer.
+Vous devez installer [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure avant de continuer.
 
 Les étapes suivantes montrent comment configurer l’authentification par mot de passe pour une application Active Directory à l’aide de PowerShell. Vous pouvez exécuter ces commandes dans le cadre d’une session PowerShell standard.
 
@@ -47,6 +47,6 @@ Vous avez maintenant créé l’application Azure AD qui vous permettra de vous 
 - Mot de passe
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: ../articles/powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -31,7 +31,7 @@ Cet article fournit une vue d’ensemble de l’Explorateur de documents [Micros
 
  	>[AZURE.NOTE] L’Explorateur de requêtes s’affiche également dans les panneaux de base de données et de collection.
 
-    Dans le panneau **Explorateur de documents**, les listes déroulantes **Bases de données** et **Collections** sont préremplies en fonction du contexte de lancement de l’Explorateur de requêtes.
+    Dans le panneau **Explorateur de documents**, les listes déroulantes **Bases de données** et **Collections** sont préremplies en fonction du contexte de lancement de l’Explorateur de documents.
 
 	![Capture d’écran du panneau Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
@@ -158,4 +158,4 @@ Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans
 
 Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
