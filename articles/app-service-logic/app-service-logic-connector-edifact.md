@@ -54,7 +54,7 @@ Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
 ### Action
 - Cliquez sur le connecteur Edifact dans le panneau de droite :  
 ![Paramètres d'action][7]
-- Cliquez sur -> : 
+- Cliquez sur -> :  
 ![Liste d'actions][8]
 - Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* :  
 ![Codage d'entrée][9]
