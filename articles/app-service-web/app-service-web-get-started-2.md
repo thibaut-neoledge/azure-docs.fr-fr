@@ -67,7 +67,7 @@ Vous allez à présent apprendre à adapter la taille de votre application. Vous
 
 Sans plus attendre, préparons à présent la mise à l’échelle automatique de votre application.
 
-1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle, (Plan App Service)**. ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
+1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Mettre à l’échelle, (Plan App Service)**. ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
 
 2. Faites défiler la page, puis sélectionnez le niveau **S1 Standard** (le plus bas niveau prenant en charge la mise à l’échelle automatique, encerclé dans la capture d’écran), puis cliquez sur **Sélectionner**. ![Monter en puissance - choisir un niveau](./media/app-service-web-get-started/scale-up-select.png)
 
@@ -75,7 +75,7 @@ Sans plus attendre, préparons à présent la mise à l’échelle automatique d
     
     >[AZURE.IMPORTANT] Ce niveau épuise votre crédit d’essai gratuit. Si vous avez un compte de paiement à l’utilisation, il occasionne des frais pour votre compte.
     
-3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
+3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > **Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
 
 4. Changez **Mettre à l’échelle selon** sur **Pourcentage UC**. Les curseurs sous la liste déroulante se mettent à jour en conséquence. Ensuite, définissez une plage d’**Instances** comprise entre **1** et **2** et une **Plage cible** entre **40** et **80**. Pour ce faire, effectuez une saisie dans les zones ou déplacez les curseurs. ![Augmenter la taille des instances - configurer la mise à l’échelle automatique](./media/app-service-web-get-started/scale-out-configure.png)
     
