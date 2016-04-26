@@ -4,7 +4,7 @@
 	keywords="Développement d’application, didacticiel de base de données, python flask, application web python, développement web python, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="ryancrawcour"
+    authors="aliuy"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
-    ms.author="ryancraw"/>
+    ms.date="04/18/2016"
+    ms.author="andrl"/>
 
 # Développement d’une application Python Flask avec DocumentDB
 
@@ -433,4 +433,4 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

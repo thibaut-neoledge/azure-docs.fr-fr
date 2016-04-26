@@ -54,7 +54,7 @@ Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 Pour terminer, cliquez sur **Paramètres** dans le panneau IoT Hub, puis sur **Messagerie** dans le panneau **Paramètres**. Sur le panneau **Messagerie**, notez le **Nom compatible Event Hub** et **Point de terminaison compatible Event Hub**. Ces valeurs sont nécessaires lorsque vous créez votre application **read-d2c-messages**.
 
-    ![][6]
+![][6]
 
 Maintenant, vous avez créé votre concentrateur IoT et vous disposez d’un nom d’hôte IoT Hub, de la chaîne de connexion IoT Hub, du nom compatible Event Hub et d’un point de terminaison compatible Event Hub pour suivre le reste de ce didacticiel.
 
@@ -83,7 +83,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![][8]
 
-3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au concentrateur :
+3. La mosaïque**Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au concentrateur :
 
     ![][43]
 
@@ -111,4 +111,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

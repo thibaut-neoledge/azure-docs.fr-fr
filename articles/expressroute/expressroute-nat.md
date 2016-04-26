@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Configuration NAT requise pour ExpressRoute
@@ -25,7 +25,7 @@ Examinez la page [Circuits ExpressRoute et domaines de routage](expressroute-cir
 
 Le chemin d'homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut tous les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. La connectivité aux services Microsoft Azure sur l'homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Le trafic destiné à Microsoft Azure sur l'homologation publique doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. L'illustration suivante indique de façon sommaire comment configurer un NAT pour répondre à cette exigence.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![](./media/expressroute-nat/expressroute-nat-azure-public.png)
 
 ### Pool d’adresses IP NAT et publications de routage
 
@@ -33,13 +33,13 @@ Vous devez vous assurer que le trafic qui entre via le chemin d'accès d’homol
  
 Il n'existe aucune restriction concernant la longueur du préfixe IP NAT publié via cette homologation. Vous devez surveiller le pool NAT et vous assurer que vous n’êtes pas à court de sessions NAT.
 
->[AZURE.IMPORTANT]Le pool IP NAT proposé à Microsoft ne doit pas être publié sur Internet. Cela interromprait la connectivité avec d'autres services Microsoft.
+>[AZURE.IMPORTANT] Le pool IP NAT proposé à Microsoft ne doit pas être publié sur Internet. Cela interromprait la connectivité avec d'autres services Microsoft.
 
 ## Configuration NAT requise pour l'homologation Microsoft
 
 Le chemin d’homologation Microsoft vous permet de vous connecter aux services de cloud Microsoft non pris en charge via le chemin d'homologation publique Azure. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et CRM Online. Microsoft prévoit la prise en charge de la connectivité bidirectionnelle sur l'homologation Microsoft. Le trafic destiné aux services de cloud Microsoft doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. Avant d’arriver sur votre réseau, le trafic provenant des services de cloud Microsoft doit être configuré en SNAT. L'illustration suivante indique de façon sommaire comment configurer un NAT pour l’homologation Microsoft.
  
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![](./media/expressroute-nat/expressroute-nat-microsoft.png)
 
 
 #### Trafic en provenance de votre réseau et destiné à Microsoft
@@ -48,7 +48,7 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 
 - Les adresses IP utilisées pour la configuration de l'homologation publique Azure et d’autres circuits ExpressRoute ne doivent pas être proposées à Microsoft via la session BGP. Il n'existe aucune restriction concernant la longueur du préfixe IP NAT publié via cette homologation.
 
-	>[AZURE.IMPORTANT]Le pool IP NAT proposé à Microsoft ne doit pas être publié sur Internet. Cela interromprait la connectivité avec d'autres services Microsoft.
+	>[AZURE.IMPORTANT] Le pool IP NAT proposé à Microsoft ne doit pas être publié sur Internet. Cela interromprait la connectivité avec d'autres services Microsoft.
 
 #### Trafic en provenance de Microsoft et destiné à votre réseau
 
@@ -66,4 +66,4 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="carlrab"/>
 
 # Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide du portail Azure
@@ -59,4 +59,4 @@ Maintenant que vous avez terminé ce didacticiel sur la base de données SQL et 
 
 [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

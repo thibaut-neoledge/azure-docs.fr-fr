@@ -30,7 +30,7 @@ Vous jetterez également un premier regard sur le [portail Azure](https://portal
 
 ## Composants requis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Git. Vous pouvez télécharger le fichier binaire d’installation [ici](http://www.git-scm.com/downloads). Vous devez être en mesure d’exécuter `git --version` à partir du terminal de ligne de commande de votre choix. 
 - Connaissances élémentaires de Git.
@@ -65,13 +65,13 @@ Déployons à présent une application web dans Azure App Service
     
     Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
 
-4. Créez la ressource d’application d’App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante. L’URL de votre application web sera http://&lt;app_name>. azurewebsites.net.
+4. Créez la ressource d’application d’App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante.
 
         azure site create --git <app_name>
       
     >[AZURE.NOTE] Si vous n’avez jamais configuré les informations d’identification de déploiement pour votre abonnement Azure, vous serez invité à les créer. Ces informations d’identification (et non pas les informations d’identification de votre compte Azure) sont utilisées par App Service uniquement dans le cadre des déploiements Git et des connexions FTP.
     
-    Non seulement votre application est-elle créée dans Azure, mais votre répertoire actuel a également été initialisé avec Git et est connecté au nouvel App Service en tant que Git distant. Vous pouvez accéder à l’URL de votre application pour visualiser la belle page HTML par défaut, mais essayons d’abord d’y amener votre propre code.
+    Votre application est maintenant créée dans Azure. Votre répertoire actuel a été initialisé avec Git et est connecté au nouvel App Service en tant que Git distant. Vous pouvez accéder à l’URL de l’application (http://&lt;app_name>.azurewebsites.net) pour visualiser la belle page HTML par défaut, mais essayons d’abord d’y amener votre propre code.
 
 4. À présent, déployez votre exemple de code dans la nouvelle application App Service de la même manière que vous transfériez n’importe quel code avec Git :
 
@@ -109,7 +109,7 @@ Il existe différentes façons de déployer votre application web. Le déploieme
 
 2. Dans la barre à gauche, cliquez sur **App Services**.
 
-3. Cliquez sur l’application App Service que vous venez de créer pour ouvrir son panneau dans le portail. Vous verrez que le panneau **Paramètres** est également ouvert par défaut, pour plus de commodité.
+3. Cliquez sur l’application que vous venez de créer pour ouvrir sa page dans le portail (nommée [panneau](../azure-portal-overview.md)). Le panneau **Paramètres** est également ouvert par défaut, pour plus de commodité.
 
     ![Vue du portail de la première application dans Azure App Service](./media/app-service-web-get-started/portal-view.png)
 
@@ -128,10 +128,10 @@ Portez l’application que vous avez déployée à un niveau supérieur. Sécuri
 Ou découvrez comment créer une application web pour App Service avec un environnement de langage spécifique :
 
 - [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md)
-- [Créer une application web en PHP dans Microsoft Azure App Service](web-sites-php-mysql-deploy-use-git.md)
+- [Créer une application web en PHP dans Microsoft Azure App Service](web-sites-php-mysql-deploy-use-git.md)
 - [Créer une application web Node.js dans Azure App Service](web-sites-nodejs-develop-deploy-mac.md)
 - [Créer une application web Java dans Azure App Service](web-sites-java-get-started.md)
-- [Créer une application web Python dans Azure App Service](web-sites-python-ptvs-django-mysql.md)
+- [Créer une application web Python dans Azure App Service](web-sites-python-ptvs-django-mysql.md)
 
 Ou trouvez encore du contenu relatif à la plage d’applications que vous pouvez créer dans Azure App Service, notamment des applications web, des applications principales mobiles et des applications API.
 
@@ -139,4 +139,4 @@ Ou trouvez encore du contenu relatif à la plage d’applications que vous pouve
 - [Créer des applications mobiles](/documentation/learning-paths/appservice-mobileapps/)
 - [Créer des applications API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

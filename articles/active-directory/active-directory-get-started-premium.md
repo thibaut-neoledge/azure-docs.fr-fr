@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/18/2016"
 	ms.author="markvi"/>
 
 # Prise en main d’Azure Active Directory Premium
@@ -23,9 +23,16 @@ Azure Active Directory est disponible en trois éditions : gratuit, de base et
 > [AZURE.NOTE]
 Les clients vivant en Chine peuvent accéder aux éditions de base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-Azure Active Directory Premium est également inclus dans le **Enterprise Mobility Suite**. Enterprise Mobility Suite permet aux organisations de rentabiliser leur utilisation des services Microsoft Intune, Azure Rights Management et Active Directory Premium réunis dans un seul plan de licences. Pour plus d'informations, consultez le site web de [Enterprise Mobility Suite](https://www.microsoft.com/fr-FR/server-cloud/enterprise-mobility/overview.aspx).
+Azure Active Directory Premium est également inclus dans le **Enterprise Mobility Suite**. L’Enterprise Mobility Suite est une méthode économique permettant aux organisations d’utiliser ensemble les services suivants ensemble sous un plan de licences :
 
-Pour commencer à utiliser les fonctionnalités d'Azure Active Directory Premium dès aujourd'hui, suivez les étapes ci-dessous. Ces mêmes étapes s'appliquent à l'édition de base Azure Active Directory.
+- Active Directory Premium 
+- Azure Rights Management
+- Microsoft Intune
+
+
+Pour plus d'informations, consultez le site web de [Enterprise Mobility Suite](https://www.microsoft.com/fr-FR/server-cloud/enterprise-mobility/overview.aspx).
+
+Pour commencer à utiliser les fonctionnalités d'Azure Active Directory Premium dès aujourd'hui, suivez les étapes décrites dans les sections suivantes. Ces étapes s'appliquent également à l'édition de base Azure Active Directory.
 
 ## Étape 1 : inscrivez-vous à Azure Active Directory Premium
 
@@ -33,31 +40,38 @@ Pour vous inscrire, consultez le site web des [licences en volume](http://www.mi
 
 ## Étape 2 : activez votre plan de licences
 
-S'il s'agit de la première fois que vous achetez un plan de licences via le programme de licences en volume Enterprise de Microsoft, vous devez tout d'abord l'activer avant de pouvoir attribuer des licences depuis votre répertoire Azure Active Directory. Pour cela, vous devez cliquer sur le lien de connexion ou d’inscription qui se trouve dans l'e-mail de confirmation (voir ci-dessous) que vous recevrez une fois que vous aurez acheté votre premier plan de licences. Pour tous les achats suivants de ce répertoire, les licences seront automatiquement activées dans ce même répertoire.
+Une fois l’achat de votre premier plan de licence par le biais du programme de licences en volume Enterprise de Microsoft terminé, vous obtenez un message de confirmation. Vous avez besoin de cet e-mail pour activer votre premier plan de licence. Pour tous les achats suivants de cet annuaire, les licences sont automatiquement activées dans ce même annuaire.
+
+Pour démarrer l’activation, cliquez sur **Se connecter** ou **S’inscrire**.
+
 
 ![][1]
 
-Si vous avez un client existant, sélectionnez le lien de **connexion** lien pour vous connecter avec votre compte d'administrateur existant. Il est important que vous vous connectiez avec les informations d'identification d'administrateur général à partir du répertoire dans lequel les licences doivent être activées.
+Si vous avez un client existant, cliquez sur **Se connecter** pour vous connecter avec votre compte administrateur existant. Il est important que vous vous connectiez avec les informations d'identification d'administrateur général à partir de l’annuaire dans lequel les licences doivent être activées.
 
-Si vous souhaitez créer un nouveau client Azure Active Directory à utiliser avec votre plan de licences, vous devez sélectionner le lien d’**inscription** qui vous permettra d'accéder à l'écran suivant.
+Si vous souhaitez créer un nouveau client Azure Active Directory à utiliser avec votre plan de licences, cliquez sur **S’inscrire** pour ouvrir la boîte de dialogue **Créer un profil de compte**.
 
 ![][2]
 
-Une fois que vous avez terminé le processus d'inscription ou de connexion initié à partir de l’e-mail, l’écran suivant s’affichera pour confirmer que le plan de licences est activé pour votre client.
+Lorsque vous avez terminé, la boîte de dialogue suivante s’affiche en tant que confirmation de l’activation du plan de licence de votre client.
 
 ![][3]
 
 ## Étapes 3 : activation de votre accès Azure Active Directory
 
-Une fois les licences approvisionnées dans votre répertoire, vous recevrez un e-mail de bienvenue (voir ci-dessous) qui vous confirme que vous pouvez commencer à gérer vos licences et fonctionnalités Azure Active Directory Premium ou Enterprise Mobility Suite. Si vous avez déjà utilisé Microsoft Azure, vous pouvez passer à http://manage.windowsazure.com pour attribuer les nouvelles licences (voir l'étape 4 ci-dessous pour plus d'informations). Si vous débutez avec Microsoft Azure, sélectionnez le lien de connexion dans l’e-mail ou rendez-vous sur la [page d’activation d’accès à Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P) pour suivre les étapes qui vous permettront d’accéder à votre répertoire via le Portail de gestion Azure.
+Lorsque les licences sont déployées dans votre annuaire, un **e-mail de Bienvenue** vous est envoyé. L’e-mail confirme que vous pouvez commencer à gérer vos licences Azure Active Directory Premium ou Enterprise Mobility Suite et les fonctionnalités.
+
+Si vous avez déjà utilisé Microsoft Azure, vous pouvez accéder à [http://manage.windowsazure.com](http://manage.windowsazure.com) pour attribuer les nouvelles licences (voir l'[étape 4](#step-4-assign-license-to-user-accounts) ci-dessous pour plus d'informations).
+
+Si vous débutez avec Microsoft Azure, vous pouvez cliquer sur **Se connecter** dans l’e-mail ou accéder à la [page d’activation d’Access to Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P). Les deux méthodes vous guident à travers une série d’étapes pour vous aider à accéder à votre annuaire par le biais du portail Azure Classic.
 
 ![][4]
 
-Une fois que vous êtes bien connecté, vous devrez remplir un deuxième écran d’authentification de facteur (ci-dessous) en indiquant un numéro de téléphone mobile et en le validant. Après cela, vous pourrez activer votre accès à Azure Active Directory en sélectionnant **S'inscrire**.
+Lorsque vous êtes correctement connecté, vous devez remplir un deuxième écran d’authentification de facteur en indiquant un numéro de téléphone mobile et en le validant. Lorsque vous avez terminé la vérification du mobile, vous pouvez activer votre accès à Azure Active Directory en cliquant sur **S’inscrire**.
 
 ![][5]
 
-L'activation peut prendre quelques minutes, comme illustré ci-dessous. Une fois votre accès activé, la barre marron disparaît et vous pourrez cliquer sur le lien en haut à droite ou accédez au [Portail de gestion Azure](http://manage.windowsazure.com).
+L’activation peut prendre plusieurs minutes. Une fois l’accès activé, la barre marron disparaît et vous pouvez cliquer sur **Portail**.
 
 ![][6]
 
@@ -65,23 +79,23 @@ Dans ce cas, votre accès à Azure sera limité à Azure Active Directory.
 
 ![][7]
 
-Vous avez peut-être déjà eu accès à Azure lors d’une précédente utilisation. Par ailleurs, vous pouvez mettre à niveau votre accès à Azure Active Directory pour un accès Azure complet en activant des abonnements Azure supplémentaires. Le cas échéant, le Portail de gestion aura plus de fonctionnalités, comme suit.
+Vous avez peut-être déjà eu accès à Azure lors d’une précédente utilisation. Par ailleurs, vous pouvez mettre à niveau votre accès à Azure Active Directory pour un accès Azure complet en activant des abonnements Azure supplémentaires. Dans ce cas, le portail Azure Classic présente davantage de fonctions.
 
 ![][8]
 
-Si vous essayez d'activer votre accès à Azure Active Directory avant de recevoir l’e-mail de bienvenue ci-dessus, vous pouvez rencontrer le message d'erreur suivant. Veuillez réessayer dans quelques minutes, une fois que vous avez reçu l’e-mail.
+Si vous essayez d'activer votre accès à Azure Active Directory avant de recevoir l’e-mail de bienvenue, vous pouvez rencontrer le message d'erreur suivant. Veuillez réessayer dans quelques minutes, une fois que vous avez reçu l’e-mail.
 
 ![][9]
 
-Les nouveaux administrateurs dans votre abonnement peuvent également activer leur accès au Portail de gestion via ce lien.
+Les nouveaux administrateurs dans votre abonnement peuvent également activer leur accès au portail Azure Classic en suivant ce lien.
 
 ## Étape 4 : attribution des licences aux comptes d'utilisateurs
 
-Avant de commencer à utiliser le plan que vous venez d’acheter, vous devrez attribuer manuellement des licences aux comptes d'utilisateurs de votre organisation afin qu'ils puissent utiliser les fonctionnalités fournies avec Premium. Procédez comme dans les étapes suivantes pour attribuer des licences aux utilisateurs pour leur permettre d’utiliser les fonctionnalités Azure Active Directory Premium.
+Avant de commencer à utiliser le plan que vous venez d’acheter, vous devez attribuer manuellement des licences aux comptes d'utilisateurs de votre organisation afin qu'ils puissent utiliser les fonctionnalités fournies avec Premium. Procédez comme dans les étapes suivantes pour attribuer des licences aux utilisateurs pour leur permettre d’utiliser les fonctionnalités Azure Active Directory Premium.
 
 Pour attribuer des licences aux utilisateurs :
 
-1. Connectez-vous au Portail de gestion en tant qu’administrateur général du répertoire que vous souhaitez personnaliser.
+1. Connectez-vous au portail Azure Classic en tant qu’administrateur général de l’annuaire que vous souhaitez personnaliser.
 2. Cliquez sur **Active Directory** puis sélectionnez le répertoire où vous souhaitez attribuer des licences.
 3. Sélectionnez l’onglet **Licences**, sélectionnez **Active Directory Premium** ou **Enterprise Mobility Suite**, puis cliquez sur **Attribuer**.
 
@@ -93,15 +107,15 @@ Pour attribuer des licences aux utilisateurs :
 
 ## Restrictions des licences
 
-Certains plans de licences sont des sous-ensembles ou sur-ensembles d’autres plans de licences. Dans la plupart des cas, un utilisateur ne peut pas être affecté à un plan de licences auquel il a déjà été affecté. Si vous souhaitez attribuer un plan de licences qui est un sur-ensemble, vous devez d'abord supprimer le plan de licences de sous-ensemble.
+Certains plans de licences sont des sous-ensembles ou sur-ensembles d’autres plans de licences. Généralement, un utilisateur ne peut pas être affecté à un plan de licences auquel il a déjà été affecté. Si vous souhaitez attribuer un plan de licences qui est un sur-ensemble, vous devez d'abord supprimer le plan de licences du sous-ensemble.
 
 ## Conditions de licence :
 
-Lorsque vous attribuez une licence à un utilisateur, vous pouvez spécifier un emplacement d'utilisation principal dans les propriétés de leur compte comme indiqué ci-dessous. Si un emplacement d'utilisation n'est pas spécifié, l’emplacement du client est automatiquement attribué à l'utilisateur.
+Lorsque vous attribuez une licence à un utilisateur, vous pouvez spécifier un emplacement d'utilisation principal dans les propriétés de leur compte. Si un emplacement d'utilisation n'est pas spécifié, l’emplacement du client est automatiquement attribué à l'utilisateur.
 
 ![][12]
 
-La disponibilité des services et des fonctionnalités du service cloud Microsoft varie selon le pays ou la région. Un service tel que le protocole voix sur IP (VoIP) peut être disponible dans un pays ou une région et pas dans d’autres. Les fonctionnalités dans un service peuvent être limitées pour des raisons juridiques dans certains pays ou régions. Pour voir si un service ou une fonctionnalité est disponible avec ou sans restrictions, recherchez votre pays ou région sur le site des restrictions de licence du service.
+La disponibilité des services et des fonctionnalités du service cloud Microsoft varie selon le pays ou la région. Un service tel que le protocole voix sur IP (VoIP) peut être disponible dans un pays ou une région et pas dans d’autres. Les fonctionnalités dans un service peuvent être limitées pour des raisons juridiques dans certains pays ou régions. Pour voir si un service ou une fonctionnalité est disponible avec ou sans restrictions, recherchez votre pays ou région sur le site des restrictions de licence d’un service.
 
 ## Étapes suivantes
 
@@ -122,4 +136,4 @@ La disponibilité des services et des fonctionnalités du service cloud Microsof
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

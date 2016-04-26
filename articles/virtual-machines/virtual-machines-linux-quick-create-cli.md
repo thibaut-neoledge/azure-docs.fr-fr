@@ -13,67 +13,68 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/04/2016"
+   ms.date="04/08/2016"
    ms.author="v-livech"/>
 
 
 # Création d’une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)
 
-Cet article explique comment créer rapidement une machine virtuelle Linux dans Azure à l’aide de la commande `azure vm quick-create` de l’interface de ligne de commande Azure, qui crée une machine virtuelle avec une infrastructure de base que vous pouvez utiliser pour créer un prototype ou tester un concept très rapidement. L’article nécessite un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et [l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
+Cet article explique comment créer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` de l’interface de ligne de commande (CLI) Azure. La commande `quick-create` crée une machine virtuelle avec une infrastructure de base que vous pouvez utiliser comme prototype ou pour tester très rapidement un concept. Il s'agit de la méthode la plus rapide pour créer un script shell bash Linux. L’article nécessite un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et [l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
 
 ## Résumé des commandes rapides
 
 ```
 # One command to quickly the VM that prompts for arguments
-chrisL@fedora$ azure vm quick-create
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Procédure pas à pas détaillée
 
-### Créer la machine virtuelle Linux
+## Créer la machine virtuelle Linux
 
 Dans la commande suivante, vous pouvez utiliser l’image de votre choix, mais cet exemple utilise `canonical:ubuntuserver:14.04.2-LTS:latest` pour créer rapidement une machine virtuelle. (Pour rechercher une image dans le Marketplace, [recherchez une image](virtual-machines-linux-cli-ps-findimage.md) ou [chargez votre propre image personnalisée](virtual-machines-linux-create-upload-generic.md).) Vous obtenez un résultat semblable à ce qui suit.
 
-Dans les exemples de commandes suivants, remplacez les valeurs situées entre &lt; et &gt; par les valeurs de votre propre environnement.
+Dans la procédure suivante, remplacez les invites par les valeurs de votre propre environnement. Nous utilisons les valeurs « exemple » de cet article
 
 ```bash
 # Create the Linux VM using prompts
-username@macbook$ azure vm quick-create
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
-Resource group name: exampleResourceGroup
+Resource group name: exampleRGname
 Virtual machine name: exampleVMname
 Location name: westus
-Operating system Type [Windows, Linux]: linux
+Operating system Type [Windows, Linux]: Linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
-User name: ops
-Password: *********
-Confirm password: *********
+User name: ahmet
+Password: ************************************************
+Confirm password: ************************************************
 + Looking up the VM "exampleVMname"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli133501687
-info:    Could not find the storage account "cli1301687", trying to create new one
-+ Creating storage account "cli133501687" in "westus"
-+ Looking up the storage account cli133501687
-+ Looking up the NIC "quick-westu-1363648838-nic"
-info:    An nic with given name "quick-westu-1363648838-nic" not found, creating a new one
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
++ Looking up the storage account cli38948918364134011018
+info:    Could not find the storage account "cli38948918364134011018", trying to create new one
++ Creating storage account "cli38948918364134011018" in "westus"
++ Looking up the storage account cli38948918364134011018
++ Looking up the NIC "examp-westu-3894891836-nic"
+info:    An nic with given name "examp-westu-3894891836-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-3894891836-vnet"
 info:    Preparing to create new virtual network and subnet
-\ Creating a new virtual network "quick-westu-1363648838-vnet" [address prefix: "10.0.0.0/16"] with subnet "quick-westu-13636488+8-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
-+ Looking up the subnet "quick-westu-1363648838-snet" under the virtual network "quick-westu-1363648838-vnet"
+| Creating a new virtual network "examp-westu-3894891836-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-3894891836-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-3894891836-vnet"
++ Looking up the subnet "examp-westu-3894891836-snet" under the virtual network "examp-westu-3894891836-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "quick-westu-1363648838-pip"
-info:    PublicIP with given name "quick-westu-1363648838-pip" not found, creating a new one
-+ Creating public ip "quick-westu-1363648838-pip"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-+ Creating NIC "quick-westu-1363648838-nic"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Creating VM "quickcreate"
++ Looking up the public ip "examp-westu-3894891836-pip"
+info:    PublicIP with given name "examp-westu-3894891836-pip" not found, creating a new one
++ Creating public ip "examp-westu-3894891836-pip"
++ Looking up the public ip "examp-westu-3894891836-pip"
++ Creating NIC "examp-westu-3894891836-nic"
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Creating VM "exampleVMname"
 + Looking up the VM "exampleVMname"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMname
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Looking up the public ip "examp-westu-3894891836-pip"
+data:    Id                              :/subscriptions/<**subscriptionsID**>/resourceGroups/exampleRGname/providers/Microsoft.Compute/virtualMachines/exampleVMname
 data:    ProvisioningState               :Succeeded
 data:    Name                            :exampleVMname
 data:    Location                        :westus
@@ -84,22 +85,22 @@ data:      Size                          :Standard_D1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :canonical
-data:        Offer                       :ubuntuserver
-data:        Sku                         :14.04.2-LTS
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli350d386daac1f01c-os-1457063387485
+data:        Name                        :clife36db80ae0539d2-os-1460152163612
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1361687.blob.core.windows.net/vhds/cli350d386daac1f01c-os-1457063387485.vhd
+data:          Uri                       :https://<**subscriptionsID**>.blob.core.windows.net/vhds/clife36db80ae0539d2-os-1460152163612.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :exampleVMname
-data:      User Name                     :ops
+data:      User Name                     :ahmet
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
 data:
@@ -107,24 +108,28 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-E9-66
+data:          MAC Address               :00-0D-3A-33-4C-B2
 data:          Provisioning State        :Succeeded
-data:          Name                      :quick-westu-1363648838-nic
+data:          Name                      :examp-westu-3894891836-nic
 data:          Location                  :westus
-data:            Public IP address       :137.135.33.58
-data:            FQDN                    :quick-westu-1363648838-pip.westus.cloudapp.azure.com
+data:            Public IP address       :13.88.22.244
+data:            FQDN                    :examp-westu-3894891836-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://cli13601687.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://<**subscriptionsID**>.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Vous pouvez maintenant exécuter SSH dans votre machine virtuelle sur le port SSH 22 par défaut.
+Vous pouvez désormais intégrer SSH à votre machine virtuelle sur le port SSH 22 par défaut et l'adresse IP publique répertoriée dans la sortie ci-dessus.
 
-La commande `azure vm quick-create` crée rapidement une machine virtuelle à laquelle vous pouvez vous connecter. Toutefois, cette machine virtuelle n’a pas un environnement complexe, donc si vous voulez personnaliser votre environnement, vous pouvez [utiliser un modèle Azure Resource Manager pour créer rapidement un déploiement spécifique](virtual-machines-linux-cli-deploy-templates.md) ou vous pouvez [créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](virtual-machines-linux-cli-deploy-templates.md).
+```
+ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+```
+
+La procédure `azure vm quick-create` permet de créer rapidement une machine virtuelle pour se connecter à un shell bash et être opérationnel. Toutefois, la procédure `vm quick-create` ne vous offre pas les avantages d'un environnement complexe. Si vous voulez personnaliser votre environnement, vous pouvez [utiliser un modèle Azure Resource Manager pour créer rapidement un déploiement spécifique](virtual-machines-linux-cli-deploy-templates.md) ou vous pouvez [créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](virtual-machines-linux-cli-deploy-templates.md).
 
 L’exemple ci-dessus crée les éléments suivants :
 
@@ -134,16 +139,14 @@ L’exemple ci-dessus crée les éléments suivants :
 - une carte réseau virtuelle pour associer la machine virtuelle au réseau
 - une adresse IP publique et un préfixe de sous-domaine pour fournir une adresse Internet pour un usage externe ; enfin, la machine virtuelle Linux au sein de cet environnement.
 
-Cette machine virtuelle est exposée directement à Internet et est uniquement sécurisée par un nom d’utilisateur et un mot de passe.
-
 ## Étapes suivantes
 
-Vous venez de créer rapidement une machine virtuelle Linux à des fins de test ou de démonstration. Vous pouvez créer un environnement d’exécution plus sécurisé avec une machine virtuelle Linux dans Azure en procédant comme suit :
+Vous venez de créer rapidement une machine virtuelle Linux à des fins de test ou de démonstration. Pour créer une machine virtuelle Linux personnalisée pour votre infrastructure, vous pouvez consulter un des articles ci-dessous.
 
-- [Créer une machine virtuelle Linux dans Azure à l’aide de modèles Azure](virtual-machines-linux-cli-deploy-templates.md)
-- [Créer une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Créer une machine virtuelle Linux dans Azure à l’aide de l’interface CLI Azure et en personnalisant l’infrastructure](virtual-machines-linux-create-cli-complete.md)
+- [Création d'une machine virtuelle Linux sur Azure à l’aide de modèles](virtual-machines-linux-cli-deploy-templates.md)
+- [Création d'une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-create-cli-complete.md)
 
-ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
+Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->
