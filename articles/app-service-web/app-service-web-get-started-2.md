@@ -20,7 +20,7 @@
 
 # Prise en main d’Azure App Services, 2e partie
 
-Dans [Prise en main d’Azure App Service](app-service-web-get-started.md), vous avez déployé une application web vers Azure App Service et pouvez à présent installer des mises à jour rapidement et facilement. Cet article vous montrera comment ajouter des fonctionnalités essentielles au bon fonctionnement de votre application déployée. Vous découvrirez ainsi que le service App Service est bien plus qu’un simple hébergeur de sites web. Il apporte des fonctionnalités de niveau professionnel à votre application ; cela vous permet de consacrer votre énergie créative à l’amélioration de l’expérience de vos utilisateurs, au lieu d’avoir à affronter des exigences en matière de sécurité, d’évolutivité, de performances et de gestion, etc.
+Dans [Prise en main d’Azure App Service](app-service-web-get-started.md), vous avez déployé une application web vers Azure App Service. Cet article vous montrera comment ajouter des fonctionnalités essentielles à votre application déployée. App Service fournit des fonctionnalités d'entreprise à votre application pour répondre aux besoins réels de sécurité, d'évolutivité, de performances, de gestion, etc.
 
 En quelques clics, vous apprendrez à :
 
@@ -46,7 +46,7 @@ Vous pouvez suivre les étapes du tutoriel qui suivent, quel que soit l’exempl
 
     Une fois que la modification a réussi, la cloche de notification devient verte, et un message positif s’affiche.
 
-7. Revenez au panneau du portail de votre application, puis cliquez sur le lien **URL** (ou sur **Parcourir** dans la barre de menus). Le lien est une adresse HTTP. ![Authentification - accéder à l’URL](./media/app-service-web-get-started/aad-login-browse-click.png) Lorsque celle-ci ouvre l’application dans un nouvel onglet, la zone URL effectue plusieurs redirections avant d’ouvrir votre application avec une adresse HTTPS. Vous pouvez voir que vous êtes déjà connecté au compte Microsoft associé à votre abonnement Azure, et que celui-ci vous connecte automatiquement à l’application. ![Authentification - connecté](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Donc, si vous ouvrez une session non authentifiée dans un autre explorateur, une page de connexion s’affiche lorsque vous accédez à l’URL de l’application : ![Authentification - page de connexion](./media/app-service-web-get-started/aad-login-browse.png) Si vous n’avez jamais utilisé Azure Active Directory, le répertoire par défaut ne contient probablement pas d’utilisateur Azure AD. Dans ce cas, le seul compte ici est probablement le compte Microsoft avec votre abonnement Azure. C’est pour cette raison que vous avez été automatiquement connecté à l’application dans le même navigateur plus tôt. Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
+7. Revenez au panneau du portail de votre application, puis cliquez sur le lien **URL** (ou sur **Parcourir** dans la barre de menus). Le lien est une adresse HTTP. ![Authentification - accéder à l’URL](./media/app-service-web-get-started/aad-login-browse-click.png) Lorsque celle-ci ouvre l’application dans un nouvel onglet, la zone URL effectue plusieurs redirections avant d’ouvrir votre application avec une adresse HTTPS. Vous pouvez voir que vous êtes déjà connecté à votre abonnement Azure, et automatiquement authentifié dans l’application. ![Authentification - connecté](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Donc, si vous ouvrez une session non authentifiée dans un autre explorateur, une page de connexion s’affiche lorsque vous accédez à l’URL de l’application : ![Authentification - page de connexion](./media/app-service-web-get-started/aad-login-browse.png) Si vous n’avez jamais utilisé Azure Active Directory, le répertoire par défaut ne contient probablement pas d’utilisateur Azure AD. Dans ce cas, le seul compte ici est probablement le compte Microsoft avec votre abonnement Azure. C’est pour cette raison que vous avez été automatiquement connecté à l’application dans le même navigateur plus tôt. Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
 
 Félicitations, vous authentifiez désormais tout le trafic vers votre site.
 
@@ -62,7 +62,7 @@ App Service propose une solution clé en main pour une partie des besoins d’au
 
 Vous allez à présent apprendre à adapter la taille de votre application. Vous pouvez adapter la taille de votre application App Service de deux manières :
 
-- [Monter en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : lorsque vous faites monter en puissance une application App Service, vous modifiez le niveau tarifaire du plan App Service auquel appartient l’application. La mise l’échelle vous permet d’améliorer le processeur et d’obtenir une mémoire et un espace disque plus importants ainsi que d’autres fonctionnalités telles que des instances de machine virtuelle dédiées, une mise à l’échelle automatique, un contrat SLA à 99,95 %, des domaines personnalisés, des certificats SSL personnalisés, des emplacements de déploiement, la sauvegarde, la restauration et bien plus encore. Des niveaux supérieurs fournissent davantage de fonctionnalités à votre application App Service.  
+- [Monter en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : lorsque vous faites monter en puissance une application App Service, vous modifiez le niveau tarifaire du plan App Service auquel appartient l’application. La montée en charge vous offre plus de capacité d’UC, de mémoire et d’espace disque. Elle vous donne également accès à des fonctionnalités supplémentaires, par exemple des machines virtuelles dédiées, la mise à l'échelle automatique, une disponibilité à 99,95 %, des domaines et des certificats personnalisés, des emplacements de déploiement, des sauvegardes, etc. Des niveaux supérieurs fournissent davantage de fonctionnalités à votre application App Service.  
 - [Augmenter la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : lorsque vous augmentez la taille des instances de l’application App Service, cela modifie le nombre d’instances de machines virtuelles qui exécutent votre application (ou les applications du même plan App Service). Avec le niveau standard ou supérieur, vous pouvez activer la mise à l’échelle automatique des instances de machines virtuelles en fonction des métriques de performances. 
 
 Sans plus attendre, préparons à présent la mise à l’échelle automatique de votre application.
@@ -73,13 +73,13 @@ Sans plus attendre, préparons à présent la mise à l’échelle automatique d
 
     Vous avez terminé la montée en puissance.
     
-    >[AZURE.IMPORTANT] Ce niveau épuisera votre crédit d’évaluation. Si vous avez un compte de paiement à l’utilisation, il occasionne des frais pour votre compte.
+    >[AZURE.IMPORTANT] Ce niveau épuise votre crédit d’essai gratuit. Si vous avez un compte de paiement à l’utilisation, il occasionne des frais pour votre compte.
     
 3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Changez **Mettre à l’échelle selon** sur **Pourcentage UC**. Les curseurs sous la liste déroulante changent en conséquence. Ensuite, définissez une plage d’**Instances** comprise entre **1** et **2** et une **Plage cible** entre **40** et **80**. Pour ce faire, effectuez une saisie dans les zones ou déplacez les curseurs. ![Augmenter la taille des instances - configurer la mise à l’échelle automatique](./media/app-service-web-get-started/scale-out-configure.png)
+4. Changez **Mettre à l’échelle selon** sur **Pourcentage UC**. Les curseurs sous la liste déroulante se mettent à jour en conséquence. Ensuite, définissez une plage d’**Instances** comprise entre **1** et **2** et une **Plage cible** entre **40** et **80**. Pour ce faire, effectuez une saisie dans les zones ou déplacez les curseurs. ![Augmenter la taille des instances - configurer la mise à l’échelle automatique](./media/app-service-web-get-started/scale-out-configure.png)
     
-    Selon cette configuration, votre application se met à l’échelle automatiquement lorsque l’utilisation de l’UC est supérieure à 80 % et lorsque l’utilisation de l’UC est inférieure à 40 %.
+    Selon cette configuration, votre application se met à l’échelle automatiquement lorsque l’utilisation de l’UC est supérieure à 80 % (augmentation de la taille des instances) et inférieure à 40 % (diminution de la taille des instances).
     
 5. Cliquez sur **Enregistrer** dans la barre des tâches.
 
@@ -109,7 +109,7 @@ Maintenant que votre application est mise à l’échelle, que se passe-t-il lor
 
 Félicitations, vous recevez désormais des alertes.
 
-Ce paramètre d’alerte vérifie l’utilisation du processeur toutes les cinq minutes. Si celle-ci dépasse 90 %, vous (ainsi que toute personne autorisée) recevrez un message d’alerte. Pour afficher tous les utilisateurs autorisés à recevoir les alertes, revenez au panneau du portail de votre application et cliquez sur le bouton **Accès**. ![Afficher qui reçoit des alertes](./media/app-service-web-get-started/alert-rbac.png)
+Ce paramètre d’alerte vérifie l’utilisation de l’UC toutes les cinq minutes. Si celle-ci dépasse 90 %, vous (ainsi que toute personne autorisée) recevrez un message d’alerte. Pour afficher tous les utilisateurs autorisés à recevoir les alertes, revenez au panneau du portail de votre application et cliquez sur le bouton **Accès**. ![Afficher qui reçoit des alertes](./media/app-service-web-get-started/alert-rbac.png)
 
 Vous verrez que les **Administrateurs des abonnements** sont déjà les **Propriétaires** de l’application. Ce groupe vous inclut si vous êtes l’administrateur du compte de votre abonnement Azure (par exemple, votre abonnement d’évaluation). Pour plus d’informations sur le contrôle d’accès en fonction du rôle Azure, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -127,4 +127,4 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 - [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md)
 - [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md) 
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

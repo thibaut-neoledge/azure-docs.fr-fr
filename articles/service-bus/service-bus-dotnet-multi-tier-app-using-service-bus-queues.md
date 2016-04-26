@@ -37,7 +37,7 @@ Les captures d’écran suivantes présentent l’application terminée :
 
 ![][0]
 
-> [AZURE.NOTE]Azure offre également la fonction de file d’attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Microsoft Azure et files d'attente Microsoft Azure Service Bus - comparaison et différences][sbqueuecomparison].
+> [AZURE.NOTE] Azure offre également la fonction de file d’attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Microsoft Azure et files d'attente Microsoft Azure Service Bus - comparaison et différences][sbqueuecomparison].
 
 ## Vue d’ensemble du scénario : communication entre les rôles
 
@@ -51,11 +51,11 @@ Service Bus contient deux entités pour prendre en charge la messagerie répart
 
 Ce mécanisme de communication présente plusieurs avantages par rapport à la messagerie directe :
 
--   **Découplage temporel**. Avec le modèle de messagerie asynchrone, les producteurs et les consommateurs n'ont pas besoin d'être en ligne en même temps. Service Bus stocke de manière fiable les messages jusqu'à ce que le destinataire soit prêt à les recevoir. Ceci permet aux composants de l’application distribuée d’être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l’échec d’un composant, sans que le système dans sa globalité soit affecté. De plus, l’application qui utilise les messages peut n’avoir besoin d’être en ligne que quelques fois par jour.
+-   **Découplage temporel.** Avec le modèle de messagerie asynchrone, les producteurs et les consommateurs n'ont pas besoin d'être en ligne en même temps. Service Bus stocke de manière fiable les messages jusqu'à ce que le destinataire soit prêt à les recevoir. Ceci permet aux composants de l’application distribuée d’être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l’échec d’un composant, sans que le système dans sa globalité soit affecté. De plus, l’application qui utilise les messages peut n’avoir besoin d’être en ligne que quelques fois par jour.
 
--   **Niveau de charge**. Dans de nombreuses applications, la charge système varie dans le temps, alors que le temps de traitement nécessaire à chaque élément de travail est normalement constant. L'ajout d'une file d'attente entre les producteurs et les consommateurs des messages fait que l'application de destination (le rôle de travail) n'a besoin d'être configurée que pour une charge de travail moyenne, plutôt que pour une charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies en termes d'infrastructures nécessaires pour faire face à la charge de travail de l'application.
+-   **Niveau de charge.** Dans de nombreuses applications, la charge système varie dans le temps, alors que le temps de traitement nécessaire à chaque élément de travail est normalement constant. L'ajout d'une file d'attente entre les producteurs et les consommateurs des messages fait que l'application de destination (le rôle de travail) n'a besoin d'être configurée que pour une charge de travail moyenne, plutôt que pour une charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies en termes d'infrastructures nécessaires pour faire face à la charge de travail de l'application.
 
--   **Équilibrage de la charge**. À mesure que la charge augmente, d'autres processus de travail peuvent être ajoutés pour lire les éléments de la file d'attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet une utilisation optimale des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils extraient les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle *consommateur concurrent*.
+-   **Équilibrage de la charge.** À mesure que la charge augmente, d'autres processus de travail peuvent être ajoutés pour lire les éléments de la file d'attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet une utilisation optimale des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils extraient les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle *consommateur concurrent*.
 
     ![][2]
 
@@ -103,7 +103,7 @@ L’étape suivante consiste à créer l’espace de noms de service et à obten
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul). Assurez-vous également que vous sélectionnez **Messagerie** dans le champ d'espace de noms **Type** et **Standard** dans le champ **Couche de messagerie**.
 
-    > [AZURE.IMPORTANT]Choisissez la **même région** que celle que vous prévoyez de sélectionner pour déployer votre application. Vous bénéficiez ainsi des meilleures performances.
+    > [AZURE.IMPORTANT] Choisissez la **même région** que celle que vous prévoyez de sélectionner pour déployer votre application. Vous bénéficiez ainsi des meilleures performances.
 
 6.  Cliquez sur la coche OK. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
@@ -245,7 +245,7 @@ Dans cette section, vous créez les différentes pages affichées par votre appl
 
 7.  Cliquez sur **Ajouter**.
 
-8.  À présent, modifiez le nom affiché de votre application. Dans **Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\_Layout.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio.
+8.  À présent, modifiez le nom affiché de votre application. Dans l’**Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\_Layout.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio.
 
 9.  Remplacez toutes les occurrences d'**Application ASP.NET** par **LITWARE'S Products**.
 
@@ -424,7 +424,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 
 	![][26]
 
-4.  Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, cliquez sur **Rôle de travail avec file d’attente Service Bus**.
+4.  Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, cliquez sur **Worker Role with Service Bus Queue**.
 
 	![][23]
 
@@ -477,9 +477,9 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
 Pour plus d'informations sur les scénarios multiniveau ou pour savoir comment déployer une application dans un service cloud, consultez la page :
 
-* [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure][mutitierstorage].  
+* [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure.][mutitierstorage]  
 
-Vous pouvez mettre en œuvre le composant frontal d’une application multiniveau dans un site Web Azure au lieu d’un service cloud Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels].
+Vous pouvez mettre en œuvre le composant frontal d’une application multiniveau dans un site Web Azure au lieu d’un service cloud Azure.
 
 Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant que projet Web standard au lieu d'un rôle Web d'un service cloud, suivez les étapes de ce didacticiel en appliquant les différences suivantes :
 
@@ -542,6 +542,6 @@ Pour plus d’informations sur le déploiement du composant frontal sur un site 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

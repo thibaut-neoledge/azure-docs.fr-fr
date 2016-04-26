@@ -52,7 +52,7 @@ Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 Pour terminer, cliquez sur **Paramètres** dans le panneau IoT Hub, puis sur **Messagerie** dans le panneau **Paramètres**. Sur le panneau **Messagerie**, notez le **Nom compatible Event Hub** et **Point de terminaison compatible Event Hub**. Ces valeurs sont nécessaires lorsque vous créez votre application **read-d2c-messages**.
 
-    ![][6]
+![][6]
 
 Maintenant, vous avez créé votre concentrateur IoT et vous disposez d’un nom d’hôte IoT Hub, de la chaîne de connexion IoT Hub, du nom compatible Event Hub et des valeurs de point de terminaison compatible Event Hub pour suivre le reste de ce didacticiel.
 
@@ -65,7 +65,7 @@ Maintenant, vous avez créé votre concentrateur IoT et vous disposez d’un nom
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1. À l’invite de commandes du dossier **readdevicetocloudmessages**, exécutez la commande suivante pour commencer à analyser votre IoT hub :
+1. À l’invite de commandes du dossier **readdevicetocloudmessages**, exécutez la commande suivante pour commencer à analyser votre IoT Hub :
 
     ```
     node ReadDeviceToCloudMessages.js 
@@ -73,7 +73,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![][7]
 
-2. À l’invite de commandes du dossier **simulateddevice**, exécutez la commande suivante pour commencer à envoyer des données de télémétrie à votre IoT hub :
+2. À l’invite de commandes du dossier **simulateddevice**, exécutez la commande suivante pour commencer à envoyer des données de télémétrie à votre IoT Hub :
 
     ```
     node SimulatedDevice.js
@@ -109,4 +109,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

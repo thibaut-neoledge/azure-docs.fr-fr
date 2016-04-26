@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Didacticiel PolyBase dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Didacticiel PolyBase dans SQL Data Warehouse | Microsoft Azure"
    description="Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-Ce didacticiel explique comment charger des données dans SQL Data Warehouse avec AzCopy et PolyBase. À la fin de ce didacticiel, vous saurez comment :
+Ce didacticiel explique comment charger des données dans SQL Data Warehouse avec AzCopy et PolyBase. À la fin de ce didacticiel, vous saurez comment :
 
 - Utilisez AzCopy pour copier des données vers le stockage d’objets blobs Azure
 - Créer des objets de base de données pour définir les données externes
@@ -36,20 +36,20 @@ Ce didacticiel explique comment charger des données dans SQL Data Warehouse ave
 
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants
 
-- Une base de données SQL Data Warehouse
+- Une base de données SQL Data Warehouse
 - Un compte de stockage Azure de type stockage redondant local standard (LRS-Standard), stockage géo-redondant Standard (Standard-GRS) ou stockage géo-redondant avec accès en lecture Standard (Standard-RAGRS)
 - L’utilitaire de ligne de commande AzCopy Téléchargez et installez la [version la plus récente d’AzCopy][] qui s’installe avec les outils Microsoft Azure Storage.
 
     ![Outils Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Étape 1 : ajouter les données exemple au stockage d’objets blobs Azure
+## Étape 1 : ajouter les données exemple au stockage d’objets blobs Azure
 
 Pour charger des données, nous devons placer des exemples de données dans un stockage d’objets blobs Azure. Lors de cette étape, nous allons remplir un objet blob Azure Storage avec des exemples de données. Plus tard, nous allons utiliser PolyBase pour charger ces exemples de données dans votre base de données SQL Data Warehouse.
 
 ### A. Préparer un exemple de fichier texte
 
-Pour préparer un exemple de fichier texte :
+Pour préparer un exemple de fichier texte :
 
 1. Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau fichier. Enregistrez-les dans votre répertoire temporaire local %temp%\\DimDate2.txt.
 
@@ -70,9 +70,9 @@ Pour préparer un exemple de fichier texte :
 
 ### B. Recherchez votre point de terminaison de service blob
 
-Pour trouver votre point de terminaison de service blob :
+Pour trouver votre point de terminaison de service blob :
 
-1. Dans le portail Azure Classic, sélectionnez **Parcourir** > **Comptes de stockage**.
+1. Dans le portail Azure, sélectionnez **Parcourir** > **Comptes de stockage**.
 2. Cliquez sur le compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau du compte de stockage, cliquez sur Objets blobs.
 
@@ -84,9 +84,9 @@ Pour trouver votre point de terminaison de service blob :
 
 ### C. Rechercher votre clé de stockage Azure
 
-Pour trouver votre clé de stockage Azure :
+Pour trouver votre clé de stockage Azure :
 
-1. Dans l’écran d’accueil, sélectionnez **Parcourir** > **Comptes de stockage**.
+1. Dans le portail Azure, sélectionnez **Parcourir** > **Comptes de stockage**.
 2. Cliquez sur le compte de stockage que vous souhaitez utiliser.
 3. Sélectionnez **Tous les paramètres** > **Clés d’accès**.
 4. Cliquez sur la zone de copie pour copier l’une de vos clés d’accès dans le presse-papiers.
@@ -95,9 +95,9 @@ Pour trouver votre clé de stockage Azure :
 
 ### D. Copiez l’exemple de fichier de données dans le stockage d’objets blobs Azure.
 
-Pour copier vos données dans le stockage d’objets blob Azure :
+Pour copier vos données dans le stockage d’objets blob Azure :
 
-1. Ouvrez une invite de commandes, puis changez de répertoire pour le répertoire d’installation AzCopy. Cette commande passe au répertoire d’installation par défaut sur un client Windows 64 bits.
+1. Ouvrez une invite de commandes, puis changez de répertoire pour le répertoire d’installation AzCopy. Cette commande passe au répertoire d’installation par défaut sur un client Windows 64 bits.
 
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
@@ -113,7 +113,7 @@ Consultez [Prise en main de l’utilitaire de ligne de commande AzCopy][].
 
 ### E. Explorer votre conteneur de stockage d’objets blobs
 
-Pour voir le fichier que vous avez téléchargé vers le stockage d’objets blobs :
+Pour voir le fichier que vous avez téléchargé vers le stockage d’objets blobs :
 
 1. Revenez au panneau de votre service d’objets blobs.
 2. Sous Conteneurs, double-cliquez sur **datacontainer**.
@@ -124,18 +124,18 @@ Pour voir le fichier que vous avez téléchargé vers le stockage d’objets blo
     ![Afficher le stockage blob Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Étape 2 : Créer une table externe pour les exemples de données
+## Étape 2 : Créer une table externe pour les exemples de données
 
 Dans cette section, nous allons créer une table externe qui définit les exemples de données.
 
-PolyBase utilise les tables externes pour accéder des données dans le stockage d’objets blobs Azure ou Hadoop. Étant donné que les données ne sont pas stockées dans SQL Data Warehouse, PolyBase gère l’authentification pour les données externes à l’aide des informations d’identification de niveau base de données.
+PolyBase utilise les tables externes pour accéder des données dans le stockage d’objets blobs Azure. Étant donné que les données ne sont pas stockées dans SQL Data Warehouse, PolyBase gère l’authentification pour les données externes à l’aide des informations d’identification de niveau base de données.
 
 Dans cette étape, l’exemple utilise les instructions Transact-SQL pour créer une table externe.
 
-- [Créer une clé principale (Transact-SQL)][] : pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
+- [Créer une clé principale (Transact-SQL)][] : pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
 - [Créer des informations d’identification de niveau base de données (Transact-SQL)][] pour spécifier les informations d’authentification de votre compte de stockage Azure.
-- [Créer une source de données externe (Transact-SQL)][] : pour spécifier l’emplacement de votre stockage d’objets blobs Azure.
-- [Créer un format de fichier externe][] : pour spécifier le format de vos données.
+- [Créer une source de données externe (Transact-SQL)][] : pour spécifier l’emplacement de votre stockage d’objets blobs Azure.
+- [Créer un format de fichier externe][] : pour spécifier le format de vos données.
 - [Créer les tables externes (Transact-SQL)][] pour spécifier la définition de la table et l’emplacement des données.
 
 Exécutez cette requête sur votre base de données SQL Data Warehouse. Il crée une table externe nommée DimDate2External dans le schéma dbo qui pointe vers les données d’exemple DimDate2.txt dans le stockage d’objets blobs Azure.
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -286,4 +287,4 @@ Consultez le [guide PolyBase][] pour obtenir d’autres informations sur le dév
 [Créer des informations d’identification de niveau base de données (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -110,6 +110,8 @@ Dans une topologie de forêt comptes-ressources, vous avez une ou plusieurs for�
 
 Ce scénario inclut une forêt qui fait confiance à toutes les forêts de comptes. Cette forêt a généralement un schéma Active Directory étendu avec Exchange et Lync. Tous les services Exchange et Lync, ainsi que d’autres services partagés, sont situés dans cette forêt. Les utilisateurs ont un compte d’utilisateur désactivé dans cette forêt et la boîte aux lettres est liée à la forêt de comptes.
 
+Il est également pris en charge pour l’utilisation de plusieurs forêts de ressources. Il peut s’agir de l’état après une fusion. Il est probable qu’un utilisateur aura uniquement un compte désactivé dans une forêt de ressources.
+
 ## Considérations sur Office 365 et la topologie
 Certaines charges de travail Office 365 ont certaines restrictions quant aux topologies prises en charge. Si vous envisagez d’utiliser une de celles-ci, reportez-vous aux pages de topologies prises en charge de chaque charge de travail.
 
@@ -147,7 +149,10 @@ Dans cette topologie, un seul serveur Azure AD Connect Sync est connecté à cha
 
 Dans cette topologie, il n’existe pas de « GALSync » entre les instances d’annuaires Azure AD. Le carnet d’adresses dans Exchange Online et dans Skype Entreprise montreront donc seulement des utilisateurs du même annuaire.
 
-Avec cette topologie, un seul des annuaires Azure AD peut activer Exchange hybride avec Active Directory local.
+Cette topologie comprend les restrictions suivantes pour les scénarios sinon pris en charge :
+
+- Seul l’un des annuaires Azure AD peut activer Exchange hybride avec l’Active Directory local.
+- Les appareils Windows 10 ne peuvent être associés uniquement à un annuaire Azure AD.
 
 La condition requise d’un ensemble d’objets mutuellement exclusifs s’applique également à l’écriture différée. Ainsi, certaines fonctionnalités d’écriture différée ne pas prises en charge avec cette topologie, car elles supposent une seule configuration locale. notamment :
 
@@ -177,4 +182,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

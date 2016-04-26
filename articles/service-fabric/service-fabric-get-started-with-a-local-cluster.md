@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
@@ -84,7 +84,7 @@ Dans ce didacticiel, nous allons utiliser un exemple d’application existant (a
 
     ![Déploiement d’une application sur le cluster local][deploy-app-to-local-cluster]
 
-7. Pour voir l’application en action, lancez le navigateur et accédez à [http://localhost: 8081/wordcount/index](http://localhost:8081/wordcount/index). Le résultat suivant devrait s'afficher :
+7. Pour voir l’application en action, lancez le navigateur et accédez à [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Le résultat suivant devrait s'afficher :
 
     ![Interface utilisateur des applications déployées.][deployed-app-ui]
 
@@ -148,11 +148,11 @@ La nouvelle version de l’application compte désormais uniquement les mots com
 
     ![Progression de la mise à niveau dans PowerShell][ps-appupgradeprogress]
 
-3. Bien que la mise à niveau s’exécute, il peut s’avérer plus facile de surveiller son état à partir de Fabric Service Explorer. Lancez une fenêtre de navigateur et accédez à [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Cliquez sur **Applications** dans l’arborescence de gauche, puis choisissez **Mises à niveau en cours**.
+3. Bien que la mise à niveau s’exécute, il peut s’avérer plus facile de surveiller son état à partir de Fabric Service Explorer. Lancez une fenêtre de navigateur et accédez à [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Développez **Applications** dans l'arborescence sur la gauche, puis choisissez **WordCount**, et enfin **fabric:/WordCount**. Dans l'onglet Bases, vous verrez l'état de la mise à niveau à mesure qu'elle se poursuit dans les domaines de mise à niveau du cluster.
 
     ![Progression de la mise à niveau dans Service Fabric Explorer][sfx-upgradeprogress]
 
-    Notez que l’indicateur de progression de mise à niveau représente l’état de la mise à niveau dans les domaines de mise à niveau de votre cluster. Comme la mise à niveau se poursuit dans chaque domaine, les vérifications d’état sont effectuées pour vous assurer que l’application se comporte correctement.
+    Comme la mise à niveau se poursuit dans chaque domaine, les vérifications d’état sont effectuées pour vous assurer que l’application se comporte correctement.
 
 4. Si vous réexécutez la requête qui précède pour l’ensemble des services inclus dans l’application fabric:/Wordcount, vous remarquerez que pendant le changement de version de WordCountService, la version de WordCountWebService n’a pas :
 
@@ -190,4 +190,4 @@ La nouvelle version de l’application compte désormais uniquement les mots com
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

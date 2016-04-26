@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Protéger des machines virtuelles ARM avec Azure Backup | Microsoft Azure"
-	description="Protégez des machines virtuelles ARM avec le service Azure Backup. Utilisez les sauvegardes de machines virtuelles ARM pour protéger vos données. Créez et enregistrez un archivage de Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
+	description="Protégez des machines virtuelles ARM avec le service Azure Backup. Utilisez des sauvegardes des machines virtuelles ARM et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un archivage de Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -24,7 +24,14 @@
 - [Sauvegarder des machines virtuelles ARM](backup-azure-vms-first-look-arm.md)
 - [Sauvegarder des machines virtuelles en mode Classique](backup-azure-vms-first-look.md)
 
-Ce didacticiel détaille les procédures de création d'un archivage de Recovery Services et de sauvegarde d'une machine virtuelle Azure. Il s’adresse aux archivages de Recovery Services qui permettent de protéger des machines virtuelles IaaS v.2 ou ARM (Azure Resource Manager).
+Ce didacticiel détaille les procédures de création d'un coffre Recovery Services et de sauvegarde d'une machine virtuelle Azure. Les coffres Recovery Services protègent :
+
+- les machines virtuelles Azure Resource Manager (ARM),
+- les machines virtuelles Classic,
+- les machines virtuelles de stockage standard,
+- les machines virtuelles Premium Storage.
+
+Pour plus d'informations sur la protection des machines virtuelles Premium Storage, consultez [Sauvegarder et restaurer des machines virtuelles Premium Storage](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle. Azure propose deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../resource-manager-deployment-model.md). Cet article concerne les machines virtuelles basées sur Resource manager et sur ARM.
 
@@ -47,33 +54,33 @@ Pour créer un archivage de Recovery Services :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Archivage de Recovery Services**.
+2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
     La liste des archivages de Recovery Services est affichée.
 
-3. Dans le menu **Archivages de Recovery Services**, cliquez sur **Ajouter**.
+3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
     ![Créer un archivage de Recovery Services - Étape 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    Dans le panneau de l’archivage de Recovery Services, renseignez les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
+    Le panneau du coffre Recovery Services s’affiche et vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
     ![Créer un archivage de Recovery Services - Étape 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. Sous **Nom**, entrez un nom convivial permettant d’identifier l’archivage. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
+4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles. Si vous n’êtes pas sûr de l’abonnement à utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
 6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez la section [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
-7. Dans **Emplacement**, sélectionnez la région géographique de l’archivage. L’archivage **doit** se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
+7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Le coffre **doit** se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
 
     >[AZURE.IMPORTANT] Si vous ne savez pas où se trouve votre machine virtuelle, fermez la boîte de dialogue de création d’archivage et accédez à la liste des machines virtuelles dans le portail. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un archivage de Recovery Services dans chaque région. Créez l’archivage dans le premier emplacement avant de passer à l'emplacement suivant. Il est inutile de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde : l’archivage de Recovery Services et le service Azure Backup gèrent cela automatiquement.
 
-8. Cliquez sur **Créer**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il s'ouvre dans le portail.
+8. Cliquez sur **Create**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il s'ouvre dans le portail.
 
-9. Dans votre archivage, cliquez sur **Tous les paramètres** > **Configuration de la sauvegarde** pour afficher le **type de réplication de stockage**. Choisissez l’option de réplication de stockage correspondant à votre archivage.
+9. Dans votre coffre, cliquez sur **Tous les paramètres** > **Configuration de la sauvegarde** pour afficher le **Type de réplication de stockage**. Choisissez l’option de réplication de stockage correspondant à votre archivage.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/choose-storage-configuration.png)
 
@@ -84,10 +91,10 @@ Pour créer un archivage de Recovery Services :
 ## Étape 2 - Sélectionner le scénario, définir la stratégie et définir les éléments à protéger
 Avant d’enregistrer une machine virtuelle dans un archivage, lancez le processus de découverte pour vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont bien identifiées. Le processus interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
-1. Si vous avez un archivage de Recovery Services ouvert, passez à l’étape 2. Si vous n'avez aucun archivage de Recovery Services ouvert mais que vous êtes dans le portail Azure, cliquez sur **Parcourir** dans le menu Hub.
+1. Si vous avez un archivage de Recovery Services ouvert, passez à l’étape 2. Si vous n'avez aucun coffre Recovery Services ouvert mais que vous êtes dans le portail Azure, cliquez sur **Parcourir** dans le menu Hub.
 
     - Dans la liste des ressources, tapez **Recovery Services**.
-    - Au fur et à mesure des caractères saisis, la liste est filtrée. Lorsque vous voyez **Archivages de Recovery Services**, cliquez dessus.
+    - Au fur et à mesure des caractères saisis, la liste est filtrée. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -99,7 +106,7 @@ Avant d’enregistrer une machine virtuelle dans un archivage, lancez le process
 
     ![Ouvrir le panneau de l’archivage](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-2. Dans le menu du tableau de bord de l’archivage, cliquez sur **Sauvegarder** pour ouvrir le panneau Sauvegarde.
+2. Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder** pour ouvrir le panneau Sauvegarde.
 
     ![Ouvrir le panneau Sauvegarde](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
@@ -117,7 +124,7 @@ Avant d’enregistrer une machine virtuelle dans un archivage, lancez le process
 
     Le panneau Scénario se ferme et le panneau Stratégie de sauvegarde s'ouvre.
 
-5. Dans le panneau Sauvegarde, sélectionnez la stratégie de sauvegarde à appliquer à l’archivage et cliquez sur **OK**.
+5. Dans le panneau Sauvegarde, sélectionnez la stratégie de sauvegarde à appliquer au coffre et cliquez sur **OK**.
 
     ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy.png)
 
@@ -129,7 +136,7 @@ Avant d’enregistrer une machine virtuelle dans un archivage, lancez le process
 
     Si la machine virtuelle souhaitée n’apparaît pas dans la liste, cliquez sur **Actualiser**. Si vous ne voyez toujours pas la machine virtuelle souhaitée, vérifiez qu'elle existe dans le même emplacement Azure que l’archivage de Recovery Services.
 
-7. Maintenant que vous avez défini tous les paramètres de l’archivage, dans le panneau Sauvegarde, cliquez sur **Activer la sauvegarde** en bas de la page. La stratégie est déployée dans l’archivage et les machines virtuelles.
+7. Maintenant que vous avez défini tous les paramètres du coffre, dans le panneau Sauvegarde, cliquez sur **Activer la sauvegarde** en bas de la page. La stratégie est déployée dans l’archivage et les machines virtuelles.
 
     ![Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/enable-backup-settings.png)
 
@@ -144,11 +151,11 @@ Sauf si votre sauvegarde initiale est imminente, il est recommandé de cliquer s
 
 Pour exécuter **Sauvegarder maintenant** :
 
-1. Sur le tableau de bord de l’archivage, dans la vignette **Sauvegarde**, cliquez sur **Machines virtuelles Azure** <br/> ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. Sur le tableau de bord du coffre, dans la vignette **Sauvegarde**, cliquez sur **Machines virtuelles Azure** <br/> ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
     Le panneau **Éléments de sauvegarde** s’ouvre.
 
-2. Dans le panneau **Éléments de sauvegarde**, cliquez avec le bouton droit sur l'archivage à sauvegarder, puis cliquez sur **Sauvegarder maintenant**.
+2. Dans le panneau **Éléments de sauvegarde**, cliquez avec le bouton droit sur le coffre à sauvegarder, puis cliquez sur **Sauvegarder maintenant**.
 
     ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
@@ -156,7 +163,7 @@ Pour exécuter **Sauvegarder maintenant** :
 
     ![Travail de sauvegarde déclenché](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-3. Pour vérifier si votre sauvegarde initiale est terminée, dans la vignette **Travaux de sauvegarde** du tableau de bord de l’archivage, cliquez sur **Machines virtuelles Azure**.
+3. Pour vérifier si votre sauvegarde initiale est terminée, dans la vignette **Travaux de sauvegarde** du tableau de bord du coffre, cliquez sur **Machines virtuelles Azure**.
 
     ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
@@ -180,7 +187,7 @@ Pour créer une stratégie :
 
 1. Dans **Nom de la stratégie**, indiquez le nom de la stratégie.
 
-2. Les instantanés de vos données peuvent être pris à intervalles quotidiens ou hebdomadaires. Utilisez le menu déroulant **Fréquence de sauvegarde** pour déterminer la fréquence de prise des instantanés de données (tous les jours ou toutes les semaines.
+2. Les instantanés de vos données peuvent être pris à intervalles quotidiens ou hebdomadaires. Utilisez le menu déroulant **Fréquence de sauvegarde** pour déterminer la fréquence de prise des instantanés de données (tous les jours ou toutes les semaines).
 
     - Si vous choisissez un intervalle quotidien, utilisez le contrôle en surbrillance pour sélectionner l'heure du jour à laquelle prendre l'instantané. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
 
@@ -198,7 +205,7 @@ Pour créer une stratégie :
 
 4. Après avoir défini toutes les options de la stratégie, cliquez sur **OK** en bas du panneau.
 
-    La nouvelle stratégie s’applique à l’archivage de Recovery Services, dès que ses paramètres sont définis. Revenir à l'étape 6 de la section [Sélectionner le scénario, définir la stratégie et définir les éléments à protéger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
+    La nouvelle stratégie s’applique à l’archivage de Recovery Services, dès que ses paramètres sont définis. Revenez à l'étape 6 de la section [Sélectionner le scénario, définir la stratégie et définir les éléments à protéger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
 
 ## Installer l’agent de machine virtuelle sur la machine virtuelle
 
@@ -221,13 +228,11 @@ Une fois l’agent de machine virtuelle installé sur la machine virtuelle, le s
 
 Le service Backup installe l’extension de sauvegarde que la machine virtuelle soit ou non en cours d’exécution. Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent. Toutefois, le service Azure Backup poursuit la sauvegarde de la machine virtuelle, même si elle est éteinte et si l’extension n’a pas été installée, autrement dit si la machine virtuelle est hors connexion. Dans ce cas, le point de récupération sera *cohérent en cas d’incident*.
 
-
-
 ## Résolution de problèmes
 Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dans cet article, consultez la section [Conseils pour la résolution de problèmes](backup-azure-vms-troubleshoot.md).
 
 
-## Des questions ?
+## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

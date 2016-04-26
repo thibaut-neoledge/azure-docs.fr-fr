@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/08/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Prise en main : Créer un cluster Apache Spark sur Azure HDInsight (Linux) et exécuter des requêtes interactives à l’aide de Spark SQL
+# Prise en main : créer un cluster Apache Spark sur Azure HDInsight Linux et exécuter des requêtes interactives à l’aide de Spark SQL (aperçu)
 
 Découvrez comment créer un cluster Apache Spark dans HDInsight, puis comment utiliser le bloc-notes [Jupyter](https://jupyter.org) pour exécuter des requêtes interactives Spark SQL sur le cluster Spark.
 
@@ -79,7 +79,7 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.3 (Spark ve
 
 ## Exécuter des requêtes Spark SQL à l’aide d’un bloc-notes Jupyter
 
-Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des requêtes Spark SQL sur le cluster Spark. Par défaut, le bloc-notes Jupyter comprend un noyau **Python2**. Les clusters HDInsight Spark fournissent deux noyaux supplémentaires que vous pouvez utiliser avec le bloc-notes Jupyter. Ces composants sont les suivants :
+Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des requêtes Spark SQL sur le cluster Spark. Les clusters HDInsight Spark fournissent deux noyaux que vous pouvez utiliser avec le bloc-notes Jupyter. Ces composants sont les suivants :
 
 * **PySpark** (pour les applications écrites en Python)
 * **Spark** (pour les applications écrites en Scala)
@@ -87,7 +87,7 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disponibles sur les ordinateurs portables Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) présente en détail les avantages de l’utilisation du noyau PySpark. Cependant, voici deux principaux avantages de l’utilisation du noyau PySpark :
 
 * Il est inutile de définir les contextes pour Spark et Hive. Ils sont automatiquement définis pour vous.
-* Vous pouvez utiliser des méthodes magiques de cellule (notamment `%%sql`) pour exécuter directement vos requêtes SQL ou Hive, sans aucun extrait de code précédent.
+* Vous pouvez utiliser des cell magics, notamment `%%sql`, pour exécuter directement vos requêtes SQL ou Hive, sans aucun extrait de code précédent.
 * Le résultat des requêtes SQL ou Hive est automatiquement affiché.
 
 ### Création d’un bloc-notes Jupyter avec un noyau PySpark 
@@ -135,7 +135,7 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Étant donné que vous utilisez un noyau PySpark, vous pouvez maintenant exécuter directement une requête SQL sur la table temporaire **hvac** que vous venez de créer à l’aide de la méthode magique `%%sql`. Pour plus d'informations sur la méthode magique `%%sql`, ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les ordinateurs portables Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Étant donné que vous utilisez un noyau PySpark, vous pouvez maintenant exécuter directement une requête SQL sur la table temporaire **hvac** que vous venez de créer à l’aide de la méthode magique `%%sql`. Pour plus d’informations sur la méthode magique `%%sql`, ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les ordinateurs portables Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -206,4 +206,4 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

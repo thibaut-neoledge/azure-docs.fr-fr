@@ -54,11 +54,13 @@ Ajoutez les instructions `using` suivantes au début du fichier `program.cs` :
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### Analyse de la chaîne de connexion
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Création du client du service Queue
 
-La classe **CloudQueueClient** vous permet de récupérer des files d’attente stockées dans Queue Storage. Ajoutez le code suivant à la méthode **Main()** :
+La classe **CloudQueueClient** vous permet de récupérer des files d’attente stockées dans Queue Storage. Voici un moyen de créer le client du service :
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

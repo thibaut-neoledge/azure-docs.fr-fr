@@ -24,7 +24,7 @@
 
 ## Vue d'ensemble
 
-Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](fundamentals-application-models.md#CloudServices). L'application utilise la [Base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279), le [service Blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
+Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L'application utilise la [Base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279), le [service Blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
 
 Le didacticiel vous apprend à générer et à exécuter l'application localement, à la déployer dans Azure, à l'exécuter dans le cloud et, enfin, à la générer intégralement. Vous pouvez également démarrer à partir de zéro, puis effectuer les tests et le déploiement par la suite.
 
@@ -36,35 +36,35 @@ L'application est un panneau d'affichage publicitaire. Les utilisateurs créent 
 
 L'application utilise le [modèle de travail centré sur les files d'attente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) pour décharger le travail de création de vignettes exigeant en ressources vers un processus principal.
 
-## Autre architecture : Sites Web et WebJobs
+## Autre architecture : Sites Web et WebJobs
 
 Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site web Azure](/services/web-sites/) et à utiliser la fonctionnalité [Tâches web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## Ce que vous allez apprendre
 
-* configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
-* créer un service de projet cloud Visual Studio avec un rôle web et un rôle de travail ASP.NET MVC ;
-* tester localement le projet de service cloud en utilisant l'émulateur de stockage Azure ;
-* publier le projet cloud dans un service cloud Azure et le tester avec un compte de stockage Azure ;
-* télécharger des fichiers et les stocker dans le service Blob Azure ;
+* configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
+* créer un service de projet cloud Visual Studio avec un rôle web et un rôle de travail ASP.NET MVC ;
+* tester localement le projet de service cloud en utilisant l'émulateur de stockage Azure ;
+* publier le projet cloud dans un service cloud Azure et le tester avec un compte de stockage Azure ;
+* télécharger des fichiers et les stocker dans le service Blob Azure ;
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
 ## Configuration requise
 
-Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](fundamentals-application-models.md#CloudServices) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*. Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
+Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*. Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l'application localement sans abonnement Azure, mais il vous en faut un pour déployer l'application dans le cloud. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [obtenir une évaluation gratuite](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Les instructions du didacticiel sont valables pour les produits suivants :
+Les instructions du didacticiel sont valables pour les produits suivants :
 
-* Visual Studio 2013
-* Visual Studio 2015
+* Visual Studio 2013
+* Visual Studio 2015
 
-En l’absence d’un de ces produits, Visual Studio 2015 sera automatiquement installé à l’occasion de l’installation du kit de développement logiciel Azure.
+En l’absence d’un de ces produits, Visual Studio 2015 sera automatiquement installé à l’occasion de l’installation du kit de développement logiciel Azure.
 
 ## Architecture de l'application
 
-L'application stocke les publicités dans une base de données SQL et utilise Entity Framework Code First pour créer les tables et accéder aux données. Pour chaque publicité, la base de données stocke deux URL, une pour l’image à taille réelle et une pour la vignette.
+L'application stocke les publicités dans une base de données SQL et utilise Entity Framework Code First pour créer les tables et accéder aux données. Pour chaque publicité, la base de données stocke deux URL, une pour l’image à taille réelle et une pour la vignette.
 
 ![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
 
@@ -88,7 +88,7 @@ Lorsqu'un utilisateur télécharge une image, l'application frontale qui s'exéc
 
 3. Dans l'**Explorateur de solutions**, assurez-vous que **ContosoAdsCloudService** est sélectionné comme projet de démarrage.
 
-2. Si vous utilisez Visual Studio 2015, modifiez la chaîne de connexion SQL Server dans le fichier d’application *Web.config* du projet ContosoAdsWeb et dans le fichier *ServiceConfiguration.Local.cscfg* du projet ContosoAdsCloudService. Dans tous les cas, changez « (localdb) \\v11.0 » en « (localdb) \\MSSQLLocalDB ».
+2. Si vous utilisez Visual Studio 2015, modifiez la chaîne de connexion SQL Server dans le fichier d’application *Web.config* du projet ContosoAdsWeb et dans le fichier *ServiceConfiguration.Local.cscfg* du projet ContosoAdsCloudService. Dans tous les cas, changez « (localdb) \\v11.0 » en « (localdb) \\MSSQLLocalDB ».
 
 1. Appuyez sur Ctrl+F5 pour exécuter l’application.
 
@@ -120,7 +120,7 @@ Dans la section suivante, vous allez configurer la solution pour utiliser les re
 
 ## Déploiement de l'application dans Azure
 
-Pour exécuter l'application dans le cloud, procédez comme suit :
+Pour exécuter l'application dans le cloud, procédez comme suit :
 
 * Créez un service cloud Azure.
 * Créez une base de données SQL Azure.
@@ -133,7 +133,7 @@ Pour exécuter l'application dans le cloud, procédez comme suit :
 
 Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 
-1. Dans votre navigateur, ouvrez le [portail Azure Classic](http://manage.windowsazure.com).
+1. Dans votre navigateur, ouvrez le [portail Azure Classic](http://manage.windowsazure.com).
 
 2. Cliquez sur **Nouveau > Calculer > Service cloud > Création rapide**.
 
@@ -205,7 +205,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 6. Dans la liste déroulante **Réplication**, sélectionnez **Redondant en local**.
 
-	Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account/#replication-options).
+	Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md#replication-options).
 
 5. Cliquez sur **Create Storage Account**.
 
@@ -264,7 +264,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
 
 ### Configuration de la solution pour utiliser votre compte de stockage Azure lorsqu'elle est exécutée dans Azure
 
-Les chaînes de connexion au compte de stockage Azure pour le projet de rôle web et le projet de rôle de travail sont stockées dans les paramètres d’environnement du projet de service cloud. Pour chaque projet, un ensemble distinct de paramètres doit être utilisé lorsque l'application s'exécute localement et dans le cloud. Vous allez mettre à jour les paramètres d'environnement de cloud pour les projets de rôle web et de travail.
+Les chaînes de connexion au compte de stockage Azure pour le projet de rôle web et le projet de rôle de travail sont stockées dans les paramètres d’environnement du projet de service cloud. Pour chaque projet, un ensemble distinct de paramètres doit être utilisé lorsque l'application s'exécute localement et dans le cloud. Vous allez mettre à jour les paramètres d'environnement de cloud pour les projets de rôle web et de travail.
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **ContosoAdsWeb** sous **Rôles** dans le projet **ContosoAdsCloudService**, puis cliquez sur **Propriétés**.
 
@@ -290,11 +290,11 @@ Les chaînes de connexion au compte de stockage Azure pour le projet de rôle we
 
 7. Suivez la procédure utilisée pour le rôle **ContosoAdsWeb** pour définir les deux chaînes de connexion pour le rôle **ContosoAdsWorker**. Pensez à définir **Configuration du service** sur **Cloud**.
 
-Les paramètres d'environnement de rôle configurés à l'aide de l'interface utilisateur de Visual Studio sont stockés dans les fichiers suivants du projet ContosoAdsCloudService :
+Les paramètres d'environnement de rôle configurés à l'aide de l'interface utilisateur de Visual Studio sont stockés dans les fichiers suivants du projet ContosoAdsCloudService :
 
-* *ServiceDefinition.csdef* : définit les noms des paramètres.
-* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
-* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
+* *ServiceDefinition.csdef* : définit les noms des paramètres.
+* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
+* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
 
 Par exemple, le fichier ServiceDefinition.csdef inclut les définitions suivantes.
 
@@ -343,11 +343,11 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
-   La fenêtre **Journal des activités Azure** s'ouvre dans Visual Studio.
+   La fenêtre **Journal des activités Azure** s'ouvre dans Visual Studio.
 
 5. Cliquez sur l'icône représentant une flèche vers la droite pour développer les détails du déploiement.
 
-	Le déploiement peut durer environ 5 minutes, voire plus.
+	Le déploiement peut durer environ 5 minutes, voire plus.
 
 	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
@@ -359,15 +359,14 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 ## Créer l’application à partir de zéro
 
-Si vous n'avez pas encore téléchargé
-[l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
+Si vous n'avez pas encore téléchargé [l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
 
-La création de l'application Contoso Ads implique les étapes suivantes :
+La création de l'application Contoso Ads implique les étapes suivantes :
 
-* création d'une solution Visual Studio de service cloud ;
-* mise à jour et ajout de packages NuGet ;
-* définition des références d'un projet ;
-* configuration des chaînes de connexion ;
+* création d'une solution Visual Studio de service cloud ;
+* mise à jour et ajout de packages NuGet ;
+* définition des références d'un projet ;
+* configuration des chaînes de connexion ;
 * ajout de fichiers de code.
 
 Une fois la solution créée, vérifiez le code qui est propre aux projets de service cloud et aux objets blob et files d'attente Azure.
@@ -376,7 +375,7 @@ Une fois la solution créée, vérifiez le code qui est propre aux projets de se
 
 1. Dans Visual Studio, dans le menu **Fichier**, choisissez **Nouveau projet**.
 
-2. Dans le volet gauche de la boîte de dialogue **Nouveau projet**, développez **Visual C#** et choisissez les modèles **Cloud** puis le modèle **Azure Cloud Service**.
+2. Dans le volet gauche de la boîte de dialogue **Nouveau projet**, développez **Visual C#** et choisissez les modèles **Cloud** puis le modèle **Azure Cloud Service**.
 
 3. Nommez le projet et la solution ContosoAdsCloudService, puis cliquez sur **OK**.
 
@@ -416,7 +415,7 @@ Une fois la solution créée, vérifiez le code qui est propre aux projets de se
 
 4. En haut de la fenêtre, sélectionnez **Parcourir**.
 
-5. Recherchez le package NuGet *EntityFramework* et installez-le dans les trois projets.
+5. Recherchez le package NuGet *EntityFramework* et installez-le dans les trois projets.
 
 6. Recherchez le package NuGet *Microsoft.WindowsAzure.ConfigurationManager* et installez-le dans le projet de rôle de travail.
 
@@ -444,7 +443,7 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
     </connectionStrings>
     ```
     
-	Si vous utilisez Visual Studio 2015, remplacez « v11.0 » par « MSSQLLocalDB ».
+	Si vous utilisez Visual Studio 2015, remplacez « v11.0 » par « MSSQLLocalDB ».
 
 2. Enregistrez vos modifications.
 
@@ -464,11 +463,11 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
 
 7. Suivez la procédure utilisée pour ajouter une chaîne de connexion de stockage dans les propriétés du rôle ContosoAdsWorker.
 
-8. Toujours dans la fenêtre des propriétés **ContosoAdsWorker [Rôle]**, ajoutez une chaîne de connexion :
+8. Toujours dans la fenêtre des propriétés **ContosoAdsWorker [Rôle]**, ajoutez une chaîne de connexion :
 
-	* Nom : ContosoAdsDbConnectionString
-	* Type : string
-	* Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015.)
+	* Nom : ContosoAdsDbConnectionString
+	* Type : string
+	* Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015.)
 
 	    ```
         Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -484,20 +483,20 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*.  
-	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
-	- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\\Shared* : *\_Layout.cshtml*.
+	- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
 À ce stade, vous pouvez générer et exécuter l'application comme indiqué précédemment dans le didacticiel. L'application utilisera la base de données locale et les ressources de l'émulateur de stockage.
 
-Les sections suivantes présentent le code utilisé dans l'environnement, les objets blob et les files d'attente Azure. Ce didacticiel ne montre pas comment créer des contrôleurs et des vues MVC à l'aide de la structure, comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server, ni les bases de la programmation asynchrone dans ASP.NET 4.5. Pour plus d'informations sur ces sujets, consultez les ressources suivantes :
+Les sections suivantes présentent le code utilisé dans l'environnement, les objets blob et les files d'attente Azure. Ce didacticiel ne montre pas comment créer des contrôleurs et des vues MVC à l'aide de la structure, comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server, ni les bases de la programmation asynchrone dans ASP.NET 4.5. Pour plus d'informations sur ces sujets, consultez les ressources suivantes :
 
-* [Prise en main de MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Prise en main d’EF 6 et de MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [Introduction à la programmation asynchrone dans .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+* [Prise en main de MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Prise en main d’EF 6 et de MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introduction à la programmation asynchrone dans .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -546,7 +545,7 @@ public class Ad
 
 ### ContosoAdsCommon - ContosoAdsContext.cs
 
-La classe ContosoAdsContext spécifie que la classe Ad est utilisée dans une collection DbSet, qui est stockée par Entity Framework dans une base de données SQL.
+La classe ContosoAdsContext spécifie que la classe Ad est utilisée dans une collection DbSet, qui est stockée par Entity Framework dans une base de données SQL.
 
 ```csharp
 public class ContosoAdsContext : DbContext
@@ -600,7 +599,7 @@ imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -617,7 +616,7 @@ Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la pa
 
 Dans le fichier *AdController.cs*, le constructeur appelle la méthode `InitializeStorage` pour créer les objets de la bibliothèque cliente Azure Storage, qui fournissent une API pour les objets blob et les files d’attente.
 
-Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives d'interruption exponentielle par défaut peut suspendre l'application web pendant plus d'une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse 3 secondes après chaque nouvelle tentative, jusqu'à 3.
+Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives d'interruption exponentielle par défaut peut suspendre l'application web pendant plus d'une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse 3 secondes après chaque nouvelle tentative, jusqu'à 3.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -743,7 +742,7 @@ Un élément `<input>` indique au navigateur de fournir une boîte de dialogue d
 
 L’environnement du rôle de travail Azure appelle la méthode `OnStart` de la classe `WorkerRole` lorsque le rôle de travail est démarré, puis appelle la méthode `Run` à la fin de la méthode `OnStart`.
 
-La méthode `OnStart` obtient la chaîne de connexion à la base de données à partir du fichier *.cscfg* et la transmet à la classe DbContext d’Entity Framework. Le fournisseur SQLClient est utilisé par défaut et n'a donc pas besoin d'être spécifié.
+La méthode `OnStart` obtient la chaîne de connexion à la base de données à partir du fichier *.cscfg* et la transmet à la classe DbContext d’Entity Framework. Le fournisseur SQLClient est utilisé par défaut et n'a donc pas besoin d'être spécifié.
 
 ```csharp
 var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
@@ -789,7 +788,7 @@ public override void Run()
 
 Après chaque itération de la boucle, si aucun message de file d'attente n'a été trouvé, le programme se met en veille pendant une seconde. Cela évite au rôle de travail un temps processeur et des coûts de transaction de stockage trop élevés. L'équipe de conseil clientèle Microsoft raconte une anecdote sur un développeur qui, avant de partir en vacances, avait oublié d'inclure ce point et avait procédé au déploiement en production. À son retour, les coûts de surveillance étaient plus élevés que le coût de ses vacances.
 
-Il arrive que le contenu d'un message de file d'attente provoque une erreur de traitement. On parle alors de *message empoisonné*, et si vous relancez la boucle après avoir consigné une erreur, vous risquez d'essayer sans fin de traiter ce message. Le bloc catch inclut donc une instruction If qui vérifie combien de fois l'application a tenté de traiter le message actuel, et si le nombre de tentatives est supérieur à 5, le message est supprimé de la file d'attente.
+Il arrive que le contenu d'un message de file d'attente provoque une erreur de traitement. On parle alors de *message empoisonné*, et si vous relancez la boucle après avoir consigné une erreur, vous risquez d'essayer sans fin de traiter ce message. Le bloc catch inclut donc une instruction If qui vérifie combien de fois l'application a tenté de traiter le message actuel, et si le nombre de tentatives est supérieur à 5, le message est supprimé de la file d'attente.
 
 `ProcessQueueMessage` est appelé lorsqu'un message de file d'attente est trouvé.
 
@@ -834,7 +833,7 @@ Voici quelques erreurs courantes et leur solution en cas de problème lorsque vo
 
 L’objet `RoleEnvironment` est fourni par Azure lorsque vous exécutez une application dans Azure ou lorsque vous l’exécutez localement à l’aide de l’émulateur de calcul Azure. Si vous obtenez cette erreur lors de l'exécution en local, vérifiez si le projet ContosoAdsCloudService est défini comme projet de démarrage. Cela permet au projet de s'exécuter avec l'émulateur de calcul Azure.
 
-L'application utilise notamment la classe RoleEnvironment Azure pour obtenir les valeurs de chaîne de connexion qui sont stockées dans les fichiers *.cscfg*, et l'absence de chaîne de connexion est une autre cause de cette exception. Veillez à créer le paramètre StorageConnectionString pour les configurations cloud et locale dans le projet ContosoAdsWeb et créez les deux chaînes de connexion pour les deux configurations dans le projet ContosoAdsWorker. Si vous effectuez une recherche de type **Rechercher tout** pour StorageConnectionString dans toute la solution, vous devez la voir 9 fois dans 6 fichiers.
+L'application utilise notamment la classe RoleEnvironment Azure pour obtenir les valeurs de chaîne de connexion qui sont stockées dans les fichiers *.cscfg*, et l'absence de chaîne de connexion est une autre cause de cette exception. Veillez à créer le paramètre StorageConnectionString pour les configurations cloud et locale dans le projet ContosoAdsWeb et créez les deux chaînes de connexion pour les deux configurations dans le projet ContosoAdsWorker. Si vous effectuez une recherche de type **Rechercher tout** pour StorageConnectionString dans toute la solution, vous devez la voir 9 fois dans 6 fichiers.
 
 ### Impossible de remplacer par le port xxx. La valeur du nouveau port est inférieure à la valeur minimale autorisée de 8080 pour le protocole http
 
@@ -854,20 +853,20 @@ Pour exécuter l'application avec l'émulateur complet, vous devez ouvrir Visual
 
 L'application Contoso Ads est intentionnellement simple pour un didacticiel de prise en main. Par exemple, elle n'implémente pas l'[injection de dépendances](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ni les [modèles de référentiel et d'élément de travail](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), elle [n'utilise pas d'interface pour la connexion](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), ni les [migrations Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les changements de modèles de données ou la [résilience des connexions EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les erreurs réseau temporaires, etc.
 
-Voici quelques exemples d'applications de service cloud qui montrent des pratiques d'encodage réelles, de la plus simple à la plus complexe :
+Voici quelques exemples d'applications de service cloud qui montrent des pratiques d'encodage réelles, de la plus simple à la plus complexe :
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). De conception identique à Contoso Ads, mais implémente plus de fonctionnalités et plus de pratiques d'encodage réelles.
 * [Application multiniveau Azure Cloud Service avec tables, files d'attente et objets blob](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Présente les tables Azure Storage ainsi que des objets blob et des files d’attente. Si l’on se base sur une version plus ancienne du kit de développement logiciel Azure pour .NET, certaines modifications sont nécessaires pour travailler avec la version actuelle.
-* [Concepts de base des services cloud dans Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Cet exemple complet présente une grande variété de meilleures pratiques, produites par le groupe Microsoft Patterns and Practices.
+* [Concepts de base des services cloud dans Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Cet exemple complet présente une grande variété de meilleures pratiques, produites par le groupe Microsoft Patterns and Practices.
 
 Pour obtenir des informations générales sur le développement pour le cloud, consultez la rubrique [Création d’applications cloud réalistes avec Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
 Pour voir une vidéo de présentation des meilleures pratiques et des modèles Azure Storage, consultez la rubrique [Microsoft Azure Storage – Nouveautés, meilleures pratiques et modèles](http://channel9.msdn.com/Events/Build/2014/3-628).
 
-Pour plus d’informations, consultez les ressources suivantes :
+Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Cloud Services Partie 1 : Présentation](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services Partie 1 : Présentation](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

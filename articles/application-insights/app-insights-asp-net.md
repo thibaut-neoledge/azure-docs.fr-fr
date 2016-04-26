@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyse d’une application web pour ASP.NET avec Application Insights" 
+	pageTitle="Analyse d’une application web pour ASP.NET avec Application Insights" 
 	description="Performances, disponibilité et analyse de l’utilisation de votre site web ASP.NET, hébergé en local ou dans Azure." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="04/14/2016" 
 	ms.author="awills"/>
 
 
-# Configurer Application Insights pour ASP.NET
+# Configurer Application Insights pour ASP.NET
 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Le kit de développement logiciel (SDK) Application Insights envoie les données de télémétrie d’analyse de votre application web en ligne au portail Azure. Vous pouvez vous connecter à partir de celui-ci et afficher des graphiques concernant les performances et l’utilisation de votre application.
+Le kit de développement logiciel (SDK) Application Insights envoie les données de télémétrie d’analyse de votre application web en ligne au portail Azure. Vous pouvez vous connecter à partir de celui-ci et afficher des graphiques concernant les performances et l’utilisation de votre application.
 
 ![Exemples de graphiques d’analyse des performances](./media/app-insights-asp-net/10-perf.png)
 
@@ -29,12 +29,12 @@ Vous pouvez rechercher et mettre en corrélation des demandes, des exceptions et
 
 #### Avant de commencer
 
-Ce dont vous avez besoin :
+Ce dont vous avez besoin :
 
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
-* Visual Studio 2013 Update 3 ou version ultérieure.
+* Visual Studio 2013 Update 3 ou version ultérieure.
 
-## <a name="ide"></a> Ajouter Application Insights à votre projet dans Visual Studio
+## <a name="ide"></a> Ajouter Application Insights à votre projet dans Visual Studio
 
 #### S'il s'agit d'un nouveau projet...
 
@@ -48,7 +48,7 @@ Sélectionnez un compte avec une authentification Azure. Vous devrez peut-être 
 
 #### ... ou s'il s'agit d'un projet existant
 
-Cliquez avec le bouton droit dans l’Explorateur de solutions et sélectionnez **Ajouter Application Insights** ou **Configurer Application Insights**.
+Cliquez avec le bouton droit dans l’Explorateur de solutions et sélectionnez **Ajouter Application Insights** ou **Configurer Application Insights**.
 
 ![Sélection de Ajouter Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
@@ -60,21 +60,21 @@ S’il s’agit de votre toute première utilisation, vous serez invité à vous
 Si cette application fait partie d'une application plus importante, vous pouvez utiliser **Configurer les paramètres** pour la placer dans le même groupe de ressources que les autres composants.
 
 
-####<a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
+####<a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
 
-Cette commande effectue les opérations suivantes (que vous pouvez [exécuter manuellement](app-insights-start-monitoring-app-health-usage.md) si vous préférez) :
+Cette commande effectue les opérations suivantes (que vous pouvez [exécuter manuellement](app-insights-start-monitoring-app-health-usage.md) si vous préférez) :
 
-1. Elle ajoute le package NuGet du Kit de développement logiciel (SDK) Web Application Insights à votre projet. Pour le visualiser dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
-2. Elle crée une ressource Application Insights dans [le portail Azure][portal]. Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
+1. Elle ajoute le package NuGet du Kit de développement logiciel (SDK) Web Application Insights à votre projet. Pour le visualiser dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
+2. Elle crée une ressource Application Insights dans [le portail Azure][portal]. Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
 3. Insère la clé d’instrumentation dans `ApplicationInsights.config` pour permettre au SDK d’envoyer les données de télémétrie au portail.
 
-Si vous ne vous connectez pas d’abord à Azure, le SDK sera installé sans être connecté à une ressource. Vous pourrez voir et rechercher les données de télémétrie Application Insights dans la fenêtre de recherche de Visual Studio au cours d’une opération de débogage. Vous pourrez effectuer les autres étapes ultérieurement.
+Si vous ne vous connectez pas d’abord à Azure, le SDK sera installé sans être connecté à une ressource. Vous pourrez voir et rechercher les données de télémétrie Application Insights dans la fenêtre de recherche de Visual Studio au cours d’une opération de débogage. Vous pourrez effectuer les autres étapes ultérieurement.
 
 ## <a name="run"></a> Débogage de votre projet
 
-Exécutez votre application à l'aide de la touche F5 et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
+Exécutez votre application à l'aide de la touche F5 et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
-Un décompte des événements consignés s’affiche dans Visual Studio.
+Un décompte des événements consignés s’affiche dans Visual Studio.
 
 ![Dans Visual Studio, le bouton Application Insights apparaît pendant le débogage.](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -86,14 +86,14 @@ Cliquez sur ce bouton pour ouvrir la recherche de diagnostic.
 
 ### Concentrateur de diagnostic
 
-Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
+Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
 
 ![Ouvrez la fenêtre Outils de diagnostic et passez en revue les événements Application Insights.](./media/app-insights-asp-net/31.png)
 
 
 ### Recherche de diagnostic
 
-La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
+La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
 
 ![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/app-insights-asp-net/34.png)
 
@@ -137,23 +137,23 @@ Cela est également utile si vous disposez de [données de télémétrie personn
 
 Le portail Application Insights vous permet de consulter les données de télémétrie une fois votre application publiée. Pendant que vous procéderez au débogage, vous souhaiterez vérifier que les données de télémétrie sont correctement envoyées.
 
-Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
+Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
 
 ![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Si vous n’étiez pas connecté à Azure au moment de l’ajout d’Application Insights à cette application, connectez-vous maintenant. Sélectionnez **Configurer Application Insights**. Cela vous permet de continuer à voir les données de télémétrie de votre application en temps réel après l’avoir déployée. Les données de télémétrie apparaissent dans le portail Application Insights.
+Si vous n’étiez pas connecté à Azure au moment de l’ajout d’Application Insights à cette application, connectez-vous maintenant. Sélectionnez **Configurer Application Insights**. Cela vous permet de continuer à voir les données de télémétrie de votre application en temps réel après l’avoir déployée. Les données de télémétrie apparaissent dans le portail Application Insights.
 
-### Métriques : données regroupées
+### Métriques : données regroupées
 
-Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
+Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
 
 ![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-asp-net/12-first-perf.png)
 
 Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
-* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-web-track-usage.md)
+* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-web-track-usage.md)
 
-### Rechercher : événements individuels
+### Rechercher : événements individuels
 
 Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événements associés.
 
@@ -161,13 +161,13 @@ Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événement
 
 [En savoir plus sur la recherche](app-insights-diagnostic-search.md)
 
-* *Aucun événement associé ?* Configurez les [exceptions de serveur](app-insights-asp-net-exceptions.md) et les [dépendances](app-insights-asp-net-dependencies.md).
+* *Aucun événement associé ?* Configurez les [exceptions de serveur](app-insights-asp-net-exceptions.md) et les [dépendances](app-insights-asp-net-dependencies.md).
 
 
-## Pas de données ?
+## Pas de données ?
 
 * Dans Visual Studio, assurez-vous que votre application envoie correctement les données de télémétrie. Vous devriez voir des traces dans la fenêtre Sortie et dans le concentrateur de diagnostic.
-* Assurez-vous que vous regardez les bonnes informations dans Azure. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur « Parcourir », « Application Insights », puis sélectionnez votre application.
+* Assurez-vous que vous regardez les bonnes informations dans Azure. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur « Parcourir », « Application Insights », puis sélectionnez votre application.
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
 * Ouvrez le panneau [Rechercher][diagnostic] pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
 * Attendez quelques secondes, puis cliquez sur Actualiser.
@@ -179,9 +179,21 @@ Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événement
 
 À présent, déployez votre application et regardez les données s'accumuler.
 
-Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
+### Live Stream
 
-#### Vous rencontrez des problèmes sur votre serveur de builds ?
+Les premières minutes d’un déploiement vous indiquent si votre application fonctionne correctement. Lorsque vous remplacez une version antérieure, notamment, vous souhaitez savoir si les performances se sont améliorées. En cas de problème, vous pourriez souhaiter revenir à l'ancienne version.
+
+Live Stream fournit une vue immédiate d'un ensemble de métriques de performances clés. Il est conçu pour être consulté pendant un redéploiement ou une reconfiguration.
+
+![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-asp-net/45.png)
+
+Contrairement à d'autres graphiques de métriques, Live Stream affiche seulement les données des quelques minutes précédentes et ne conserve pas de données. Le pipeline d'agrégation est minime et l'affichage est actualisé toutes les secondes.
+
+Live Stream nécessite la version 2.1.0-beta1 ou une version ultérieure du Kit de développement logiciel (SDK).
+
+*Live Stream est bloqué sur la page de configuration ? - Actualisez votre navigateur (F5).*
+
+#### Vous rencontrez des problèmes sur votre serveur de builds ?
 
 Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
@@ -234,4 +246,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -72,4 +72,4 @@ Un **plan Classic App Service** vous permet d’exécuter des fonctions comme vo
 
 [AZURE.INCLUDE [Problèmes liés aux rapports](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

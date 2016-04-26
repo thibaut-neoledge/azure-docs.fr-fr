@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Vue d’ensemble d’Azure Event Hubs | Microsoft Azure"
-   description="Introduction et présentation d’Azure Event Hubs."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Vue d’ensemble d’Azure Event Hubs | Microsoft Azure"
+    description="Introduction et présentation d’Azure Event Hubs."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Vue d'ensemble des hubs d'événements Azure
 
@@ -168,4 +168,4 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

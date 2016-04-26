@@ -402,7 +402,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
 ## Préparation de votre application en vue de son déploiement sur azure
 
-Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels]. Pour plus d’informations sur le déploiement de l’application vers un site web Azure, consultez la page [Déploiement d’une application web ASP.NET vers un site web Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l’application sur un service cloud Azure.
+Vous pouvez déployer votre application vers un [service cloud][executionmodels] Azure ou un [site web Azure][azureweb]. Pour plus d’informations sur le déploiement de l’application vers un site web Azure, consultez la page [Déploiement d’une application web ASP.NET vers un site web Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l’application sur un service cloud Azure.
 
 Pour déployer votre application sur un service cloud, vous ajoutez un projet de déploiement de service cloud à la solution. Le projet de déploiement contient des informations de configuration qui sont nécessaires pour exécuter correctement l'application sur le cloud.
 
@@ -531,8 +531,6 @@ La prochaine étape consiste à raccorder le serveur de produits local et l'appl
 
     ![][37]
 
-Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels].
-
 ## Arrêt et suppression de l’application
 
 Après avoir déployé votre application, vous pouvez la désactiver afin de générer et de déployer d'autres applications pendant le temps serveur gratuit de 750 heures/mois (31 jours/mois).
@@ -608,6 +606,7 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  [executionmodels]: ../cloud-services/cloud-services-choose-me.md
+  [azureweb]: ../app-service-web/app-service-web-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->
