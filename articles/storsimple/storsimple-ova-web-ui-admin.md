@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array
@@ -23,7 +23,7 @@
 
 Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Vous pouvez gérer StorSimple Virtual Array à l’aide de l'interface utilisateur du service StorSimple Manager (également appelée interface utilisateur du portail) et de l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
 
-Cet article inclut les didacticiels suivants :
+Cet article inclut les didacticiels suivants :
 
 - Obtenir la clé de chiffrement des données de service
 - Résoudre les erreurs d'installation de l'interface utilisateur web
@@ -39,12 +39,12 @@ Si vous avez égaré votre clé de chiffrement des données de service, procéde
 #### Pour obtenir la clé de chiffrement des données de service
 
 1. Connectez-vous à l'interface utilisateur web locale. Accédez à **Configuration** > **Paramètres du Cloud**.
+  
 
-    ![obtenir la clé de chiffrement des données du service 1](./media/storsimple-ova-web-ui-admin/image27.png)
-
-2. En bas de la page, cliquez sur **Obtenir la clé de chiffrement des données de service**. Une clé s'affiche. Copiez et enregistrez cette clé.
-
-    ![obtenir la clé de chiffrement des données du service 2](./media/storsimple-ova-web-ui-admin/image28.png)
+2. En bas de la page, cliquez sur **Obtenir la clé de chiffrement de données du service**. Une clé s'affiche. Copiez et enregistrez cette clé.
+  	
+	![obtenir la clé de chiffrement des données du service 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## Résoudre les erreurs d'installation de l'interface utilisateur web
@@ -53,7 +53,7 @@ Dans certains cas, lorsque vous configurez l'appareil via l'interface utilisateu
 
 #### Pour exécuter les tests de diagnostic
 
-1. Dans l'interface utilisateur web locale, accédez à **Dépannage** > **Tests de diagnostic**.
+1. Dans l’interface utilisateur web locale, accédez à **Dépannage** > **Tests de diagnostic**.
 
     ![exécuter les diagnostics 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
@@ -69,7 +69,7 @@ Un package de journaux contient tous les journaux pertinents qui peuvent aider l
 
 #### Pour générer le package de journaux
 
-1. Dans l'interface utilisateur web locale, accédez à **Dépannage** > **Journaux système**.
+1. Dans l’interface utilisateur web locale, accédez à **Dépannage** > **Journaux système**.
 
     ![générer un package de journaux 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
@@ -93,13 +93,13 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 #### Pour arrêter votre appareil virtuel
 
-1. Dans l'interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d'alimentation**.
+1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d’alimentation**.
 
-2. En bas de la page, cliquez sur **Arrêter**.
+2. Au bas de la page, cliquez sur **Arrêt**.
 
     ![arrêter l'appareil 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. Un avertissement s'affiche indiquant qu'un arrêt de l'appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Un avertissement s’affiche indiquant qu’un arrêt de l’appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![avertissement d'arrêt de l'appareil](./media/storsimple-ova-web-ui-admin/image37.png)
 
@@ -111,7 +111,7 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 #### Pour redémarrer votre appareil virtuel
 
-1. Dans l'interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d'alimentation**.
+1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d’alimentation**.
 
 2. En bas de la page, cliquez sur **Redémarrer**.
 
@@ -131,4 +131,4 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

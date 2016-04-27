@@ -1,47 +1,51 @@
 <properties 
-    pageTitle="Créer et exporter un fichier BACPAC à partir d'une base de données SQL Azure à l’aide de PowerShell" 
-    description="Créer et exporter un fichier BACPAC à partir d'une base de données SQL Azure à l’aide de PowerShell" 
+    pageTitle="Archiver une base de données SQL Azure dans un fichier BACPAC à l’aide de PowerShell" 
+    description="Archiver une base de données SQL Azure dans un fichier BACPAC à l’aide de PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="04/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Créer et exporter un fichier BACPAC à partir d'une base de données SQL Azure à l’aide de PowerShell
-
+# Archiver une base de données SQL Azure dans un fichier BACPAC à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-export.md)
+- [Portail Azure](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Cet article fournit des instructions pour l’exportation d’un fichier BACPAC de votre base de données SQL Azure à l’aide de PowerShell.
+Cet article fournit des instructions pour archiver votre base de données SQL Azure à partir d’un fichier BACPAC stocké dans Azure Blob Storage à l’aide de PowerShell.
 
-Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) est un fichier .bacpac qui contient un schéma de base de données et des données. Un BACPAC est principalement utilisé pour déplacer une base de données d’un serveur à un autre, [migrer une base de données locale dans le cloud](sql-database-cloud-migrate.md) et archiver une base de données existante dans un format ouvert.
+Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouvez exporter le schéma et les données associés dans un fichier BACPAC. Un fichier BACPAC est un fichier ZIP avec l’extension BACPAC. Il peut être stocké ultérieurement dans Azure Blob Storage ou un stockage local dans un emplacement local, puis importé dans Azure SQL Database ou une installation locale SQL Server.
 
+***Considérations***
+
+- Pour qu’une archive soit cohérente au niveau transactionnel, vous devez vérifier qu’aucune activité d’écriture n’a lieu lors de l’exportation ou effectuer une exportation à partir d’une [copie cohérente au niveau transactionnel](sql-database-copy.md) de votre base de données SQL Azure.
+- La taille maximale d’un fichier BACPAC archivé dans Azure Blob Storage est de 200 Go. L’utilitaire d’invite de commandes [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) permet d’archiver un fichier BACPAC plus volumineux dans un stockage local. Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.microsoft.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
+- L’archivage dans Azure Premium Storage à l’aide d’un fichier BACPAC n’est pas pris en charge.
+- Si l’opération d’exportation dure plus de 20 heures, elle peut être annulée. Pour améliorer les performances lors de l’exportation, vous pouvez :
+ - Augmenter temporairement votre niveau de service 
+ - Interrompre toutes les activités de lecture et d’écriture lors de l’exportation
+ - Utiliser un index cluster sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier.
+ 
 > [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
+Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-Le fichier BACPAC est exporté dans un conteneur d'objets blob de stockage Azure que vous pouvez télécharger une fois l'opération terminée.
-
-
-Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
-
-- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
-- Une base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
-- Un [compte Azure Storage](../storage/storage-create-storage-account.md) avec un conteneur d’objets blob pour stocker le fichier BACPAC. Actuellement, le compte de stockage doit utiliser le modèle de déploiement classique : choisissez par conséquent **Classique** lors de la création d'un compte de stockage.
+- Un abonnement Azure. 
+- Une base de données SQL Azure. 
+- Un [compte Azure Storage standard](../storage/storage-create-storage-account.md) avec un conteneur d’objets blob pour stocker le fichier BACPAC dans le stockage standard.
 - Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-
 
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
@@ -55,7 +59,7 @@ Après vous être connecté, vous voyez des informations sur l’écran, notamme
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l'abonnement, vous avez besoin de votre identifiant ou de votre nom d'abonnement (**-SubscriptionName**). Vous pouvez copier l'identifiant d'abonnement à partir des informations affichées à l'étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
+Pour sélectionner l'abonnement, vous avez besoin de votre identifiant ou de votre nom d'abonnement (**-SubscriptionName**). Vous pouvez copier l'identifiant d'abonnement à partir des informations affichées à l'étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -101,7 +105,7 @@ Cette commande envoie une demande d’exportation de la base de données au serv
 
 ## Surveillez la progression de l’opération d’exportation
 
-Après l’exécution de **Start-AzureSqlDatabaseExport**, vous pouvez vérifier l’état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d’exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
+Après l’exécution de **Start-AzureSqlDatabaseExport**, vous pouvez vérifier l’état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d’exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
 
 Cette commande vous demandera un mot de passe. Entrez le mot de passe administrateur de votre serveur SQL.
 
@@ -147,4 +151,4 @@ Cette commande vous demandera un mot de passe. Entrez le mot de passe administra
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Engagement Mobile - Accueil" 
-   description="Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interface utilisateur d'Azure Engagement Mobile - Accueil"
+   description="Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,17 +12,17 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Gestion de votre application et de vos projets existants
 
 
-Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez créer un compte **Azure Mobile Engagement**. Pour plus d’informations, consultez [Créer un compte Azure Mobile Engagement](mobile-engagement-create-account.md).
- 
+Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
+
 Pour accéder à la page d’accueil, cliquez sur **Accueil** dans la partie supérieure gauche de la page. La page contient la liste de toutes vos applications qui font partie de la collection choisie. Sur cette page, vous bénéficiez d’une rapide vue d’ensemble de vos applications.
-   
+
 La page d’accueil contient également tous vos projets qui peuvent inclure toute application se trouvant dans votre compte. Notez que toute personne peut accéder à la page d’accueil de l’interface utilisateur en créant un compte. Toutefois, vous devez accorder une autorisation aux autres utilisateurs pour qu’ils puissent accéder à vos applications personnalisées dans **Mes projets**.
 
 Vous pouvez également afficher le tableau comparatif pour les applications sélectionnées. Sinon, choisissez d’afficher le tableau comparatif pour les applications sélectionnées dans un projet.
@@ -33,14 +33,14 @@ Vous pouvez également afficher le tableau comparatif pour les applications sél
 ## Mes applications
 
 La vue d’ensemble rapide de vos applications vous permet de sélectionner les applications que vous souhaitez ouvrir pour afficher les options détaillées du ruban. Vous pouvez cliquer sur le nom de votre application pour revenir à l'emplacement du ruban que vous avez visité le plus récemment dans votre application, ou cliquer sur l'icône d'engrenage pour accéder directement à la page « Paramètres » de votre application. Vous pouvez rechercher, filtrer ou trier les informations affichées sur les tables d'application. Vous pouvez également glisser-déposer les en-têtes de colonne pour modifier l'ordre.
- 
+
 Entre autres choses, la vue d’ensemble de vos applications inclut :
 
-- **Tendances des nouveaux utilisateurs** : évolution des nouveaux utilisateurs au cours des deux dernières semaines.
-- **Utilisateurs actifs** : nombre d’utilisateurs actifs au cours des 30 derniers jours.
-- **Tendance des utilisateurs actifs** : évolution des utilisateurs actifs au cours des deux dernières semaines.
-- **Sessions** : une session désigne une utilisation de l’application effectuée par un utilisateur, à partir du moment où il commence à l’utiliser jusqu’à ce qu’il arrête. 
-- **Tendances des sessions** : évolution des sessions au cours des deux dernières semaines.
+- **Tendances des nouveaux utilisateurs** : évolution des nouveaux utilisateurs au cours des deux dernières semaines.
+- **Utilisateurs actifs** : nombre d’utilisateurs actifs au cours des 30 derniers jours.
+- **Tendance des utilisateurs actifs** : évolution des utilisateurs actifs au cours des deux dernières semaines.
+- **Sessions** : une session désigne une utilisation de l’application effectuée par un utilisateur, à partir du moment où il commence à l’utiliser jusqu’à ce qu’il arrête.
+- **Tendances des sessions** : évolution des sessions au cours des deux dernières semaines.
 
 Une fois que vous cliquez sur une application, vous pouvez démarrer la surveillance et la gestion de vos applications via l’interface utilisateur. Par exemple :
 
@@ -48,7 +48,7 @@ Une fois que vous cliquez sur une application, vous pouvez démarrer la surveill
 - [Analyse des données historiques de votre application](mobile-engagement-user-interface-analytics.md)
 - [Création et gestion des segments d’utilisateurs afin d’identifier les modèles d’utilisation](mobile-engagement-user-interface-segments.md)
 - [Interaction avec les utilisateurs de votre application à l’aide de notifications Push](mobile-engagement-user-interface-reach.md)
- 
+
 ## Mes projets :
 
 Vous pouvez utiliser des projets pour grouper vos applications et accorder des autorisations d’accès à vos applications à d’autres utilisateurs. Accordez des autorisations à d’autres utilisateurs en indiquant leur adresse de messagerie. Le bouton **Nouveau projet** permet de créer un projet en entrant uniquement le « nom » et la « description » de votre projet. Une fois un projet créé, vous pouvez cliquer sur le nom du projet pour modifier le nom et la description de votre produit et sélectionner toutes les applications que vous souhaitez voir dans ce projet.
@@ -58,9 +58,9 @@ Vous pouvez utiliser des projets pour grouper vos applications et accorder des a
 
 Les rôles sont les suivants :
 
-- **Observateur** : un observateur est un utilisateur qui peut voir uniquement les applications associées à un projet. Un observateur permet d'accéder aux données de l'analyse et du moniteur et d'examiner les résultats Reach. Un observateur ne peut pas modifier d'informations, ni gérer des applications ou des utilisateurs. Un observateur ne peut pas créer ou modifier le statut de la campagne Reach.
-- **Développeur** : un développeur est un utilisateur qui peut faire tout ce qu’un observateur peut effectuer, ainsi que gérer des applications. Un développeur peut activer et désactiver les applications, modifier les informations des applications (telles que le package et la signature) et créer des campagnes Reach. Un développeur ne peut pas gérer les utilisateurs. 
-- **Administrateur** : un administrateur est un utilisateur qui peut faire tout ce qu’un développeur peut effectuer, ainsi que gérer les utilisateurs. Un administrateur peut inviter des utilisateurs à participer à un projet, modifier les rôles des utilisateurs et les informations du projet. Les autorisations de niveau application peuvent également être définies dans « paramètres ».
+- **Observateur** : un observateur est un utilisateur qui peut voir uniquement les applications associées à un projet. Un observateur permet d'accéder aux données de l'analyse et du moniteur et d'examiner les résultats Reach. Un observateur ne peut pas modifier d'informations, ni gérer des applications ou des utilisateurs. Un observateur ne peut pas créer ou modifier le statut de la campagne Reach.
+- **Développeur** : un développeur est un utilisateur qui peut faire tout ce qu’un observateur peut effectuer, ainsi que gérer des applications. Un développeur peut activer et désactiver les applications, modifier les informations des applications (telles que le package et la signature) et créer des campagnes Reach. Un développeur ne peut pas gérer les utilisateurs.
+- **Administrateur** : un administrateur est un utilisateur qui peut faire tout ce qu’un développeur peut effectuer, ainsi que gérer les utilisateurs. Un administrateur peut inviter des utilisateurs à participer à un projet, modifier les rôles des utilisateurs et les informations du projet. Les autorisations de niveau application peuvent également être définies dans « paramètres ».
 
 
 Cliquez sur un projet pour afficher toutes les applications qui font partie de ce projet. L’image suivante montre le tableau comparatif pour les applications sélectionnées.
@@ -71,7 +71,7 @@ Cliquez sur un projet pour afficher toutes les applications qui font partie de c
 ## Voir aussi
 
 - [Concepts][Link 6]
-- [Guide de résolution des problèmes : Service][Link 24]
+- [Guide de résolution des problèmes - Service][Link 24]
 
 <!--Image references-->
 [0]: ./media/mobile-engagement-user-interface-home/home0.png
@@ -170,8 +170,4 @@ Cliquez sur un projet pour afficher toutes les applications qui font partie de c
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Développement de base de données C# : pools de bases de données élastiques | Microsoft Azure"
+    pageTitle="Développement de base de données C# : pools de bases de données élastiques | Microsoft Azure"
     description="Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données."
     services="sql-database"
     keywords="base de données c#,développement sql"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
     ms.date="02/23/2016"
     ms.author="sstein"/>
 
-# C&#x23; développement de base de données : créer et configurer un pool de base de données élastique pour une base de données SQL
+# C&#x23; développement de base de données : créer et configurer un pool de base de données élastique pour une base de données SQL
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-create-portal.md)
@@ -27,7 +27,7 @@
 
 Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) pour des bases de données SQL à partir d’une application en utilisant des techniques de développement de base de données C#.
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
 
 Les exemples utilisent la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
@@ -36,11 +36,11 @@ Les exemples utilisent la [bibliothèque de base de données SQL Azure pour .NET
 
 
 
-Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Installation des bibliothèques nécessaires
 
-Obtenez les bibliothèques de gestion requises en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) pour le développement sur SQL :
+Obtenez les bibliothèques de gestion requises en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) pour le développement sur SQL :
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -51,15 +51,15 @@ Obtenez les bibliothèques de gestion requises en installant les packages suivan
 
 Avant de commencer le développement SQL en C#, vous devez effectuer certaines tâches dans le portail Azure. Commencez par autoriser votre application à accéder à l’API REST en configurant l’authentification nécessaire.
 
-Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
+Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
 
 Pour authentifier votre application cliente en fonction de l’utilisateur actuel, vous devez d’abord inscrire celle-ci dans le domaine AAD associé à l’abonnement sous lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut. L’inscription de l’application peut être effectuée dans le [Portail Classic](https://manage.windowsazure.com/).
 
-Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
+Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
-1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
+1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
 
-    ![Développement de base de données SQL C# : configuration d’Active Directory][1]
+    ![Développement de base de données SQL C# : configuration d’Active Directory][1]
 
 2. Sélectionnez le répertoire pour authentifier votre application et cliquez sur son **Nom**.
 
@@ -71,7 +71,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 4. Cliquez sur **AJOUTER** pour créer une application.
 
-    ![Cliquez sur le bouton Ajouter : créer une application C#.][6]
+    ![Cliquez sur le bouton Ajouter : créer une application C#.][6]
 
 5. Sélectionnez **Ajouter une application développée par mon organisation**.
 
@@ -79,7 +79,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Ajouter l’application][7]
 
-6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajouter l’application][8]
 
@@ -101,7 +101,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 ### Identifier le nom de domaine
 
-Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
+Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle. Remplacez **domain.onmicrosoft.com** dans l'extrait de code ci-dessous avec la valeur de votre compte.
@@ -112,7 +112,7 @@ Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le 
 
 **Ressources AAD supplémentaires**
 
-Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Récupérer le jeton d’accès pour l’utilisateur actuel
@@ -142,7 +142,7 @@ L’application cliente doit récupérer le jeton d’accès d’application pou
 
 ## Créer un groupe de ressources
 
-Avec Resource Manager, toutes les ressources doivent être créées dans un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour créer un pool de base de données élastique, vous avez besoin d'un serveur de base de données SQL Azure dans un groupe de ressources existant. Exécutez le code C# suivant pour créer un groupe de ressources :
+Avec Resource Manager, toutes les ressources doivent être créées dans un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour créer un pool de base de données élastique, vous avez besoin d'un serveur de base de données SQL Azure dans un groupe de ressources existant. Exécutez le code C# suivant pour créer un groupe de ressources :
 
 
     // Create a resource management client
@@ -237,7 +237,7 @@ L'exemple suivant crée une nouvelle base de données de base. Si une base de do
 
 ## Créer un pool de base de données élastique
 
-L'exemple suivant crée un pool de base de données élastique :
+L'exemple suivant crée un pool de base de données élastique :
 
 
 
@@ -285,9 +285,9 @@ L'exemple suivant met à jour les caractéristiques de performances d'un pool de
 
 ## Déplacer une base de données existante vers un pool élastique de bases de données
 
-*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour déplacer des bases de données existantes dans et hors d’un pool. Pour plus d’informations, voir [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour déplacer des bases de données existantes dans et hors d’un pool. Pour plus d’informations, consultez [Surveiller et gérer un pool de base de données élastique avec Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
-L'exemple suivant déplace une base de données SQL Azure existante vers un pool :
+L'exemple suivant déplace une base de données SQL Azure existante vers un pool :
 
 
     // Update database service objective to add the database to a pool
@@ -319,7 +319,7 @@ L'exemple suivant déplace une base de données SQL Azure existante vers un pool
 
 *Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de bases de données élastiques dans le pool. Pour plus d’informations, voir [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
-L'exemple suivant crée une base de données directement dans un pool :
+L'exemple suivant crée une base de données directement dans un pool :
 
 
     // Create a new database in the pool
@@ -344,7 +344,7 @@ L'exemple suivant crée une base de données directement dans un pool :
 
 ## Répertorier toutes les bases de données dans un pool de base de données élastique
 
-L'exemple suivant répertorie toutes les bases de données dans un pool :
+L'exemple suivant répertorie toutes les bases de données dans un pool :
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -576,4 +576,4 @@ L'exemple suivant répertorie toutes les bases de données dans un pool :
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,6 @@
 | Nombre maximal de sauvegardes conservées par l'appareil virtuel dans le dossier *.backups* pour le serveur de fichiers | 5 | Cela inclut les sauvegardes les plus récentes planifiées (générées par la stratégie de sauvegarde par défaut) et les sauvegardes manuelles. |
 | Nombre maximal de sauvegardes planifiées conservées par l'appareil | 55 | 30 sauvegardes quotidiennes<br>12 sauvegardes mensuelles<br>13 sauvegardes annuelles |
 | Nombre maximal de sauvegardes manuelles conservées par l'appareil | 45 | |
-| Nombre maximal de volumes pouvant être traités en parallèle pour sauvegarder ou restaurer | 3 | S'il existe plus de 3 volumes, ils seront traités séquentiellement à mesure que des emplacements se libèrent. |
-| Délai de récupération après restauration | Restauration rapide | La restauration est basée sur la carte thermique et dépend de la taille du volume.<br>Les opérations de sauvegarde peuvent se produire lorsqu'une opération de restauration est en cours. |
+| Délai de récupération après restauration | Restauration rapide | La restauration est basée sur la carte thermique et dépend de la taille du volume.<br>Les opérations de sauvegarde peuvent se produire lorsqu’une opération de restauration est en cours. |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

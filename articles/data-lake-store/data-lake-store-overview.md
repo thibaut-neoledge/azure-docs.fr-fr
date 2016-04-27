@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Présentation d'Azure Data Lake Store
@@ -35,7 +35,7 @@ Azure Data Lake Store est un système de fichiers Apache Hadoop compatible avec 
 
 Les données stockées dans Data Lake Store peuvent être facilement analysées avec les infrastructures d'analyse Hadoop, comme MapReduce ou Hive. Les clusters Microsoft Azure HDInsight peuvent être approvisionnés et configurés pour accéder directement aux données stockées dans Data Lake Store.
 
-### Stockage illimité, fichiers de l'ordre du pétaoctet
+### Stockage illimité, fichiers de l´'ordre du pétaoctet
 
 Azure Data Lake Store offre un stockage illimité et est approprié pour le stockage d'une grande variété de données à des fins d'analyse. Il n'impose aucune limite de taille de compte, de taille de fichier ou de quantité de données stockées dans un lac de données. La taille des fichiers individuels peut varier de l'ordre du kilooctet à l'ordre du pétaoctet, ce qui en fait le choix idéal pour stocker tout type de données. Les données sont stockées durablement en créant des copies multiples. De plus, il n'existe aucune limite de durée de stockage des données dans le lac de données.
 
@@ -44,7 +44,7 @@ Azure Data Lake Store offre un stockage illimité et est approprié pour le stoc
 Azure Data Lake Store est conçu pour faire fonctionner des systèmes d'analyse à grande échelle, nécessitant un débit élevé pour interroger et analyser de grands volumes de données. Le lac de données répartit les différentes parties des fichiers sur plusieurs serveurs de stockage distincts. Cela améliore le débit de lecture lors de la lecture du fichier en parallèle de l'analyse de données.
 
 
-### Prêt à l'emploi : hautement disponible et sécurisé
+### Prêt à l'emploi : hautement disponible et sécurisé
 
 Azure Data Lake Store offre une fiabilité et une disponibilité aux normes industrielles. Vos données sont stockées durablement en créant des copies redondantes pour vous prémunir contre toute défaillance imprévue. Les entreprises peuvent utiliser Azure Data Lake dans leurs solutions et l'intégrer à leur plateforme de données existante.
 
@@ -79,12 +79,12 @@ Data Lake Store est accessible via le nouveau système de fichiers, AzureDataLak
 
 Vous pouvez accéder à vos données dans Data Lake Store à l'aide de `adl://<data_lake_store_name>.azuredatalakestore.net`. Pour plus d'informations sur la façon d'accéder aux données de Data Lake Store, consultez [Afficher les propriétés des données stockées](data-lake-store-get-started-portal.md#properties)
 
-## Comment commencer à utiliser Azure Data Lake Store ?
+## Comment commencer à utiliser Azure Data Lake Store ?
 
 Consultez [Prise en main de Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md) pour savoir comment approvisionner un Data Lake Store avec le portail Azure. Une fois que vous avez approvisionné Azure Data Lake, vous pouvez apprendre à utiliser les offres de Big Data, comme Azure Data Lake Analytics ou Azure HDInsight avec Data Lake Store. Vous pouvez également créer une application .NET pour créer un compte Azure Data Lake Store et effectuer des opérations comme télécharger des données, etc.
 
 - [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
+- [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles | Microsoft Azure"
-	description="Fournit des réponses à certaines questions courantes sur les machines virtuelles Azure créées avec le modèle de déploiement classique."
+	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles | Microsoft Azure"
+	description="Réponses à certaines questions courantes sur les machines virtuelles Azure créées avec le modèle de déploiement classique."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

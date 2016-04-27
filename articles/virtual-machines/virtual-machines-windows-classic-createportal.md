@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d'une machine virtuelle Windows personnalisée | Microsoft Azure"
+	pageTitle="Création d'une machine virtuelle Windows personnalisée | Microsoft Azure"
 	description="Découvrez comment créer une machine virtuelle Windows personnalisée à partir du portail Azure Classic à l'aide du modèle de déploiement classique."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -26,4 +26,8 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Étapes suivantes
+
+Vous pouvez également [créer une machine virtuelle personnalisée exécutant Linux](virtual-machines-linux-classic-createportal.md) dans le portail Azure Classic.
+
+<!---HONumber=AcomDC_0413_2016-->

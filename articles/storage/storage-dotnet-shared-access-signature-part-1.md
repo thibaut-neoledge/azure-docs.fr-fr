@@ -102,8 +102,8 @@ Nom|Partie de la SAP|Description
 ---|---|---
 URI de l’objet blob|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée.
 Version des services de stockage|sv=2015-04-05|Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser.
-Heure de début|st=2015-04-29T22%3A18%3A26Z|Spécifiée au format ISO 8601. Si vous voulez que la signature d'accès partagé soit valide immédiatement, omettez l'heure de début.
-Heure d’expiration|se=2015-04-30T02%3A23%3A26Z|Spécifiée au format ISO 8601.
+Heure de début|st=2015-04-29T22%3A18%3A26Z|Spécifiée en heure UTC. Si vous voulez que la signature d'accès partagé soit valide immédiatement, omettez l'heure de début.
+Heure d’expiration|se=2015-04-30T02%3A23%3A26Z|Spécifiée en heure UTC.
 Ressource|sr=b|La ressource est un objet blob.
 Autorisations|sp=rw|Les autorisations octroyées par la signature d'accès partagé incluent les opérations de lecture (r) et d'écriture (w).
 Plage d’adresses IP|sip=168.1.5.60-168.1.5.70|Plage d’adresses IP dont les demandes seront acceptées.
@@ -314,8 +314,8 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 - [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 - [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 - [Délégation de l'accès avec une signature d'accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png 
+- [Présentation des signatures d’accès partagé de table et de file d’attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

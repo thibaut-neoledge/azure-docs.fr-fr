@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Guide de programmation pour les concentrateurs d'événements Azure | Microsoft Azure"
-   description="Décrit la programmation avec les concentrateurs d’événements Azure à l'aide du Kit de développement logiciel (SDK) .NET d'Azure."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Guide de programmation pour les concentrateurs d'événements Azure | Microsoft Azure"
+    description="Décrit la programmation avec les concentrateurs d’événements Azure à l'aide du Kit de développement logiciel (SDK) .NET d'Azure."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Guide de programmation de concentrateurs d’événements
 
@@ -21,9 +21,9 @@ Cette rubrique décrit la programmation des concentrateurs d’événements Azur
 
 ## Éditeurs d'événements
 
-L’envoi d'événements à un concentrateur d'événements s'effectue à l'aide d'HTTP POST ou via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont analysées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec une configuration de volumes de messages plus importants fréquents et une latence inférieure lorsqu’ils fournissent un canal de messagerie permanent.
+L’envoi d'événements à un concentrateur d'événements s'effectue à l'aide d'HTTP POST ou via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
-Les concentrateurs d'événements sont créés et gérés à l'aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP sur lequel les événements sont envoyés au concentrateur d'événements. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et est utilisée pour publier des messages sur un concentrateur d'événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu'il traverse un concentrateur d'événements.
+Les concentrateurs d'événements sont créés et gérés à l'aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP par le biais duquel les événements sont envoyés à Event Hub. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et est utilisée pour publier des messages sur un concentrateur d'événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu’il traverse un Event Hub.
 
 ## Prise en main
 
@@ -185,4 +185,4 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 - [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Informations de référence des API hôtes du processeur d’événements](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de 
 Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2013 Update 3, ou version ultérieure
-+ [Compte de stockage Azure](../storage-create-storage-account.md)
++ [Compte de stockage Azure](../storage/storage-create-storage-account.md)
 + un appareil photo ou tout autre appareil de capture d'image raccordé à votre ordinateur.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services].
@@ -51,11 +51,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 Maintenant que vous avez intégré votre service mobile au service BLOB et que vous êtes en mesure de télécharger des images en toute sécurité, consultez les autres rubriques ci-dessous relatives au service backend et à l'intégration :
 
-+ [Planifier les tâches du backend dans Mobile Services](../mobile-services-dotnet-backend-schedule-recurring-tasks.md)
++ [Planifier les tâches du backend dans Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
      Découvrez comment utiliser la fonctionnalité de planification de travaux Mobile Services pour définir du code de script serveur exécuté selon une planification que vous définissez.
 
-+ [Guide de fonctionnement Mobile Services .NET](../mobile-services-windows-dotnet-how-to-use-client-library.md)
++ [Guide de fonctionnement Mobile Services .NET](mobile-services-dotnet-how-to-use-client-library.md)
 
      Découvrez plus en détail comment utiliser Mobile Services avec .NET
 
@@ -71,8 +71,8 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 <!-- Images. -->
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
-[How To Create a Storage Account]: ../storage-create-storage-account.md
+[Prise en main de Mobile Services]: mobile-services-windows-store-dotnet-get-started.md
+[How To Create a Storage Account]: ../storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

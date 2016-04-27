@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="04/08/2016"
    ms.author="toddabel"/>
 
 
@@ -37,15 +37,16 @@ Les outils suivants sont utilisés pour exécuter certaines opérations décrite
 2. **Événements d’application :** ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, reportez-vous à [cet article sur la surveillance et diagnostic des services dans une configuration de machine locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
-## Déployer l’extension de diagnostic
+## Déployer les extensions de diagnostic
 La première étape de la collecte de journaux consiste à déployer l’extension Diagnostics sur chaque machine virtuelle du cluster Service Fabric. L’extension Diagnostics collecte les journaux sur chaque machine virtuelle et les charge sur le compte de stockage que vous spécifiez. La procédure varie légèrement selon que vous utilisiez le portail Azure ou Azure Resource Manager et que vous effectuiez le déploiement pour un nouveau cluster ou pour un cluster déjà existant. Examinons les différentes étapes pour chaque scénario.
 
 ### Déploiement de l’extension Diagnostics dans le cadre de la création d’un cluster via le portail
-Pour déployer Diagnostics sur les machines virtuelles du cluster dans le cadre de la création d’un cluster, utilisez le volet Diagnostics illustré sur l’image ci-dessous. Les *journaux de support technique* sont **activés** par défaut et *Application Diagnostics* est **désactivé** par défaut. Une fois le cluster créé, ces paramètres ne sont pas modifiables à l’aide du portail.
+Pour déployer l'extension de diagnostic sur les machines virtuelles du cluster dans le cadre de la création d’un cluster, utilisez le volet Diagnostics illustré sur l’image ci-dessous. Pour activer la collecte d'événements Actor ou Reliable Service, vérifiez que l’option Diagnostics est définie sur **On** (paramètre par défaut). Une fois le cluster créé, ces paramètres ne sont pas modifiables à l’aide du portail.
 
-![Paramètre Azure Diagnostics dans le portail pour la création d’un cluster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
+![Paramètre Azure Diagnostics dans le portail pour la création d’un cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-Les journaux de prise en charge sont **nécessaire** à l’équipe de support technique Azure pour traiter les demandes que vous créez. Ces journaux sont collectés en temps réel et sont stockés dans le compte de stockage créé dans le groupe de ressources actuel. Application Diagnostics configure les événements de niveau application, y compris les événements [Actor](service-fabric-reliable-actors-diagnostics.md), les événements [Reliable Service](service-fabric-reliable-services-diagnostics.md) et certains événements de Service Fabric de niveau système à stocker dans le stockage Azure. Les produits comme [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou votre propre processus peuvent récupérer les événements dans le compte de stockage. Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si aucun processus de suppression des événements de la table n’est implémenté, la table continuera à croître. Lors de la création d’un cluster à l’aide du portail, il est conseillé d’exporter le modèle une fois le déploiement terminé. Les modèles peuvent être exportés du portail par
+Les journaux de prise en charge sont **nécessaire** à l’équipe de support technique Azure pour traiter les demandes que vous créez. Ces journaux sont collectés en temps réel et sont stockés un des comptes de stockage créés dans le groupe de ressources. Le paramètre Diagnostics configure les événements de niveau application, y compris les événements [Actor](service-fabric-reliable-actors-diagnostics.md), les événements [Reliable Service](service-fabric-reliable-services-diagnostics.md) et certains événements de Service Fabric de niveau système à stocker dans le stockage Azure. Les produits comme [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou votre propre processus peuvent récupérer les événements dans le compte de stockage. Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si aucun processus de suppression des événements de la table n’est implémenté, la table continuera à croître. Lors de la création d’un cluster à l’aide du portail, il est conseillé d’exporter le modèle une fois le déploiement terminé. Les modèles peuvent être exportés du portail par
+
 1. Ouvrez votre groupe de ressources.
 2. Sélectionnez Paramètres pour afficher le volet Paramètres
 3. Sélectionnez Déploiements pour afficher le volet de l’historique de déploiement
@@ -178,4 +179,4 @@ Pour mettre à jour Diagnostics de manière à collecter des journaux à partir 
 ## Étapes suivantes
 Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md) pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

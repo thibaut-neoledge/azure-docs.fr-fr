@@ -96,7 +96,7 @@ chrisL@fedora$ azure vm show testrg testvm
 
 ### Introduction
 
-Cet article repose sur un déploiement identique à un déploiement de service cloud avec une seule machine virtuelle Linux dans un sous-réseau de réseau virtuel. Il décrit la totalité du déploiement de base de manière impérative, commande par commande, jusqu’à ce que vous disposiez d’une machine virtuelle Linux sécurisée opérationnelle à laquelle vous pouvez vous connecter à partir de n’importe quel emplacement d’Internet.
+Cet article décrit un déploiement avec une seule machine virtuelle Linux dans un sous-réseau de réseau virtuel. Il décrit la totalité du déploiement de base de manière impérative, commande par commande, jusqu’à ce que vous disposiez d’une machine virtuelle Linux sécurisée opérationnelle à laquelle vous pouvez vous connecter à partir de n’importe quel emplacement d’Internet.
 
 Au cours de ce processus, vous découvrirez la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement de Resource Manager. Une fois que vous aurez compris la façon dont le système est créé, vous pourrez le reconstruire beaucoup plus rapidement à l’aide de commandes d’interface de ligne de commande Azure plus directes (voir [cet article](virtual-machines-linux-quick-create-cli.md) décrivant à peu près le même déploiement à l’aide de la commande `azure vm quick-create`), ou vous pourrez apprendre à concevoir et automatiser l’ensemble des déploiements du réseau et des applications et à les mettre à jour au moyen des [modèles Azure Resource Manager](../resource-group-authoring-templates.md). Dès que vous avez compris la façon dont les différentes parties de votre déploiement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
 
@@ -121,9 +121,9 @@ data:
 info:    group create command OK
 ```
 
-### Créer un compte de stockage
+### Créez un compte de stockage.
 
-Entre autres scénarios, vous aurez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaiterez ajouter. En résumé, vous créerez toujours des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
+Entre autres scénarios, vous avez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaitez ajouter. En résumé, vous créerez toujours des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
 
 Ici, nous utilisons la commande `azure storage account create` pour transmettre l’emplacement du compte, le groupe de ressources qui le contrôlera, ainsi que le type de support de stockage souhaité.
 
@@ -429,7 +429,7 @@ chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
 
 ### Créer votre Groupe de sécurité réseau et les règles associées
 
-Nous allons à présent créer votre Groupe de sécurité réseau (NSG) et les règles de trafic entrant qui régissent l’accès à la NIC.
+Nous allons à présent créer votre groupe de sécurité réseau et les règles de trafic entrant qui régissent l’accès à la carte réseau.
 
 ```
 chrisL@fedora$ azure network nsg create testrg testnsg westeurope
@@ -586,7 +586,7 @@ info:    This NIC IP configuration has a public ip already configured "/subscrip
 info:    vm create command OK
 ```
 
-Vous pouvez alors vous connecter aussitôt à votre machine virtuelle à l’aide de vos clés SSH par défaut.
+Vous pouvez alors vous connecter à votre machine virtuelle à l’aide de vos clés SSH par défaut.
 
 ```
 chrisL@fedora$ ssh ops@testsubdomain.westeurope.cloudapp.azure.com           
@@ -690,4 +690,4 @@ info:    vm show command OK
 
 Vous voici en mesure de commencer à utiliser plusieurs composants réseau et machines virtuelles.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

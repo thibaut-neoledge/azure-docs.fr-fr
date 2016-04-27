@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Prise en charge du protocole DocumentDB pour MongoDB | Microsoft Azure" 
 	description="Découvrez la prise en charge du protocole DocumentDB pour MongoDB, désormais disponible en version préliminaire." 
-	keywords="protocole mongodb, mongodb"
+	keywords="mongodb protocol, mongodb, mongo database"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -36,11 +36,11 @@ Pour demander l’accès à la version préliminaire, procédez comme suit.
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Nouveau**, puis sur **Données et stockage**, **Afficher tout**, **Plus** et enfin sur **DocumentDB - Prise en charge de protocole pour MongoDB**.
 
-	![Capture d’écran des panneaux Marketplace et Données et stockage, mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Capture d’écran des panneaux Marketplace et Données et stockage, mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB, Base de données Mongo](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. Vous pouvez également rechercher « Protocole DocumentDB » dans la catégorie **Données et stockage**.
 
-	![Capture d’écran des panneaux de recherche Données et stockage et Marketplace , mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Capture d’écran des panneaux Marketplace et recherche des données et du stockage, mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB, Base de données Mongo](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Cliquez sur **Créer** pour lancer le processus d’inscription à la version préliminaire.
 
@@ -56,4 +56,4 @@ Pour demander l’accès à la version préliminaire, procédez comme suit.
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -103,29 +103,29 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
 
     * **Vérification d’App Service** 
     
-        1. C’est le processus le plus pratique si **votre domaine personnalisé est déjà attribué aux applications App Service.** Cette méthode répertorie toutes les applications App Service qui répondent à ce critère. Par exemple, dans le cas présent, **contosocertdemo.com** est un domaine personnalisé attribué à une application App Service appelée **« ContosoCertDemo »** et, par conséquent, c’est la seule application App Service répertoriée ici. En cas de déploiement dans plusieurs régions, elle les répertorie toutes dans l’ensemble des régions.
-            > [AZURE.NOTE]
-            La méthode de vérification est disponible UNIQUEMENT pour les achats de certificats Standard (de base). Pour les certificats génériques, ignorez cette méthode et passez à l’option B, C ou D ci-dessous. 
-        2. Cliquez sur le bouton **« Vérifier »** pour terminer cette étape.
-        3. Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+        * C’est le processus le plus pratique si **votre domaine personnalisé est déjà attribué aux applications App Service.** Cette méthode répertorie toutes les applications App Service qui répondent à ce critère. Par exemple, dans le cas présent, **contosocertdemo.com** est un domaine personnalisé attribué à une application App Service appelée **« ContosoCertDemo »** et, par conséquent, c’est la seule application App Service répertoriée ici. En cas de déploiement dans plusieurs régions, elle les répertorie toutes dans l’ensemble des régions.
         
-            ![insérer une image de la vérification d’App Service](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
+           La méthode de vérification est disponible UNIQUEMENT pour les achats de certificats Standard (de base). Pour les certificats génériques, ignorez cette méthode et passez à l’option B, C ou D ci-dessous.
+        * Cliquez sur le bouton **Vérifier** pour terminer cette étape.
+        * Cliquez sur **Actualiser** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+        
+        ![insérer une image de la vérification d’App Service](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
 
     * **Vérification du domaine**
 
-        1. Il s’agit du processus le plus pratique **SEULEMENT SI** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+        * Il s’agit du processus le plus pratique **SEULEMENT SI** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
-        2. Cliquez sur le bouton **« Vérifier »** pour terminer cette étape.
+        * Cliquez sur le bouton **Vérifier** pour terminer cette étape.
         
-        3. Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+        * Cliquez sur **Actualiser** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
 
     * **Vérification par e-mail**
         
-        1. Un e-mail de vérification a déjà été envoyé aux adresses e-mail associées à ce domaine personnalisé.
+        * Un e-mail de vérification a déjà été envoyé aux adresses e-mail associées à ce domaine personnalisé.
          
-        2. Ouvrez l’e-mail, puis cliquez sur le lien de vérification pour terminer l’étape de vérification par e-mail.
+        * Ouvrez l’e-mail, puis cliquez sur le lien de vérification pour terminer l’étape de vérification par e-mail.
         
-        3. Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bouton **« Renvoyer le message »**.
+        * Si vous avez besoin de renvoyer le courrier électronique de vérification, cliquez sur le bouton **Renvoyer le message**.
          
     * **Vérification manuelle**
                  
@@ -137,14 +137,14 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
             
             * Chargez ce fichier à la racine du serveur web qui héberge votre domaine.
             
-            * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+            * Cliquez sur **Actualiser** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
             
-            Par exemple, si vous achetez un certificat standard pour contosocertdemo.com avec le jeton de vérification de domaine **« cAGgQrKc »**, une requête web effectuée sur **« http://contosocertdemo.com/cAGgQrKc.html »** doit retourner **cAGgQrKc.**
+            Par exemple, si vous achetez un certificat standard pour contosocertdemo.com avec le jeton de vérification de domaine **cAGgQrKc**, une requête web effectuée sur **http://contosocertdemo.com/cAGgQrKc.html** doit retourner **cAGgQrKc.**
         2. **Vérification d’enregistrement TXT DNS**
 
-            * À l’aide de votre Gestionnaire DNS, créez un enregistrement TXT sur le sous-domaine **« DZC »** avec une valeur égale au **jeton de vérification du domaine**.
+            * À l’aide de votre gestionnaire DNS, créez un enregistrement TXT sur le sous-domaine **DZC** avec une valeur égale au **jeton de vérification du domaine**.
             
-            * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+            * Cliquez sur **Actualiser** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
                               
             Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte ***.contosocertdemo.com** ou ***.sousdomaine.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**
 
@@ -159,7 +159,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 1.	Dans votre navigateur, ouvrez le **[portail Azure.](https://portal.azure.com/)**
 2.	Cliquez sur l’option **App Service** sur le côté gauche de la page.
 3.	Cliquez sur le nom de votre application à laquelle vous voulez attribuer ce certificat. 
-4.	Dans les **Paramètres**, cliquez sur **Domaines personnalisés et SSL**.
+4.	Dans **Paramètres**, cliquez sur **Domaines personnalisés et SSL**.
 5.	Dans la **section Certificats**, cliquez sur **Importer un certificat**, puis sélectionnez le certificat que vous venez d’acheter.
 
     ![insérer une image d’importation de certificat](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
@@ -168,7 +168,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
     ![insérer une image de liaisons SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
 
-       • Le protocole SSL basé sur IP associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur Web. • Le protocole SSL basé sur SNI est une extension des protocoles SSL et **[TLS (Transport Layer Security)](http://en.wikipedia.org/wiki/Transport_Layer_Security)** qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur SNI, consultez l’article **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** sur Wikipédia.
+       • Le protocole SSL basé sur IP associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur web. • Le protocole SSL basé sur SNI est une extension des protocoles SSL et **[TLS (Transport Layer Security)](http://en.wikipedia.org/wiki/Transport_Layer_Security)** qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur SNI, consultez l’article **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** sur Wikipédia.
        
 7. Cliquez sur *Save* pour enregistrer les modifications et activer SSL.
 
@@ -176,7 +176,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 
-* Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée en tant qu’**Adresse IP virtuelle :**
+* Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée en tant qu’**Adresse IP virtuelle :**
     
     ![insérer une image d’IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
 
@@ -187,9 +187,9 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnal
 
 ##<a name="bkmk_Rekey"></a>Renouveler la clé du certificat et le synchroniser
 
-1. Pour des raisons de sécurité, si vous avez besoin de renouveler la clé de votre certificat, sélectionnez simplement l’option **« Renouveler la clé et synchroniser »** à partir du panneau **« Propriétés du certificat »**. 
+1. Pour des raisons de sécurité, si vous avez besoin de renouveler la clé de votre certificat, sélectionnez simplement l’option **Renouveler la clé et synchroniser** dans le panneau **Propriétés du certificat**. 
 
-2. Cliquez sur le bouton **« Renouveler la clé »** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
+2. Cliquez sur le bouton **Renouveler la clé** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
 
     ![insérer une image de renouvellement de clé SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
@@ -208,4 +208,4 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnal
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0413_2016-->

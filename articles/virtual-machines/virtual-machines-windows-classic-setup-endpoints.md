@@ -17,15 +17,14 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# Comment configurer des points de terminaison sur une machine virtuelle Windows classique dans Azure
+# Comment configurer des points de terminaison sur une machine virtuelle classique dans Azure
 
 
-
-Toutes les machines virtuelles Windows créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer à travers un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Si vous souhaitez plus d’informations sur les points de terminaison sur des machines virtuelles Linux, consultez [Comment configurer des points de terminaison sur une machine virtuelle Linux classique dans Azure](virtual-machines-linux-classic-setup-endpoints.md).
+Toutes les machines virtuelles Windows créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer à travers un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Cet article est également disponible pour les [machines virtuelles Linux](virtual-machines-linux-classic-setup-endpoints.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
-Quand vous créez une machine virtuelle dans le portail Azure Classic, les points de terminaison courants, notamment ceux du Bureau à distance et de l’Accès distant Windows PowerShell, sont généralement créés pour vous automatiquement selon le système d’exploitation que vous choisissez. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
+Quand vous créez une machine virtuelle Windows dans le portail Azure Classic, les points de terminaison courants, notamment ceux du Bureau à distance et de l’Accès distant Windows PowerShell, sont généralement créés pour vous automatiquement. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
 
 
 
@@ -39,4 +38,4 @@ Quand vous créez une machine virtuelle dans le portail Azure Classic, les point
 
 * Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez également utiliser Azure PowerShell pour [créer un équilibrage de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

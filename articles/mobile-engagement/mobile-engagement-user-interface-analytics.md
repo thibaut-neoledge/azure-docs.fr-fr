@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Analyses" 
-   description="En savoir plus sur l’analyse des données historiques de votre application avec Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Analyses"
+   description="En savoir plus sur l’analyse des données historiques de votre application avec Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,32 +12,32 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Analyse des données historiques de votre application
 
-Cet article décrit l’onglet **ANALYTICS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+Cet article décrit l’onglet **ANALYTICS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
 
 
 La section Analyses de l'interface utilisateur fournit des informations globales sur votre application basées sur des données historiques qui sont mises à jour toutes les 24 heures. Les informations sont affichées sur différents tableaux de bord composés de graphiques linéaires/à barres/en secteurs, de grilles et de cartes. Les données peuvent également être téléchargées sous forme de fichiers .csv. La plupart de ces mêmes informations sont disponibles en temps réel dans la section Écran de l'interface utilisateur, et peuvent également être consultées à partir de l'API Analyses.
 
->[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+>[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Analyses standard et personnalisées :
 
 Azure Mobile Engagement fournit un ensemble d'informations d'analyses standard, de base, sur vos applications qui peuvent être représentées graphiquement dès que vous intégrez votre application au Kit de développement logiciel. Azure Mobile Engagement permet également de recueillir des informations supplémentaires d'analyses personnalisées que vous désirez obtenir sur le comportement de vos utilisateurs finaux. Pour ce faire, créez un plan de balises des « Tags (app info) » personnalisées, réalisées à partir des **Paramètres** de manière à ce qu'Azure Mobile Engagement puisse collecter ces données supplémentaires pour vous.
 
- 
- 
+
+
 ## Analyse
 - Tableau de bord : affiche des informations générales sur vos utilisateurs nouveaux et actifs et leurs tendances.
-- Utilisateurs : les utilisateurs sont identifiés par l'identifiant de leur appareil. Cet identifiant est unique pour chaque appareil (un nouvel utilisateur représente en réalité un nouvel appareil). Un utilisateur est considéré comme nouveau sur une période donnée s'il a effectué sa première session durant cette période. Un utilisateur est considéré comme retenu s'il a effectué au moins une session durant les derniers 7 jours. Les utilisateurs actifs sont ceux qui ont effectué au moins une session durant une période donnée. Vous pouvez les trier par mois, par semaine, par jour ou par heure. Tous les graphiques se ressemblent, mais ils vous permettent de filtrer via différentes fonctionnalités, telles que la version de votre application, puis de trier par période. Les informations standard regroupées lors de l’intégration du Kit de développement logiciel (SDK) incluent les informations suivantes : les utilisateurs actifs, le nouvel utilisateur, le nombre de sessions, la durée de chaque session, les informations techniques sur le pays, les habitants, l'emplacement, la langue de l’opérateur, les appareils, le microprogramme, le réseau (Wi-Fi), les versions de l'application et du Kit de développement logiciel (SDK) utilisées par les clients. Cette information peut être consultée en temps réel depuis la section Écran. 
+- Utilisateurs : les utilisateurs sont identifiés par l'identifiant de leur appareil. Cet identifiant est unique pour chaque appareil (un nouvel utilisateur représente en réalité un nouvel appareil). Un utilisateur est considéré comme nouveau sur une période donnée s'il a effectué sa première session durant cette période. Un utilisateur est considéré comme retenu s'il a effectué au moins une session durant les derniers 7 jours. Les utilisateurs actifs sont ceux qui ont effectué au moins une session durant une période donnée. Vous pouvez les trier par mois, par semaine, par jour ou par heure. Tous les graphiques se ressemblent, mais ils vous permettent de filtrer via différentes fonctionnalités, telles que la version de votre application, puis de trier par période. Les informations standard regroupées lors de l’intégration du Kit de développement logiciel (SDK) incluent les informations suivantes : les utilisateurs actifs, le nouvel utilisateur, le nombre de sessions, la durée de chaque session, les informations techniques sur le pays, les habitants, l'emplacement, la langue de l’opérateur, les appareils, le microprogramme, le réseau (Wi-Fi), les versions de l'application et du Kit de développement logiciel (SDK) utilisées par les clients. Cette information peut être consultée en temps réel depuis la section Écran.
 
 > Note : la période est calculée en fonction de la date indiquée dans les paramètres de l'appareil de l'utilisateur, de manière à ce qu'un utilisateur dont la date de son téléphone est mal réglée puisse apparaître dans la mauvaise période.
 
-- Rétention : un utilisateur est considéré comme retenu sur une période donnée s'il a effectué sa première session durant cette période. Vous pouvez modifier les périodes durant lesquelles les utilisateurs retenus (et les nouveaux utilisateurs) sont comptabilisés à l'heure, au jour, à la semaine ou au mois. L'analyse de rétention de l'utilisateur est réalisée sur des cohortes. Une cohorte représente l'ensemble de tous les nouveaux utilisateurs détectés à une période donnée (c'est-à-dire, l'ensemble des utilisateurs qui effectuent leur première session durant cette période). Nous utilisons des cohortes d'un jour, de deux jours, de quatre jours, de sept jours et d'un mois. Azure Mobile Engagement calcule tous les jours, tous les 2 jours, tous les 4 jours, tous les 7 jours ou tous les mois, l'ensemble des utilisateurs qui appartiennent à la cohorte et qui sont toujours actifs (c'est-à-dire l'ensemble des utilisateurs qui ont effectué au moins une session durant la période). Cet ensemble d'utilisateurs est appelé une version de cohorte. (Azure Mobile Engagement peut vous indiquer combien de vos utilisateurs utilisent encore votre application, mais seul le magasin de la plateforme spécifique peut vous signaler combien de vos utilisateurs ont désinstallé votre application (par exemple, GooglePlay, iTunes, Windows Store, etc.)). 
+- Rétention : un utilisateur est considéré comme retenu sur une période donnée s'il a effectué sa première session durant cette période. Vous pouvez modifier les périodes durant lesquelles les utilisateurs retenus (et les nouveaux utilisateurs) sont comptabilisés à l'heure, au jour, à la semaine ou au mois. L'analyse de rétention de l'utilisateur est réalisée sur des cohortes. Une cohorte représente l'ensemble de tous les nouveaux utilisateurs détectés à une période donnée (c'est-à-dire, l'ensemble des utilisateurs qui effectuent leur première session durant cette période). Nous utilisons des cohortes d'un jour, de deux jours, de quatre jours, de sept jours et d'un mois. Azure Mobile Engagement calcule tous les jours, tous les 2 jours, tous les 4 jours, tous les 7 jours ou tous les mois, l'ensemble des utilisateurs qui appartiennent à la cohorte et qui sont toujours actifs (c'est-à-dire l'ensemble des utilisateurs qui ont effectué au moins une session durant la période). Cet ensemble d'utilisateurs est appelé une version de cohorte. (Azure Mobile Engagement peut vous indiquer combien de vos utilisateurs utilisent encore votre application, mais seul le magasin de la plateforme spécifique peut vous signaler combien de vos utilisateurs ont désinstallé votre application (par exemple, GooglePlay, iTunes, Windows Store, etc.)).
 - Sessions : une utilisation de l'application par un utilisateur. Des sessions sont générées à partir de la séquence des activités effectuées par les utilisateurs (une activité est généralement associée à l'utilisation d'un écran de l'application, mais cela peut varier en fonction de la manière dont le Kit de développement logiciel a été intégré dans l'application). Un utilisateur ne peut effectuer qu'une activité à la fois : une session commence dès que l'utilisateur démarre sa première activité et elle s'arrête lorsqu'il termine sa dernière. Lorsqu'un utilisateur n'effectue aucune activité durant quelques secondes, sa séquence d'activités est divisée en deux sessions distinctes.
 - Activités : le nom de chaque écran de votre application et le temps passé sur chacun d'entre eux. Les activités représentent une option analytique personnalisée qui correspond aux balises d'« informations relatives aux applications » que vous avez mises en place pour votre propre application :
 - Chemin d’accès de l’utilisateur : vous indique comment vos utilisateurs naviguent à travers les différentes activités de votre application (écrans). Vous pouvez déplacer le curseur pour ajuster le niveau des détails. Les nœuds bleus représentent les activités de votre application. Leur taille est proportionnelle au temps passé sur chacune d'entre elles. Les nœuds blancs représentent le début et la fin de la session. Les nœuds rouges représentent les incidents. Les liens représentent les transitions existantes entre les différentes activités de votre application (ou entre les activités et les incidents). Cliquez sur un nœud ou sur un lien pour afficher une info-bulle qui vous fournit des informations supplémentaires sur vos données : le temps passé sur un écran spécifique, le nombre de transitions et le pourcentage de transitions de l'activité source à l'activité de destination. (A --- 60 % ---> B signifie qu'une fois l'activité A terminée, les utilisateurs optent, dans 60 % des cas, pour l'activité B). Vous pouvez réorganiser, comme bon vous semble, le graphique pour le rendre plus compréhensible ; sa position est enregistrée chaque fois que vous effectuez une modification. Vous pouvez afficher ou masquer les incidents pour alléger le graphique.
@@ -46,7 +46,7 @@ Azure Mobile Engagement fournit un ensemble d'informations d'analyses standard
 - Informations techniques : des informations techniques relatives aux appareils des utilisateurs de votre application que vous pouvez suivre, telles que les paramètres régionaux, l'opérateur, le réseau, l'appareil, le microprogramme, la taille de l'écran des appareils des utilisateurs, la version de votre application et la version du Kit de développement logiciel (SDK) utilisées dans votre application.
 - Erreurs : informations relatives aux erreurs techniques survenant dans l'application, qui ne provoquent aucun incident. Une erreur représente un problème instantané, par exemple, une défaillance réseau ou une mauvaise manipulation. (La signification des événements dépend de la manière dont le Kit de développement logiciel a été intégré dans l'application.) Une erreur peut survenir durant une session ou bien une tâche, ou peut être autonome.
 - Incidents : informations relatives aux erreurs qui provoquent l'arrêt brutal de votre application. Un incident est un événement inattendu qui survient lorsque certaines fonctionnalités de l'application cessent de fonctionner et que celle-ci doit être arrêtée. Un incident est généralement dû à un bogue se produisant dans l'application.
- 
+
 ![Analyse 2][11]
 
 ## Accès à la présentation de la rétention
@@ -169,6 +169,5 @@ La présentation de la rétention est décomposée en plusieurs cartes, qui affi
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

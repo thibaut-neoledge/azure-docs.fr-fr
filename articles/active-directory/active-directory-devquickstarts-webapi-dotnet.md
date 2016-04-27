@@ -23,7 +23,9 @@
 
 Si vous créez une application qui fournit un accès aux ressources protégées, vous devez savoir comment protéger ces ressources contre tout accès injustifié. Azure AD facilite la protection d’une API web à l’aide de jetons d’accès OAuth Bearer 2.0 avec seulement quelques lignes de code.
 
-Dans les applications web Asp.NET, vous pouvez y parvenir en utilisant l’implémentation Microsoft de l’intergiciel communautaire OWIN inclus dans .NET Framework 4.5. Ici, nous allons utiliser OWIN pour créer une API web « To Do List » qui : - Désigne les API qui sont protégées. - Valide le fait que les appels d’API web contiennent un jeton d’accès valide.
+Dans les applications web Asp.NET, vous pouvez y parvenir en utilisant l’implémentation Microsoft de l’intergiciel communautaire OWIN inclus dans .NET Framework 4.5. Ici, nous allons utiliser OWIN pour créer une API web « Liste des tâches » qui effectue les actions suivantes :
+-	Désigne les API qui sont protégées.
+-	Valide le fait que les appels d’API web contiennent un jeton d’accès valide.
 
 Pour ce faire, vous devez :
 
@@ -134,10 +136,8 @@ Avant de pouvoir voir le service Todo List en action, vous devez configurer le c
 
 Enfin, nettoyez, générez et exécutez chaque projet. Si vous ne l’avez pas encore fait, il est temps de créer un nouvel utilisateur dans votre client, avec un domaine *.onmicrosoft.com. Connectez-vous au client To Do List avec cet utilisateur et ajoutez quelques tâches à la liste des tâches de cet utilisateur.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios d’identité, par exemple :
-
-[Génération d’un client natif .NET avec Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios d’identité.
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

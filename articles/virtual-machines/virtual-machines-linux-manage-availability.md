@@ -17,7 +17,7 @@
 	ms.date="04/01/2016"
 	ms.author="iainfou"/>
 
-# Gestion de la disponibilité des machines virtuelles Linux
+# Gestion de la disponibilité des machines virtuelles
 
 Découvrez comment configurer et gérer plusieurs machines virtuelles afin de garantir une haute disponibilité pour votre application Linux dans Azure. Vous pouvez également [gérer la disponibilité des machines virtuelles Windows](virtual-machines-windows-manage-availability.md).
 
@@ -25,4 +25,4 @@ Découvrez comment configurer et gérer plusieurs machines virtuelles afin de ga
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

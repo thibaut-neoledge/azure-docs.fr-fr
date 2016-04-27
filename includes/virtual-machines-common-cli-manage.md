@@ -9,7 +9,7 @@ Cet article illustre les commandes équivalentes de l’interface de ligne de co
 ## Tâches de machine virtuelle
 Le tableau suivant compare les tâches courantes de machine virtuelle que vous pouvez effectuer avec les commandes CLI Azure dans la gestion des services et le Gestionnaire de ressources. Avec de nombreuses commandes du Gestionnaire de ressources, vous devez passer le nom d'un groupe de ressources existant.
 
-> [AZURE.NOTE] Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez la rubrique [Utilisation de l’interface CLI Azure avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface CLI Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+> [AZURE.NOTE] Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez la rubrique [Utilisation de l’interface CLI Azure avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface CLI Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 Task | Gestion des services | Gestionnaire de ressources
 -------------- | ----------- | -------------------------
@@ -42,6 +42,6 @@ Obtenir toutes les tailles de machines virtuelles disponibles | Non disponible |
 
 ## Étapes suivantes
 
-* Pour d’autres exemples de commandes de l’interface de ligne de commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Service Management](../articles/virtual-machines-command-line-tools.md) et [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../articles/azure-cli-arm-commands.md).
+* Pour d’autres exemples de commandes de l’interface de ligne de commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Service Management](../articles/virtual-machines-command-line-tools.md) et [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

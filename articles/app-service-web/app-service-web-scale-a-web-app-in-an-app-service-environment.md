@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Mise à l'échelle des applications dans un environnement App Service #
@@ -31,13 +31,17 @@ En ce qui concerne les tailles de travaux, l'administrateur de l'environnement A
 - Sélection du pool de travaux
 - Nombre d'instances
 
-La modification de l'un ou l'autre élément s'effectue via l'interface utilisateur appropriée pour vos plans App Service hébergés par ASE. Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP. Si vous avez besoin de ressources de calcul dans ce pool de travaux, vous devez demander à l'administrateur de votre environnement App Service de les ajouter. Pour plus d'informations sur la reconfiguration de votre environnement App Service, consultez [Comment configurer un environnement App Service][HowtoConfigureASE]. Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures. Pour obtenir des informations sur la configuration de mise à l'échelle automatique de l'environnement ASE lui-même, consultez [Configuration de la mise à l'échelle automatique pour un environnement App Service][ASEAutoscale].
+La modification de l'un ou l'autre élément s'effectue via l'interface utilisateur appropriée pour vos plans App Service hébergés par ASE.
 
 ![][1]
 
+Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP. Si vous avez besoin de ressources de calcul dans ce pool de travaux, vous devez demander à l'administrateur de votre environnement App Service de les ajouter. Pour plus d'informations sur la reconfiguration de votre environnement App Service, consultez [Comment configurer un environnement App Service][HowtoConfigureASE]. Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures. Pour obtenir des informations sur la configuration de mise à l'échelle automatique de l'environnement ASE lui-même, consultez [Configuration de la mise à l'échelle automatique pour un environnement App Service][ASEAutoscale].
+
+Vous pouvez créer plusieurs plans App Service à l’aide de ressources de calcul provenant de pools de travaux différents ou vous pouvez utiliser le même pool de travail. Par exemple, si vous disposez de (10) ressources de calcul disponibles dans le pool de travaux 1, vous pouvez choisir de créer un plan App Service à l’aide de (6) ressources de calcul et planifier un deuxième service d’application qui utilise (4) ressources de calcul.
+
 ### Mise à l'échelle du nombre d'instances ###
 
-Lorsque vous créez votre application web dans un environnement App Service, vous devez la monter en puissance jusqu'à 2 instances au moins pour fournir une tolérance de panne.
+Lorsque vous créez votre application web dans un environnement App Service, elle ne contient qu’1 instance. Vous pouvez ensuite augmenter le nombre d’instances pour fournir des ressources de calcul supplémentaires à votre application.
 
 Si votre environnement Application Service a une capacité suffisante, l'opération est assez simple. Vous accédez à votre plan App Service qui contient les sites que vous souhaitez mettre à l'échelle et vous sélectionnez Mettre à l'échelle. Ceci affiche l'interface utilisateur où vous pouvez définir manuellement l'échelle de votre ASP ou configurer des règles de mise à l'échelle automatique pour votre ASP. Pour mettre à l'échelle manuellement votre application, il vous suffit de définir ***Mise à l'échelle selon*** sur ***un nombre d'instances saisi manuellement***. À partir de là, faites glisser le curseur vers la quantité souhaitée ou entrez la quantité souhaitée dans la zone à côté du curseur.
 
@@ -54,7 +58,7 @@ Comme indiqué précédemment, la sélection du pool de travaux s'effectue à pa
 
 Avant de déplacer votre ASP à partir d'un pool de travaux vers un autre, il est important de vous assurer que la capacité est adaptée pour votre ASP. Dans la liste des pools de travaux, non seulement figure le nom du pool de travaux, mais également le nombre de travaux disponibles dans ce pool. Veillez à ce qu'il y ait suffisamment d'instances disponibles pour contenir votre plan App Service. Si vous avez besoin de plus de ressources de calcul dans le pool de travaux vers lequel vous souhaitez déplacer votre plan, demandez à l'administrateur de votre environnement App Service de les ajouter.
 
-> [AZURE.NOTE] Le déplacement d'un ASP d'un pool de travaux entraîne le redémarrage de vos applications dans cet ASP. Il peut en résulter une interruption de votre application dont la durée varie en fonction du temps nécessaire au redémarrage de vos applications.
+> [AZURE.NOTE] Le déplacement d’un ASP d’un pool de travaux entraîne le redémarrage à froid de vos applications dans cet ASP. Cela peut provoquer le ralentissement de l’exécution des demandes, car votre application démarre à froid sur les nouvelles ressources de calcul. Le démarrage à froid peut être évité en utilisant la [fonctionnalité de préchauffage des applications][AppWarmup] dans Azure App Service. Le module Initialisation d’application décrit dans l’article fonctionne également pour les démarrages à froid, car le processus d'initialisation est également appelé lorsque les applications sont démarrées à froid sur les nouvelles ressources de calcul.
 
 ## Prise en main
 
@@ -78,5 +82,6 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez la rubri
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

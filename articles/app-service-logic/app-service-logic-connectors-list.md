@@ -31,15 +31,12 @@ Le tableau suivant répertorie tous les connecteurs et toutes les applications A
 
 Nom | Description
 --- | ---
-[Azure HDInsight](app-service-logic-connector-hdinsight.md) | Utilisez ce connecteur pour créer un cluster Hadoop sur Azure, envoyer différentes tâches Hadoop, etc.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Permet d’envoyer des messages à partir de files d’attente et de rubriques Service Bus, et de recevoir des messages de files d’attente et d’abonnements Service Bus.
 [Bing Traduction](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Utilisez Bing pour traduire un texte dans une autre langue.
-[Chatter](app-service-logic-connector-chatter.md) | Se connecte à Chatter et permet de publier des messages, de rechercher et même de récupérer de nouveaux messages.
 [HTTP](app-service-logic-connector-http.md) | L'écouteur HTTP ouvre un point de terminaison qui agit comme serveur HTTP et écoute les requêtes HTTP ou HTTPS entrantes. L'action HTTP ne nécessite aucune application API et est prise en charge en mode natif au sein des applications logiques.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Vous pouvez notamment créer, mettre à jour, lire, supprimer et interroger différentes entités d'Intuit QuickBooks, comme des clients, articles ou des factures.
 [Slack](app-service-logic-connector-slack.md) | Se connecte à Slack et publie des messages dans les canaux Slack.
-[SugarCRM](app-service-logic-connector-sugarcrm.md) | Se connecte à SugarCRM Online et permet notamment de créer, de mettre à jour, de lire et de supprimer différents types de modules comme des comptes ou des contacts.
 [Wait](app-service-logic-connector-wait.md) | Utilisez ce connecteur pour retarder l'exécution de votre application. Vous pouvez retarder l'application pour une durée spécifique ou jusqu'à une occurrence à un moment donné.
 
 
@@ -78,11 +75,9 @@ Plusieurs connecteurs fournissent des déclencheurs pour les applications logiqu
 Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre application logique. Les actions sont utiles pour rechercher des données dans l'application logique qui peuvent ensuite être utilisées lors de l'exécution. Par exemple, vous devrez peut-être rechercher des données à partir d'une base de données SQL afin d'obtenir des informations complémentaires sur un client lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions mappent aux opérations des applications API (comme défini par leurs métadonnées Swagger).
 
 ## Créer vos propres connecteurs et applications API
-[Référence de connecteurs et d'applications API](http://aka.ms/appservicesconnectorreference)
-[Déclencheurs des applications API Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md)
-[Référence de l'application logique](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Référence de connecteurs et d'applications API](http://aka.ms/appservicesconnectorreference) [Déclencheurs des applications API Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md) [Référence de l'application logique](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 ## En savoir plus sur les connecteurs et les applications API
 [Qu'est-ce qu'un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md) [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

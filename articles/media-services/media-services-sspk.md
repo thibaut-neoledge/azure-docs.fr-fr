@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016"  
+	ms.date="03/11/2016"  
 	ms.author="xpouyat"/>
 
 #Licence du kit de portage du client de diffusion en continu lisse Microsoft®
@@ -28,7 +28,7 @@ Vous trouverez ci-après une architecture de haut niveau, et le package du kit d
 
 ##Description
 
-SSPK est concédé sous licence selon des conditions représentant une excellente valeur pour l’entreprise. La licence SSPK offre au secteur :
+SSPK est concédé sous licence selon des conditions représentant une excellente valeur pour l’entreprise. La licence SSPK offre au secteur :
 
 - Source de kit de portage Smooth Streaming en C++ 
   - implémente la fonctionnalité Client Smooth Streaming
@@ -48,7 +48,7 @@ SSPK est concédé sous licence selon des conditions représentant une excellent
 
 ##Options de licence
 
-Le kit de portage Smooth Streaming client est accessible aux détenteurs de licences sous forme de deux contrats de licence distincts : l’un correspondant au développement des produits intermédiaires Smooth Streaming client, et l’autre pour la distribution de produits Smooth Streaming finaux pour les clients finaux.
+Le kit de portage Smooth Streaming client est accessible aux détenteurs de licences sous forme de deux contrats de licence distincts : l’un correspondant au développement des produits intermédiaires Smooth Streaming client, et l’autre pour la distribution de produits Smooth Streaming finaux pour les clients finaux.
  
 - Pour les fabricants de puces, les intégrateurs système ou les fournisseurs de logiciels indépendants (ISV) qui ont besoin d‘un kit de portage de code source pour développer des produits intermédiaires, un kit de portage client Smooth Streaming Microsoft, **Licence produit intermédiaire** doit être exécutée.
 - Pour les fabricants de périphériques ou les éditeurs de logiciels qui exigent des droits de distribution pour les produits de Smooth Streaming pour client final, c’est le kit de portage client Smooth Streaming **licence du produit Final** qui doit être exécuté.
@@ -59,7 +59,7 @@ Sous cette licence, Microsoft propose un kit de portage Smooth Streaming client 
 
 ####Structure des frais
 
-Des frais de licence de 50 000 dollars US payables en une fois offrent un accès au kit de portage Smooth Streaming client.
+Des frais de licence de 50 000 dollars US payables en une fois offrent un accès au kit de portage Smooth Streaming client.
 
 ###Licence de produit final pour le kit de portage Smooth Streaming client
 
@@ -67,11 +67,11 @@ Avec cette licence, Microsoft offre les droits de propriété intellectuelle né
 
 ####Structure des frais
 
-Le produit client final de Smooth Streaming est proposé selon un modèle soumis à redevance :
+Le produit client final de Smooth Streaming est proposé selon un modèle soumis à redevance :
 
 - 0,10 $ par implémentation de périphérique expédiés
 - La redevance est limitée à 50 000 dollars chaque année
-- Pas de redevance pour les 10 000 premières implémentations de périphérique chaque année 
+- Pas de redevance pour les 10 000 premières implémentations de périphérique chaque année 
 
 ##Procédure d’achat de licence et accès à SSPK
 
@@ -93,6 +93,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - AVC Multimedia Software Co., Ltd.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
+- Fluendo S.A.
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
@@ -106,6 +107,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
+- SoftAtHome
 - Tatung Technology Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -127,6 +129,8 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Filmflex Movies Limited
+- Fluendo S.A.
+- Gibson Innovations Limited
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
@@ -154,7 +158,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOX Innovations Limited
 - ZTE Corporation
 
 ##Parcours d’apprentissage de Media Services
@@ -165,4 +168,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

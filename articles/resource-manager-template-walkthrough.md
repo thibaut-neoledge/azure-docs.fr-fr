@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Guide de création d’un modèle Resource Manager | Microsoft Azure"
+   pageTitle="Guide de création d’un modèle Resource Manager | Microsoft Azure"
    description="Une procédure étape par étape de création d’un modèle de gestionnaire de ressources, approvisionnant une architecture Azure IaaS de base."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,21 +16,21 @@
    ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
-# Guide de création d’un modèle Resource Manager
+# Guide de création d’un modèle Resource Manager
 
 Cette rubrique vous guide tout au long des étapes de création d’un modèle Resource Manager. Vous allez créer un modèle basé sur le [modèle de 2 machines virtuelles avec équilibrage de charge et de configuration de règles d’équilibrage de charge](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) dans la [galerie des modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates). Les techniques que vous apprenez peuvent être appliquées à n’importe quel modèle que vous devez créer.
 
 Commençons par étudier une architecture commune :
 
-* deux machines virtuelles qui utilisent le même compte de stockage et sont présentes au sein du même groupe à haute disponibilité et au sein du même sous-réseau d’un réseau virtuel ;
-* une carte d’interface réseau et une adresse IP uniques pour chaque machine virtuelle ;
+* deux machines virtuelles qui utilisent le même compte de stockage et sont présentes au sein du même groupe à haute disponibilité et au sein du même sous-réseau d’un réseau virtuel ;
+* une carte d’interface réseau et une adresse IP uniques pour chaque machine virtuelle ;
 * Un équilibrage de charge avec une règle d’équilibrage de charge sur le port 80
 
 ![architecture](./media/resource-group-overview/arm_arch.png)
 
 Vous avez décidé de déployer cette architecture sur Azure, et vous souhaitez utiliser des modèles Resource Manager afin de redéployer facilement l’architecture. Toutefois, vous ne savez pas comment créer ce modèle. Cette rubrique vous aidera à comprendre quels éléments inclure dans le modèle.
 
-Vous pouvez utiliser n’importe quel type d’éditeur lors de la création du modèle. Visual Studio fournit des outils qui simplifient le développement de modèles, mais vous n’avez pas besoin de Visual Studio pour suivre ce didacticiel. Pour obtenir un didacticiel sur la création d’une application web et le déploiement d’une base de données SQL Database à l’aide de Visual Studio, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Vous pouvez utiliser n’importe quel type d’éditeur lors de la création du modèle. Visual Studio fournit des outils qui simplifient le développement de modèles, mais vous n’avez pas besoin de Visual Studio pour suivre ce didacticiel. Pour obtenir un didacticiel sur la création d’une application web et le déploiement d’une base de données SQL Database à l’aide de Visual Studio, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Créer le modèle Resource Manager
 
@@ -89,7 +89,7 @@ Notez que **name** est défini sur la valeur d’une variable. Dans ce modèle, 
 
 La valeur que vous spécifiez pour **type** contient le fournisseur de ressources et le type de ressource. Pour les groupes à haute disponibilité, le fournisseur de ressources est **Microsoft.Compute** et le type de ressource est **availabilitySets**. Vous pouvez obtenir la liste des fournisseurs de ressources disponibles en exécutant la commande PowerShell suivante :
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 Ou, si vous utilisez l’interface de ligne de commande Azure, vous pouvez exécuter la commande suivante :
 
@@ -103,7 +103,7 @@ Cette rubrique vous enseignant la création de comptes de stockage, de machines 
 
 Pour visualiser les types de ressources pour un fournisseur particulier, exécutez la commande PowerShell suivante :
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 Ou, pour l’interface de ligne de commande Azure, la commande suivante renvoie les types disponibles au format JSON, puis les enregistre dans un fichier.
 
@@ -111,7 +111,7 @@ Ou, pour l’interface de ligne de commande Azure, la commande suivante renvoie 
 
 Le type **availabilitySets** devrait faire partie des types présents sous **Microsoft.Compute**. Le nom complet du type est **Microsoft.Compute/availabilitySets**. Vous pouvez déterminer le nom du type de ressource pour toutes les ressources de votre modèle.
 
-## Adresse IP publique
+## Adresse IP publique
 Définir une adresse IP publique. Là encore, consultez l’[API REST pour les adresses IP publiques](https://msdn.microsoft.com/library/azure/mt163590.aspx) afin de découvrir quelles propriétés définir.
 
 ```json
@@ -133,7 +133,7 @@ La méthode d’allocation est définie sur **Dynamic**, mais vous pouvez la dé
 
 À présent, examinons comment déterminer **apiVersion**. La valeur que vous spécifiez correspond simplement à la version de l’API REST que vous souhaitez utiliser lors de la création de la ressource. Par conséquent, vous pouvez consulter la documentation de l’API REST pour ce type de ressource. Vous pouvez également exécuter la commande PowerShell suivante pour un type particulier :
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Cette dernière renvoie les valeurs suivantes :
 
@@ -503,4 +503,4 @@ Vous avez créé votre modèle ; celui-ci est prêt pour le déploiement.
 - Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour apprendre à déployer des modèles, consultez [Déployer un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

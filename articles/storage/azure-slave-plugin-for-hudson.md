@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du plug-in esclave Azure avec la solution d'intégration continue Hudson
@@ -37,7 +37,7 @@ Maintenant que le plug-in est installé, les étapes suivantes consistent à con
 
 ## Configurer le plug-in esclave Azure avec votre profil d'abonnement
 
-Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in esclave Azure, vous avez besoin des éléments suivants :
+Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in esclave Azure, vous avez besoin des éléments suivants :
 
 * votre ID d'abonnement
 * un certificat de gestion pour votre abonnement
@@ -109,7 +109,7 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 
 
 
-	À ce stade, votre formulaire doit ressembler à ce qui suit :
+	À ce stade, votre formulaire doit ressembler à ce qui suit :
 
 	![configuration du modèle](./media/azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png)
 
@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
 
 Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l'étape de build pour ce travail.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

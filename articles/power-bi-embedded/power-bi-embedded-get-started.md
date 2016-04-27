@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
-   description="Prise en main de la version préliminaire de Microsoft Power BI Embedded"
+   description="Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/18/2016"
    ms.author="derrickv"/>
 
 # Prise en main de la version préliminaire de Microsoft Power BI Embedded
@@ -58,7 +58,7 @@ La section suivante décrit comment les **touches d’accès rapide** permettent
 <a name="view-access-keys"/>
 ## Affichage des touches d'accès rapide aux API de Power BI
 
-Les **touches d’accès rapide** sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons application** qui servent à authentifier les demandes de votre API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour plus d'informations sur les **jetons d'application**, consultez la section [Fonctionnement du flux de jetons d’application](power-bi-embedded-get-started-sample.md#key-flow).
+Les **touches d’accès rapide** sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons application** qui servent à authentifier les demandes de votre API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour plus d’informations sur les **jetons d’application**, consultez la section [Fonctionnement du flux de jetons d’application](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -74,7 +74,7 @@ Maintenant que vous avez une instance de Power BI pour votre application, ainsi 
 
 ## Création de rapports et de jeux de données à intégrer dans une application
 
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer des rapports et des jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l'aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l'utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Avec **Power BI Desktop**, vous vous connectez à votre source de données en important une copie des données dans **Power BI Desktop** ou directement à l'aide de **DirectQuery**.
 
@@ -107,4 +107,4 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

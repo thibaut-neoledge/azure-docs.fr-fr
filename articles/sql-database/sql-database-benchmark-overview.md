@@ -3,7 +3,7 @@
 	description="Cette rubrique décrit le test d’évaluation de la base de données SQL Azure utilisé pour mesurer les performances de la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
+	authors="carlrabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="04/04/2016"
-	ms.author="jroth" />
+	ms.author="carlrab" />
 
 # Vue d’ensemble du test d’évaluation de la base de données SQL Azure
 
@@ -130,4 +130,4 @@ Le test d’évaluation de la base de données SQL Azure mesure les performance
 
 [Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

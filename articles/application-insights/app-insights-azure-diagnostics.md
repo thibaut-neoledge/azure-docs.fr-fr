@@ -9,7 +9,7 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
 	ms.date="11/17/2015"
@@ -17,7 +17,7 @@
 
 # Configuration de la journalisation Azure Diagnostics dans Application Insights
 
-Lorsque vous configurez un projet Cloud Services ou une machine virtuelle dans Microsoft Azure, [ce dernier peut générer un journal de diagnostic](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Vous pouvez l’envoyer à Application Insights pour l’analyser en même temps que les données de télémétrie de diagnostic et d’utilisation envoyées depuis l’application par le Kit de développement logiciel (SDK) Application Insights. Le journal Azure inclut les événements liés à la gestion de l’application telles que les démarrages, arrêts et incidents, ainsi que ceux des compteurs de performances. Le journal comporte également les appels de l’application vers System.Diagnostics.Trace.
+Lorsque vous configurez un projet Cloud Services ou une machine virtuelle dans Microsoft Azure, [ce dernier peut générer un journal de diagnostic](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). Vous pouvez l’envoyer à Application Insights pour l’analyser en même temps que les données de télémétrie de diagnostic et d’utilisation envoyées depuis l’application par le Kit de développement logiciel (SDK) Application Insights. Le journal Azure inclut les événements liés à la gestion de l’application telles que les démarrages, arrêts et incidents, ainsi que ceux des compteurs de performances. Le journal comporte également les appels de l’application vers System.Diagnostics.Trace.
 
 Cet article décrit en détail la configuration de la capture de diagnostic.
 
@@ -62,7 +62,7 @@ Lorsque vous utilisez les propriétés de rôle pour définir l’option « Env
         <Channel logLevel="Verbose" name="MyLogData"  />
       </Channels>
      </Sink>
-    </SinksConfig> 
+    </SinksConfig>
 
 ```
 
@@ -116,7 +116,7 @@ Voici un exemple complet de fichier de configuration publique qui envoie toutes 
         <DataSource name="Application!*" />
       </WindowsEventLog>
       <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> 
+            sinks="ApplicationInsights.MyLogData"/>
        <!-- This specific info sent to this channel -->
      </DiagnosticMonitorConfiguration>
 
@@ -136,9 +136,9 @@ Voici un exemple complet de fichier de configuration publique qui envoie toutes 
 
 Il existe certaines limitations à connaître pour cette fonctionnalité :
 
-* Les canaux sont uniquement destinés à fonctionner avec un type journal et non avec des compteurs de performances. Si vous spécifiez un canal comprenant un élément compteur de performances, il sera ignoré. 
-* Le niveau de consignation d'un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure. Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l'élément Logs et tenter d'envoyer des journaux détaillés à la synchronisation Application Insight. L’attribut scheduledTransferLogLevelFilter doit toujours collecter au moins autant de journaux que ceux que vous essayez d’envoyer à un récepteur. 
-* Vous ne pouvez pas envoyer des données blob collectées par l'extension des diagnostics Azure à Application Insights. Par exemple, rien qui soit spécifié sous le nœud Directories. Pour les vidages sur incident, le vidage sur incident réel sera toujours envoyé au stockage d'objets blob et seule une notification de génération du vidage sur incident sera envoyée à Application Insights. 
+* Les canaux sont uniquement destinés à fonctionner avec un type journal et non avec des compteurs de performances. Si vous spécifiez un canal comprenant un élément compteur de performances, il sera ignoré.
+* Le niveau de consignation d'un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure. Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l'élément Logs et tenter d'envoyer des journaux détaillés à la synchronisation Application Insight. L’attribut scheduledTransferLogLevelFilter doit toujours collecter au moins autant de journaux que ceux que vous essayez d’envoyer à un récepteur.
+* Vous ne pouvez pas envoyer des données blob collectées par l'extension des diagnostics Azure à Application Insights. Par exemple, rien qui soit spécifié sous le nœud Directories. Pour les vidages sur incident, le vidage sur incident réel sera toujours envoyé au stockage d'objets blob et seule une notification de génération du vidage sur incident sera envoyée à Application Insights.
 
 ## Rubriques connexes
 
@@ -146,4 +146,4 @@ Il existe certaines limitations à connaître pour cette fonctionnalité :
 * [Utilisation de PowerShell pour l’envoi de diagnostics Azure vers Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Fichier de configuration Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

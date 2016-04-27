@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Événement étendus dans la base de données SQL | Microsoft Azure" 
-	description="Décrit les événements étendus (XEvents) dans la base de données SQL Azure et les différences entre les sessions d’événements dans la base de données SQL Azure et dans Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Événement étendus dans la base de données SQL | Microsoft Azure"
+	description="Décrit les événements étendus (XEvents) dans la base de données SQL Azure et les différences entre les sessions d’événements dans la base de données SQL Azure et dans Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 
 - La base de données SQL V12 a intégré la fonctionnalité d’événements étendus au cours de la seconde moitié du calendrier 2015.
 - Cette fonctionnalité est présente dans SQL Server depuis 2008.
-- L’ensemble de fonctionnalités des événements étendus sur la base de données SQL est un sous-ensemble robuste des fonctionnalités de SQL Server. 
+- L’ensemble de fonctionnalités des événements étendus sur la base de données SQL est un sous-ensemble robuste des fonctionnalités de SQL Server.
 
 
 *XEvents* est un surnom informel parfois utilisé pour désigne les « événements étendus » dans les blogs et autres emplacements informels.
 
 
 > [AZURE.NOTE] À compter d’octobre 2015, la fonctionnalité de session d’événements étendus est activée dans la base de données SQL Azure dans la version préliminaire. La date de disponibilité générale n’est pas encore définie.
-> 
+>
 > Les annonces concernant la disponibilité générale seront postées sur la page [Mises à jour du service](https://azure.microsoft.com/updates/?service=sql-database) Azure.
 
 
@@ -58,7 +58,7 @@ Il est utile d’avoir une connaissance préalable des éléments suivants lorsq
 
 
 - PowerShell
- - [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+ - [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
 
 
 ## Exemples de code
@@ -244,12 +244,12 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
 ## Liens connexes
 
 
-- [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md)
 - [Applets de commande Azure Storage](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
-- [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+- [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
@@ -269,4 +269,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

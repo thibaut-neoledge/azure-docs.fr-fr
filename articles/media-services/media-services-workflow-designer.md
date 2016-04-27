@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/08/2016"  
 	ms.author="juliako"/>
 
 
@@ -48,7 +48,7 @@ Les vidéos suivantes vous indiquent comment utiliser le concepteur.
 La vidéo du jour 1 présente :
 
 - Vue d'ensemble du concepteur
-- Flux de travail de base : « Hello World »
+- Flux de travail de base : « Hello World »
 - Création de plusieurs fichiers de sortie MP4 à utiliser avec la diffusion en continu d’Azure Media Services
 
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
@@ -90,4 +90,4 @@ Si vous avez besoin d'aide ou si vous avez des questions à propos de la créati
 
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

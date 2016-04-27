@@ -30,15 +30,9 @@ Le [simulateur iOS ne prend pas en charge les notifications push](https://develo
 
 ##Configuration requise
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
-
-* Un compte Azure actif. Si vous n’avez pas encore un compte, inscrivez-vous pour obtenir une version d’évaluation Azure et jusqu’à 10 applications mobiles gratuites. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* Un Mac sur lequel sont installés [Xamarin Studio] et [Xcode] v4.4 ou version ultérieure. Vous pouvez exécuter l’application Xamarin.Forms à l’aide de Visual Studio sur votre ordinateur Windows si vous le souhaitez, mais c’est un peu plus compliqué, car vous devez vous connecter à un Mac en réseau exécutant l’hôte de build Xamarin.iOS. Si vous souhaitez effectuer cette opération, consultez la rubrique [Installation de Xamarin.iOS sur Windows].
+* Effectuez le didacticiel [Créer une application Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md) qui répertorie les autres composants requis. Cet article utilise l’application exécutée à partir de ce didacticiel.
 
 * Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
-
-* Terminez le [didacticiel de démarrage rapide Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md).
 
 ##Créer un Concentrateur de notification De base pour votre application mobile
 
@@ -529,10 +523,8 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

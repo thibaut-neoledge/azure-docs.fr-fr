@@ -42,7 +42,7 @@ Les applets de commande Azure Key Vault permettent d’effectuer, entre autres, 
 
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour gérer Azure Key Vault, cliquez sur les liens ci-dessous pour en savoir plus.
 
-* Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
+* Consultez le [didacticiel de mise en route](../automation/automation-first-runbook-graphical.md) d'Azure Automation.
 * Consultez les [scripts PowerShell pour Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

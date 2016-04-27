@@ -213,8 +213,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 3. Créez la vignette Demand by Timestamp :
 	-	Cliquez sur le jeu de données **EnergyStreamData** dans la section Jeux de données du volet gauche.
 
-	-	Cliquez sur l’icône **Courbes** ç
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
+	-	Cliquez sur l’icône **Courbes** ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
 
 	-	Cliquez sur EnergyStreamData dans le panneau **Champs**.
 
@@ -255,7 +254,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 	-	Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
 
 		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit.
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, spécifiez le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Ignorez les messages d’avertissement qui s’affichent à l’écran.
 
@@ -280,7 +279,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 
 	-   Développez la section **Planifier l’actualisation**. Activez l’option Tenir vos données à jour.
 
-	-   Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez [Actualisation des données dans Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+	-   Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Outils d’estimation des coûts**
@@ -291,4 +290,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!----HONumber=AcomDC_0406_2016---->
+<!---HONumber=AcomDC_0413_2016-->

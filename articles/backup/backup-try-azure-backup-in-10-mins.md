@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # Premier aperçu : sauvegarder des fichiers et des dossiers de Windows Server ou client vers Azure
@@ -99,7 +99,7 @@ Maintenant que votre coffre est créé et que vous avez téléchargé tous les �
 ## Étape 3 : installer et inscrire l’agent Backup
 
 1. Double-cliquez sur le fichier **MARSagentinstaller.exe** dans l’emplacement d’enregistrement.
-2. Exécutez l’Assistant Installation de l’Agent Microsoft Azure Recovery Services. Pour exécuter l’Assistant, vous devez :
+2. Exécutez l’Assistant Installation de l’Agent Microsoft Azure Recovery Services. Pour terminer l’Assistant, vous devez :
     - Choisir un emplacement pour le dossier d’installation et de cache.
     - Fournir les informations relatives au serveur proxy, si vous en utilisez un pour vous connecter à Internet.
     - Fournir votre nom d’utilisateur et votre mot de passe si vous utilisez un proxy authentifié.
@@ -142,4 +142,4 @@ Félicitations ! Vous avez sauvegardé vos fichiers et vos dossiers dans Azure 
 - Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos coffres et vos serveurs](backup-azure-manage-windows-server.md).
 - Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

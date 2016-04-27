@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="01/07/2016"
+  ms.date="04/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # Conditions préalables générales pour créer une offre pour Azure Marketplace
@@ -31,7 +31,11 @@ Pour obtenir des instructions détaillées sur l’inscription d’un compte de 
 
 > L’inscription de l’entreprise doit être terminée pour pouvoir commencer. Toutefois, si votre entreprise renseigne ses informations fiscales et bancaires dans le compte de développeur Microsoft, les développeurs peuvent commencer à créer l’image de machine virtuelle dans le [portail de publication](https://publish.windowsazure.com), pour la faire certifier et la tester dans l’environnement intermédiaire Azure. Vous avez besoin de l’approbation complète du compte de vendeur uniquement pour la dernière étape de publication de votre offre dans Azure Marketplace.
 
-> Si vous rencontrez des problèmes pendant l’inscription du vendeur, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286). 2. Choisissez **Centre de développement**. 3. Choisissez **Profil Éditeur**. 4. Choisissez une méthode de contact.
+> Si vous rencontrez des problèmes pendant l’inscription du vendeur, ouvrez un ticket de support comme indiqué ci-dessous :
+> 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286).
+> 2. Choisissez **Centre de développement**.
+> 3. Choisissez **Profil Éditeur**.
+> 4. Choisissez une méthode de contact.
 
 
 ## Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
@@ -46,9 +50,9 @@ Vous devez ensuite remplir les conditions préalables techniques de chaque type 
 
 | Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
 |-----|-----|-----|-----|
-| [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md) | Conditions préalables techniques des services de développement | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md) | Version préliminaire privée | [Conditions préalables techniques des services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

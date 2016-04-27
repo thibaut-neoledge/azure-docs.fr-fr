@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -344,6 +344,14 @@ Comment afficher les journaux :
 
 Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont générés. Vous pouvez également télécharger les journaux pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Journalisation].
 
+## <a name="known-issues"></a>Problèmes connus
+
+### La suppression d’un clone d’application mobile migré entraîne un arrêt du site
+
+Si vous clonez votre service mobile migré à l’aide d’Azure PowerShell, puis que vous supprimez le clone, l’entrée DNS du service de production est supprimée. Par conséquent, votre site n’est plus accessible sur Internet.
+
+Résolution : Nous travaillons actuellement à la correction de ce problème. Si vous souhaitez cloner votre site, utilisez le portail.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 À présent que votre application a été migrée vers App Service, vous pouvez tirer parti de davantage de fonctionnalités :
@@ -366,17 +374,17 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Tarification d’App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
-[région Azure]: https://azure.microsoft.com/fr-FR/regions/
+[région Azure]: https://azure.microsoft.com/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [déployer en continu]: ../app-service-web/web-sites-publish-source-control.md
-[convertir vos espaces de noms mixte]: https://azure.microsoft.com/fr-FR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir vos espaces de noms mixte]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -394,4 +402,4 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

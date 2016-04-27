@@ -28,7 +28,7 @@ Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spéci
 
 Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) plus loin dans cet article.
 
-> [AZURE.NOTE]Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
+> [AZURE.NOTE] Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
 
 Votre service doit définir au moins deux instances d’un rôle pour que le rôle soit mis à jour sur place, sans interruption de service. Si le service se compose d’une seule instance de rôle, votre service sera indisponible jusqu’à la fin de la mise à jour sur place.
 
@@ -59,7 +59,7 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 |Déployer un nouveau code|Oui|Oui|Oui|
 *Nécessite le kit de développement logiciel Azure 1.5 ou versions ultérieures.
 
-> [AZURE.WARNING]La modification de la taille de machine virtuelle détruira les données locales.
+> [AZURE.WARNING] La modification de la taille de machine virtuelle détruira les données locales.
 
 
 Les éléments suivants ne sont pas pris en charge pendant une mise à jour :
@@ -81,7 +81,7 @@ Le diagramme suivant montre comment la mise à jour se déroule en cas de mise �
 
 ![Mettre à niveau le rôle](media/cloud-services-update-azure-service/IC345880.png "Mettre à niveau le rôle")
 
-> [AZURE.NOTE]Lors de la mise à niveau d’un service d’instance unique vers plusieurs instances, votre service est réduit pendant que la mise à niveau est exécutée, en fonction de la façon dont Azure met à niveau les services. Le contrat de niveau de service garantissant la disponibilité du service ne s’applique qu’aux services déployés avec plusieurs instances. La liste suivante décrit la façon dont les données de chaque lecteur sont affectées à chaque scénario de mise à niveau de service Azure :
+> [AZURE.NOTE] Lors de la mise à niveau d’un service d’instance unique vers plusieurs instances, votre service est réduit pendant que la mise à niveau est exécutée, en fonction de la façon dont Azure met à niveau les services. Le contrat de niveau de service garantissant la disponibilité du service ne s’applique qu’aux services déployés avec plusieurs instances. La liste suivante décrit la façon dont les données de chaque lecteur sont affectées à chaque scénario de mise à niveau de service Azure :
 >
 >Redémarrage de machine virtuelle :
 >
@@ -119,18 +119,18 @@ Le diagramme suivant montre comment la mise à jour se déroule en cas de mise �
 
 Pendant une mise à jour automatique, le contrôleur de structure Azure évalue de façon périodique l’état du service cloud pour déterminer quand il est temps de passer à un autre domaine de mise à niveau. Cette évaluation de l’état est effectuée sur une base par rôle et considère uniquement les instances de la dernière version (c’est-à-dire les instances de domaines de mise à niveau qui ont déjà été examinées). Il vérifie qu’un nombre minimum d’instances de rôle, pour chaque rôle, a atteint un état terminal satisfaisant.
 
-### Délai de démarrage de l’instance de rôle 
+### Délai de démarrage de l’instance de rôle
 Le contrôleur de structure attend 30 minutes pour que chaque instance de rôle atteigne un état démarré. Si la durée d'expiration est écoulée, le contrôleur de structure continuera à remonter jusqu’à l'instance de rôle suivante.
 
 ## Restauration d’une mise à jour
 Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu’une mise à jour (modification de configuration) ou une mise à niveau se trouve dans l’état **en cours** du déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, contrôlez si la valeur de l’indicateur RollbackAllowed retournée par les opérations d’[obtention du déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) et d’[obtention des propriétés de service cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx), est bien définie sur true.
 
-> [AZURE.NOTE]Il convient d’appeler la restauration uniquement sur une mise à jour ou une mise à niveau **sur place**, parce que les mises à niveau d’échange d’adresse virtuelle impliquent le remplacement d’une instance complète s’exécutant sur votre service avec une autre.
+> [AZURE.NOTE] Il convient d’appeler la restauration uniquement sur une mise à jour ou une mise à niveau **sur place**, parce que les mises à niveau d’échange d’adresse virtuelle impliquent le remplacement d’une instance complète s’exécutant sur votre service avec une autre.
 
 Le rétablissement d’une mise à jour en cours a les effets suivants sur le déploiement :
 
 -   Toutes les instances de rôle n’ayant pas encore été mises à jour ou à niveau vers la nouvelle version ne sont ni mises à jour ni mises à niveau, car les instances s’exécutent déjà sur la version cible du service.
--   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (\*.cspkg) ou le fichier de configuration (\*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
+-   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (*.cspkg) ou le fichier de configuration (*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
 
 Cette fonction est assurée par les fonctionnalités suivantes :
 
@@ -175,9 +175,9 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 
 ![Distribution des domaines de mise à niveau](media/cloud-services-update-azure-service/IC345533.png "Distribution des domaines de mise à niveau")
 
-> [AZURE.NOTE]Notez qu’Azure contrôle la façon dont les instances sont affectées entre d’un domaine de mise à niveau à l’autre. Il est impossible de spécifier quelles sont les instances affectées, et à quel domaine.
+> [AZURE.NOTE] Notez qu’Azure contrôle la façon dont les instances sont affectées entre d’un domaine de mise à niveau à l’autre. Il est impossible de spécifier quelles sont les instances affectées, et à quel domaine.
 
 ## Étapes suivantes
-[Gestion de Cloud Services](cloud-services-how-to-manage.md)<br> [Surveiller Cloud Services](cloud-services-how-to-monitor.md)<br> [Configurer Cloud Services](cloud-services-how-to-cofigure.md)<br>
+[Gestion de Cloud Services](cloud-services-how-to-manage.md)<br> [Surveiller Cloud Services](cloud-services-how-to-monitor.md)<br> [Configurer Cloud Services](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

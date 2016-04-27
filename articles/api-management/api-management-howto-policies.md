@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Stratégies dans Gestion des API Azure" 
+	pageTitle="Stratégies dans Gestion des API Azure | Microsoft Azure" 
 	description="Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 
@@ -32,7 +32,7 @@ Les stratégies peuvent être configurées de façon globale, ou bien au niveau 
 
 ![Policies menu][policies-menu]
 
-L’éditeur de stratégies se compose de trois sections principales : la portée de la stratégie (en haut), la définition de la stratégie, là où les stratégies sont modifiées (à gauche) et la liste des instructions (à droite) :
+L’éditeur de stratégies se compose de trois sections principales : la portée de la stratégie (en haut), la définition de la stratégie, là où les stratégies sont modifiées (à gauche) et la liste des instructions (à droite) :
 
 ![Policies editor][policies-editor]
 
@@ -52,6 +52,8 @@ La définition de la stratégie est un simple document XML qui décrit une séqu
 
 Lorsque vous cliquez sur une instruction active, le code XML correspondant est inséré à l'emplacement du curseur dans la fenêtre de définition.
 
+>[AZURE.NOTE] Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour une utilisation dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section **Utilisation** de cette stratégie dans la [Référence de la stratégie][].
+
 La liste complète des instructions et des paramètres des stratégies se trouve dans la section [Référence de stratégie][].
 
 Par exemple, pour ajouter une nouvelle instruction pour limiter les demandes entrantes à certaines adresses IP, placez le curseur juste à l'intérieur du contenu de l'élément `inbound` XML, puis cliquez sur l'instruction **Restrict caller IP**.
@@ -65,7 +67,7 @@ Ceci ajoute un code XML à l'élément `inbound`, indiquant comment configurer l
 		<address-range from="address" to="address"/>
 	</ip-filter>
 
-Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse IP 1.2.3.4, modifiez le code XML comme suit :
+Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse IP 1.2.3.4, modifiez le code XML comme suit :
 
 	<ip-filter action="allow">
 		<address>1.2.3.4</address>
@@ -122,7 +124,7 @@ Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-doma
 
 Si la même stratégie apparaît deux fois dans l'instruction de stratégie, la stratégie la plus récemment évaluée est appliquée. Cela permet de remplacer les stratégies qui sont définies dans une étendue plus élevée. Pour afficher les stratégies dans l'étendue actuelle dans l'éditeur de stratégie, cliquez sur **Recalculer la stratégie en vigueur pour l'étendue sélectionnée**.
 
-Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet.
+Remarque : une stratégie globale n'a aucune stratégie parente et l'utilisation de l'élément `<base>` n'a aucun effet.
 
 ## Étapes suivantes
 
@@ -130,6 +132,7 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
+[Référence de la stratégie]: api-management-policy-reference.md
 [Référence de stratégie]: api-management-policy-reference.md
 [produit]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md#add-apis
@@ -148,4 +151,4 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

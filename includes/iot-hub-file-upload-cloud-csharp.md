@@ -13,7 +13,7 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
 
     Cette opération lance le téléchargement, l’installation et ajoute une référence au [Kit de développement logiciel (SDK) Microsoft Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-3. Au début du fichier **Program.cs**, ajoutez les instructions suivantes :
+3. Au début du fichier **Program.cs**, ajoutez les instructions suivantes :
 
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
@@ -22,7 +22,7 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
 
         static string storageConnectionString = "{storage connection string}";
 
-    Ensuite, ajoutez la méthode suivante (vous pouvez remplacer n’importe quel nom de conteneur d’objets blob, ce didacticiel utilise **iothubfileuploadtutorial**) :
+    Ensuite, ajoutez la méthode suivante (vous pouvez remplacer n’importe quel nom de conteneur d’objets blob, ce didacticiel utilise **iothubfileuploadtutorial**) :
    
         private static async Task<string> GenerateBlobUriAsync()
         {
@@ -43,9 +43,9 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
             return blob.Uri + sasBlobToken;
         }
 
-    Cette méthode crée une référence d’objet blob et génère un URI de signature d’accès partagé, comme décrit dans [Créer et utiliser une signature d’accès partagé avec Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md). Notez que la méthode ci-dessus génère un URI de signature qui est valide pendant 24 heures. Si l’appareil cible nécessite plus de temps pour télécharger le fichier (par exemple, il se connecte rarement, il dispose d’une connectivité qui n’est pas fiable pour télécharger un fichier volumineux), vous pouvez envisager des délais d’expiration plus longs pour les signatures.
+    Cette méthode crée une référence d’objet blob et génère un URI de signature d’accès partagé, comme décrit dans [Créer et utiliser une signature d’accès partagé avec Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md). Notez que la méthode ci-dessus génère un URI de signature qui est valide pendant 24 heures. Si l’appareil cible nécessite plus de temps pour télécharger le fichier (par exemple, il se connecte rarement, il dispose d’une connectivité qui n’est pas fiable pour télécharger un fichier volumineux), vous pouvez envisager des délais d’expiration plus longs pour les signatures.
 
-5. Modifiez **SendCloudToDeviceMessageAsync** de la façon suivante :
+5. Modifiez **SendCloudToDeviceMessageAsync** de la façon suivante :
 
         private async static Task SendCloudToDeviceMessageAsync()
         {
@@ -57,17 +57,17 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
 
-    Cette méthode envoie un message cloud-à-appareil qui contient deux propriétés d’application : une qui identifie ce message en tant que commande pour télécharger un fichier, l’autre contenant l’URI d’objet blob. Il demande également des accusés de livraison complets. Notez que les informations contenues dans les propriétés des deux applications peuvent être sérialisées dans un corps de message, mais cela impliquerait un traitement supplémentaire pour sérialiser et désérialiser les informations.
+    Cette méthode envoie un message cloud-à-appareil qui contient deux propriétés d’application : une qui identifie ce message en tant que commande pour télécharger un fichier, l’autre contenant l’URI d’objet blob. Il demande également des accusés de livraison complets. Notez que les informations contenues dans les propriétés des deux applications peuvent être sérialisées dans un corps de message, mais cela impliquerait un traitement supplémentaire pour sérialiser et désérialiser les informations.
 
 <!-- Links -->
 
 [À propos d’Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 
-<!----------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

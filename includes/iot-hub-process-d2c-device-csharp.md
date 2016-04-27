@@ -17,16 +17,16 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
         await deviceClient.SendEventAsync(interactiveMessage);
         Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
 
-        Thread.Sleep(10000);
+        Task.Delay(10000).Wait();
       }
     }
     ```
 
-    Cette méthode est très similaire à la méthode **SendDeviceToCloudMessagesAsync** dans le projet **SimulatedDevice**. Seules différences : à présent, vous définissez la propriété système **MessageId** et une propriété utilisateur appelée **messageType**. Le code affecte un identificateur global unique (GUID) à la propriété **MessageId**, que Service Bus peut utiliser pour dédupliquer les messages qu’il reçoit. L’exemple utilise la propriété **messageType** pour distinguer les messages interactifs et les messages de point de données. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que le processeur d’événements n’ait pas besoin de désérialiser le message pour le router.
+    Cette méthode est très similaire à la méthode **SendDeviceToCloudMessagesAsync** dans le projet **SimulatedDevice**. Seules différences : à présent, vous définissez la propriété système **MessageId** et une propriété utilisateur appelée **messageType**. Le code affecte un identificateur global unique (GUID) à la propriété **MessageId**, que Service Bus peut utiliser pour dédupliquer les messages qu’il reçoit. L’exemple utilise la propriété **messageType** pour distinguer les messages interactifs et les messages de point de données. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que le processeur d’événements n’ait pas besoin de désérialiser le message pour le router.
 
     > [AZURE.NOTE] Il est important de créer la propriété **MessageId** utilisée pour dédupliquer les messages interactifs dans le code de l’appareil, car des communications réseau intermittentes ou d’autres défaillances pourraient entraîner plusieurs retransmissions du même message à partir de cet appareil. Vous pouvez également utiliser un ID de message sémantique, comme un hachage des champs pertinents de données de message, à la place d’un GUID.
 
-2. Ajoutez la méthode suivante dans la méthode **Main** juste avant la ligne `Console.ReadLine()` :
+2. Ajoutez la méthode suivante dans la méthode **Main** juste avant la ligne `Console.ReadLine()` :
 
     ````
     SendDeviceToCloudInteractiveMessagesAsync();
@@ -36,6 +36,6 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 <!-- Links -->
 [Gestion des erreurs temporaires]: https://msdn.microsoft.com/library/hh675232.aspx
-[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Prise en main d’IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

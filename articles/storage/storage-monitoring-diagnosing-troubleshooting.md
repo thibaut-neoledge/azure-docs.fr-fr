@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/06/2016"
 	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
@@ -25,6 +25,8 @@
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou selon une formule combinée. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser diverses technologies de stockage telles que les tables, les objets blob, les files d'attente ou les fichiers de Microsoft Azure Storage, en plus d'autres magasins de données tels que les bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l’analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
+
+> [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting/).
 
@@ -365,7 +367,7 @@ Notez que le service de stockage calcule uniquement la métrique **AverageE2ELat
 
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles, ou l’insuffisance de ressources telles que le processeur, la mémoire ou la bande passante réseau. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
 
-Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
+Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -668,7 +670,10 @@ Chaque fois qu’elle crée des conteneurs, l’application cliente utilise des 
 
 La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme non réussies et réduisent la valeur de la métrique **PercentSucess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
 
-Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d’opérations qui s’exécutent avec succès, mais qui génèrent des codes d’état HTTP d’échec : - **ResourceNotFound** (Not Found 404), par exemple, à partir d’une demande GET vers un objet blob qui n’existe pas. - **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d’une opération **CreateIfNotExist** où la ressource existe déjà. - **ConditionNotMet** (Not Modified 304), par exemple, à partir d’une opération conditionnelle, comme quand un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
+Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d'opérations qui s'exécutent avec succès, mais qui génèrent des codes d'état HTTP d'échec :
+- **ResourceNotFound** (Not Found 404), par exemple, à partir d'une demande GET vers un objet blob qui n'existe pas.
+- **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d'une opération **CreateIfNotExist** où la ressource existe déjà.
+- **ConditionNotMet** (Not Modified 304), par exemple, à partir d'une opération conditionnelle, comme lorsqu'un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
 
 Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST communs</a>.
 
@@ -756,9 +761,9 @@ Cette annexe explique brièvement comment configurer Fiddler pour capturer le tr
 Après avoir lancé Fiddler, il commence à capturer le trafic HTTP et HTTPS de votre ordinateur local. Voici quelques commandes utiles pour contrôler Fiddler :
 
 - Arrêt et démarrage de la capture du trafic. Dans le menu principal, accédez à **File**, puis cliquez sur **Capture Traffic** pour activer et désactiver la capture.
-- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d’analyse, ou l’envoyer, si nécessaire, au support Microsoft.
+- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d’analyse, ou l’envoyer, si nécessaire, au support Microsoft.
 
-Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
+Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
 
 ![][5]
 
@@ -795,7 +800,7 @@ Vous pouvez utiliser l’analyseur de message Microsoft pour capturer le trafic 
 
 #### Configuration d'une nouvelle session de suivi Web à l'aide de l'analyseur de message Microsoft
 
-Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le [portail Azure](https://portal.azure.com)). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
+Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le [portail Azure](https://portal.azure.com)). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 
@@ -916,4 +921,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

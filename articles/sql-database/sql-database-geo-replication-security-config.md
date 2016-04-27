@@ -3,8 +3,8 @@
 	description="Cette rubrique décrit les éléments de sécurité pour la gestion des scénarios Standard ou géo-réplication Active pour la base de données SQL."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # Configuration de la sécurité Standard ou de la Géo-réplication active
 
@@ -27,7 +27,7 @@ Avec la [version V12 de la base de données SQL Azure](sql-database-v12-whats-ne
 
 Avec des utilisateurs contenus, si plusieurs bases de données utilisent la même connexion, vous devez gérer l’utilisateur séparément pour chaque base de données (par exemple, en changeant un mot de passe), plutôt que de gérer la connexion au niveau du serveur.
 
->[AZURE.NOTE]Si vous souhaitez modifier l’accès en lecture principal et secondaire de façon indépendante, vous devez utiliser les utilisateurs et les connexions traditionnelles. Les utilisateurs contenus ne peuvent pas être gérés sur le serveur secondaire indépendamment du site principal.
+>[AZURE.NOTE] Si vous souhaitez modifier l’accès en lecture principal et secondaire de façon indépendante, vous devez utiliser les utilisateurs et les connexions traditionnelles. Les utilisateurs contenus ne peuvent pas être gérés sur le serveur secondaire indépendamment du site principal.
 
 ## Utilisation de connexions et d’utilisateurs traditionnels
 Si vous utilisez des connexions traditionnelles et les utilisateurs (et non les utilisateurs contenus), vous devez effectuer des mesures supplémentaires pour vous assurer que les mêmes connexions existent sur le serveur de base de données secondaire. Les sections suivantes décrivent les étapes impliquées et d’autres considérations relatives.
@@ -67,7 +67,7 @@ La requête suivante peut être utilisée pour voir toutes les entités utilisat
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
->[AZURE.NOTE]Les utilisateurs de **INFORMATION\_SCHEMA** et **sys** ont des SID *NULL*, et le SID **invité** est **0x00**. Le SID **dbo** peut commencer par *0x01060000000001648000000000048454*, si le créateur de la base de données est l’administrateur serveur et non un membre de **DbManager**.
+>[AZURE.NOTE] Les utilisateurs de **INFORMATION\_SCHEMA** et **sys** ont des SID *NULL*, et le SID **invité** est **0x00**. Le SID **dbo** peut commencer par *0x01060000000001648000000000048454*, si le créateur de la base de données est l’administrateur serveur et non un membre de **DbManager**.
 
 #### 3\. Générer les connexions sur le serveur cible :
 La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer les connexions avec les SID appropriés. La syntaxe de base est la suivante :
@@ -76,7 +76,7 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 	WITH PASSWORD = <login password>,
 	SID = <desired login SID>
 
->[AZURE.NOTE]Si vous souhaitez accorder un accès utilisateur à la base de données secondaire, mais pas au serveur principal, vous pouvez le faire en modifiant la connexion de l’utilisateur sur le serveur principal à l’aide de la syntaxe suivante.
+>[AZURE.NOTE] Si vous souhaitez accorder un accès utilisateur à la base de données secondaire, mais pas au serveur principal, vous pouvez le faire en modifiant la connexion de l’utilisateur sur le serveur principal à l’aide de la syntaxe suivante.
 >
 >ALTER LOGIN <login name> DISABLE
 >
@@ -98,4 +98,4 @@ Pour plus d’informations sur les opérations à exécuter après le basculemen
 ## Étapes suivantes
 Pour plus d’informations sur les fonctionnalités de géo-réplication et de poursuite d’activité supplémentaire de la base de données SQL, consultez [Vue d’ensemble de la continuité des activités métier](sql-database-business-continuity.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

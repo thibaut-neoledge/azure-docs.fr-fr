@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Résoudre les problèmes d'installation de votre cluster de développement local
@@ -50,6 +50,8 @@ Si vous essayez d’exécuter l’une des applets de commande PowerShell de Serv
 #### Solution
 
 Exécutez toujours les applets de commande Service Fabric directement à partir de Windows PowerShell.
+
+>[AZURE.NOTE] La dernière version d'Azure PowerShell ne crée aucun raccourci spécial, et cela ne devrait donc plus se reproduire.
 
 ### Exception durant l’initialisation de type
 
@@ -96,4 +98,4 @@ Assurez-vous de ne pas disposer de projets de service définis en tant que proje
 - [Comprendre votre cluster et résoudre les problèmes à l’aide des rapports d’intégrité système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

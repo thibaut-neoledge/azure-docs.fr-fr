@@ -22,33 +22,25 @@
 
 Les SDK client et serveur Azure Mobile Apps prennent en charge la synchronisation hors connexion des données structurées avec des opérations CRUD sur le point de terminaison /tables. En règle générale, ces données sont stockées dans une base de données ou un magasin similaire qui ne peuvent pas stocker efficacement d’importants volumes de données binaires. De même, certaines applications stockent leurs données associées à un autre emplacement (par exemple, un stockage d’objets blob ou des partages de fichiers) ; il est dans ce cas utile de pouvoir créer des associations entre les enregistrements du point de terminaison /tables et les autres données.
 
-Cette rubrique vous montre comment ajouter la prise en charge d’images au démarrage rapide d’une liste des tâches Mobile Apps. Vous devez commencer par suivre le didacticiel [Création d’une application Xamarin.Forms].
+Cette rubrique vous montre comment ajouter la prise en charge d’images au démarrage rapide d’une liste des tâches Mobile Apps. Vous devez commencer par suivre le didacticiel [Créer une application Xamarin.Forms].
 
 Dans ce didacticiel, vous allez créer un compte de stockage et ajouter une chaîne de connexion à votre backend Mobile App. Vous ajouterez ensuite à votre projet de serveur un nouvel héritier du nouveau type Mobile Apps `StorageController<T>`.
 
 >[AZURE.TIP] Un [exemple de compagnon](https://azure.microsoft.com/documentation/samples/app-service-mobile-dotnet-todo-list-files/) est disponible pour ce didacticiel, que vous pouvez déployer dans votre propre compte Azure.
 
-## Composants requis
+## Configuration requise
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
-
-* Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* [Visual Studio Community 2013] ou version ultérieure.
-
-* Un Mac sur lequel sont installés [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) 7.0 ou version ultérieure et [Xamarin Studio](http://xamarin.com/download).
-
-* Exécution du didacticiel [Création d’une application Xamarin.Forms]. Cet article utilise l’application exécutée à partir de ce didacticiel.
+* Effectuez le didacticiel [Créer une application Xamarin.Forms] qui répertorie les autres composants requis. Cet article utilise l’application exécutée à partir de ce didacticiel.
 
 >[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ## Créez un compte de stockage.
 
-1. Créez un compte de stockage en suivant le didacticiel [Création d’un compte Azure Storage]. 
+1. Créez un compte de stockage en suivant le didacticiel [Créer un compte Azure Storage]. 
 
-2. Dans le portail Azure, accédez à votre nouveau compte de stockage et cliquez sur l’onglet **Clés**. Copiez la **Chaîne de connexion principale**.
+2. Dans le portail Azure, accédez à votre nouveau compte de stockage et cliquez sur l’icône **Clés**. Copiez la **chaîne de connexion principale**.
 
-3. Accédez à votre backend d’application mobile Sous **Tous les paramètres** -> **Paramètres de l’application** -> **Chaînes de connexion**, créez une nouvelle clé nommée `MS_AzureStorageAccountConnectionString` et utilisez la valeur que vous aurez copiée à partir de votre compte de stockage. Choisissez le type de clé **Personnalisé**.
+3. Accédez à votre backend d’application mobile Sous **Tous les paramètres** -> **Paramètres de l’application** -> **Chaînes de connexion**, créez une clé nommée `MS_AzureStorageAccountConnectionString` et utilisez la valeur que vous avez copiée à partir de votre compte de stockage. Choisissez le type de clé **Personnalisé**.
 
 ## Ajoutez un contrôleur de stockage à votre projet de serveur.
 
@@ -93,7 +85,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
             return base.DeleteFileAsync(id, name);
         }
 
-6. Mettez à jour la configuration de l'API Web pour configurer le routage des attributs. Dans **Startup.MobileApp.cs**, ajoutez la ligne suivante à la `ConfigureMobileApp()` méthode, après la définition de la variable `config` :
+6. Mettez à jour la configuration de l'API Web pour configurer le routage des attributs. Dans **Startup.MobileApp.cs**, ajoutez la ligne suivante à la méthode `ConfigureMobileApp()`, après la définition de la variable `config` :
 
         config.MapHttpAttributeRoutes();
 
@@ -121,7 +113,7 @@ La nouvelle classe `TodoItemStorageController` expose deux sous-ressources sous 
 
 ###Communication client et serveur
 
-Notez que la classe `TodoItemStorageController` ne dispose *pas* d’une route précise permettant de transférer ou télécharger un objet blob. Pour effectuer ces opérations, en effet, un client mobile interagit *directement* avec le stockage d’objets après avoir obtenu un jeton de signature d’accès partagé (SAS) pour pouvoir accéder en toute sécurité à un objet blob ou conteneur donné. Il s’agit d’un aspect de conception architecturale important, car dans d’autres circonstances, l’accès au stockage serait limité par l’évolutivité et la disponibilité du backend mobile. Mais grâce à une connexion directe à Azure Storage, le client mobile peut tirer parti de certaines de ses fonctionnalités, telles que le partitionnement automatique et la distribution géographique.
+Notez que la classe `TodoItemStorageController` ne dispose *pas* d’une route précise permettant de transférer ou télécharger un blob. Pour effectuer ces opérations, en effet, un client mobile interagit *directement* avec Blob Storage après avoir obtenu un jeton de signature d’accès partagé (SAS) pour pouvoir accéder en toute sécurité à un blob ou conteneur donné. Il s’agit d’un aspect de conception architecturale important, car dans d’autres circonstances, l’accès au stockage serait limité par l’extensibilité et la disponibilité du backend mobile. Mais grâce à une connexion directe à Azure Storage, le client mobile peut tirer parti de certaines de ses fonctionnalités, telles que le partitionnement automatique et la distribution géographique.
 
 Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. Pour plus d’informations, consultez [Présentation des signatures d’accès partagé].
 
@@ -151,7 +143,7 @@ Pour plus de commodité, cet exemple utilise la bibliothèque [PCLStorage], bien
 
 ###Ajouter l’interface IPlatform
 
-Créez une nouvelle interface `IPlatform` dans le projet de bibliothèque portable principal. Cette interface suit le modèle [Xamarin.Forms DependencyService] pour charger la classe adaptée à la plateforme au moment de l’exécution. Vous ajouterez ultérieurement des implémentations spécifiques à votre plateforme dans chaque projet client.
+Créez une interface `IPlatform` dans le projet de bibliothèque portable principal. Cette interface suit le modèle [Xamarin.Forms DependencyService] pour charger la classe adaptée à la plateforme au moment de l’exécution. Vous ajouterez ultérieurement des implémentations spécifiques à votre plateforme dans chaque projet client.
 
 1. Ajoutez les instructions using suivantes :
 
@@ -174,7 +166,7 @@ Créez une nouvelle interface `IPlatform` dans le projet de bibliothèque portab
 
 ###Ajouter la classe FileHelper
 
-1. Créez une nouvelle classe `FileHelper` dans le projet de bibliothèque portable principal. Ajoutez les instructions using suivantes :
+1. Créez une classe `FileHelper` dans le projet de bibliothèque portable principal. Ajoutez les instructions using suivantes :
 
         using System.IO;
         using PCLStorage;
@@ -232,9 +224,9 @@ Créez une nouvelle interface `IPlatform` dans le projet de bibliothèque portab
 
 ### Ajouter un gestionnaire de synchronisation de fichiers
 
-Créez une nouvelle classe `TodoItemFileSyncHandler` dans le projet de bibliothèque portable principal. Cette classe contient des rappels en provenance du SDK Azure afin de notifier votre code en cas d’ajout ou de suppression d’un fichier.
+Créez une classe `TodoItemFileSyncHandler` dans le projet de bibliothèque portable principal. Cette classe contient des rappels en provenance du SDK Azure afin de notifier votre code en cas d’ajout ou de suppression d’un fichier.
 
-Le SDK du client Azure Mobile ne stocke pas réellement stocker les données de fichier : il appelle l’implémentation de `IFileSyncHandler` qui détermine ensuite si et de quelle manière les fichiers sont stockés sur le périphérique local.
+Le Kit de développement logiciel (SDK) du client Azure Mobile ne stocke pas réellement les données de fichier : il appelle l’implémentation de `IFileSyncHandler` qui détermine ensuite si et de quelle manière les fichiers sont stockés sur l’appareil local.
 
 1. Ajoutez les instructions using suivantes :
 
@@ -274,7 +266,7 @@ Le SDK du client Azure Mobile ne stocke pas réellement stocker les données de 
 
 ###Mettre à jour TodoItemManager
 
-1. Dans **TodoItemManager.cs**, décommentez la ligne `#define OFFLINE_SYNC_ENABLED`.
+1. Dans **TodoItemManager.cs**, supprimez les marques de commentaire de la ligne `#define OFFLINE_SYNC_ENABLED`.
 
 2. Dans **TodoItemManager.cs**, ajoutez les instructions using suivantes :
 
@@ -293,7 +285,7 @@ Le SDK du client Azure Mobile ne stocke pas réellement stocker les données de 
 
         this.client.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
 
-5. Dans `SyncAsync()`, ajoutez le code suivant après l’appel à `PushAsync()` :
+5. Dans `SyncAsync()`, ajoutez le code suivant après l’appel à `PushAsync()` :
 
         await this.todoTable.PushFileChangesAsync();
 
@@ -609,7 +601,7 @@ Ajoutez au projet iOS le code spécifique à la plateforme.
             }
         }
 
-3. Modifiez le fichier **AppDelegate.cs** et supprimez les commentaires de l’appel à `SQLitePCL.CurrentPlatform.Init()`.
+3. Modifiez le fichier **AppDelegate.cs** et supprimez les marques de commentaires de l’appel à `SQLitePCL.CurrentPlatform.Init()`.
 
 ###Mettre à jour le projet Windows
 
@@ -684,19 +676,19 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 
 - Créer un compte de stockage et ajouter une chaîne de connexion à votre backend Mobile App. Seul le backend possède la clé d’accès à Azure Storage : le client mobile doit demander un jeton de signature d’accès partagé (SAS) chaque fois qu’il doit accéder à Azure Storage. Pour en savoir plus sur les jetons SAS dans Azure Storage, consultez [Présentation des signatures d’accès partagé].
 
-- Créer un contrôleur qui sous-classe `StorageController` afin de gérer les demandes de jeton SAS et d’obtenir les fichiers associés à un enregistrement. Par défaut, les fichiers sont associés à un enregistrement en utilisant l’ID d’enregistrement dans le nom du conteneur ; le comportement peut être personnalisé en spécifiant une implémentation de `IContainerNameResolver`. La stratégie de jeton SAS peut également être personnalisée.
+- Créez un contrôleur qui sous-classe `StorageController` afin de gérer les demandes de jeton SAS et d’obtenir les fichiers associés à un enregistrement. Par défaut, les fichiers sont associés à un enregistrement en utilisant l’ID d’enregistrement dans le nom du conteneur ; le comportement peut être personnalisé en spécifiant une implémentation de `IContainerNameResolver`. La stratégie de jeton SAS peut également être personnalisée.
 
-- Le SDK du client Azure Mobile ne stocke pas réellement de données de fichier. Le SDK client appelle en fait votre gestionnaire `IFileSyncHandler`, qui décide ensuite de la manière dont les fichiers sont stockés (le cas échéant) sur le périphérique local. Le gestionnaire de synchronisation est enregistré comme suit :
+- Le SDK du client Azure Mobile ne stocke pas réellement de données de fichier. Le Kit de développement logiciel (SDK) client appelle en fait votre gestionnaire `IFileSyncHandler`, qui décide ensuite de la manière dont les fichiers sont stockés (le cas échéant) sur l’appareil local. Le gestionnaire de synchronisation est enregistré comme suit :
 
         client.InitializeFileSync(new MyFileSyncHandler(), store);
 
-      + `IFileSyncHandler.GetDataSource` est appelé lorsque le SDK du client Azure Mobile a besoin des données de fichier (par exemple, dans le cadre du processus de téléchargement). Vous êtes ainsi en mesure de gérer la manière dont les fichiers sont stockés sur le périphérique local, le cas échéant, et de retourner ces informations si nécessaire.
+      + `IFileSyncHandler.GetDataSource` est appelé lorsque le Kit de développement logiciel (SDK) du client Azure Mobile a besoin des données de fichier (par exemple, dans le cadre du processus de téléchargement). Vous êtes ainsi en mesure de gérer la manière dont les fichiers sont stockés sur le périphérique local, le cas échéant, et de retourner ces informations si nécessaire.
 
       + `IFileSyncHandler.ProcessFileSynchronizationAction` est appelé dans le cadre du flux de synchronisation des fichiers. Une référence de fichier et une valeur d’énumération FileSynchronizationAction sont fournies afin de vous aider à déterminer la manière dont votre application doit gérer cet événement (par exemple, télécharger automatiquement un fichier lors de sa création ou de sa mise à jour, ou supprimer un fichier du périphérique local lorsque ce fichier est supprimé sur le serveur).
 
-- Un `MobileServiceFile` peut être utilisé en mode en ligne ou hors connexion, en utilisant respectivement `IMobileServiceTable` ou `IMobileServiceSyncTable`. Dans le scénario hors connexion, le téléchargement se produit lorsque l’application appelle `PushFileChangesAsync`. Cette action initie le traitement de la file d’attente des opérations hors connexion ; pour chaque opération de fichier, le SDK du client Azure Mobile appellera la méthode `GetDataSource` sur l’instance `IFileSyncHandler` pour récupérer le contenu du fichier en vue du téléchargement.
+- Un `MobileServiceFile` peut être utilisé en mode en ligne ou hors connexion, en utilisant respectivement `IMobileServiceTable` ou `IMobileServiceSyncTable`. Dans le scénario hors connexion, le téléchargement se produit lorsque l’application appelle `PushFileChangesAsync`. Cette action initie le traitement de la file d’attente des opérations hors connexion ; pour chaque opération de fichier, le Kit de développement logiciel (SDK) du client Azure Mobile appelle la méthode `GetDataSource` sur l’instance `IFileSyncHandler` pour récupérer le contenu du fichier en vue du téléchargement.
 
-- Pour récupérer les fichiers d’un élément, appelez la méthode `GetFilesAsync` sur l’instance `IMobileServiceTable<T>` ou IMobileServiceSyncTable<T>. Cette méthode retourne une liste des fichiers associés à l’élément de données fourni. Remarque : il s’agit d’une opération *locale* qui renvoie les fichiers en fonction de l’état de l'objet lors de sa dernière synchronisation. Pour obtenir une liste à jour des fichiers du serveur, vous devez d’abord lancer une opération de synchronisation.
+- Pour récupérer les fichiers d’un élément, appelez la méthode `GetFilesAsync` sur l’instance `IMobileServiceTable<T>` ou IMobileServiceSyncTable<T>. Cette méthode retourne une liste des fichiers associés à l’élément de données fourni. Remarque : il s’agit d’une opération *locale* qui renvoie les fichiers en fonction de l’état de l’objet lors de sa dernière synchronisation. Pour obtenir une liste à jour des fichiers du serveur, vous devez d’abord lancer une opération de synchronisation.
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
@@ -708,21 +700,21 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
 
-- Il est possible d’ajouter ou supprimer des fichiers dans un enregistrement en modifiant directement le stockage d’objets blob, car l’association s’effectue via une convention de dénomination. Toutefois, dans ce cas, vous devez toujours **mettre à jour l’horodatage de l’enregistrement lors de la modification des objets blob associés**. Le SDK du client Azure Mobile met constamment à jour un enregistrement lors de l’ajout ou de la suppression d’un fichier,
+- Il est possible d’ajouter ou supprimer des fichiers dans un enregistrement en modifiant directement le stockage d’objets blob, car l’association s’effectue via une convention de dénomination. Toutefois, dans ce cas, vous devez toujours **mettre à jour l’horodatage de l’enregistrement lors de la modification des blobs associés**. Le SDK du client Azure Mobile met constamment à jour un enregistrement lors de l’ajout ou de la suppression d’un fichier,
 
     car certains clients mobiles possèdent déjà l’enregistrement dans le stockage local. Lorsque ces clients effectuent une extraction incrémentielle, cet enregistrement ne sera pas renvoyé et le client n’enverra pas de requête pour les nouveaux fichiers associés. Pour éviter ce problème, il est recommandé de mettre à jour l’horodatage de l’enregistrement lorsque vous apportez au stockage d’objets blob des modifications qui n’utilisent pas le SDK du client Azure Mobile.
 
-- Le projet client utilise le modèle [Xamarin.Forms DependencyService] pour charger la classe adaptée à la plateforme au moment de l’exécution. Dans cet exemple, nous avons défini une interface `IPlatform` avec des implémentations dans des projets spécifiques à chaque plateforme.
+- Le projet client utilise le modèle [Xamarin.Forms DependencyService] pour charger la classe adaptée à la plateforme au moment de l’exécution. Dans cet exemple, nous avons défini une interface `IPlatform` avec des implémentations dans des projets propres à chaque plateforme.
 
 <!-- URLs. -->
 
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Création d’une application Xamarin.Forms]: ../app-service-mobile-xamarin-forms-get-started.md
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Créer une application Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
 [Présentation des signatures d’accès partagé]: ../storage/storage-dotnet-shared-access-signature-part-1.md
-[Création d’un compte Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Créer un compte Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Moniteur" 
-   description="En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Moniteur"
+   description="En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,23 +12,23 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Surveillance des données en temps réel de votre application
 
-Cet article décrit l’onglet **SURVEILLER** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez créer un compte **Azure Mobile Engagement**. Pour plus d’informations, consultez [Créer un compte Azure Mobile Engagement](mobile-engagement-create-account.md).
+Cet article décrit l’onglet **SURVEILLER** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
 
 
 La section Surveiller de l’interface utilisateur offre des analyses en temps réel et vous permet de définir des alertes lorsque des seuils sont atteints pour la plupart des informations disponibles dans l’historique de la section [Analyse](mobile-engagement-user-interface-analytics.md) de l’interface utilisateur. Consultez la section **Glossaire** de la rubrique [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) qui présente les définitions des termes et abréviations indiqués dans Analyse et Surveillance, notamment : utilisateur actif, nouvel utilisateur, utilisateur conservé, session, graphique du chemin d’accès utilisateur, mappage des utilisateurs, URL de suivi, tendances, activité, événement, travail, erreur, informations supplémentaires, incident et informations sur l’application.
 
->[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+>[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Surveillance - Sessions, travaux, événements, erreurs et incidents
 
 Vous pouvez afficher le nombre d'utilisateurs actuellement dans une session, les écrans sur lesquels ils se trouvent et les actions spécifiques qu'ils effectuent. Vous pouvez afficher l'activité de l'utilisateur répartie selon les sessions, les tâches, les événements, les erreurs et les incidents. Vous pouvez voir l'information actuelle ainsi que les informations de la dernière heure, du dernier jour ou de la dernière semaine. Vous pouvez voir toutes les informations dans chaque catégorie ou les trier suivant la session, la tâche, l'événement, l'erreur ou l'incident. La surveillance directe est utile lors d'événements tels qu'une campagne Push pour voir si l'action est en légère hausse juste après l'envoi de votre notification Push.
- 
+
 ![Moniteur1][14]
 
 ## Résolution des problèmes liés à la section Surveillance - Événements - Détails
@@ -49,14 +49,14 @@ Pour plus d’informations, consultez la [documentation du Kit de développement
 
 ## Analyse - Alertes
 Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique. Vous pouvez également indiquer un taux de détection minimum qui correspond au temps minimum entre deux notifications pour la même alerte afin de vous assurer que lorsque l'alerte est déclenchée, vous ne recevez qu'une notification toutes les X minutes.
- 
+
 ![Moniteur4][17]
 
 
 ## Voir aussi
 
 - [Concepts][Link 6]
-- [Guide de résolution des problèmes : Service][Link 24]
+- [Guide de résolution des problèmes - Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -152,6 +152,5 @@ Vous pouvez également indiquer des conditions pour des alertes qui vous seront 
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

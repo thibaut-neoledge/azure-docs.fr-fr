@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Mise à l'échelle manuelle ou automatique du nombre d’instances" 
-	description="Découvrez comment effectuer une mise à l’échelle de vos services Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Mise à l'échelle manuelle ou automatique du nombre d’instances"
+	description="Découvrez comment effectuer une mise à l’échelle de vos services Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Mise à l'échelle manuelle ou automatique du nombre d’instances
@@ -28,14 +28,16 @@ Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser égal
 
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis accédez à la ressource que vous souhaitez mettre à l'échelle, telle qu'un **plan App Service**.
 
-2. La vignette **Mettre à l’échelle** dans **Opérations** vous indiquera l'état de la mise à l'échelle : **Désactivé** lorsque vous effectuez une mise à l’échelle manuelle, **Activé** lorsque vous effectuez une mise à l’échelle via une ou plusieurs mesures de performances. ![Vignette Mettre à l’échelle](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. La vignette **Mettre à l’échelle** dans **Opérations** vous indiquera l'état de la mise à l'échelle : **Désactivé** lorsque vous effectuez une mise à l’échelle manuelle, **Activé** lorsque vous effectuez une mise à l’échelle via une ou plusieurs mesures de performances.
+![Vignette Mettre à l’échelle](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Lorsque vous cliquez sur cette vignette, le panneau **Mettre à l'échelle** s'affiche. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau Mettre à l'échelle. ![Volet Scale](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
->[AZURE.NOTE]Seules les actions effectuées par mise à l'échelle automatique seront affichées dans ce graphique. Si vous modifiez manuellement le nombre d'instances, cette modification n'apparaîtra pas dans ce graphique.
+3. Lorsque vous cliquez sur cette vignette, le panneau **Mettre à l'échelle** s'affiche. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau Mettre à l'échelle.
+![Volet Scale](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+
+>[AZURE.NOTE] Seules les actions effectuées par mise à l'échelle automatique seront affichées dans ce graphique. Si vous modifiez manuellement le nombre d'instances, cette modification n'apparaîtra pas dans ce graphique.
 
 4. Vous pouvez modifier manuellement le nombre d’**instances** à l’aide du curseur.
-5. Cliquez sur la commande **Enregistrer** pour augmenter ou diminuer presque immédiatement le nombre d'instances. 
+5. Cliquez sur la commande **Enregistrer** pour augmenter ou diminuer presque immédiatement le nombre d'instances.
 
 ## Mise à l'échelle en fonction d’une mesure prédéfinie
 
@@ -44,7 +46,7 @@ Si vous souhaitez modifier automatiquement le nombre d'instances en fonction d�
 1. Lorsque vous sélectionnez une mesure, un curseur et/ou des zones de texte apparaîtront pour vous permettre d’entrer le nombre d'instances que vous souhaitez mettre à l'échelle entre :
 
     ![Volet Scale avec pourcentage UC](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
-    
+
     La mise à l'échelle automatique n'utilisera jamais votre service au-dessus ou au-dessous des limites que vous définissez, et ce, quelle que soit votre charge.
 
 2. Vous choisissez ensuite la plage cible de la mesure. Si vous choisissez, par exemple, l’option **Pourcentage UC**, vous pouvez définir un objectif pour la moyenne du processeur sur toutes les instances de votre service. L’extension des instances se produit lorsque la moyenne du processeur dépasse le nombre maximum défini. De la même manière, la réduction des instances se produit chaque fois que la moyenne du processeur chute en-deçà du nombre minimum.
@@ -57,17 +59,19 @@ Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que
 
 ### Ajout ou modification d'une règle
 
-1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** :
+![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. Si vous avez déjà effectué une mise à l'échelle automatique, vous découvrirez les règles précises dont vous disposiez.
 
-3. Pour effectuer une mise à l’échelle sur une autre mesure, cliquez sur la ligne **Ajouter une règle**. Vous pouvez également cliquer sur une des lignes existantes pour passer d’une mesure dont vous disposiez auparavant à une mesure via laquelle vous souhaitez effectuer une mise à l'échelle. ![Ajouter une règle](./media/insights-how-to-scale/Insights_AddRule.png)
+3. Pour effectuer une mise à l’échelle sur une autre mesure, cliquez sur la ligne **Ajouter une règle**. Vous pouvez également cliquer sur une des lignes existantes pour passer d’une mesure dont vous disposiez auparavant à une mesure via laquelle vous souhaitez effectuer une mise à l'échelle.
+![Ajouter une règle](./media/insights-how-to-scale/Insights_AddRule.png)
 
 4. Vous devez désormais sélectionner les mesures que vous souhaitez mettre à l'échelle. Lorsque vous choisissez une mesure, plusieurs éléments doivent être prendre en compte :
     * La *ressource* d’où provient la mesure. Elle sera généralement celle que vous avez mise à l’échelle. Toutefois, si vous souhaitez effectuer une mise à l'échelle via la longueur d'une file d'attente de stockage, la ressource représentera la file d'attente via laquelle vous souhaitez effectuer une mise à l’échelle.
-    * Le *nom de la mesure*. 
+    * Le *nom de la mesure*.
     * L’*agrégation de temps* de la mesure. Voici comment les données sont combinées sur la *durée*.
-    
+
 5. Après avoir choisi votre mesure, vous choisissez le seuil de la mesure ainsi que l’opérateur. Vous pouvez, par exemple, dire **Supérieur à** **80 %**.
 
 6. Choisissez ensuite l'action que vous souhaitez effectuer. Il existe deux types d'actions bien distincts :
@@ -76,7 +80,7 @@ Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que
     * Augmenter ou diminuer jusqu’à : ceci définit le nombre d'instances établies jusqu’à la **valeur** que vous définissez.
 
 7. Enfin, vous pouvez choisir « Cool down », c’est-à-dire le temps d'attente de cette règle entre la dernière action de mise à l'échelle et la prochaine.
-    
+
 8. Après avoir configuré votre règle, cliquez sur **OK**.
 
 9. Une fois que vous avez configuré toutes les règles que vous souhaitez, n’oubliez pas de cliquer sur la commande **Enregistrer**.
@@ -105,11 +109,13 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 
 2. Pour qu’un profil s’applique durant la semaine, dans la liste déroulante **Jours**, désactivez **Samedi** et **Dimanche**.
 
-3. Pour qu'un profil s’applique le jour, attribuez comme **heure de début** l'heure de la journée à laquelle vous souhaitez commencer. ![Périodicité par défaut](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+3. Pour qu'un profil s’applique le jour, attribuez comme **heure de début** l'heure de la journée à laquelle vous souhaitez commencer.
+![Périodicité par défaut](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Cliquez sur **OK**.
 
-5. Ensuite, vous devez ajouter le profil que vous souhaitez appliquer à d'autres moments. Cliquez sur la ligne **Ajouter un profil**. ![Absent(e) du bureau](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+5. Ensuite, vous devez ajouter le profil que vous souhaitez appliquer à d'autres moments. Cliquez sur la ligne **Ajouter un profil**.
+![Absent(e) du bureau](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. Vous pouvez, par exemple, intituler votre second nouveau profil **Absent(e) du bureau**.
 
@@ -117,11 +123,12 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 
 8. Comme avec le profil par défaut, choisissez les **jours** durant lesquels vous souhaitez appliquer ce profil et l’ **heure de début** de la journée.
 
->[AZURE.NOTE]La mise à l'échelle automatique utilisera les règles de passage à l’heure d’été pour n’importe quel **fuseau horaire** que vous sélectionnez. Cependant, lors du passage à l’heure d’été, le décalage UTC indiquera le décalage de base, et non le décalage UTC du passage à l’heure d’été.
+>[AZURE.NOTE] La mise à l'échelle automatique utilisera les règles de passage à l’heure d’été pour n’importe quel **fuseau horaire** que vous sélectionnez. Cependant, lors du passage à l’heure d’été, le décalage UTC indiquera le décalage de base, et non le décalage UTC du passage à l’heure d’été.
 
 9. Cliquez sur **OK**.
 
-10. Vous devez ajouter les règles que vous souhaitez appliquer à votre second profil. Cliquez sur **Ajouter une règle** et établissez la même règle qui est appliquée à votre profil par défaut. ![Ajouter une règle pour s’absenter du bureau](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+10. Vous devez ajouter les règles que vous souhaitez appliquer à votre second profil. Cliquez sur **Ajouter une règle** et établissez la même règle qui est appliquée à votre profil par défaut.
+![Ajouter une règle pour s’absenter du bureau](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Assurez-vous de créer une règle relative à l’extension et à la réduction des instances, sinon le nombre d’instances ne fera qu’augmenter (ou diminuer) sur ce profil.
 
@@ -134,7 +141,6 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et journaux d’audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
-* [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
- 
+* [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Rôles web et rôles de travail Python avec Python Tools 2.2 pour Visual Studio | Microsoft Azure"
 	description="Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -38,7 +38,7 @@ Azure propose trois modèles de calcul pour l'exécution d'applications : [fonc
 
 Pour plus d'informations, consultez la page [Présentation d'un service cloud].
 
-> [AZURE.NOTE]*Vous voulez créer un simple site web ?* Si votre scénario ne comporte qu'un simple composant frontal web, envisagez d'utiliser la fonctionnalité Web Apps légère dans Azure App Service. Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins. Consultez le <a href="/develop/python/">Centre de développement Python</a> pour découvrir des articles consacrés au développement de la fonctionnalité Web Apps dans Azure App Service. <br />
+> [AZURE.NOTE] *Vous voulez créer un simple site web ?* Si votre scénario ne comporte qu'un simple composant frontal web, envisagez d'utiliser la fonctionnalité Web Apps légère dans Azure App Service. Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins. Consultez le <a href="/develop/python/">Centre de développement Python</a> pour découvrir des articles consacrés au développement de la fonctionnalité Web Apps dans Azure App Service. <br />
 
 
 ## Création du projet
@@ -114,17 +114,17 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 
 <!--Link references-->
 
-[Présentation d'un service cloud]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[Présentation d'un service cloud]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Service BLOB]: storage-python-how-to-use-blob-storage.md
-[Service de File d’attente]: storage-python-how-to-use-queue-storage.md
-[Service de Table]: storage-python-how-to-use-table-storage.md
-[Files d’attente de Service Bus]: service-bus-python-how-to-use-queues.md
-[Rubriques de Service Bus]: service-bus-python-how-to-use-topics-subscriptions.md
+[Service BLOB]: ./storage/storage-python-how-to-use-blob-storage.md
+[Service de File d’attente]: ./storage/storage-python-how-to-use-queue-storage.md
+[Service de Table]: ./storage/storage-python-how-to-use-table-storage.md
+[Files d’attente de Service Bus]: ./service-bus/service-bus-python-how-to-use-queues.md
+[Rubriques de Service Bus]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -138,4 +138,4 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 [Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

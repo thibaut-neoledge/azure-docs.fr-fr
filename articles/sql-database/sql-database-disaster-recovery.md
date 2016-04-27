@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -137,11 +137,11 @@ Vérifiez que les paramètres de vos règles d’alertes existantes sont mappés
   + La base de données restaurée utilise un nom différent de celui de la base de données source.
   + La base de données restaurée se trouve sur un serveur différent du serveur source.
 
-Pour en savoir plus, voir [Réception de notifications d'alerte](insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](insights-service-health.md).
+Pour en savoir plus, voir [Réception de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](../azure-portal/insights-service-health.md).
 
 
 ### Activer la fonction d’audit
 
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

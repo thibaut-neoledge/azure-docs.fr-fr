@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
-# Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
+# Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 
 Configurez votre première ou prochaine application métier basée sur le Web et exclusivement conçue pour l’Intranet dans Microsoft Azure et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement l’application pour y ajouter de nouvelles capacités.
  
@@ -36,11 +35,11 @@ L'étape suivante consiste pour vous à définir une ligne de développement/tes
 
 ## Création d’une ligne de développement/test de l'application métier hébergée dans Azure
 
-Un réseau virtuel entre sites locaux est connecté à un réseau local avec une connexion VPN de site à site ou ExpressRoute. Si vous voulez créer un environnement de développement/test qui reproduit la configuration finale et expérimenter l’accès à l’application et l’administration à distance via une connexion VPN, consultez [Configurer une application métier basée sur le Web dans un cloud hybride pour des tests](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Un réseau virtuel entre sites locaux est connecté à un réseau local avec une connexion VPN de site à site ou ExpressRoute. Si vous voulez créer un environnement de développement/test qui reproduit la configuration finale et expérimenter l’accès à l’application et l’administration à distance via une connexion VPN, consultez [Configurer une application métier basée sur le Web dans un cloud hybride pour des tests](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-Vous pouvez créer cet environnement de développement/test gratuitement avec votre [abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](https://azure.microsoft.com/pricing/free-trial/).
+Vous pouvez créer cet environnement de développement/test gratuitement avec votre [abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un abonnement Azure.
 
 La prochaine étape est la création d’une application métier à haute disponibilité dans Azure.
 
@@ -50,35 +49,35 @@ La configuration de référence représentative pour une application métier à 
 
 ![](./media/virtual-machines-windows-lob/workload-lobapp-phase4.png)
  
-Elle est constituée de :
+Elle est constituée de :
 
-- une application métier spécialement conçue pour l’Intranet avec deux serveurs aux niveaux Web et base de données ;
+- une application métier spécialement conçue pour l’Intranet avec deux serveurs aux niveaux Web et base de données ;
 - une configuration SQL Server AlwaysOn avec deux machines virtuelles exécutant SQL Server et un ordinateur de nœud majoritaire dans un cluster.
 - Services de domaine Active Directory dans le réseau virtuel avec deux contrôleurs de domaine répliqués.
 
 Pour obtenir une vue d’ensemble des applications métier, consultez le [Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664).
 
-Pour déployer cette configuration, procédez comme suit :
+Pour déployer cette configuration, procédez comme suit :
 
-- Phase 1 : configurer Azure 
+- Phase 1 : configurer Azure 
 
-	Utilisez Azure PowerShell pour créer les comptes de stockage, les groupes à haute disponibilité et un réseau virtuel intersite. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
+	Utilisez Azure PowerShell pour créer les comptes de stockage, les groupes à haute disponibilité et un réseau virtuel intersite. Pour les étapes de configuration détaillées, consultez [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-- Phase 2 : configurer les contrôleurs de domaine
+- Phase 2 : configurer les contrôleurs de domaine
 
-	Configurez deux contrôleurs de domaine répliqués Active Directory et les paramètres DNS pour le réseau virtuel. Pour les étapes de configuration détaillées, consultez [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
+	Configurez deux contrôleurs de domaine répliqués Active Directory et les paramètres DNS pour le réseau virtuel. Pour les étapes de configuration détaillées, consultez [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 
-- Phase 3 : configurer l’infrastructure SQL Server
+- Phase 3 : configurer l’infrastructure SQL Server
 
-	Création des machines virtuelles exécutant SQL Server et le cluster. Pour les étapes de configuration détaillées, consultez [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
+	Création des machines virtuelles exécutant SQL Server et le cluster. Pour les étapes de configuration détaillées, consultez [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
-- Phase 4 : configurer les serveurs Web
+- Phase 4 : configurer les serveurs Web
 
-	Déployer les machines virtuelles du serveur Web et y ajouter votre application métier. Pour les étapes de configuration détaillées, consultez [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
+	Déployer les machines virtuelles du serveur Web et y ajouter votre application métier. Pour les étapes de configuration détaillées, consultez [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-- Phase 5 : configurer un groupe à haute disponibilité SQL Server AlwaysOn
+- Phase 5 : configurer un groupe à haute disponibilité SQL Server AlwaysOn
 
-	Préparez les bases de données de l’application, créez un groupe à haute disponibilité SQL Server AlwaysOn, puis ajoutez-y les bases de données de l’application. Pour les étapes de configuration détaillées, consultez [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
+	Préparez les bases de données de l’application, créez un groupe à haute disponibilité SQL Server AlwaysOn, puis ajoutez-y les bases de données de l’application. Pour les étapes de configuration détaillées, consultez [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Une fois la configuration effectuée, vous pouvez étendre cette application métier en ajoutant des serveurs Web ou des machines virtuelles exécutant des serveurs SQL vers le cluster.
 
@@ -86,4 +85,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 - Découvrez un [aperçu](virtual-machines-windows-lob-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -32,8 +32,8 @@ Les fonctions Azure Virtual Machines, Azure Resource Manager et Azure Key Vault 
 - Les modèles contiennent uniquement des références URI à des secrets, ce qui signifie que les secrets réels ne se trouvent pas dans le code, la configuration ou les référentiels de code source. Cela évite les attaques de type hameçonnage sur les clés dans les référentiels internes ou externes, par exemple, de programmes zombies dans Github.
 - Les secrets stockés dans le coffre à clé sont sous le contrôle RBAC total d’un opérateur de confiance. Si l’opérateur de confiance quitte l’entreprise ou est transféré dans un autre groupe au sein de la société, il n’a plus accès aux clés qu’il a créées dans le coffre.
 - Cloisonnement complet de toutes les ressources :
-      - modèles pour déployer les clés 
-      - modèles servant à déployer une machine virtuelle avec des références aux clés 
+      - modèles pour déployer les clés
+      - modèles servant à déployer une machine virtuelle avec des références aux clés
       - les documents clés réels dans le coffre. Chaque modèle (et action) peut se trouver sous différents rôles RBAC pour une séparation complète des tâches.
 - Le chargement des secrets dans une machine virtuelle au moment du déploiement s’effectue via un canal direct entre Azure Fabric et le coffre de clés, dans les limites du centre de données Microsoft Datacenter. Une fois les clés placées dans le coffre de clés, elles ne sont jamais « visibles » sur un canal non approuvé hors du centre de données.  
 - Les coffres de clés ont toujours un caractère régional et les secrets disposent toujours d’une localité (et de la souveraineté) auprès des machines virtuelles. Il n’existe pas de coffre de clés global.
@@ -172,11 +172,11 @@ Une combinaison d’un principal de service et de RBAC permet de répondre à ce
 
 De nombreux scénarios ont des exigences spécifiant la façon dont le trafic vers une ou plusieurs instances de machine virtuelle du réseau virtuel est contrôlé. Vous pouvez utiliser un groupe de sécurité réseau (NSG) à cette fin dans le cadre du déploiement d’un modèle ARM.
 
-Un groupe de sécurité réseau est un objet de niveau supérieur associé à votre abonnement. Un NSG contient les règles de contrôle d’accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d’un réseau virtuel associé à une région (emplacement). Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d’affinités. Si vous ne disposez pas d’un réseau virtuel régional et souhaitez contrôler le trafic vers vos points de terminaison, consultez [À propos des listes de contrôle d’accès réseau](../virtual-network/virtual-networks-acl.md).
+Un groupe de sécurité réseau est un objet de niveau supérieur associé à votre abonnement. Un NSG contient les règles de contrôle d’accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d’un réseau virtuel associé à une région (emplacement). Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d’affinités. Si vous ne disposez pas d’un réseau virtuel régional et souhaitez contrôler le trafic vers vos points de terminaison, consultez [À propos des listes de contrôle d’accès réseau](./virtual-network/virtual-networks-acl.md).
 
 Vous pouvez associer un groupe de sécurité réseau à une machine virtuelle ou à un sous-réseau dans un réseau virtuel. Associé à une machine virtuelle, le groupe de sécurité réseau s'applique à tout le trafic envoyé et reçu par l'instance de la machine virtuelle. Lorsqu’il est appliqué à un sous-réseau au sein de votre réseau virtuel, il s’applique à l’ensemble du trafic envoyé et reçu par toutes les instances de la machine virtuelle au sein du sous-réseau. Une machine virtuelle ou un sous-réseau peut être associé à 1 seul groupe de sécurité réseau, et chaque groupe de sécurité réseau peut contenir jusqu’à 200 règles. Vous pouvez avoir 100 groupes de sécurité réseau par abonnement.
 
->[AZURE.NOTE]  Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
 ### À propos des groupes de sécurité réseau
 
@@ -292,7 +292,7 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
   - Internet. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure
   - Appliance virtuelle. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure.
   - NULL. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés.
--	Valeur de tronçon suivant. La valeur de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. Le saut suivant doit avoir lieu sur le sous-réseau (l’interface locale de l’appliance virtuelle selon l’ID de réseau), et non sur un sous-réseau distant. 
+-	Valeur de tronçon suivant. La valeur de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. Le saut suivant doit avoir lieu sur le sous-réseau (l’interface locale de l’appliance virtuelle selon l’ID de réseau), et non sur un sous-réseau distant.
 
 ![Routage](./media/best-practices-resource-manager-security/routing.png)
 
@@ -306,7 +306,7 @@ Chaque sous-réseau créé dans un réseau virtuel est automatiquement associé 
 
 ### Itinéraires BGP
 
-Au moment de la rédaction de cet article, [ExpressRoute](expressroute/expressroute-introduction.md) n’est pas encore pris en charge par le [fournisseur de ressources réseau](virtual-network/resource-groups-networking.md) d’Azure Resource Manager. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](expressroute/expressroute-introduction.md)
+Au moment de la rédaction de cet article, [ExpressRoute](./expressroute/expressroute-introduction.md) n’est pas encore pris en charge par le [fournisseur de ressources réseau](virtual-network/resource-groups-networking.md) d’Azure Resource Manager. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](./expressroute/expressroute-introduction.md)
 
 >[AZURE.NOTE] Une fois ExpressRoute pris en charge sur NRP, vous pouvez configurer votre environnement Azure de manière à ce qu’il utilise le tunneling forcé via votre réseau local en créant un itinéraire défini par l’utilisateur pour le sous-réseau 0.0.0.0/0 qui utilise la passerelle VPN comme tronçon suivant. Toutefois, cela ne fonctionne que si vous utilisez une passerelle VPN, et non ExpressRoute. Pour ExpressRoute, le tunneling forcé est configuré via BGP.
 
@@ -336,7 +336,7 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 ## Étapes suivantes
 - Pour comprendre comment définir les principaux de sécurité avec l’accès approprié pour travailler avec des ressources de votre organisation, consultez la rubrique [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md)
 - Si vous devez verrouiller l’accès à une ressource, vous pouvez utiliser des verrous de gestion. Consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md)
-- Pour configurer le routage et le transfert IP, consultez la rubrique [Création d’itinéraires et activation du transfert IP dans Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Pour obtenir une présentation du contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](role-based-access-control-configure.md).
+- Pour configurer le routage et le transfert IP, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide d’un modèle](./virtual-network/virtual-network-create-udr-arm-template.md)
+- Pour obtenir une présentation du contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à SuccessFactors | Microsoft Azure"
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à SuccessFactors | Microsoft Azure"
     description="Découvrez comment utiliser SuccessFactors avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à SuccessFactors
   
@@ -85,9 +85,9 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
     ![Configurer l’URL de l’application](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurer l’URL de l’application")
 
     1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : « *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-    2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE]Cette valeur n’est qu’un espace réservé temporaire. La valeur réelle vous est fournie par votre équipe de support SuccessFactors. Plus loin dans ce didacticiel, vous trouverez des instructions pour contacter votre équipe de support SuccessFactors. Dans le cadre de cet échange, vous recevez votre URL de réponse SuccessFactors.
+        >[AZURE.NOTE] Cette valeur n’est qu’un espace réservé temporaire. La valeur réelle vous est fournie par votre équipe de support SuccessFactors. Plus loin dans ce didacticiel, vous trouverez des instructions pour contacter votre équipe de support SuccessFactors. Dans le cadre de cet échange, vous recevez votre URL de réponse SuccessFactors.
 
 4.  Dans la page **Configurer l’authentification unique sur SuccessFactors**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
     2.  L’URL de connexion distante
     3.  L’URL de déconnexion distante
 
-    >[AZURE.IMPORTANT]Demandez à votre équipe de support SuccessFactors de régler le paramètre NameId Format sur *Unspecified*.
+    >[AZURE.IMPORTANT] Demandez à votre équipe de support SuccessFactors de régler le paramètre NameId Format sur *Unspecified*.
 
     Votre équipe de support Successfactors vous envoie l’**URL de réponse Successfactors** dont vous avez besoin pour la boîte de dialogue **Configurer l’URL de l’application**.
 
@@ -131,4 +131,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

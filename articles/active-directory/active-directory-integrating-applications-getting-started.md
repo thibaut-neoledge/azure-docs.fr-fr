@@ -62,15 +62,13 @@ Comme mentionné ci-dessus, il existe peut-être des applications qui n’ont pa
 Chacune de vos applications peut présenter des exigences d’authentification différentes. Avec Azure AD, la signature de certificats peut être utilisée avec des applications qui utilisent les protocoles SAML 2.0, WS-Federation ou OpenID Connect, ainsi que l’authentification unique par mot de passe. Pour plus d’informations sur les types d’authentification aux applications à utiliser avec Azure AD, consultez [Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](active-directory-sso-certs.md) et [Authentification unique par mot de passe](active-directory-appssoaccess-whatis.md).
 
 ### Activation de l’authentification unique avec le proxy d’application Azure AD
-Le proxy d’application Microsoft Azure AD vous permet d’accéder de façon sécurisée aux applications situées à l’intérieur de votre réseau privé, en tout lieu et sur tout appareil. Après avoir installé un connecteur de proxy d’application dans votre environnement, il peut être facilement configuré avec Azure AD. Consultez [Activation de l’authentification unique avec le proxy d’application Azure AD](active-directory-appssoaccess-enable-hybrid-access.md) et [Publication de nouvelles applications avec le proxy d’application Azure AD](active-directory-application-proxy-configure.md).
+Le proxy d’application Microsoft Azure AD vous permet d’accéder de façon sécurisée aux applications situées à l’intérieur de votre réseau privé, en tout lieu et sur tout appareil. Après avoir installé un connecteur de proxy d'application dans votre environnement, il peut être facilement configuré avec Azure AD.
 
 ### Intégration des applications dans Azure AD
 Les articles suivants traitent des différentes façons des applications de s’intégrer avec Azure AD et fournissent des conseils.
 
 - [Détermination de l’Active Directory à utiliser](active-directory-administer.md)
-- [Intégration avec les applications existantes](active-directory-sso-integrate-existing-apps.md)
-- [Publication de nouvelles applications avec le proxy d’application Azure AD](active-directory-application-proxy-configure.md)
-- [Utilisation d’applications dans la galerie d’applications Azure](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
+- [Utilisation d’applications dans la galerie d’applications Azure](active-directory-appssoaccess-whatis.md)
 - [Liste de didacticiels sur l’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
 
 ## Gestion de l’accès aux applications
@@ -91,4 +89,4 @@ Si vous souhaitez ajouter votre application personnalisée à la galerie d’app
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

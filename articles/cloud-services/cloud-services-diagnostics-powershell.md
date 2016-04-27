@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell | Microsoft Azure" 
-	description="Découvrez comment activer les diagnostics pour les services cloud à l’aide de PowerShell" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="sbtron" 
-	manager="" 
+<properties
+	pageTitle="Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell | Microsoft Azure"
+	description="Découvrez comment activer les diagnostics pour les services cloud à l’aide de PowerShell"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager=""
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="saurabh"/>
 
 
 # Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell
 
-Vous pouvez collecter des données de diagnostic telles que les journaux des applications, les compteurs de performances, etc. à partir d’un service cloud à l’aide de l’extension Diagnostics Azure. Cet article décrit comment activer l’extension Diagnostics Azure pour un service cloud à l’aide de PowerShell. Consultez [Installer et configurer Azure PowerShell Azure](powershell-install-configure.md) pour connaître les conditions requises pour cet article.
+Vous pouvez collecter des données de diagnostic telles que les journaux des applications, les compteurs de performances, etc. à partir d’un service cloud à l’aide de l’extension Diagnostics Azure. Cet article décrit comment activer l’extension Diagnostics Azure pour un service cloud à l’aide de PowerShell. Consultez [Installer et configurer Azure PowerShell Azure](../powershell-install-configure.md) pour connaître les conditions requises pour cet article.
 
 ## Activer l’extension de diagnostics lors du déploiement d’un service cloud
 
@@ -30,25 +30,25 @@ L’exemple suivant montre comment vous pouvez activer les diagnostics pour un s
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	 
-	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
+
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 
 Si le fichier de configuration des diagnostics spécifie un élément StorageAccount avec un nom de compte de stockage, l’applet de commande New-AzureServiceDiagnosticsExtensionConfig utilise automatiquement ce compte de stockage. Pour que cela fonctionne, le compte de stockage doit appartenir au même abonnement que le service cloud déployé.
 
-À partir d’Azure SDK 2.6, les fichiers de configuration de l’extension générés par la sortie cible de publication MSBuild incluent le nom du compte de stockage en fonction de la chaîne de configuration des diagnostics spécifiée dans le fichier de configuration de service (.cscfg). Le script ci-dessous vous montre comment analyser les fichiers de configuration de l’extension à partir de la sortie cible de publication, et comment configurer l’extension de diagnostics pour chaque rôle lorsque vous déployez le service cloud.
+À partir d’Azure SDK 2.6, les fichiers de configuration de l’extension générés par la sortie cible de publication MSBuild incluent le nom du compte de stockage en fonction de la chaîne de configuration des diagnostics spécifiée dans le fichier de configuration de service (.cscfg). Le script ci-dessous vous montre comment analyser les fichiers de configuration de l’extension à partir de la sortie cible de publication, et comment configurer l’extension de diagnostics pour chaque rôle lorsque vous déployez le service cloud.
 
 	$service_name = "MyService"
 	$service_package = "C:\build\output\CloudService.cspkg"
 	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
-	
+
 	#Find the Extensions path based on service configuration file
 	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
-	
+
 	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
 	$diagnosticsConfigurations = @()
 	foreach ($extPath in $diagnosticsExtensions)
@@ -58,7 +58,7 @@ Si le fichier de configuration des diagnostics spécifie un élément StorageAcc
 	$roles = $extPath -split ".",0,"simplematch"
 	if ($roles -is [system.array] -and $roles.Length -gt 1)
 	    {
-	    $roleName = $roles[1] 
+	    $roleName = $roles[1]
 	    $x = 2
 	    while ($x -le $roles.Length)
 	        {
@@ -87,7 +87,7 @@ Si le compte de stockage de diagnostics appartient à un autre abonnement que ce
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
- 
+
 
 ## Activer l’extension de diagnostics sur un service cloud existant
 
@@ -95,18 +95,18 @@ Vous pouvez utiliser l’applet de commande [Set-AzureServiceDiagnosticsExtensio
 
 
 	$service_name = "MyService"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	
-	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
-	  
+
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
+
 
 ## Obtenir la configuration actuelle de l’extension de diagnostics
-Pour obtenir la configuration de diagnostics actuelle pour un service cloud, utilisez l’applet de commande [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) :
-	
+Pour obtenir la configuration de diagnostics actuelle pour un service cloud, utilisez l’applet de commande [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) :
+
 	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
 ## Supprimer l’extension de diagnostics
@@ -116,7 +116,7 @@ Pour désactiver les diagnostics sur un service cloud, vous pouvez utiliser l’
 
 Si vous avez activé l’extension de diagnostics à l’aide de *Set-AzureServiceDiagnosticsExtension* ou *New-AzureServiceDiagnosticsExtensionConfig* sans le paramètre *Role*, vous pouvez supprimer l’extension à l’aide de *Remove-AzureServiceDiagnosticsExtension* sans le paramètre *Role*. Si le paramètre *Role* a été utilisé lors de l’activation de l’extension, il doit également être utilisé lors de la suppression de l’extension.
 
-Pour supprimer l’extension de diagnostics de chaque rôle individuel :
+Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 
 	Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
@@ -127,4 +127,4 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) explique les différentes options de configuration xml pour l’extension de diagnostics.
 - Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

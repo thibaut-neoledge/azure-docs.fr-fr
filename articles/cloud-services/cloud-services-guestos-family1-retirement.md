@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Microsoft Azure" 
-   description="Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
+<properties
+   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Microsoft Azure"
+   description="Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné"
+   services="cloud-services"
+   documentationCenter="na"
+   authors="yuemlu"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
+   ms.workload="tbd"
    ms.date="12/07/2015"
    ms.author="yuemlu"/>
 
@@ -35,17 +35,17 @@ Si vous avez d'autres questions, consultez les [Forums de services cloud](http:/
 
 Vos services cloud sont concernés si l'une des conditions suivantes s'applique :
 
-1. Vous avez une valeur de « osFamily = "1" » explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. 
+1. Vous avez une valeur de « osFamily = "1" » explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud.
 2. Vous n'avez pas de valeur pour osFamily explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. Actuellement, le système utilise la valeur par défaut « 1 » dans ce cas.
 3. Le portail Azure Classic répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ».
 
-Pour connaître la famille de systèmes d'exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois [configurer Azure PowerShell](../install-configure-powershell.md) Pour plus d'informations sur ce script, consultez la rubrique [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Pour connaître la famille de systèmes d'exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois [configurer Azure PowerShell](../powershell-install-configure.md) Pour plus d'informations sur ce script, consultez la rubrique [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
-    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName 
-    
-    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""} 
+    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName
+
+    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""}
 
     $deployments | ft @{Name="SubscriptionName";Expression={$subscription.SubscriptionName}}, ServiceName, SdkVersion, Slot, @{Name="osFamily";Expression={(select-xml -content $_.configuration -xpath "/ns:ServiceConfiguration/@osFamily" -namespace $namespace).node.value }}, osVersion, Status, URL
 }
@@ -65,13 +65,13 @@ Nous vous recommandons de migrer vos rôles de service cloud vers l'une des fami
 
 **Famille 3.x du SE invité** - Windows Server 2012
 
-1. Assurez-vous que votre application utilise SDK 1.8 ou une version ultérieure avec .NET framework 4.0 ou 4.5. 
+1. Assurez-vous que votre application utilise SDK 1.8 ou une version ultérieure avec .NET framework 4.0 ou 4.5.
 2. Définissez l'attribut osFamily sur « 3 » dans le fichier ServiceConfiguration.cscfg et redéployez votre service cloud.
 
 
 **Famille 2.x du SE invité** - Windows Server 2008 R2
 
-1. Assurez-vous que votre application utilise SDK 1.3 ou une version ultérieure avec .NET framework 3.5 ou 4.0. 
+1. Assurez-vous que votre application utilise SDK 1.3 ou une version ultérieure avec .NET framework 3.5 ou 4.0.
 2. Définissez l'attribut osFamily sur « 2 » dans le fichier ServiceConfiguration.cscfg et redéployez votre service cloud.
 
 
@@ -81,4 +81,4 @@ Les services cloud de la famille 1 des SE invités ne sont plus pris en charge.
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

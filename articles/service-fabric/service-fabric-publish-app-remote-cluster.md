@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="12/06/2015"
+    ms.date="04/07/2016"
     ms.author="cawa" />
 
 # Publier une application sur un cluster distant à l’aide de Visual Studio
@@ -40,7 +40,7 @@ Par défaut, votre application inclut deux profils de publication : Local.xml e
 
 Un dossier du projet d’application Service Fabric appelé **ApplicationParameters** contient les fichiers XML pour les valeurs de paramètre du manifeste d’application spécifié par l’utilisateur. Les fichiers manifeste de l’application peuvent être paramétrés de sorte que vous pouvez utiliser des valeurs différentes pour les paramètres de déploiement. Pour plus d’informations sur le paramétrage de votre application, consultez [Gérer plusieurs environnements dans Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
->[AZURE.NOTE]Pour les services d’acteur, vous devez créer le projet avant d’essayer de modifier le fichier dans un éditeur ou par le biais de la boîte de dialogue Publier. Cela est dû au fait que les fichiers de manifeste sont en partie générés pendant la génération.
+>[AZURE.NOTE] Pour les services d’acteur, vous devez créer le projet avant d’essayer de modifier le fichier dans un éditeur ou par le biais de la boîte de dialogue Publier. Cela est dû au fait que les fichiers de manifeste sont en partie générés pendant la génération.
 
 ## Pour publier une application à l’aide de la boîte de dialogue Publier une application Service Fabric
 
@@ -52,13 +52,13 @@ Les étapes suivantes montrent comment publier une application à l’aide de la
 
     Le fichier sélectionné dans la liste déroulante **Profil cible** est l’emplacement où tous les paramètres sont enregistrés, à l’exception des **versions du manifeste**. Vous pouvez soit réutiliser un profil existant, soit en créer un en choisissant **<Gérer les profils...>** dans la zone de liste déroulante **Profil cible**. Quand vous choisissez un profil de publication, son contenu s’affiche dans les champs correspondants de la boîte de dialogue. Pour enregistrer vos modifications à tout moment, cliquez sur le lien **Enregistrer le profil**.
 
-2. Dans la section **Point de terminaison de la connexion**, spécifiez un point de terminaison de publication local ou distant sur le cluster Service Fabric. Pour ajouter ou modifier le point de terminaison de la connexion, cliquez sur le bouton **Sélectionner...**. La boîte de dialogue **Sélectionner le cluster Service Fabric** affiche les points de terminaison de connexion disponibles sur le cluster Service Fabric et sur lesquels vous pouvez publier selon vos abonnements Azure. Notez que si vous n’êtes pas déjà connecté à Visual Studio, vous serez invité à le faire.
+2. Dans la section **Point de terminaison de la connexion**, spécifiez un point de terminaison de publication local ou distant sur le cluster Service Fabric. Pour ajouter ou modifier le point de terminaison de connexion, cliquez sur la liste déroulante **Point de terminaison de connexion**. Cette liste affiche les points de terminaison de connexion disponibles sur le cluster Service Fabric et sur lesquels vous pouvez publier selon vos abonnements Azure. Notez que si vous n’êtes pas déjà connecté à Visual Studio, vous serez invité à le faire.
 
     Utilisez la boîte de dialogue de sélection de cluster pour faire votre choix parmi l’ensemble des abonnements et clusters disponibles.
 
     ![Boîte de dialogue **Sélectionner un cluster Service Fabric**][1]
 
-    >[AZURE.NOTE]Si vous souhaitez publier sur un point de terminaison arbitraire (par exemple, un cluster Party), consultez la section **Publication sur un point de terminaison de cluster arbitraire** ci-dessous.
+    >[AZURE.NOTE] Si vous souhaitez publier sur un point de terminaison arbitraire (par exemple, un cluster Party), consultez la section **Publication sur un point de terminaison de cluster arbitraire** ci-dessous.
 
     Une fois que vous avez choisi un point de terminaison, Visual Studio valide la connexion au cluster Service Fabric sélectionné. Si le cluster n’est pas sécurisé, Visual Studio peut vous y connecter immédiatement. Toutefois, si le cluster est sécurisé, vous devez installer un certificat sur votre ordinateur local avant de continuer. Consultez [Configuration de connexions sécurisées](service-fabric-visualstudio-configure-secure-connections.md) pour plus d’informations. Lorsque vous avez terminé, choisissez le bouton **OK**. Le cluster sélectionné s’affiche dans la boîte de dialogue **Publier une application Service Fabric**.
 
@@ -74,7 +74,7 @@ Les étapes suivantes montrent comment publier une application à l’aide de la
 
     Si la version de l’application et la version du service utilisent le contrôle de version sémantique comme 1.0.0 ou des valeurs numériques au format 1.0.0.0, sélectionnez l’option **Mettre à jour automatiquement la version de l’application et les versions de service**. Lorsque vous choisissez cette option, les numéros de version du service et de l’application sont automatiquement mis à jour chaque fois que la version du code, de la configuration ou du package de données est mise à jour. Si vous préférez modifier les versions manuellement, désactivez la case à cocher pour désactiver cette fonctionnalité.
 
-    >[AZURE.NOTE]Pour que toutes les entrées de package s’affichent pour un projet d’acteur, créez d’abord le projet pour générer les entrées dans les fichiers de manifeste de service.
+    >[AZURE.NOTE] Pour que toutes les entrées de package s’affichent pour un projet d’acteur, créez d’abord le projet pour générer les entrées dans les fichiers de manifeste de service.
 
 6. Lorsque vous avez fini de spécifier tous les paramètres nécessaires, cliquez sur le bouton **Publier** pour publier votre application sur le cluster Service Fabric sélectionné. Les paramètres que vous avez spécifiés sont appliqués au processus de publication.
 
@@ -107,4 +107,4 @@ Pour savoir comment automatiser le processus de publication dans un environnemen
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -21,15 +21,15 @@ ms.author="deonhe"/>
 
 Connectez-vous à Yammer pour accéder aux conversations dans votre réseau d’entreprise.
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec Yammer, vous pouvez effectuer les opérations suivantes :
+Avec Yammer, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Yammer. 
 - Utiliser des déclencheurs quand un nouveau message arrive dans un groupe ou un flux que vous suivez.
-- Utiliser des actions pour publier un message, obtenir tous les messages et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau message apparaît, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+- Utiliser des actions pour publier un message, obtenir tous les messages et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau message apparaît, vous pouvez envoyer un message électronique à l’aide d’Office 365.
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 Yammer inclut les déclencheurs et les actions suivants.
@@ -49,31 +49,35 @@ Pour utiliser l’API Yammer, vous devez créer une **connexion**, puis fournir 
 
 Suivez ces étapes pour vous connecter à Yammer et terminer la configuration de la **connexion** à Yammer dans votre application logique :
 
-1. Sélectionnez **Périodicité**
+1. Sélectionnez **Périodicité**.
 2. Sélectionnez une **Fréquence** et entrez un **Intervalle**
-3. Sélectionnez **Ajouter une action** ![Configurer Yammer][1]
+3. Sélectionnez **Ajouter une action**.
+![Configurer Yammer][1]
 4. Entrez Yammer dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Yammer dans leur nom
 5. Sélectionnez **Yammer - Obtenir tous les messages**
-6. Sélectionnez **Se connecter à Yammer** : ![Configurer Yammer][2]
+6. Sélectionnez **Se connecter à Yammer** :
+![Configurer Yammer][2]
 7. Entrez vos informations d’identification Yammer pour vous connecter et autoriser l’application ![Configurer Yammer][3]  
-8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Yammer à interagir avec votre application logique : ![Configurer Yammer][4] 
-9. Une fois que vous êtes connecté, revenez à votre application logique pour la terminer en configurant la section **Yammer - Obtenir tous les messages** et en ajoutant les autres déclencheurs et actions dont vous avez besoin. ![Configurer Yammer][5]  
-10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.
+8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Yammer à interagir avec votre application logique :
+![Configurer Yammer][4] 
+9. Une fois que vous êtes connecté, revenez à votre application logique pour la terminer en configurant la section **Yammer - Obtenir tous les messages** et en ajoutant les autres déclencheurs et actions dont vous avez besoin.
+![Configurer Yammer][5]  
+10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.
 
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
 ## Informations de référence sur l’API REST Yammer
-Cette documentation concerne la version 1.0.
+Cette documentation concerne la version 1.0.
 
 
 ### Obtenir tous les messages publics dans le réseau Yammer de l’utilisateur connecté
-Correspond à la catégorie de conversations « Toutes » dans l’interface web de Yammer. ```GET: /messages.json```
+Correspond à la catégorie de conversations « Toutes » dans l’interface web de Yammer. ```GET: /messages.json```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|older\_then|integer|no|query|(aucun)|Retourne des messages antérieurs à l’ID de message spécifié sous forme de chaîne numérique. Ce paramètre est utile pour paginer les messages. Par exemple, si vous voyez actuellement 20 messages et que le plus ancien porte le numéro 2 912, vous pouvez ajouter « ?older\_than=2912 » à votre demande pour obtenir les 20 messages antérieurs à ceux actuellement affichés.|
-|newer\_then|integer|no|query|(aucun)|Retourne des messages postérieurs à l’ID de message spécifié sous forme de chaîne numérique. Utilisez ce paramètre pour déterminer s’il existe de nouveaux messages. Si vous voyez des messages et que le dernier message retourné porte le numéro 3 516, vous pouvez utiliser le paramètre « ?newer\_than=3516 » pour ne pas obtenir de doublons des messages actuellement affichés.|
+|older\_then|integer|no|query|(aucun)|Retourne des messages antérieurs à l’ID de message spécifié sous forme de chaîne numérique. Ce paramètre est utile pour paginer les messages. Par exemple, si vous voyez actuellement 20 messages et que le plus ancien porte le numéro 2 912, vous pouvez ajouter « ?older\_than=2912 » à votre demande pour obtenir les 20 messages antérieurs à ceux actuellement affichés.|
+|newer\_then|integer|no|query|(aucun)|Retourne des messages postérieurs à l’ID de message spécifié sous forme de chaîne numérique. Utilisez ce paramètre pour déterminer s’il existe de nouveaux messages. Si vous voyez des messages et que le dernier message retourné porte le numéro 3 516, vous pouvez utiliser le paramètre « ?newer\_than=3516 » pour ne pas obtenir de doublons des messages actuellement affichés.|
 |limit|integer|no|query|(aucun)|Retourner uniquement le nombre spécifié de messages.|
 |page|integer|no|query|(aucun)|Obtenir la page spécifiée. Si les données retournées dépassent la limite, vous pouvez utiliser ce champ pour accéder aux pages suivantes.|
 
@@ -110,7 +114,7 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 
 ## Définitions d’objet
 
-#### Message : message Yammer
+#### Message : message Yammer
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
@@ -136,7 +140,7 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 |liked\_by|non défini|no|
 |system\_message|booléenne|no|
 
-#### PostOperationRequest : représente une demande de publication sur Yammer pour le connecteur Yammer
+#### PostOperationRequest : représente une demande de publication sur Yammer pour le connecteur Yammer
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
@@ -166,14 +170,14 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 |topic19|string|no|
 |topic20|string|no|
 
-#### MessageList : liste des messages
+#### MessageList : liste des messages
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
 |messages|array|no|
 
 
-#### MessageBody : corps du message
+#### MessageBody : corps du message
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
@@ -181,14 +185,14 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 |plain|string|no|
 |rich|string|no|
 
-#### LikedBy : aimé par
+#### LikedBy : aimé par
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
 |count|integer|no|
 |names|array|no|
 
-#### YammmerEntity : aimé par
+#### YammmerEntity : aimé par
 
 | Nom | Type de données | Requis |
 |---|---| --- | 
@@ -198,7 +202,7 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png
@@ -206,4 +210,4 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

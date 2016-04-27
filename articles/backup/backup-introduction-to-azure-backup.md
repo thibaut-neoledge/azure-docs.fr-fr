@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Qu’est-ce qu’Azure Backup ?
@@ -83,6 +83,30 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
+
+## Sauvegarder et restaurer des machines virtuelles Premium Storage
+
+Le service Azure Backup protège maintenant les machines virtuelles Premium Storage.
+
+### Sauvegarder des machines virtuelles Premium Storage
+
+Lors de la sauvegarde de machines virtuelles Premium Storage, le service Backup crée un emplacement temporaire intermédiaire dans le compte Premium Storage. L'emplacement intermédiaire, nommé « AzureBackup- », est égal à la taille totale des données des disques Premium attachés à la machine virtuelle.
+
+>[AZURE.NOTE] Évitez de modifier l'emplacement intermédiaire.
+
+Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l'emplacement intermédiaire est conforme à l’ensemble de la [tarification Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Restaurer des machines virtuelles Premium Storage
+
+La restauration d'un point de récupération de machines virtuelles Premium Storage dans Premium Storage est le processus de restauration classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Premium Storage dans le stockage standard. Ce type de restauration peut être utilisé si vous avez besoin d'un sous-ensemble de fichiers de la machine virtuelle.
+
+Les étapes de restauration d’un point de récupération de machines virtuelles Premium Storage dans Premium Storage sont les suivantes :
+
+1. [Restaurer le point de récupération de la machine virtuelle dans le stockage standard.](backup-azure-restore-vms.md)
+2. [Copier les disques dans Premium Storage.](../storage/storage-use-azcopy.md)
+3. [Créer la machine virtuelle IaaS Azure.](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+
+
 ## Fonctionnalités
 Ces cinq tableaux récapitulent la manière dont les fonctionnalités de sauvegarde sont gérées au niveau de chaque composant :
 
@@ -108,7 +132,7 @@ Chaque composant prend en charge la sauvegarde incrémentielle quel que soit le 
 En outre, les sauvegardes sont compressées afin de réduire la quantité d’espace de stockage requise. L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Avec l’extension de machine virtuelle, toutes les données de sauvegarde sont copiées du compte de stockage client vers le coffre de sauvegarde dans la même région sans être compressées. Bien que cela augmente légèrement le volume de stockage utilisé, le fait de stocker des données sans compression permet d’accélérer les restaurations.
 
 #### Déduplication
-La déduplication est prise en charge par System Center DPM et Serveur Azure Backup lorsqu’ils sont [déployés dans une machine virtuelle Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La déduplication intervient au niveau de l’hôte grâce à la fonction de déduplication de Windows Server sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle.
+La déduplication est prise en charge pour System Center DPM et le serveur Backup lorsqu’ils sont [déployés dans une machine virtuelle Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La déduplication intervient au niveau de l’hôte grâce à la fonction de déduplication de Windows Server sur les disques durs virtuels attachés en tant que stockage de sauvegarde à la machine virtuelle.
 
 >[AZURE.WARNING] La déduplication n’est en revanche pas disponible dans Azure pour aucun des composants d’Azure Backup. Lorsque System Center DPM et Azure Backup Server sont déployés dans Azure, les disques de stockage attachés à la machine virtuelle ne peuvent pas être dédupliqués.
 
@@ -166,7 +190,7 @@ L’agent Azure Backup fournit la fonctionnalité de limitation qui vous permet 
 | | Agent Azure Backup | System Center DPM | Azure Backup Server | Azure Backup (extension de machine virtuelle) |
 | --- | --- | --- | --- | --- |
 | Fréquence de sauvegarde (sur le coffre de sauvegarde) | Trois sauvegardes par jour | Deux sauvegardes par jour |Deux sauvegardes par jour | Une sauvegarde par jour |
-| Fréquence de sauvegarde (sur disque) | Non applicable | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> |Non applicable |
+| Fréquence de sauvegarde (sur disque) | Non applicable | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> | <p>Toutes les 15 minutes pour SQL Server</p> <p>Toutes les heures pour les autres charges de travail</p> |Non applicable |
 | Options de rétention | Quotidienne, hebdomadaire, mensuelle, annuelle | Quotidienne, hebdomadaire, mensuelle, annuelle | Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |
 | Période de rétention | Jusqu’à 99 ans | Jusqu’à 99 ans | Jusqu’à 99 ans | Jusqu’à 99 ans |
 | Points de récupération dans le coffre Azure Backup | Illimité | Illimité | Illimité | Illimité |
@@ -179,10 +203,10 @@ Le fichier d’informations d’identification de coffre est un certificat qui e
 
 Les informations d’identification de coffre sont utilisées uniquement pendant le flux de travail d’inscription. Il est de votre responsabilité de vous assurer que le fichier d’informations d’identification de coffre n’est pas compromis. S’il tombe entre les mains d’un utilisateur non autorisé, le fichier d’informations d’identification de coffre peut servir à inscrire d’autres ordinateurs pour le même archivage. Toutefois, comme les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète appartenant au client, les données de sauvegarde existantes ne peuvent pas être compromises. Pour atténuer ce problème, les informations d’identification de coffre sont configurées pour expirer sous 48 heures. Vous pouvez télécharger les informations d’identification d’un archivage de sauvegarde autant de fois que nécessaire, seul le dernier fichier est applicable pendant le flux de travail d’inscription.
 
-## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
+## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
 De nombreux clients ont tendance à confondre récupération de sauvegarde et récupération d’urgence. Les deux opérations capturent des données et fournissent une sémantique de restauration, mais chacune est associée à une proposition de valeur bien spécifique.
 
-Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Azure Backup) *et* assurer la disponibilité de vos charges de travail (Azure Site Recovery) en cas de panne.
+Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Backup) *et* assurer la disponibilité de vos charges de travail (Site Recovery) en cas de panne.
 
 Les concepts qui suivent vous aideront à prendre des décisions importantes en matière de sauvegarde et de récupération.
 
@@ -190,11 +214,11 @@ Les concepts qui suivent vous aideront à prendre des décisions importantes en 
 | ------- | ------- | ------ | ----------------- |
 | Objectif de point de récupération (RPO) | Quantité de perte de données acceptable si la récupération doit être exécutée. | Les solutions de sauvegarde offrent des RPO extrêmement variables. Les sauvegardes de machines virtuelles ont généralement un RPO d’un jour, contre seulement 15 minutes pour les sauvegardes de base de données. | Les solutions de récupération d’urgence ont un RPO faible. La copie de récupération d’urgence peut devoir être prête en seulement quelques secondes ou quelques minutes. |
 | Objectif de délai de récupération (RTO) | Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. | Les solutions de récupération d’urgence ont un RTO plus faible car elles sont davantage synchronisées avec la source et ont moins de modifications à traiter. |
-| Rétention | Durée pendant laquelle les données doivent être stockées | Pour les scénarios qui exigent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant 30 jours au maximum.<br>Du point de vue de la conformité, il se peut que vous deviez stocker les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage. | Une récupération d’urgence porte uniquement sur les données de récupération opérationnelle, soit en général quelques heures, sans dépasser une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
+| Rétention | Durée pendant laquelle les données doivent être stockées | Pour les scénarios qui exigent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant 30 jours au maximum.<br>Du point de vue de la conformité, il se peut que vous deviez stocker les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage. | Une récupération d’urgence porte uniquement sur les données de récupération opérationnelle, soit en général quelques heures, sans dépasser une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
 
 ## Étapes suivantes
 
-Essayez une simple sauvegarde Azure. Pour plus d’informations, consultez l’un des didacticiels suivants :
+Essayez une simple sauvegarde Azure. Pour plus d’informations, consultez l’un des didacticiels suivants :
 
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - [Test de la machine virtuelle Azure Backup](backup-azure-vms-first-look.md)
@@ -211,4 +235,4 @@ Comme ces didacticiels vous aident à effectuer des sauvegardes rapides, ils n�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,4 +1,12 @@
-<properties pageTitle="Analyse des performances d’une base de données dans une base de données SQL Azure" | Microsoft Azure" description="Découvrez les options d’analyse de votre base de données à l’aide des outils Azure et des vues de gestion dynamique." keywords="analyse de base de données, performances des bases de données du cloud" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
+<properties
+	pageTitle="Analyse des performances d’une base de données dans une base de données SQL Azure | Microsoft Azure"
+	description="Découvrez les options d’analyse de votre base de données à l’aide des outils Azure et des vues de gestion dynamique."
+	keywords="analyse de base de données, performances des bases de données du cloud"
+	services="sql-database"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -39,4 +47,4 @@ Les mêmes mesures exposées dans le portail sont également disponibles via des
 
 Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->
