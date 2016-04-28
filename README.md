@@ -18,12 +18,7 @@ Merci de l’intérêt que vous portez à la documentation Azure.
 
 ## Comment contribuer ?
 
-Vous pouvez contribuer à la [documentation Azure](http://azure.microsoft.com/documentation/) de différentes manières :
-
-* Contribuez à un [forum de discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
-* Envoyez des commentaires Disqus au bas des articles.
-* Vous pouvez facilement contribuer aux articles techniques dans l’interface utilisateur de GitHub. Recherchez l’article dans ce dépôt ou consultez l’article à l’adresse [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) et cliquez sur le lien dans l’article qui mène à la source GitHub de l’article.
-* Si vous apportez des modifications substantielles à un article existant, si vous ajoutez ou modifiez des images ou si vous ajoutez un nouvel article, vous devez répliquer ce dépôt, installer GitBash et MarkdownPad, puis apprendre à utiliser certaines commandes git.
+Vous pouvez facilement contribuer aux articles techniques dans l’interface utilisateur de GitHub. Recherchez l’article dans ce dépôt ou consultez l’article à l’adresse [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) et cliquez sur le lien dans l’article qui mène à la source GitHub de l’article.
 
 ##À propos de vos contributions au contenu Azure
 
@@ -103,4 +98,4 @@ Les métadonnées d’articles activent certaines fonctionnalités sur le site w
 
 Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du contributeur](./contributor-guide/contributor-guide-index.md).
 
-<!---HONumber=AcomDC_0307_2016-->
+<!----HONumber=AcomDC_0307_2016-->
