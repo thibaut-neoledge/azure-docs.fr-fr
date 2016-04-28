@@ -78,8 +78,7 @@ Vous commencez avec un nouveau compte d'essai Azure. Une fois que vous avez ter
 |---|---|
 |Détails du réseau virtuel|**NAME = ContosoNET**<br/>**REGION = West US**|
 |Serveurs DNS et connectivité VPN|Aucun|
-|Espaces d’adressage du réseau virtuel|Ces paramètres sont illustrés dans la capture d'écran ci-dessous :
-![Création d’un réseau virtuel](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
+|Espaces d’adressage du réseau virtuel|Ces paramètres sont illustrés dans la capture d'écran ci-dessous : ![Création d’un réseau virtuel](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. Créez ensuite la machine virtuelle que vous allez utiliser comme contrôleur de domaine (DC). Cliquez sur **Nouveau**, puis sur **Compute**, puis sur **Machine virtuelle**, puis sur **De la galerie**, comme illustré ci-dessous.
 
