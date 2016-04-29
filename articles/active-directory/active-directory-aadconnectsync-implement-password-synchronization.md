@@ -85,7 +85,7 @@ Quand vous activez la synchronisation de mot de passe, les stratégies de comple
 
 **Stratégie d'expiration de mot de passe**
 
-Si un utilisateur est inclus dans la synchronisation de mot de passe, le mot de passe du compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que vous pouvez continuer à vous connecter aux Cloud Services à l’aide d’un mot de passe synchronisé qui a expiré dans votre environnement local.
+Si un utilisateur est inclus dans la synchronisation de mot de passe, le mot de passe du compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que vous pouvez continuer à vous connecter aux Cloud Services à l’aide d’un mot de passe synchronisé qui a expiré dans votre environnement local.
 
 Votre mot de passe cloud est mis à jour la prochaine fois que vous modifiez le mot de passe dans l’environnement local.
 
