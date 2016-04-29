@@ -631,4 +631,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->
