@@ -203,4 +203,4 @@ Les étapes suivantes ne sont pas requises si vous devez uniquement accéder à 
 ##<a id="Next">Étapes suivantes
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0413_2016---->
