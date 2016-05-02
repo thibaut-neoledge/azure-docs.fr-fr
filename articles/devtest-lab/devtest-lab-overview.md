@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #Présentation de DevTest Lab
@@ -66,4 +66,4 @@ Les **stratégies** vous aident à contrôler les coûts dans votre laboratoire.
 
 Pour commencer à utiliser DevTest Lab, suivez le didacticiel étape par étape [Création d’une instance du service Azure DevTest Lab](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/21/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -23,7 +23,7 @@
 - [Utiliser PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
+Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) avec accès à Azure Data Lake Store. Points importants à prendre en compte pour cette version :
 
 * **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
 
@@ -32,7 +32,7 @@ Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hado
 
 Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire.
 
-Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide de PowerShell, la procédure est la suivante :
+Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide de PowerShell, la procédure est la suivante :
 
 * Créer un Azure Data Lake Store
 * Configurer l'authentification pour définir un accès à Data Lake Store en fonction du rôle
@@ -41,24 +41,24 @@ Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide d
 
 ## Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
 
 
-##Installer Azure PowerShell 1.0 et versions ultérieures
+##Installer Azure PowerShell 1.0 et versions ultérieures
 
-Pour commencer, vous devez désinstaller les versions 0.9x d’Azure PowerShell. Pour vérifier la version PowerShell installée, exécutez la commande suivante dans une fenêtre PowerShell :
+Pour commencer, vous devez désinstaller les versions 0.9x d’Azure PowerShell. Pour vérifier la version PowerShell installée, exécutez la commande suivante dans une fenêtre PowerShell :
 
 	Get-Module *azure*
 
-Pour désinstaller l’ancienne version, exécutez **Programmes et fonctionnalités** dans le Panneau de configuration et supprimez la version installée si elle est antérieure à PowerShell 1.0.
+Pour désinstaller l’ancienne version, exécutez **Programmes et fonctionnalités** dans le Panneau de configuration et supprimez la version installée si elle est antérieure à PowerShell 1.0.
 
-Il existe deux options principales pour l’installation d’Azure PowerShell.
+Il existe deux options principales pour l’installation d’Azure PowerShell.
 
-- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
+- [PowerShell Gallery](https://www.powershellgallery.com/). Exécutez les commandes suivantes à partir de PowerShell ISE avec élévation de privilèges ou de la console Windows PowerShell avec élévation de privilèges :
 
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
@@ -75,7 +75,7 @@ Il existe deux options principales pour l’installation d’Azure PowerShell.
 
 	Pour plus d’informations, consultez [PowerShell Gallery](https://www.powershellgallery.com/).
 
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez [Installer Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, vous devez les supprimer avant l’installation pour garantir un environnement Azure PowerShell cohérent. Pour obtenir des instructions, consultez [Installer Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Si vous êtes familiarisé avec l’installation à partir de PowerShell Gallery, il s’agit du premier canal pour bénéficier des dernières nouveautés d’Azure PowerShell.
 
@@ -84,7 +84,7 @@ WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises
 
 Pour créer un Data Lake Store, procédez comme suit.
 
-1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu'administrateur/propriétaire de l'abonnement :
+1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu'administrateur/propriétaire de l'abonnement :
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -105,7 +105,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Créer un groupe de ressources Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
+	![Créer un groupe de ressources Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
 
 2. Créer un compte Azure Data Lake Store. Le nom de compte que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
 
@@ -229,7 +229,7 @@ Dans cette section, nous créons un cluster HDInsight Hadoop. Pour cette version
 
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
-	Après exécution de l'applet de commande, le résultat se présente ainsi :
+	Après exécution de l'applet de commande, le résultat se présente ainsi :
 
 		Name                      : hdiadlcluster
 		Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
@@ -257,17 +257,17 @@ Dans cette section, vous allez utiliser SSH dans le cluster et exécuter l’exe
 
 Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
+1. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
 
     	hive
 
-2. À l’aide de l’interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **vehicles** à l’aide des exemples de données du Data Lake Store :
+2. À l’aide de l’interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **vehicles** à l’aide des exemples de données du Data Lake Store :
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
 		SELECT * FROM vehicles LIMIT 10;
 
-	Le résultat doit ressembler à ce qui suit :
+	Le résultat doit ressembler à ce qui suit :
 
 		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
 		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
@@ -293,7 +293,7 @@ Utilisez les applets de commande suivantes pour exécuter la requête Hive. Dans
 
 	Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
 
-Cela aura le résultat suivant. La valeur 0 pour **ExitValue** dans le résultat suggère que la tâche a réussi.
+Cela aura le résultat suivant. La valeur 0 pour **ExitValue** dans le résultat suggère que la tâche a réussi.
 
 	Cluster         : hdiadlcluster.
 	HttpEndpoint    : hdiadlcluster.azurehdinsight.net
@@ -306,11 +306,11 @@ Cela aura le résultat suivant. La valeur 0 pour **ExitValue** dans le résultat
 	Callback        :
 	Completed       : done
 
-Récupérez le résultat de la tâche à l'aide de l'applet de commande suivante :
+Récupérez le résultat de la tâche à l'aide de l'applet de commande suivante :
 
 	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
 
-Le résultat de la tâche se présente ainsi :
+Le résultat de la tâche se présente ainsi :
 
 	1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
 	1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
@@ -355,7 +355,7 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 3. Dans le panneau du cluster, cliquez sur **Bureau à distance** puis, dans le panneau **Bureau à distance**, cliquez sur **Connexion**.
 
-	![Accès à distance à un cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Créer un groupe de ressources Azure")
+	![Accès à distance à un cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Créer un groupe de ressources Azure")
 
 	Lorsque vous y êtes invité, entrez les informations d'identification que vous avez fournies à l'utilisateur du bureau à distance.
 
@@ -373,9 +373,9 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 ## Voir aussi
 
-* [Portail : Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Portail : Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
  
 # Diagnostic des problèmes liés aux dépendances dans Application Insights
@@ -22,7 +22,7 @@ Un *dépendance* est un composant externe qui est appelé par votre application.
 
 ## Où vous pouvez l’utiliser
 
-Une surveillance des dépendances est actuellement disponible en standard pour :
+Une surveillance des dépendances est actuellement disponible en standard pour :
 
 * les applications et les services web ASP.NET qui s’exécutent sur un serveur IIS ou sur Azure
 * [Applications web Java](app-insights-java-agent.md)
@@ -30,7 +30,7 @@ Une surveillance des dépendances est actuellement disponible en standard pour :
 
 Pour les autres types, tels que les applications pour appareil, vous pouvez créer votre propre surveillance à l’aide de l’API [TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
-Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
+Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
 
 * ASP.NET
  * Bases de données SQL
@@ -38,9 +38,9 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
  * Appels HTTP locaux ou distants
  * Azure DocumentDb, table, stockage d’objets blob et file d’attente
 * Java
- * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
+ * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
 * Pages web
- * [Appels AJAX](app-insights-javascript.md)
+ * [Appels AJAX](app-insights-javascript.md)
 
 Là encore, vous pouvez écrire vos propres appels au kit de développement logiciel (SDK) pour surveiller d’autres dépendances.
 
@@ -50,27 +50,27 @@ Installez l’agent approprié pour le serveur hôte.
 
 Plateforme | Installer
 ---|---
-Serveur IIS | [Installez Status Monitor sur votre serveur](app-insights-monitor-performance-live-website-now.md) ou [mettez à niveau votre application vers .NET Framework version 4.6 ou ultérieure](http://go.microsoft.com/fwlink/?LinkId=528259). 
-Application web Azure | [Extension Application Insights](../azure-portal/insights-perf-analytics.md)
-Serveur web Java | [Applications web Java](app-insights-java-agent.md)
-Pages web | [Moniteur JavaScript](app-insights-javascript.md) (sans configuration supplémentaire au-delà de la surveillance de page web)
-Service cloud | [Utilisez une tâche de démarrage](app-insights-cloudservices.md#dependencies) ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+Serveur IIS | [Installez Status Monitor sur votre serveur](app-insights-monitor-performance-live-website-now.md) ou [mettez à niveau votre application vers .NET Framework version 4.6 ou ultérieure](http://go.microsoft.com/fwlink/?LinkId=528259) et installez le [Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans votre application.
+Application web Azure | [Extension Application Insights](../azure-portal/insights-perf-analytics.md)
+Serveur web Java | [Applications web Java](app-insights-java-agent.md)
+Pages web | [Moniteur JavaScript](app-insights-javascript.md) (sans configuration supplémentaire en dehors de la surveillance de pages web)
+Azure Cloud Services | [Utilisez une tâche de démarrage](app-insights-cloudservices.md#dependencies) ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
-Status Monitor pour les serveurs IIS n’a pas besoin de régénérer votre projet source avec le Kit de développement logiciel (SDK) Application Insights.
+Status Monitor pour les serveurs IIS n’a pas besoin de régénérer votre projet source avec le Kit de développement logiciel (SDK) Application Insights.
 
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances sur le serveur web
 
-Pour évaluer les performances des demandes au niveau de votre serveur :
+Pour évaluer les performances des demandes au niveau de votre serveur :
 
 ![Dans Application Insights, dans la page Vue d’ensemble de votre application, cliquez sur la vignette de performances](./media/app-insights-dependencies/01-performance.png)
 
-Faites défiler vers le bas pour accéder à la grille des demandes :
+Faites défiler vers le bas pour accéder à la grille des demandes :
 
 ![Liste de demandes avec moyennes et nombres](./media/app-insights-dependencies/02-reqs.png)
 
 La durée de la première est très longue. Examinons-la pour en savoir plus.
 
-Cliquez sur cette ligne pour afficher les événements de la demande :
+Cliquez sur cette ligne pour afficher les événements de la demande :
 
 
 ![Liste des occurrences de demande](./media/app-insights-dependencies/03-instances.png)
@@ -79,13 +79,13 @@ Cliquez sur n’importe quelle instance présentant une longue durée d’exécu
 
 > [AZURE.NOTE] Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
 
-Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
+Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
 
 ![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-dependencies/04-dependencies.png)
 
 Il semble que la plupart du temps passé au traitement de cette demande ait été consacré à l’appel d’un service local.
 
-Sélectionnez cette ligne pour obtenir plus d’informations :
+Sélectionnez cette ligne pour obtenir plus d’informations :
 
 
 ![Cliquez sur cette dépendance distante pour identifier la cause](./media/app-insights-dependencies/05-detail.png)
@@ -140,4 +140,4 @@ Voir [Pages web](app-insights-javascript.md).
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)
+# Problèmes connus pour Apache Spark sur Azure HDInsight Linux (version préliminaire)
 
 Ce document fait le suivi de tous les problèmes connus pour la version Preview publique de HDInsight Spark.
 
 ##Livy divulgue une session interactive
  
-**Symptôme :**
-
 Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) encore active, une session de travail interactive sera divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
 
 **Atténuation :**
@@ -46,8 +44,6 @@ De nouvelles tâches commencent à être exécutées.
 
 ##Serveur d’historique Spark non démarré 
 
-**Symptôme :**
- 
 Le serveur d’historique Spark ne démarre pas automatiquement après la création d’un cluster.
 
 **Atténuation :**
@@ -56,8 +52,6 @@ Démarrez manuellement le serveur d’historique à partir d’Ambari.
 
 ## Problème d’autorisation dans le répertoire des journaux Spark 
 
-**Symptôme :**
- 
 Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (Autorisation refusée) et le journal du pilote n’est pas écrit.
 
 **Atténuation :**
@@ -71,19 +65,27 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 
 Voici certains problèmes connus liés aux notebooks Jupyter.
 
+### Impossible de télécharger les blocs-notes Jupyter au format .ipynb
+
+Si vous exécutez la dernière version des blocs-notes Jupyter pour HDInsight Spark et que vous essayez de télécharger une copie du bloc-notes sous forme de fichier **.ipynb** à partir de l'interface utilisateur du bloc-notes Jupyter, une erreur interne peut apparaître.
+
+**Atténuation :**
+
+1.	Le téléchargement du bloc-notes dans un format autre que .ipynb (par exemple, .txt) réussira.  
+2.	Si vous avez besoin du fichier .ipynb, vous pouvez le télécharger à partir de votre conteneur de cluster dans votre compte de stockage sous **/HdiNotebooks**. Cela concerne uniquement la dernière version des blocs-notes Jupyter pour HDInsight, qui prend en charge les sauvegardes de bloc-notes dans le compte de stockage. Les versions précédentes des blocs-notes Jupyter pour HDInsight Spark n'ont pas ce problème.
+
+
 ### Notebooks avec des caractères non-ASCII dans les noms de fichiers
 
 Les notebooks Jupyter qui peuvent être utilisés dans les clusters Spark HDInsight ne doivent pas contenir de caractères non-ASCII dans les noms de fichiers. Si vous essayez de télécharger un fichier, par le biais de l’interface utilisateur Jupyter, qui a un nom de fichier non-ASCII, l’opération échoue en mode silencieux (c’est-à-dire que Jupyter ne vous permet pas de télécharger le fichier, mais ne renvoie pas d’erreur visible).
 
 ### Erreur lors du chargement de notebooks de taille supérieure
 
-**Symptôme :**
-
-Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un notebook de taille supérieure.
+Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un bloc-notes de taille supérieure.
 
 **Atténuation :**
 
-Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues. Vos notebooks sont toujours sur le disque, sous `/var/lib/jupyter` et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle. À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues. Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter` et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle. À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
 
 Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants :
 
@@ -92,17 +94,13 @@ Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants 
 
 ### Démarrage du bloc-notes plus long que prévu 
 
-**Symptôme :**
-
-La première instruction du bloc-notes Jupyter à l’aide de Spark Magic peut nécessiter plusieurs minutes.
+La première instruction de code du bloc-notes Jupyter avec Spark Magic peut nécessiter plusieurs minutes.
 
 **Explication :**
  
 Cela se produit lorsque la première cellule du code est exécutée. En arrière-plan, la configuration de la session est lancée, et les contextes Spark, SQL et Hive sont définis. Une fois ces contextes définis, la première instruction est exécutée et donne l'impression que l'instruction prend beaucoup de temps.
 
 ### Délai d’attente du bloc-notes Jupyter lors de la création de la session
-
-**Symptôme :**
 
 Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bloc-notes Jupyter expirent en essayant de créer la session.
 
@@ -124,4 +122,4 @@ Vous pouvez créer des points de contrôle dans les notebooks Jupyter au cas où
 - [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Prise en main : approvisionner Apache Spark sur HDInsight (Linux) et exécuter des requêtes interactives à l’aide de Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

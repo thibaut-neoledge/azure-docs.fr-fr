@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
@@ -40,21 +40,21 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 
 
 ### Configuration requise pour Azure Batch
-Dans la procédure pas à pas, vous allez exécuter vos activités .NET personnalisées à l’aide de la ressource de calcul Azure Batch. Consultez la rubrique concernant les [concepts de base d’Azure Batch][batch-technical-overview] pour obtenir un aperçu du service Microsoft Azure Batch, et la page [Prise en main de la bibliothèque Azure Batch pour .NET][batch-get-started] pour mettre rapidement en route ce service.
+Dans la procédure pas à pas, vous allez exécuter vos activités .NET personnalisées à l’aide de la ressource de calcul Azure Batch. Consultez la rubrique concernant les [concepts de base d’Azure Batch][batch-technical-overview] pour obtenir un aperçu du service Microsoft Azure Batch, et la page [Prise en main de la bibliothèque Azure Batch pour .NET][batch-get-started] pour mettre rapidement en route ce service.
 
 Pour les besoins de ce didacticiel, vous devez créer un compte Azure Batch avec un pool de machines virtuelles. Voici la procédure à suivre :
 
-1. Créez un compte [Azure Batch](http://manage.windowsazure.com) via le **portail Azure**. Consultez l’article [Créer et gérer un compte Azure Batch][batch-create-account] pour obtenir des instructions. Notez la clé et le nom du compte Microsoft Azure Batch.
+1. Créez un compte [Azure Batch](http://manage.windowsazure.com) via le **portail Azure**. Consultez l’article [Créer et gérer un compte Azure Batch][batch-create-account] pour obtenir des instructions. Notez la clé et le nom du compte Microsoft Azure Batch.
 
-	Vous pouvez également utiliser l’applet de commande [New-AzureBatchAccount][new-azure-batch-account] pour créer un compte Microsoft Azure Batch. Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir le billet de blog [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog].
-2. Créez un **pool Azure Batch**. Vous pouvez télécharger le code source de l’outil [Azure Batch Explorer][batch-explorer], compiler, l’utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
+	Vous pouvez également utiliser l’applet de commande [New-AzureBatchAccount][new-azure-batch-account] pour créer un compte Microsoft Azure Batch. Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir le billet de blog [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog].
+2. Créez un **pool Azure Batch**. Vous pouvez télécharger le code source de l’outil [Azure Batch Explorer][batch-explorer], compiler, l’utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
 
-	Vous pouvez également utiliser l’applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) pour créer un pool Microsoft Azure Batch.
+	Vous pouvez également utiliser l’applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) pour créer un pool Microsoft Azure Batch.
 
-	Il peut être judicieux de créer le pool Azure Batch avec au moins 2 nœuds de calcul afin que les tranches puissent être traitées en parallèle. Si vous utilisez l’Explorateur Batch :
+	Il peut être judicieux de créer le pool Azure Batch avec au moins 2 nœuds de calcul afin que les tranches puissent être traitées en parallèle. Si vous utilisez l’Explorateur Batch :
 
 	- Entrez un ID pour le pool (**ID de pool**). Notez l’**ID du pool**, car vous en aurez besoin lors de la création de la solution Data Factory. 
-	- Spécifiez **Windows Server 2012 R2** pour le paramètre de famille du système d’exploitation.
+	- Spécifiez **Windows Server 2012 R2** pour le paramètre de famille du système d’exploitation.
 	- Spécifiez **2** comme valeur pour le paramètre **Nombre maximal de tâches par nœud de calcul**.
 	- Spécifiez **2** comme valeur pour le paramètre **Number of Target Dedicated** (Nombre de cibles dédiées). 
 
@@ -64,14 +64,14 @@ Pour les besoins de ce didacticiel, vous devez créer un compte Azure Batch avec
 	1.	Dans Visual Studio, créez un projet de bibliothèque de classes .NET, ajoutez le code de traitement des données d’entrée et compilez le projet.	
 	2.	Compressez les fichiers binaires et le fichier (facultatif) PDB dans le dossier de sortie.	
 	3.	Téléchargez le fichier compressé dans un stockage d’objets blob Azure. La procédure détaillée est décrite dans la section Création de l’activité personnalisée. 
-2. **Créez une fabrique de données Azure qui utilise l’activité personnalisée** :
+2. **Créez une fabrique de données Azure qui utilise l’activité personnalisée** :
 	1. Créer une fabrique de données Azure.
 	2. créez des services liés.
 		1. AzureStorageLinkedService : fournit les informations d’identification du stockage permettant d’accéder aux objets blob.
-		2. AzureBatchLinkedService : Spécifie Azure Batch comme calcul.
+		2. AzureBatchLinkedService : Spécifie Azure Batch comme calcul.
 	3. Créez les jeux de données.
-		1. InputDataset : spécifie le conteneur de stockage et le dossier contenant les objets blob d’entrée.
-		1. OutputDataset : spécifie le conteneur de stockage et le dossier contenant les objets blob de sortie.
+		1. InputDataset : spécifie le conteneur de stockage et le dossier contenant les objets blob d’entrée.
+		1. OutputDataset : spécifie le conteneur de stockage et le dossier contenant les objets blob de sortie.
 	2. Créez un pipeline qui utilise l’activité personnalisée.
 	3. Exécutez et testez le pipeline.
 	4. Déboguez le pipeline.
@@ -86,12 +86,12 @@ Pour créer une activité .NET personnalisée, créez un projet de **bibliothèq
             IActivityLogger logger)
         
 
-La méthode accepte quatre paramètres :
+La méthode accepte quatre paramètres :
 
-- **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie. 
-- **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
-- **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, Azure Batch).
-- **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline. 
+- **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie. 
+- **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
+- **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, Azure Batch).
+- **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline. 
 
 La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les activités personnalisées. Cette fonctionnalité n’est pas encore prise en charge.
 
@@ -238,7 +238,7 @@ La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les 
             return new Dictionary<string, string>();
         }
 
-9. Ajoutez les méthodes d'assistance suivantes. La méthode **Execute** appelle ces méthodes d’assistance. La méthode **GetConnectionString** récupère la chaîne de connexion Microsoft Azure Storage et la méthode **GetFolderPath**, l’emplacement de l’objet blob. Plus important encore, la méthode **Calculate** isole le code qui effectue une itération dans chaque objet blob.
+9. Ajoutez les méthodes d'assistance suivantes. La méthode **Execute** appelle ces méthodes d’assistance. La méthode **GetConnectionString** récupère la chaîne de connexion Microsoft Azure Storage et la méthode **GetFolderPath**, l’emplacement de l’objet blob. Plus important encore, la méthode **Calculate** isole le code qui effectue une itération dans chaque objet blob.
 
         /// <summary>
         /// Gets the folderPath value from the input/output dataset.
@@ -317,7 +317,7 @@ La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les 
 		            "fileName": "file.txt",
 		            "folderPath": "mycontainer/inputfolder/",
 	
-	La méthode Calculate calcule le nombre d’instances du mot-clé Microsoft dans les fichiers d’entrée (objets blob du dossier). Le terme de recherche (« Microsoft ») est codé en dur dans le code.
+	La méthode Calculate calcule le nombre d’instances du mot-clé Microsoft dans les fichiers d’entrée (objets blob du dossier). Le terme de recherche (« Microsoft ») est codé en dur dans le code.
 
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
 11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
@@ -332,7 +332,7 @@ La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les 
 
 Cette section fournit des informations et remarques supplémentaires concernant le code contenu dans la méthode **Execute**.
  
-1. Les membres de l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). L’itération dans la collection d’objets blob requiert d’utiliser la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, voir [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
+1. Les membres de l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). L’itération dans la collection d’objets blob requiert d’utiliser la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, voir [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
 
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
@@ -387,7 +387,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 			// Write the name of the file. 
 			Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
-7.	Le nom du fichier a été écrit et vous pouvez maintenant écrire la chaîne de sortie dans un nouvel objet blob à partir de la méthode de calcul :
+7.	Le nom du fichier a été écrit et vous pouvez maintenant écrire la chaîne de sortie dans un nouvel objet blob à partir de la méthode de calcul :
 
 			// Create a new blob and upload the output text.
 			CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
@@ -404,14 +404,14 @@ Créez un fichier nommé **file.txt** avec le contenu suivant et téléchargez-l
 
 	test custom activity Microsoft test custom activity Microsoft
 
-Le dossier d’entrée correspond à une tranche dans Azure Data Factory, même si le dossier contient au moins 2 fichiers. Lorsque chaque tranche est traitée par le pipeline, l’activité personnalisée effectue une itération dans tous les objets blob du dossier d’entrée pour la tranche en question.
+Le dossier d’entrée correspond à une tranche dans Azure Data Factory, même si le dossier contient au moins 2 fichiers. Lorsque chaque tranche est traitée par le pipeline, l’activité personnalisée effectue une itération dans tous les objets blob du dossier d’entrée pour la tranche en question.
 
-Un fichier de sortie à 1 ou plusieurs lignes (le même nombre de lignes que le nombre d’objets blob contenus dans le dossier d’entrée) apparaîtra dans le dossier mycontainer\\output :
+Un fichier de sortie à 1 ou plusieurs lignes (le même nombre de lignes que le nombre d’objets blob contenus dans le dossier d’entrée) apparaîtra dans le dossier mycontainer\\output :
  
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
 
-Voici les étapes que vous allez effectuer lors de cette opération :
+Voici les étapes que vous allez effectuer lors de cette opération :
 
 1. Création d'une **fabrique de données**.
 2. Création des **services liés** pour le pool Azure Batch de machines virtuelles sur lesquelles l’activité personnalisée doit être exécutée, et du stockage Azure Storage qui contient les objets blob d’entrée et de sortie. 
@@ -421,38 +421,38 @@ Voici les étapes que vous allez effectuer lors de cette opération :
 
 > [AZURE.NOTE] Créez le fichier **file.txt** et chargez-le dans un conteneur d’objets blob, si vous ne l’avez pas déjà fait. Suivez les instructions ci-dessus.
 
-### Étape 1 : Créer la fabrique de données
+### Étape 1 : Créer la fabrique de données
 
-1.	Une fois connecté au portail Azure, procédez comme suit :
+1.	Une fois connecté au portail Azure, procédez comme suit :
 	1.	Cliquez sur **NOUVEAU** dans le menu de gauche.
 	2.	Dans le panneau **Nouveau**, cliquez sur **Données et analyse**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
-2.	Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Data factory name “CustomActivityFactory” is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible) s’affiche, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
+2.	Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Data factory name “CustomActivityFactory” is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible) s’affiche, changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
 3.	Cliquez sur **NOM DU GROUPE DE RESSOURCES** pour sélectionner un groupe de ressources existant, ou créez un nouveau groupe de ressources. 
 4.	Vérifiez que vous utilisez l’**abonnement** et la **région** correspondant à ceux dans lesquels vous souhaitez créer la fabrique de données. 
 5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau de bord** du portail Azure.
 7.	Une fois la fabrique de données créée, son contenu apparaître dans le panneau correspondant indiquant.
 
-### Étape 2 : Créer des services liés
+### Étape 2 : Créer des services liés
 
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Azure Storage et Azure Batch à votre fabrique de données.
 
-#### Créer le service lié Azure Storage
+#### Créer le service lié Azure Storage
 
 1.	Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Cette action lance l'éditeur Data Factory Editor.
-2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Azure Storage**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
+2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Azure Storage**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
 3.	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 #### Créer un service lié Azure Batch
 
 2. Dans Data Factory Editor, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez **Azure Batch** dans le menu.
-3. Procédez comme suit dans le script JSON :
-	1. Spécifiez le nom du compte Azure Batch pour la propriété **accountName**. L’**URL** du **panneau de compte Azure Batch** est au format suivant : http://**accountname**.region.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
+3. Procédez comme suit dans le script JSON :
+	1. Spécifiez le nom du compte Azure Batch pour la propriété **accountName**. L’**URL** du **panneau de compte Azure Batch** est au format suivant : http://**accountname**.region.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
 	2. Spécifiez la clé du compte Azure Batch pour la propriété **accessKey**. 
 	3. Spécifiez le nom du pool que vous avez créé dans le cadre de la configuration requise pour la propriété **poolName**. Vous pouvez aussi spécifier l’ID du pool au lieu du nom du pool.
-	4. Spécifiez l’URI Azure Batch pour la propriété **batchUri**. L’**URL** du **panneau de compte Azure Batch** est au format suivant : http://accountname.region.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
+	4. Spécifiez l’URI Azure Batch pour la propriété **batchUri**. L’**URL** du **panneau de compte Azure Batch** est au format suivant : http://accountname.region.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
 	5. Spécifiez **AzureStorageLinkedService** pour la propriété **linkedServiceName**.
 		
 			{
@@ -469,18 +469,18 @@ Les services liés se chargent de lier des magasins de données ou des services 
 			  }
 			}
 
-	> [AZURE.IMPORTANT] L’**URL** du **panneau de compte Azure Batch** est au format suivant : nomducompte.région.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
+	> [AZURE.IMPORTANT] L’**URL** du **panneau de compte Azure Batch** est au format suivant : nomducompte.région.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer le paramètre « accountname. »** de l’URL et utiliser **accountname** pour la propriété JSON **accountname**.
 
 	Pour la propriété **poolName**, vous pouvez également spécifier l’ID du pool au lieu du nom du pool.
 
-	> [AZURE.NOTE] Le service Data Factory ne prend pas en charge l’option à la demande pour Azure Batch contrairement à HDInsight. Vous pouvez uniquement utiliser votre propre pool Azure Batch dans une fabrique de données Azure.
+	> [AZURE.NOTE] Le service Data Factory ne prend pas en charge l’option à la demande pour Azure Batch contrairement à HDInsight. Vous pouvez uniquement utiliser votre propre pool Azure Batch dans une fabrique de données Azure.
 	
-### Étape 3 : Créer les jeux de données
+### Étape 3 : Créer les jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie.
 
 #### Créer le jeu de données d’entrée
 1.	Dans l’**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** de la barre d’outils et sélectionnez **Stockage d’objets blob Azure** dans le menu déroulant.
-2.	Remplacez le script JSON affiché dans le volet droit par l’extrait de code JSON suivant :
+2.	Remplacez le script JSON affiché dans le volet droit par l’extrait de code JSON suivant :
 
 			{
 			    "name": "InputDataset",
@@ -502,7 +502,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 			    }
 			}
 
-	Plus loin dans cette procédure pas à pas, vous allez créer un pipeline associé à l’heure de début 2015-11-16T00:00:00Z et à l’heure de fin 2015-11-16T05:00:00Z. Ce pipeline est planifié pour produire des données toutes les heures, ce qui signifie que l’on obtiendra 5 tranches d’entrée/sortie (comprises entre **00**: 00:00 et **05**: 00:00).
+	Plus loin dans cette procédure pas à pas, vous allez créer un pipeline associé à l’heure de début 2015-11-16T00:00:00Z et à l’heure de fin 2015-11-16T05:00:00Z. Ce pipeline est planifié pour produire des données toutes les heures, ce qui signifie que l’on obtiendra 5 tranches d’entrée/sortie (comprises entre **00**: 00:00 et **05**: 00:00).
 
 	Les paramètres **frequency** et **interval** du jeu de données d’entrée sont respectivement définis sur **Hour** et sur **1**, ce qui signifie que la tranche d’entrée est disponible toutes les heures. Dans cet exemple, il s’agit du même fichier (file.txt) que celui contenu dans le dossier d’entrée.
 
@@ -515,7 +515,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 #### Créer un jeu de données de sortie
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données**, puis sur **Stockage d’objets blob Azure** dans la barre de commandes.
-2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant :
+2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant :
 
 		{
 		    "name": "OutputDataset",
@@ -543,9 +543,9 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 		    }
 		}
 
- 	L’emplacement de sortie est le suivant : **adftutorial/customactivityoutput/AAAAMMJJHH/**, où « AAAAMMJJHH » correspond à l’année, au mois, au jour et à l’heure de la tranche produite. Pour en savoir plus, consultez la page [Référence du développeur][adf-developer-reference].
+ 	L’emplacement de sortie est le suivant : **adftutorial/customactivityoutput/AAAAMMJJHH/**, où « AAAAMMJJHH » correspond à l’année, au mois, au jour et à l’heure de la tranche produite. Pour en savoir plus, consultez la page [Référence du développeur][adf-developer-reference].
 
-	Un objet blob/fichier de sortie est généré pour chaque tranche d’entrée. Voici la procédure de nommage des fichiers de sortie pour chaque tranche. Tous les fichiers de sortie sont générés dans un seul dossier de sortie : **adftutorial\\customactivityoutput**.
+	Un objet blob/fichier de sortie est généré pour chaque tranche d’entrée. Voici la procédure de nommage des fichiers de sortie pour chaque tranche. Tous les fichiers de sortie sont générés dans un seul dossier de sortie : **adftutorial\\customactivityoutput**.
 
 	| Tranche | Heure de début | Fichier de sortie |
 	| :---- | :--------- | :---------- | 
@@ -555,7 +555,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 	| 4 | 2015-11-16T03:00:00 | 2015-11-16-03.txt |
 	| 5 | 2015-11-16T04:00:00 | 2015-11-16-04.txt |
 
-	N’oubliez pas que tous les fichiers d’un dossier d’entrée font partie d’une tranche associée aux heures de début indiquées ci-dessus. Lorsque cette tranche est traitée, l’activité personnalisée parcourt chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme de recherche (« Microsoft »). Si le dossier d’entrée comporte trois fichiers, trois lignes apparaîtront dans le fichier de sortie pour chaque tranche horaire : 2015-11-16-00.txt, 2015-11-16:01:00:00.txt, etc.
+	N’oubliez pas que tous les fichiers d’un dossier d’entrée font partie d’une tranche associée aux heures de début indiquées ci-dessus. Lorsque cette tranche est traitée, l’activité personnalisée parcourt chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme de recherche (« Microsoft »). Si le dossier d’entrée comporte trois fichiers, trois lignes apparaîtront dans le fichier de sortie pour chaque tranche horaire : 2015-11-16-00.txt, 2015-11-16:01:00:00.txt, etc.
 
 
 2. Cliquez sur **Déployer** dans la barre de commandes pour déployer le **jeu de données de sortie**.
@@ -563,8 +563,8 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 ### Créer et exécuter un pipeline qui utilise l’activité personnalisée
 
-1. Dans Data Factory Editor, cliquez sur **Nouveau pipeline** dans la barre de commandes. Si vous ne voyez pas apparaître la commande, cliquez sur **... (points de suspension)** pour l’afficher.
-2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant. 
+1. Dans Data Factory Editor, cliquez sur **Nouveau pipeline** dans la barre de commandes. Si vous ne voyez pas apparaître la commande, cliquez sur **... (points de suspension)** pour l’afficher.
+2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant. 
 
 		{
 		  "name": "ADFTutorialPipelineCustom",
@@ -609,18 +609,18 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 		  }
 		}
 
-	Notez les points suivants :
+	Notez les points suivants :
 
 	- **Concurrency** est défini sur **2** pour que les deux tranches soient traitées en parallèle sur deux machines virtuelles dans le pool Azure Batch.
-	- Il existe une activité dans la section des activités ; elle présente le type suivant : **DotNetActivity**.
-	- Le paramètre **AssemblyName** est défini sur le nom de la DLL : **MyActivities.dll**.
+	- Il existe une activité dans la section des activités ; elle présente le type suivant : **DotNetActivity**.
+	- Le paramètre **AssemblyName** est défini sur le nom de la DLL : **MyActivities.dll**.
 	- Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** est défini sur **AzureStorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose d’utiliser le même compte de stockage Azure.
-	- Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format : conteneur\_du\_zip/nom\_du\_zip.zip.
+	- Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format : conteneur\_du\_zip/nom\_du\_zip.zip.
 	- L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
 	- La propriété linkedServiceName de l’activité personnalisée pointe vers **HDInsightLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur un cluster Azure HDInsight.
 	- La propriété **isPaused** est définie par défaut sur **false**. Le pipeline s’exécute immédiatement dans cet exemple car les tranches débutent à une date antérieure. Vous pouvez définir cette propriété sur true pour suspendre le pipeline et lui réaffecter la valeur false pour reprendre l’exécution. 
-	- **5** heures séparent les heures de **début** et de **fin**, et les tranches sont produites toutes les heures, ce qui signifie que 5 tranches seront produites par le pipeline. 
+	- **5** heures séparent les heures de **début** et de **fin**, et les tranches sont produites toutes les heures, ce qui signifie que 5 tranches seront produites par le pipeline. 
 
 4. Cliquez sur **Déployer** dans la barre de commandes pour déployer le pipeline.
 
@@ -634,17 +634,17 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
  
 	![Vue schématique](./media/data-factory-use-custom-activities/diagram.png)
 
-10. Si elles ont déjà été produites, les 5 tranches de sortie doivent être à l’état « prêt ».
+10. Si elles ont déjà été produites, les 5 tranches de sortie doivent être à l’état « prêt ».
 
 	![Tranches de sortie](./media/data-factory-use-custom-activities/OutputSlices.png)
 	
-12. Vérifiez que les fichiers de sortie sont générés dans le stockage d’objets blob, dans le conteneur **adftutorial**.
+12. Vérifiez que les fichiers de sortie sont générés dans le stockage d’objets blob, dans le conteneur **adftutorial**.
 
 	![Sortie de l’activité personnalisée][image-data-factory-ouput-from-custom-activity]
 
-9. Si vous ouvrez le fichier de sortie, la sortie doit avoir l'aspect suivant :
+9. Si vous ouvrez le fichier de sortie, la sortie doit avoir l'aspect suivant :
 
-	2 occurrences (s) du terme de recherche « Microsoft » ont été trouvées dans le fichier inputfolder/2015-11-16-00/file.txt.
+	2 occurrences (s) du terme de recherche « Microsoft » ont été trouvées dans le fichier inputfolder/2015-11-16-00/file.txt.
 
 10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l'outil **ActivityLogger** dans le code concernant l'activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l'aide d'applets de commande.
 
@@ -653,19 +653,19 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 Pour découvrir la procédure détaillée de surveillance des jeux de données et des pipelines, consultez l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 
-Le service Data Factory crée un travail dans Azure Batch sous le nom **adf-<pool name>:job-xxx**. Une tâche est créée pour chaque exécution d’activité d’une tranche. Si 10 tranches sont prêtes à être traitées, 10 tâches seront créées. Plusieurs tranches peuvent être exécutées en parallèle si vous disposez de plusieurs nœuds de calcul dans le pool. Vous pouvez également avoir plusieurs tranches exécutées sur le même nœud de calcul si le nombre maximum de tâches par nœud de calcul est défini sur une valeur supérieure à 1.
+Le service Data Factory crée un travail dans Azure Batch sous le nom **adf-<pool name>:job-xxx**. Une tâche est créée pour chaque exécution d’activité d’une tranche. Si 10 tranches sont prêtes à être traitées, 10 tâches seront créées. Plusieurs tranches peuvent être exécutées en parallèle si vous disposez de plusieurs nœuds de calcul dans le pool. Vous pouvez également avoir plusieurs tranches exécutées sur le même nœud de calcul si le nombre maximum de tâches par nœud de calcul est défini sur une valeur supérieure à 1.
 	
 ![Tâches de l’Explorateur Batch](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
 
 ![Data Factory et Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
-Vous pouvez voir les tâches Microsoft Azure Batch associées au traitement des tranches dans Azure Batch Explorer, comme illustré dans le schéma suivant.
+Vous pouvez voir les tâches Microsoft Azure Batch associées au traitement des tranches dans Azure Batch Explorer, comme illustré dans le schéma suivant.
 
-![Tâches Microsoft Azure Batch][image-data-factory-azure-batch-tasks]
+![Tâches Microsoft Azure Batch][image-data-factory-azure-batch-tasks]
 
 
 ### Déboguer le pipeline
-Le débogage consiste à utiliser quelques techniques de base :
+Le débogage consiste à utiliser quelques techniques de base :
 
 1.	Si la tranche d’entrée n’est pas définie sur **Prêt**, vérifiez que la structure des dossiers d’entrée est correcte et que le fichier **file.txt** est présent dans les dossiers d’entrée. 
 2.	Dans la méthode **Execute** de votre activité personnalisée, utilisez l’objet **IActivityLogger** pour journaliser les informations qui vous aideront à résoudre d’éventuels problèmes. Les messages enregistrés s’affichent dans les fichiers journaux utilisateur (un ou plusieurs fichiers nommés user-0.log, user-1.log, user-2.log, etc.). 
@@ -737,16 +737,16 @@ Vous pouvez modifier les heures de **début** et de **fin** du pipeline pour pou
 #### Créer le service lié Azure HDInsight 
 Le service Azure Data Factory prend en charge la création d’un cluster à la demande et l’utilise pour traiter des données d’entrée afin de produire des données de sortie. Vous pouvez également utiliser votre propre cluster pour effectuer cette opération. Lorsque vous utilisez un cluster HDInsight à la demande, un cluster est créé pour chaque tranche. Par contre, si vous utilisez votre propre cluster HDInsight, le cluster est prêt à traiter la tranche immédiatement. Par conséquent, lorsque vous utilisez un cluster à la demande, vous ne voyez pas les données de sortie aussi rapidement que lorsque vous utilisez votre propre cluster.
 
-> [AZURE.NOTE] Lors de l’exécution, une instance d’activité .NET s’exécute uniquement sur un nœud de travail du cluster HDInsight ; elle ne peut pas être mise à l’échelle pour s’exécuter sur plusieurs nœuds. Cependant, plusieurs instances d’activité .NET peuvent s’exécuter en parallèle sur différents nœuds du cluster HDInsight.
+> [AZURE.NOTE] Lors de l’exécution, une instance d’activité .NET s’exécute uniquement sur un nœud de travail du cluster HDInsight ; elle ne peut pas être mise à l’échelle pour s’exécuter sur plusieurs nœuds. Cependant, plusieurs instances d’activité .NET peuvent s’exécuter en parallèle sur différents nœuds du cluster HDInsight.
 
 ##### Pour utiliser un cluster HDInsight à la demande
 
-1. Dans le **portail Microsoft Azure**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
-2. Dans Data Factory Editor, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez l’option **Cluster HDInsight à la demande** dans le menu.
-2. Procédez comme suit dans le script JSON :
+1. Dans le **portail Microsoft Azure**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
+2. Dans Data Factory Editor, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez l’option **Cluster HDInsight à la demande** dans le menu.
+2. Procédez comme suit dans le script JSON :
 	1. Pour la propriété **clusterSize**, spécifiez la taille du cluster HDInsight.
 	3. Pour la propriété **timeToLive**, spécifiez la durée pendant laquelle le client peut être inactif avant d’être supprimé.
-	4. Pour la propriété **version**, spécifiez la version de Microsoft Azure HDInsight que vous souhaitez utiliser. Si vous excluez cette propriété, la version utilisée sera la plus récente.  
+	4. Pour la propriété **version**, spécifiez la version de Microsoft Azure HDInsight que vous souhaitez utiliser. Si vous excluez cette propriété, la version utilisée sera la plus récente.  
 	5. Pour **linkedServiceName**, spécifiez le service lié **AzureStorageLinkedService** que vous avez créé dans le didacticiel de prise en main.
 
 			{
@@ -764,12 +764,12 @@ Le service Azure Data Factory prend en charge la création d’un cluster à la 
 
 2. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
-##### Pour utiliser votre propre cluster HDInsight :
+##### Pour utiliser votre propre cluster HDInsight :
 
-1. Dans le **portail Microsoft Azure**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
+1. Dans le **portail Microsoft Azure**, cliquez sur l’option **Créer et déployer** de la page d’accueil du logiciel Data Factory.
 2. Dans **Data Factory Editor**, cliquez sur **Nouveau calcul** dans la barre de commandes et sélectionnez **Cluster HDInsight** dans le menu.
-2. Procédez comme suit dans le script JSON :
-	1. Pour la propriété **clusterUri**, saisissez l’URL de votre cluster HDInsight. Par exemple : https://<clustername>.azurehdinsight.net/.     
+2. Procédez comme suit dans le script JSON :
+	1. Pour la propriété **clusterUri**, saisissez l’URL de votre cluster HDInsight. Par exemple : https://<clustername>.azurehdinsight.net/.     
 	2. Pour la propriété **UserName**, saisissez le nom d’utilisateur ayant accès au cluster HDInsight.
 	3. Pour la propriété **Password**, spécifiez le mot de passe de l’utilisateur.
 	4. Pour la propriété **LinkedServiceName**, entrez **AzureStorageLinkedService**. Désigne le service lié que vous avez créé dans le didacticiel de prise en main.
@@ -823,10 +823,19 @@ Dans le **pipeline JSON**, utilisez le service lié HDInsight (celui créé à l
 	  }
 	}
 
+## Exemples
+
+| Exemple | Rôle des activités personnalisées| 
+| ------ | ----------- | 
+| [Téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Télécharge des données à partir d'un point de terminaison HTTP vers Azure Blob Storage à l'aide d’une activité C# personnalisée dans Data Factory. |
+| [Exemple d’analyse d’opinions Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Appelle un modèle Azure ML et effectue l’analyse, la notation, la prédiction, etc. des opinions. |
+| [Exécuter un script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Appelle un script R en exécutant RScript.exe sur votre cluster HDInsight, sur lequel R est installé. | 
+| [Activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Utilise des versions d'assembly différentes de celles qu’utilise le lanceur de Data Factory (par exemple, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+ 
 
 ## Voir aussi
 
-[Mises à jour Azure Data Factory : exécution d’activités personnalisées Azure Data Factory .NET au moyen d’Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Mises à jour Azure Data Factory : exécution d’activités personnalisées Azure Data Factory .NET au moyen d’Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -863,4 +872,4 @@ Dans le **pipeline JSON**, utilisez le service lié HDInsight (celui créé à l
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

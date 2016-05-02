@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure | Microsoft Azure"
-	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-	services=""
-	documentationCenter=""
-	authors="vikdesai"
-	manager="msmbaldwin"
-	editor=""/>
+<properties pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure | Microsoft Azure" description="Décrit la procédure de configuration d’alertes sur vos factures Azure pour éviter toute surprise liée à la facturation." services="billing" documentationCenter="" authors="vikdesai" manager="msmbaldwin" editor=""/ tags="billing" />
 
 <tags
 	ms.service="multiple"
@@ -13,12 +6,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015" 
+	ms.date="04/17/2016"
 	ms.author="vikdesai"/>
 
 # Configurer des alertes de facturation pour vos abonnements Microsoft Azure
 
-Voulez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
+Voulez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
 
 Ce service étant en version préliminaire, la première chose que vous avez à faire est de vous y inscrire. Pour ce faire, visitez la page <a href="https://account.windowsazure.com/PreviewFeatures">des fonctionnalités en version préliminaire</a> dans le portail de gestion des comptes Azure.
 
@@ -40,10 +33,10 @@ Azure prend en charge toutes les adresses de messagerie mais ne vérifie pas si 
 
 ## Vérifier vos alertes
 
-Une fois que vous avez configuré des alertes, le Centre des comptes les répertorie et vous montre le nombre d'alertes que vous pouvez encore configurer. Pour chaque alerte, vous voyez la date et l'heure d'envoi, s'il s'agit d'une alerte relative au total facturé ou au crédit monétaire, ainsi que la limite que vous avez configurée. L'heure est au format 24 heures UTC (Universal Time Coordinate) et la date est au format aaaa-mm-jj. Cliquez sur le signe plus pour modifier une alerte listée, ou cliquez sur la poubelle pour la supprimer.
+Une fois que vous avez configuré des alertes, le Centre des comptes les répertorie et vous montre le nombre d'alertes que vous pouvez encore configurer. Pour chaque alerte, vous voyez la date et l'heure d'envoi, s'il s'agit d'une alerte relative au total facturé ou au crédit monétaire, ainsi que la limite que vous avez configurée. L'heure est au format 24 heures UTC (Universal Time Coordinate) et la date est au format aaaa-mm-jj. Cliquez sur le signe plus pour modifier une alerte listée, ou cliquez sur la poubelle pour la supprimer.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio
@@ -104,7 +104,7 @@ Un compte de stockage fournit l'accès aux services Blob, File d'attente et Tabl
 
 Après avoir créé votre compte de stockage, vous verrez les URL que vous pouvez utiliser pour accéder aux ressources dans chacun des services de stockage Azure, ainsi que les clés d'accès primaire et secondaire de votre compte. Ces clés vous permettent d'authentifier des demandes adressées aux services de stockage.
 
->[AZURE.NOTE]La clé d'accès secondaire fournit le même accès à votre compte de stockage que la clé d'accès primaire et est générée comme sauvegarde au cas où votre clé primaire serait compromise. En outre, il est recommandé de régénérer régulièrement vos clés d'accès. Vous pouvez modifier un paramètre de la chaîne de connexion pour utiliser la clé secondaire pendant que vous régénérez la clé primaire, puis vous pouvez le modifier pour utiliser la clé primaire régénérée pendant que vous régénérez la clé secondaire.
+>[AZURE.NOTE] La clé d'accès secondaire fournit le même accès à votre compte de stockage que la clé d'accès primaire et est générée comme sauvegarde au cas où votre clé primaire serait compromise. En outre, il est recommandé de régénérer régulièrement vos clés d'accès. Vous pouvez modifier un paramètre de la chaîne de connexion pour utiliser la clé secondaire pendant que vous régénérez la clé primaire, puis vous pouvez le modifier pour utiliser la clé primaire régénérée pendant que vous régénérez la clé secondaire.
 
 ## Configurer votre application pour utiliser les services fournis par le compte de stockage
 
@@ -130,7 +130,7 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 1. Dans le champ **Nom du compte**, entrez le nom de votre compte de stockage.
 
-    >[AZURE.NOTE]Connectez-vous au portail de gestion, puis sélectionnez le bouton **Stockage**. Le portail affiche la liste des comptes de stockage. Si vous sélectionnez un compte, une page associée s'ouvre. Vous pouvez copier le nom du compte de stockage à partir de cette page. Si vous utilisez une version précédente du portail de gestion, le nom de votre compte de stockage s’affiche dans l’affichage **Comptes de stockage** du portail de gestion. Pour copier ce nom, mettez-le en surbrillance dans la fenêtre **Propriétés** de cet affichage, puis appuyez sur les touches Ctrl+C. Pour coller le nom dans Visual Studio, sélectionnez la zone de texte **Nom du compte**, puis appuyez sur les touches Ctrl+V.
+    >[AZURE.NOTE] Connectez-vous au portail de gestion, puis sélectionnez le bouton **Stockage**. Le portail affiche la liste des comptes de stockage. Si vous sélectionnez un compte, une page associée s'ouvre. Vous pouvez copier le nom du compte de stockage à partir de cette page. Si vous utilisez une version précédente du portail de gestion, le nom de votre compte de stockage s’affiche dans l’affichage **Comptes de stockage** du portail de gestion. Pour copier ce nom, mettez-le en surbrillance dans la fenêtre **Propriétés** de cet affichage, puis appuyez sur les touches Ctrl+C. Pour coller le nom dans Visual Studio, sélectionnez la zone de texte **Nom du compte**, puis appuyez sur les touches Ctrl+V.
 
 1. Dans la zone **Clé du compte**, entrez votre clé primaire, ou copiez-collez-la à partir du [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé à partir du portail de gestion :
 
@@ -145,7 +145,7 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
         - **Utiliser HTTPS** pour une connexion sécurisée. Par exemple : `https://<accountname>.blob.core.windows.net`.
         - **Spécifier des points de terminaison personnalisés** pour chacun des trois services. Vous pouvez ensuite taper ces points de terminaison dans le champ du service.
 
-        >[AZURE.NOTE]Si vous créez des points de terminaison personnalisés, vous pouvez créer une chaîne de connexion plus complexe. Lorsque vous utilisez ce format de chaîne, vous pouvez spécifier des points de terminaison de service de stockage qui incluent un nom de domaine personnalisé que vous avez enregistré pour votre compte de stockage avec le service Blob. Vous pouvez également accorder l'accès uniquement aux ressources Blob dans un seul conteneur au moyen d’une signature d'accès partagé. Pour plus d’informations sur la création de points de terminaison personnalisés, consultez [Configuration des chaînes de connexion Azure Storage](storage-configure-connection-string.md).
+        >[AZURE.NOTE] Si vous créez des points de terminaison personnalisés, vous pouvez créer une chaîne de connexion plus complexe. Lorsque vous utilisez ce format de chaîne, vous pouvez spécifier des points de terminaison de service de stockage qui incluent un nom de domaine personnalisé que vous avez enregistré pour votre compte de stockage avec le service Blob. Vous pouvez également accorder l'accès uniquement aux ressources Blob dans un seul conteneur au moyen d’une signature d'accès partagé. Pour plus d’informations sur la création de points de terminaison personnalisés, consultez [Configuration des chaînes de connexion Azure Storage](storage-configure-connection-string.md).
 
 1. Pour enregistrer les modifications de la chaîne de connexion, sélectionnez le bouton **OK**, puis sélectionnez le bouton **Enregistrer** dans la barre d’outils. Après avoir enregistré ces modifications, vous pouvez récupérer la valeur de cette chaîne de connexion dans votre code à l’aide de [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Lorsque vous publiez votre application dans Azure, sélectionnez la configuration de service qui contient le compte de stockage Azure pour la chaîne de connexion. Une fois votre application publiée, vérifiez que l'application fonctionne comme prévu par rapport aux services de stockage Azure
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 Pour en savoir plus sur la publication d’applications entre Visual Studio et Azure, consultez la page [Publication d’un service cloud en utilisant les outils Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Sécuriser les communications pour les services dans Service Fabric | Microsoft Azure"
-   description="Vue d’ensemble de la sécurisation des communications pour les services fiables qui s’exécutent dans un cluster Service Fabric"
+   pageTitle="Sécuriser des communications pour les services dans Service Fabric | Microsoft Azure"
+   description="Vue d’ensemble de la sécurisation des communications pour Reliable Services en cours d’exécution dans un cluster Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="punewa"
@@ -16,13 +16,15 @@
    ms.date="03/22/2016"
    ms.author="punewa"/>
 
-# Sécuriser les communications pour les services dans Service Fabric
-La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis. Cet article vous présente comment configurer la sécurité lors de l’utilisation de l’accès à distance au service et de la pile de communication WCF.
+# Sécurisation des communications pour les services dans Azure Service Fabric
 
-## Sécurisation du service lors de l’utilisation de l’accès distant au service
-La configuration de l’accès à distance sécurisé pour un service s’effectue de la manière suivante :
+La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article vous explique comment améliorer la sécurité lorsque vous utilisez la communication à distance des services et la pile de communication Windows Communication Foundation (WCF).
 
-1. Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-communication-remoting.md) qui traite de la configuration d’un accès à distance fiable au service. Nous commençons par une interface `IHelloWorldStateful` qui définit les méthodes disponibles pour l’appel de procédure distante sur votre service. Votre service va utiliser un `FabricTransportServiceRemotingListener` qui est déclaré dans l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
+## Sécurisation d’un service lors de l’utilisation de la communication à distance des services
+
+Nous allons utiliser un [exemple](service-fabric-reliable-services-communication-remoting.md) existant qui explique comment configurer la communication à distance pour Reliable Services. Pour sécuriser un service lors de l’utilisation de la communication à distance des services, procédez comme suit :
+
+1. Créez une interface, `IHelloWorldStateful`, qui définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Votre service va utiliser `FabricTransportServiceRemotingListener`, qui est déclaré dans l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -46,16 +48,16 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
     }
     ```
 
-2. Ajout des paramètres de l’écouteur et des informations d’identification de sécurité
+2. Ajoutez des paramètres de l’écouteur et des informations d’identification de sécurité.
 
-    Le certificat que vous souhaitez utiliser pour sécuriser les communications de votre service doit être installé sur tous les nœuds du cluster. Vous pouvez fournir les paramètres de l’écouteur et les informations d’identification de sécurité de deux manières.
+    Assurez-vous le certificat que vous souhaitez utiliser pour sécuriser les communications de votre service est installé sur tous les nœuds du cluster. Vous pouvez fournir les paramètres de l’écouteur et les informations d’identification de sécurité de deux manières :
 
-    1. Directement dans le code de service.
+    1. Directement dans le code de service :
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            FabricTransportListenerSettings listnerSettings = new FabricTransportListenerSettings
+            FabricTransportListenerSettings listenerSettings = new FabricTransportListenerSettings
             {
                 MaxMessageSize = 10000000,
                 SecurityCredentials = GetSecurityCredentials()
@@ -63,7 +65,7 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
             return new[]
             {
                 new ServiceReplicaListener(
-                    (context) => new FabricTransportServiceRemotingListener(context,this,listnerSettings))
+                    (context) => new FabricTransportServiceRemotingListener(context,this,listenerSettings))
             };
         }
 
@@ -82,13 +84,13 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
             return x509Credentials;
         }
         ```
-    2. À l’aide du [package de configuration](service-fabric-application-model.md)
+    2. À l'aide d’un [package de configuration](service-fabric-application-model.md) :
 
-        Ajoutez une section `TransportSettings` dans le fichier settings.xml
+        Ajoutez une section `TransportSettings` dans le fichier settings.xml.
 
         ```xml
-        <!--Section name should always end with "TransportSettings"-->
-        <!--Here we are using a prefix "HelloWorldStateful"-->
+        <!--Section name should always end with "TransportSettings".-->
+        <!--Here we are using a prefix "HelloWorldStateful".-->
         <Section Name="HelloWorldStatefulTransportSettings">
             <Parameter Name="MaxMessageSize" Value="10000000" />
             <Parameter Name="SecurityCredentialsType" Value="X509" />
@@ -101,7 +103,7 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
         </Section>
         ```
 
-        Dans ce cas, la méthode `CreateServiceReplicaListeners` se présente comme suit.
+        Dans ce cas, la méthode `CreateServiceReplicaListeners` se présente comme suit :
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -118,12 +120,12 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
          Si vous ajoutez une section `TransportSettings` dans le fichier settings.xml sans aucun préfixe, `FabricTransportListenerSettings` charge par défaut tous les paramètres de cette section.
 
          ```xml
-         <!--"TransportSettings" section without any prefix-->
+         <!--"TransportSettings" section without any prefix.-->
          <Section Name="TransportSettings">
              ...
          </Section>
          ```
-         Dans ce cas, la méthode `CreateServiceReplicaListeners` se présente comme suit.
+         Dans ce cas, la méthode `CreateServiceReplicaListeners` se présente comme suit :
 
          ```csharp
          protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -137,7 +139,7 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
          }
          ```
 
-3. Lors de l’appel des méthodes sur un service sécurisé à l’aide de la pile de communication à distance, au lieu d’utiliser la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` pour créer un proxy de service, nous utilisons `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` et transmettons le `FabricTransportSettings` qui contient les `SecurityCredentials`.
+3. Lorsque vous appelez des méthodes sur un service sécurisé à l'aide de la pile de communication à distance, au lieu d'utiliser la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` pour créer un proxy de service, utilisez `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Passez dans `FabricTransportSettings`, qui contient `SecurityCredentials`.
 
     ```csharp
 
@@ -166,7 +168,7 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
 
     ```
 
-    Si le code client s’exécute dans le cadre d’un service, vous pouvez charger le `FabricTransportSettings` à partir du fichier settings.xml. Créez une section TransportSettings similaire au code de service comme illustré ci-dessus. Apportez les modifications suivantes au code du client.
+    Si le code client s’exécute dans le cadre d’un service, vous pouvez charger `FabricTransportSettings` à partir du fichier settings.xml. Créez une section TransportSettings similaire au code de service, comme illustré précédemment. Apportez les modifications suivantes au code du client :
 
     ```csharp
 
@@ -180,11 +182,11 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
 
     ```
 
-    Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier client\_name.settings.xml dans le même emplacement que le fichier client\_name.exe et créer une section TransportSettings dans ce fichier.
+    Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier client\_name.settings.xml dans le même emplacement que le fichier client\_name.exe. Créez ensuite une section TransportSettings dans ce fichier.
 
-    Comme pour le service, si vous ajoutez une section `TransportSettings` sans *préfixe* dans le fichier client settings.xml/client\_name.settings.xml, `FabricTransportSettings` charge par défaut tous les paramètres à partir de cette section.
+    Comme pour le service, si vous ajoutez une section `TransportSettings` sans préfixe dans le fichier client settings.xml/client\_name.settings.xml, `FabricTransportSettings` chargera par défaut tous les paramètres à partir de cette section.
 
-    Dans ce cas, le code ci-dessus est encore davantage simplifié.
+    Dans ce cas, le code précédent est encore davantage simplifié :
 
     ```csharp
 
@@ -195,11 +197,11 @@ La configuration de l’accès à distance sécurisé pour un service s’effect
 
     ```
 
-## Sécurisation du service lors de l’utilisation de la pile de communication WCF
+## Sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF
 
-Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-communication-wcf.md) qui explique comment configurer une communication WCF pour les services fiables et l’étendre pour assurer sa sécurité.
+Nous allons utiliser un existant [exemple](service-fabric-reliable-services-communication-wcf.md) qui explique comment configurer une pile de communication basée sur WCF pour Reliable Services. Pour sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF, procédez comme suit :
 
-1. Pour le service, nous devons créer un `WcfCommunicationListener` qui est sécurisé. Pour cela, nous devons modifier la méthode `CreateServiceReplicaListeners`.
+1. Pour le service, vous devez sécuriser l'écouteur de communication WCF (`WcfCommunicationListener`) que vous créez. Pour cela, modifiez la méthode `CreateServiceReplicaListeners`.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -213,20 +215,20 @@ Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-c
 
     private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
     {
-       var wcfCommunicationListner = new WcfCommunicationListener<ICalculator>(
+       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
             serviceContext:context,
             wcfServiceObject:this,
-            // For this example we will be using NetTcpBinding
+            // For this example, we will be using NetTcpBinding.
             listenerBinding: GetNetTcpBinding(),
             endpointResourceName:"WcfServiceEndpoint");
 
-        // Add certificate details in the servicehost credentials.
-        wcfCommunicationListner.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
+        // Add certificate details in the ServiceHost credentials.
+        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
             StoreLocation.LocalMachine,
             StoreName.My,
             X509FindType.FindByThumbprint,
             "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListner;
+        return wcfCommunicationListener;
     }
 
     private static NetTcpBinding GetNetTcpBinding()
@@ -236,8 +238,8 @@ Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-c
         return b;
     }
     ```
-    
-2. Dans le client, la classe `WcfCommunicationClient` que nous avons créée dans l’[exemple](service-fabric-reliable-services-communication-wcf.md) précédent reste inchangée. Mais nous devons remplacer la méthode `CreateClientAsync` de `WcfCommunicationClientFactory`.
+
+2. Dans le client, la classe `WcfCommunicationClient` que nous avons créée dans l’[exemple](service-fabric-reliable-services-communication-wcf.md) précédent reste inchangée. Mais vous devez remplacer la méthode `CreateClientAsync` de `WcfCommunicationClientFactory` :
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -272,7 +274,7 @@ Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-c
                 channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
             }
             // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by the
+            // These credentials will be used by the clients created by
             // SecureWcfCommunicationClientFactory.  
             channelFactory.Credentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
@@ -287,7 +289,7 @@ Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-c
     }
     ```
 
-    Utilisez le `SecureWcfCommunicationClientFactory` pour créer un `WcfCommunicationClient`. Utilisez le client pour appeler les méthodes de service.
+    Utilisez `SecureWcfCommunicationClientFactory` pour créer un client de communication WCF (`WcfCommunicationClient`). Utilisez le client pour appeler les méthodes de service.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -307,4 +309,4 @@ Nous allons utiliser un précédent [exemple](service-fabric-reliable-services-c
 
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

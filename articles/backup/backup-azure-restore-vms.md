@@ -21,6 +21,11 @@
 
 # Restauration de machines virtuelles dans Azure
 
+> [AZURE.SELECTOR]
+- [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md)
+- [Restaurer des machines virtuelles dans le portail Classic](backup-azure-restore-vms.md)
+
+
 Procédez de la manière suivante pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à partir des sauvegardes stockées dans le coffre de sauvegarde Azure.
 
 ## Flux de travail de restauration
@@ -144,4 +149,4 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

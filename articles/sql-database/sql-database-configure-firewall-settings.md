@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration des paramètres du pare-feu | Microsoft Azure"
+	pageTitle="Configurer un pare-feu sur une base de données SQL | Microsoft Azure"
 	description="Découvrez comment configurer le pare-feu pour les adresses IP qui accèdent aux bases de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
-# Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure
+# Configurer un pare-feu sur une base de données Azure SQL à l’aide du portail Azure
 
 
 > [AZURE.SELECTOR]
@@ -57,4 +57,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

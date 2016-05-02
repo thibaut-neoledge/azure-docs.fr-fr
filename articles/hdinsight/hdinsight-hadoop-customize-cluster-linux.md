@@ -477,6 +477,8 @@ Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure Po
 
 Avant de poursuivre, assurez-vous que vous avez installé et configuré l'interface de ligne de commande Azure (CLI). Pour plus d'informations, consultez la rubrique [Installation de l'interface de ligne de commande Azure (CLI)](../xplat-cli-install.md).
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. Ouvrez une session de l'interpréteur de commandes, une fenêtre de terminal, une invite de commandes ou toute autre ligne de commande de votre système et utilisez la commande suivante pour passer en mode Azure Resource Manager.
 
         azure config mode arm
@@ -614,7 +616,7 @@ Si la création du cluster a échoué en raison d'une erreur dans l'action de sc
 	* **Nœud Worker** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Nœud Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Toutes les valeurs stdout et stderr de l'hôte correspondant sont téléchargées vers le compte de stockage. Il existe un fichier **output-*.txt** et un fichier  **errors-\*.txt** pour chaque action de script. Le fichier output-*.txt contient des informations sur l'URI du script que vous avez exécuté sur l'ordinateur hôte. Par exemple :
+* Toutes les valeurs stdout et stderr de l'hôte correspondant sont téléchargées vers le compte de stockage. Il existe un fichier **output-*.txt** et un fichier **errors-*.txt** pour chaque action de script. Le fichier output-*.txt contient des informations sur l'URI du script que vous avez exécuté sur l'ordinateur hôte. Par exemple :
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -678,4 +680,4 @@ Consultez la rubrique suivante pour obtenir des informations et des exemples sur
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

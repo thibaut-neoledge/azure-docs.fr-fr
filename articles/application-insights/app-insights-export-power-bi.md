@@ -133,7 +133,7 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).
+**Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).**
 
 La séquence d'octets préfixe du chemin d'accès spécifie où Stream Analytics recherche les fichiers d'entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
@@ -260,6 +260,12 @@ Vous pouvez maintenant utiliser ce jeu de données dans des rapports et des tabl
 
 ![Dans Power BI, sélectionnez votre dataset et vos champs.](./media/app-insights-export-power-bi/210.png)
 
+
+### Pas de données ?
+
+* Vérifiez que vous avez [défini le format de date](#set-path-prefix-pattern) correctement sur AAAA-MM-JJ (avec des tirets).
+
+
 ### Vidéo
 
 Noam Ben Zeev montre comment exporter vers Power BI.
@@ -274,4 +280,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

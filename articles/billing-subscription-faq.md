@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  FAQ sur la facturation et l’abonnement Azure
@@ -43,6 +43,8 @@ Cet article répond aux questions les plus fréquemment posées sur la facturati
 
 - [Comment fonctionnent les contrats SLA Azure avec les contrats de licence Microsoft locaux actuels ?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
+- [Je ne vois pas de facture pour la dernière période de facturation. Pourquoi ?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
 **Abonnements**
 
 - [Je ne parviens pas à me connecter au portail Azure](#i-am-unable-to-log-in-to-the-azure-portal)
@@ -53,7 +55,7 @@ Cet article répond aux questions les plus fréquemment posées sur la facturati
 
 - [Comment passer à un plan de support Azure de niveau supérieur ?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
--	[Quand suis-je facturé pour le support Azure ?](#when-will-i-be-billed-for-azure-support)
+- [Quand suis-je facturé pour le support Azure ?](#when-will-i-be-billed-for-azure-support)
 
 - [Que se passe-t-il à la fin du terme ?](#what-happens-at-the-end-of-the-term)
 
@@ -127,7 +129,7 @@ Pour obtenir des instructions sur l’utilisation d’une autre carte de crédit
 
 Notre contrat de niveau de service en matière de disponibilité s’applique aux applications des clients qui utilisent au minimum deux instances de rôle. Il n’existe aucun contrat SLA pour les instances uniques. Pour obtenir des informations complètes, consultez notre page relative au [contrat SLA](https://azure.microsoft.com/support/legal/sla/).
 
-**Maintenance planifiée (portail Azure Classic)** : pour les configurations multi-instances et à instance unique, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les plusieurs instances). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur, de l’administrateur de service et du coadministrateur du compte fournis dans l’abonnement.
+**Maintenance planifiée (portail Classic)** : pour les configurations multi-instances et à instance unique, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les instances multiples). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur, de l’administrateur de service et du coadministrateur du compte fournis dans l’abonnement.
 
 **REMARQUE :** pour plus d’informations propres aux machines virtuelles, consultez l’article [Maintenance planifiée des machines virtuelles Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
@@ -144,6 +146,13 @@ Les crédits du contrat SLA Azure sont calculés par abonnement, comme pourcenta
 ### Comment fonctionnent les contrats SLA Azure avec les contrats de licence Microsoft locaux actuels ?
 
 Les contrats SLA Azure sont indépendants de nos contrats de licence Microsoft locaux. Nos contrats SLA pour Azure vous fournissent une garantie de temps de fonctionnement mensuel pour les services que vous utilisez dans le cloud, avec des crédits du contrat SLA par rapport à ce que nous vous avons facturé dans l’éventualité où nous ne respecterions pas la garantie.
+
+### Je ne vois pas de facture pour la dernière période de facturation. Pourquoi ?
+
+Il peut exister plusieurs raisons à cela :
+- Cela fait moins de 30 jours que vous vous êtes inscrit à Azure.
+- Votre abonnement est de type Essai gratuit ou correspond à l'une des offres membre (MSDN/Open/BizSpark/DreamSpark) sans carte de crédit ou autre moyen de paiement associé.
+- La date de génération de la facture n'est pas encore passée.
 
 ## Abonnements
 
@@ -184,13 +193,13 @@ Si vous ne souhaitez pas effectuer de renouvellement automatique, connectez-vous
 
 ### Comment annuler mon plan de support Azure ?
 
-Le propriétaire d’un compte peut annuler son plan de support Azure en se connectant au [Centre des comptes Azure](https://account.windowsazure.com/Home/Index), en sélectionnant Centre des comptes, puis Abonnements. Si vous disposez d’un abonnement, la liste de vos abonnements s’affiche. Sélectionnez l’abonnement à annuler. Les détails de l’abonnement sont ensuite affichés avec une liste d’options à droite de l’écran. Sélectionnez Annuler et continuez. Si vous n’avez pas d’abonnement, le message « Vous n’avez aucun abonnement » s’affiche.
+Le propriétaire d’un compte peut annuler son plan de support Azure en se connectant au [Centre des comptes Azure](https://account.windowsazure.com/Home/Index), en sélectionnant « CENTRE DES COMPTES », puis Abonnements. Si vous disposez d’un abonnement, la liste de vos abonnements s’affiche. Sélectionnez l’abonnement à annuler. Les détails de l’abonnement sont ensuite affichés avec une liste d’options à droite de l’écran. Sélectionnez Annuler et continuez. Si vous n’avez pas d’abonnement, le message « Vous n’avez aucun abonnement » s’affiche.
 
 Un plan de support Azure a une durée de 6 mois et Microsoft requiert votre engagement monétaire jusqu’à son terme. En cas d’annulation avant le terme du plan, l’engagement restant est dû et aucun montant prépayé n’est remboursé. Pour plus d’informations, consultez [Annulation de votre abonnement Azure](billing-how-to-cancel-azure-subscription.md).
 
 ### Comment migrer des données et des services de mon abonnement Azure vers un nouvel abonnement ?
 
-Pour plus d’information, contactez le [support Azure](https://azure.microsoft.com/support/options/). Pour créer un ticket de support afin de migrer des données et des services depuis un abonnement Azure vers un nouvel abonnement, consultez l’article [Création d’un ticket de support pour les problèmes liés à l’abonnement et à la facturation Azure](billing-how-to-create-billing-support-ticket.md).
+Pour plus d’informations, contactez le [support Azure](https://azure.microsoft.com/support/options/). Pour créer un ticket de support afin de migrer des données et des services à partir d’un abonnement Azure vers un nouvel abonnement, consultez l’article [Création d’un ticket de support pour les problèmes liés à l’abonnement et à la facturation Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### Comment gérer les comptes d’administrateur dans le nouveau portail Azure ?
 
@@ -225,10 +234,10 @@ Pour afficher et modifier les informations de compte Azure, vous devez vous conn
 
 1.	Accédez au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 2.	Dans la page Abonnements, cliquez sur l’abonnement pour lequel vous voulez mettre à jour le moyen de paiement.
-3.	Dans la page de synthèse de l’**abonnement**, cliquez sur Modifier le moyen de paiement. L’outil **Modifier le moyen de paiement** apparaît dans une fenêtre séparée.
+3.	Sur la page de synthèse de l’**abonnement**, cliquez sur Modifier le moyen de paiement. L’outil **Modifier le moyen de paiement** apparaît dans une fenêtre séparée.
 
 **REMARQUE** : vous pouvez également accéder au Centre des comptes à partir du portail Microsoft Azure Classic. Pour ce faire, cliquez sur votre nom de compte, puis sur Afficher ma facture.
-4.	Dans la page **Choisir le moyen de paiement**, cliquez sur la liste déroulante, sélectionnez le moyen de paiement à mettre à jour, puis cliquez sur **Modifier**.
+4.	Sur la page **Choisir le moyen de paiement**, cliquez sur la liste déroulante, sélectionnez le moyen de paiement à mettre à jour, puis cliquez sur **Modifier**.
 5.	Dans la page des détails, vérifiez l’exactitude du type de carte bancaire sélectionné et du numéro de carte saisi.
 6.	Apportez les modifications nécessaires, puis cliquez sur **Suivant**.
 
@@ -268,4 +277,4 @@ Oui.
 
 Il n’y a actuellement aucun projet d’offre Azure ou SQL Database via SPLA.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
 	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"  
+	ms.author="juliako;cenkdin"/>
 
 #Création de filtres avec l’API REST Media Services Azure
 
@@ -44,7 +44,7 @@ Les types suivants sont utilisés lors de la création de filtres :
 >
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md).
 
 
 ##Création de filtres
@@ -374,4 +374,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de la capacité de SQL Data Warehouse
@@ -233,4 +233,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

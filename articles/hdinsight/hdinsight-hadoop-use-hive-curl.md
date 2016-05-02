@@ -116,7 +116,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-    Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
+    Vous pouvez répertorier et télécharger ces fichiers à l’aide de l'[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
 
 		azure storage blob list <container-name> example/curl
 
@@ -192,4 +192,4 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

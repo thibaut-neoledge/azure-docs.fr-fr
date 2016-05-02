@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - Connexion à une source de données"
-   description="Microsoft Power BI Embedded - Connexion à une source de données"
+   description="Power BI Embedded, se connecter aux sources de données"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -55,4 +55,4 @@ Pour garantir que les requêtes envoyées à la source de données sous-jacente 
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

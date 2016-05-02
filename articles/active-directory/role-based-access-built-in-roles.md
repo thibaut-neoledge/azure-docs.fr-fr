@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #RBAC : rôles intégrés
 
 ## Rôles intégrés
 
-Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier la définition des rôles intégrés. Dans une version ultérieure d'Azure RBAC, vous pourrez définir des rôles personnalisés en composant un ensemble d'actions à partir d'une liste des actions applicables aux ressources Azure.
+Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier les définitions des rôles intégrés. Toutefois, vous pouvez créer des [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md) en fonction des besoins spécifiques de votre organisation.
 
-Cliquez sur les liens ci-dessous pour voir les propriétés **actions** et **not actions** d’une définition de rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **not actions** d'une définition de rôle spécifie les actions qui doivent être exclues des actions autorisées.
+Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom de rôle pour afficher la liste détaillée des **actions** et des **non-actions** pour le rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **not actions** spécifie les actions qui sont exclues des actions autorisées.
 
 
 | Nom de rôle | Description |
@@ -134,7 +134,7 @@ Gérer tout sauf les accès
 | ------- | ------ |
 | * | Créer et gérer les ressources de tous les types |
 
-| **Non-actions** | |
+| **Non-actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles |
 | Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
@@ -304,7 +304,7 @@ Gérer les bases de données SQL, mais pas leurs stratégies de sécurité
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-| **Non-actions** | |
+| **Non-actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion |
@@ -346,7 +346,7 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-| **Non-actions** | |
+| **Non-actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Impossible de modifier les stratégies d’audit de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit de base de données de serveur SQL |
@@ -387,8 +387,7 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. | 
-| Microsoft.Authorization/* | Autorisation de lecture |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. | | Microsoft.Authorization/* | Autorisation de lecture |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle classique
@@ -486,7 +485,10 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 | Microsoft.Insights/components/* | Créer et gérer les composants Insights |
 
-## Rubriques RBAC
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Voir aussi
+- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins d'accès.
+- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d'affection de rôle dans RBAC.
+- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

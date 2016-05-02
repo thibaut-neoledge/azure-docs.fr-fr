@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ Pour configurer l’intégration de Keylight à Azure AD, vous devez ajouter Key
 
 7. Dans le volet de résultats, sélectionnez **Keylight**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Keylight avec un utilisateur de test appelé « Britta Simon ».
@@ -93,7 +93,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Keylight, vo
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Keylight](#creating-a-Keylight-test-user)** pour avoir un équivalent de Britta Simon dans Keylight lié à la représentation Azure AD associée.
+4. **[Création d’un utilisateur de test Keylight](#creating-a-keylight-test-user)** pour avoir un équivalent de Britta Simon dans Keylight lié à sa représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Keylight, procédez comme suit :**
 
-1. Dans le portail Azure, dans la page d’intégration d’application **Keylight**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure, cliquez dans la page d’intégration d’application **Keylight** sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
 	![Configurer l’authentification unique][6]
 
@@ -118,10 +118,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 	![Configurer l’authentification unique](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png)
 
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Keylight au format suivant : **« https://<nom\_entreprise>.keylightgrc.com/Login.aspx?saml=1 »**.
+    a. Dans la zone de texte URL de connexion, entrez l’URL utilisée par les utilisateurs pour se connecter à votre application Keylight au format suivant : **« https://<nom\_entreprise>.keylightgrc.com/Login.aspx?saml=1 »**.
 
 
-4. Dans la page **Configurer l’authentification unique sur Keylight**, procédez comme suit :
+4. Dans la page **Configurer l’authentification unique sur Keylight**, procédez comme suit :
  
 	![Configurer l’authentification unique](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png)
 
@@ -173,11 +173,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     j. Pour **Auto-provision security config** (Configuration automatique des paramètres de sécurité), sélectionnez **Standard User Configuration** (Configuration utilisateur standard).
    
-    k. Dans la zone de texte Email attribute (Attribut de messagerie), tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. Dans la zone de texte Email attribute (Attribut de l’e-mail), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. Dans la zone de texte **First name attribute** (Attribut de prénom), tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. Dans la zone de texte **First name attribute** (Attribut de prénom), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. Dans la zone de texte **Last name attribute** (Attribut de nom), tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. Dans la zone de texte **Last name attribute** (Attribut de nom), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Cliquez sur **Enregistrer**.
    
@@ -213,16 +213,16 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, cliquez sur **Utilisateurs** dans le menu du haut.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_03.png)
 
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png)
 
@@ -232,7 +232,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png)
 
@@ -246,11 +246,11 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire** (Get temporary password), cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png)
 
@@ -264,7 +264,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Keylight. Keylight prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors de l’accès à Keylight si l’utilisateur n’existe pas encore. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors de l’accès à Keylight si l’utilisateur n’existe pas encore.
 
 > [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe de support Keylight.
 
@@ -277,7 +277,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Keylight, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
+1. Pour ouvrir la vue des applications dans le portail Azure, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -329,4 +329,4 @@ Quand vous cliquez sur la vignette Keylight dans le volet d’accès, vous devez
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

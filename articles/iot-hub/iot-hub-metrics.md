@@ -1,5 +1,5 @@
 <properties
- pageTitle="Métriques de diagnostic IoT Hub"
+ pageTitle="Métriques de diagnostic de IoT Hub"
  description="Vue d’ensemble des métriques Azure IoT Hub, qui permet aux utilisateurs d’évaluer l’intégrité globale de leurs ressources"
  services="iot-hub"
  documentationCenter=""
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/18/2016"
  ms.author="nberdy"/>
 
 # Introduction aux métriques de diagnostic
@@ -34,7 +34,7 @@ Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
 
     ![][2]
 
-4. Une fois que vous avez configuré les diagnostics, revenez au panneau principal du hub IoT. Les informations sur les métriques sont renseignées dans la section **Surveillance** du panneau. Si vous cliquez sur le graphique, le volet Métriques s’ouvre, où vous pouvez consulter les informations sur les métriques liées à votre hub IoT et modifier la sélection des métriques affichées dans le graphique. Vous pouvez également configurer des alertes en fonction des valeurs de métriques.
+4. Une fois que vous avez configuré les diagnostics, revenez au panneau principal du hub IoT. Les informations sur les métriques sont renseignées dans la section **Surveillance** du panneau. Si vous cliquez sur le graphique, le volet Métriques s’ouvre. Vous pouvez alors consulter les informations sur les métriques liées à votre hub IoT et modifier la sélection des métriques affichées dans le graphique. Vous pouvez également configurer des alertes en fonction des valeurs de métriques.
 
     ![][3]
 
@@ -70,4 +70,4 @@ Les métriques de diagnostic n’étant plus un secret pour vous, suivez les lie
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

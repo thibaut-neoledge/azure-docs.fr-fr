@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Instruction Create Table As Select (CTAS) dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Instruction Create Table As Select (CTAS) dans SQL Data Warehouse | Microsoft Azure"
    description="Conseils de codage à l’aide de l’instruction Create Table As Select (CTAS) dans Azure SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -88,7 +88,7 @@ DROP TABLE FactInternetSales_old;
 
 ## Utilisation de CTAS pour contourner les fonctionnalités non prises en charge
 
-`CTAS` permet également de contourner un certain nombre de fonctionnalités non prises en charge qui sont répertoriées ci-après. L’utilisation de cette instruction se révèle doublement avantageuse, car elle assure non seulement la conformité de votre code, mais également une vitesse d’exécution accrue de ce dernier sur SQL Data Warehouse. Ces deux avantages découlent de sa conception entièrement parallélisée. Les scénarios qui peuvent être contournés avec CTAS comprennent notamment :
+`CTAS` permet également de contourner un certain nombre de fonctionnalités non prises en charge qui sont répertoriées ci-après. L’utilisation de cette instruction se révèle doublement avantageuse, car elle assure non seulement la conformité de votre code, mais également une vitesse d’exécution accrue de ce dernier sur SQL Data Warehouse. Ces deux avantages découlent de sa conception entièrement parallélisée. Les scénarios qui peuvent être contournés avec CTAS comprennent notamment :
 
 - SELECT .. INTO
 - Jointures ANSI sur les opérations UPDATE
@@ -101,7 +101,7 @@ DROP TABLE FactInternetSales_old;
 ## SELECT .. INTO
 L’instruction `SELECT..INTO` peut apparaître à de nombreux emplacements dans votre solution.
 
-Vous trouverez ci-dessous un exemple d’instruction `SELECT..INTO` :
+Vous trouverez ci-dessous un exemple d’instruction `SELECT..INTO` :
 
 ```sql
 SELECT *
@@ -109,7 +109,7 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-La conversion de cette instruction en `CTAS` se révèle assez simple :
+La conversion de cette instruction en `CTAS` se révèle assez simple :
 
 ```sql
 CREATE TABLE #tmp_fct
@@ -129,7 +129,7 @@ FROM    [dbo].[FactInternetSales]
 
 Vous disposez peut-être d’une mise à jour complexe qui joint plus de deux tables à l’aide d’une syntaxe de jointure ANSI pour l’exécution d’une opération UPDATE ou DELETE.
 
-Imaginons que vous souhaitiez mettre à jour la table suivante :
+Imaginons que vous souhaitiez mettre à jour la table suivante :
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -144,7 +144,7 @@ WITH
 ;
 ```
 
-La requête d’origine pourrait ressembler à ceci :
+La requête d’origine pourrait ressembler à ceci :
 
 ```sql
 UPDATE	acs
@@ -171,7 +171,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 
 Étant donné que SQL Data Warehouse ne prend pas en charge les jointures ANSI dans la clause `FROM` d’une instruction `UPDATE`, vous ne pouvez pas copier ce code sans le modifier légèrement.
 
-Vous pouvez remplacer ce code en combinant une instruction `CTAS` et une jointure implicite :
+Vous pouvez remplacer ce code en combinant une instruction `CTAS` et une jointure implicite :
 
 ```sql
 -- Create an interim table
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs
 ## Remplacement de jointures ANSI pour les instructions de suppression
 L’utilisation de l’instruction `CTAS` constitue parfois la meilleure approche pour supprimer des données. Plutôt que de supprimer les données, vous pouvez simplement sélectionner les données à conserver. Cette approche est particulièrement recommandée dans le cas des instructions `DELETE` qui utilisent une syntaxe de jointure ANSI, car cette dernière n’est pas prise en charge par SQL Data Warehouse dans la clause `FROM` d’une instruction `DELETE`.
 
-Voici un exemple d’instruction DELETE convertie :
+Voici un exemple d’instruction DELETE convertie :
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -232,7 +232,7 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ## Remplacement d’instructions MERGE
 Vous pouvez remplacer les instructions MERGE, du moins partiellement, à l’aide de `CTAS`. Vous pouvez consolider les instructions `INSERT` et `UPDATE` dans une seule et même instruction. Tous les enregistrements supprimés doivent être isolés dans une seconde instruction.
 
-Voici un exemple d’utilisation d’une instruction consolidée `UPSERT` :
+Voici un exemple d’utilisation d’une instruction consolidée `UPSERT` :
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -264,9 +264,9 @@ RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 ```
 
-## Recommandation CTAS : déclarer explicitement le type de données et la possibilité de valeur NULL de la sortie
+## Recommandation CTAS : déclarer explicitement le type de données et la possibilité de valeur NULL de la sortie
 
-Lorsque vous procédez à la migration de votre code, vous pouvez constater que vous exécutez le type de modèle de codage suivant :
+Lorsque vous procédez à la migration de votre code, vous pouvez constater que vous exécutez le type de modèle de codage suivant :
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -284,7 +284,7 @@ SELECT @d*@f
 
 Instinctivement, vous pourriez envisager de convertir ce code en instruction CTAS, et vous auriez raison. Toutefois, un problème se dissimule derrière ce scénario.
 
-Le code suivant ne génère PAS le même résultat :
+Le code suivant ne génère PAS le même résultat :
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -298,9 +298,9 @@ SELECT @d*@f as result
 ;
 ```
 
-Notez que la colonne « result » indique le type de données et les valeurs de possibilité de valeur NULL de l’expression. De légers écarts de valeurs peuvent en découler si vous n’y prenez pas garde.
+Notez que la colonne « result » indique le type de données et les valeurs de possibilité de valeur NULL de l’expression. De légers écarts de valeurs peuvent en découler si vous n’y prenez pas garde.
 
-Essayez l’exemple de code suivant :
+Essayez l’exemple de code suivant :
 
 ```sql
 SELECT result,result*@d
@@ -316,13 +316,13 @@ La valeur stockée en guise de résultat diffère. Étant donné que la valeur p
 
 ![][1]
 
-Ceci se révèle particulièrement important dans le cas des migrations de données. Bien que la seconde requête soit effectivement plus précise, il existe un problème. Les données obtenues diffèrent de celles du système source, ce qui compromet l’intégrité de la migration. Il s’agit là de l’un des rares cas dans lesquels la « mauvaise » réponse est en réalité la bonne !
+Ceci se révèle particulièrement important dans le cas des migrations de données. Bien que la seconde requête soit effectivement plus précise, il existe un problème. Les données obtenues diffèrent de celles du système source, ce qui compromet l’intégrité de la migration. Il s’agit là de l’un des rares cas dans lesquels la « mauvaise » réponse est en réalité la bonne !
 
 Cet écart entre les deux résultats est dû à la conversion de type (transtypage) implicite. Dans le premier exemple, la table définit la définition de colonne. Lorsque la ligne est insérée, une conversion de type implicite est effectuée. Dans le second exemple, aucune conversion de type implicite ne se produit, car l’expression définit le type de données de la colonne. Notez également que la colonne figurant dans le second exemple a été définie comme une colonne Nullable, ce qui n’est pas son cas dans le premier exemple. Lorsque la table a été créée dans le premier exemple, la possibilité de valeur Null de la colonne a été définie explicitement. Dans le second exemple, cet aspect est déterminé par l’expression et entraîne par défaut une définition de valeur Null.
 
 Pour résoudre ces problèmes, vous devez explicitement définir la conversion de type et la possibilité de valeur Null dans la partie `SELECT` de l’instruction `CTAS`. Vous ne pouvez pas définir ces propriétés dans la partie CREATE TABLE.
 
-L’exemple ci-dessous indique comme corriger le code :
+L’exemple ci-dessous indique comme corriger le code :
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -334,7 +334,7 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 - Nous aurions pu utiliser CAST ou CONVERT.
 - La possibilité de valeur Null est forcée avec ISNULL, et non avec COALESCE.
 - ISNULL est la fonction située la plus à l’extérieur.
@@ -342,7 +342,7 @@ Notez les points suivants :
 
 > [AZURE.NOTE] Pour que la possibilité de valeur Null soit correctement définie, il est essentiel d’utiliser `ISNULL` et non `COALESCE`. `COALESCE` n’est pas une fonction déterministe et par conséquent, le résultat de l’expression sera toujours NULLable. `ISNULL` est différent. Cette fonction est déterministe. Par conséquent, lorsque la seconde partie de la fonction `ISNULL` est une constante ou un littéral, la valeur résultante est NOT NULL.
 
-Ce conseil ne vous sert pas seulement à assurer l’intégrité de vos calculs. Il est également important dans le cadre du basculement de partition de table. Imaginons que vous ayez défini la table suivante :
+Ce conseil ne vous sert pas seulement à assurer l’intégrité de vos calculs. Il est également important dans le cadre du basculement de partition de table. Imaginons que vous ayez défini la table suivante :
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -367,7 +367,7 @@ WITH
 
 Toutefois, le champ de valeur est une expression calculée qui ne fait pas partie des données sources.
 
-Pour créer votre jeu de données partitionné, vous pouvez exécuter le code suivant :
+Pour créer votre jeu de données partitionné, vous pouvez exécuter le code suivant :
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -433,4 +433,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

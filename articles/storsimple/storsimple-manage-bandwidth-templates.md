@@ -12,22 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/14/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Les modèles de bande passante vous permettent de configurer plusieurs planifications selon le moment de la journée des couches de données à partir de l’appareil StorSimple vers le cloud. Vous pouvez aussi créer, modifier, supprimer et enregistrer ces planifications comme modèles. Ces modèles de bande passante peuvent ensuite être appliqués sur les conteneurs de volume pour contrôler la bande passante utilisée par votre appareil StorSimple lors de l’exécution des opérations impliquant le cloud. En fonction de votre modèle d’utilisation de la bande passante, vous pouvez également choisir dans une liste de modèles par défaut.
+Les modèles de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée des couches de données à partir de l’appareil StorSimple vers le cloud.
 
 Avec les planifications de limitation de bande passante, vous pouvez :
 
-- Spécifier des planifications qui personnalisent l’utilisation de la bande passante en fonction des charges de travail.
+- Spécifiez des planifications de bande passante en fonction de l’utilisation du réseau par la charge de travail.
 
 - Centraliser la gestion et réutiliser les planifications sur plusieurs appareils de manière simple et transparente.
 
-Cette fonctionnalité est disponible uniquement pour les appareils physiques StorSimple et pas pour les appareils virtuels. Tous les modèles de la bande passante de votre service sont affichés dans un format tabulaire et contiennent les informations suivantes :
+> [AZURE.NOTE] Cette fonctionnalité est disponible uniquement pour les appareils physiques StorSimple et pas pour les appareils virtuels.
+   
+Tous les modèles de la bande passante de votre service sont affichés dans un format tabulaire et contiennent les informations suivantes :
 
 - **Nom** : nom unique affecté au modèle de bande passante lors de sa création.
 
@@ -35,13 +37,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils physiques Sto
 
 - **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
 
-Utilisez la page **Configurer** du service StorSimple Manager du portail Azure Classic pour gérer les modèles de la bande passante. Les tâches les plus courantes associées aux modèles de bande passante qui peuvent être effectuées sur cette page sont les suivantes :
-
-- Ajouter un modèle de bande passante
-- Modifier un modèle de bande passante
-- Supprimer un modèle de bande passante
-- Utiliser un modèle de bande passante par défaut
-- Créer un modèle de bande passante sur une journée entière qui commence à une heure spécifiée
+Utilisez la page **Configurer** du service StorSimple Manager du portail Azure Classic pour gérer les modèles de la bande passante.
 
 Vous trouverez également des informations supplémentaires pour aider à configurer les modèles de bande passante dans :
 
@@ -68,7 +64,7 @@ Pour créer un modèle de bande passante, procédez comme suit.
    3. Dans la liste déroulante, sélectionnez une **Heure de début**. Cette heure correspond au début de la planification.
    4. Dans la liste déroulante, sélectionnez une **Heure de fin**. Cette heure correspond à la fin de la planification.
    
-         > [AZURE.NOTE] Les planifications qui se chevauchent ne sont pas autorisées. Si les heures de début et de fin entraînent une planification qui se chevauche, un message d'erreur apparaîtra.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Spécifiez le **Débit de bande passante**. Il s’agit de la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil StorSimple dans les opérations impliquant le cloud. Fournissez un nombre compris entre 1 et 1 000 pour ce champ.
    
@@ -94,7 +90,7 @@ Pour modifier un modèle de bande passante, procédez comme suit.
 
 3. Pour enregistrer les modifications, cliquez sur **Enregistrer** en bas de la page. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
-> [AZURE.NOTE]Vous n’êtes pas autorisé à enregistrer vos modifications si la planification modifiée chevauche une planification existante dans le modèle de bande passante que vous modifiez.
+> [AZURE.NOTE] Vous n’êtes pas autorisé à enregistrer vos modifications si la planification modifiée chevauche une planification existante dans le modèle de bande passante que vous modifiez.
 
 ## Supprimer un modèle de bande passante
 
@@ -174,6 +170,6 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 ## Étapes suivantes
 
-- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

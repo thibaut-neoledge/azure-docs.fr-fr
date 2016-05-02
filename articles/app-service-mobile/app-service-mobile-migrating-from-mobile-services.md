@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -38,44 +38,20 @@ Microsoft vous recommande de migrer votre service mobile Azure pour tirer parti 
 
 Pour plus d’informations sur les avantages d’Azure App Service, voir [Services mobiles et App Service].
 
-## <a name="why-not-migrate"></a>Pourquoi ne pas migrer votre site
-
-Plusieurs raisons peuvent justifier que vous ne migriez pas vos services mobiles Azure maintenant :
-
-  *  Vous êtes actuellement en plein période d’activité et ne pouvez pas vous permettre un redémarrage du site.
-  *  Vous ne souhaitez pas affecter votre site de production avant de tester le processus de migration.
-  *  Vous disposez de plusieurs sites soumis aux niveaux tarifaires de base et gratuit, et ne souhaitez pas migrer tous les sites en même temps.
-
-Si vous êtes en période d’activité, veuillez envisager une migration pendant une fenêtre de maintenance planifiée. Le processus de migration redémarre votre site et il se peut que vos utilisateurs constatent une interruption momentanée de la disponibilité.
-
-Il existe des solutions de contournement pour la plupart des éléments de cette liste. Pour plus de d’informations, voir la section [Avant de commencer](#before-you-begin) ci-dessous.
-
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de migrer votre site, vous devez procéder comme suit :
+Avant de commencer tout travail majeure sur votre site, vous devez [sauvegarder les scripts] et la base de données SQL de service mobile.
 
-  *  [Sauvegardez les scripts et la base de données de votre service mobile].
-  *  (Facultatif) Passez au niveau de service mobile standard.
+Si vous voulez tester le processus de migration avant de migrer votre site de production, dupliquez votre service mobile Azure de production dans une nouvelle [région Azure] (complet, avec une copie de la source de données), puis testez la migration par rapport à la nouvelle URL. Vous avez également besoin d’une implémentation de client test qui pointe vers le site de test pour tester correctement le site migré.
 
-Si vous voulez tester le processus de migration avant de migrer votre site de production, dupliquez votre service mobile Azure de production (complet, avec une copie de la source de données), puis testez la migration par rapport à la nouvelle URL. Vous avez également besoin d’une implémentation de client test qui pointe vers le site de test pour tester correctement le site migré.
+## <a name="migrating-site"></a>Migration de vos sites
 
-### <a name="opt-raise-service-tier"></a>(Facultatif) Passez au niveau de service mobile standard.
-
-Tous les sites de services mobiles qui partagent un plan d’hébergement sont migrés en même temps. Les services mobiles aux niveaux tarifaires de base et gratuit partagent un plan d’hébergement avec d’autres services au même niveau tarifaire et situés dans la même [région Azure]. Si votre service mobile opère à niveau tarifaire standard, il se trouve dans son propre plan d’hébergement. Si vous souhaitez migrer individuellement des sites bénéficiant des niveaux tarifaires de base ou gratuit, mettez temporairement le service mobile au niveau tarifaire standard. Pour ce faire, accédez au menu MISE À L’ÉCHELLE pour votre service mobile.
-
-  1.  Connectez-vous au [portail Azure Classic].
-  2.  Sélectionnez votre service mobile
-  3.  Sélectionnez l’onglet **MONTÉE EN PUISSANCE**.
-  4.  Sous **Niveau de service mobile**, cliquez sur le niveau **STANDARD**. Cliquez sur l’icône **ENREGISTRER** en bas de la page.
-
-Pensez à définir le niveau tarifaire approprié après la migration.
-
-## <a name="migrating-site"></a>Migration de votre site
+Le processus de migration migre tous les sites au sein d’une seule région Azure.
 
 Pour migrer votre site :
 
   1.  Connectez-vous au [portail Azure Classic].
-  2.  Sélectionnez votre service mobile
+  2.  Sélectionnez un service mobile dans la région que vous souhaitez migrer.
   3.  Cliquez sur le bouton **Migrer vers App Service**.
 
     ![Bouton Migrer][0]
@@ -83,8 +59,6 @@ Pour migrer votre site :
   4.  Lisez le contenu de la boîte de dialogue Migrer vers App Service.
   5.  Entrez le nom de votre service mobile dans le champ approprié. Par exemple, si votre nom de domaine est contoso.azure-mobile.NET, entrez _contoso_ dans le champ approprié.
   6.  Cliquez sur le bouton de graduation.
-
-Si vous migrez un service mobile bénéficiant du niveau tarifaire de base ou gratuit, tous les services mobiles à ce niveau tarifaire sont migrés en même temps. Vous pouvez éviter cela en [élevant le service mobile que vous migrez](#opt-raise-service-tier) au niveau tarifaire standard pendant la migration.
 
 Vous pouvez surveiller l’état de la migration dans le moniteur d’activité, et votre site est répertorié comme *en migration* dans le portail Azure Classic.
 
@@ -153,12 +127,12 @@ Le profil de publication de votre site est modifié lors de la migration vers Az
   2.  Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
   3.  Cliquez sur **Obtenir le profil de publication**.
 
-Le fichier PublishSettings sera téléchargé sur votre ordinateur. Normalement, il est appelé _nom de site_.PublishSettings. Vous pouvez ensuite importer les paramètres de publication dans votre projet existant :
+Le fichier PublishSettings sera téléchargé sur votre ordinateur. Normalement, il est appelé _sitename_.PublishSettings. Vous pouvez ensuite importer les paramètres de publication dans votre projet existant :
 
   1.  Ouvrez Visual Studio et votre projet Service mobile Azure.
   2.  Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Publier**.
   3.  Cliquez sur **Importer**
-  4.  Cliquez sur **Parcourir** et sélectionnez le fichier de paramètres de publier que vous avez téléchargé. Cliquez sur **OK**.
+  4.  Cliquez sur **Parcourir** et sélectionnez le fichier de paramètres de publication que vous avez téléchargé. Cliquez sur **OK**.
   5.  Cliquez sur **Valider la connexion** pour garantir le fonctionnement des paramètres de publication.
   6.  Cliquez sur **Publier** pour publier votre site.
 
@@ -256,9 +230,9 @@ Les tâches planifiées seront affichées à la fréquence que vous avez spécif
   1. sélectionnez la tâche que vous souhaitez exécuter.
   2. Le cas échéant, cliquez sur **Activer** pour activer la tâche.
   3. Cliquez sur **Paramètres**, puis sur **Planification**.
-  4. Sélectionnez une Périodicité de **Une fois**, puis cliquez sur **Enregistrer**
+  4. Sélectionnez **Une fois** comme Périodicité, puis cliquez sur **Enregistrer**
 
-Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`. Nous vous conseillons de convertir toutes les tâches à la demande en [WebJobs]. Vous devez écrire de nouveaux travaux en tant que [Tâches web].
+Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`. Nous vous conseillons de convertir toutes les tâches à la demande en [WebJobs]. Vous devez écrire de nouvelles tâches du planificateur en tant que [Tâches web].
 
 ### <a name="notification-hubs"></a>Notification Hubs
 
@@ -283,9 +257,15 @@ Pour plus d’informations, voir la documentation de [Notification Hubs].
 
 > [AZURE.TIP] Les fonctions de gestion de Notification Hubs dans le [portail Azure] sont encore en version préliminaire. Le [portail Azure Classic] reste disponible pour la gestion de tous vos Notification Hubs.
 
+### <a name="legacy-push"></a>Paramètres Push hérités
+
+Si vous avez configuré des notifications push sur votre service mobile avant leur introduction dans des Notification Hubs, vous utilisez des paramètres _push hérités_. Si vous utilisez des notifications push et ne voyez aucun Notification Hub répertorié dans votre configuration, il est probable que vous utilisez des paramètres _push hérités_. Cette fonctionnalité est migrée avec toutes les autres et est toujours disponible. Toutefois, nous vous recommandons d’effectuer une mise à niveau vers Notification Hubs peu après la migration.
+
+Dans l’intervalle, tous les paramètres push hérités (à l’exception notable du certificat APNs) sont disponibles dans les paramètres de l’application. Le certificat APNs peut être remplacé par le fichier approprié sur le site. Pour cela, il suffit d’utiliser des options de déploiement quelconques disponibles pour Azure App Service.
+
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -374,17 +354,17 @@ Résolution : Nous travaillons actuellement à la correction de ce problème. Si
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
-[région Azure]: https://azure.microsoft.com/regions/
+[région Azure]: https://azure.microsoft.com/fr-FR/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [déployer en continu]: ../app-service-web/web-sites-publish-source-control.md
-[convertir vos espaces de noms mixte]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir vos espaces de noms mixte]: https://azure.microsoft.com/fr-FR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -396,10 +376,10 @@ Résolution : Nous travaillons actuellement à la correction de ce problème. Si
 [Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 [analyse des performances]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[Sauvegardez les scripts et la base de données de votre service mobile]: ../mobile-services/mobile-services-disaster-recovery.md
+[sauvegarder les scripts]: ../mobile-services/mobile-services-disaster-recovery.md
 [emplacements intermédiaires]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

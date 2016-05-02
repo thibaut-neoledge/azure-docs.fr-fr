@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Créer des applications Machine Learning à l’aide d’Apache Spark sur Azure HDInsight (Linux)
+# Créer des applications Machine Learning à exécuter sur Apache Spark sous HDInsight Linux (version préliminaire)
 
 Découvrez comment créer une application d’apprentissage automatique à l’aide d’un cluster Apache Spark dans HDInsight. Cet article montre comment utiliser le bloc-notes Jupyter disponible avec le cluster pour générer et tester notre application. L’application utilise l’exemple de données HVAC.csv, qui est disponible par défaut sur tous les clusters.
 
@@ -254,4 +254,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

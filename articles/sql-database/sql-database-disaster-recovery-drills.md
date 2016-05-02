@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="04/18/2016"
    ms.author="mihaelab"/>
 
 #Exécution d'un exercice de récupération d'urgence
@@ -63,4 +63,4 @@ Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un or
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0420_2016-->

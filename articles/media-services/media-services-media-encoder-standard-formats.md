@@ -3,8 +3,8 @@
 	description="Cette rubrique fournit une vue d’ensemble des codecs et formats Media Encoder Standard." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Codecs et formats standard de l’encodeur multimédia
 
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

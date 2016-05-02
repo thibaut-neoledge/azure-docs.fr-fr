@@ -50,15 +50,14 @@ Connectez-vous à votre compte.
 
 	Login-AzureRmAccount
 
-Obtenez votre nom d'abonnement à l'aide de la commande suivante.
+Obtenez tous les abonnements disponibles à l’aide de la commande suivante.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Définissez votre abonnement Azure. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Définissez votre abonnement Azure pour la session active. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
 	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 ## Étape 3 : Créer des ressources
 
@@ -393,4 +392,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

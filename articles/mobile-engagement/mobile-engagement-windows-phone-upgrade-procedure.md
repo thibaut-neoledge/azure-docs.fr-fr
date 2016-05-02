@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Procédures de mise à niveau du Kit de développement Windows Phone Silverlight" 
-	description="Procédures de mise à niveau du SDK Windows Phone Silverlight pour Azure Mobile Engagement" 					
+	pageTitle="Procédures de mise à niveau du Kit de développement Windows Phone Silverlight" 
+	description="Procédures de mise à niveau du SDK Windows Phone Silverlight pour Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,11 +16,20 @@
 	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
-#Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
+#Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
 
 Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
 
-Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
+Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
+
+##Migration de 2.0.0 vers 3.3.0
+
+### Journaux des tests
+
+Les journaux de console produits par le Kit de développement logiciel (SDK) peuvent maintenant être activés/désactivés/filtrés. Pour personnaliser ce résultat, mettez à jour la propriété `EngagementAgent.Instance.TestLogEnabled` avec une des valeurs disponibles à partir de l'énumération `EngagementTestLogLevel`, par exemple :
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
 
 ##Migration de 1.1.1 vers 2.0.0
 
@@ -30,9 +39,9 @@ La section qui suit décrit comment migrer une intégration du SDK à partir du 
 
 Si vous migrez à partir d'une version antérieure, consultez le site web de Capptain pour migrer tout d'abord vers 1.1.1, puis appliquez la procédure suivante.
 
-### Package NuGet
+### Package NuGet
 
-Remplacez **Capptain.WindowsPhone** par le package Nuget **MicrosoftAzure.MobileEngagement**.
+Remplacez **Capptain.WindowsPhone** par le package Nuget **MicrosoftAzure.MobileEngagement**.
 
 ### Application d'Engagement Mobile
 
@@ -50,18 +59,18 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 
 1. Tous les espaces de noms Capptain doivent être mis à jour.
 
-	Avant la migration :
+	Avant la migration :
 	
 		using Capptain.Agent;
 		using Capptain.Reach;
 	
-	Après la migration :
+	Après la migration :
 	
 		using Microsoft.Azure.Engagement;
 
-2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
+2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
 
-	Avant la migration :
+	Avant la migration :
 	
 		public sealed partial class MainPage : CapptainPage
 		{
@@ -72,7 +81,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 		  ...
 		}
 	
-	Après la migration :
+	Après la migration :
 	
 		public sealed partial class MainPage : EngagementPage
 		{
@@ -85,7 +94,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 
 3. Pour les fichiers xaml, les attributs et les espaces de noms Capptain changent également.
 
-	Avant la migration :
+	Avant la migration :
 	
 		<capptain:CapptainPage
 		...
@@ -93,7 +102,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 		...
 		</capptain:CapptainPage>
 	
-	Après la migration :
+	Après la migration :
 	
 		<engagement:EngagementPage
 		...
@@ -101,7 +110,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 		...
 		</engagement:EngagementPage>
 
-4. Notez que les autres ressources, comme les images Capptain, ont aussi été renommées afin d'utiliser « Engagement ».
+4. Notez que les autres ressources, comme les images Capptain, ont aussi été renommées afin d'utiliser « Engagement ».
 
 ### ID de l'application / clé SDK
 
@@ -109,11 +118,11 @@ Engagement utilise une chaîne de connexion. Il est inutile de spécifier un ID 
 
 La configuration d'Engagement peut être définie dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.
 
-Modifiez ce fichier pour spécifier :
+Modifiez ce fichier pour spécifier :
 
 -   Votre chaîne de connexion d'application entre les balises `<connectionString>` et `<\connectionString>`.
 
-Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
+Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
 
 		/* Engagement configuration. */
 		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -128,7 +137,7 @@ La chaîne de connexion de votre application est affichée sur le portail Azure 
 
 Tous les éléments nommés *capptain* ont été renommés *engagement*. De même pour *Capptain* (renommés *Engagement*).
 
-Exemples d'éléments Capptain couramment utilisés :
+Exemples d'éléments Capptain couramment utilisés :
 
 -   CapptainConfiguration se nomme maintenant EngagementConfiguration
 -   CapptainAgent se nomme maintenant EngagementAgent
@@ -142,4 +151,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

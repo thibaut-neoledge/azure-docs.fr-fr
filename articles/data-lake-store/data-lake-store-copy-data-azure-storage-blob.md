@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Copier des données d’objets blob Azure Storage vers Data Lake Store
@@ -22,8 +22,8 @@ Azure Data Lake Store fournit un outil en ligne de commande nommé [AdlCopy](htt
 
 Vous pouvez utiliser l’outil AdlCopy de deux manières :
 
-* **Autonome** : l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
-* **À l’aide d’un compte Data Lake Analytics** : les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
+* **Autonome** : l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
+* **À l’aide d’un compte Data Lake Analytics** : les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
 ##Composants requis
 
@@ -118,4 +118,4 @@ Par exemple :
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -18,9 +18,9 @@
 	ms.author="nitinme"/>
 
 
-# Diffusion en continu de Spark : traiter les événements d’Azure Event Hubs avec Apache Spark sur HDInsight (Windows)
+# Diffusion en continu de Spark : traiter les événements d’Azure Event Hubs avec Apache Spark sur HDInsight Windows (version préliminaire)
 
-> [AZURE.NOTE] HDInsight fournit maintenant des clusters Spark sur Linux. Pour plus d’informations sur l’exécution d’une application de diffusion en continu sur des clusters HDInsight Spark Linux, consultez [Diffusion en continu de Spark : traiter les événements d’Azure Event Hubs avec Apache Spark sur HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+> [AZURE.NOTE] HDInsight fournit désormais des clusters Spark sur Linux. Pour plus d’informations sur l’exécution d’une application de diffusion en continu sur des clusters HDInsight Spark Linux, consultez [Diffusion en continu de Spark : traiter les événements d’Azure Event Hubs avec Apache Spark sur HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 La diffusion en continu de Spark développe l'API Spark de base pour générer des applications de traitement de flux de données évolutives, à haut débit et à tolérance de pannes. Les données peuvent provenir de nombreuses sources. Dans cet article, nous utilisons Event Hubs pour recevoir les données. Event Hubs est un système de réception hautement évolutif pouvant recevoir des millions d'événements par seconde.
 
@@ -28,14 +28,14 @@ Dans ce didacticiel, vous allez apprendre à créer un hub d'événements Azure,
 
 > [AZURE.NOTE] Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un Event Hub, vous utiliserez le [Portail Azure Classic](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous utiliserez le [portail Azure](https://ms.portal.azure.com/).
 
-**Configuration requise :**
+**Configuration requise :**
 
-Vous devez disposer des éléments suivants :
+Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Un [hub d’événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
-- Une station de travail avec Microsoft Visual Studio 2013. Pour obtenir des instructions, consultez [Installation de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- Une station de travail avec Microsoft Visual Studio 2013. Pour obtenir des instructions, consultez [Installation de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Créer un hub d’événements Azure
 
@@ -43,13 +43,13 @@ Vous devez disposer des éléments suivants :
 
 2. Sur l’écran **Ajouter un nouvel hub d’événements**, entrez un **nom de hub d’événements**, sélectionnez la **région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
-	![page 1 de l’assistant](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Création d'un hub d'événements Azure")
+	![page 1 de l’assistant](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Création d'un hub d'événements Azure")
 
 	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre cluster Apache Spark dans HDInsight pour réduire la latence et les coûts.
 
-3. Sur l'écran **Configurer un hub d'événements**, entrez le **nombre de partitions** et les valeurs de **rétention des messages**, puis cliquez sur la coche. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
+3. Sur l'écran **Configurer un hub d'événements**, entrez le **nombre de partitions** et les valeurs de **rétention des messages**, puis cliquez sur la coche. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
-	![page 2 de l’assistant](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Spécifiez la taille des partitions et les jours de rétention du hub d'événements")
+	![page 2 de l’assistant](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Spécifiez la taille des partitions et les jours de rétention du hub d'événements")
 
 4. Cliquez sur le hub d’événements que vous avez créé, cliquez sur **Configurer**, puis créez deux stratégies d’accès pour le hub d’événements.
 
@@ -80,12 +80,12 @@ Dans cette section, vous allez créer un bloc-notes [Zeppelin](https://zeppelin.
 
 ### Allocation de ressources à Zeppelin pour une application de diffusion en continu
 
-Vous devez prendre en considération les points suivants quand vous créez une application de diffusion en continu à l’aide de Zeppelin :
+Vous devez prendre en considération les points suivants quand vous créez une application de diffusion en continu à l’aide de Zeppelin :
 
 * **Partitions et cœurs de hub d’événements alloués à Zeppelin**. Dans les étapes précédentes, vous avez créé un hub d’événements avec des partitions. Dans l’application de diffusion en continu Zeppelin que vous créez ci-après, vous spécifierez à nouveau le même nombre de partitions. Pour diffuser en continu les données à partir du hub d’événements à l’aide de Zeppelin, le nombre de cœurs que vous allouez à Zeppelin doit être le double du nombre de partitions dans le hub d’événements.
 * **Nombre minimal de cœurs à allouer à Zeppelin**. Dans votre application de diffusion en continu que vous créez ci-après, vous créez une table temporaire dans laquelle vous stockez les messages diffusés par votre application. Vous utilisez ensuite une instruction SQL Spark pour lire les messages à partir de cette table temporaire. Pour exécuter l’instruction SQL Spark, vous devez vous assurer qu’au moins deux cœurs sont alloués à Zeppelin.
 
-Combinées, les deux conditions ci-dessus aboutissent à la configuration suivante :
+Combinées, les deux conditions ci-dessus aboutissent à la configuration suivante :
 
 * Le nombre minimal de cœurs que vous devez allouer à Zeppelin est 2.
 * Le nombre de cœurs alloués doit toujours être le double du nombre de partitions dans le hub d’événements. 
@@ -94,9 +94,9 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 ### Créer une application de diffusion en continu à l’aide de Zeppelin
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la mosaïque de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la mosaïque de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
-2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Zeppelin Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Zeppelin Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
 	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Zeppelin pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
@@ -106,7 +106,7 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 	![Créer un nouveau bloc-notes Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
 
-	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
+	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
 
 3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l’en-tête du bloc-notes indique l’état **Connected** dans le coin supérieur droit.
 
@@ -114,7 +114,7 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 4. Dans le paragraphe vide qui est créé par défaut dans le nouveau bloc-notes, collez l’extrait de code suivant et remplacez les espaces réservés pour utiliser la configuration de votre hub d’événements. Dans cet extrait de code, vous recevez le flux du hub d’événements et enregistrez ce flux dans une table temporaire nommée **mytemptable**. Dans la section suivante, nous allons commencer l'application expéditrice. Vous pouvez ensuite lire les données directement à partir de la table.
 
-	> [AZURE.NOTE] Dans l’extrait de code ci-dessous, **eventhubs.checkpoint.dir** doit être défini sur un répertoire de votre conteneur de stockage par défaut. Si le répertoire n’existe pas, l’application de diffusion en continu le crée. Vous pouvez spécifier le chemin complet du répertoire, par exemple « **wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/** » ou simplement le chemin relatif du répertoire, par exemple « **/mycheckpointdir** ».
+	> [AZURE.NOTE] Dans l’extrait de code ci-dessous, **eventhubs.checkpoint.dir** doit être défini sur un répertoire de votre conteneur de stockage par défaut. Si le répertoire n’existe pas, l’application de diffusion en continu le crée. Vous pouvez spécifier le chemin complet du répertoire, par exemple « **wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/** » ou simplement le chemin relatif du répertoire, par exemple « **/mycheckpointdir** ».
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -145,7 +145,7 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 1. À partir du bloc-notes Zeppelin, exécutez le paragraphe avec l'extrait de code. Appuyez sur **Maj+Entrée** ou sur le bouton **Lire** en haut à droite.
 
-	L'état en haut à droite du paragraphe doit progresser de PRÊT, EN ATTENTE, EN COURS D'EXÉCUTION jusqu’à TERMINÉ. La sortie s'affiche en bas du même paragraphe. La capture d'écran ressemble à ceci :
+	L'état en haut à droite du paragraphe doit progresser de PRÊT, EN ATTENTE, EN COURS D'EXÉCUTION jusqu’à TERMINÉ. La sortie s'affiche en bas du même paragraphe. La capture d'écran ressemble à ceci :
 
 	![Sortie de l'extrait de code](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.code.output.png "Sortie de l’extrait de code")
 
@@ -166,7 +166,7 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 ##<a name="sparkstreamingha"></a>Exécuter l’application de diffusion en continu avec une haute disponibilité
 
-L’utilisation de Zeppelin pour recevoir des données en continu dans le cluster Spark sur HDInsight est une bonne approche pour réaliser un prototype de votre application. Toutefois, pour exécuter votre application de diffusion en continu dans une configuration de production avec une haute disponibilité et la résilience, vous devez effectuer les opérations suivantes :
+L’utilisation de Zeppelin pour recevoir des données en continu dans le cluster Spark sur HDInsight est une bonne approche pour réaliser un prototype de votre application. Toutefois, pour exécuter votre application de diffusion en continu dans une configuration de production avec une haute disponibilité et la résilience, vous devez effectuer les opérations suivantes :
 
 1. Copier le fichier jar de dépendance sur le compte de stockage associé au cluster.
 2. Créer une application de diffusion en continu.
@@ -179,11 +179,11 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 ##<a name="seealso"></a>Voir aussi
 
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Démarrage rapide : Créer Apache Spark sur HDInsight et exécuter des requêtes interactives en utilisant Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
-* [Utiliser Spark sur HDInsight pour créer des applications d’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
+* [Démarrage rapide : Créer Apache Spark sur HDInsight et exécuter des requêtes interactives en utilisant Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Utiliser Spark sur HDInsight pour créer des applications d’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Effectuez une analyse interactive des données à l'aide de Spark dans HDInsight avec les outils décisionnels](hdinsight-apache-spark-use-bi-tools-v1.md)
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -196,4 +196,4 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Développement de programmes MapReduce en Java pour HDInsight basé sur Linux | Microsoft Azure"
+	pageTitle="Développement de programmes MapReduce en Java pour HDInsight basé sur Linux | Microsoft Azure"
 	description="Découvrez comment développer des programmes MapReduce en Java et les déployer dans HDInsight basé sur Linux."
 	services="hdinsight"
 	editor="cgronlun"
@@ -25,23 +25,25 @@ Ce document vous guide dans l’utilisation d’Apache Maven pour créer une app
 
 ##<a name="prerequisites"></a>Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 ou ultérieur (ou un équivalent, par exemple, OpenJDK)
+- [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 ou ultérieur (ou un équivalent, par exemple, OpenJDK)
 
 - [Apache Maven](http://maven.apache.org/)
 
 - **Un abonnement Azure**
 
-- **Interface de ligne de commande Azure** : pour plus d’informations, consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md)
+- **Interface de ligne de commande Azure**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configuration des variables d’environnement
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -57,7 +59,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
+	Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
 
 	* __pom.xml__ - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)qui contient les informations et la configuration utilisées pour générer le projet.
 
@@ -67,7 +69,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Ajout de dépendances
 
-1. Modifiez le fichier __pom.xml__ et ajoutez l’élément suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez l’élément suivant dans la section `<dependencies>` :
 
 		<dependency>
 		  <groupId>org.apache.hadoop</groupId>
@@ -92,7 +94,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	`<scope>provided</scope>` indique à Maven que ces dépendances ne doivent pas être fournies avec l'application, car elles sont fournies par le cluster HDInsight au moment de l'exécution.
 
-2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
+2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
 		<build>
   		  <plugins>
@@ -136,7 +138,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 1. Accédez au répertoire __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ et renommez le fichier __app.java__ en __WordCount.java__.
 
-2. Ouvrez le fichier __WordCount.java__ dans un éditeur de texte et remplacez le contenu par les éléments suivants :
+2. Ouvrez le fichier __WordCount.java__ dans un éditeur de texte et remplacez le contenu par les éléments suivants :
 
 		package org.apache.hadoop.examples;
 
@@ -215,7 +217,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 1. Remplacez le répertoire par __wordcountjava__, si cela n’a pas déjà été fait.
 
-2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
+2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
 
 		mvn clean package
 
@@ -228,7 +230,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##<a id="upload"></a>Téléchargement du fichier jar
 
-Utilisez la commande suivante pour télécharger le fichier jar dans le nœud principal HDInsight :
+Utilisez la commande suivante pour télécharger le fichier jar dans le nœud principal HDInsight :
 
 	scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
 
@@ -236,27 +238,27 @@ Utilisez la commande suivante pour télécharger le fichier jar dans le nœud pr
 
 De cette façon, les fichiers du système local sont copiés dans le nœud principal.
 
-> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 ##<a name="run"></a>Exécution de la tâche MapReduce
 
-1. Connectez-vous à HDInsight à l’aide de SSH comme décrit dans les articles suivants :
+1. Connectez-vous à HDInsight à l’aide de SSH comme décrit dans les articles suivants :
 
-    - [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    - [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. À partir de la session SSH, utilisez la commande suivante pour exécuter l’application MapReduce :
+2. À partir de la session SSH, utilisez la commande suivante pour exécuter l’application MapReduce :
 
 		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
 	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\___wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
 
-3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
+3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
 
 		hdfs dfs -cat wasb:///example/data/wordcountout/*
 
-	Vous devez recevoir une liste de mots et de nombres, avec des valeurs similaires à ce qui suit :
+	Vous devez recevoir une liste de mots et de nombres, avec des valeurs similaires à ce qui suit :
 
 		zeal    1
 		zelus   1
@@ -288,4 +290,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

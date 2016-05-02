@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux
@@ -23,17 +23,17 @@
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-Dans l’interface de ligne de commande Azure, exécutez l’applet de commande suivante :
+Dans l’interface de ligne de commande Azure, exécutez l’applet de commande suivante :
 
       Azure VM extension list
 
-Cette commande renvoie le nom de l’éditeur, le nom de l’extension et la version, comme suit :
+Cette commande renvoie le nom de l’éditeur, le nom de l’extension et la version, comme suit :
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-Ces trois propriétés sont mappées respectivement à « publisher », « type » et « typeHandlerVersion » dans l’extrait du modèle ci-dessus.
+Ces trois propriétés sont mappées respectivement à « publisher », « type » et « typeHandlerVersion » dans l’extrait du modèle ci-dessus.
 
 >[AZURE.NOTE]Il est toujours recommandé d’utiliser la dernière version de l’extension pour obtenir les fonctionnalités les plus à jour.
 
@@ -49,4 +49,4 @@ Reportez-vous à ce qui suit pour obtenir un modèle totalement terminé avec de
 
 Une fois le modèle créé, vous pouvez le déployer en utilisant l’interface de ligne de commande Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

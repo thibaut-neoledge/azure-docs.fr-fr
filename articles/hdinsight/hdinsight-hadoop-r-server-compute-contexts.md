@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Calculer des options de contexte pour R Server sur HDI Premium | Azure"
-   description="Découvrez les différentes options de contexte de calcul disponibles pour les utilisateurs avec R Server sur HDInsight Premium"
+   pageTitle="Options de contexte de calcul pour R Server sur HDInsight (version préliminaire) | Azure"
+   description="Découvrez les différentes options de contexte de calcul disponibles pour les utilisateurs avec R Server sur HDInsight (version préliminaire)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Calculer des options de contexte pour R Server sur HDInsight Premium
+#Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)
 
-R Server sur HDI Spark offre les dernières fonctionnalités pour les analyses basées sur R à l’aide des données stockées dans HDFS dans un conteneur de votre compte de stockage d’[objets blob Azure](../storage/storage-introduction.md "Stockage d'objets blob Azure") ou dans le système de fichiers Linux local. Comme R Server est basé sur R open source, les applications R que vous créez peuvent tirer parti de plus de 8 000 packages R open source, ainsi que des routines de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), package d’analyse de Big Data Microsoft inclus dans R Server. Le nœud de périmètre des clusters Premium fournit une zone d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud de périmètre vous permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les cœurs du serveur de nœud de périmètre, ou sur les nœuds du cluster via l’utilisation des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
+R Server sur HDInsight (version préliminaire) offre les dernières fonctionnalités pour les analyses basées sur R à l’aide des données stockées dans HDFS dans un conteneur de votre compte de stockage d’[objets blob Azure](../storage/storage-introduction.md "Stockage d'objets blob Azure") ou dans le système de fichiers Linux local. Comme R Server est basé sur R open source, les applications R que vous créez peuvent tirer parti de plus de 8 000 packages R open source, ainsi que des routines de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), package d’analyse de Big Data Microsoft inclus dans R Server. Le nœud de périmètre des clusters Premium fournit une zone d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud de périmètre vous permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les cœurs du serveur de nœud de périmètre, ou sur les nœuds du cluster via l’utilisation des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
 
 ## Contextes de calcul pour un nœud de périmètre
 
@@ -67,7 +67,7 @@ Pour obtenir plus d’informations et des exemples de contextes de calcul ScaleR
 
     > ?rxSetComputeContext 
 
-ou le guide « ScaleR Distributed Computing Guide », disponible dans [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server sur MSDN") Library.
+ou le guide « ScaleR Distributed Computing Guide », disponible dans [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server sur MSDN") Library.
 
 
 ## Étapes suivantes
@@ -77,6 +77,6 @@ Maintenant que vous savez comment créer un cluster HDInsight qui comprend R Ser
 - [Vue d’ensemble de R Server sur Hadoop](hdinsight-hadoop-r-server-overview.md)
 - [Prise en main de R Server sur Hadoop](hdinsight-hadoop-r-server-get-started.md)
 - [Ajouter RStudio Server à HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-- [Options Azure Storage pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+- [Options d’Azure Storage pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

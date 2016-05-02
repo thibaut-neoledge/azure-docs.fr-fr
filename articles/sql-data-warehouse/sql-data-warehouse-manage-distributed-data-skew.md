@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gérer le décalage des données pour les tables distribuées dans Azure SQL Data Warehouse
@@ -27,6 +27,18 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 - Découvrir des conseils pour savoir quand résoudre un décalage des données
 - Recréer la table pour résoudre un décalage des données
 
+## DBCC PDW\_SHOWSPACEUSED
+
+Une méthode d'identification d’un décalage de données consiste à utiliser [DBCC PDW\_SHOWSPACEUSED()][]
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+Il s’agit d’une solution simple et rapide pour afficher le nombre de lignes de la table stockées dans chacune des 60 distributions de votre base de données. N’oubliez que pour obtenir les performances les plus équilibrées, les lignes de votre table distribuée doivent être partagées uniformément entre toutes les distributions.
+
+Toutefois, si vous interrogez les vues de gestion dynamique (DMV) Azure SQL Data Warehouse, vous pouvez effectuer une analyse plus détaillée. Le reste de cet article vous explique comment procéder.
 
 ## Étape 1 : Créer une vue qui repère un décalage des données
 
@@ -218,7 +230,8 @@ Pour en savoir plus sur la distribution des tables, consultez les articles suiva
 [Distribution par hachage]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW\_SHOWSPACEUSED()]: https://msdn.microsoft.com/fr-FR/library/mt204028.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

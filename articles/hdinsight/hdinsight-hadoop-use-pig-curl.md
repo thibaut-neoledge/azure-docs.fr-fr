@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation de Hadoop Pig avec Curl dans HDInsight | Microsoft Azure"
+   pageTitle="Utilisation de Hadoop Pig avec Curl dans HDInsight | Microsoft Azure"
    description="Apprenez à utiliser Curl pour exécuter des tâches Pig Latin sur un cluster Hadoop dans HDInsight Azure."
    services="hdinsight"
    documentationCenter=""
@@ -29,9 +29,9 @@ Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant d
 
 ##<a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
+* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
 * [Curl](http://curl.haxx.se/)
 
@@ -49,32 +49,32 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
-    Vous devez recevoir une réponse ayant l'aspect suivant :
+    Vous devez recevoir une réponse ayant l'aspect suivant :
 
         {"status":"ok","version":"v1"}
 
-    Les paramètres utilisés dans cette commande sont les suivants :
+    Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
-    * **-G** : indique qu’il s’agit d’une requête GET.
+    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
+    * **-G** : indique qu’il s’agit d’une requête GET.
 
     Le début de l’URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit retourner le statut de WebHCat (également appelé Templeton) au serveur.
 
-2. Utilisez le code suivant pour soumettre une tâche Pig Latin au cluster :
+2. Utilisez le code suivant pour soumettre une tâche Pig Latin au cluster :
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasb:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasb:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
 
-    Les paramètres utilisés dans cette commande sont les suivants :
+    Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-        * **user.name** : l’utilisateur qui exécute la commande
-        * **execute** : les instructions Pig Latin à exécuter
-        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche
+        * **user.name** : l’utilisateur qui exécute la commande
+        * **execute** : les instructions Pig Latin à exécuter
+        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche
 
     > [AZURE.NOTE] Notez que les espaces dans les instructions Pig Latin sont remplacées par le caractère `+` avec Curl.
 
-    Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche, par exemple :
+    Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche, par exemple :
 
         {"id":"job_1415651640909_0026"}
 
@@ -84,17 +84,17 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 	Si la tâche est terminée, l’état est **TERMINÉ**.
 
-    > [AZURE.NOTE] Cette requête Curl retourne un document JSON (JavaScript Object Notation) avec des informations sur la tâche et jq est utilisé pour récupérer uniquement la valeur d’état.
+    > [AZURE.NOTE] Cette requête Curl retourne un document JSON (JavaScript Object Notation) avec des informations sur la tâche et jq est utilisé pour récupérer uniquement la valeur d’état.
 
 ##<a id="results"></a>Affichage des résultats
 
-Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/pigcurl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/pigcurl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/pigcurl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/pigcurl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **example/pigcurl**, utilisez la commande suivante :
+Vous pouvez répertorier et télécharger ces fichiers à l’aide de l'[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **example/pigcurl**, utilisez la commande suivante :
 
 	azure storage blob list <container-name> example/pigcurl
 
-Pour télécharger un fichier, utilisez ce qui suit :
+Pour télécharger un fichier, utilisez ce qui suit :
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
@@ -108,14 +108,14 @@ Pour plus d’informations sur l’interface REST utilisée dans cet article, co
 
 ##<a id="nextsteps"></a>Étapes suivantes
 
-Pour obtenir des informations générales sur Pig dans HDInsight :
+Pour obtenir des informations générales sur Pig dans HDInsight :
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
+Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

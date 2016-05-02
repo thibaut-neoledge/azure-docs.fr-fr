@@ -2,7 +2,7 @@
 	pageTitle="Développement d’applications de lecteur vidéo" 
 	description="La rubrique fournit des liens vers les infrastructures de lecteur et les plug-ins que vous pouvez utiliser pour développer vos propres applications clientes qui permettront de faire appel à la diffusion multimédia en continu à partir de Media Services." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -81,4 +81,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

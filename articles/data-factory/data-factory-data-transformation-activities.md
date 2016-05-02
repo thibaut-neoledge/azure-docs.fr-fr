@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Transformation et analyse en utilisant Azure Data Factory
@@ -24,15 +24,14 @@ Les activités de transformation dans Azure Data Factory transforment et traiten
 
 Activité de transformation | Environnement de calcul 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
-[Activités Machine Learning : exécution par lot et mise à jour de la ressource](data-factory-azure-ml-batch-execution-activity.md) | Microsoft Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Activités Machine Learning : exécution par lot et mise à jour de la ressource](data-factory-azure-ml-batch-execution-activity.md) | Microsoft Azure 
 [Procédure stockée](data-factory-stored-proc-activity.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) | Service Analytique Azure Data Lake 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Azure Batch
    
+> [AZURE.NOTE] 
+Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark sur votre cluster HDInsight Spark. Consultez la page [Appeler des programmes Spark à partir d'Azure Data Factory](data-factory-spark.md) pour plus d'informations. Vous pouvez créer une activité personnalisée pour exécuter des scripts R sur votre cluster HDInsight si R est installé. Consultez la page [Exécuter des scripts R avec Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+ 
 
 Vous devez créer un service lié à l'environnement de calcul puis l’utiliser lorsque vous définissez une activité de transformation. Il existe deux types d'environnements de calcul pris en charge par Data Factory.
 
@@ -41,4 +40,4 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

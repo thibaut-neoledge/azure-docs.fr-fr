@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal" 
-	description="Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal"
+	description="Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -18,6 +18,12 @@
 
 #Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
 
+##3\.4.0 (04/19/2016)
+
+-   Améliorations de la superposition Reach
+-   Ajout de l'API « TestLogLevel » aux journaux de console enable/disable/filter émis par le Kit de développement logiciel (SDK).
+-   Correction de l’erreur où des notifications dans l’activité ciblant la première activité n’apparaissaient pas au démarrage de l'application.
+
 ##3\.3.1 (02/18/2016)
 
 -   Résolution des conflits entre le contenu HTML de l’annonce web et la page HTML du Kit de développement logiciel (SDK).
@@ -32,7 +38,7 @@
 
 ##3\.2.0 (20/11/2015)
 
--   Prise en charge supplémentaire pour les applications de la plateforme Windows universelle Windows 10.
+-   Prise en charge supplémentaire pour les applications de la plateforme Windows universelle Windows 10.
 -   Ajout de la fonctionnalité de partage de canal Push pour résoudre les conflits de canal (désormais compatibles avec Azure Notification Hubs).
 -   Incident fixe lors de la demande de l'ID de l'appareil juste après l'initialisation.
 -   Améliorations des journaux de la console.
@@ -44,11 +50,11 @@
 
 ##3\.0.1 (29/04/2015)
 
--   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
+-   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
 
 ##3\.0.0 (03/04/2015)
 
--   Présentation du Kit de développement logiciel (SDK) de Mobile Engagement pour application Universal (Windows et Windows Phone WinRT).
+-   Présentation du Kit de développement logiciel (SDK) de Mobile Engagement pour application Universal (Windows et Windows Phone WinRT).
 -   Icône de notification par défaut mise à jour.
 -   Envoyer des commentaires sur l’action de notification du système lorsque vous cliquez sur une notification.
 -   Correction d’une notification système qui est parfois relue dans l'application après avoir été cliquée.
@@ -61,4 +67,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

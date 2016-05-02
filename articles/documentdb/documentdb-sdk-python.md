@@ -3,7 +3,7 @@
 	description="Découvrez le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python DocumentDB." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/18/2016" 
 	ms.author="rnagpal"/>
 
 # Kit SDK DocumentDB
@@ -77,20 +77,7 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.6.1](#1.6.1) | 8 avril 2016 |---
-| [1\.6.0](#1.6.0) | 29 mars 2016 |---
-| [1\.5.0](#1.5.0) | 3 janvier 2016 |---
-| [1\.4.2](#1.4.2) | 6 octobre 2015 |---
-| [1\.4.1](#1.4.1) | 6 octobre 2015 |---
-| [1\.2.0](#1.2.0) | 6 août 2015 |---
-| [1\.1.0](#1.1.0) | 9 juillet 2015 |---
-| [1\.0.1](#1.0.1) | 25 mai 2015 |---
-| [1\.0.0](#1.0.0) | 7 avril 2015 |---
-| Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016
-| Version préliminaire 0.9.3 | 9 décembre 2014 | 29 février 2016
-| Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016
-|Version préliminaire 0.9.1 | 23 septembre 2014 | 29 février 2016
-| Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
+| [1\.6.1](#1.6.1) | 8 avril 2016 |--- | [1\.6.0](#1.6.0) | 29 mars 2016 |--- | [1\.5.0](#1.5.0) | 3 janvier 2016 |--- | [1\.4.2](#1.4.2) | 6 octobre 2015 |--- | [1\.4.1](#1.4.1) | 6 octobre 2015 |--- | [1\.2.0](#1.2.0) | 6 août 2015 |--- | [1\.1.0](#1.1.0) | 9 juillet 2015 |--- | [1\.0.1](#1.0.1) | 25 mai 2015 |--- | [1\.0.0](#1.0.0) | 7 avril 2015 |--- | Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016 | Version préliminaire 0.9.3 | 9 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016 | Version préliminaire 0.9.1 | 23 septembre 2014 | 29 février 2016 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -99,4 +86,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

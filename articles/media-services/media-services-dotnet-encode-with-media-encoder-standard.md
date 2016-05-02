@@ -3,8 +3,8 @@
 	description="Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #Encodage d’un élément multimédia à l’aide de Media Encoder Standard
@@ -147,4 +147,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

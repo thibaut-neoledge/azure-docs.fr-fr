@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="04/20/2016"
    ms.author="daleche" />
 
 # Résoudre les problèmes de déploiement de service cloud
@@ -86,4 +86,4 @@ Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-i
 
 Pour découvrir comment résoudre les problèmes de rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

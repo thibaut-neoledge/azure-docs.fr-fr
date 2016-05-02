@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/18/2016"
  ms.author="nberdy"/>
 
 # Introduction à la surveillance des opérations
@@ -139,4 +139,4 @@ La surveillance des opérations n’étant plus un secret pour vous, vous pouvez
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

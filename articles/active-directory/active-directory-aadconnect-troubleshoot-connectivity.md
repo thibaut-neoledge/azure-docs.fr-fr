@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell"/>
 
 # Résoudre les problèmes de connectivité liés à Azure AD Connect
@@ -37,11 +37,7 @@ Extrait de celle-ci, le tableau suivant indique le strict minimum pour pouvoir s
 | URL | Port | Description |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| *.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| *.trust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. |
-| *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. |
-| *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
+| **.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. | | *.trust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. | | *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. | | *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
 
 ## Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Les configurations de proxy que nous effectuons sont globales pour la machine. En cas de problème, ce dernier apparaît donc très probablement déjà dans la page **Connexion à Azure AD** de l’Assistant.
@@ -140,4 +136,4 @@ Cette erreur apparaît lorsque l’Assistant de connexion ne peut pas joindre le
 ## Étapes suivantes
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

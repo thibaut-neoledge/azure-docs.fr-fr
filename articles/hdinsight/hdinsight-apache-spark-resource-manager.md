@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Microsoft Azure" 
+	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Microsoft Azure" 
 	description="Découvrez comment utiliser le gestionnaire de ressources pour les clusters Spark sur HDInsight pour obtenir de meilleures performances." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Gérer les ressources du cluster Apache Spark dans Azure HDInsight (Linux)
+# Gérer les ressources du cluster Apache Spark dans HDInsight Linux (version préliminaire)
 
 Spark sur Azure HDInsight (Linux) fournit l’interface utilisateur web Ambari qui permet de gérer les ressources de cluster et de surveiller l’intégrité du cluster. Vous pouvez également utiliser le serveur d’historique Spark pour effectuer le suivi des applications dont l’exécution sur le cluster est terminée. Vous pouvez utiliser l’interface utilisateur YARN pour surveiller l’exécution sur le cluster. Cet article explique comment accéder à ces interfaces utilisateur et comment les utiliser pour effectuer certaines tâches de gestion des ressources de base.
 
-**Configuration requise :**
+**Configuration requise :**
 
-Vous devez disposer des éléments suivants :
+Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## Comment lancer l’interface utilisateur web Ambari ?
+## Comment lancer l’interface utilisateur web Ambari ?
 
-1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
+1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
  
-2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
+2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
 	![Lancer Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Démarrer le gestionnaire de ressources")
 
@@ -41,9 +41,9 @@ Vous devez disposer des éléments suivants :
 
 	![Interface utilisateur web d'Ambari](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Interface utilisateur web d'Ambari")
 
-## Comment lancer le serveur d’historique Spark ?
+## Comment lancer le serveur d’historique Spark ?
 
-1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil).
+1. Dans le tableau d’accueil du [portail Azure](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil).
 
 2. Dans le panneau du cluster, sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**. Dans le panneau **Tableau de bord du cluster**, cliquez sur **Serveur d’historique Spark**.
 
@@ -52,7 +52,7 @@ Vous devez disposer des éléments suivants :
 	Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
 
-## Comment lancer l’interface utilisateur web Yarn ?
+## Comment lancer l’interface utilisateur web Yarn ?
 
 Vous pouvez utiliser l’interface utilisateur YARN pour surveiller les applications en cours d’exécution sur le cluster Spark. Avant d’accéder à l’interface utilisateur Yarn, activez le tunneling SSH pour le cluster. Pour obtenir des instructions, consultez [Utilisation de SSH Tunneling pour accéder à l’interface web Ambari](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -64,15 +64,15 @@ Vous pouvez utiliser l’interface utilisateur YARN pour surveiller les applicat
 
 	![Lancer l’interface utilisateur Yarn](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png "Lancer l’interface utilisateur Yarn")
 
-4. L’interface utilisateur Yarn doit s’ouvrir et une page similaire à celle ci-dessous doit s’afficher :
+4. L’interface utilisateur Yarn doit s’ouvrir et une page similaire à celle ci-dessous doit s’afficher :
 
 	![Interface utilisateur Yarn](./media/hdinsight-apache-spark-resource-manager/yarn-ui.png "Interface utilisateur Yarn")
 
-##<a name="scenariosrm"></a>Comment gérer les ressources à l’aide de l’interface utilisateur web Ambari ?
+##<a name="scenariosrm"></a>Comment gérer les ressources à l’aide de l’interface utilisateur web Ambari ?
 
 Voici quelques scénarios courants que vous pouvez rencontrer avec le cluster Spark, ainsi que les instructions relatives à leur résolution à l’aide de l’interface utilisateur web Ambari.
 
-### Je n’utilise pas d’outils décisionnels avec le cluster Spark. Comment reprendre des ressources ?
+### Je n’utilise pas d’outils décisionnels avec le cluster Spark. Comment reprendre des ressources ?
 
 1. Lancez l’interface utilisateur web Ambari comme indiqué ci-dessus. Dans le volet de navigation gauche, cliquez sur **Spark**, puis sur **Configurations**.
 
@@ -85,7 +85,7 @@ Voici quelques scénarios courants que vous pouvez rencontrer avec le cluster Sp
 4. En haut de la page, vous devez voir une invite de redémarrage du service Spark. Cliquez sur **Redémarrer** pour que les modifications prennent effet.
 
 
-### Mes blocs-notes Jupyter ne s’exécutent pas comme prévu. Comment redémarrer le service ?
+### Mes blocs-notes Jupyter ne s’exécutent pas comme prévu. Comment redémarrer le service ?
 
 1. Lancez l’interface utilisateur web Ambari comme indiqué ci-dessus. Dans le volet de navigation gauche, cliquez sur **Jupyter**, sur **Actions de service**, puis sur **Redémarrer tout**. Cela permet au service Jupyter de démarrer sur tous les nœuds principaux.
 
@@ -97,17 +97,17 @@ Voici quelques scénarios courants que vous pouvez rencontrer avec le cluster Sp
 ## <a name="seealso"></a>Voir aussi
 
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scénarios
 
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -138,4 +138,4 @@ Voici quelques scénarios courants que vous pouvez rencontrer avec le cluster Sp
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

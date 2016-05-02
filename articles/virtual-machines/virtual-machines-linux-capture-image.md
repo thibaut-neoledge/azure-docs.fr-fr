@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/15/2016"
 	ms.author="danlep"/>
 
 
@@ -23,11 +23,11 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
 
 
-Cet article montre comment utiliser l’interface de ligne de commande Azure pour capturer une machine virtuelle Azure exécutant Linux afin de pouvoir l’utiliser comme modèle Azure Resource Manager pour créer d’autres machines virtuelles. Ce modèle spécifie le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. Il n’inclut pas des ressources de réseau virtuel, et vous devez créer une machine virtuelle de gestionnaire de ressource et donc, dans la plupart des cas, vous devrez les configurer séparément avant de pouvoir créer une autre machine virtuelle utilisant le modèle.
+Utilisez l’interface de ligne de commande Azure pour capturer une machine virtuelle Azure exécutant Linux afin de pouvoir l’utiliser comme modèle Azure Resource Manager pour créer d’autres machines virtuelles. Ce modèle spécifie le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. Il n’inclut pas des ressources de réseau virtuel, et vous devez créer une machine virtuelle de gestionnaire de ressource et donc, dans la plupart des cas, vous devrez les configurer séparément avant de pouvoir créer une autre machine virtuelle utilisant le modèle.
 
 ## Avant de commencer
 
-Ces opérations supposent que vous avez déjà créé une machine virtuelle Azure dans le modèle de déploiement de gestionnaire de ressources Azure et configuré les systèmes d’exploitation, incluant l’attachement des disques de données et en réalisant d’autres personnalisations comme l’installation de nouvelles applications. Si vous ne l’avez pas encore fait, voir ces instructions pour l’utilisation de l’interface CLI Azure en mode Azure Resource Manager :
+Ces opérations supposent que vous avez déjà créé une machine virtuelle Azure dans le modèle de déploiement de gestionnaire de ressources Azure et configuré les systèmes d’exploitation, incluant l’attachement des disques de données et en réalisant d’autres personnalisations comme l’installation de nouvelles applications. Vous pouvez le faire de plusieurs façons, notamment via l'interface de ligne de commande Azure. Si vous ne l’avez pas encore fait, voir ces instructions pour l’utilisation de l’interface CLI Azure en mode Azure Resource Manager :
 
 - [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md)
 
@@ -83,7 +83,7 @@ Une fois que la machine virtuelle est configurée et en cours d’exécution, vo
 
 	Cette commande crée une image générale du système d’exploitation à l’aide du préfixe de nom de disque dur virtuel que vous spécifiez pour les disques de machine virtuelle. Les fichiers d’image de disque dur virtuel sont créés par défaut dans le même compte de stockage utilisé par la machine virtuelle d’origine. L’option **-t** crée un modèle de fichier JSON local que vous pouvez utiliser pour créer une nouvelle machine virtuelle à partir de l’image.
 
->[AZURE.TIP] Pour trouver l’emplacement d’une image, ouvrez le modèle de fichier JSON. Dans **storageProfile**, trouvez l’**uri** de l’**image** située dans le conteneur **système**. Par exemple, l’uri de l’image du disque du système d’exploitation est semblable à `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+>[AZURE.TIP] Pour trouver l’emplacement d’une image, ouvrez le modèle de fichier JSON. Dans **storageProfile**, trouvez l’**uri** de l’**image** située dans le conteneur **système**. Par exemple, l’uri de l’image du disque du système d’exploitation est semblable à `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Déployer une machine virtuelle à partir de l’image capturée
 Maintenant, utilisez l’image avec un modèle pour créer une nouvelle machine virtuelle Linux. Ces étapes vous montrent comment utiliser l’interface CLI Azure et le modèle de fichier JSON créé avec la commande `azure vm capture` pour créer la machine virtuelle dans un nouveau réseau virtuel.
@@ -178,7 +178,7 @@ Si vous souhaitez que le réseau soit automatiquement configuré lorsque vous cr
 
 ## Utilisation de la commande azure vm create
 
-En général, pour créer une machine virtuelle à partir de l’image, vous devez utiliser un modèle de gestionnaire de ressource. Toutefois, vous pouvez créer la machine virtuelle de façon _impérative_ à l’aide de la commande **azure vm create** avec le paramètre **--os-disk-vhd** (**-d**).
+En général, pour créer une machine virtuelle à partir de l’image, vous devez utiliser un modèle de gestionnaire de ressource. Toutefois, vous pouvez créer la machine virtuelle de façon _impérative_ à l’aide de la commande **azure vm create** avec le paramètre **-Q** (**--image-urn**). Vous devez également passer le paramètre **-d** (**--os-disk-vhd**) pour spécifier l'emplacement du fichier .vhd du système d'exploitation pour la nouvelle machine virtuelle. Il doit se trouver dans le conteneur de disques durs virtuels du compte de stockage sur lequel se trouve le fichier d'image du disque dur virtuel. La commande copie le disque dur virtuel pour la nouvelle machine virtuelle automatiquement sur le conteneur de disques durs virtuels.
 
 Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
@@ -186,11 +186,10 @@ Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
 2.	Créez une ressource d’adresse IP publique et une ressource de la carte réseau pour la nouvelle machine virtuelle. Pour savoir comment créer un réseau virtuel, une adresse IP publique et une carte réseau à l’aide de l’interface CLI, voir plus haut dans cet article. (**azure vm create** peut également créer une nouvelle carte réseau, mais vous devez transmettre des paramètres supplémentaires pour un réseau virtuel et un sous-réseau.)
 
-3.	Assurez-vous de copier l’image de disque dur virtuel vers un emplacement de conteneur d’objets blobs ne possédant pas de dossiers (répertoires virtuels). Par défaut, l’image capturée est stockée dans les dossiers imbriqués dans un conteneur de stockage d’objets blobs (URI semblable à `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. La commande **azure vm create** peut créer une machine virtuelle uniquement à partir d’un disque du système d’exploitation stocké de disque dur virtuel de haut niveau dans un conteneur d’objets blobs. Par exemple, vous pouvez copier l’image de disque dur virtuel vers `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`.
 
-Exécutez ensuite une commande similaire à la suivante :
+Ensuite, exécutez une commande semblable à la suivante, en passant des URI vers le nouveau fichier de disque dur virtuel de système d'exploitation et l'image existante.
 
-	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
 Pour obtenir d’autres options de commande supplémentaires, exécutez `azure help vm create`.
 
@@ -198,4 +197,4 @@ Pour obtenir d’autres options de commande supplémentaires, exécutez `azure h
 
 Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

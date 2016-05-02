@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager" | Microsoft Azure"
-   description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources. "
+   pageTitle="Configuration du tunneling forcé pour les passerelles VPN avec Resource Manager | Microsoft Azure"
+   description="Si vous avez un réseau virtuel avec une passerelle VPN intersite, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. Cet article s'applique au modèle de déploiement Resource Manager."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags 
@@ -13,18 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/17/2015"
+   ms.date="04/12/2016"
    ms.author="cherylmc" />
 
 # Configurer le tunneling forcé à l’aide de PowerShell et d’Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Gestion des services](vpn-gateway-about-forced-tunneling.md)
 - [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
-Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement Azure Resource Manager. Si vous souhaitez configurer le tunneling forcé pour des réseaux virtuels créés à l’aide de la Gestion des services (connue également comme le modèle de déploiement classique), consultez [Configurer le tunneling forcé](vpn-gateway-about-forced-tunneling.md).
+Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement Azure Resource Manager.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**À propos des modèles de déploiement Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Outils et modèles de déploiement pour le tunneling forcé**
+
+[AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
+
 
 ## À propos du tunneling forcé
 
@@ -67,9 +74,10 @@ Dans l’exemple, le réseau virtuel « MultiTier-VNet » comporte 3 sous-ré
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
 
-- Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- Applets de commande Azure PowerShell (version 1.0 ou ultérieure). Les applets de commande nécessaires pour cette configuration ne sont pas présentes dans les versions antérieures à 1.0. Vous pouvez télécharger et installer cette version à partir de la section Windows PowerShell de la [page Téléchargements](https://azure.microsoft.com/downloads/). Si vous n’êtes pas familiarisé avec l’installation et la configuration de PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour plus d’informations.
+- Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager (version 1.0 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+
 
 ### Configuration
 
@@ -83,7 +91,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 2. Spécifiez l’abonnement à utiliser.
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Créez un groupe de ressources
 
@@ -142,4 +150,4 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

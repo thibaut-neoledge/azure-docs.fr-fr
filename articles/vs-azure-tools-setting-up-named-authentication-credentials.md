@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configuration des informations d’authentification nommées
@@ -27,7 +27,7 @@ Les éléments suivants sont requis pour l’authentification dans Azure.
 
 - Un certificat X.509 v3 valide
 
->[AZURE.NOTE]La longueur de la clé du certificat X.509 v3 doit être de 2 048 bits au minimum. Azure rejette les certificats qui ne répondent pas à cette exigence ou qui ne sont pas valides.
+>[AZURE.NOTE] La longueur de la clé du certificat X.509 v3 doit être de 2 048 bits au minimum. Azure rejette les certificats qui ne répondent pas à cette exigence ou qui ne sont pas valides.
 
 Visual Studio utilise votre ID d’abonnement et les données du certificat comme informations d’identification. Les informations d’identification sont référencées dans le fichier d’abonnement (fichier .publishsettings), qui contient une clé publique pour le certificat. Le fichier d’abonnement peut contenir des informations d’identification pour plusieurs abonnements.
 
@@ -35,7 +35,7 @@ Vous pouvez modifier les informations d’abonnement à partir de la boîte de d
 
 Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Création et téléchargement d’un certificat de gestion](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le portail de gestion.
 
->[AZURE.NOTE]Les informations d’identification dont Visual Studio a besoin pour gérer vos services cloud ne sont pas les mêmes que celles nécessaires pour authentifier une demande effectuée auprès des services de stockage Azure.
+>[AZURE.NOTE] Les informations d’identification dont Visual Studio a besoin pour gérer vos services cloud ne sont pas les mêmes que celles nécessaires pour authentifier une demande effectuée auprès des services de stockage Azure.
 
 ## Modifier ou exporter des informations d’authentification dans Visual Studio
 
@@ -53,7 +53,7 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
 1. Choisissez le bouton **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
 
-    >[AZURE.IMPORTANT]Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le portail de gestion.
+    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le portail de gestion.
 
 1. Pour charger le certificat vers le portail de gestion Azure :
 
@@ -71,4 +71,4 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
     1. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

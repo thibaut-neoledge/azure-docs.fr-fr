@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test
@@ -322,7 +322,7 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 |Find-AzureVM|Obtient la machine virtuelle Azure spécifiée.|
 |Format-DevTestMessageWithTime|Indique la date et l’heure avant un message. Cette fonction est conçue pour les messages écrits dans les flux Error et Verbose.|
 |Get-AzureSQLDatabaseConnectionString|Assemble une chaîne de connexion pour se connecter à une base de données SQL Azure.|
-|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest *(non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
+|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest* (non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
 |Get-MSDeployCmd|Renvoie une commande pour exécuter l’outil MsDeploy.exe.|
 |New-AzureVMEnvironment|Recherche ou crée une machine virtuelle dans l’abonnement qui correspond aux valeurs dans le fichier de configuration JSON.|
 |Publish-WebPackage|Utilise MsDeploy.exe et un fichier. zip de package de publication web pour déployer des ressources sur un site web. Cette fonction ne génère aucune sortie. Si l’appel de MSDeploy.exe échoue, la fonction lève une exception. Pour obtenir une sortie plus détaillée, utilisez l’option **-Verbose**.|
@@ -351,4 +351,4 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

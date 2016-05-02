@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (script Windows PowerShell)
@@ -189,4 +189,4 @@ Le fichier de configuration JSON spécifie les détails de ce qui doit être dé
 
 Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est configuré. Une machine virtuelle et un service cloud sont requis, mais la section de la base de données est facultative.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->
