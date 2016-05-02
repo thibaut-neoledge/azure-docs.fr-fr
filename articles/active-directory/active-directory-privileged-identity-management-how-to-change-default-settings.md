@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modifier ou afficher les paramètres par défaut d’un rôle | Microsoft Azure"
+   pageTitle="Comment gérer les paramètres d'activation de rôle | Microsoft Azure"
    description="Découvrez comment modifier les paramètres par défaut d’identités privilégiées avec l’extension Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,36 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Azure AD Privileged Identity Management : comment modifier ou afficher les paramètres d’activation par défaut d’un rôle
+# Comment gérer les paramètres d'activation de rôle dans Azure AD Privileged Identity Management
 
-## Modification et affichage de l’activation de rôle par défaut
-1. Dans le tableau de bord, cliquez sur le rôle à configurer dans la table de rôles.
-2. Cliquez sur **Paramètres**.
-3. Définissez la durée d’activation par défaut (en heures) en déplaçant le curseur ou en entrant le nombre d’heures dans le champ de texte.
-4. Cliquez sur **Activer** ou sur **Désactiver** selon que vous souhaitez ou non que des notifications relatives à l’activation soient envoyées aux administrateurs.
-5. Cliquez sur **Activer** ou **Désactiver** selon que vous souhaitez ou non autoriser les administrateurs à entrer des informations de billetterie dans leur demande d’activation.
-6. Cliquez sur **Activer** ou **Désactiver** selon que vous souhaitez ou non exiger l’application de la solution Multi-Factor Authentication (MFA) pour une demande d’activation.
+Un administrateur de la sécurité peut personnaliser Azure AD Privileged Identity Management (PIM) dans son organisation, y compris modifier l'expérience d’un utilisateur qui active une attribution de rôle temporaire.
 
-    Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365, notamment :
+## Gérer les paramètres d'activation de rôle
 
-    - Administrateur général
-    - Administrateur de compte d’utilisateur
-    - Enregistreur de répertoire
-    - Prise en charge de niveau 1 de partenaire
-    - Prise en charge de niveau 2 de partenaire
-    - Administrateur de facturation
-    - Administrateur de sécurité
-    - Administrateur Exchange
-    - Administrateur de boîte aux lettres
-    - Administrateur Skype Entreprise
-    - Administrateur SharePoint
-    - Administrateur de conformité
-
-7. Cliquez sur **Activer** ou **Désactiver** selon que vous voulez autoriser ou non que les administrateurs généraux soient temporaires.
+1. Accédez à la [portail Azure](https://portal.azure.com) et sélectionnez l’application **Azure AD Privileged Identity Management** à partir du tableau de bord.
+2. Sélectionnez le rôle que vous souhaitez gérer à partir de la table des rôles.
+3. Cliquez sur **Paramètres**.
+4. Définissez le nombre d’heure d’activation par défaut en déplaçant le curseur ou en entrant ce nombre dans le champ de texte. Le maximum est de 72 heures.
+5. Cliquez sur **Activer** ou sur **Désactiver** pour envoyer ou non des notifications relatives à l’activation aux administrateurs. (L'activation des notifications peut aider à détecter une activité non autorisée de l’administrateur.)
+6. Cliquez sur **Activer** pour permettre aux administrateurs d’entrer des informations de billetterie dans leur demande d’activation. (Ces informations peuvent être utiles lors d’un audit d’accès au rôle ultérieur.)
+7. Cliquez sur **Activer** ou **Désactiver** pour exiger ou non une authentification multifacteur pour une demande d’activation.
 8. Cliquez sur **Enregistrer**.
+
+Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365, notamment :
+- Administrateur général  
+- Administrateur de compte d’utilisateur  
+- Enregistreur de répertoire  
+- Prise en charge de niveau 1 de partenaire  
+- Prise en charge de niveau 2 de partenaire  
+- Administrateur de facturation  
+- Administrateur de sécurité  
+- Administrateur Exchange  
+- Administrateur de boîte aux lettres  
+- Administrateur Skype Entreprise  
+- Administrateur SharePoint  
+- Administrateur de conformité  
 
 Pour plus d’informations sur l’utilisation de la solution MFA avec Privileged Identity Management, voir [Exigence de l’application de la solution MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -52,4 +53,4 @@ Pour plus d’informations sur l’utilisation de la solution MFA avec Privilege
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

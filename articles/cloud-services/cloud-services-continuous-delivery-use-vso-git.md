@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git
@@ -27,7 +27,7 @@ Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure doivent ê
 
 Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
 
-## Étape 1 : création d’un référentiel Git
+## 1 : Création d'un référentiel Git
 
 1. Si vous ne disposez pas de compte Visual Studio Team Services, vous pouvez en obtenir un [ici](http://go.microsoft.com/fwlink/?LinkId=397665). Lorsque vous créez un projet d'équipe, choisissez Git comme système de contrôle de code source. Suivez les instructions de connexion de Visual Studio à votre projet d'équipe.
 
@@ -37,7 +37,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 3. Indiquez l’emplacement de la copie locale, puis sélectionnez le bouton **Cloner**.
 
-## Étape 2 : création d’un projet et validation dans le référentiel
+## 2 : Création d'un projet et validation dans le référentiel
 
 1. Dans la section **Solutions** de **Team Explorer**, sélectionnez le lien **Nouveau** pour créer un projet dans le référentiel local.
 
@@ -57,7 +57,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 6. Vous avez maintenant validé les modifications dans votre copie locale du référentiel. Synchronisez ensuite ces modifications avec le serveur en choisissant le lien **Synchronisation**.
 
-## Étape 3 : connexion du projet à Azure
+## 3 : Connexion du projet à Azure
 
 1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
 
@@ -81,7 +81,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	La prochaine fois que vous placerez une validation dans votre référentiel, Visual Studio Team Services génèrera et déploiera votre projet dans Azure.
 
-## Étape 4 : déclenchement d’une régénération et d’un redéploiement de votre projet
+## 4 : Déclenchement d'une régénération et redéploiement de votre projet
 
 1. Dans Visual Studio, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier `_Layout.cshtml` sous le dossier Views\\Shared dans un rôle Web MVC.
 
@@ -133,7 +133,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section **Déploiement** ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d’un autre service que « Cloud », configurez les paramètres MSbuild avec `/p:TargetProfile=[YourProfile]` où *[YourProfile]* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg.
 
-	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
+	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
 
 	|Propriété|Valeur par défaut|
 	|---|---|
@@ -170,19 +170,19 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][33]
 
-## Étape 5 : redéploiement d’une build antérieure
+## 5 : Redéploiement d'une build antérieure
 
 Cette étape est facultative. Dans le portail Azure Classic, choisissez un déploiement antérieur et sélectionnez **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l’historique de votre déploiement.
 
 ![][34]
 
-## Étape 6 : modification du déploiement de production
+## 6 : Modification du déploiement de production
 
 Une fois que vous êtes prêt, vous pouvez promouvoir l’environnement intermédiaire en environnement de production en sélectionnant **Basculer** dans le portail Azure Classic. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
 
 ![][35]
 
-## Étape 6 : déploiement à partir d’une branche en cours d’utilisation.
+## 6 : Déploiement à partir d'une branche en cours d'utilisation
 
 Lorsque vous utilisez Git, vous apportez généralement des modifications à une branche en cours d'utilisation et les intégrez dans une branche principale lorsque votre déploiement est terminé. Pendant la phase de déploiement d'un projet, vous pouvez générer et déployer la branche en cours d'utilisation dans Azure.
 
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,8 +3,8 @@
 	description="Rubrique servant de point de départ qui rassemble des liens et des meilleures pratiques concernant les programmes clients qui se connectent à Azure SQL Database à partir de technologies telles que ADO.NET et PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Connexion à SQL Database : meilleures pratiques et règles de conception
@@ -177,4 +177,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

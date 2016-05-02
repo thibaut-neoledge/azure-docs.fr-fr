@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/19/2016"
    ms.author="rajram"/>
 
 # Prise en main du connecteur Wait et ajout de celui-ci à votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
+>[AZURE.NOTE] La prise en charge de ce connecteur ne sera plus assurée car sa fonctionnalité est désormais incluse par défaut en tant qu’**action de retardement** lorsque vous créez des applications logique. Nous vous recommandons de mettre à niveau toutes vos applications logiques qui utilisent ce connecteur. Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
 
 Le connecteur Wait permet à une application de retarder son exécution pour une durée spécifiée ou jusqu’à une heure spécifiée. Vous pouvez ajouter le connecteur Wait à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique. Lorsqu’il est utilisé dans une application logique, il permet de différer l’exécution.
 
@@ -28,16 +29,13 @@ Pour utiliser le connecteur Wait, vous devez d’abord créer une instance de l�
 Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun déclencheur.
 
 ### Action
-- Cliquez sur le connecteur Wait dans le volet de droite :
-![Liste d'actions][1]
+- Cliquez sur le connecteur Wait dans le volet de droite : ![Liste d'actions][1]
 - Le connecteur Wait prend en charge deux actions : 
 	- Retarder
 	- Retarder jusqu’à
 	 
-- Sélectionnez *Retarder* :
-![Valeur du retard][2]
-- Indiquez les entrées de l'action et configurez celle-ci :
-![Action configurée][3]
+- Sélectionnez *Retarder* : ![Valeur du retard][2]
+- Indiquez les entrées de l'action et configurez celle-ci : ![Action configurée][3]
 
 Paramètre|Type|Description du paramètre
 ---|---|---
@@ -58,4 +56,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

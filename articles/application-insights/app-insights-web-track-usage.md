@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Analyse de l’utilisation des applications web avec Application Insights
@@ -116,7 +116,7 @@ Si votre application regroupe les utilisateurs par comptes, vous pouvez égaleme
 
       appInsights.setAuthenticatedUserContext(userId, accountId);
 
-Les ID d'utilisateur et de compte ne doivent pas contenir d'espaces ou les caractères `,;=|`
+Les ID utilisateur et de compte ne doivent pas contenir des espaces ou les caractères `,;=|`
 
 
 Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique des **Utilisateurs authentifiés** et des **Comptes**.
@@ -317,12 +317,13 @@ Vous pouvez configurer un initialiseur universel afin que tous les TelemetryClie
 
 ```C#
 
+
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 ```
@@ -334,7 +335,7 @@ Dans l'initialiseur de l'application, par exemple Global.asax.cs :
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 ```
@@ -375,4 +376,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

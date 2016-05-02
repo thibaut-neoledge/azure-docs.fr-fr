@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
@@ -25,7 +25,7 @@ Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un
 
 Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos tâches Azure Stream Analytics comment utiliser un tableau de bord en temps réel.
 
-> [AZURE.NOTE] La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. Pour le moment, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure, mais uniquement dans le portail Azure Classic.
+> [AZURE.NOTE] Pour le moment, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure, mais uniquement dans le portail Azure Classic.
 
 ## Composants requis
 
@@ -37,7 +37,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
 
-Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
+Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 * **Nom du travail** - entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
 * **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
@@ -98,6 +98,7 @@ Fournissez les valeurs suivantes :
 * **Alias de sortie** - Vous pouvez saisir n’importe quel alias de sortie auquel il vous sera facile de vous référer. Cet alias de sortie est particulièrement utile si vous décidez d’avoir des sorties multiples pour votre travail. Dans ce cas, vous devez faire référence à cette sortie dans votre requête. Par exemple, utilisons la valeur d’alias de sortie = « OutPbi ».
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
+*	**Espace de travail** : sélectionnez un espace de travail dans votre client Power BI sous lequel le jeu de données sera créé.
 
 >	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
 
@@ -149,7 +150,7 @@ Avec cela, vous obtenez automatiquement un graphique comme celui-ci :
 
 ![graphic8][graphic8]
 
-Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
+Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
 
 ![graphic9][graphic9]
 
@@ -161,7 +162,7 @@ Lorsque vous affichez le tableau de bord avec ce rapport épinglé, vous constat
 
 Notez que ce didacticiel ne vous a montré la création que d’un seul type de graphique pour un jeu de données. Power BI peut vous aider à créer d’autres outils d’analyse décisionnelle clients pour votre organisation. Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [prise en main de Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Pour plus d'informations sur la configuration d'une sortie Power BI et pour utiliser des groupes Power BI, passez en revue la [section Power BI](stream-analytics-define-outputs.md#power-bi) dans [Présentation des sorties Stream Analytics](stream-analytics-define-outputs.md "Présentation des sorties Stream Analytics"). Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) pour en savoir plus sur la création des tableaux de bord avec Power BI.
+Pour plus d'informations sur la configuration d'une sortie Power BI et pour utiliser des groupes Power BI, passez en revue la [section Power BI](stream-analytics-define-outputs.md#power-bi) dans [Présentation des sorties Stream Analytics](stream-analytics-define-outputs.md "Présentation des sorties Stream Analytics"). Vous pouvez également consulter la page [Tableaux de bord dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
 ## Limites et meilleures pratiques
 
@@ -198,7 +199,7 @@ Pour y arriver, utilisez Questions et réponses dans Power BI pour poser une qu
 
 ### Renouveler une autorisation
 
-Il existe une limitation temporaire selon laquelle le jeton d'authentification doit être actualisé manuellement tous les 90 jours pour toutes les tâches avec une sortie Power BI. Vous devrez également authentifier de nouveau votre compte Power BI si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche. Un symptôme de ce problème est l’absence de résultat de la tâche et une « erreur d'authentification de l’utilisateur » dans les journaux des opérations :
+Vous devrez authentifier de nouveau votre compte Power BI si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche. Si Multi-Factor Authentication (MFA) est configuré sur votre client Azure Active Directory (AAD), vous devrez également renouveler l’autorisation Power BI toutes les 2 semaines. Un symptôme de ce problème est l’absence de sortie de la tâche et une « erreur d’authentification de l’utilisateur » dans les journaux des opérations :
 
 ![graphic12][graphic12]
 
@@ -232,4 +233,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

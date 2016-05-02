@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Utilisation du Bureau à distance avec des rôles Azure
 
 En utilisant le kit de développement logiciel (SDK) Azure et les Services Bureau à distance, vous pouvez accéder aux rôles Azure et aux machines virtuelles hébergées par Azure. Dans Visual Studio, vous pouvez configurer les Services Bureau à distance à partir d'un projet Azure. Pour activer les Services Bureau à distance, vous devez créer un projet de travail qui contient un ou plusieurs rôles, puis le publier sur Azure.
 
->[AZURE.IMPORTANT]L’accès aux rôles Azure est réservé au dépannage et au développement. L'objectif de chaque machine virtuelle consiste à exécuter un rôle spécifique dans votre application Azure, et non à exécuter d'autres applications clientes. Si vous souhaitez utiliser Azure pour héberger une machine virtuelle que vous pourrez utiliser à d’autres fins, consultez Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs.
+>[AZURE.IMPORTANT] L’accès aux rôles Azure est réservé au dépannage et au développement. L'objectif de chaque machine virtuelle consiste à exécuter un rôle spécifique dans votre application Azure, et non à exécuter d'autres applications clientes. Si vous souhaitez utiliser Azure pour héberger une machine virtuelle que vous pourrez utiliser à d’autres fins, consultez Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs.
 
 ## Pour activer et utiliser le Bureau à distance pour un rôle Azure
 
@@ -41,7 +41,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
 
     Si vous sélectionnez un certificat existant, ignorez les étapes suivantes.
 
-    >[AZURE.NOTE]Les certificats dont vous avez besoin pour une connexion Bureau à distance sont différents de ceux que vous utilisez pour d'autres opérations Azure. Le certificat de l'accès à distance doit avoir une clé privée.
+    >[AZURE.NOTE] Les certificats dont vous avez besoin pour une connexion Bureau à distance sont différents de ceux que vous utilisez pour d'autres opérations Azure. Le certificat de l'accès à distance doit avoir une clé privée.
 
     La boîte de dialogue **Créer un certificat** s’affiche.
 
@@ -51,7 +51,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
     
         Vous ne pouvez pas utiliser un compte existant. Ne spécifiez pas Administrateur comme nom d'utilisateur pour le nouveau compte.
 
-        >[AZURE.NOTE]Si le mot de passe ne répond pas aux exigences de complexité, une icône rouge apparaît en regard de la zone de texte du mot de passe. Le mot de passe doit comporter des lettres majuscules, des lettres minuscules et des nombres ou des symboles.
+        >[AZURE.NOTE] Si le mot de passe ne répond pas aux exigences de complexité, une icône rouge apparaît en regard de la zone de texte du mot de passe. Le mot de passe doit comporter des lettres majuscules, des lettres minuscules et des nombres ou des symboles.
 
     1. Choisissez une date à laquelle le compte expirera et après laquelle les connexions Bureau à distance seront bloquées.
 
@@ -75,4 +75,4 @@ Après avoir publié votre service cloud sur Azure, vous pouvez utiliser l'Explo
 
 1. Entrez le nom d'utilisateur et le mot de passe que vous avez créés précédemment. Vous êtes maintenant connecté à votre session à distance.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

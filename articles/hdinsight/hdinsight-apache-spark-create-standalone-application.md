@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Créer une application Scala autonome à exécuter sur un cluster HDInsight Spark (Linux)
+# Créer une application Scala autonome à exécuter sur des clusters HDInsight Spark Linux (version préliminaire)
 
-Cet article fournit des instructions détaillée pour le développement d'applications Spark autonome écrites en Scala à l'aide d’IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération, le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA. La création d'une application Scala avec IntelliJ IDEA implique généralement les étapes suivantes :
+Cet article fournit des instructions détaillées pour le développement d'applications Spark autonomes écrites en Scala à l'aide de Maven avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA. La création d'une application Scala avec IntelliJ IDEA implique généralement les étapes suivantes :
 
 
 * Utiliser Maven en tant que le système de génération.
 * Mettre à jour le fichier de modèle objet du projet (POM) pour résoudre les dépendances de module Spark.
 * Écrire votre application dans Scala.
 * Générer un fichier jar qui peut être soumis à des clusters HDInsight Spark.
-* Exécuter l'application sur un cluster Spark avec spark-submit.
+* Exécuter l’application à distance sur le cluster Spark à l’aide de Livy.
+
+>[AZURE.NOTE] HDInsight propose également un outil de plug-in IntelliJ IDEA pour faciliter le processus de création et d’envoi des applications à un cluster HDInsight Spark sous Linux. Pour plus d’informations, consultez [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer et d’envoyer des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Configuration requise**
 
@@ -84,7 +87,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	4. Cliquez sur **Appliquer**, puis sur **OK**.
 
 
-8. Mettez à jour le fichier source Scala pour inclure le code de votre application. Ouvrez et remplacez le code existant par le code suivant et enregistrez les modifications. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la sixième colonne et écrit la sortie dans **/HVACOut**, sous le conteneur de stockage par défaut du cluster.
+8. Mettez à jour le fichier source Scala pour inclure le code de votre application. Ouvrez et remplacez le code existant par le code suivant et enregistrez les modifications. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la sixième colonne et écrit la sortie dans **/HVACOut**, sous le conteneur de stockage par défaut du cluster.
 
 		package com.microsoft.spark.example
 
@@ -196,4 +199,4 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,4 +1,11 @@
-<properties pageTitle="Configurer un nom de domaine personnalisé pour une application web dans Azure App Service qui utilise Traffic Manager"wpickett"Utiliser un nom de domaine personnalisé pour une application web dans Azure App Service qui inclut Traffic Manager pour l'équilibrage de charge." description="Utiliser un nom de domaine personnalisé pour une application web dans Azure App Service qui inclut Traffic Manager pour l'équilibrage de charge." services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties
+	pageTitle="Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager pour l’équilibrage de charge."
+    description="Utilisation d’un nom de domaine personnalisé pour une application web dans Azure App Service intégrant Traffic Manager pour équilibrer la charge."
+	services="app-service\web"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -59,4 +66,4 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

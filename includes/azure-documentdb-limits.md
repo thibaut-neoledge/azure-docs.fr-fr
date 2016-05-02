@@ -6,6 +6,9 @@ Quantité maximale de stockage de documents par compte de base de données* |1 T
 Stockage de documents approvisionné* par collection|250 Go (ou plus à la demande)
 Nombre maximal d’[unités de demande](../articles/documentdb/documentdb-request-units.md) par seconde par collection|250 000 unités de demande (ou plus à la demande)
 Taille de requête maximale des documents |512 Ko
-Délai maximal d'exécution pour les procédures stockées et déclencheurs|5 secondes 
+Délai maximal d'exécution pour les procédures stockées et déclencheurs|5 secondes
+Nombre maximal de clauses AND par requête* |200		
+Nombre maximal de clauses OR par requête* |200
+Taille de réponse maximale|1 Mo
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

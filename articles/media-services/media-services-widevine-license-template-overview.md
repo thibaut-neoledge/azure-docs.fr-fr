@@ -2,7 +2,7 @@
 	pageTitle="Vue d'ensemble du modèle de licence Widevine" 
 	description="Cette rubrique donne un aperçu d'un modèle de licence Widevine utilisé pour configurer des licences Widevine." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 #Vue d'ensemble du modèle de licence Widevine
@@ -210,4 +210,4 @@ L'exemple suivant montre comment utiliser les API .NET pour configurer une licen
 
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

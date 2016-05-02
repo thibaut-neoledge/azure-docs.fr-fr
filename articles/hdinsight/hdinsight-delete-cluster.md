@@ -32,11 +32,11 @@ Les clusters HDInsight sont facturés à l’heure. Vous devez donc toujours sup
 
     ![icône Supprimer](./media/hdinsight-delete-cluster/deletecluster.png)
 
-##Azure PowerShell
+##Azure PowerShell
 
 > [AZURE.NOTE] Si vous n’avez pas installé, ni configuré Azure PowerShell, utilisez les étapes du document [Installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
-À partir d’une invite PowerShell, utilisez la commande suivante pour supprimer le cluster :
+À partir d’une invite PowerShell, utilisez la commande suivante pour supprimer le cluster :
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
@@ -44,12 +44,12 @@ Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
 ##Interface de ligne de commande Azure
 
-> [AZURE.NOTE] Si vous n’avez pas installé, ni configuré l’interface de ligne de commande (CLI) Azure, utilisez les étapes du document [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md).
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-À partir d’une invite, utilisez la commande suivante pour supprimer le cluster :
+À partir d’une invite, utilisez la commande suivante pour supprimer le cluster :
 
     azure hdinsight cluster delete CLUSTERNAME
     
 Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

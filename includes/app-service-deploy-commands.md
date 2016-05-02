@@ -4,6 +4,6 @@ Pour déployer les ressources sur Azure, vous devez être connecté à votre co
 - [Utilisation d'Azure PowerShell avec Azure Resource Manager](../articles/powershell-azure-resource-manager.md)
 - [Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](../articles/xplat-cli-azure-resource-manager.md).
 
-Les exemples ci-dessous supposent que vous disposez déjà d'un groupe de ressources dans votre compte, qui porte le nom spécifié.
+Les exemples suivants supposent que vous disposez déjà d'un groupe de ressources dans votre compte, qui porte le nom spécifié.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # Mise à niveau d'application Service Fabric : rubriques avancées
+
+## Ajout ou suppression de services pendant la mise à niveau d'une application
+
+Si un nouveau service est ajouté à une application qui a déjà été déployée et publiée comme une mise à niveau, ce nouveau service sera ajouté à l'application déployée (sans que la mise à niveau n’affecte les services faisant déjà partie de l'application). Cependant, une instance du service déjà ajoutée devra être démarrée pour activer le nouveau service (à l'aide de l’applet de commande `New-ServiceFabricService`).
+
+Les services peuvent également être supprimés d'une application dans le cadre d'une mise à niveau, mais il faut s'assurer que toutes les instances en cours du service (à supprimer lors de la mise à niveau) sont arrêtées avant de procéder à la mise à niveau (à l'aide de l’applet de commande `Remove-ServiceFabricService`).
 
 ## Mode de mise à niveau manuelle
 
@@ -47,6 +53,40 @@ Situations qui se prêtent à l'utilisation d'un package différentiel :
 
 * Un package différentiel est préférable quand vous disposez d’un système de déploiement qui génère la disposition de la build directement à partir de votre processus de génération d’application. Dans ce cas, même si rien dans le code n'a changé, les assemblys nouvellement générés auront une somme de contrôle différente. Si vous utilisez un package d'application complet, vous devez mettre à jour la version installée sur tous les packages de code. Si vous utilisez un package différentiel, vous fournissez uniquement les fichiers qui ont changé et les fichiers manifeste dont la version a changé.
 
+Lorsqu'une application est mise à niveau à l'aide de Visual Studio, le package différentiel est automatiquement publié. Si vous souhaitez créer manuellement un package différentiel (par exemple, pour la mise à niveau à l'aide de PowerShell), vous devez mettre à jour l’application et les manifestes de service, mais en n'incluant que les packages qui ont été modifiés dans le package d'application final.
+
+Commençons par exemple par l'application suivante (numéros de version fournis pour faciliter la compréhension) :
+
+```text
+app1       	1.0.0
+  service1 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+Supposons à présent que vous souhaitiez mettre à jour uniquement le package de code de service1 à l'aide d'un package différentiel avec PowerShell. Désormais, votre application mise à jour ressemblera à ceci :
+
+```text
+app1       	2.0.0      <-- new version
+  service1 	2.0.0      <-- new version
+    code   	2.0.0      <-- new version
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+Dans ce cas, vous mettez à jour le manifeste d'application à la version 2.0.0 ainsi que le manifeste de service pour service1 afin de refléter la mise à jour du package de code. La structure des dossiers de votre package d'application serait la suivante :
+
+```text
+app1/
+  service1/
+    code/
+```
+
 ## Étapes suivantes
 
 La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
@@ -60,4 +100,4 @@ Rendez les mises à niveau de votre application compatibles en apprenant à util
 Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="04/20/2016"
 	ms.author="andkjell"/>
 
 
@@ -53,7 +53,11 @@ Si vous souhaitez savoir comment effectuer une mise à niveau sur place depuis D
 [Azure Active Directory Connect: in-place upgrade from legacy tools](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) ![mise à niveau sur place](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## Forum Aux Questions
+**Q: J'ai reçu une notification par courrier électronique de l'équipe Azure et/ou un message du centre de messages Office 365, mais j'utilise Connect.** La notification a été également envoyée aux clients à l'aide d'Azure AD Connect avec un numéro de build 1.0. *. 0 (à l'aide d'une version pre-1.1). Microsoft recommande aux clients de maintenir à jour leurs versions d’Azure AD Connect. Grâce à la fonctionnalité de [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) de la version 1.1., il est vraiment facile de toujours avoir une version récente d'Azure AD Connect installée.
+
 **Q : DirSync/Azure AD Sync vont-ils cesser de fonctionner le 13 avril 2017 ?** Non. La date à laquelle ils ne seront plus en mesure de communiquer avec Azure AD sera annoncée ultérieurement. Vous pourrez trouver cette information dans cette rubrique quand elle sera disponible.
+
+**Q: Quelles versions de DirSync puis-je mettre à niveau ?** Une mise à niveau est prise en charge à partir de n’importe quelle version de DirSync utilisée.
 
 **Q : Qu’en est-il du connecteur Azure AD pour FIM/MIM ?** Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconseillé. Il est dans l’état **feature freeze** ; aucune nouvelle fonctionnalité n’est ajoutée et il ne reçoit aucune résolution de bogue. Microsoft recommande aux clients qui l’utilisent d’envisager de passer à Azure AD Connect. Il est fortement recommandé ne pas démarrer de nouveaux déploiements en l’utilisant. Ce connecteur sera annoncé comme déconseillé par la suite.
 
@@ -61,4 +65,4 @@ Si vous souhaitez savoir comment effectuer une mise à niveau sur place depuis D
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

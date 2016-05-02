@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Échantillonnage, filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
@@ -24,11 +24,11 @@ Vous pouvez écrire et configurer des plug-ins pour le Kit de développement log
 Actuellement, ces fonctionnalités sont disponibles pour le Kit de développement logiciel (SDK) ASP.NET.
 
 * L'[échantillonnage](#sampling) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
-* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l'envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
+* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l'envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
 * [Ajoutez des propriétés](#add-properties) à n'importe quelle télémétrie envoyée à partir de votre application, notamment les données de télémétrie fournies par les modules standard. Par exemple, vous pouvez ajouter des valeurs calculées ou des numéros de version permettant de filtrer les données dans le portail.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
 
-Avant de commencer :
+Avant de commencer :
 
 * Installez le [Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans votre application. Installez manuellement les packages NuGet et sélectionnez la dernière version *préliminaire*.
 * Essayez l'[API Application Insights](app-insights-api-custom-events-metrics.md) 
@@ -48,17 +48,19 @@ L'[échantillonnage](app-insights-sampling.md) est la méthode recommandée pour
 
 Dans la barre Paramètres, ouvrez le panneau Quotas et tarification. Cliquez sur Échantillonnage et sélectionnez un taux d’échantillonnage.
 
+L’ingestion ne fonctionne pas si le Kit de développement logiciel (SDK) effectue un échantillonnage fixe ou adaptatif. Bien que le taux d’échantillonnage dans le Kit de développement logiciel (SDK) soit inférieur à 100 %, le paramètre d’échantillonnage d’ingestion est ignoré.
+
 ### Pour activer l’échantillonnage adaptatif
 
-**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d'Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
+**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d’Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
-Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez ajuster le taux maximal de télémétrie défini comme objectif de l'algorithme adaptatif :
+Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez ajuster le taux maximal de télémétrie défini comme objectif de l'algorithme adaptatif :
 
     <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
 ### Échantillonnage côté client
 
-Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
+Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
 
 *JavaScript*
 
@@ -140,7 +142,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
     
 
     ```
-2. Insérez-la dans ApplicationInsights.config : 
+2. Insérez-la dans ApplicationInsights.config : 
 
 ```XML
 
@@ -160,7 +162,7 @@ Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en four
 > [AZURE.WARNING] Veillez à faire correspondre le nom de type et les noms de propriété dans le fichier .config aux noms de classe et de propriété dans le code. Si le fichier .config fait référence à un type ou à une propriété qui n'existe pas, le kit de développement peut échouer lors de l'envoi d'une télémétrie quelconque.
 
  
-Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
+Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
 
 ```C#
 
@@ -196,7 +198,7 @@ Excluez les robots et les tests web. Bien que Metrics Explorer vous donne la pos
 
 #### Échec d’authentification
 
-Excluez les demandes avec une réponse de type « 401 ».
+Excluez les demandes avec une réponse de type « 401 ».
 
 ```C#
 
@@ -240,9 +242,9 @@ public void Process(ITelemetry item)
 
 ## Ajout de propriétés
 
-Utilisez des initialiseurs de télémétrie pour définir des propriétés globales qui sont envoyées avec toute la télémétrie ; et pour substituer le comportement sélectionné des modules standard de télémétrie.
+Utilisez des initialiseurs de télémétrie pour définir des propriétés globales qui sont envoyées avec toute la télémétrie ; et pour substituer le comportement sélectionné des modules standard de télémétrie.
 
-Par exemple, le package Application Insights pour le Web collecte la télémétrie sur les requêtes HTTP. Il indique par défaut l’échec de toute requête à l’aide d’un code de réponse supérieur ou égal à 400. Toutefois, si 400 vous convient, vous pouvez fournir un initialiseur de télémétrie qui définit la propriété Success.
+Par exemple, le package Application Insights pour le Web collecte la télémétrie sur les requêtes HTTP. Il indique par défaut l’échec de toute requête à l’aide d’un code de réponse supérieur ou égal à 400. Toutefois, si 400 vous convient, vous pouvez fournir un initialiseur de télémétrie qui définit la propriété Success.
 
 Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
 
@@ -289,7 +291,7 @@ Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque
 
 **Charger votre initialiseur**
 
-Dans ApplicationInsights.config :
+Dans ApplicationInsights.config :
 
     <ApplicationInsights>
       <TelemetryInitializers>
@@ -299,7 +301,7 @@ Dans ApplicationInsights.config :
       </TelemetryInitializers>
     </ApplicationInsights>
 
-Vous pouvez *également* instancier l'initialiseur dans le code, par exemple dans Global.aspx.cs :
+Vous pouvez *également* instancier l'initialiseur dans le code, par exemple dans Global.aspx.cs :
 
 
 ```C#
@@ -319,7 +321,7 @@ Vous pouvez *également* instancier l'initialiseur dans le code, par exemple dan
 
 *JavaScript*
 
-Insérer un initialiseur de télémétrie immédiatement après le code d’initialisation obtenu à partir du portail :
+Insérer un initialiseur de télémétrie immédiatement après le code d’initialisation obtenu à partir du portail :
 
 ```JS
 
@@ -407,4 +409,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

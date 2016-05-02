@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Linux | Microsoft Azure"
+   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Linux | Microsoft Azure"
    description="Exemple de configuration pour la création de modèles avec des extensions pour les machines virtuelles Linux"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Exemples de configuration d’extension de machine virtuelle Linux
@@ -31,14 +31,14 @@ Cet article présente un exemple de configuration des extensions d’une machine
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
-Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
+Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
 
-Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md).
+Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md).
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Linux.
 
 ## Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
-L'extrait du modèle pour le déploiement des extensions se présente comme suit :
+L'extrait du modèle pour le déploiement des extensions se présente comme suit :
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -51,11 +51,34 @@ L'extrait du modèle pour le déploiement des extensions se présente comme suit
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des jeux de mise à l’échelle de machine virtuelle.
+
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
+                }
 
 Avant de déployer l'extension, déterminez la dernière version de l'extension et remplacez la « typeHandlerVersion » par la dernière version.
 
@@ -193,8 +216,8 @@ Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur l’
 
 Dans les exemples ci-dessus, remplacez le numéro de version par le dernier numéro de version.
 
-Voici un modèle de machine virtuelle complet pour la création d’une machine virtuelle Linux avec une extension :
+Voici un modèle de machine virtuelle complet pour la création d’une machine virtuelle Linux avec une extension :
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
 
 Si vous avez installé Azure Tools pour Microsoft Visual Studio, vous pouvez afficher les données relatives aux objets blob, aux files d’attente et aux tables à partir de vos comptes de stockage Azure. Le nœud Azure Storage de l’Explorateur de serveurs affiche les données qui se trouvent dans votre compte d’émulateur de stockage local et dans vos autres comptes de stockage Azure.
 
-Pour afficher l’Explorateur de serveurs dans Visual Studio, choisissez **Affichage**, puis **Explorateur de serveurs** dans la barre de menus. Le nœud Azure Storage affiche tous les comptes de stockage qui existent sous chaque abonnement/certificat Azure auquel vous êtes connecté. Si votre compte de stockage n’apparaît pas, vous pouvez l’ajouter en suivant les instructions fournies [plus loin dans cette rubrique](#add-storage-accounts-by-using-server-explorer).
+Pour afficher l’Explorateur de serveurs dans Visual Studio, choisissez **Affichage**, puis **Explorateur de serveurs** dans la barre de menus. Le nœud Azure Storage affiche tous les comptes de stockage qui existent sous chaque abonnement/certificat Azure auquel vous êtes connecté. Si votre compte de stockage n’apparaît pas, vous pouvez l’ajouter en suivant les instructions fournies [plus loin dans cette rubrique](#add-storage-accounts-by-using-server-explorer).
 
-À partir de la version 2.7 du Kit de développement logiciel (SDK) Azure, vous pouvez également utiliser Cloud Explorer pour afficher et gérer vos ressources Azure. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer).
+À partir de la version 2.7 du Kit de développement logiciel (SDK) Azure, vous pouvez également utiliser Cloud Explorer pour afficher et gérer vos ressources Azure. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer).
 
 
 ## Afficher et gérer les ressources de stockage dans Visual Studio
@@ -30,7 +30,7 @@ L’Explorateur de serveurs affiche automatiquement la liste des objets blob, de
 
 Pour afficher les ressources du compte de l’émulateur de stockage, développez le nœud **Développement**. Si l’émulateur de stockage n’a pas encore été démarré quand vous développez le nœud **Développement**, il démarrera automatiquement. Le démarrage peut prendre plusieurs secondes. Vous pouvez continuer à travailler dans d’autres parties de Visual Studio pendant le démarrage de l’émulateur de stockage.
 
-Pour afficher les ressources dans un compte de stockage, développez le nœud du compte de stockage dans l’Explorateur de serveurs. Les sous-nœuds suivants s’affichent :
+Pour afficher les ressources dans un compte de stockage, développez le nœud du compte de stockage dans l’Explorateur de serveurs. Les sous-nœuds suivants s’affichent :
 
 - Objets blob
 
@@ -64,7 +64,7 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
     ![VST\_SE\_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
 
-    Vous pouvez effectuer les opérations suivantes sur les objets blob en utilisant les boutons situés dans l’angle supérieur droit de la vue du conteneur d’objets blob :
+    Vous pouvez effectuer les opérations suivantes sur les objets blob en utilisant les boutons situés dans l’angle supérieur droit de la vue du conteneur d’objets blob :
 
     - Entrer une valeur de filtre et l’appliquer
 
@@ -104,7 +104,7 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
 Vous pouvez filtrer les objets blob qui sont affichés en spécifiant un préfixe commun.
 
-Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre, puis choisissez le bouton **Exécuter** (**!**), seuls les objets blob qui commencent par « hello » s’afficheront.
+Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre, puis choisissez le bouton **Exécuter** (**!**), seuls les objets blob qui commencent par « hello » s’afficheront.
 
 ![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
@@ -147,7 +147,7 @@ Les files d’attente des services de stockage sont hébergées dans un compte d
 
 Quand vous développez un service cloud qui utilise des files d’attente, vous pouvez utiliser Visual Studio pour créer des files d’attente et les utiliser de manière interactive quand vous développez et testez votre code.
 
-Dans l’Explorateur de serveurs, vous pouvez afficher les files d’attente dans un compte de stockage, créer et supprimer des files d’attente, ouvrir une file d’attente pour consulter ses messages et ajouter des messages à une file d’attente. Quand vous ouvrez une file d’attente, vous pouvez afficher les messages qu’elle contient. De plus, vous pouvez effectuer les actions suivantes sur la file d’attente à l’aide des boutons situés dans l’angle supérieur gauche :
+Dans l’Explorateur de serveurs, vous pouvez afficher les files d’attente dans un compte de stockage, créer et supprimer des files d’attente, ouvrir une file d’attente pour consulter ses messages et ajouter des messages à une file d’attente. Quand vous ouvrez une file d’attente, vous pouvez afficher les messages qu’elle contient. De plus, vous pouvez effectuer les actions suivantes sur la file d’attente à l’aide des boutons situés dans l’angle supérieur gauche :
 
 - Actualiser la vue de la file d’attente
 
@@ -161,9 +161,9 @@ L’illustration suivante montre une file d’attente contenant deux messages.
 
 ![Affichage d’une file d’attente](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Pour plus d’informations sur les files d’attente des services de stockage, consultez [Comment : utiliser le service de File d’attente](http://go.microsoft.com/fwlink/?LinkID=264702). Pour plus d’informations sur le service web des files d’attente des services de stockage, consultez [Concepts de File d’attente](http://go.microsoft.com/fwlink/?LinkId=264788). Pour plus d’informations sur la façon d’envoyer des messages vers une file d’attente des services de stockage à l’aide de Visual Studio, consultez [Envoi de messages à une file d’attente de services de stockage](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Pour plus d’informations sur les files d’attente des services de stockage, consultez [Comment : utiliser le service de File d’attente](http://go.microsoft.com/fwlink/?LinkID=264702). Pour plus d’informations sur le service web des files d’attente des services de stockage, consultez [Concepts de File d’attente](http://go.microsoft.com/fwlink/?LinkId=264788). Pour plus d’informations sur la façon d’envoyer des messages vers une file d’attente des services de stockage à l’aide de Visual Studio, consultez [Envoi de messages à une file d’attente de services de stockage](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE] Les files d’attente de services de stockage sont différentes des files d’attente Service Bus. Pour plus d’informations sur les files d’attente Service Bus, consultez « Files d’attente, rubriques et abonnements Service Bus ».
+>[AZURE.NOTE] Les files d’attente de services de stockage sont différentes des files d’attente Service Bus. Pour plus d’informations sur les files d’attente Service Bus, consultez « Files d’attente, rubriques et abonnements Service Bus ».
 
 ## Utiliser des ressources de table
 
@@ -185,7 +185,7 @@ Le service de stockage Table Azure stocke de grandes quantités de données stru
 
     ![Table Azure dans l’Explorateur de solutions](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
-La table est organisée en entités (lignes) et propriétés (colonnes). Par exemple, l’illustration suivante montre les entités répertoriées dans le **Concepteur de tables** :
+La table est organisée en entités (lignes) et propriétés (colonnes). Par exemple, l’illustration suivante montre les entités répertoriées dans le **Concepteur de tables** :
 
 ### Pour modifier des données de table
 
@@ -226,13 +226,13 @@ Vous pouvez personnaliser les entités qui s’affichent dans une table à l’a
 
     ![Générateur de requêtes](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
 
-1. Quand vous avez terminé la création de la requête, fermez la boîte de dialogue. Le formulaire de texte de la requête qui en résulte s’affiche dans une zone de texte en tant que filtre WCF Data Services.
+1. Quand vous avez terminé la création de la requête, fermez la boîte de dialogue. Le formulaire de texte de la requête qui en résulte s’affiche dans une zone de texte en tant que filtre WCF Data Services.
 
 1. Pour exécuter la requête, cliquez sur l’icône représentant un triangle vert.
 
-    Vous pouvez également filtrer les données d’entité qui s’affichent dans le **Concepteur de tables** si vous entrez une chaîne de filtrage WCF Data Services directement dans le champ de filtre. Ce type de chaîne est similaire à une clause SQL WHERE, mais il est toutefois envoyé au serveur en tant que requête HTTP. Pour plus d’informations sur la création de chaînes de filtrage, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+    Vous pouvez également filtrer les données d’entité qui s’affichent dans le **Concepteur de tables** si vous entrez une chaîne de filtrage WCF Data Services directement dans le champ de filtre. Ce type de chaîne est similaire à une clause SQL WHERE, mais il est toutefois envoyé au serveur en tant que requête HTTP. Pour plus d’informations sur la création de chaînes de filtrage, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
-    L’illustration suivante montre un exemple de chaîne de filtrage valide :
+    L’illustration suivante montre un exemple de chaîne de filtrage valide :
 
     ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
@@ -314,4 +314,4 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

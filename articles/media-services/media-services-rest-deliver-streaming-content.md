@@ -2,7 +2,7 @@
 	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services" 
 	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Le code utilise l’API REST." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portail](media-services-manage-content.md#publish)
 
 ##Vue d'ensemble
 
@@ -191,4 +191,4 @@ exemple :
 
 [Configurer une stratégie de distribution d’éléments multimédias](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -19,7 +19,7 @@
 
 # Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure
 
-Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Linux dans le portail Azure](virtual-machines-linux-attach-disk-portal.md). Avant cela, passez en revue les conseils suivants :
+Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Windows par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Linux dans le portail Azure](virtual-machines-linux-attach-disk-portal.md). Avant cela, passez en revue les conseils suivants :
 
 - La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md).
 - Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
@@ -31,7 +31,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 ## <a id="initializeinWS"></a>Procédure d’initialisation d’un nouveau disque de données dans Windows Server
 
-1. Connectez-vous à la machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-windows-log-on.md).
+1. Connectez-vous à la machine virtuelle. Pour plus d’informations, consultez [Comment se connecter n à une machine virtuelle Azure exécutant Windows Server](virtual-machines-windows-connect-logon.md).
 
 2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
@@ -55,4 +55,4 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

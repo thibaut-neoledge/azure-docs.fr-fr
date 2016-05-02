@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 
@@ -80,7 +80,7 @@ Quand vous publiez votre service cloud à partir de Visual Studio, profilez le s
 
 Pour mieux comprendre le fonctionnement du profilage des performances dans Visual Studio, consultez le [Guide du débutant en profilage des performances](https://msdn.microsoft.com/library/azure/ms182372.aspx) et la rubrique [Analyse des performances de l’application à l’aide des outils de profilage](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
->[AZURE.NOTE]Quand vous publiez votre service cloud, activez IntelliTrace ou le profilage. Vous ne pouvez pas activer les deux méthodes.
+>[AZURE.NOTE] Quand vous publiez votre service cloud, activez IntelliTrace ou le profilage. Vous ne pouvez pas activer les deux méthodes.
 
 ###Méthodes de collecte des données par le profileur
 
@@ -102,7 +102,7 @@ L’illustration suivante montre comment configurer vos paramètres de profilage
 
 ![Configurer les paramètres de profilage](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
->[AZURE.NOTE]Pour cocher la case **Activer le profilage**, le profileur doit être installé sur l'ordinateur local que vous utilisez pour publier votre service cloud. Par défaut, le profileur s’installe lors de l’installation de Visual Studio.
+>[AZURE.NOTE] Pour cocher la case **Activer le profilage**, le profileur doit être installé sur l'ordinateur local que vous utilisez pour publier votre service cloud. Par défaut, le profileur s’installe lors de l’installation de Visual Studio.
 
 ### Pour configurer les paramètres de profilage
 
@@ -146,4 +146,4 @@ Une session de profilage est créée pour chaque instance de rôle dans votre se
 
 [Publication d’un service cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

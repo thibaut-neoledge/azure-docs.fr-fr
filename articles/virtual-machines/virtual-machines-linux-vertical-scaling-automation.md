@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
-	description="Mettre à l’échelle une machine virtuelle en réponse aux alertes avec Azure Automation"
-	services="virtual-machines"
+	description="Mettre à l’échelle une machine virtuelle Linux en réponse aux alertes avec Azure Automation"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/29/2016"
@@ -53,27 +53,9 @@ Les grandes lignes des étapes sont présentées ci-dessous.
 
 ## Configuration d’Azure Automation pour accéder à vos machines virtuelles
 
-Dans cette section, vous allez effectuer les tâches suivantes
+La première chose à faire est de créer un compte Azure Automation qui hébergera les runbooks utilisés pour mettre à l’échelle les instances de jeu de mise à l’échelle de machines virtuelles. Depuis peu, le service Automation dispose de la fonctionnalité « Compte d'identification » qui facilite la configuration du Principal du service permettant d'exécuter automatiquement les runbooks au nom de l’utilisateur de façon très simple. Pour en savoir plus à ce sujet, consultez l’article ci-dessous :
 
-* Créer un utilisateur dans votre Active Directory
-* Créer un AutomationPSCredential avec les informations de connexion de l’utilisateur
-* Configurer l’utilisateur pour qu’il puisse accéder aux ressources de votre abonnement
-
-Avant de pouvoir exécuter les runbooks Azure Automation dans votre abonnement, vous devez donner à Azure Automation l’accès à votre abonnement. Pour cela, vous devez créer un autre utilisateur dans Active Directory. Vous devez ensuite créer un AutomationPSCredential qui autorise l’utilisateur à s’authentifier auprès d’Azure et à exécuter des commandes PowerShell qui vont redimensionner votre machine virtuelle.
-
-Une procédure pas à pas de création de l’utilisateur et de AutomationPSCredential se trouvent dans l’article suivant
-
-* [Configuration d’Azure Automation](../automation/automation-configuring.md)
-
-Après avoir créé un utilisateur, vous devrez faire de cet utilisateur un coadministrateur pour vos ressources classiques et lui attribuer un rôle de propriétaire de vos ressources Azure Resource Manager.
-
-L’utilisateur doit être ajouté comme coadministrateur dans le portail classique pour pouvoir accéder aux ressources classiques.
-
-![Ancien portail coadministrateur](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
-
-Vous devez utiliser le portail Azure pour autoriser l’utilisateur à accéder aux machines virtuelles Azure Resource Manager.
-
-![Nouveau portail administrateur](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
+* [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Importer les runbooks de mise à l’échelle verticale Azure Automation dans votre abonnement
 
@@ -108,4 +90,4 @@ Veillez à bien copier le webhook avant de fermer la boîte de dialogue, car vou
 
 ![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

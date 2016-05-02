@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher" />
 
 # Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)
@@ -182,4 +182,4 @@ En savoir plus sur les fonctionnalités dans les services Azure Storage en lisan
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

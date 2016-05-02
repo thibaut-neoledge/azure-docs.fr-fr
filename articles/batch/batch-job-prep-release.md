@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Exécution de tâches de préparation et de fin du travail sur les nœuds de calcul Azure Batch
 
 Les travaux Azure Batch nécessitent souvent une forme d'installation avant leur exécution, ainsi qu'une sorte de maintenance ultérieure une fois que les tâches du travail sont terminées. Batch fournit les mécanismes de cette préparation et cette maintenance sous la forme de tâches de *préparation du travail* et *validation du travail* facultatives.
@@ -78,7 +78,7 @@ Dans cet extrait de code, `myBatchClient` est une instance complètement initial
 
 		await myJob.CommitAsync();
 
-Comme mentionné ci-dessus, la tâche de validation est exécutée lorsqu'un travail est terminé ou supprimé. La fin d'un travail avec l'API .NET Batch s'effectue en appelant [PoolOperations.TerminateJobAsync][net_job_terminate]. La suppression d'un travail s'exécute avec [PoolOperations.DeleteJobAsync][net_job_delete]. Ces deux actions sont généralement exécutées lorsque les tâches d'un travail sont terminées ou lorsqu'un délai d'attente que vous avez défini a été atteint.
+Comme mentionné ci-dessus, la tâche de validation est exécutée lorsqu'un travail est terminé ou supprimé. La fin d'un travail avec l'API .NET Batch s'effectue en appelant [JobOperations.TerminateJobAsync][net_job_terminate]. La suppression d'un travail s’effectue avec [JobOperations.DeleteJobAsync][net_job_delete]. Ces deux actions sont généralement exécutées lorsque les tâches d'un travail sont terminées ou lorsqu'un délai d'attente que vous avez défini a été atteint.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ La capture d'écran ci-dessous met en évidence les propriétés des tâches de 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

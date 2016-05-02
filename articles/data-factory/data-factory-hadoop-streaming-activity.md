@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Activité de diffusion en continu Hadoop
@@ -192,4 +192,11 @@ Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) 
 	    }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+## Voir aussi
+- [Activité Hive](data-factory-hive-activity.md)
+- [Activité pig](data-factory-pig-activity.md)
+- [Activité MapReduce](data-factory-map-reduce.md)
+- [Appeler des programmes Spark](data-factory-spark.md)
+- [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

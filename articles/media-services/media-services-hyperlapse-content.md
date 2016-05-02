@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank"/>
 
 
@@ -213,4 +213,6 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

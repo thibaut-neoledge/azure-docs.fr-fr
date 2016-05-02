@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -22,19 +22,22 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
-Liens connexes :
+Voici la liste des rubriques connexes :
 
-- Différentes méthodes pour [effectuer une mise à niveau depuis une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
-- Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade)
-- [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+| Rubrique | |
+| --------- | --------- |
+| Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau depuis une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect. |
+| Autorisations requises | Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade) |
+| Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 
 ## 1\.1.130.0
 Publication : avril 2016
 
 **Nouvelles fonctionnalités :**
 
-- Ajout de la prise en charge des attributs à valeurs multiples dans les [extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
-- Ajout de la prise en charge de variantes de configuration supplémentaires pour que la [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) soit considérée comme pouvant être mise à niveau.
+- Ajout de la prise en charge des attributs à valeurs multiples dans les [Extensions de répertoire](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Ajout de la prise en charge de variantes de configuration supplémentaires pour que la [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) soit considérée comme éligible à la mise à niveau.
+- Ajout d’applets de commande pour [planificateur personnalisé](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1\.1.119.0
 Publié : mars 2016
@@ -51,8 +54,8 @@ Publié : février 2016
 **Problèmes résolus :**
 
 - La mise à niveau à partir de versions antérieures ne fonctionne pas si l’installation ne se trouve pas dans le dossier **C:\\Program Files** par défaut.
-- Si vous installez et désélectionnez **Démarrer le processus de synchronisation...** à la fin de l’Assistant Installation, la réexécution de ce dernier n’active pas le planificateur.
-- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il empêche également `Get-ADSyncScheduler` de renvoyer les heures appropriées.
+- Si vous installez et désélectionnez **Démarrer le processus de synchronisation...** à la fin de l’Assistant Installation, la réexécution de ce dernier n’activera pas le planificateur.
+- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il bloque également `Get-ADSyncScheduler` le renvoi des heures correctes.
 - Si vous avez installé une version antérieure d'Azure AD Connect avec ADFS comme option de connexion et mise à niveau, vous ne pouvez pas réexécuter l'assistant d’installation.
 
 ## 1\.1.105.0
@@ -71,7 +74,7 @@ Publié : février 2016
 **Fonctionnalités promues de version préliminaire à disponibilité générale :**
 
 - [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
-- [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
+- [Extensions de répertoire](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -265,4 +268,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

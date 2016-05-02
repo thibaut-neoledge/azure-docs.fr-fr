@@ -81,6 +81,8 @@ Cliquez sur une alerte pour afficher ses détails complets.
 
 ## Configurer des alertes 
 
+Vous pouvez désactiver les diagnostics proactifs, modifier les destinataires d’e-mails, créer un webhook ou vous abonner à des messages d’alerte plus détaillés.
+
 Ouvrez la page Alertes. Les diagnostics proactifs sont inclus avec toutes les alertes que vous avez définies manuellement, ce qui vous permet de savoir s’ils se trouvent actuellement en état d’alerte.
 
 ![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/app-insights-nrt-proactive-diagnostics/021.png)
@@ -92,11 +94,21 @@ Cliquez sur l’alerte pour la configurer.
 Notez que vous pouvez désactiver les diagnostics proactifs, mais pas les supprimer (ni en créer d’autres).
 
 
+#### Alertes détaillées
+
+Si vous sélectionnez « Receive detailed analysis (Recevoir l’analyse détaillée) », l’e-mail contient plus d’informations de diagnostic. Les données figurant dans l’e-mail peuvent parfois suffire pour vous permettre de diagnostiquer le problème.
+
+Il se peut que l’alerte détaillée contienne des informations sensibles, car elle comprend des messages d’exception de traçage. Toutefois, cela se produit uniquement si votre code autorise que ces informations sensibles soient incluses dans ces messages.
+
+Voici un exemple d’alerte détaillée :
+
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/060.png)
+
 ## Quelle est la différence ?
 
 Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fonctionnalités d’Application Insights similaires mais distinctes.
 
-* C’est vous qui définissez les [alertes de mesures](app-insights-alerts.md), qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, les diagnostics proactifs en temps quasi-réel ne couvrent qu’une petite gamme de mesures critiques (pour l’instant, le taux de requêtes ayant échoué uniquement), conçues pour vous avertir en temps quasi-réel si le taux de requêtes ayant échoué de votre application web augmente de manière significative par rapport à la normale.
+* C’est vous qui définissez les [alertes de mesures](app-insights-alerts.md). Elles permettent de surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demande, les temps de chargement de pages, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, les diagnostics proactifs en temps quasi-réel ne couvrent qu’une petite gamme de mesures critiques (pour l’instant, le taux de requêtes ayant échoué uniquement), conçues pour vous avertir en temps quasi-réel si le taux de requêtes ayant échoué de votre application web augmente de manière significative par rapport à la normale.
 
     Les diagnostics proactifs NRT ajuste automatiquement son seuil en réponse aux conditions en vigueur.
 
@@ -138,4 +150,4 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Votre avis sur le sujet nous intéresse. Merci d’envoyer vos commentaires à :* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

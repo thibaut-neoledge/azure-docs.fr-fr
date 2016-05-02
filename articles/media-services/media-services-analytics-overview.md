@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
-
 
 # Vue d’ensemble d’Azure Media Services Analytics
 
@@ -49,7 +48,9 @@ Voici quelques scénarios où Azure Media Analytics peut aider les organisations
 
 - **Surveillance**. Le développement des caméras IP a fait exploser le nombre de vidéos de surveillance. L’examen manuel des vidéos de surveillance est long et sujet aux erreurs humaines. Azure Media Analytics fournit plusieurs services, tels que la détection de mouvement, la détection des visages et Hyperlapse, pour faciliter l’examen, la gestion et la création d’éléments dérivés.
 
+##Démonstrations
 
+[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##Parcours d’apprentissage de Media Services
 
@@ -67,4 +68,4 @@ Voici quelques scénarios où Azure Media Analytics peut aider les organisations
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

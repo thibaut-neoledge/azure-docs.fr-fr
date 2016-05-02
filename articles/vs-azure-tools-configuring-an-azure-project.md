@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configurer un projet de service cloud Azure avec Visual Studio
@@ -47,7 +47,7 @@ L’illustration suivante montre comment sélectionner une configuration à util
 
 1. Pour sélectionner la configuration de service que vous voulez utiliser quand vous exécutez ou que vous déboguez votre service cloud localement, dans la liste **Configuration du service**, choisissez la configuration de service.
 
-  >[AZURE.NOTE]Si vous voulez créer une configuration de service à utiliser, consultez Procédure : gestion des configurations de service et des profils. Si vous voulez modifier une configuration de service pour un rôle, consultez [Comment configurer les rôles pour un service cloud Azure avec Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+  >[AZURE.NOTE] Si vous voulez créer une configuration de service à utiliser, consultez Procédure : gestion des configurations de service et des profils. Si vous voulez modifier une configuration de service pour un rôle, consultez [Comment configurer les rôles pour un service cloud Azure avec Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 1. Pour démarrer l’émulateur de stockage Azure quand vous exécutez ou que vous déboguez localement votre service cloud, dans **Démarrer l’émulateur de stockage Microsoft Azure**, choisissez **Vrai**.
 
@@ -61,4 +61,4 @@ L’illustration suivante montre comment sélectionner une configuration à util
 
 Pour en savoir plus sur la façon de configurer des projets de service cloud Azure dans Visual Studio, consultez [Configuration de votre projet Azure à l’aide de plusieurs configurations de service](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

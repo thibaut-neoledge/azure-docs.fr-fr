@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Navigateurs et appareils pris en charge" 
-	description="" 
-	services="" 
-	documentationCenter="" 
-	authors="flanakin" 
-	writer="flanakin" 
-	manager="lwelicki" 
+<properties
+	pageTitle="Navigateurs et appareils pris en charge"
+	description="Décrit les navigateurs et les appareils sur lesquels le portail Azure fonctionne." 
+	services=""
+	documentationCenter=""
+	authors="flanakin"
+	writer="flanakin"
+	manager="lwelicki"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/23/2015"
 	ms.author="micflan"/>
 
 #Navigateurs et appareils pris en charge
@@ -32,4 +32,4 @@ Les versions les plus récentes des navigateurs suivants sont prises en charge 
 - Chrome (version la plus récente)
 - Firefox (version la plus récente)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0420_2016-->

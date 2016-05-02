@@ -1,6 +1,6 @@
 <properties
    pageTitle="Présentation de Microsoft Power BI Embedded"
-   description="Présentation de Microsoft Power BI Embedded"
+   description="Power BI Embedded vous permet d’intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées pour visualiser les données de vos utilisateurs"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -99,4 +99,4 @@ Pour obtenir un exemple d’utilisation de [CreateProvisionToken](https://msdn.m
 - [API REST de Power BI](http://docs.powerbi.apiary.io/reference)
 - [Régions Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

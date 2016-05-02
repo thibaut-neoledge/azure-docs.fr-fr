@@ -3,8 +3,8 @@
 	description="Cette rubrique montre comment utiliser .NET pour effectuer un encodage en direct avec des encodeurs locaux." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"  
+	ms.author="cenkdin;juliako"/>
 
 #Encodage en direct avec des encodeurs locaux
 
@@ -385,4 +385,4 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

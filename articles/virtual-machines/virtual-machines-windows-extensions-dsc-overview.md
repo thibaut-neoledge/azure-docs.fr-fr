@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure #
@@ -52,7 +52,7 @@ Lorsque l’extension est appelée pour la première fois, elle exécute un proc
 
 L’installation de WMF nécessite un redémarrage. Après le redémarrage, l’extension télécharge le fichier .zip spécifié dans la propriété `modulesUrl`. Si cet emplacement figure dans le stockage Azure Blob Storage, un jeton SAP peut être spécifié dans la propriété `sasToken` pour l’accès au fichier. Une fois le fichier .zip téléchargé et décompressé, la fonction de la configuration définie dans l’élément `configurationFunction` est exécutée pour générer le fichier .MOF. L’extension exécute ensuite la commande `Start-DscConfiguration -force` sur le fichier MOF généré. L’extension capture la sortie et la réécrit dans le canal d’état Azure. À ce stade, le gestionnaire de configuration local DSC gère la surveillance et la correction de la manière habituelle.
 
-## Applets de commande PowerShell ##
+## Applets de commande PowerShell ##
 
 Les applets de commande PowerShell peuvent être utilisées avec ARM ou ASM afin d’empaqueter, de publier et de surveiller les déploiements d’extensions DSC. Les applets de commande suivantes correspondent aux modules ASM, mais vous pouvez remplacer « Azure » par « AzureRM » pour utiliser le modèle ARM. Par exemple, l’élément `Publish-AzureVMDscConfiguration` utilise ASM, alors que `Publish-AzureRmVMDscConfiguration` utilise ARM.
 
@@ -144,4 +144,4 @@ Pour accéder aux fonctionnalités supplémentaires que vous pouvez gérer avec 
 
 Pour en savoir plus sur le passage de paramètres sensibles dans des configurations, voir [Manage credentials securely with the DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md) (Gérer les identifiants en toute sécurité avec le gestionnaire d’extensions DSC).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

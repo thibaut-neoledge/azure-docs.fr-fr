@@ -21,6 +21,11 @@
 
 # Restauration de machines virtuelles dans Azure
 
+> [AZURE.SELECTOR]
+- [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md)
+- [Restaurer des machines virtuelles dans le portail Classic](backup-azure-restore-vms.md)
+
+
 Procédez de la manière suivante pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à partir des sauvegardes stockées dans le coffre de sauvegarde Azure.
 
 ## Flux de travail de restauration
@@ -135,7 +140,7 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 
 2. Créer la configuration de machine virtuelle requise pour l'équilibreur de charge/plusieurs cartes réseau/plusieurs adresse IP réservée à l'aide des applets de commande PowerShell et utilisez-la pour créer la machine virtuelle avec la configuration souhaitée.
 	- Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/fr-FR/documentation/articles/load-balancer-internet-getstarted/)
+	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Créer une machine virtuelle avec [plusieurs cartes d’interface réseau](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Créer des machines virtuelles avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -144,4 +149,4 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

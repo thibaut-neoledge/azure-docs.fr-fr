@@ -37,8 +37,6 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - __Python__ et [pip](https://pypi.python.org/pypi/pip)
 
-- L’__interface de ligne de commande Azure__ Pour plus d'informations, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md).
-
 ##Obtention du flux Twitter
 
 Twitter vous permet de récupérer les [données de chaque tweet](https://dev.twitter.com/docs/platform-objects/tweets) sous la forme d’un document JavaScript Object Notation (JSON) via une API REST. [OAuth](http://oauth.net) est requis pour l'authentification de l'API. Vous devez également créer une _Application Twitter_ qui contient les paramètres utilisés pour accéder à l'API.
@@ -319,4 +317,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

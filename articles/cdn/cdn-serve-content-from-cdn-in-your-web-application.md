@@ -45,7 +45,9 @@ Ce didacticiel nécessite les éléments suivants :
 -	Visual Studio 2013 avec un [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) pour des GUI de gestion d'objets blob
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (utilisé dans la section [Automatisation du téléchargement du contenu de votre application ASP.NET vers votre point de terminaison CDN](#upload)).
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu'ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.
+> + Vous pouvez [activer les avantages de l'abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 <a name="static"></a>
 ## Distribution de contenu statique provenant d'un point de terminaison Azure CDN ##
@@ -151,8 +153,8 @@ Dans cette section, vous avez appris à créer un point de terminaison CDN, à 
 
 Si vous voulez télécharger facilement tout le contenu statique de votre application web ASP.NET dans votre point de terminaison CDN, ou si vous voulez déployer votre application web en utilisant la remise continue (pour un exemple, voir [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), vous pouvez utiliser Azure PowerShell pour automatiser la synchronisation des fichiers de contenu les plus récents avec les objets blob Azure à chaque déploiement de votre application web. Par exemple, vous pouvez exécuter le script de la page [Téléchargement de contenu d'une application ASP.NET dans des objets blob Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) pour télécharger tous les fichiers de contenu dans une application ASP.NET. Pour utiliser ce script :
 
-4. Depuis le menu **Démarrer**, exécutez **Windows PowerShell**.
-5. Dans la fenêtre PowerShell, exécutez `Get-AzurePublishSettingsFile` pour télécharger un fichier de paramètres de publication pour votre compte Azure.
+4. Dans le menu **Démarrer**, exécutez **Windows PowerShell**.
+5. Dans la fenêtre PowerShell, exécutez `Get-AzurePublishSettingsFile` pour télécharger un fichier de paramètres de publication pour votre compte Azure.
 6. Après avoir téléchargé ce fichier, exécutez la commande suivante : 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -256,7 +258,9 @@ L'intégration d’Azure App Service ou d’Azure Cloud Services avec Azure�
 - Mise à niveau simplifiée pour vos packages NuGet à contenu CDN, comme les versions jQuery ou Bootstrap 
 - Gestion de votre application web et de votre contenu CDN depuis la même interface Visual Studio
 
-Pour les didacticiels connexes, consultez les rubriques [Utiliser Azure CDN dans Azure App Service](../app-service-web/cdn-websites-with-cdn.md) et [Intégration d'un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
+Pour connaître les didacticiels associés, consultez :
+- [Utiliser Azure CDN dans Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
+- [Intégration d’un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Sans intégration avec les services Azure App Service Web Apps ou Azure Cloud Services, vous pouvez utiliser Azure CDN pour les regroupements de vos scripts, avec les mises en garde suivantes :
 
@@ -270,7 +274,7 @@ Sans intégration avec les services Azure App Service Web Apps ou Azure Clo
 - [Utiliser Azure CDN dans Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Intégration d’un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 - [Comment mapper le contenu du réseau de distribution de contenu (CDN) à un domaine personnalisé](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use-cdn.md)
+- [Utilisation d’Azure CDN](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

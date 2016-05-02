@@ -10,4 +10,4 @@
 - [Comment exiger l’authentification MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Comment utiliser le journal d’audit](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

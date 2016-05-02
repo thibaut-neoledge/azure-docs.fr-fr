@@ -1,3 +1,5 @@
-> [AZURE.IMPORTANT] The steps in this document were tested with the latest version of the Azure PowerShell. If you are using an older version, the steps may not work or may return errors.
+> [AZURE.IMPORTANT] Les étapes décrites dans ce document ont été testées avec la dernière version d'Azure PowerShell. Si vous utilisez une version antérieure, les étapes peuvent ne pas fonctionner ou renvoyer des erreurs.
 >
-> To install the latest version, use the steps in [Install and configure Azure PowerShell](../articles/powershell-install-configure.md) to install the latest version.
+> Pour installer la dernière version, suivez les étapes du document [Installer et configurer Azure PowerShell](../articles/powershell-install-configure.md) pour installer la version la plus récente.
+
+<!---HONumber=AcomDC_0420_2016-->

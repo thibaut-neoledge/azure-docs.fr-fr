@@ -3,7 +3,7 @@
 	description="Découvrez le Kit de développement logiciel (SDK) Node.js, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Node.js DocumentDB." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
-# Kit de développement logiciel (SDK) DocumentDB
+# Kit SDK DocumentDB
 
 > [AZURE.SELECTOR]
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](documentdb-sdk-dotnet.md)
-- [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md)
-- [Kit de développement logiciel (SDK) Java](documentdb-sdk-java.md)
+- [Kit SDK .NET](documentdb-sdk-dotnet.md)
+- [Kit SDK Node.js](documentdb-sdk-node.md)
+- [Kit SDK Java](documentdb-sdk-java.md)
 - [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
 
 ##Kit de développement logiciel (SDK) DocumentDB Node.js
@@ -46,7 +46,7 @@
 
 ###<a name="1.5.5"/>1.5.5</a>
 
-- Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
+- Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
 
 ###<a name="1.5.4"/>1.5.4</a>
 
@@ -90,7 +90,7 @@
 
 - Ajout de la prise en charge de l’index géospatial.
 - Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, &#47;&#47; ou se terminer par un espace. 
-- Ajout du nouvel en-tête « progression de la transformation de l’index » à ResourceResponse.
+- Ajout du nouvel en-tête « progression de la transformation de l’index » à ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
 
@@ -115,41 +115,41 @@
 - Kit de développement logiciel (SDK) GA
 
 ## Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
+Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
 Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
 > [AZURE.WARNING]
-Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1.6.0](#1.6.0) | 29 mars 2016 |--- 
-| [1.5.6](#1.5.6) | 08 mars 2016 |--- 
-| [1.5.5](#1.5.5) | 02 février 2016 |--- 
-| [1.5.4](#1.5.4) | 1er février 2016 |--- 
-| [1.5.2](#1.5.2) | 26 janvier 2016 |--- 
-| [1.5.2](#1.5.2) | 22 janvier 2016 |--- 
-| [1.5.1](#1.5.1) | 04 janvier 2016 |--- 
-| [1.5.0](#1.5.0) | 31 décembre 2015 |--- 
-| [1.4.0](#1.4.0) | 06 octobre 2015 |--- 
-| [1.3.0](#1.3.0) | 06 octobre 2015 |--- 
-| [1.2.2](#1.2.2) | 10 septembre 2015 |--- 
-| [1.2.1](#1.2.1) | 15 août 2015 |--- 
-| [1.2.0](#1.2.0) | 05 août 2015 |--- 
-| [1.1.0](#1.1.0) | 09 juillet 2015 |--- 
-| [1.0.3](#1.0.3) | 04 juin 2015 |--- 
-| [1.0.2](#1.0.2) | 23 mai 2015 |--- 
-| [1.0.1](#1.0.1) | 15 mai 2015 |--- 
-| [1.0.0](#1.0.0) | 08 avril 2015 |--- 
-| Version préliminaire 0.9.4 | 06 avril 2015 | 29 février 2016 
-| Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016 
-| Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016 
-| Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016 
+| [1\.6.0](#1.6.0) | 29 mars 2016 |---
+| [1\.5.6](#1.5.6) | 08 mars 2016 |---
+| [1\.5.5](#1.5.5) | 02 février 2016 |---
+| [1\.5.4](#1.5.4) | 1er février 2016 |---
+| [1\.5.2](#1.5.2) | 26 janvier 2016 |---
+| [1\.5.2](#1.5.2) | 22 janvier 2016 |---
+| [1\.5.1](#1.5.1) | 04 janvier 2016 |---
+| [1\.5.0](#1.5.0) | 31 décembre 2015 |---
+| [1\.4.0](#1.4.0) | 06 octobre 2015 |---
+| [1\.3.0](#1.3.0) | 06 octobre 2015 |---
+| [1\.2.2](#1.2.2) | 10 septembre 2015 |---
+| [1\.2.1](#1.2.1) | 15 août 2015 |---
+| [1\.2.0](#1.2.0) | 05 août 2015 |---
+| [1\.1.0](#1.1.0) | 09 juillet 2015 |---
+| [1\.0.3](#1.0.3) | 04 juin 2015 |---
+| [1\.0.2](#1.0.2) | 23 mai 2015 |---
+| [1\.0.1](#1.0.1) | 15 mai 2015 |---
+| [1\.0.0](#1.0.0) | 08 avril 2015 |---
+| Version préliminaire 0.9.4 | 06 avril 2015 | 29 février 2016
+| Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016
+| Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016
+| Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016
 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 
@@ -160,4 +160,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->
