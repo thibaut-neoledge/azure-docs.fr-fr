@@ -67,7 +67,7 @@ Commencez par inscrire votre application web auprès de Microsoft Azure Active D
 La rubrique [Création de l’application Active Directory et du principal du service à l’aide du portail](resource-group-create-service-principal-portal.md) indique toutes les étapes requises pour configurer votre application. Suivez la procédure de cette rubrique pour créer une application présentant les propriétés décrites ci-après :
 
 - application web appelée **CloudSense** ;
-- URL de connexion et URI ID de l’application, au format ****http://{domain_name_of_your_directory}/{name_of_the_app}** ;
+- URL de connexion et URI ID de l’application, au format **http://{domain_name_of_your_directory}/{name_of_the_app}** ;
 - clé d’authentification pour la signature de l’application ;
 - autorisation déléguée **Accéder à la gestion des services Azure** pour l’**API de gestion des services Azure**. Laissez la valeur par défaut **Activer l’authentification unique et lire le profil de l’utilisateur** pour **Azure Active Directory** ;
 - applications multi-locataires.

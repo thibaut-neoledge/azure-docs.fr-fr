@@ -89,7 +89,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 3.	Choisissez l’onglet **Paramètres de la source** et vérifiez que votre dossier de projet figure dans la colonne **Dossier du contrôle de code source** et que le statut est **Actif**.
 
-4.  Choisissez l'onglet **Valeurs par défaut des builds**, et sous Contrôleur de build, vérifiez le nom du serveur de builds. De même, choisissez l'option **Copier la sortie de la génération dans le dossier de dépôt suivant ** et spécifiez l'emplacement souhaité.
+4.  Choisissez l'onglet **Valeurs par défaut des builds**, et sous Contrôleur de build, vérifiez le nom du serveur de builds. De même, choisissez l'option **Copier la sortie de la génération dans le dossier de dépôt suivant** et spécifiez l'emplacement souhaité.
 
 5.  Choisissez l’onglet **Processus**. Sous l’onglet Processus, choisissez le modèle par défaut, sous **Build**, choisissez le projet s’il n’est pas déjà sélectionné et développez la section **Avancé** dans la section **Build** de la grille.
 
@@ -105,7 +105,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 Cette section décrit la création d'un script Windows PowerShell qui publie le résultat du package de l'application cloud dans Azure à l'aide de paramètres facultatifs. Ce script peut être appelé après l'étape de compilation dans votre automatisation de build personnalisée. Il peut également être appelé depuis les activités de workflow du modèle de processus dans Visual Studio TFS Team Build.
 
-1.  Installez les [applets de commande Azure PowerShell][] (v0.6.1 ou version ultérieure). Pendant la phase de configuration des applets de commande, choisissez l’installation comme composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
+1.  Installez les [applets de commande Azure PowerShell][] \(v0.6.1 ou version ultérieure). Pendant la phase de configuration des applets de commande, choisissez l’installation comme composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
 
 2.  Démarrez Azure PowerShell dans le menu ou la page Démarrer. Si vous démarrez de cette façon, les cmdlets Azure PowerShell sont chargées.
 

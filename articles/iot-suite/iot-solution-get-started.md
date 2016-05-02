@@ -40,9 +40,9 @@ Sur votre appareil :
 
     Si vous utilisez Windows 10, utilisez le navigateur Edge.
 
-    Si vous avez participé à la conférence Build 2016, connectez-vous avec le compte Microsoft que vous avez spécifié lors de la conférence, en utilisant l’un des boutons Microsoft. Vous êtes déjà inscrit à HockeyApp.
+        Si vous avez participé à la conférence Build 2016, connectez-vous avec le compte Microsoft que vous avez spécifié lors de la conférence, en utilisant l’un des boutons Microsoft. Vous êtes déjà inscrit à HockeyApp.
 
-    ![Écran de connexion de HockeyApp](./media/iot-solution-get-started/image1.png)
+        ![Écran de connexion de HockeyApp](./media/iot-solution-get-started/image1.png)
 
 3.  Téléchargez et installez l’application à partir d’ici :
 

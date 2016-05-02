@@ -43,7 +43,8 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
 
 ### Problèmes de connectivité après la mise à jour du portail BizTalk Services
 
-  Si le portail BizTalk Services est ouvert pendant une mise à jour de Services BizTalk en vue du déploiement de modifications dans le service, vous pouvez rencontrer des problèmes de connectivité avec le portail BizTalk Services. Pour résoudre ce problème, vous pouvez redémarrer le navigateur, supprimer le cache du navigateur ou démarrer le portail en mode privé.
+  Si le portail BizTalk Services est ouvert pendant une mise à jour de Services BizTalk en vue du déploiement de modifications dans le service, vous pouvez rencontrer des problèmes de connectivité avec le portail BizTalk Services.  
+  Pour résoudre ce problème, vous pouvez redémarrer le navigateur, supprimer le cache du navigateur ou démarrer le portail en mode privé.
 
 ### L’IDE Visual Studio ne peut pas localiser l’artefact si vous cliquez sur une erreur ou sur un avertissement dans un projet BizTalk Services
 Installez Visual Studio 2012 Update 3 RC 1 pour résoudre le problème.
@@ -53,7 +54,8 @@ Considérez les situations suivantes avec un projet BizTalk Services dans une so
 * Dans la même solution Visual Studio, il existe un projet BizTalk Services et un projet de liaison personnalisée. Le projet BizTalk Services comporte une référence à ce fichier de projet de liaison personnalisée.
 * Le projet BizTalk Services comporte une référence à une DLL de liaison/comportement personnalisée.
 
-Vous « générez » la solution dans Visual Studio avec succès. Ensuite, vous « régénérez » ou « Nettoyez » la solution. Après cela, lorsque vous réexécutez une régénération ou un nettoyage, l’erreur qui suit se produit : Impossible de copier le fichier <Path to DLL> dans « bin\\Debug\\FileName.dll ». Le processus ne peut pas accéder au fichier « bin\\Debug\\FileName.dll », car il est utilisé par un autre processus.
+Vous « générez » la solution dans Visual Studio avec succès. Ensuite, vous « régénérez » ou « Nettoyez » la solution. Après cela, lorsque vous réexécutez une régénération ou un nettoyage, l’erreur qui suit se produit :  
+  Impossible de copier le fichier <Path to DLL> dans « bin\\Debug\\FileName.dll ». Le processus ne peut pas accéder au fichier « bin\\Debug\\FileName.dll », car il est utilisé par un autre processus.
 
 #### Solution de contournement
 * Si [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) est installé, vous disposez des deux options suivantes :
@@ -74,10 +76,12 @@ Imaginez le scénario : si vous sélectionnez la case à cocher **Envoyer MDN a
 ### Les espaces situés au-delà d’un échange valide génèrent un message vide à envoyer au point de terminaison d’interruption  
 S’il existe des espaces au-delà d’un segment IEA, le désassembleur les traite comme s’il s’agissait de la fin de l’échange actuel et examine l’ensemble d’espaces suivant comme un nouveau message. Comme il ne s’agit pas d’un échange valide, vous pouvez constater qu’un message de réussite est envoyé à la destination d’itinéraire et un message vide est envoyé au point de terminaison d’interruption.
 ### Suivi dans le portail Azure BizTalk Services  
-Les événements de suivi sont enregistrés jusqu’au traitement de messages EDI et une corrélation. Si un message échoue en dehors de la phase de protocole, le suivi sera affiché comme réussi. Dans ce cas, reportez-vous à la section journal de la colonne **Détails** dans **Suivi** pour les détails de l’erreur. Les paramètres de réception et d’envoi X 12 ([Créer un accord X12 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fournissent des informations sur l’étape de protocole.
+Les événements de suivi sont enregistrés jusqu’au traitement de messages EDI et une corrélation. Si un message échoue en dehors de la phase de protocole, le suivi sera affiché comme réussi. Dans ce cas, reportez-vous à la section journal de la colonne **Détails** dans **Suivi** pour les détails de l’erreur.
+Les paramètres de réception et d’envoi X 12 ([Créer un accord X12 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fournissent des informations sur l’étape de protocole.
 
 ### Accord de mise à jour  
-En cas de configuration d’un accord, le portail BizTalk Services vous permet de modifier le qualificateur d’une identité. Cela peut entraîner des propriétés incohérentes. Par exemple, il existe un accord utilisant ZZ:1234567 et le qualificateur ZZ:7654321. Dans les paramètres de profil du portail BizTalk Services, vous remplacez ZZ:1234567 par 01:ChangedValue. Ouvrez l’accord et 01:ChangedValue s’affiche à la place de ZZ:1234567. Pour modifier le qualificateur d’une identité, supprimez l’accord, mettez à jour **identités** dans le profil du partenaire, puis recréez l’accord.
+En cas de configuration d’un accord, le portail BizTalk Services vous permet de modifier le qualificateur d’une identité. Cela peut entraîner des propriétés incohérentes. Par exemple, il existe un accord utilisant ZZ:1234567 et le qualificateur ZZ:7654321. Dans les paramètres de profil du portail BizTalk Services, vous remplacez ZZ:1234567 par 01:ChangedValue. Ouvrez l’accord et 01:ChangedValue s’affiche à la place de ZZ:1234567.
+Pour modifier le qualificateur d’une identité, supprimez l’accord, mettez à jour **identités** dans le profil du partenaire, puis recréez l’accord.
 > AZURE.WARNING Ce comportement a un impact sur X12 et AS2.
 
 ### Pièces jointes AS2  
@@ -92,7 +96,10 @@ Imaginez un scénario dans l’ordre suivant :
 
 * Fermez le fichier .bcs (en fermant l’onglet dans Visual Studio) sans enregistrer les modifications.
 
-* Ouvrez de nouveau le fichier .bcs à partir de l’Explorateur de solutions. Vous remarquerez que lorsque le fichier .bridgeconfig associé porte le nouveau nom que vous avez spécifié, le nom d’entité figurant sur l’aire de conception reste l’ancien nom. Si vous essayez d’ouvrir la configuration du pont en double-cliquant sur le composant de pont, vous obtenez l’erreur suivante : l’entité « <old name> » associée au fichier « <old name>.bridgeconfig » n’existe pas. Pour éviter de rencontrer ce scénario, veillez à enregistrer les modifications après avoir renommé les entités dans un projet BizTalk Services.
+* Ouvrez de nouveau le fichier .bcs à partir de l’Explorateur de solutions.
+Vous remarquerez que lorsque le fichier .bridgeconfig associé porte le nouveau nom que vous avez spécifié, le nom d’entité figurant sur l’aire de conception reste l’ancien nom. Si vous essayez d’ouvrir la configuration du pont en double-cliquant sur le composant de pont, vous obtenez l’erreur suivante :  
+  l’entité « <old name> » associée au fichier « <old name>.bridgeconfig » n’existe pas.  
+Pour éviter de rencontrer ce scénario, veillez à enregistrer les modifications après avoir renommé les entités dans un projet BizTalk Services.
 ### Le projet de BizTalk Service est généré avec succès même si un artefact a été exclu d’un projet Visual Studio
 Imaginez un scénario dans lequel vous ajoutez un artefact (par exemple, un fichier XSD) à un projet BizTalk Service, incluez cet artefact dans la configuration du pont (par exemple, en le spécifiant comme un type de message de demande), puis excluez-le du projet Visual Studio. Dans un tel cas, la compilation du projet ne génère pas d’erreur aussi longtemps que l’artefact supprimé est disponible sur le disque, à l’endroit où il a été inclus dans le projet Visual Studio.
 ### Le projet BizTalk Service ne vérifie pas la disponibilité de schéma lors de la configuration des ponts
@@ -141,7 +148,8 @@ Examinez le scénario suivant :
 ### Les ponts n’utilisent pas de certificat mis à jour même après qu’un certificat a été mis à jour dans le magasin d’artefacts
 Examinez les scénarios suivants :
 
-**Scénario 1 : à l’aide de certificats basés sur l’empreinte numérique pour sécuriser le transfert de message d’un pont vers un point de terminaison** Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.
+**Scénario 1 : à l’aide de certificats basés sur l’empreinte numérique pour sécuriser le transfert de message d’un pont vers un point de terminaison** 
+Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.
 
 **Solution de contournement** : mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.
 
@@ -152,7 +160,8 @@ Envisagez un scénario dans lequel vous utilisez des procédures basées sur le 
 **Solution de contournement** : mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.
 
 ### Les ponts continuent de traiter les messages même lorsque la base de données SQL est hors connexion
-Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database Microsoft (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont. Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Exemple Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.
+Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database Microsoft (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont. 
+Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Exemple Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.
 ### La lecture d’un message XML au sein d’un composant de code personnalisé d’un pont inclut un caractère BOM supplémentaire
 Imaginez un scénario dans lequel vous souhaitez lire un message XML dans le code personnalisé d’un pont. Si vous utilisez l’API .NET System.Text.Encoding.UTF8.GetString(bytes) un caractère BOM supplémentaire est inclus dans la sortie au début du message. Par conséquent, si vous ne souhaitez pas que la sortie inclue le caractère BOM supplémentaire, vous devez utiliser ```System.IO.StreamReader().ReadToEnd()```.
 ### L’envoi de messages à un pont à l’aide de WCF n’évolue pas

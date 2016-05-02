@@ -77,7 +77,21 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 mars 2016 |--- | [1\.5.1](#1.5.1) | 31 décembre 2015 |--- | [1\.5.0](#1.5.0) | 04 décembre 2015 |--- | [1\.4.0](#1.4.0) | 05 octobre 2015 |--- | [1\.3.0](#1.3.0) | 05 octobre 2015 |--- | [1\.2.0](#1.2.0) | 05 août 2015 |--- | [1\.1.0](#1.1.0) | 09 juillet 2015 |--- | [1\.0.1](#1.0.1) | 12 mai 2015 |--- | [1\.0.0](#1.0.0) | 07 avril 2015 |--- | Version préliminaire 0.9.5 | 09 mars 2015 | 29 février 2016 | Version préliminaire 0.9.4 | 17 février 2015 | 29 février 2016 | Version préliminaire 0.9.3 | 13 janvier 2015 | 29 février 2016 | Version préliminaire 0.9.2 | 19 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.1 | 19 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.0 | 10 décembre 2014 | 29 février 2016
+| [1\.6.0](#1.6.0) | 29 mars 2016 |---
+| [1\.5.1](#1.5.1) | 31 décembre 2015 |---
+| [1\.5.0](#1.5.0) | 04 décembre 2015 |---
+| [1\.4.0](#1.4.0) | 05 octobre 2015 |---
+| [1\.3.0](#1.3.0) | 05 octobre 2015 |---
+| [1\.2.0](#1.2.0) | 05 août 2015 |---
+| [1\.1.0](#1.1.0) | 09 juillet 2015 |---
+| [1\.0.1](#1.0.1) | 12 mai 2015 |---
+| [1\.0.0](#1.0.0) | 07 avril 2015 |---
+| Version préliminaire 0.9.5 | 09 mars 2015 | 29 février 2016
+| Version préliminaire 0.9.4 | 17 février 2015 | 29 février 2016
+| Version préliminaire 0.9.3 | 13 janvier 2015 | 29 février 2016
+| Version préliminaire 0.9.2 | 19 décembre 2014 | 29 février 2016
+| Version préliminaire 0.9.1 | 19 décembre 2014 | 29 février 2016
+| Version préliminaire 0.9.0 | 10 décembre 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

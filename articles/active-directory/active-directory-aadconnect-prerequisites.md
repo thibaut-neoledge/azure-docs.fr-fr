@@ -50,7 +50,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 - [Comptes Active Directory](active-directory-aadconnect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés.
 
 ### Configuration du serveur Azure AD Connect
-- Si l’authentification MFA est activée chez vos administrateurs généraux, l’URL ****https://secure.aadcdn.microsoftonline-p.com** doit figurer sur la liste des sites de confiance. Si elle n’y figure pas, vous devrez l’ajouter avant de passer le test de l’authentification MFA. Vous pouvez utiliser Internet Explorer pour l’ajouter à vos sites de confiance.
+- Si l’authentification MFA est activée chez vos administrateurs généraux, l’URL **https://secure.aadcdn.microsoftonline-p.com** doit figurer sur la liste des sites de confiance. Si elle n’y figure pas, vous devrez l’ajouter avant de passer le test de l’authentification MFA. Vous pouvez utiliser Internet Explorer pour l’ajouter à vos sites de confiance.
 
 ### Connectivité
 - Le serveur Azure AD Connect nécessite une résolution DNS Intranet et Internet. Le serveur DNS doit pouvoir résoudre des noms sur votre domaine Active Directory local, ainsi que sur les points de terminaison Azure AD.

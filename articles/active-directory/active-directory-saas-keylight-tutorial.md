@@ -173,11 +173,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     j. Pour **Auto-provision security config** (Configuration automatique des paramètres de sécurité), sélectionnez **Standard User Configuration** (Configuration utilisateur standard).
    
-    k. Dans la zone de texte Email attribute (Attribut de l’e-mail), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. Dans la zone de texte Email attribute (Attribut de l’e-mail), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. Dans la zone de texte **First name attribute** (Attribut de prénom), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. Dans la zone de texte **First name attribute** (Attribut de prénom), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. Dans la zone de texte **Last name attribute** (Attribut de nom), entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. Dans la zone de texte **Last name attribute** (Attribut de nom), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Cliquez sur **Enregistrer**.
    

@@ -302,7 +302,7 @@ Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogs
 	1. **EnrichGameLogsPipeline.json** (3 occurrences)
 	2. **AnalyzeMarketingCampaignPipeline**.json (3 occurrences)
 
-	**IMPORTANT : ** vérifiez que vous avez remplacé toutes les valeurs <storageaccountname> par le nom de votre compte de stockage.
+	**IMPORTANT:** vérifiez que vous avez remplacé toutes les valeurs <storageaccountname> par le nom de votre compte de stockage.
  
 4.  Dans **Azure PowerShell**, accédez au sous-dossier **Pipelines** dans le dossier **C:\\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
 5.  Utilisez l’applet de commande **New-AzureRmDataFactoryPipeline** pour créer les pipelines pour **PartitionGameLogspeline.json**, comme suit.	 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services" 
+	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services" 
 	description="En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/18/2016"     
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
-#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
+#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services
 
 ##Mots-clés
  

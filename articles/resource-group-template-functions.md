@@ -439,7 +439,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez ****http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est ****http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez **http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est **http://contoso.com/resources/**.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 

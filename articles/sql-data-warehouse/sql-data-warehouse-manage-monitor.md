@@ -143,13 +143,14 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Étapes suivantes
-Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][]. Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
+[Conception de table]: sql-data-warehouse-develop-table-design.md
 [Vue d’ensemble de référence]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 

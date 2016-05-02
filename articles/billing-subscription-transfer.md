@@ -59,7 +59,8 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
     Le transfert n’a aucune incidence sur le service. Il annule l’abonnement de l’administrateur de compte actuel et en crée un nouveau sous le compte du destinataire, mais associe les services Azure sous-jacents avec ce nouvel abonnement. L’ID de l’abonnement reste inchangé.
 
--   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**- Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
+-   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**-
+    Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
 
 -   **Si je deviens titulaire d’un abonnement d’une autre organisation, cette dernière aura-t-elle toujours accès à mes ressources ?**
 

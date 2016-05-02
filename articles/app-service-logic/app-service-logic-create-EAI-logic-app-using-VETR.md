@@ -55,7 +55,8 @@ Ensuite, nous allons ajouter des déclencheurs et des actions.
 ## Ajouter un déclencheur HTTP
 1. Dans **Modèles d’application logique**, sélectionnez **Créer intégralement**.
 1. Sélectionnez **Écouteur HTTP** dans la galerie pour créer un écouteur. Nommez-le **HTTP1**.
-2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : ![Déclencheur HTTP][2]
+2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : 
+	![Déclencheur HTTP][2]
 3. Cliquez sur la coche verte pour exécuter le déclencheur.
 
 ## Ajouter une action de validation

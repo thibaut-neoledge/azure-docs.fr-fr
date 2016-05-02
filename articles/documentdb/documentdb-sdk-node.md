@@ -50,19 +50,19 @@
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- Résolution du problème [n°100](https://github.com/Azure/azure-documentdb-node/issues/100) : agent HTTPS dédié : évitez de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
+- Résolution du problème [#100](https://github.com/Azure/azure-documentdb-node/issues/100) : agent HTTPS dédié : évitez de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
-- Résolution du problème [n°81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
+- Résolution du problème [#81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Résolution du problème [n°95](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
+- Résolution du problème [#95](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Résolution du problème [n°92](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes sensibles à la casse.
+- Résolution du problème [#92](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes sensibles à la casse.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -128,7 +128,29 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 mars 2016 |--- | [1\.5.6](#1.5.6) | 08 mars 2016 |--- | [1\.5.5](#1.5.5) | 02 février 2016 |--- | [1\.5.4](#1.5.4) | 1er février 2016 |--- | [1\.5.2](#1.5.2) | 26 janvier 2016 |--- | [1\.5.2](#1.5.2) | 22 janvier 2016 |--- | [1\.5.1](#1.5.1) | 04 janvier 2016 |--- | [1\.5.0](#1.5.0) | 31 décembre 2015 |--- | [1\.4.0](#1.4.0) | 06 octobre 2015 |--- | [1\.3.0](#1.3.0) | 06 octobre 2015 |--- | [1\.2.2](#1.2.2) | 10 septembre 2015 |--- | [1\.2.1](#1.2.1) | 15 août 2015 |--- | [1\.2.0](#1.2.0) | 05 août 2015 |--- | [1\.1.0](#1.1.0) | 09 juillet 2015 |--- | [1\.0.3](#1.0.3) | 04 juin 2015 |--- | [1\.0.2](#1.0.2) | 23 mai 2015 |--- | [1\.0.1](#1.0.1) | 15 mai 2015 |--- | [1\.0.0](#1.0.0) | 08 avril 2015 |--- | Version préliminaire 0.9.4 | 06 avril 2015 | 29 février 2016 | Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016 | Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
+| [1\.6.0](#1.6.0) | 29 mars 2016 |---
+| [1\.5.6](#1.5.6) | 08 mars 2016 |---
+| [1\.5.5](#1.5.5) | 02 février 2016 |---
+| [1\.5.4](#1.5.4) | 1er février 2016 |---
+| [1\.5.2](#1.5.2) | 26 janvier 2016 |---
+| [1\.5.2](#1.5.2) | 22 janvier 2016 |---
+| [1\.5.1](#1.5.1) | 04 janvier 2016 |---
+| [1\.5.0](#1.5.0) | 31 décembre 2015 |---
+| [1\.4.0](#1.4.0) | 06 octobre 2015 |---
+| [1\.3.0](#1.3.0) | 06 octobre 2015 |---
+| [1\.2.2](#1.2.2) | 10 septembre 2015 |---
+| [1\.2.1](#1.2.1) | 15 août 2015 |---
+| [1\.2.0](#1.2.0) | 05 août 2015 |---
+| [1\.1.0](#1.1.0) | 09 juillet 2015 |---
+| [1\.0.3](#1.0.3) | 04 juin 2015 |---
+| [1\.0.2](#1.0.2) | 23 mai 2015 |---
+| [1\.0.1](#1.0.1) | 15 mai 2015 |---
+| [1\.0.0](#1.0.0) | 08 avril 2015 |---
+| Version préliminaire 0.9.4 | 06 avril 2015 | 29 février 2016
+| Version préliminaire 0.9.3 | 14 janvier 2015 | 29 février 2016
+| Version préliminaire 0.9.2 | 18 décembre 2014 | 29 février 2016
+| Version préliminaire 0.9.1 | 22 août 2014 | 29 février 2016
+| Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 
 ## Forum Aux Questions
