@@ -2,4 +2,4 @@
 >
 > Pour installer la dernière version, suivez les étapes du document [Installation et configuration de l’interface Azure CLI](../articles/xplat-cli-install.md) pour installer la version la plus récente.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

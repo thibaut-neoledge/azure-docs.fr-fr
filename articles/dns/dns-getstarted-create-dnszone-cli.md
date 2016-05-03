@@ -3,7 +3,7 @@
    description="Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Prise en main des DNS Azure avec l’interface de ligne de commande
 
@@ -43,7 +43,7 @@ Installez l’interface de ligne de commande Azure. Vous pouvez installer l’in
 
 ### Étape 2
 
-Azure DNS utilise Azure Resource Manager. Veillez à utiliser l’interface de ligne de commande pour exécuter les commandes ARM et DNS.
+Azure DNS utilise Azure Resource Manager. Veillez à utiliser le mode d’interface de ligne de commande pour exécuter les commandes ARM.
 
 	Azure config mode arm
 
@@ -78,15 +78,15 @@ Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Netwo
 
 ## Balises
 
-Les balises sont différentes des Etags. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md). L’interface de ligne de commande Azure DNS prend en charge les balises dans les zones et les jeux d’enregistrements spécifiés à l’aide du paramètre « -Tag ». L’exemple suivant montre comment créer une zone DNS avec deux balises, « projet = demo » et « env = test » :
+Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md). L’interface de ligne de commande Azure DNS prend en charge les balises des zones DNS spécifiées à l’aide du paramètre optionnel « -Tag ». L’exemple suivant montre comment créer une zone DNS avec deux balises, « projet = demo » et « env = test » :
 
-	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Création d’une zone DNS
 
 Une zone DNS est créée à l'aide de la commande `azure network dns zone create`. Dans l’exemple ci-dessous, vous allez créer une zone DNS appelée « contoso.com » dans le groupe de ressources « MyResourceGroup » :
 
-    Azure network dns zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create myresourcegroup contoso.com
 
 
 >[AZURE.NOTE] Dans Azure DNS, les noms de zone doivent être spécifiés sans ajouter de « . » (par exemple, « contoso.com » plutôt que « contoso.com. »).
@@ -121,7 +121,7 @@ Dans l’exemple ci-dessous, la commande correspondant au groupe de ressources �
 	data:      Refresh time                  : 900
 	data:      Retry time                    : 300
 	data:                                    :
-<BR> Pour afficher les enregistrements NS créés, utilisez la commande suivante :
+<BR> Pour afficher les enregistrements NS créés avec la zone, utilisez la commande suivante :
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
@@ -141,7 +141,7 @@ Dans l’exemple ci-dessous, la commande correspondant au groupe de ressources �
 
 >[AZURE.NOTE] Les jeux d’enregistrements à la racine (ou « apex ») d’une zone DNS utilisent « @ » comme nom de jeu d’enregistrements.
 
-Après avoir créé votre première zone DNS, vous pouvez la tester à l'aide d'outils DNS comme nslookup, DIG ou l'**applet de commande PowerShell Resolve-DnsName**. Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué ci-dessus par « azure network dns-record-set show ». Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
+Après avoir créé votre première zone DNS, vous pouvez la tester à l'aide d'outils DNS comme nslookup, DIG ou l'**applet de commande PowerShell Resolve-DnsName**. Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué ci-dessus par « azure network dns record-set show ». Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
 
 L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’aide des serveurs de noms attribués à la zone DNS. La requête doit pointer vers un serveur de noms pour lequel nous avons utilisé `@<name server for the zone>` et vers le nom de la zone à l'aide de DIG.
 
@@ -171,4 +171,4 @@ L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’ai
 
 Après avoir créé une zone DNS, vous devez créer des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour lancer la résolution de noms pour votre domaine Internet.<BR> Vous pouvez également apprendre à [gérer les zones DNS](dns-operations-dnszones-cli.md) et les opérations de zone DNS correspondantes.<BR> En savoir plus sur [la gestion des enregistrements DNS](dns-operations-recordsets-cli.md) et sur l’[automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l’API REST Azure DNS.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d’ASP.NET et d’Azure App Service | Microsoft Azure"
-	description="Apprenez comment créer un projet web ASP.NET dans Visual Studio et comment le déployer dans une nouvelle application web dans Azure App Service."
+	pageTitle="Prise en main d’Azure App Service et d’ASP.NET | Microsoft Azure"
+	description="Apprenez à déployer un projet web ASP.NET dans une nouvelle application web dans Azure App Service à l’aide de Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Prise en main d’application web ASP.NET dans Azure App Service à l’aide de Visual Studio.
+# Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -293,4 +293,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Azure vous permet d’exécuter des applications web dans App Service Web Apps (comme vous l’avez vu dans ce didacticiel), mais aussi dans Cloud Services ou Virtual Machines. Pour plus d’informations, consultez [Comparaison entre Azure App Service, Azure Cloud Services, Azure Virtual Machines et Service Fabric](/manage/services/web-sites/choose-web-app-service/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

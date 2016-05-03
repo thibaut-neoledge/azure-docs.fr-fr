@@ -75,4 +75,6 @@ Pour commencer avec le CDN, consultez [Utilisation du CDN Azure](./cdn-create-ne
 
 Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0420_2016-->
+Pour découvrir le CDN en action, visionnez la [vidéo de notre session Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+<!---HONumber=AcomDC_0427_2016-->

@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Création d’un serveur logique de base de données SQL Azure
+## Création d’un serveur logique de base de données SQL Azure
 
 Suivez les étapes suivantes dans le portail Azure pour créer un serveur logique de base de données SQL.
 
@@ -44,4 +44,4 @@ Suivez les étapes suivantes dans le portail Azure pour créer un serveur logiqu
 
        ![nouveau serveur logique](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main du Centre de sécurité Azure | Microsoft Azure"
+   pageTitle="Guide de démarrage rapide du Centre de sécurité Azure | Microsoft Azure"
    description="Ce document vous aide à prendre rapidement en main le Centre de sécurité Azure en vous guidant à travers les composants de surveillance de sécurité et de gestion des stratégies de sécurité et vers les étapes suivantes."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Prise en main du Centre de sécurité Azure
+# Guide de démarrage rapide du Centre de sécurité Azure
 
 Ce document vous aide à prendre rapidement en main le Centre de sécurité Azure en vous guidant à travers les composants de surveillance de sécurité et de gestion des stratégies de sécurité et vers les étapes suivantes.
 
@@ -86,24 +86,16 @@ Affichez l'intégrité de vos **solutions de partenaires** :
 
 3. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **F5-WAF2**. Un panneau s'ouvre et affiche l'état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Solution console** pour ouvrir l’expérience de gestion du partenaire pour cette solution. ![Détail de la solution partenaire][10]
 
-L’**ETAT** d'une solution de partenaire peut être :
-
-- Sain (vert) : aucun problème d'intégrité
-- Défectueux (rouge) : problème d'intégrité nécessitant une action immédiate
-- Arrêté (orange) : la solution ne transmet plus son état d'intégrité
-- Inconnu (orange) : l'intégrité de la solution est inconnu pour l'instant en raison d'un échec du processus d'ajout d'une nouvelle ressource à la solution existante
-- Non signalé (gris) : la solution n'a encore rien signalé ; la solution peut affiché l’état Non signalé si elle vient d'être connectée et est toujours en cours de déploiement
-
-
 ## Étapes suivantes
 Ce document vous a présenté les composants de surveillance de sécurité et de gestion des stratégies de sécurité dans le Centre de sécurité. Pour en savoir plus, consultez les articles suivants :
 
-- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) -- Découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières informations sur la sécurité Azure.
+- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer les alertes de sécurité et y répondre.
+- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité des solutions de vos partenaires.
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
@@ -117,4 +109,4 @@ Ce document vous a présenté les composants de surveillance de sécurité et de
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

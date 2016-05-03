@@ -30,8 +30,9 @@ Les principales différences sont répertoriées dans le tableau ci-dessous.
 | Performances prévisibles | Latence variable |
 | Tarification prévisible | Tarification à l’utilisation variable |
 | Possibilité de faire évoluer la charge de travail | N/A |
+| Taille des messages > 256 Ko | Taille des messages de 256 Ko |
 
-La **messagerie Azure Service Bus Premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé une *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables,
+La **messagerie Azure Service Bus Premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé une *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables,
 
 mais aussi supérieures. La messagerie Service Bus Premium s’appuie sur le moteur de stockage introduit dans [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). La messagerie Premium offre des performances de pointe bien supérieures à celles de la couche Standard.
 
@@ -41,7 +42,7 @@ Voici quelques différences entre les couches de messagerie Standard et Premium.
 
 ### Entités partitionnées
 
-Les entités partitionnées sont prises en charge dans la messagerie Premium, mais elles ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à deux partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
+Les entités partitionnées sont prises en charge dans la messagerie Premium, mais elles ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à deux partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
 
 ### Entités Express
 
@@ -55,6 +56,6 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 - [Présentation de la messagerie Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

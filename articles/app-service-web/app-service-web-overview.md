@@ -49,8 +49,8 @@ Azure App Service Web Apps est une plateforme entièrement gérée qui vous pe
 - **WebJobs** : exécutez n’importe quel programme ou script sur des machines virtuelles Web Apps. Exécutez des tâches en continu ou selon un planning, et effectuez une mise à l'échelle pour une exécution sur plusieurs machines virtuelles. Pour intégrer Azure Storage ou Service Bus, utilisez le [Kit de développement logiciel (SDK) WebJobs][Webjobs] Azure.
 - **Connexions hybrides** - - Accéder aux données locales à l'aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels](../app-service-web/web-sites-integrate-with-vnet.md).
 
-## Prise en main ##
-Pour commencer à utiliser Web Apps, suivez le didacticiel [Créer une application web ASP.NET][create].
+## Mise en route ##
+Pour prendre en main Web Apps, suivez le didacticiel [Prise en main des applications web dans Azure App Service][create].
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service][appservice].
 
@@ -60,10 +60,10 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

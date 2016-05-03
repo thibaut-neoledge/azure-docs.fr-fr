@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Didacticiel : prise en main des solutions préconfigurées IoT
+# Didacticiel : prise en main des solutions préconfigurées
 
 ## Introduction
 
@@ -53,7 +53,7 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
 4. Cliquez sur la vignette ; les détails de votre solution apparaissent alors dans le volet de droite.
 
-> [AZURE.NOTE] Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez [Autorisations sur le site azureiotsuite.com][lnk-permissions] et la [FAQ][lnk-faq]. Si les problèmes persistent, créez un ticket de service sur le [portail][lnk-portal].
+> [AZURE.NOTE] Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez [Autorisations sur le site azureiotsuite.com][lnk-permissions] et la section [FAQ][lnk-faq]. Si les problèmes persistent, créez un ticket de service sur le [portail][lnk-portal].
 
 Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions concernant les fonctionnalités sur [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -248,10 +248,10 @@ Une solution préconfigurée opérationnelle étant créée, vous pouvez passer 
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
+[lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

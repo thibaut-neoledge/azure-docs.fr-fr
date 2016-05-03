@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Le stockage d’objets blob Azure est un service qui stocke les données de fichier dans le cloud. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
+Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
 
 ### À propos de ce didacticiel
 
@@ -51,7 +51,7 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 
 Ajoutez les instructions `using` suivantes au début du fichier `program.cs` :
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
@@ -349,21 +349,39 @@ L’exemple ci-dessous crée un objet blob d’ajout et y ajoute des données po
 
 Pour plus d’informations sur les différences entre les trois types d’objets blob, consultez la page [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
+## Gestion de la sécurité pour les objets blob
+
+Par défaut, Azure Storage préserve la sécurité de vos données en limitant l’accès au propriétaire du compte, qui est en possession des clés d’accès au compte. Lorsque vous avez besoin de partager des données d’objets blob de votre compte de stockage, il est important de le faire sans compromettre la sécurité de vos clés d’accès au compte. En outre, vous pouvez chiffrer les données d’objets blob pour vous assurer qu’elles sont sécurisées lors de leur transfert et dans Azure Storage.
+
+[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+
+### Contrôle de l’accès aux données d’objets blob
+
+Par défaut, les données d’objets blob de votre compte de stockage sont accessibles uniquement par le propriétaire du compte de stockage. L’authentification des demandes vis-à-vis du stockage d’objets blob requiert la clé d’accès par défaut. Toutefois, vous pouvez rendre certaines données d’objets blob disponibles pour d’autres utilisateurs. Deux options s'offrent à vous :
+
+- **Accès anonyme :** vous pouvez rendre un conteneur ou ses objets blob disponibles publiquement pour un accès anonyme. Pour plus d'informations, consultez [Gestion de l'accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+- **Signatures d’accès partagé :** vous pouvez fournir aux clients une signature d’accès partagé (SAP), qui fournit un accès délégué à une ressource de votre compte de stockage, avec des autorisations et sur un intervalle que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+
+### Chiffrement des données d’objets blob
+
+Azure Storage prend en charge le chiffrement des données d’objets blob côtés client et serveur :
+
+- **Chiffrement côté client :** la bibliothèque cliente de stockage pour .NET prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à Azure Key Vault pour la gestion des clés de compte de stockage. Pour plus d’informations, voir [Chiffrement côté client avec .NET pour Microsoft Azure Storage](storage-client-side-encryption.md). Voir également [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Chiffrement côté serveur** : Azure Storage prend désormais en charge le chiffrement côté serveur. Voir [Azure Storage Service Encryption pour les données au repos (version préliminaire)](storage-service-encryption.md). 
+
 ## Étapes suivantes
 
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour en savoir plus.
 
-### Documentation de référence de stockage d’objets blob
+### Documentation de référence sur le stockage d’objets blob
 
 - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
 
-### Guides de fonctionnalités supplémentaires
+### Guides conceptuels
 
-- [Prise en main du stockage de table pour .NET](storage-dotnet-how-to-use-tables.md)
-- [Prise en main du stockage en files d’attente pour .NET](storage-dotnet-how-to-use-queues.md)
-- [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
 - [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -377,4 +395,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

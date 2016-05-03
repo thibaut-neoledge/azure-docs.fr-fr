@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Configuration requise pour ExpressRoute QoS
@@ -21,7 +21,7 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Remarque :** la configuration requise pour QoS s’applique uniquement à l’homologation Microsoft.
+>[AZURE.NOTE] La configuration requise pour QoS ne s’applique qu’à l’homologation Microsoft.
 
 Le tableau suivant fournit la liste des marquages DSCP utilisés par Skype Entreprise. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -50,4 +50,4 @@ Le tableau suivant fournit la liste des marquages DSCP utilisés par Skype Entre
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->
