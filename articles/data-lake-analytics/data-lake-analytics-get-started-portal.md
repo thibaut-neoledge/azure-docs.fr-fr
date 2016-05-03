@@ -3,7 +3,7 @@
    description="Découvrez comment utiliser le portail Azure pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure
 
@@ -24,16 +24,9 @@ Découvrez comment utiliser le portail Azure pour créer des comptes Azure Data 
 
 Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertir en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l'aide d'autres outils pris en charge, cliquez sur les onglets en haut de cette section. Une fois votre premier travail terminé, vous pouvez commencer à écrire des transformations de données plus complexes avec U-SQL.
 
-**Processus Data Lake Analytics de base :**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagramme du flux de processus Analytique Data Lake Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Créer un compte Analytique Data Lake.
-2. Préparer les données source. Les travaux Data Lake Analytics peuvent lire les données depuis les comptes Azure Data Lake Store ou les comptes de stockage d'objets Blob Azure. Dans cet exemple, la lecture s'effectuera à partir d'Azure Data Lake Store.  
-3. Développer un script U-SQL.
-4. Envoyer un travail (script U-SQL) vers le compte Analytique Data Lake. Le travail lit les données source, traite les données conformément au script U-SQL, puis enregistre la sortie dans un compte Data Lake Store ou un compte de stockage d’objets Blobs.
-
-###Configuration requise
+##Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -162,4 +155,4 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 - Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0427_2016-->

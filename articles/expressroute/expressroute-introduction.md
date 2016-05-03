@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Présentation technique d’ExpressRoute
@@ -33,21 +33,31 @@ Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-## Comment puis-je utiliser ExpressRoute pour connecter mon réseau à Microsoft ?
+## <a name="howtoconnect"></a>Comment puis-je utiliser ExpressRoute pour connecter mon réseau à Microsoft ?
 
-Vous pouvez créer une connexion entre votre réseau local et le cloud de Microsoft de trois façons différentes
+Vous pouvez créer une connexion entre votre réseau local et le cloud de Microsoft de trois façons différentes :
 
-1. **Colocalisation avec un échange de cloud.** Si vous êtes colocalisé avec une installation dans le cadre d’un échange de cloud, vous pouvez commander des interconnexions virtuelles vers le cloud de Microsoft via l’échange Ethernet du fournisseur de colocalisation. Les fournisseurs de colocalisation peuvent offrir des interconnexions de couche 2 ou des interconnexions de couche 3 gérées entre votre infrastructure dans l’installation de colocalisation et le cloud de Microsoft.
-2.	**Connexions Ethernet point à point.** Vous pouvez connecter vos centres de données/bureaux locaux au cloud de Microsoft via des liaisons Ethernet point à point. Les fournisseurs Ethernet point à point peuvent offrir des connexions de couche 2 ou des connexions de couche 3 gérées entre votre site et le cloud de Microsoft.
-3.	**Réseaux universels (IPVPN).** Vous pouvez intégrer votre réseau étendu au cloud de Microsoft. Les fournisseurs IPVPN (généralement des VPN MPLS) offrent une connectivité universelle entre vos succursales et vos centres de données. Le cloud de Microsoft peut être interconnecté à votre réseau étendu afin qu’il apparaisse comme n’importe quelle autre succursale. Les fournisseurs de réseaux étendus offrent généralement une connectivité de couche 3 gérée.
+### Colocalisation avec un échange de cloud
+
+Si vous êtes colocalisé avec une installation dans le cadre d’un échange de cloud, vous pouvez commander des interconnexions virtuelles vers le cloud de Microsoft via l’échange Ethernet du fournisseur de colocalisation. Les fournisseurs de colocalisation peuvent offrir des interconnexions de couche 2 ou des interconnexions de couche 3 gérées entre votre infrastructure dans l’installation de colocalisation et le cloud de Microsoft.
+
+### Connexions Ethernet point à point 
+
+Vous pouvez connecter vos centres de données/bureaux locaux au cloud de Microsoft via des liaisons Ethernet point à point. Les fournisseurs Ethernet point à point peuvent offrir des connexions de couche 2 ou des connexions de couche 3 gérées entre votre site et le cloud de Microsoft.
+
+### Réseaux universels (IPVPN)
+
+Vous pouvez intégrer votre réseau étendu au cloud de Microsoft. Les fournisseurs IPVPN (généralement des VPN MPLS) offrent une connectivité universelle entre vos succursales et vos centres de données. Le cloud de Microsoft peut être interconnecté à votre réseau étendu afin qu’il apparaisse comme n’importe quelle autre succursale. Les fournisseurs de réseaux étendus offrent généralement une connectivité de couche 3 gérée. Les capacités et fonctionnalités ExpressRoute sont identiques pour tous les modèles de connectivité ci-dessus.
+
+Les fournisseurs de connectivité peuvent offrir un ou plusieurs modèles de connectivité. Vous pouvez contacter votre fournisseur de connectivité pour choisir le modèle qui vous convient le mieux.
 
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
-Les capacités et fonctionnalités ExpressRoute sont identiques pour tous les modèles de connectivité ci-dessus. Les fournisseurs de connectivité peuvent offrir un ou plusieurs modèles de connectivité figurant dans la liste ci-dessus. Vous pouvez contacter votre fournisseur de connectivité pour choisir le modèle qui vous convient le mieux.
+
 
 ## Fonctionnalités ExpressRoute
 
-ExpressRoute prend en charge les fonctionnalités et capacités suivantes.
+ExpressRoute prend en charge les fonctionnalités et capacités suivantes :
 
 ### Connectivité de couche 3
 
@@ -59,7 +69,7 @@ Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Micro
 
 ### Connectivité aux services de cloud Microsoft
 
-Les connexions ExpressRoute permettent d’accéder aux services suivants.
+Les connexions ExpressRoute permettent d’accéder aux services suivants :
 
 - Services Microsoft Azure
 - Services Microsoft Office 365
@@ -124,4 +134,4 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

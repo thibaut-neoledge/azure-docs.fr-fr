@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
@@ -69,11 +69,11 @@ Le panneau **Mises à jour système manquantes** affiche un tableau incluant les
 - **MACHINE VIRTUELLE** : nom de la machine virtuelle sur laquelle il manque des mises à jour.
 - **MISES À JOUR SYSTÈME** : quantité de mises à jour système manquantes.
 - **HEURE DE LA DERNIÈRE ANALYSE** : heure de la dernière analyse par le Centre de sécurité de la machine virtuelle, afin de contrôler les mises à jour.
-- **ÉTAT** : état actuel de la recommandation : 
+- **ÉTAT** : état actuel de la recommandation :
 	- **Ouverte** : la recommandation n’a pas encore été prise en compte.
 	- **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
 	- **Résolue** : la recommandation a déjà été appliquée (une fois le problème résolu, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation : 
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
 	- **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
 	- **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
 	- **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
@@ -105,7 +105,7 @@ Les réseaux virtuels surveillés par le Centre de sécurité apparaissent dans 
 Le panneau comprend deux sections :
 - Recommandations pour la mise en réseau
 - Mise en réseau
- 
+
 Dans chaque section, vous pouvez sélectionner une option pour en savoir plus sur la recommandation. Les sections ci-dessous apportent plus de détails sur ces sujets.
 
 ####Recommandations pour la mise en réseau
@@ -118,8 +118,8 @@ La section de répartition des états du réseau répertorie les problèmes de s
 
 - [ACL sur les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) désactivée ;
 - [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) désactivés ;
-- affichage de sous-réseaux intègres et accès dans NSG non restreint. 
- 
+- affichage de sous-réseaux intègres et accès dans NSG non restreint.
+
 Lorsque vous cliquez sur l’une de ces recommandations, un nouveau panneau incluant plus de détails concernant la recommandation s’ouvre, comme illustré dans l’exemple ci-dessous.
 
 ![Limiter le point de terminaison](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
@@ -185,7 +185,8 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des paramètres de sécurité dans le Centre de sécurité Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
+- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

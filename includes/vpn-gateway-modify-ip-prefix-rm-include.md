@@ -13,11 +13,13 @@
 
 ### Ajouter ou supprimer des préfixes si vous avez déjà créé une connexion à la passerelle VPN
 
-Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez effectuer les étapes suivantes dans l’ordre. Cela interrompra votre connexion VPN car vous devrez supprimer et recréer la passerelle. Toutefois, étant donné que vous avez demandé une adresse IP pour la connexion, vous n’aurez pas besoin de reconfigurer votre routeur VPN local, sauf si vous décidez de modifier les valeurs que vous avez déjà utilisées.
+Si vous avez créé votre connexion VPN et que vous souhaitez ajouter ou supprimer des préfixes d’adresses IP contenues dans votre passerelle de réseau local, vous devez effectuer les étapes suivantes dans l’ordre. Cela entraînera une interruption de votre connexion VPN.
+
+>[AZURE.IMPORTANT] Ne supprimez pas la passerelle VPN. Si vous la supprimez, vous devrez reprendre toute la procédure de création et reconfigurer votre routeur local avec les nouveaux paramètres.
  
-1. Supprimez la connexion à la passerelle. 
+1. Supprimez la connexion IPsec. 
 2. Modifiez les préfixes de votre passerelle de réseau local. 
-3. Créez une connexion de passerelle. 
+3. Créez une connexion IPsec. 
 
 Vous pouvez utiliser l'exemple suivant comme référence.
 
@@ -31,4 +33,4 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

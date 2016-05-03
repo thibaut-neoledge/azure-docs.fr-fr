@@ -40,6 +40,7 @@ Cette rubrique répertorie les emplacements des points de présence (POP) actuel
 ## Amérique du Sud
 
 - São Paulo
+- Rio de Janeiro
 - Quito
 - Medellin
 - Buenos Aires
@@ -84,4 +85,4 @@ Cette rubrique répertorie les emplacements des points de présence (POP) actuel
 
 Vous avez peut-être entendu que Microsoft a [fait équipe avec Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). Dans les prochains mois, nous allons utiliser ce partenariat pour augmenter considérablement la portée d'Azure CDN dans le monde entier.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

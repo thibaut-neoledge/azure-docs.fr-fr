@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Présentation du Centre de sécurité Azure
@@ -145,8 +145,9 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 - [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) -- Découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières informations sur la sécurité Azure.
+- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
@@ -159,4 +160,4 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

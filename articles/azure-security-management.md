@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
 # Gestion de la sécurité dans Azure
@@ -28,7 +28,7 @@ Les risques d’attaque sont plus importants dans ce type d’environnement : en
 
 ### Menaces liées à la gestion à distance
 
-Les personnes malveillantes tentent souvent d’obtenir un accès privilégié en compromettant des informations d’identification du compte (attaque par force brute, hameçonnage, collecte d’informations d’identification, etc.) ou en amenant les utilisateurs à exécuter un code malveillant (par exemple, à partir de téléchargements furtifs sur des sites Web malveillants ou à partir de pièces jointes présentes dans des courriers électroniques malveillants). L’accès en tout temps et en tout lieu rend les environnements cloud gérés à distance plus vulnérables aux violations de compte.
+Les personnes malveillantes tentent souvent d’obtenir un accès privilégié en compromettant des informations d’identification du compte (attaque par force brute, hameçonnage, collecte d’informations d’identification, etc.) ou en amenant les utilisateurs à exécuter un code malveillant (par exemple, à partir de téléchargements furtifs sur des sites web malveillants ou à partir de pièces jointes présentes dans des courriers électroniques malveillants). L’accès en tout temps et en tout lieu rend les environnements cloud gérés à distance plus vulnérables aux violations de compte.
 
 Même avec un contrôle strict des comptes d’administrateur principal, des comptes d’utilisateur de niveau inférieur peuvent être utilisés pour exploiter les faiblesses de la stratégie de sécurité. En l’absence d’une formation de sécurité appropriée, des violations de compte peuvent découler de la divulgation accidentelle ou de l’exposition d’informations sur le compte.
 
@@ -38,21 +38,28 @@ En règle générale, la plupart des attaques ciblées entraînant des violation
 
 ### Principes de base pour la sécurité opérationnelle
 
-Pour une gestion et un fonctionnement plus sécurisés, vous pouvez réduire la surface d’attaque d’un client en limitant le nombre de points d’entrée possibles. Cette opération peut être réalisée grâce aux principes de sécurité de séparation des tâches et de répartition des environnements : l’isolement des fonctions sensibles évite l’effet domino. Par conséquent, les tâches d’administration ne doivent pas être associées à des activités susceptibles d’entraîner une compromission (par exemple, un programme malveillant présent dans le courrier électronique de l’administrateur peut infecter un serveur d’infrastructure). De même, la station de travail utilisée pour les opérations ultrasensibles ne doit pas être utilisée pour les activités à haut risque, comme la navigation sur Internet.
+Pour une gestion et un fonctionnement plus sécurisés, vous pouvez réduire la surface d’attaque d’un client en limitant le nombre de points d’entrée possibles. Cette opération peut être réalisée grâce aux principes de sécurité de séparation des tâches et de répartition des environnements.
 
-Chaque application ou service installé sur une station de travail d’administration accroît les risques de sécurité en raison de vulnérabilités qui peuvent être exploitées. Ainsi, la réduction de la surface d’attaque du système par la suppression des logiciels inutiles à partir d’une image système d’installation standard améliore la stabilité et la facilité de gestion client, et elle renforce le profil de sécurité logicielle du client. Par exemple, une station d’administration, de support ou de développement standard n’a pas besoin d’un client de messagerie ni d’autres applications de productivité si elle sert principalement à gérer les services cloud.
+L’isolement des fonctions sensibles évite l’effet domino. Exemples :
 
-Le réseau doit traiter les systèmes clients disposant d’un accès administrateur aux composants d’infrastructure comme s’ils étaient aussi sensibles que les composants d’infrastructure eux-mêmes. Étant donné que la compromission d’un administrateur ou d’un système administrateur peut entraîner une violation de service, le client doit être soumis à la stratégie la plus stricte possible afin de limiter les risques de sécurité. Les stratégies de sécurité qui renforcent la surveillance des périphériques client disposant de privilèges d’administration peuvent inclure des paramètres de stratégie de groupe refusant l’accès libre à Internet à partir du périphérique, et l’utilisation d’une configuration de pare-feu restrictive.
+- Les tâches d’administration ne doivent pas être associées à des activités susceptibles d’entraîner une compromission (par exemple, un programme malveillant présent dans le courrier électronique de l’administrateur peut infecter un serveur d’infrastructure).
+- La station de travail utilisée pour les opérations ultrasensibles ne doit pas être utilisée pour les activités à haut risque, comme la navigation sur Internet.
 
-Vous pouvez implémenter d’autres mesures, notamment :
+La limitation de la surface d’attaque du système par la suppression de logiciels inutiles. Exemple :
 
-- L’utilisation de réseaux privés virtuels (VPN) Internet Protocol security (IPsec) si un accès direct est requis.
-- La configuration de domaines Active Directory de gestion et de développement distincts.
-- L’isolement et le filtrage du trafic réseau de la station de travail de gestion.
-- L’utilisation de logiciels anti-programme malveillant.
-- L’implémentation d’une authentification multifacteur afin de réduire le risque de vol d’informations d’identification.
+- Une station d’administration, de support ou de développement standard n’a pas besoin d’un client de messagerie ni d’autres applications de productivité si elle sert principalement à gérer les services cloud.
+
+Les systèmes clients disposant d’un accès administrateur aux composants d’infrastructure doivent être soumis à une stratégie aussi stricte que possible afin de limiter les risques de sécurité. Exemples :
+
+- Les stratégies de sécurité peuvent inclure des paramètres de stratégie de groupe refusant l’accès libre à Internet à partir de l’appareil, et l’utilisation d’une configuration de pare-feu restrictive.
+- Utilisez des réseaux privés virtuels (VPN) de sécurité du protocole Internet (IPsec) si un accès direct est requis.
+- Configurez des domaines Active Directory de gestion et de développement distincts.
+- Isolez et filtrez du trafic réseau de la station de travail de gestion.
+- Utilisez des logiciels anti-programme malveillant.
+- Implémentez une authentification multifacteur afin de réduire le risque de vol d’informations d’identification.
 
 La consolidation des ressources d’accès et la suppression des points de terminaison non gérés simplifient également les tâches de gestion.
+
 
 ### Mesures de sécurité pour la gestion à distance Azure
 
@@ -115,11 +122,11 @@ En règle générale, la sécurisation des stations de travail d’administratio
 
 Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail de gestion Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
 
-Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais d’Active Directory Federation Services (ADFS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.
+Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais des services de fédération Active Directory (AD FS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.
 
 ### Connectivité
 
-Plusieurs mécanismes permettent de sécuriser les connexions client vers vos réseaux virtuels Azure. deux de ces mécanismes (connexion [VPN de site à site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) et connexion [VPN de point à site](vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S)) acceptent la norme IPsec standard (S2S) ou le protocole [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) pour le chiffrement et le tunneling. Lorsque Azure se connecte à un système de gestion des services Azure public, comme le portail de gestion Azure, un protocole HTTPS (Hypertext Transfer Protocol Secure) est requis.
+Plusieurs mécanismes permettent de sécuriser les connexions client vers vos réseaux virtuels Azure. Deux de ces mécanismes (connexion [VPN de site à site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) et connexion [VPN de point à site](vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S)) acceptent la norme IPsec standard (S2S) ou le protocole [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) pour le chiffrement et le tunneling. Lorsque Azure se connecte à un système de gestion des services Azure public, comme le portail de gestion Azure, un protocole HTTPS (Hypertext Transfer Protocol Secure) est requis.
 
 Une station de travail renforcée autonome qui ne se connecte pas à Azure par le biais d’une passerelle des services Bureau à distance doit utiliser une connexion VPN de point à site basée sur le protocole SSTP pour mettre en place la connexion initiale vers Azure Virtual Network, puis établir la connexion RDP avec des machines virtuelles individuelles dans le tunnel VPN.
 
@@ -154,7 +161,7 @@ Pour les environnements informatiques sans infrastructure locale (par exemple, s
 
 ### Station de travail renforcée autonome pour la gestion
 
-Avec une station de travail renforcée autonome, les administrateurs disposent d’un ordinateur de bureau ou d’un ordinateur portable pour les tâches d’administration, et d’un autre ordinateur de bureau ou ordinateur portable pour les tâches restantes. Une station de travail dédiée à la gestion de vos services Azure ne nécessite pas d’autres applications. En outre, l’utilisation de stations de travail compatible avec le [Module de plateforme sécurisée](https://technet.microsoft.com/library/cc766159) (TPM) ou une technologie de chiffrement matériel similaire permet d’authentifier les périphériques et empêche certaines attaques. Le Module de plateforme sécurisée prend également en charge la protection du volume complet du lecteur système avec le [chiffrement de lecteur BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
+Avec une station de travail renforcée autonome, les administrateurs disposent d’un ordinateur de bureau ou d’un ordinateur portable pour les tâches d’administration, et d’un autre ordinateur de bureau ou ordinateur portable pour les tâches restantes. Une station de travail dédiée à la gestion de vos services Azure ne nécessite pas d’autres applications. En outre, l’utilisation de stations de travail compatibles avec le [Module de plateforme sécurisée](https://technet.microsoft.com/library/cc766159) (TPM) ou une technologie de chiffrement matériel similaire permet d’authentifier les appareils et empêche certaines attaques. Le Module de plateforme sécurisée prend également en charge la protection du volume complet du lecteur système avec le [Chiffrement de lecteur BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
 Dans une station de travail renforcée autonome (voir ci-dessous), l’instance locale du pare-feu Windows (ou un pare-feu client tiers) est configurée de manière à bloquer les connexions entrantes, comme le protocole RDP. L’administrateur peut ouvrir une session sur la station de travail renforcée et lancer une session RDP qui se connecte à Azure après l’établissement d’une connexion VPN avec Azure Virtual Network, mais il ne peut pas utiliser un PC d’entreprise et le protocole RDP pour se connecter à la station de travail renforcée elle-même.
 
@@ -178,7 +185,7 @@ Dans la figure ci-dessous, l’image portable est un système joint au domaine, 
 
 ![][4]
 
-Il est plus facile de perdre un lecteur flash USB qu’un ordinateur de bureau classique. L’utilisation de BitLocker pour chiffrer la totalité du volume ainsi que la création d’un mot de passe fort empêchent toute action malveillante. De plus, en cas de perte du lecteur flash USB, la révocation et l’[émission d’un nouveau certificat de gestion](https://technet.microsoft.com/library/hh831574.aspx) avec réinitialisation rapide du mot de passe peut limiter l’exposition. Les journaux d’audit d’administration résident dans Azure, et non sur le client, ce qui minimise encore davantage les risques de perte des données.
+Il est plus facile de perdre un lecteur flash USB qu’un ordinateur de bureau classique. L’utilisation de BitLocker pour chiffrer la totalité du volume ainsi que la création d’un mot de passe fort empêchent toute action malveillante. De plus, en cas de perte de la clé USB, la révocation et l’[émission d’un nouveau certificat de gestion](https://technet.microsoft.com/library/hh831574.aspx) avec réinitialisation rapide du mot de passe peut limiter l’exposition. Les journaux d’audit d’administration résident dans Azure, et non sur le client, ce qui minimise encore davantage les risques de perte des données.
 
 ## Meilleures pratiques
 
@@ -193,7 +200,7 @@ Même si une station de travail est verrouillée, les autres exigences de sécur
 | N’envoyez pas d’informations d’identification administrateur ou d’autres informations sensibles (par exemple, certificats SSL ou certificats de gestion) par courrier électronique. | Préservez la confidentialité des données en fournissant oralement les noms et les mots de passe de compte (sans les stocker dans la messagerie vocale), installez les certificats client/serveur à distance (par le biais d’une session chiffrée), effectuez des téléchargements à partir d’un partage réseau protégé ou procédez à une distribution manuelle au moyen de supports amovibles. |
 | | Gérez de manière proactive les cycles de vie de votre certificat de gestion. |
 | Ne stockez pas de mots de passe non chiffrés ou non hachés dans le système de stockage de l’application (feuilles de calcul, sites SharePoint, partages de fichiers, etc.). | Établissez des principes de gestion de sécurité et des stratégies de renforcement de système, et appliquez-les à votre environnement de développement. |
-| | Utilisez les règles d’épinglage de certificat [Enhanced Mitigation expérience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) pour garantir un accès approprié aux sites Azure SSL/TLS. |
+| | Utilisez les règles d’épinglage de certificat [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) pour garantir un accès approprié aux sites Azure SSL/TLS. |
 | Ne partagez pas de comptes ni de mots de passe entre plusieurs administrateurs, et ne réutilisez pas les mots de passe sur plusieurs comptes d’utilisateur ou services, notamment pour les médias sociaux ou d’autres activités non administratives. | Créez un compte Microsoft dédié pour gérer votre abonnement Azure, que vous n’utiliserez pas pour le courrier électronique personnel. |
 | N’envoyez pas de fichiers de configuration par courrier électronique. | Les profils et les fichiers de configuration doivent être installés à partir d’une source approuvée (par exemple, lecteur flash USB chiffré), et non à partir d’un mécanisme qui peut être facilement compromis, comme le courrier électronique. |
 | N’utilisez pas de mots de passe d’ouverture de session trop simples ou trop faibles. | Appliquez des stratégies de mot de passe fort, des cycles d’expiration (modification à la première utilisation), des délais d’expiration de la console et l’automatisation des verrouillages de compte. Utilisez un système de gestion de mot de passe client compatible avec l’authentification multifacteur pour l’accès par mot de passe. |
@@ -240,4 +247,4 @@ Les ressources suivantes fournissent des informations générales sur les servic
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

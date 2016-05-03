@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/16/2016"
+   ms.date="04/21/2016"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN de site à site en utilisant Azure Resource Manager et PowerShell
@@ -40,7 +40,7 @@ Cet article vous guide lors de la création d’un réseau virtuel et d’une co
 
 Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
 
-- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
+- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
 
 - Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 	
@@ -51,9 +51,9 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 ## 1\. Connexion à votre abonnement 
 
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
-Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
 	Login-AzureRmAccount
 
@@ -73,7 +73,7 @@ Les exemples ci-dessous illustrent un sous-réseau de passerelle de /28. Bien qu
 
 Utilisez l’exemple ci-dessous pour créer un réseau virtuel et un sous-réseau de passerelle. Remplacez les valeurs par les vôtres.
 
-Créez d’abord un groupe de ressources :
+Créez d’abord un groupe de ressources :
 	
 	New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
@@ -89,7 +89,7 @@ L’exemple ci-dessous crée un réseau virtuel nommé *testvnet* et deux sous-r
 
 Cette étape est requise uniquement si vous avez besoin d’ajouter un sous-réseau de passerelle à un réseau virtuel créé au préalable.
 
-Vous pouvez créer votre sous-réseau de passerelle à l’aide de l’exemple ci-dessous. Assurez-vous de nommer le sous-réseau de passerelle « GatewaySubnet ». Si vous choisissez un autre nom, vous créerez un sous-réseau, mais Azure ne le traitera pas comme un sous-réseau de passerelle.
+Vous pouvez créer votre sous-réseau de passerelle à l’aide de l’exemple ci-dessous. Assurez-vous de nommer le sous-réseau de passerelle « GatewaySubnet ». Si vous choisissez un autre nom, vous créerez un sous-réseau, mais Azure ne le traitera pas comme un sous-réseau de passerelle.
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -104,7 +104,7 @@ Dans un réseau virtuel, la passerelle de réseau local fait généralement réf
 
 Azure utilise le préfixe d’adresse IP que vous spécifiez pour identifier le trafic à envoyer vers votre emplacement local. Cela signifie que vous devez spécifier chaque préfixe d’adresse que vous voulez associer à votre passerelle de réseau local. Vous pouvez facilement mettre à jour ces préfixes si votre réseau local est modifié.
 
-Lorsque vous utilisez les exemples PowerShell, notez les points suivants :
+Lorsque vous utilisez les exemples PowerShell, notez les points suivants :
 	
 - *GatewayIPAddress* est l’adresse IP de votre périphérique VPN local. Votre périphérique VPN ne peut pas se trouver derrière un NAT. 
 - *AddressPrefix* est votre espace d’adressage local.
@@ -130,7 +130,7 @@ Utilisez l’exemple PowerShell ci-dessous. La méthode d’allocation pour cett
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
->[AZURE.NOTE] Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
+>[AZURE.NOTE] Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
 
 ## 5\. Créer la configuration de l’adressage IP de la passerelle
 
@@ -144,7 +144,7 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 
 Dans cette étape, vous allez créer la passerelle de réseau virtuel. Notez que la création d’une passerelle peut durer un certain temps. Souvent 20 minutes, voire plus.
 
-Utilisez les valeurs suivantes :
+Utilisez les valeurs suivantes :
 
 - Le paramètre **-GatewayType** pour une configuration de site à site est **Vpn**. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
 
@@ -157,7 +157,7 @@ Utilisez les valeurs suivantes :
 
 À ce stade, vous aurez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Vous pouvez aussi vous reporter à [Périphériques VPN](vpn-gateway-about-vpn-devices.md) pour plus d’informations.
 
-Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, utilisez l’exemple suivant :
+Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, utilisez l’exemple suivant :
 
 	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
@@ -189,4 +189,4 @@ Si vous devez modifier les préfixes de votre passerelle de réseau local, suive
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -196,4 +196,4 @@ Une fois le déploiement terminé, parcourez le site et notez que l’applicatio
 - Pour plus d’informations sur la gestion des ressources via le portail, voir [Utilisation du portail Azure pour gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
 - Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

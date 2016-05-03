@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc"/>
 
 # Réinitialiser une passerelle VPN Azure à l’aide de PowerShell
@@ -40,14 +40,14 @@ L’applet de commande PowerShell servant à réinitialiser la passerelle VPN Az
 
 L’exemple qui suit permet de réinitialiser la passerelle VPN Azure du réseau virtuel appelé « ContosoVNet ».
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+	 	Error          :
+	 	HttpStatusCode : OK
+	 	Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+	 	Status         : Successful
+		RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+		StatusCode     : OK
 
 
 Si la connexion n’est pas restaurée après le premier redémarrage, exécutez de nouveau la commande pour redémarrer la deuxième instance de machine virtuelle (la nouvelle passerelle active). Si les deux redémarrages sont demandés à la suite, il s’écoulera un délai un peu plus long pendant lequel les deux instances de machine virtuelle machine virtuelles (active/veille) sont en cours de redémarrage. Dans ce cas, l’intervalle de connectivité VPN permettant aux machines virtuelles de terminer les redémarrages sera un peu plus long, jusqu’à 2 à 4 minutes.
@@ -58,4 +58,4 @@ Après deux redémarrages, si vous continuez de rencontrer des problèmes de con
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->
