@@ -264,7 +264,7 @@ Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface util
 
 #### Pour configurer les autorisations appropriées pour l’écriture différée
 
-1.	Ouvrez **Utilisateurs et ordinateurs Active Directory ** avec un compte ayant les autorisations d’administration de domaine appropriées.
+1.	Ouvrez **Utilisateurs et ordinateurs Active Directory** avec un compte ayant les autorisations d’administration de domaine appropriées.
 2.	Dans **Menu Affichage**, assurez-vous que l’option **Fonctionnalités avancées** est activée.
 3.	Dans le volet gauche, cliquez avec le bouton droit sur l’objet représentant la racine du domaine.
 4.	Cliquez sur l’onglet **Sécurité**.
