@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Accès à des clouds privés Azure avec Visual Studio
@@ -43,4 +43,4 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 [Téléchargement et importation des paramètres de publication et des informations d'abonnement] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Mise à niveau des projets vers la version actuelle d’Azure Tools pour Visual Studio
@@ -37,7 +37,7 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 - Si Azure Caching est hébergé dans un ou plusieurs rôles de votre projet, certaines propriétés de la configuration du service (fichier .cscfg) et de la définition du service (fichier .csdef) seront modifiées au moment de la mise à niveau d’un projet. Si le projet utilise le package NuGet d’Azure Caching, il sera mis à niveau vers la version la plus récente du package. Vous devez ouvrir le fichier web.config et vérifier que la configuration du client a été conservée pendant la mise à niveau. Si vous avez ajouté les références aux assemblys clients Azure Caching sans utiliser le package NuGet, les assemblys ne seront pas mis à jour. Vous devrez mettre à jour manuellement les références aux nouvelles versions.
 
->[AZURE.IMPORTANT]Pour les projets en langage F#, vous devrez mettre à jour manuellement les références aux assemblys Azure pour que les versions les plus récentes de ces assemblys soient référencées.
+>[AZURE.IMPORTANT] Pour les projets en langage F#, vous devrez mettre à jour manuellement les références aux assemblys Azure pour que les versions les plus récentes de ces assemblys soient référencées.
 
 ### Mise à niveau d’un projet Azure vers la version actuelle
 
@@ -51,4 +51,4 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 1. Générez le projet, puis résolvez les erreurs qui résultent des modifications de l’API. Pour plus d’informations sur la modification de votre code pour la nouvelle version, consultez la documentation de l’API concernée.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

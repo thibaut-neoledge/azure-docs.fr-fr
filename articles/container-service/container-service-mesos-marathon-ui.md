@@ -57,6 +57,18 @@ Protocole | TCP
 
 ![](media/dcos/dcos6.png)
 
+Si vous souhaitez mapper le port du conteneur de manière statique à un port de l’agent, cela doit être effectué à l’aide du « mode JSON ». Pour ce faire, basculez de l’Assistant Nouvelle Application en mode JSON et entrez le code suivant sous la section « portMappings » de la définition d’application. Cet exemple montre comment lier le port 80 du conteneur au port 80 de l’agent DC/OS. Cet Assistant peut quitter le mode JSON une fois cette modification effectuée.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+Le cluster DC/OS est déployé avec un ensemble d’agents privés et publics. Pour accéder à l’application à partir d’Internet, ils doivent être déployés sur un agent public. Pour ce faire, sélectionnez l’onglet « facultatif » de l’Assistant Nouvelle Application et saisissez « slave\_public » pour les « Rôles de ressources acceptés ».
+
+![](media/dcos/dcos14.png)
+
 Sur la page principale de Marathon, vous pouvez voir l’état du déploiement du conteneur.
 
 ![](media/dcos/dcos7.png)
@@ -85,4 +97,4 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 
 [Utilisation de DC/OS et de l’API Marathon](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

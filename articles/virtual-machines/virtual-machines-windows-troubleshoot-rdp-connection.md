@@ -4,7 +4,7 @@
 	keywords="erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
 
@@ -48,11 +48,11 @@ Ces étapes peuvent résoudre la plupart des échecs de connexion Bureau à dist
 
 - Vérifiez l’intégrité des ressources de la machine virtuelle pour les problèmes de plateforme.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Paramètres** > **Vérifier l’intégrité**.
 
-## Machines virtuelles créées à l’aide du modèle de déploiement Resource Manager
+### Machines virtuelles créées à l’aide du modèle de déploiement Resource Manager
 
 Ces étapes peuvent résoudre la plupart des échecs de connexion Bureau à distance dans les machines virtuelles Azure créées à l’aide du modèle de déploiement Resource Manager. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
-- _Réinitialisez l’accès à distance_ à l’aide de Powershell<br> a. Si ce n'est pas déjà fait, [installez Azure PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l'aide de la méthode Azure AD. Notez que vous n’avez pas besoin de passer en mode Resource Manager dans les nouvelles versions d’Azure PowerShell 1.0.x.
+- _Réinitialisez l’accès à distance_ à l’aide de Powershell<br> a. Si ce n'est pas déjà fait, [installez Azure PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l'aide de la méthode Azure AD. Notez que vous n’avez pas besoin de passer en mode Resource Manager dans les nouvelles versions d’Azure PowerShell 1.0.x.
 
 	b. Réinitialisez votre connexion Bureau à distance en utilisant l’une des commandes Azure PowerShell suivantes. Remplacez `myRG`, `myVM`, `myVMAccessExtension` et l’emplacement par des valeurs adaptées à votre installation.
 
@@ -76,48 +76,48 @@ Si les étapes ci-dessus n’ont pas permis de résoudre vos échecs de connexio
 
 ## Dépannage des erreurs spécifiques à la connexion Bureau à distance
 
-Voici les erreurs les plus courantes que vous pouvez rencontrer quand vous tentez d’établir une connexion Bureau à distance à votre machine virtuelle Azure :
+Voici les erreurs les plus courantes que vous pouvez rencontrer quand vous tentez d’établir une connexion Bureau à distance à votre machine virtuelle Azure :
 
-1. [Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence](#rdplicense).
+1. [Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence](#rdplicense).
 
-2. [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l'ordinateur.](#rdpname)
+2. [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l'ordinateur.](#rdpname)
 
-3. [Erreur de connexion Bureau à distance : Une erreur d'authentification s'est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
+3. [Erreur de connexion Bureau à distance : Une erreur d'authentification s'est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
 
-4. [Message d'erreur de sécurité Windows : Vos informations d'identification n'ont pas fonctionné](#wincred).
+4. [Message d'erreur de sécurité Windows : Vos informations d'identification n'ont pas fonctionné](#wincred).
 
-5. [Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant](#rdpconnect).
+5. [Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant](#rdpconnect).
 
 <a id="rdplicense"></a>
-### Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
+### Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
 
-Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
+Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
 
-Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d'une invite de commande Windows PowerShell pour vous connecter. Cette opération désactive uniquement la gestion des licences pour cette connexion.
+Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d'une invite de commande Windows PowerShell pour vous connecter. Cette opération désactive uniquement la gestion des licences pour cette connexion.
 
 		mstsc <File name>.RDP /admin
 
 Si vous n’avez pas besoin de plus de deux connexions Bureau à distance simultanées à la machine virtuelle, vous pouvez utiliser le Gestionnaire de serveur pour supprimer le rôle de serveur Bureau à distance.
 
-Consultez également le billet de blog [La machine virtuelle Azure échoue et affiche le message « Aucun serveur de licences Bureau à distance n’est disponible »](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
+Consultez également le billet de blog [La machine virtuelle Azure échoue et affiche le message « Aucun serveur de licences Bureau à distance n’est disponible »](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
 
 <a id="rdpname"></a>
-### Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l’ordinateur.
+### Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l’ordinateur.
 
-Cause : Le client Bureau à distance de votre ordinateur n’a pas pu résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
+Cause : Le client Bureau à distance de votre ordinateur n’a pas pu résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
 
 Solutions possibles :
 
-- Si vous êtes sur un intranet d’entreprise, vérifiez que votre ordinateur a bien accès au serveur proxy et qu’il peut lui transmettre le trafic HTTPS.
-- Si vous utilisez un fichier RDP stocké localement, essayez d'utiliser celui généré par le portail. Ainsi, vous serez certain de disposer du nom DNS correct pour la machine virtuelle ou le service cloud et pour le port du point de terminaison de la machine virtuelle. Voici un exemple de fichier RDP généré par le portail :
+- Si vous êtes sur un intranet d’entreprise, vérifiez que votre ordinateur a bien accès au serveur proxy et qu’il peut lui transmettre le trafic HTTPS.
+- Si vous utilisez un fichier RDP stocké localement, essayez d'utiliser celui généré par le portail. Ainsi, vous serez certain de disposer du nom DNS correct pour la machine virtuelle ou le service cloud et pour le port du point de terminaison de la machine virtuelle. Voici un exemple de fichier RDP généré par le portail :
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
 
-La partie adresse de ce fichier RDP comprend le nom de domaine complet du service cloud qui contient la machine virtuelle (ici, tailspin-azdatatier.cloudapp.net) et le port TCP externe du point de terminaison pour le trafic de Bureau à distance (55919).
+La partie adresse de ce fichier RDP comprend le nom de domaine complet du service cloud qui contient la machine virtuelle (ici, tailspin-azdatatier.cloudapp.net) et le port TCP externe du point de terminaison pour le trafic de Bureau à distance (55919).
 
 <a id="rdpauth"></a>
-### Erreur de connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
+### Erreur de connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
 
 Cause : La machine virtuelle cible n'a pas pu localiser l'autorité de sécurité dans la partie nom d'utilisateur de vos informations d'identification.
 
@@ -130,11 +130,11 @@ Solutions possibles :
 - S’il s’agit d’un compte de domaine Active Directory et que le nom de domaine est orthographié correctement, vérifiez qu’un contrôleur de domaine est disponible dans ce domaine. Ce problème peut être courant dans un réseau virtuel Azure contenant des contrôleurs de domaine dans lequel un ordinateur contrôleur de domaine n’est pas démarré. Pour contourner ce problème, vous pouvez utiliser un compte d’administrateur local, plutôt qu’un compte de domaine.
 
 <a id="wincred"></a>
-### Message d’erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné.
+### Message d’erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné.
 
 Cause : La machine virtuelle cible n’a pas pu valider votre nom de compte et votre mot de passe.
 
-Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
+Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
 - Pour les comptes locaux, utilisez la syntaxe *ComputerName*\\*UserName* (par exemple : SQL1\\Admin4798).
 - Pour les comptes de domaine, utilisez la syntaxe *DomainName*\\*UserName* (par exemple : CONTOSO\\johndoe).
@@ -143,12 +143,12 @@ Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine da
 
 Vérifiez que le nom du compte est un nom qui peut être considéré comme valide par la machine virtuelle, et que le mot de passe est correct.
 
-Pour modifier le mot de passe du compte administrateur local, voir [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-rdp.md).
+Pour modifier le mot de passe du compte administrateur local, voir [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-rdp.md).
 
 <a id="rdpconnect"></a>
-### Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
+### Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
 
-Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de connexion au Bureau à distance.
+Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de connexion au Bureau à distance.
 
 Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau à distance, qui comporte les comptes et les groupes autorisés à se connecter à distance. Les membres du groupe Administrateurs local y ont également accès, même si ces comptes ne sont pas répertoriés dans le groupe local d’utilisateurs du Bureau à distance. Pour les ordinateurs associés à un domaine, le groupe Administrateurs local contient également les administrateurs de domaine du domaine en question.
 
@@ -171,4 +171,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

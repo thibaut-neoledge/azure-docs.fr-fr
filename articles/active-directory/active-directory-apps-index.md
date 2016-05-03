@@ -197,7 +197,7 @@ Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leur
 
 | Guide des articles | |
 | :---: | --- |
-| Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs | [Déploiement d’applications Azure AD intégrées pour les utilisateurs](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs | [Déploiement d’applications Azure AD intégrées pour les utilisateurs](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes | [Introduction au volet d’accès et aux applications MyApp](active-directory-saas-access-panel-introduction.md)<br />- [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Comment accéder aux applications Azure AD depuis le site web Office 365 | [Utilisation du lanceur d’applications Office 365](https://support.office.com/fr-FR/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Comment accéder aux applications Azure AD depuis l’application mobile Intune Managed Browser | [Intune Managed Browser](https://technet.microsoft.com/fr-FR/library/dn878029.aspx)<br />- [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

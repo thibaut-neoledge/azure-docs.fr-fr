@@ -87,9 +87,8 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 
 ## Étapes suivantes
 
-- [Importation d'une base de données SQL Azure][5]
-
-
+- [Importer un fichier BACPCAC vers une base de données SQL Azure](sql-database-import.md)
+- [Importer un fichier BACPCAC vers une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## Ressources supplémentaires
 
@@ -105,4 +104,4 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

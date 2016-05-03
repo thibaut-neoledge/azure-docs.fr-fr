@@ -1,6 +1,6 @@
 <properties
-pageTitle="Configuration des ressources de stockage local dans les services cloud Azure"
-description=""
+pageTitle="Configuration des ressources de stockage local dans Azure Cloud Services | Microsoft Azure"
+description="En savoir plus sur la configuration des ressources de stockage local dans Azure Cloud Services"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ Le fichier de définition de service suivant illustre deux ressources de stockag
 
 Pour plus d'informations sur le fichier de définition de service, consultez [Schéma de définition du service Azure (fichier .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE]Si vous utilisez Azure Tools pour Microsoft Visual Studio, vous pouvez définir une ressource de stockage local dans les pages **Propriétés** du rôle. Pour plus d'informations, consultez [Configuration de l'application Azure avec Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Si vous utilisez Azure Tools pour Microsoft Visual Studio, vous pouvez définir une ressource de stockage local dans les pages **Propriétés** du rôle. Pour plus d'informations, consultez [Configuration de l'application Azure avec Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
 
 ## Accès par programme à une ressource de stockage local
 
@@ -104,4 +104,4 @@ Le code s'exécutant dans une instance de rôle peut accéder à une ressource d
 
 - [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

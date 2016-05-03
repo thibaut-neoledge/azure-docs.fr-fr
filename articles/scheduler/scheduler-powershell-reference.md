@@ -1,6 +1,6 @@
 <properties
  pageTitle="Informations de référence sur les applets de commande PowerShell de Scheduler"
- description=""
+ description="Informations de référence sur les applets de commande PowerShell de Scheduler"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

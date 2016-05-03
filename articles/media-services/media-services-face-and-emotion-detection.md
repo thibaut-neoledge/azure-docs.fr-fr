@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Détection des visages et des émotions avec Azure Media Analytics
 
 ##Vue d’ensemble
@@ -30,7 +30,7 @@ Le processeur multimédia **Azure Media Face Detector** vous permet de compter, 
 
 - **Détection d’émotions**
 	
-	La détection d’émotions est un composant facultatif du processeur multimédia de détection faciale, qui analyse plusieurs caractéristiques émotionnelles sur les visages détectés, telles que le bonheur, la tristesse, la peur, la colère et bien plus encore. Ces données peuvent être retournées pour un visage spécifique, ou en tant que valeur de groupe, et peuvent être agrégées selon une fenêtre et un intervalle personnalisables.
+	La détection d’émotions est un composant facultatif du processeur multimédia de détection faciale, qui analyse plusieurs caractéristiques émotionnelles sur les visages détectés, telles que le bonheur, la tristesse, la peur, la colère et bien plus encore.
 
 Le processeur multimédia **Azure Media Face Detector** est uniquement disponible en version préliminaire.
 
@@ -164,18 +164,22 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 	}
 
 
+####Descriptions des attributs
+
 Nom de l’attribut|Description
 ---|---
 Mode|Faces : détection faciale uniquement <br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image.
 AggregateEmotionWindowMs|Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes.
 AggregateEmotionIntervalMs|Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits.
 
-Valeurs d’agrégation par défaut Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur Window doit être supérieure à Interval.
+####Valeurs d'agrégation par défaut
+
+Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur AggregateEmotionWindowMs doit être supérieure à AggregateEmotionIntervalMs.
 
  |Valeur(s) par défaut|Valeur(s) max|Valeur(s) min
 ---|---|---|---
-Longueur de fenêtre|2|3|1
-Intervalle|0\.5|1|0,25
+AggregateEmotionWindowMs|0\.5|2|0,25
+AggregateEmotionIntervalMs|0\.5|1|0,25
 
 ###Sortie JSON
 
@@ -531,4 +535,6 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

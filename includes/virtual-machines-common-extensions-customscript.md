@@ -4,10 +4,9 @@ Depuis son lancement, l’extension de script personnalisé a été largement ut
 
 ## À propos des modèles Azure Resource Manager
 
-Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
+Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
 
 - [Présentation du groupe de ressources](../articles/resource-group-overview.md)
-- [Déploiement de modèles avec l'interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md)
 - [Déploiement de modèles avec Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
 
 ### Conditions préalables
@@ -22,4 +21,4 @@ Le modèle Azure Resource Manager vous permet de spécifier de manière déclara
 
 Pour le déploiement de modèles, nous utilisons la même version d’extension de script personnalisé que celle de l’API de gestion de Service Azure. L’extension prend en charge les mêmes paramètres et scénarios, par exemple, le téléchargement de fichiers vers le compte de stockage Azure ou un emplacement Github. La différence clé qui intervient pendant l’utilisation des modèles est que la version exacte de l’extension doit être spécifiée, contrairement à la spécification de la version au format majorversion.*.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

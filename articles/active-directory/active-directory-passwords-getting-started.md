@@ -50,7 +50,7 @@ Avant de pouvoir activer et utiliser la réinitialisation du mot de passe libre-
 - Associez votre client AAD à votre abonnement Azure. Pour plus d’informations, consultez la page [Comment sont associés les abonnements Azure et Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 - Mettez à niveau vers Azure AD Premium, Basic ou utilisez une licence O365 payée. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs du cloud, vous devez procéder à une mise à niveau vers Azure AD Premium ou Basic ou une licence O365 payée. Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs locaux, vous devez procéder à une mise à niveau vers Azure AD Premium. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory. Ces informations incluent des instructions détaillées sur l'inscription à Azure AD Premium ou Basic, l’activation d’un plan de licence et d’un accès Azure AD, mais aussi l’attribution d’accès aux comptes administrateur et utilisateur.
+  >[AZURE.NOTE] Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs du cloud, vous devez procéder à une mise à niveau vers Azure AD Premium ou Basic ou une licence O365 payée. Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs locaux, vous devez procéder à une mise à niveau vers Azure AD Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Ces informations incluent des instructions détaillées sur l'inscription à Azure AD Premium ou Basic, l’activation d’un plan de licence et d’un accès Azure AD, mais aussi l’attribution d’accès aux comptes administrateur et utilisateur.
 
 - Créez au moins un compte d’administrateur et un compte d’utilisateur dans votre annuaire AAD.
 - Attribuez une licence AAD Premium, Basic ou O365 aux comptes d’administrateur et d’utilisateur que vous avez créés.
@@ -77,7 +77,7 @@ Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, 
 
     ![][004]
 
-6.	Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, définissez le paramètre **Utilisateurs autorisés à réinitialiser leur mot de passe** sur **Oui**. Cette action permet d’afficher plusieurs autres contrôles qui vous permettent de configurer le fonctionnement de cette fonctionnalité dans votre annuaire. N’hésitez pas à personnaliser la réinitialisation du mot de passe selon vos besoins. Si vous souhaitez en savoir plus sur le fonctionnement de chaque contrôle de la stratégie de réinitialisation du mot de passe, consultez la page [Personnalisation de la gestion de mot de passe Azure AD](active-directory-passwords-customize).
+6.	Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, définissez le paramètre **Utilisateurs autorisés à réinitialiser leur mot de passe** sur **Oui**. Cette action permet d’afficher plusieurs autres contrôles qui vous permettent de configurer le fonctionnement de cette fonctionnalité dans votre annuaire. N’hésitez pas à personnaliser la réinitialisation du mot de passe selon vos besoins. Si vous souhaitez en savoir plus sur le fonctionnement de chaque contrôle de la stratégie de réinitialisation du mot de passe, consultez la page [Personnalisation de la gestion de mot de passe Azure AD](active-directory-passwords-customize.md).
 
     ![][005]
 
@@ -247,7 +247,7 @@ Une fois que vous avez activé l’écriture différée de mot de passe dans l�
 1.	Une fois l’installation terminée, si vous bloquez les connexions sortantes inconnues dans votre environnement, vous devez également ajouter les règles suivantes à votre pare-feu. Assurez-vous de bien redémarrer votre ordinateur AAD Connect après avoir apporté ces modifications :
    - Autorisez les connexions sortantes sur le port TCP 443.
    - Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/.
-   - Quand vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350 à 9354.
+   - Quand vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350-9354 et sur le port TCP 5671.
 
 ### Étape 4 : définition des autorisations Active Directory adéquates
 Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime` et **Autorisations en écriture** sur `pwdLastSet` sur l’objet racine de chaque domaine dans cette forêt. Le droit doit être marqué comme hérité par tous les objets utilisateur.
@@ -264,7 +264,7 @@ Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface util
 
 #### Pour configurer les autorisations appropriées pour l’écriture différée
 
-1.	Ouvrez **Utilisateurs et ordinateurs Active Directory ** avec un compte ayant les autorisations d’administration de domaine appropriées.
+1.	Ouvrez **Utilisateurs et ordinateurs Active Directory** avec un compte ayant les autorisations d’administration de domaine appropriées.
 2.	Dans **Menu Affichage**, assurez-vous que l’option **Fonctionnalités avancées** est activée.
 3.	Dans le volet gauche, cliquez avec le bouton droit sur l’objet représentant la racine du domaine.
 4.	Cliquez sur l’onglet **Sécurité**.
@@ -302,9 +302,7 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/>
-<br/>
-<br/>
+<br/> <br/> <br/>
 
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
@@ -353,4 +351,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

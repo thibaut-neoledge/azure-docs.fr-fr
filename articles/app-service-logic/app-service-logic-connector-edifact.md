@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur BizTalk Edifact dans votre application logique  
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Utilisez le service Edifact pour recevoir et envoyer des messages par le biais du protocole Edifact dans les communications interentreprises. Le protocole Edifact est également communément appelé ASC Edifact ou Accredited Standards Committee Edifact et son utilisation est très répandue dans le monde de l'industrie.
 
@@ -43,22 +44,22 @@ Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
 - Lancez le concepteur de flux des applications logiques Azure
 - Cliquez sur le connecteur Edifact dans le panneau de droite :  
 ![Paramètres du déclencheur][3]
-- Cliquez sur -> :  
+- Cliquez sur -> :  
 ![Options du déclencheur][4]
 - Le connecteur EDIFACT expose un seul déclencheur. Sélectionnez *Publier lot* :  
 ![Entrée Publier lot][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur -> :  
+- Ce déclencheur ne possède aucune entrée. Cliquez sur -> :  
 ![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile Edifact, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
 ### Action
 - Cliquez sur le connecteur Edifact dans le panneau de droite :  
 ![Paramètres d'action][7]
-- Cliquez sur -> :  
+- Cliquez sur -> :  
 ![Liste d'actions][8]
 - Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* :  
 ![Codage d'entrée][9]
-- Indiquez les entrées de l'action et configurez celle-ci :  
+- Indiquez les entrées de l'action et configurez celle-ci :  
 ![Codage configuré][10]
 
 	Paramètre|Type|Description du paramètre
@@ -99,4 +100,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

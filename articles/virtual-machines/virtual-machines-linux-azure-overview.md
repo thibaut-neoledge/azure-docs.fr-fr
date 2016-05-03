@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/01/2016"
@@ -60,4 +60,4 @@ Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impac
 
 Un compte d’évaluation gratuit. **[En obtenir un](https://azure.microsoft.com/pricing/free-trial/)**. Si vous en possédez déjà un, **[installez l’interface de ligne de commande Azure](../xplat-cli-install.md)** pour l’essayer. Si c’est déjà fait, [créez votre machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

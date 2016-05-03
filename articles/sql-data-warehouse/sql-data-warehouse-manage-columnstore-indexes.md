@@ -123,7 +123,7 @@ Une fois que vous avez exécuté la requête, vous pouvez commencer à examiner 
 | [OPEN\_rowgroup\_rows\_MIN] | Les groupes ouverts indiquent que les données sont chargées de manière progressive dans la table ou que la charge précédente a débordé sur les lignes restantes de ce groupe de lignes. Utilisez les colonnes MIN, MAX et AVG pour afficher la quantité de données stockées dans les groupes de ligne ouverts. Pour les petites tables, il peut s’agir de 100 % des données. Dans ce cas, l’instruction ALTER INDEX REBUILD force les données dans le columnstore. |
 | [OPEN\_rowgroup\_rows\_MAX] | Identique à ce qui précède |
 | [OPEN\_rowgroup\_rows\_AVG] | Identique à ce qui précède |
-| [CLOSED\_rowgroup\_rows] | Examinez les lignes des groupes de lignes fermés pour effectuer un contrôle de validité. Si présent |
+| [CLOSED\_rowgroup\_rows] | Examinez les lignes des groupes de lignes fermés pour effectuer un contrôle de validité. |
 | [CLOSED\_rowgroup\_count] | S’il existe des groupes de lignes fermés, ils doivent être en petit nombre. Les groupes de lignes fermés peuvent être convertis en groupes de lignes compressés à l’aide de la commande ALTER INDEX... REORGANISE. Toutefois, cela n’est généralement pas nécessaire. Les groupes fermés sont automatiquement convertis en groupes de lignes du columnstore par le processus « moteur de tuple » en arrière-plan. |
 | [CLOSED\_rowgroup\_rows\_MIN] | Les groupes de lignes fermés doivent avoir un taux de remplissage très élevé. Si le taux de remplissage d’un groupe de lignes fermé est faible, une analyse plus approfondie du columnstore est nécessaire. |
 | [CLOSED\_rowgroup\_rows\_MAX] | Identique à ce qui précède |
@@ -259,4 +259,4 @@ Pour plus de conseils sur la gestion, consultez la présentation de la [gestion]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/25/2016" 
+	ms.date="04/08/2016" 
 	ms.author="elizapo"/>
 
 # FAQ Azure RemoteApp
@@ -37,7 +37,7 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
 ## Collections : ce qui est pris en charge, laquelle utiliser, etc.
 - **Les applications métier personnalisées sont-elles prises en charge ?** Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
-- **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?** La meilleure façon de le savoir consiste à la tester. Examinez les [conditions de compatibilité des applications](http://www.microsoft.com/download/details.aspx?id=18704) et consultez le [Centre de compatibilité du Bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
+- **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?** La meilleure façon de le savoir consiste à la tester. Vérifiez le [Centre de compatibilité de bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Quelle méthode de déploiement (cloud ou hybride) convient le mieux à mon organisation ?** Les collections hybride offrent une expérience plus riche si vous voulez une intégration complète avec authentification unique (SSO) et connectivité au réseau local sécurisée. Le collections cloud offrent un moyen souple et simple d'isoler votre déploiement à l'aide de plusieurs méthodes d'authentification. En savoir plus sur les [options de déploiement](remoteapp-whatis.md).
 - **Nous disposons d'une base de données SQL ou autre localement ou dans Azure. Quel type de déploiement devons-nous utiliser ?** Cela dépend de l'emplacement de votre base de données SQL ou principale. Si la base de données se trouve dans un réseau privé, utilisez la collection hybride. Si la base de données est disponible sur Internet et autorise des connexions client, vous pouvez utiliser la collection cloud.
 - **Qu'en est-il du mappage du lecteurs, des ports USB et série, du partage du Presse-papiers et de la redirection d'imprimante ?** Toutes ces fonctionnalités sont prises en charge dans Azure RemoteApp. Le partage du Presse-papiers et la redirection d'imprimante sont activés par défaut. Plus d'informations sur la redirection [ici](remoteapp-redirection.md). 
@@ -114,4 +114,4 @@ Pour des informations sur le client, notamment une procédure d’installation d
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

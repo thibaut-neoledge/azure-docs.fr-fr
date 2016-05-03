@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connexion à une machine virtuelle | Microsoft Azure"
-	description="Utilisez le portail Azure Classic pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
+	pageTitle="Connexion à une machine virtuelle | Microsoft Azure"
+	description="Utilisez le portail Azure Classic pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,13 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure Classic
+# Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure Classic
 
-Sur le portail Azure Classic, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.
+Sur le portail Azure Classic, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.
 
-Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-classic-log-on.md)
+Vous souhaitez vous connecter à une machine virtuelle Linux ? Consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-classic-log-on.md)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-log-on.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-connect-logon.md).
 
 
 ## Vidéo de procédure pas à pas
@@ -57,4 +57,4 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

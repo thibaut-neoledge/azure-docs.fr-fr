@@ -1,5 +1,12 @@
-<properties pageTitle="Partenaires d’application HDInsight | Microsoft Azure" description="Les clients peuvent désormais découvrir et déployer des applications Big Data en toute simplicité, en même temps que leurs clusters HDInsight directement depuis le portail d’approvisionnement." services="hdinsight" documentationCenter="na" authors="pablissima" manager="paulettm="" tags=""/>
-<tags 
+<properties
+	pageTitle="Partenaires d’application HDInsight | Microsoft Azure" 
+	description="Les clients peuvent désormais facilement inspecter et déployer des applications de Big Data en parallèle avec leurs clusters HDInsight à partir du portail d'approvisionnement."
+	services="hdinsight" 
+	documentationCenter="na" 
+	authors="pablissima" 
+	manager="paulettm" 
+	tags=""/>
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
@@ -31,7 +38,13 @@ http://bluetalon.com/
 
 Avec RedPoint, les analystes de données et administrateurs de base de données travaillant déjà avec des bases de données classiques peuvent à présent travailler tout aussi facilement avec les données stockées dans Hadoop. Aucune nouvelle compétence n’est requise. Oubliez MapReduce, Hive et Pig grâce à l’interface utilisateur graphique de RedPoint et à l’architecture YARN pure (certification sur Hadoop 2.0 par Hortonworks).
 
-Avec RedPoint : - Toutes les fonctions de qualité des données et d’intégration des données peuvent être effectuées dans le cluster Hadoop (ELT [Extract, Load and Transform pour extraction, chargement et transformation], nettoyage, correspondance, déduplication, fusion/purge, entretien, analyse, partitionnement, ajout, normalisation d’adresses, création et gestion de clés, automatisation, surveillance, notification) - MapReduce n’est pas impliqué et aucune compétence MapReduce n’est requise - Les processus de qualité et d’intégration des données s’exécutent aussi efficacement (et, dans de nombreux cas, plus efficacement) avec RedPoint qu’avec les solutions MapReduce - Il est inutile de déplacer les données en dehors de Hadoop pour le traitement, l’analyse, la création de rapports ou toute autre action - Aucun logiciel ne doit être installé dans le cluster lui-même et RedPoint respecte la hiérarchisation des tâches de YARN plutôt que d’entrer en concurrence pour les ressources de calcul dans le cluster - Les utilisateurs peuvent gérer les données dans des référentiels classiques et Hadoop avec un produit unique, voire rassembler les données d’environnements séparés ou les migrer d’un environnement à un autre
+Avec RedPoint :
+-  Toutes les fonctions de qualité et d'intégration des données peuvent être exécutées dans le cluster Hadoop – constitution-extraction, nettoyage, correspondance, déduplication, fusion/purge, entretien, analyse, partitionnement, ajout, normalisation d’adresses, création et gestion de clés, automatisation, surveillance, notification  
+-  MapReduce n’est pas impliqué et aucune compétence MapReduce n’est requise  
+-  Les processus de qualité et d’intégration des données s’exécutent aussi efficacement (et, dans de nombreux cas, plus efficacement) avec RedPoint qu’avec les solutions MapReduce  
+-  Il est inutile de déplacer les données en dehors de Hadoop pour le traitement, l’analyse, la création de rapports ou toute autre action  
+-  Aucun logiciel ne doit être installé dans le cluster lui-même et RedPoint respecte la hiérarchisation des tâches de YARN plutôt que d’entrer en concurrence pour les ressources de calcul dans le cluster  
+-  Les utilisateurs peuvent gérer les données dans des référentiels classiques et Hadoop avec un produit unique, voire rassembler les données d’environnements séparés ou les migrer d’un environnement à un autre
 
 Pour plus d’informations, consultez les ressources sur le côté droit de cette page.
 
@@ -41,4 +54,4 @@ RedPoint a été classé numéro 1 dans les enquêtes utilisateur pour sa rapid
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos s’engage à libérer la puissance de l’analyse Big Data grâce à sa technologie « OLAP sur Hadoop » unique. Cela vous permet de générer des cubes sur place sur Hadoop avec une évolutivité linéaire, en éliminant les limitations des solutions OLAP classiques et en activant des analyses multidimensionnelles interactives sur vos applications Big Data. Les utilisateurs peuvent visualiser, explorer et analyser leurs données de manière interactive sur Hadoop sans aucune programmation.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

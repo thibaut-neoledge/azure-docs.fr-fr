@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Noyaux disponibles pour les blocs-notes Jupyter avec les clusters Spark sur HDInsight (Linux)
+# Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight (version préliminaire)
 
-Le cluster Apache Spark sur HDInsight (Linux) comprend des blocs-notes Jupyter qui vous permettent de tester vos applications. Par défaut, le bloc-notes Jupyter comprend un noyau **Python2**. Un noyau est un programme qui exécute et interprète votre code. Les clusters HDInsight Spark fournissent deux noyaux supplémentaires que vous pouvez utiliser avec le bloc-notes Jupyter. Ces composants sont les suivants :
+Le cluster Apache Spark sur HDInsight (Linux) comprend des blocs-notes Jupyter qui vous permettent de tester vos applications. Un noyau est un programme qui exécute et interprète votre code. Les clusters HDInsight Spark fournissent deux noyaux que vous pouvez utiliser avec le bloc-notes Jupyter. Ces composants sont les suivants :
 
 1. **PySpark** (pour les applications écrites en Python)
 2. **Spark** (pour les applications écrites en Scala)
@@ -50,13 +50,13 @@ Vous devez disposer des éléments suivants :
 
 3. Un nouveau bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
-## Pourquoi utiliser les nouveaux noyaux ?
+## Pourquoi utiliser les noyaux PySpark ou Spark ?
 
 Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
-1. **Contextes prédéfinis**. Avec le noyau **Python2** par défaut disponible avec les blocs-notes Jupyter, vous devez définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez. Si vous utilisez les nouveaux noyaux (**PySpark** ou **Spark**), ces contextes sont disponibles par défaut. Ces contextes sont les suivants :
+1. **Contextes prédéfinis**. Avec les noyaux **PySpark** ou **Spark** fournis avec les blocs-notes Jupyter, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
 
-	* **sc** : pour le contexte Spark
+	* **sc** : pour le contexte Spark
 	* **sqlContext** : pour le contexte Hive
 
 
@@ -79,7 +79,7 @@ Voici quelques avantages de l’utilisation des nouveaux noyaux.
 	| help | `%%help` | Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
 	| info | `%%info` | Génère des informations de session pour le point de terminaison Livy actuel |
 	| configurer | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configure les paramètres de création d’une session. L’indicateur de forçage (-f) est obligatoire si une session déjà créée doit être supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
-	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que dataframe [Pandas](http://pandas.pydata.org/). |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/). |
 	| local | `%%local`<br>`a=1` | Tout le code dans les lignes suivantes est exécuté localement. Le code doit être du code Python valide. |
 	| journaux | `%%logs` | Génère les journaux de la session Livy en cours. |
 	| delete | `%%delete -f -s <session number>` | Supprime une session spécifique du point de terminaison Livy actuel. Notez que vous ne pouvez pas supprimer la session qui est lancée pour le noyau lui-même. |
@@ -93,8 +93,8 @@ La commande magique %%sql prend en charge différents paramètres qui vous perme
 
 | Paramètre | Exemple | Description |
 |-----------|---------------------------------|--------------|
-| -o | `-o <VARIABLE NAME>` | Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que dataframe [Pandas](http://pandas.pydata.org/). Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
-| -q | `-q` | Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme un dataframe, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL avec effets secondaires, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |
+| -o | `-o <VARIABLE NAME>` | Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/). Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
+| -q | `-q` | Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme une trame de données, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL avec effets secondaires, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |
 | -m | `-m <METHOD>` | **METHOD** prend la valeur **take** ou **sample** (**take** est la valeur par défaut). Si la méthode est **take**, le noyau sélectionne des éléments à partir du haut du jeu de données de résultats spécifié par la valeur MAXROWS (décrite plus bas dans ce tableau). Si la méthode est **sample**, le noyau échantillonne de façon aléatoire les éléments du jeu de données en fonction du paramètre `-r` (décrit ci-après dans ce tableau). |
 | -r | `-r <FRACTION>` | Ici **FRACTION** est un nombre à virgule flottante compris entre 0,0 et 1,0. Si l’exemple de méthode pour la requête SQL est `sample`, le noyau échantillonne automatiquement, de façon aléatoire, la fraction spécifiée des éléments du jeu de résultats. Par exemple, si vous exécutez une requête SQL avec les arguments `-m sample -r 0.01`, 1 % des lignes de résultat sont échantillonnées aléatoirement. |
 | -n | `-n <MAXROWS>` | **MAXROWS** est une valeur entière. Le noyau limite le nombre de lignes de la sortie au nombre défini par **MAXROWS**. Si **MAXROWS** est un nombre négatif comme **-1**, le nombre de lignes dans le jeu de résultats n’est pas limité. |
@@ -109,14 +109,12 @@ L’instruction ci-dessus effectue les actions suivantes :
 * Elle sélectionne tous les enregistrements présents dans **hivesampletable**.
 * Comme nous utilisons le paramètre - q, elle désactive la visualisation automatique.
 * Comme nous utilisons `-m sample -r 0.1 -n 500`, elle échantillonne de façon aléatoire 10 % des lignes présentes dans hivesampletable et limite la taille du jeu de résultats à 500 lignes.
-* Enfin, comme nous avons utilisé `-o query2`, elle enregistre également la sortie dans un dataframe appelé **query2**.
+* Enfin, comme nous avons utilisé `-o query2`, elle enregistre également la sortie dans une trame de données appelée **query2**.
 	
 
 ## Points à prendre en compte lors de l'utilisation des nouveaux noyaux
 
-Quel que soit le noyau que vous utilisez (Python2, PySpark ou Spark), laisser les blocs-notes s’exécuter consomme vos ressources de cluster. Avec le bloc-notes Python2, étant donné que vous créez les contextes explicitement, vous pouvez également supprimer ces contextes lorsque vous quittez l'application.
-
-Toutefois, avec les noyaux PySpark et Spark, étant donné que les contextes sont prédéfinis, vous ne pouvez pas supprimer explicitement le contexte. Par conséquent, si vous fermez simplement le bloc-notes, le contexte peut toujours être en cours d'exécution, consommant ainsi vos ressources de cluster. Une bonne pratique avec les noyaux PySpark et Spark consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du bloc-notes. Cela supprime le contexte puis ferme le bloc-notes.
+Quel que soit le noyau que vous utilisez (PySpark ou Spark), laisser les blocs-notes s’exécuter consomme vos ressources de cluster. Avec ces noyaux, les contextes étant prédéfinis, le simple fait de quitter les blocs-notes n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d'utilisation. Une bonne pratique avec les noyaux PySpark et Spark consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du bloc-notes. Cela supprime le contexte puis ferme le bloc-notes.
 
 
 ## Voici quelques exemples :
@@ -182,4 +180,4 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

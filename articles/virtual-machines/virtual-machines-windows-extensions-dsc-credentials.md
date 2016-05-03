@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Transfert des informations d’identification au gestionnaire de l’extension de Configuration de l’état souhaité (DSC) Azure #
@@ -89,4 +89,4 @@ Pour plus d’informations sur DSC PowerShell, [visitez le centre de documentati
 
 Pour trouver des fonctionnalités supplémentaires que vous pouvez gérer avec DSC PowerShell, [parcourez la galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) pour obtenir plus de ressources DSC.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

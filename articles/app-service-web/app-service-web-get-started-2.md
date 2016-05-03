@@ -103,13 +103,17 @@ Maintenant que votre application est mise à l’échelle, que se passe-t-il lor
 
 2. Cliquez sur **Ajouter une alerte**. Ensuite, dans la zone **Ressources**, sélectionnez la ressource qui se termine par **(serverfarms)**. C’est votre plan App Service. ![Alertes - ajouter une alerte pour un plan App Service](./media/app-service-web-get-started/alert-add.png)
 
-3. Définissez **Nom** sur `CPU Maxed`, **Métrique** sur **Pourcentage UC**, et **Seuil** sur `90`, puis sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** et cliquez sur **OK**. ![Alertes - configurer une alerte](./media/app-service-web-get-started/alert-configure.png)
+3. Définissez **Nom** sur `CPU Maxed`, **Métrique** sur **Pourcentage UC**, et **Seuil** sur `90`, puis sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** et cliquez sur **OK**.
+
+![Alertes - configurer une alerte](./media/app-service-web-get-started/alert-configure.png)
     
     Après la création de l’alerte par Azure, vous la verrez dans le panneau **Alertes**. ![Alertes - vue finale](./media/app-service-web-get-started/alert-done.png)
 
 Félicitations, vous recevez désormais des alertes.
 
-Ce paramètre d’alerte vérifie l’utilisation de l’UC toutes les cinq minutes. Si celle-ci dépasse 90 %, vous (ainsi que toute personne autorisée) recevrez un message d’alerte. Pour afficher tous les utilisateurs autorisés à recevoir les alertes, revenez au panneau du portail de votre application et cliquez sur le bouton **Accès**. ![Afficher qui reçoit des alertes](./media/app-service-web-get-started/alert-rbac.png)
+Ce paramètre d’alerte vérifie l’utilisation de l’UC toutes les cinq minutes. Si celle-ci dépasse 90 %, vous (ainsi que toute personne autorisée) recevrez un message d’alerte. Pour afficher tous les utilisateurs autorisés à recevoir les alertes, revenez au panneau du portail de votre application et cliquez sur le bouton **Accès**. 
+
+![Afficher qui reçoit des alertes](./media/app-service-web-get-started/alert-rbac.png)
 
 Vous verrez que les **Administrateurs des abonnements** sont déjà les **Propriétaires** de l’application. Ce groupe vous inclut si vous êtes l’administrateur du compte de votre abonnement Azure (par exemple, votre abonnement d’évaluation). Pour plus d’informations sur le contrôle d’accès en fonction du rôle Azure, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -127,4 +131,4 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 - [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md)
 - [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0420_2016---->

@@ -19,6 +19,10 @@
 
 # Comment mettre à l’échelle le traitement multimédia à l’aide du portail Azure Classic
 
+## Effectuer cette tâche avec d'autres technologies  
+
+Cette page fournit une vue d'ensemble du processus de mise à l'échelle du traitement multimédia et explique comment procéder en utilisant le portail Azure classique. Vous pouvez également effectuer cette tâche avec d'autres technologies :
+
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portail](media-services-portal-encoding-units.md)
@@ -28,9 +32,9 @@
 
 ## Vue d’ensemble
 
-Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**. Pour plus d’informations, consultez [Types d’unités réservées](https://azure.microsoft.com/blog/author/milanga/).
+Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**. Pour plus d’informations, consultez [Types d’unités réservées](https://azure.microsoft.com/blog/author/milanga/).
 
-En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches de média qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d’attente entre la fin d’une tâche et le début de la suivante dépend de la disponibilité des ressources du système.
+En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches de média qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d’attente entre la fin d’une tâche et le début de la suivante dépend de la disponibilité des ressources du système.
 
 ## Choix entre les différents types d’unités réservées
 
@@ -43,7 +47,7 @@ Référence|[Fichier d’entrée : durée de 5 minutes 640x360p à 29,97 images 
 
 ##Considérations
 
->[AZURE.IMPORTANT] Les considérations suivantes s'appliquent :
+>[AZURE.IMPORTANT] Les considérations suivantes s'appliquent :
 
 - Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux à l'aide de l'Indexeur multimédia Azure. Toutefois, contrairement à l'encodage, l'indexation des travaux ne sera pas plus rapide avec des unités réservées plus rapides.
 
@@ -51,11 +55,11 @@ Référence|[Fichier d’entrée : durée de 5 minutes 640x360p à 29,97 images 
 
 - Les centres de données suivants ne proposent pas le type d’unité réservée **S3** : sud du Brésil, Inde-Ouest, Inde-Centre et Sud de l’Inde.
 
-- C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
+- C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
 ## Modification du type d’unité réservée
 
-Pour modifier le type d’unité réservée et le nombre d’unités réservées, procédez comme suit :
+Pour modifier le type d’unité réservée et le nombre d’unités réservées, procédez comme suit :
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
@@ -87,4 +91,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

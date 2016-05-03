@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fournisseurs de calcul, de réseau et de stockage | Microsoft Azure"
-   description="Vue d’ensemble des fournisseurs de calcul, de réseau et de ressources de stockage pour applications Linux dans Azure Resource Manager"
+   pageTitle="Fournisseurs de calcul, de réseau et de stockage | Microsoft Azure"
+   description="Vue d’ensemble des fournisseurs de calcul, de réseau et de ressources de stockage pour applications Linux dans le modèle de déploiement Azure Resource Manager"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="mahthi"
@@ -17,10 +17,10 @@
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Fournisseurs de calcul, de réseau et de stockage pour applications Linux dans Azure Resource Manager
+# Fournisseurs de calcul, de réseau et de stockage pour applications Linux dans le modèle de déploiement Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
+L’inclusion des fonctions de calcul, de réseau et de stockage dans le modèle de déploiement Azure Resource Manager simplifie radicalement le déploiement et la gestion d’applications complexes sur IaaS. De nombreuses applications nécessitent une combinaison de ressources, dont un réseau virtuel, un compte de stockage, une machine virtuelle et une interface réseau. Le modèle de déploiement Azure Resource Manager offre la possibilité de créer un modèle JSON pour déployer et gérer ensemble toutes ces ressources comme une seule application.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion de xMatters OnDemand** de la page **Configurer l’URL de l’application**, tapez l’URL selon le modèle « *https://\<nom-locataire>.xMattersOnDemandapp.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de xMatters OnDemand** de la page **Configurer l’URL de l’application**, tapez l’URL selon le modèle « *https://\<nom-locataire>.xMattersOnDemandapp.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Configurer l’URL de l’application")
 

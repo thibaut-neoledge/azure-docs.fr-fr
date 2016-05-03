@@ -36,12 +36,9 @@ Ouvrez maintenant un interpréteur de commandes et exécutez la commande suivant
 
 **PORT** désigne le port du point de terminaison que vous souhaitez exposer. Pour Swarm, il s’agit de 2375. Pour DC/OS, utilisez le port 80. **USERNAME** est le nom d’utilisateur fourni lors du déploiement du cluster. **DNSPREFIX** est le préfixe DNS que vous avez fourni lors du déploiement du cluster. **REGION** est la région dans laquelle se trouve le groupe de ressources.
 
-> Le port de connexion SSH est 2200 et non le 22 standard.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### Tunnel DC/OS
@@ -57,7 +54,7 @@ ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 Vous pouvez accéder maintenant les points de terminaison associés à DC/OS :
 
 - DC/OS : `http://localhost/`
-- Marathon : `http://localhost/marathon`
+- Marathon : `http://localhost/marathon`
 - Mesos : `http://localhost/mesos`
 
 De la même façon, les API REST correspondant à chaque application sont accessibles par ce tunnel.
@@ -84,7 +81,7 @@ Il existe plusieurs options de création des tunnels SSH sous Windows. Ce docume
 
 Téléchargez PuTTY sur votre système Windows et exécutez l’application.
 
-Saisissez un nom d’hôte constitué du nom d’utilisateur admin des clusters et du nom DNS public du premier serveur principal du cluster. Le **nom d’hôte** doit prendre une forme similaire à ce qui suit : `adminuser@PublicDNS`. Spécifiez le **Port** 2200.
+Saisissez un nom d’hôte constitué du nom d’utilisateur admin des clusters et du nom DNS public du premier serveur principal du cluster. Le **nom d’hôte** doit prendre une forme similaire à ce qui suit : `adminuser@PublicDNS`. Spécifiez le **port** 2200.
 
 ![Configuration PuTTY 1](media/putty1.png)
 
@@ -120,4 +117,4 @@ Déployer et gérer des conteneurs avec DC/OS ou Swarm.
 
 [Utilisation d’Azure Container Service et de DC/OS](./container-service-mesos-marathon-rest.md) [Utilisation d’Azure Container Service et de Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
@@ -26,13 +26,13 @@ Consultez les articles [Pig](data-factory-pig-activity.md) et [Hive](data-factor
 
 ## JSON pour l’activité MapReduce de HDInsight 
 
-Dans la définition JSON de l’activité HDInsight :
+Dans la définition JSON de l’activité HDInsight :
  
 1. Affectez au **type** de l’**activité** la valeur **HDInsight**.
 3. Spécifiez le nom de la classe pour la propriété **className**.
 4. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath**.
 5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.   
-6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l'exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l'infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d'utiliser l’option et la valeur en tant qu'arguments comme indiqué dans l'exemple suivant (- s,--entrée - sortie etc. sont des options immédiatement suivies par leurs valeurs).
+6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l'exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l'infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d'utiliser l’option et la valeur en tant qu'arguments comme indiqué dans l'exemple suivant (- s,--entrée - sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
 		{
 		    "name": "MahoutMapReduceSamplePipeline",
@@ -95,7 +95,7 @@ Dans la définition JSON de l’activité HDInsight :
 Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ## Exemple sur GitHub
-Vous pouvez télécharger un exemple d’utilisation de l’activité MapReduce HDInsight à l’emplacement suivant : [Exemples Data Factory sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).
+Vous pouvez télécharger un exemple d’utilisation de l’activité MapReduce HDInsight à l’emplacement suivant : [Exemples Data Factory sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).
 
 ## Exécution du programme de nombre de mots
 Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots sur votre cluster Azure HDInsight.
@@ -103,7 +103,7 @@ Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots 
 ### Services liés
 Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n'oubliez pas de remplacer **nom de compte** et **clé de compte** par le nom et la clé de votre stockage Azure.
 
-#### Service lié Azure Storage
+#### Service lié Azure Storage
 
 	{
 	    "name": "StorageLinkedService",
@@ -115,7 +115,7 @@ Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est ut
 	    }
 	}
 
-#### Service lié Azure HDInsight
+#### Service lié Azure HDInsight
 Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, remplacez **le nom du cluster HDInsight** par le nom de votre cluster HDInsight et modifiez le nom d’utilisateur et le mot de passe.
 
 	{
@@ -157,12 +157,12 @@ Le pipeline dans cet exemple n’accepte pas d'entrées. Vous devez spécifier u
 	}
 
 ### Pipeline
-Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont :
+Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont :
 
 Propriété | Remarques
 :-------- | :-----
 type | Le type doit être défini sur **HDInsightMapReduce**. 
-className | Le nom de la classe est : **wordcount**
+className | Le nom de la classe est : **wordcount**
 jarFilePath | Chemin d'accès au fichier jar contenant la classe ci-dessus. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. 
 jarLinkedService | Service Azure Storage lié qui contient le fichier jar. Il s'agit du stockage associé au cluster HDInsight. 
 arguments | Le programme de nombre de mots accepte deux arguments, une entrée et une sortie. Le fichier d'entrée est le fichier davinci.txt.
@@ -208,6 +208,9 @@ linkedServiceName | fait référence au service HDInsight lié créé précédem
 	    }
 	}
 
+## Exécuter des programmes Spark
+Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark sur votre cluster HDInsight Spark. Consultez la page [Appeler des programmes Spark à partir d'Azure Data Factory](data-factory-spark.md) pour plus d'informations.
+
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -217,7 +220,13 @@ linkedServiceName | fait référence au service HDInsight lié créé précédem
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Classic Portal]: http://portal.azure.com
+[Azure Portal]: http://portal.azure.com
  
+## Voir aussi
+- [Activité Hive](data-factory-hive-activity.md)
+- [Activité pig](data-factory-pig-activity.md)
+- [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
+- [Appeler des programmes Spark](data-factory-spark.md)
+- [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

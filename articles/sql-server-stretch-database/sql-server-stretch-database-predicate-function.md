@@ -24,7 +24,13 @@ Si vous stockez des données historiques dans une table distincte, vous pouvez c
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-Dans la version CTP 3.1 jusqu’à RC2, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour plus d’informations, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) et [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Dans RC3, lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat de filtre simple basé sur la date dans l'assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
+
+-   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier un prédicat.
+
+-   Exécutez l'instruction ALTER TABLE pour spécifier un prédicat une fois que vous avez quitté l'assistant.
+
+La syntaxe ALTER TABLE pour ajouter un prédicat est décrite plus loin dans cette rubrique.
 
 ## Exigences de base pour la fonction tabulaire inline
 La fonction tabulaire inline requise pour un prédicat de filtre Stretch Database ressemble à l’exemple qui suit.
@@ -212,7 +218,7 @@ SET (
 
 Lorsque vous souhaitez mettre à jour la fenêtre glissante, procédez comme suit.
 
-1.  Créez une fonction qui spécifie la nouvelle fenêtre glissante. L’exemple suivant sélectionne les dates antérieures au 2 janvier 2106, au lieu du 1er janvier 2016.
+1.  Créez une fonction qui spécifie la nouvelle fenêtre glissante. L’exemple suivant sélectionne les dates antérieures au 2 janvier 2016, au lieu du 1er janvier 2016.
 
 2.  Remplacez le prédicat de filtre précédent par le nouveau en appelant ALTER TABLE, comme indiqué dans l’exemple suivant.
 
@@ -502,4 +508,4 @@ Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de c
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -39,19 +39,21 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 1. Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog**. Vous pouvez utiliser les paramètres **ResourceGroup** et **Status** pour retourner uniquement les événements qui ont échoué pour un seul groupe de ressources. Si vous ne spécifiez pas une heure de début et de fin, les entrées de la dernière heure sont retournées. Par exemple, pour récupérer les opérations ayant échoué de la dernière heure :
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
     Vous pouvez spécifier un intervalle de temps en particulier. Dans l'exemple suivant, nous examinons les actions ayant échoué durant les 14 derniers jours.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
       
     Vous pouvez également définir un début et une fin exacts pour les actions ayant échoué :
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
 2. Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibler vos efforts d’audit en récupérant la propriété **Properties**. Nous allons également inclure le paramètre **DetailedOutput** pour voir les messages d’erreur.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        
+    Qui retourne les propriétés des entrées du journal dans le format suivant :
         
         Content
         -------
@@ -61,7 +63,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 3. Vous pouvez affiner les résultats en examinant le message d’état d’une entrée en particulier.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        
+    Qui retourne le message d'état dans le format suivant :
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -74,7 +78,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 1. Pour obtenir l'état global d'un déploiement, utilisez la commande **AzureRmResourceGroupDeployment**. Vous pouvez filtrer les résultats en les restreignant aux déploiements qui ont échoué.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Qui retourne les déploiements ayant échoué dans le format suivant :
         
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleGroup
@@ -95,7 +101,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 2. Chaque déploiement est généralement constitué de plusieurs opérations, chacune d’elles représentant une étape du processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        PS C:\> Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        
+    Qui retourne les opérations dans le format suivant :
         
         Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
         OperationId : 8518B32868A437C8
@@ -105,7 +113,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 3. Pour obtenir plus d'informations sur l'opération, récupérez l’objet **Properties**.
 
-        PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        
+    Qui retourne les propriétés de l'opération dans le format suivant :
         
         ProvisioningOperation : Create
         ProvisioningState     : Failed
@@ -120,7 +130,9 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
 4. Pour vous concentrer sur le message d'état des opérations ayant échoué, utilisez la commande suivante :
 
-        PS C:\> ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        
+    Qui retourne le message d'état dans le format suivant :
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -133,4 +145,4 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 - Pour en savoir plus sur l'utilisation des journaux d'audit pour surveiller d'autres types d'actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

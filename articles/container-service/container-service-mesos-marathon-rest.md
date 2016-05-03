@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Déployer un conteneur au format Docker
 
-Vous déployez les conteneurs au format Docker via Marathon à l’aide d’un fichier JSON décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur Nginx en liant le port 80 de l’agent DC/OS au port 80 du conteneur.
+Vous déployez les conteneurs au format Docker via Marathon à l’aide d’un fichier JSON décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur Nginx en liant le port 80 de l’agent DC/OS au port 80 du conteneur. Notez également que la propriété « acceptedResourceRoles » est définie sur « slave\_public ». Cette action déploie le conteneur sur un agent dans l’ensemble public à l’échelle de l’agent.
 
 ```json
 {
@@ -55,6 +55,9 @@ Vous déployez les conteneurs au format Docker via Marathon à l’aide d’un f
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -171,4 +174,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 [En savoir plus sur les points de terminaison HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/). [En savoir plus sur l'API REST Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

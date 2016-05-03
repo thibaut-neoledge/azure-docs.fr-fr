@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Prise en main de l’application API BizTalk X12 et ajout de celle-ci à votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Utilisez le service BizTalk X12 pour recevoir et envoyer des messages par le biais du protocole X12 dans les communications interentreprises. Le protocole X12 est également communément appelé ASC X12 (Accredited Standards Committee X12) et son utilisation est très répandue dans le monde de l'industrie.
 
@@ -42,25 +44,17 @@ Vous pouvez utiliser le connecteur X12 comme un déclencheur ou une action.
 
 ### Déclencheur
 - Lancez le concepteur de flux des applications logiques Azure
-- Cliquez sur le connecteur X12 dans le panneau de droite :
-![Paramètres du déclencheur][3]
-- Cliquez sur -> :
-![Options du déclencheur][4]
-- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot* :
-![Entrée Publier lot][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur -> :
-![Option Publier lot configurée][6]
+- Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres du déclencheur][3]
+- Cliquez sur -> : ![Options du déclencheur][4]
+- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
+- Ce déclencheur ne possède aucune entrée. Cliquez sur -> : ![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile X12, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
 ### Action
-- Cliquez sur le connecteur X12 dans le panneau de droite :
-![Paramètres d'action][7]
-- Cliquez sur -> :
-![Liste d'actions][8]
-- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder* :
-![Codage d'entrée][9]
-- Indiquez les entrées de l'action et configurez celle-ci :
-![Codage configuré][10]
+- Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres d'action][7]
+- Cliquez sur -> : ![Liste d'actions][8]
+- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
+- Indiquez les entrées de l'action et configurez celle-ci : ![Codage configuré][10]
 
 Paramètre|Type|Description du paramètre
 ---|---|---
@@ -93,4 +87,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

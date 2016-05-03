@@ -19,7 +19,7 @@
 
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources.
 
-Azure Virtual Machines et Azure Cloud Services sont deux des nombreux types de ressource de calcul proposés par Azure. Pour plus de détails, consultez l'article [Modèles d'exécution Azure](fundamentals-application-models.md).
+Cloud Services est l’un des nombreux types de ressources de calcul proposés par Azure. Cliquez [ici](cloud-services-choose-me.md) pour en savoir plus sur Cloud Services.
 
 > [AZURE.NOTE]Pour connaître les limites d'Azure associées, consultez l'article [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
@@ -41,7 +41,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 * Les tailles de machine virtuelle A8/A10 et A9/A11 présentent les mêmes capacités. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n'ont pas besoin d'une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
 
-    >[AZURE.NOTE] Si vous envisagez d’utiliser les tailles A8 à A11, lisez [ces](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md) informations.
+    >[AZURE.NOTE] Si vous envisagez d’utiliser les tailles A8 à A11, lisez [ces](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) informations.
 
 >[AZURE.NOTE] Toutes les tailles de machine fournissent un **disque d'application** qui stocke tous les fichiers provenant de votre package de services cloud ; sa taille est d'environ 1,5 Go.
 
@@ -156,4 +156,4 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

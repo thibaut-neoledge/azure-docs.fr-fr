@@ -85,6 +85,7 @@ Pour configurer l’intégration d’Asset Bank à Azure AD, vous devez ajouter
 
 7. Dans le volet de résultats, sélectionnez **Asset Bank**, puis cliquez sur **Terminer** pour ajouter l’application.
 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Asset Bank, avec un utilisateur de test appelé « Britta Simon ».
@@ -97,7 +98,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Asset Bank,
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Asset Bank](#creating-a-asset-bank-test-user)** pour avoir un équivalent de Britta Simon dans Asset Bank lié à la représentation Azure AD associée.
+4. **[Création d’un utilisateur de test Asset Bank](#creating-a-asset-bank-test-user)** pour avoir un équivalent de Britta Simon dans Asset Bank lié à sa représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -124,7 +125,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 	![Configurer l’authentification unique](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_04.png)
 
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Asset Bank au format suivant : **https://<nom\_entreprise>.assetbank-server.com**.
+    a. Dans la zone de texte URL de connexion, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Asset Bank au format suivant : **https://<nom\_entreprise>.assetbank-server.com**.
 
     b. Cliquez sur **Next**.
 
@@ -137,7 +138,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     b. Cliquez sur **Next**.
 
 
-5. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support technique Asset Bank à l’adresse [support@assetbank.co.uk](mailto:support@assetbank.co.uk) et joignez le fichier de métadonnées à votre courrier électronique.
+5. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support technique Asset Bank à l’adresse [support@assetbank.co.uk](mailto:support@assetbank.co.uk) et joignez le fichier de métadonnées à votre e-mail.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -166,11 +167,11 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, cliquez sur **Utilisateurs** dans le menu du haut.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_04.png)
 
@@ -198,8 +199,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
-![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire** (Get temporary password), cliquez sur **Créer**. ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
@@ -229,7 +229,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Asset Bank, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -281,4 +281,4 @@ Lorsque vous cliquez sur la vignette Asset Bank dans le volet d’accès, vous d
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec Spark sous HDInsight (Linux)
+# Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec Spark sur HDInsight Linux (version préliminaire)
 
 > [AZURE.TIP] Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour lire le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Spark Machine Learning - Analyse prédictive des données d’inspections alimentaires MLLib .ipynb** dans le dossier **Python**.
 
@@ -412,4 +412,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

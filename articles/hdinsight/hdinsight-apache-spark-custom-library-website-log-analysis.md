@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Analyse des journaux dans HDInsight Spark à l'aide d'une bibliothèque personnalisée (Linux)
+# Analyser les journaux de site web à l'aide d'une bibliothèque personnalisée avec HDInsight Spark sous Linux (version préliminaire)
 
 Ce bloc-notes montre comment analyser les données de journal à l'aide d'une bibliothèque personnalisée avec Spark sur HDInsight. La bibliothèque personnalisée que nous utilisons est une bibliothèque Python appelée **iislogparser.py**.
 
@@ -244,4 +244,4 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

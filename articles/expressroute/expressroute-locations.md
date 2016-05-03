@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
 
 Les tables de cet article offrent des informations sur les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
 
-## Fournisseurs de connectivité ExpressRoute
+## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
@@ -118,7 +118,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | **e-shelter** | Bientôt disponible | Non pris en charge | Berlin+|
 | **Interxion** | Pris en charge | Non pris en charge | Francfort|
 
-## Connectivité via des fournisseurs de services non répertoriés
+## <a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
 
 Si votre fournisseur de connectivité ne se trouve pas dans la liste des sections précédentes, vous pouvez quand même créer une connexion.
 
@@ -149,12 +149,12 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europe |
 |**[Nimbo](http://www.nimbo.com/)**|FR||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
-|**[Efficacité](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
-|**[Direction de projet](http://www.projectleadership.net/azure)** | FR |
+|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
+|**[Project Leadership](http://www.projectleadership.net/azure)** | FR |
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

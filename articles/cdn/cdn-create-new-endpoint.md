@@ -12,14 +12,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="04/15/2016" 
+	 ms.date="04/26/2016" 
 	 ms.author="casoper"/>
 
 # Utilisation d’Azure CDN  
 
-CDN peut être activé sur le [portail Azure](https://portal.azure.com). Plusieurs types d'origines Azure intégrées sont pris en charge, y compris les applications web, le stockage d'objets blob et les services cloud. Vous pouvez également activer CDN pour votre point de terminaison de diffusion en continu d’Azure Media Services. Si votre origine n'est pas l'un de ces services Azure, ou si elle est hébergée en dehors d'Azure, vous pouvez créer une origine personnalisée. Dès que vous activez un point de terminaison CDN pour votre origine, tous les objets disponibles publiquement peuvent bénéficier de la mise en cache de proximité CDN.
+Cette rubrique décrit l’activation d’Azure CDN en créant un nouveau profil CDN et un point de terminaison.
 
->[AZURE.NOTE] Pour une présentation du fonctionnement de CDN, ainsi qu'une liste de fonctionnalités, consultez la [Vue d'ensemble de CDN](./cdn-overview.md).
+>[AZURE.IMPORTANT] Pour une présentation du fonctionnement de CDN, ainsi qu’une liste de fonctionnalités, consultez la [Vue d’ensemble de CDN](./cdn-overview.md).
 
 ## Créer un profil CDN
 
@@ -32,7 +32,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 **Pour créer un profil CDN**
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l'angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l’angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
 
     Le panneau du nouveau profil CDN s'affiche.
 
@@ -70,10 +70,10 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 3. Entrez un **nom** pour ce point de terminaison CDN. Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
 
-4. Dans la liste déroulante **Type d’origine**, sélectionnez votre type d’origine.
+4. Dans la liste déroulante **Type d’origine**, sélectionnez votre type d’origine. Sélectionnez **Stockage** pour un compte Azure Storage, **Service Cloud** pour un service Azure Cloud, **Application web** pour une application web Azure ou **Origine personnalisée** pour toute autre origine de serveur web accessible publiquement (hébergé dans Azure ou ailleurs).
 
 	![Type d'origine CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
+		
 5. Dans la liste déroulante **Nom d’hôte d’origine**, sélectionnez ou tapez votre domaine d’origine. La liste déroulante répertorie toutes les origines disponibles du type spécifié à l'étape 4. Si vous avez sélectionné *Origine personnalisée* comme **type d’origine**, tapez le domaine de votre origine personnalisée.
 
 6. Dans la zone de texte **Chemin d’accès d’origine**, entrez le chemin d’accès aux ressources que vous souhaitez mettre en cache ou laissez cette zone vide pour autoriser la mise en cache de n’importe quelle ressource au niveau du domaine spécifié à l’étape 5.
@@ -85,7 +85,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 	> [AZURE.TIP] L'accès à du contenu CDN à l'aide du protocole HTTPS présente les contraintes suivantes :
 	> 
 	> - Vous devez utiliser le certificat SSL fourni par le CDN. Les certificats tiers ne sont pas pris en charge.
-	> - Vous devez utiliser le domaine fourni par le CDN (`<identifier>.azureedge.net`) pour accéder au contenu HTTPS. La prise en charge du protocole HTTPS n'est pas disponible pour les noms de domaines personnalisés (enregistrements CNAME), car le CDN ne prend pas en charge les certificats personnalisés pour l'instant.
+	> - Vous devez utiliser le domaine fourni par le CDN (`<endpointname>.azureedge.net`) pour accéder au contenu HTTPS. La prise en charge du protocole HTTPS n'est pas disponible pour les noms de domaines personnalisés (enregistrements CNAME), car le CDN ne prend pas en charge les certificats personnalisés pour l'instant.
 
 9. Cliquez sur le bouton **Ajouter** pour créer le point de terminaison.
 
@@ -93,7 +93,10 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
     ![Point de terminaison CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE] Le point de terminaison ne sera pas immédiatement disponible pour utilisation. La propagation de l'inscription à travers le réseau CDN peut prendre jusqu'à 90 minutes. Les utilisateurs qui tentent d'utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d'état 404 jusqu'à ce que le contenu soit disponible via le CDN.
+    > [AZURE.IMPORTANT] Le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement sur le CDN peut prendre du temps. L’opération prend généralement 90 minutes mais, dans certains cas, elle peut s’avérer plus longue.
+	>	 
+	> Les utilisateurs qui tentent d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux POP voient s’afficher des codes de réponse HTTP 404.
+
 
 ##Voir aussi
 - [Contrôle du comportement de mise en cache des demandes avec des chaînes de requête](cdn-query-string.md)
@@ -107,4 +110,4 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

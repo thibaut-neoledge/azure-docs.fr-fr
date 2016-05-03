@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/14/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -90,8 +90,8 @@ Enregistrez l'Index d'étape de l’étape la plus longue.
 
 Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
 
@@ -142,31 +142,17 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
 
-
-## Analyse de l’inclinaison de données
-
-Utilisez [DBCC PDW\_SHOWSPACEUSED][] pour rechercher l’espace utilisé par une table.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-Le résultat de cette requête affiche le nombre de lignes de la table stockées dans chacune des 60 distributions de votre base de données. Pour des performances optimales, les lignes de votre table distribuée doivent être partagées uniformément entre toutes les distributions.
-
-Pour plus d’informations, consultez [Gérer l’inclinaison de données pour les tables distribuées][] ou [Conception de tables][].
-
 ## Étapes suivantes
 Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
- Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
-[Conception de tables]: sql-data-warehouse-develop-table-design.md
+[Conception de table]: sql-data-warehouse-develop-table-design.md
 [Vue d’ensemble de référence]: sql-data-warehouse-overview-reference.md
-[Gérer l’inclinaison de données pour les tables distribuées]: sql-data-warehouse-manage-distributed-data-skew.md
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -175,6 +161,6 @@ Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DM
 [sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
 [sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
     description="Explication des termes utilisés pour les outils de base de données élastique" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -34,6 +34,14 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 **Carte de partitions locale** : stockée sur une partition, la carte de partitions locale contient des mappages pour les shardlets se trouvant sur la partition.
 
 **Requête sur plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les ensembles de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée « requête de distribution ramifiée »). Comparer au **routage dépendant des données**.
+
+**Mutualisée** et **mono-utilisateur** : montre une base de données à un seul utilisateur et une base de données à architecture mutualisée :
+
+![Bases de données mono-utilisateur et mutualisée](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Voici une représentation de bases de données **partitionnées** de type mono-utilisateur et mutualisée.
+
+![Bases de données mono-utilisateur et mutualisée](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Carte de partitions de plage** : carte de partitions dans laquelle la stratégie de distribution des partitions est basée sur plusieurs plages de valeurs contiguës.
 
@@ -82,4 +90,4 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

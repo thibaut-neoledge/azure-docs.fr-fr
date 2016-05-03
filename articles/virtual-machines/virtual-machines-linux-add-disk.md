@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 
 # Ajouter un disque à une machine virtuelle Linux
 
-Cet article explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. Pour ajouter un disque, vous aurez besoin de l’[interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
+Cet article explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. Pour ajouter un disque, vous aurez besoin de l’[interface de ligne de commande Azure](../xplat-cli-install.md) configurée en mode Gestionnaire de ressources (`azure config mode arm`).
 
 ## Commandes rapides
 
@@ -32,7 +32,7 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 
 ## Attacher un disque
 
-La procédure d’attachement d’un nouveau disque est rapide. Il vous suffit de saisir `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` afin de créer un nouveau disque (Go) et l’associer à votre machine virtuelle. Le résultat suivant doit s’afficher :
+La procédure d’attachement d’un nouveau disque est rapide. Il vous suffit de saisir `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` afin de créer un nouveau disque (Go) et l’associer à votre machine virtuelle. Si vous n'identifiez pas explicitement un compte de stockage, les disques que vous créez sont placés dans le même compte de stockage que celui sur lequel réside le disque du système d'exploitation. Le résultat suivant doit s’afficher :
 
 	azure vm disk attach-new myuniquegroupname myuniquevmname 5
 	info:    Executing command vm disk attach-new
@@ -81,7 +81,7 @@ Vous devrez exécuter SSH dans votre machine virtuelle Azure afin de partitionne
 
 	ops@myuniquevmname:~$
 
-Maintenant que vous êtes connecté à votre machine virtuelle, vous êtes prêt à attacher un disque. Recherchez tout d’abord le disque à l’aide de `dmesg | grep SCSI`. (La méthode que vous utilisez pour découvrir les capacités du nouveau disque peut varier). Le résultat est alors le suivant :
+Maintenant que vous êtes connecté à votre machine virtuelle, vous êtes prêt à attacher un disque. Recherchez tout d’abord le disque à l’aide de `dmesg | grep SCSI`. (La méthode que vous utilisez pour découvrir les capacités du nouveau disque peut varier). Le résultat est alors le suivant :
 
 	dmesg | grep SCSI
 	[    0.294784] SCSI subsystem initialized
@@ -90,7 +90,7 @@ Maintenant que vous êtes connecté à votre machine virtuelle, vous êtes prêt
 	[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 	[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 
-et dans le scénario évoqué dans cette rubrique, le disque `sdc` est celui que nous voulons. Partitionnons maintenant le disque avec `sudo fdisk /dev/sdc`, en supposant que dans votre cas, il s’agissait d’un disque `sdc` et utilisons-le en tant que disque principal sur la partition 1, en acceptant les autres valeurs par défaut.
+et dans le scénario évoqué dans cette rubrique, le disque `sdc` est celui que nous voulons. Partitionnons maintenant le disque avec `sudo fdisk /dev/sdc`, en supposant que dans votre cas, il s’agissait d’un disque `sdc` et utilisons-le en tant que disque principal sur la partition 1, en acceptant les autres valeurs par défaut.
 
 	sudo fdisk /dev/sdc
 	Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -111,7 +111,7 @@ et dans le scénario évoqué dans cette rubrique, le disque `sdc` est celui que
 	Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 	Using default value 10485759
 
-Créez la partition en saisissant `p` lors de l’invite :
+Créez la partition en saisissant `p` lors de l’invite :
 
 	Command (m for help): p
 
@@ -131,7 +131,7 @@ Créez la partition en saisissant `p` lors de l’invite :
 	Calling ioctl() to re-read partition table.
 	Syncing disks.
 
-Écrivez un système de fichiers sur la partition à l’aide de la commande **mkfs**, en spécifiant le type de votre système de fichier et le nom de l’appareil. Dans cette rubrique, nous utilisons `ext4` et `/dev/sdc1` (voir ci-dessus) :
+Écrivez un système de fichiers sur la partition à l’aide de la commande **mkfs**, en spécifiant le type de votre système de fichier et le nom de l’appareil. Dans cette rubrique, nous utilisons `ext4` et `/dev/sdc1` (voir ci-dessus) :
 
 	sudo mkfs -t ext4 /dev/sdc1
 	mke2fs 1.42.9 (4-Feb-2014)
@@ -155,11 +155,11 @@ Créez la partition en saisissant `p` lors de l’invite :
 	Creating journal (32768 blocks): done
 	Writing superblocks and filesystem accounting information: done
 
-Nous créons désormais un répertoire afin de monter le système de fichiers à l’aide de `mkdir` :
+Nous créons désormais un répertoire afin de monter le système de fichiers à l’aide de `mkdir` :
 
 	sudo mkdir /datadrive
 
-Vous montez le répertoire à l’aide de `mount` :
+Vous montez le répertoire à l’aide de `mount` :
 
 	sudo mount /dev/sdc1 /datadrive
 
@@ -169,7 +169,7 @@ Le disque de données est désormais utilisable en tant que `/datadrive`.
 	bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
-> [AZURE.NOTE] Vous pouvez également vous connecter à votre machine virtuelle Linux à l'aide d'une clé SSH pour l'identification. Pour en savoir plus, consultez la page [Utilisation de SSH avec Linux sur Microsoft Azure](virtual-machines-linux-ssh-from-linux.md).
+> [AZURE.NOTE] Vous pouvez également vous connecter à votre machine virtuelle Linux à l'aide d'une clé SSH pour l'identification. Pour en savoir plus, consultez la page [Utilisation de SSH avec Linux sur Microsoft Azure](virtual-machines-linux-ssh-from-linux.md).
 
 ## Étapes suivantes
 
@@ -177,4 +177,4 @@ Le disque de données est désormais utilisable en tant que `/datadrive`.
 - Passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](virtual-machines-linux-optimization.md) pour garantir que votre machine virtuelle Linux est correctement configurée.
 - Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

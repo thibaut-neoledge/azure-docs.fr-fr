@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 [En savoir plus sur les déploiements Azure Resource Manager](../resource-group-overview.md)
 
 [Machines virtuelles et conteneurs dans Azure](virtual-machines-windows-containers.md)
-
-[Présentation des jeux de machines virtuelles mise à l’échelle](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Configuration de l’environnement
@@ -115,8 +112,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Mise à l’échelle automatique des machines dans un groupe de machines virtuelles à échelle identique](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -329,8 +324,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Création d’une machine virtuelle pour une application web avec Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Exécution d’une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Application web Django Hello World sur une machine virtuelle Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
@@ -375,4 +368,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

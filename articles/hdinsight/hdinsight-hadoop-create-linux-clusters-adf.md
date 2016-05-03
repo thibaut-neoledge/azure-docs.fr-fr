@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
 
-[Azure Data Factory](../data-factory/data-factory-introduction.md) est un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données. Dans cet article, vous allez apprendre comment utiliser Azure Data Factory pour créer un [service lié Azure HDInsight à la demande](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) et comment utiliser le cluster pour exécuter une tâche Hive. Voici le processus général :
+[Azure Data Factory](../data-factory/data-factory-introduction.md) est un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données. Dans cet article, vous allez apprendre comment utiliser Azure Data Factory pour créer un [service lié Azure HDInsight à la demande](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) et comment utiliser le cluster pour exécuter une tâche Hive. Voici le processus général :
 
 1. Créer un cluster HDInsight à la demande.
 2. Exécuter une tâche Hive pour lire les données brutes des journaux web à partir d’un compte de stockage d’objets blob source, transformer les données et écrire le résultat dans un compte de stockage d’objets blob de destination. 
@@ -49,12 +49,14 @@ Il existe de nombreux avantages à l’utilisation de HDInsight avec Data Factor
 - Vous pouvez créer un flux de travail à l’aide du pipeline Data Factory.
 - Vous pouvez planifier des tâches récursives.  
 
-##Configuration requise :
+##Configuration requise :
 
-Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
+Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Interface de ligne de commande Azure](../xplat-cli-install.md) ou [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater). 
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##Préparer le compte de stockage
 
@@ -67,7 +69,7 @@ Vous pouvez utiliser jusqu’à trois comptes de stockage dans ce scénario :
 Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage pour ces trois fonctions. L’exemple de script d’interface de ligne de commande Azure et Azure PowerShell de cette section effectue les opérations suivantes :
 
 1. Connexion à Azure.
-2. Création d’un groupe de ressources Azure.
+2. Création d’un groupe de ressources Azure.
 3. Création d’un compte Azure Storage.
 4. Création d’un conteneur d’objets blob dans le compte de stockage.
 5. Copie des deux fichiers suivants dans le conteneur d’objets blob :
@@ -82,6 +84,8 @@ Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage p
 **Pour préparer le stockage et copier les fichiers à l’aide de l’interface de ligne de commande Azure**
 
     azure login
+    
+    azure config mode arm
 
     azure group create --name "<Azure Resource Group Name>" --location "East US 2"
 
@@ -175,7 +179,7 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 
 **Pour examiner le compte de stockage et son contenu**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. 
 4. Dans la mosaïque **Ressources**, vous devez voir une ressource, sauf si vous partagez le groupe de ressources avec d’autres projets. Il s’agit du compte de stockage avec le nom que vous avez spécifié précédemment. Cliquez sur le nom du compte de stockage.
@@ -318,11 +322,11 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle ARM dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
-4. Cliquez sur **Conditions juridiques**, puis sur **Créer**.
+4. Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
 5. Cliquez sur **Create**. La mosaïque **Déploiement du modèle de déploiement** apparaît sur le tableau de bord. Attendez que le texte de la mosaïque prenne le nom du groupe de ressources. La création d’un cluster HDInsight peut prendre environ 20 minutes.
 6. Cliquez sur la mosaïque pour ouvrir le groupe de ressources. Vous devez maintenant voir une autre ressource de fabrique de données en plus de la ressource du compte de stockage.
 7. Cliquez sur **hdinsight-hive-on-demand**.
@@ -359,7 +363,7 @@ Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à
 
 **Pour supprimer le groupe de ressources**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. Il ouvre le groupe de ressources dans un nouveau panneau.
 4. Dans la mosaïque **Ressources**, vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
@@ -429,9 +433,9 @@ Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps 
 ##Étapes suivantes
 Dans cet article, vous avez appris comment utiliser Azure Data Factory pour créer un cluster HDInsight à la demande pour traiter des tâches Hive. En savoir plus :
 
-- [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

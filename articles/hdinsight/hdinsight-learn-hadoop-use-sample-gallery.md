@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure"
+   pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure"
    description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
    services="hdinsight"
    documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main d’Azure HDInsight
 
-La galerie de prise en main de HDInsight fournit un moyen facile et rapide de découvrir Hadoop en exécutant des exemples d’applications dans HDInsight. Certains exemples sont fournis avec des exemples de données. Vous pouvez fournir vos propres données pour le reste des exemples. Actuellement, les six exemples (d’autres sont en préparation) suivants sont disponibles :
+La galerie de prise en main de HDInsight fournit un moyen facile et rapide de découvrir Hadoop en exécutant des exemples d’applications dans HDInsight. Certains exemples sont fournis avec des exemples de données. Vous pouvez fournir vos propres données pour le reste des exemples. Actuellement, les six exemples (d’autres sont en préparation) suivants sont disponibles :
 
 - Solutions avec vos données Azure
 	- Analyse des journaux du site Web Microsoft Azure
@@ -30,13 +30,9 @@ La galerie de prise en main de HDInsight fournit un moyen facile et rapide de d�
 	- Analyse du journal de site web
 	- Recommandation de films Mahout
 
-[AZURE.INCLUDE [version-préliminaire-hgindight-azure](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
-
 ![Solutions de la galerie de prise en main HDInsight, Hadoop, Storm et HBase, y compris des exemples de données.][hdinsight.sample.gallery]
 
-La vidéo suivante montre comment exécuter l’exemple d’analyse de tendances Twitter :
+La vidéo suivante montre comment exécuter l’exemple d’analyse de tendances Twitter :
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
@@ -49,12 +45,12 @@ Le tableau de bord est accessible via l’adresse http://<YourHDInsightClusterNa
 3. Cliquez sur **Tableau de bord** dans le menu du haut.
 4. Saisissez le nom d'utilisateur et le mot de passe HTTP (également appelé utilisateur de cluster).
 6. Cliquez sur **Galerie de prise en main** en haut de la page.
-7. Cliquez sur un des exemples. Chaque exemple fournit des instructions détaillées pour son exécution. L’image suivante montre l’exemple d’analyse de tendances Twitter :
+7. Cliquez sur un des exemples. Chaque exemple fournit des instructions détaillées pour son exécution. L’image suivante montre l’exemple d’analyse de tendances Twitter :
 
 	![Exemple d'analyse de tendance Twitter HDInsight][hdinsight.twitter.sample]
 
 ## Étapes suivantes
-D’autres façons d’apprendre à utiliser HDInsight comprennent :
+D’autres façons d’apprendre à utiliser HDInsight comprennent :
 
 - [Plan de formation pour HDInsight][hdinsight.learn.map]
 - [Infographie HDInsight][hdinsight.infographic]
@@ -68,4 +64,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
 # Pourquoi avez-vous reçu une notification vous informant que votre abonnement Azure présente un solde impayé ?
-Si vous êtes l’administrateur de compte de votre abonnement Azure et que vous n’avez pas effectué votre paiement dans les délais, vous recevez un e-mail de notification à propos de votre solde impayé ou vous voyez une alerte sur http://accounts.windowsazure.com ou http://portal.azure.com.
+Si vous êtes l’administrateur de compte de votre abonnement Azure et que vous n’avez pas effectué votre paiement dans les délais, vous recevez un e-mail de notification à propos de votre solde impayé ou vous verrez une alerte sur [https://account.windowsazure.com](https://account.windowsazure.com) ou [https://portal.azure.com](https://portal.azure.com).
 
-### Que se passe-t-il si vous oubliez de payer ?
+## Que se passe-t-il si vous oubliez de payer ?
 Le service est annulé et vos ressources ne sont plus disponibles. Toutes les données sont supprimées 90 jours après l’arrêt du service.
 
-### Que pouvez-vous faire pour résoudre le problème ?
+## Que pouvez-vous faire pour résoudre le problème ?
 
 Payez votre solde en souffrance dans son intégralité.
 
@@ -35,4 +35,4 @@ Payez votre solde en souffrance dans son intégralité.
 
 **Scénario 3** : Si vous n'avez pas reçu l'avis de paiement car l'administrateur de compte a quitté l’entreprise ou assume un autre rôle, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre le problème.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

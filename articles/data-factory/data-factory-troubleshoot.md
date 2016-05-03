@@ -13,52 +13,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Résolution des problèmes liés à Data Factory
-Vous pouvez résoudre les problèmes Azure Data Factory à l’aide du portail Azure Classic ou des applets de commande Azure PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure Classic pour résoudre rapidement les erreurs Data Factory.
+Cet article propose des conseils pour la résolution des problèmes d'utilisation d'Azure Data Factory. Il ne couvre pas tous les problèmes possibles lors de l'utilisation du service, mais il aborde certains problèmes ainsi que des conseils de résolution généraux.
 
-## Problème : impossible d’exécuter des applets de commande Data Factory
-Si vous utilisez une version antérieure à 1.0 d’Azure PowerShell :
- 
-Pour résoudre ce problème, passez au mode Azure **AzureResourceManager** :
+## Conseils de dépannage
 
-Lancez **Azure PowerShell** et exécutez la commande suivante pour basculer vers le mode **AzureResourceManager**. Les applets de commande Azure Data Factory sont disponibles en mode **AzureResourceManager**.
+### Erreur : l'abonnement n'est pas enregistré pour utiliser l'espace de noms « Microsoft.DataFactory »
+Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azure Data Factory n'a pas été enregistré sur votre ordinateur. Voici les étapes à suivre :
 
-         switch-azuremode AzureResourceManager
+1. Lancez Azure PowerShell. 
+2. Connectez-vous à votre compte Azure à l’aide de la commande suivante. Login-AzureRmAccount 
+3. Exécutez la commande suivante pour enregistrer le fournisseur Azure Data Factory. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
-## Problème : erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
+### Problème : erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
 
-1. Add-AzureAccount - Utilisez l’ID d’utilisateur et le mot de passe corrects.
-2. Get-AzureSubscription - Affichez tous les abonnements pour le compte. 
-3. Select-AzureSubscription <subscription name> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
+1. Login-AzureRmAccount - Utilisez l’ID d’utilisateur et le mot de passe corrects.
+2. Get-AzureRmSubscription - Affichez tous les abonnements du compte. 
+3. Select-AzureRmSubscription <subscription name> - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 
-## Problème : échec du lancement de l’installation rapide de la passerelle de données depuis le portail Azure Classic
-L’installation rapide de la passerelle de données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si vous ne pouvez pas démarrer le programme d’installation rapide, vous pouvez :
+### Problème : échec du lancement de l’installation rapide de la passerelle de gestion des données à partir du portail Azure
+L’installation rapide de la passerelle de gestion des données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si le programme d'installation rapide ne démarre pas, effectuez l'une des opérations suivantes :
 
-1. basculer vers Internet Explorer si le processus échoue avec d’autres navigateurs ; Ou
-2. utiliser les liens « Installation manuelle » figurant dans le même panneau du portail pour effectuer l’installation, puis copier la clé fournie à l’écran et la coller lorsque la configuration de la passerelle de gestion des données est prête. Si elle ne démarre pas, vérifiez le menu de démarrage de la passerelle de gestion des données Microsoft et collez la clé lors du lancement. 
+- Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
 
+	Si vous utilisez Chrome, accédez à [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot-clé « ClickOnce », choisissez l’une des extensions ClickOnce, puis installez-la.
+	
+	Vous devez en faire autant pour Firefox (installez un complément). Cliquez sur le bouton du menu dans la barre d’outils (trois lignes horizontales en haut à droite), cliquez sur Modules complémentaires, effectuez une recherche avec le mot-clé « ClickOnce », choisissez l’une des extensions de ClickOnce et installez le programme.
 
-## Problème : échec du lancement du Gestionnaire des informations d’identification depuis le portail Azure Classic
-Lors du paramétrage ou de la mise à jour d’un service lié SQL Server par le biais du portail Azure Classic, l’application Gestionnaire des informations d’identification est lancée pour garantir la sécurité. Elle nécessite Internet Explorer ou un navigateur web compatible Microsoft ClickOnce. Vous pouvez basculer vers Internet Explorer si le processus échoue avec d’autres navigateurs.
+- Utilisez le lien **Installation manuelle** affiché sur le même panneau sur le portail pour télécharger le fichier d'installation et l'exécuter manuellement. Une fois l'installation effectuée, vous verrez s’afficher la boîte de dialogue Configuration de la passerelle de gestion des données. Copiez la **clé** sur l'écran du portail et utilisez-la dans le gestionnaire de configuration pour enregistrer manuellement la passerelle auprès du service.
 
-## Problème : échec de la connexion à un serveur SQL local 
-Vérifiez que SQL Server est accessible à partir de l'ordinateur sur lequel la passerelle est installée. Sur cet ordinateur, vous pouvez :
+### Problème : échec de la connexion à un serveur SQL local 
+Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l'ordinateur passerelle et utilisez l’onglet **Résolution des problèmes** pour tester la connexion à SQL Server à partir de l'ordinateur passerelle. Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour plus d'informations.
+ 
 
-1. exécuter une commande Ping sur l’ordinateur sur lequel est installé le serveur SQL ; Ou
-2. essayer de vous connecter à l’instance SQL Server en utilisant les informations d’identification que vous avez spécifiées sur le portail Azure Classic à l’aide de SQL Server Management Studio (SSMS).
+### Problème : l’état des tranches d’entrée est En attente depuis longtemps
 
-
-## Problème : l’état des tranches d’entrée est En attente depuis longtemps
-
-Les tranches peuvent avoir l’état **En attente** pour plusieurs raisons, par exemple parce que la propriété **external** n’a pas la valeur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
+Les segments peuvent avoir l’état **En attente** pour plusieurs raisons, par exemple parce que la propriété **external** n’a pas la valeur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
 
 Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
 
-Consultez la section Tables dans [Référence sur la création de scripts JSON][json-scripting-reference] pour plus d’informations sur cette propriété.
+Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour plus d'informations sur cette propriété.
 	
 	{
 	  "name": "CustomerTable",
@@ -79,267 +77,40 @@ Consultez la section Tables dans [Référence sur la création de scripts JSON][
 	      "interval": 1
 	    },
 	    "policy": {
-	      "externalData": {
-	        "dataDelay": "00:10:00",
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
 	      }
 	    }
 	  }
 	}
 
- Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
-## Problème : échec de l’opération de copie hybride
-Pour en savoir plus :
+### Problème : échec de l’opération de copie hybride
+Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie à partir de/vers un magasin de données local avec la passerelle de gestion des données.
 
-1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** a pour valeur le nom de passerelle logique dans le **portail Azure Classic**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
-2. Lancez l’**Observateur d’événements**. Développez **Journaux des applications et des services**, puis cliquez sur **Passerelle de gestion des données**. Recherchez les erreurs liées à la passerelle de gestion des données. 
-
-## Problème : échec de l’approvisionnement HDInsight à la demande, avec une erreur
-
-Lorsque vous utilisez un service lié de type HDInsightOnDemandLinkedService, vous devez spécifier un linkedServiceName qui pointe vers le stockage d’objets blob Azure. Ce compte de stockage permet de copier tous les journaux et les fichiers de prise en charge pour votre cluster HDInsight à la demande. Parfois, l’activité qui effectue l’approvisionnement à la demande sur HDInsight peut échouer avec l’erreur suivante :
+### Problème : échec de l’approvisionnement HDInsight à la demande
+Lorsque vous utilisez un service lié de type HDInsightOnDemand, vous devez spécifier un linkedServiceName qui pointe vers un stockage d’objets blob Azure. Le service Data Factory utilise ce stockage pour stocker les journaux et les fichiers d’accompagnement pour votre cluster HDInsight à la demande. Parfois, l’approvisionnement d'un cluster HDInsight à la demande échoue avec l'erreur suivante :
 
 		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
-Cette erreur indique généralement que l’emplacement du compte de stockage spécifié dans linkedServiceName ne se trouve pas dans le même emplacement de centre de données dans lequel l’approvisionnement de HDInsight est effectué. Par exemple, si l’emplacement d’Azure Data Factory est Ouest des États-Unis et que l’approvisionnement de HDInsight à la demande est effectué dans la région Ouest des États-Unis, alors que l’emplacement du compte de stockage d’objets blob Azure est défini sur Est des États-Unis, l’approvisionnement à la demande échoue.
+Cette erreur indique généralement que l’emplacement du compte de stockage spécifié dans linkedServiceName ne se trouve pas dans l’emplacement de centre de données dans lequel l’approvisionnement de HDInsight est effectué. Par exemple, si l’emplacement d’Azure Data Factory est Ouest des États-Unis et que l’approvisionnement de HDInsight à la demande est effectué dans la région Ouest des États-Unis, alors que l’emplacement du compte de stockage d’objets blob Azure est défini sur Est des États-Unis, l’approvisionnement à la demande échoue.
 
 En outre, il existe une seconde propriété JSON additionalLinkedServiceNames avec laquelle les comptes de stockage supplémentaires peuvent être spécifiés dans HDInsight à la demande. Ces comptes de stockage supplémentaires liés doivent avoir le même emplacement que le cluster HDInsight, ou l’approvisionnement échouera avec la même erreur.
 
+### Problème : échec de l’activité .NET personnalisée
+Consultez la page [Déboguer un pipeline avec une activité personnalisée](data-factory-use-custom-activities.md#debug-the-pipeline) pour des instructions détaillées.
 
+## Utilisation du portail Azure pour résoudre les problèmes 
 
-## Problème : échec de l’activité personnalisée
-Lorsque vous utilisez une activité personnalisée dans Azure Data Factory (activité pipeline de type CustomActivity), l’application personnalisée s’exécute dans le service lié spécifié pour HDInsight en tant que tâche MapReduce de diffusion en continu Map uniquement.
+### Utilisation des panneaux du portail
+Consultez la page [Surveiller le pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) pour obtenir la procédure.
 
-Lorsque l’activité personnalisée est exécutée, Azure Data Factory est en mesure de capturer cette sortie à partir du cluster HDInsight et de l’enregistrer dans le conteneur de stockage *adfjobs* dans votre compte de stockage d’objets blob Azure. En cas d’erreur, vous pouvez lire le texte dans le fichier texte de sortie **stderr** après une défaillance. Les fichiers sont accessibles et lisibles depuis le portail Azure Classic lui-même dans le navigateur web, ou grâce aux outils d’exploration du stockage qui permettent d’accéder aux fichiers sauvegardés dans le conteneur de stockage directement dans Azure Blob Storage.
+### Utilisation de l’application Surveillance et gestion
+Consultez [Surveiller et gérer les pipelines Data Factory à l’aide de l’application Surveillance et gestion](data-factory-monitor-manage-app.md) pour plus d’informations.
 
-Pour énumérer et lire les journaux d’une activité personnalisée spécifique, vous pouvez suivre l’une des procédures pas à pas détaillées plus loin sur cette page. En résumé :
+## Utiliser Azure PowerShell pour résoudre les problèmes
 
-1.  Dans le portail Azure Classic, sélectionnez **Parcourir** pour rechercher votre fabrique de données.
-2.  Utilisez le bouton **Diagramme** pour afficher le diagramme de fabrique de données, puis cliquez sur la table **Jeu de données** ci-dessous qui suit le **Pipeline** spécifique présentant l’activité personnalisée. 
-3.  Dans le panneau **Table**, cliquez sur la tranche qui vous intéresse dans les **Tranches problématiques** pour l’intervalle de temps à examiner.
-4.  Le panneau **Tranche de données** détaillé s’affiche et peut lister plusieurs **Exécutions d’activité** pour la tranche. Cliquez sur une **activité** dans la liste. 
-5.  Le panneau **Détails sur l’exécution d’activité** s’affiche. Il répertorie le **Message d’erreur** au milieu du panneau et plusieurs des **fichiers journaux** répertoriés au bas du panneau affilié à cette exécution d’activité.
-	- Logs/system-0.log
-	- Statut
-	- Status/exit
-	- Status/stderr
-	- Status/stdout
-
-6. Cliquez sur le premier élément **Fichier journal** dans la liste pour que le journal s’ouvre dans un nouveau panneau avec le texte intégral à votre disposition pour lecture. Lisez le texte de chaque journal en cliquant sur chacun d’eux. Le panneau de la visionneuse de texte s’ouvre. Vous pouvez cliquer sur le bouton **Télécharger** pour télécharger le fichier texte en vue d’un affichage hors connexion facultatif.
-
-Un **erreur courante** liée à une activité personnalisée est l’échec de l’exécution du package avec le code de sortie « 1 ». Consultez « wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr » pour plus de détails.
-
-Pour voir plus de détails sur ce type d’erreur, ouvrez le fichier **stderr**. Une erreur courante est liée à une condition de délai d’expiration telle que celle-ci : INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
-
-Ce même message d’erreur peut apparaître plusieurs fois, si le travail a tenté de s’exécuter 3 fois par exemple, pendant au moins 30 minutes.
-
-Cette erreur de délai d’attente indique qu’un délai d’expiration de 600 secondes (10 minutes) s’est produit. Cela signifie généralement que l’application .Net personnalisée n’a émis aucune mise à jour d’état pendant 10 minutes. Si l’application se bloque ou est en attente de quelque chose depuis trop longtemps, le délai d’expiration de 10 minutes est un mécanisme de sécurité permettant d’éviter qu’elle n’attende indéfiniment et qu’elle ne retarde votre pipeline Azure Data Factory.
-
-Ce délai d’attente est issu de la configuration du cluster HDInsight qui est lié à l’activité personnalisée. Le paramètre est **mapred.task.timeout**, qui correspond par défaut à 600 000 millisecondes, comme indiqué dans les paramètres par défaut d’Apache ici : http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
-
-Vous pouvez remplacer cette valeur par défaut en modifiant les valeurs par défaut au moment de l’approvisionnement de votre cluster d’approvisionnement HDInsight. Lorsque vous utilisez Azure Data Factory et le service lié **HDInsight à la demande**, la propriété JSON peut être ajoutée près de vos propriétés JSON HDInsightOnDemandLinkedService. Par exemple, vous pouvez augmenter la valeur à 20 minutes à l’aide de cette propriété JSON.
-		
-		"mapReduceConfiguration" :
-		{
-			"mapreduce.task.timeout":"1200000"
-		}
-		
-
-Pour plus de contexte et un exemple complet de JSON pour la modification de ces propriétés de configuration mapReduce, consultez l'exemple #3 dans la documentation MSDN ici https://msdn.microsoft.com/library/azure/dn893526.aspx
-
-## Problème : la requête PowerShell échoue avec une erreur de requête incorrecte 400 « No registered resource provider found... »
-
-À compter du 10 mars 2015, les versions préliminaires privées anticipées d'Azure Data Factory PowerShell suivantes seront abandonnées : 2014-05-01-preview, 2014-07-01-preview et 2014-08-01-preview. Nous vous recommandons d’utiliser la dernière version des applets de commande ADF, qui font désormais partie du téléchargement d’Azure PowerShell, tel que le téléchargement à partir de cette URL http://go.microsoft.com/?linkid=9811175&clcid=0x409
-
-Si vous utilisez les versions abandonnées du Kit de développement logiciel (SDK) Azure PowerShell, les erreurs suivantes peuvent s’afficher :
-
-		HTTP/1.1 400 Bad Request
-		Cache-Control: no-cache
-		Pragma: no-cache
-		Content-Type: application/json; charset=utf-8
-		Expires: -1
-		x-ms-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
-		x-ms-correlation-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
-		x-ms-routing-request-id: WESTUS:20150306T234829Z:e07181e4-e421-46be-8a08-1f71d5e90494
-		Strict-Transport-Security: max-age=31536000; includeSubDomains
-		Date: Fri, 06 Mar 2015 23:48:29 GMT
-		Content-Length: 157
-		{"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
-
-
-## <a name="copywalkthrough"></a>Procédure pas à pas : dépannage d’une erreur de copie des données
-Dans cette procédure pas à pas, vous allez introduire une erreur dans le didacticiel de l’article Prise en main de Data Factory et découvrir comment vous pouvez utiliser le portail Azure Classic pour la résoudre.
-
-### Composants requis
-1. Suivez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted].
-2. Confirmez qu'**ADFTutorialDataFactory** produit des données dans la table **emp** de la base de données Azure SQL.  
-3. Supprimez maintenant la table **emp** (**drop table emp**) de la base de données SQL Azure. Cette action introduit une erreur.
-4. Exécutez la commande suivante dans **Azure PowerShell** pour mettre à jour la période active pour le pipeline de sorte qu’il tente d’écrire des données dans la table **emp**, qui n’existe plus.
-
-         
-		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
-	
-	Remplacez la valeur de **StartDateTime** par le jour actuel et la valeur de **EndDateTime** par le jour suivant.
-
-
-### Utilisation du portail Azure pour résoudre l’erreur
-
-1.	Connectez-vous au [portail Azure][azure-portal]. 
-2.	Cliquez sur **ADFTutorialDataFactory** depuis le **tableau d’accueil**. Si vous ne voyez pas le lien de la fabrique de données dans le **tableau d’accueil**, cliquez sur le hub **PARCOURIR**, puis sur **Tout**. Cliquez sur **Fabriques de données…** dans le panneau **Parcourir**, puis cliquez sur **ADFTutorialDataFactory**.
-3.	Notez que **Avec des erreurs** s’affiche sur la vignette **Jeux de données**. Cliquez sur **Avec des erreurs**. Vous devez voir le panneau **Jeux de données avec erreurs**.
-
-	![Liaison Data Factory avec erreurs][image-data-factory-troubleshoot-with-error-link]
-
-4. Dans le panneau **Jeux de données** avec erreurs, cliquez sur **EmpSQLTable** pour voir le panneau **TABLE**.
-
-	![Panneau Jeux de données avec erreurs][image-data-factory-troubleshoot-datasets-with-errors-blade]
-
-5. Dans le panneau **TABLE**, vous devez voir les tranches problématiques, c’est-à-dire les tranches avec une erreur, dans la liste **Tranches problématiques** en bas. Vous pouvez également voir les tranches récentes contenant des erreurs dans la liste **Tranches récentes**. Cliquez sur une tranche dans la liste **Tranches problématiques**.
-
-	![Panneau de table avec tranches problématiques][image-data-factory-troubleshoot-table-blade-with-problem-slices]
-
-	Cliquez sur **Tranches problématiques** (et non sur un problème spécifique) pour afficher le panneau **TRANCHES DE DONNÉS**, puis cliquez sur une **tranche problématique spécifique** pour afficher le panneau **TRANCHE DE DONNÉES** pour la tranche de données sélectionnée.
-
-6. Dans le panneau **TRANCHE DE DONNÉES** pour **EmpSQLTable**, vous pouvez voir toutes les **exécutions d’activité** pour la tranche de la liste en bas. Cliquez sur une **exécution d’activité** depuis la liste qui a échoué.
-
-	![Panneau Tranche de données avec exécutions actives][image-data-factory-troubleshoot-dataslice-blade-with-active-runs]
-
-
-7. Dans le panneau **Détails sur l’exécution d’activité** pour l’exécution d’activité que vous avez sélectionnée, vous devez voir les détails de l’erreur. Dans ce scénario, vous voyez : **Invalid object name ’emp’**.
-
-	![Détails sur l’exécution d’activité avec une erreur][image-data-factory-troubleshoot-activity-run-with-error]
-
-Pour résoudre ce problème, créez la table **emp** à l’aide du script SQL de l’article [Prise en main de Data Factory][adfgetstarted].
-
-
-### Utilisation des applets de commande Azure PowerShell pour résoudre l'erreur
-1.	Lancez **Azure PowerShell**. 
-3. Exécutez la commande Get-AzureRmDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).	
-
-         
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureRmDataFactoryPipelineActivePeriod**.
-
-		ResourceGroupName 		: ADFTutorialResourceGroup
-		DataFactoryName   		: ADFTutorialDataFactory
-		TableName         		: EmpSQLTable
-		Start             		: 10/15/2014 4:00:00 PM
-		End               		: 10/15/2014 5:00:00 PM
-		RetryCount        		: 0
-		Status            		: Failed
-		LatencyStatus     		:
-		LongRetryCount    		: 0
-
-	Notez l’heure de **Début** pour la tranche problématique (celle dont l’**état** est défini sur **Échec**) dans la sortie. 
-4. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
-         
-		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
-
-	La valeur de **StartDateTime** est l’heure de début de la tranche problématique/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
-5. Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
-
-		Id                  	: 2b19475a-c546-473f-8da1-95a9df2357bc
-		ResourceGroupName   	: ADFTutorialResourceGroup
-		DataFactoryName     	: ADFTutorialDataFactory
-		TableName           	: EmpSQLTable
-		ResumptionToken    		:
-		ContinuationToken   	:
-		ProcessingStartTime 	: 10/15/2014 11:13:39 PM
-		ProcessingEndTime  	 	: 10/15/2014 11:16:59 PM
-		PercentComplete     	: 0
-		DataSliceStart     		: 10/15/2014 4:00:00 PM
-		DataSliceEnd       		: 10/15/2014 5:00:00 PM
-		Status              	: FailedExecution
-		Timestamp           	: 10/15/2014 11:13:39 PM
-		RetryAttempt       		: 0
-		Properties          	: {}
-		ErrorMessage        	: Unknown error in CopyActivity: System.Data.SqlClient.SqlException (0x80131904): **Invalid object name 'emp'.**
-                         at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean
-                      breakConnection, Action`1 wrapCloseInAction)
-                         at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj,
-
- 
-
-## <a name="pighivewalkthrough"></a> Procédure pas à pas : dépannage d’une erreur de traitement Hive/Pig
-Cette procédure pas à pas fournit les instructions pour résoudre une erreur avec un traitement Hive/Pig à l’aide du portail Azure et d’Azure PowerShell.
-
-
-### Procédure pas à pas : utilisation du portail Azure Classic pour résoudre une erreur de traitement Pig/Hive
-Dans ce scénario, le jeu de données est associé à un état d'erreur dû à une défaillance dans le traitement Hive sur un cluster HDInsight.
-
-1. Cliquez sur **Avec des erreurs** sur la vignette **Jeux de données** sur la page d’accueil **FABRIQUE DE DONNÉES**.
-
-	![Lien Avec erreurs dans la vignette Jeux de données][image-data-factory-troubleshoot-walkthrough2-with-errors-link]
-
-2. Dans le panneau **Jeux de données avec erreurs**, cliquez sur la **table** qui vous intéresse.
-
-	![Panneau Jeux de données avec erreurs][image-data-factory-troubleshoot-walkthrough2-datasets-with-errors]
-
-3. Dans le panneau **TABLE**, cliquez sur la **tranche problématique** dont l’**ÉTAT** est défini sur **Échec**.
-
-	![Table avec tranches problématiques][image-data-factory-troubleshoot-walkthrough2-table-with-problem-slices]
-
-4. Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’**Exécution d’activité** qui a échoué.
-
-	![Tranche de données avec des exécutions ayant échoué][image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]
-
-5. Dans le panneau **DÉTAILS SUR L’EXÉCUTION D’ACTIVITÉ**, vous pouvez télécharger les fichiers associés au traitement HDInsight. Cliquez sur **Télécharger** pour que **Status/stderr** télécharge le fichier journal d’erreur qui contient les détails sur l’erreur.
-
-	![Détails sur l’exécution d’activité avec lien de téléchargement][image-data-factory-troubleshoot-activity-run-details]
-
-    
-### Procédure pas à pas : utilisation d’Azure PowerShell pour résoudre une erreur avec un traitement Pig/Hive
-1.	Lancez **Azure PowerShell**. 
-3. Exécutez la commande Get-AzureRmDataFactorySlice pour voir les tranches et leur état. Vous devez voir une tranche avec l’état : Échec (Failed).	
-
-         
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour **Set-AzureRmDataFactoryPipelineActivePeriod**.
-
-		ResourceGroupName : ADF
-		DataFactoryName   : LogProcessingFactory
-		TableName         : EnrichedGameEventsTable
-		Start             : 5/5/2014 12:00:00 AM
-		End               : 5/6/2014 12:00:00 AM
-		RetryCount        : 0
-		Status            : Failed
-		LatencyStatus     :
-		LongRetryCount    : 0
-
-
-	Notez l’heure de **Début** pour la tranche problématique (celle dont l’**état** est défini sur **Échec**) dans la sortie. 
-4. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
-         
-		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
-
-	La valeur de **StartDateTime** est l’heure de début de la tranche problématique/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
-5. Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
-
-		Id                  : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-		ResourceGroupName   : ADF
-		DataFactoryName     : LogProcessingFactory3
-		TableName           : EnrichedGameEventsTable
-		ProcessingStartTime : 10/10/2014 3:04:52 AM
-		ProcessingEndTime   : 10/10/2014 3:06:49 AM
-		PercentComplete     : 0
-		DataSliceStart      : 5/5/2014 12:00:00 AM
-		DataSliceEnd        : 5/6/2014 12:00:00 AM
-		Status              : FailedExecution
-		Timestamp           : 10/10/2014 3:04:52 AM
-		RetryAttempt        : 0
-		Properties          : {}
-		ErrorMessage        : Pig script failed with exit code '5'. See 'wasb://adfjobs@spestore.blob.core.windows.net/PigQuery
-								Jobs/841b77c9-d56c-48d1-99a3-8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for more details.
-		ActivityName        : PigEnrichLogs
-		PipelineName        : EnrichGameLogsPipeline
-		Type                :
-
-6. Vous pouvez exécuter l’applet de commande **Save-AzureRmDataFactoryLog** avec la valeur d’ID indiquée dans la sortie ci-dessus et télécharger les fichiers journaux à l’aide de l’option **-DownloadLogs** pour l’applet de commande.
-
+### Utiliser Azure PowerShell pour résoudre une erreur  
+Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) pour plus d'informations.
 
 
 [adfgetstarted]: data-factory-get-started.md
@@ -374,4 +145,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

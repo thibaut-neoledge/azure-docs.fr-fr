@@ -4,7 +4,7 @@
    services=""
    documentationCenter="Azure"
    authors="erihur"
-   manager="kareni"
+   manager="stevenpo"
    editor=""
    tags="billing"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/13/2016"
    ms.author="erihur"/>
 
 
@@ -22,7 +22,7 @@
 
 Le coût des abonnements Microsoft Azure varie selon la formule tarifaire. Certaines formules tarifaires, telles que Visual Studio Enterprise (MPN), incluent des crédits mensuels que vous pouvez utiliser avec les services Azure selon vos besoins.
 
-Veuillez noter que 24 heures au plus d'utilisation latente de votre période de facturation précédente peuvent être reportées sur votre période de facturation actuelle.
+Veuillez noter que 24 heures au plus d'utilisation latente de votre période de facturation précédente peuvent être reportées sur votre période de facturation actuelle.
 
 Pour plus d’informations sur la consommation et les formules tarifaires, consultez la [page Options d’achat de Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -33,32 +33,17 @@ Pour plus d’informations sur la consommation et les formules tarifaires, consu
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
-<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
+### Afficher ou télécharger une facture Microsoft Azure :
 
-## Content:
+Sur le [portail du compte Azure](https://account.windowsazure.com/subscriptions), vous pouvez consulter les factures en cours et télécharger d'anciennes factures.
 
-This topic helps you with the following tasks when reading your bill.
+Pour afficher ou télécharger une facture :
 
--  View or Download a Bill for Azure
--  Customer Information
--  Understand the Invoice Summary
--  Understand the Current Charges
--  Footer Information
--  Understand the Additional Information
--  Understand Detailed Usage Charges
--  Analyze Daily Usage Data -->
-
-### Afficher ou télécharger une facture Microsoft Azure :
-
-Dans le [portail d'utilisation et de facturation](https://account.windowsazure.com/subscriptions), vous pouvez afficher les factures en cours et télécharger les factures passées.
-
-Pour afficher ou télécharger une facture :
-
-1. Connectez-vous au [portail d'utilisation et de facturation](https://account.windowsazure.com/subscriptions) à l'aide de votre ID de compte Microsoft ou de votre ID de compte professionnel ou scolaire.
+1. Connectez-vous au [portail du compte](https://account.windowsazure.com/subscriptions) à l'aide de votre ID de compte Microsoft ou de votre ID de compte professionnel ou scolaire.
 
 2. Cliquez sur l'abonnement dont vous souhaitez afficher les détails et l'utilisation.
 
-3. Cliquez sur l'**Historique de la facturation**
+3. Cliquez sur **Historique de facturation**
 
     ![Résumé - historique de facturation - 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
@@ -81,7 +66,7 @@ Pour afficher ou télécharger une facture :
 ***Important :*** *les frais répertoriés sur les relevés de facturation pour les clients internationaux sont uniquement fournis à titre d’estimation, les banques appliquant des coûts différents selon les taux de conversion.*
 
 
-Voici quelques exemples de relevés concernant deux offres distinctes disponibles sur Microsoft Azure.
+Voici quelques exemples de relevés concernant deux offres distinctes disponibles sur Microsoft Azure.
 
  **TYPE DE L'OFFRE** | **DESCRIPTION** | **TÉLÉCHARGER** |
  :--------- |:-------- | :-------|
@@ -90,9 +75,9 @@ Offre d’engagement | Dépense déduite de votre engagement prépayé | [Exempl
 
 
 
-## En-tête - Informations client
+## Informations sur le compte
 
-La section Informations client identifie les informations pertinentes relatives à votre utilisation et à votre profil. ![en-tête](./media/billing-understand-your-bill/Header.png)
+La section Informations sur le compte identifie les informations pertinentes relatives à votre utilisation et à votre profil. ![en-tête](./media/billing-understand-your-bill/Header.png)
 
 ### Numéro de facture
 Identificateur unique de facture à des fins de suivi.
@@ -110,7 +95,7 @@ Type de paiement utilisé sur le compte (facture ou carte de crédit).
 Adresse des paiements Microsoft Azure.
 
 ### Offre d’abonnement
-Type d’offre d’abonnement achetée (par exemple, paiement à l’utilisation, MSDN-Visual Studio Enterprise, etc.).
+Type d’offre d’abonnement achetée (par exemple, paiement à l’utilisation, BizSpark Plus, Pass Azure).
 
 ### E-mail du propriétaire du compte
 Adresse de messagerie du compte sous lequel le compte Microsoft Azure est enregistré.
@@ -118,11 +103,11 @@ Adresse de messagerie du compte sous lequel le compte Microsoft Azure est enregi
 
 
 ## Comprendre le résumé de la facture
-La section Résumé de la facture récapitule les transactions intervenues depuis votre dernière facture et vos coûts d'utilisation actuels.
+La section **Résumé de la facture** récapitule les transactions intervenues depuis votre dernière facture et vos coûts d'utilisation actuels.
 
 ![résumé de la facture](./media/billing-understand-your-bill/InvoiceSummary.png)
 
-La section Soldes, paiements et autres crédits de la facture récapitule les transactions intervenues depuis votre dernière facture.
+La section Solde précédent, paiements et solde restant dû de la facture récapitule les transactions intervenues depuis votre dernière facture.
 
 ### Solde précédent
 Le solde précédent est le montant total dû figurant sur votre dernière facture.
@@ -155,7 +140,7 @@ La page des informations supplémentaires fournit les références à d'autres r
 ![informations supplémentaires](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Utilisation détaillée
-Le lien de la description qui figure sous Utilisation détaillées vous dirige vers le portail d'utilisation et de facturation Azure, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure.
+Le lien de la description qui figure sous **Utilisation détaillée** vous dirige vers le portail du compte, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure. Notez que, dans le fichier .csv version 1, il n'y a aucune information sur Azure Resource Manager. Vous trouverez des informations sur Azure Resource Manager dans le fichier .csv version 2.
 
 ### Informations supplémentaires et ressources utiles
 Cette section comporte des liens vers des questions simples concernant les tailles des instances de calcul et les frais des bases de données SQ, ainsi que des liens utiles pour vous aider à répondre à d'autres questions.
@@ -168,11 +153,11 @@ Cette section concerne les instructions de paiement relatives à l'endroit où d
 
 ## Comprendre les coûts d'utilisation détaillés
 
-Dans le cadre de notre engagement continu visant à faciliter la gestion de l’utilisation d’Azure par les clients, nous avons amélioré le fichier téléchargeable qui présente l’utilisation et les coûts de vos services Azure. Le lien de téléchargement contient deux versions du fichier relatif à l’utilisation : la **version 1** utilise le format pré-existant ; la **version 2** inclut des informations supplémentaires et des noms de colonne mis à jour dans la section Utilisation quotidienne.
+Dans le cadre de notre engagement continu visant à faciliter la gestion de l’utilisation d’Azure par les clients, nous avons amélioré le fichier téléchargeable qui présente l’utilisation et les coûts de vos services Azure. Le lien de téléchargement contient deux versions du fichier relatif à l’utilisation : la **version 1** utilise le format pré-existant ; la **version 2** inclut des informations supplémentaires et des noms de colonne mis à jour dans la section Utilisation quotidienne.
 
-Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement, moins les éventuels crédits ou remises. Vous êtes facturé pour les arriérés de paiement relatifs à votre utilisation du mois passé. La section supérieure du fichier présente les détails des services qui vous sont facturés au cours du cycle de facturation du mois précédent. Le tableau ci-dessous répertorie les noms des colonnes pour chacune des versions du fichier .csv.
+Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement, moins les éventuels crédits ou remises. Vous êtes facturé pour les arriérés de paiement relatifs à votre utilisation du mois passé. La section supérieure du fichier présente les détails des services qui vous sont facturés au cours du cycle de facturation du mois précédent. Le tableau ci-dessous répertorie les noms des colonnes pour chacune des versions du fichier .csv.
 
-**Version 1** | **Version 2** | **Description**|
+**Version 1** | **Version 2** | **Description**|
 :---------------| :---------------- | --------|
 Période de facturation | Période de facturation | Période de facturation pendant laquelle la ressource a été consommée.
 Nom | Catégorie du compteur | Identifie le service de niveau supérieur dont cette utilisation relève.
@@ -180,7 +165,7 @@ Type | Sous-catégorie du compteur | Le service Azure peut aussi être défini p
 Ressource | Nom du compteur | Identifie l'unité de mesure de la ressource consommée.
 Région | Région du compteur | Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.
 SKU | SKU | Identifie l'identificateur système unique de chaque ressource Azure.
-Unité | Unité | Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s.
+Unité | Unité | Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s.
 Consommé | Quantité consommée | Contient la quantité de la ressource consommée pendant la période de facturation.
 Inclus | Quantité incluse | Contient le montant de la ressource inclus gratuitement dans votre période de facturation actuelle.
 Facturable | Quantité de dépassement | Si le montant consommé dépasse le montant inclus, la colonne affiche la différence. Ce montant vous est facturé. Pour les offres de paiement à l’utilisation n’incluant aucun montant, ce total est identique à la quantité consommée.
@@ -192,12 +177,12 @@ Tarif | Tarif | Le tarif affiche le coût qui vous incombe par unité facturable
 Valeur | Valeur | Affiche le résultat de la multiplication de la colonne Facturable par la colonne Tarif. Si la Quantité consommée ne dépasse pas le montant inclus, aucun coût n'apparaît dans cette colonne.
 
 ## Analyser les données d'utilisation quotidienne
-Selon votre utilisation, il peut y avoir des milliers de lignes de données d'utilisation quotidienne. Si vous souhaitez analyser ces données, cliquez sur **Télécharger l’utilisation**, puis choisissez un fichier de variables séparées par des virgules (.csv) afin de visualiser vos données d’utilisation quotidienne pour la période de facturation appropriée. À titre de référence, vous pouvez télécharger un exemple de fichier .csv pour chacune des versions ci-dessous.
+Selon votre utilisation, il peut y avoir des milliers de lignes de données d'utilisation quotidienne. Si vous souhaitez analyser ces données, cliquez sur **Télécharger l’utilisation**, puis choisissez un fichier de variables séparées par des virgules (.csv) afin de visualiser vos données d’utilisation quotidienne pour la période de facturation appropriée. À titre de référence, vous pouvez télécharger un exemple de fichier .csv pour chacune des versions ci-dessous.
 
  NOM | TÉLÉCHARGER |
  :----------:| :-------: |
- Fichier .csv d’utilisation détaillée version 1| [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- Fichier .csv d’utilisation détaillée version 2 | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ Fichier .csv d’utilisation détaillée version 1| [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
+ Fichier .csv d’utilisation détaillée version 2 | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 
 
@@ -205,13 +190,13 @@ Selon votre utilisation, il peut y avoir des milliers de lignes de données d'ut
 
 
 
-Dans le fichier .csv, les éléments sont répartis de façon à afficher la liste des quantités consommées pour chaque ressource pendant la période de facturation actuelle.
+Dans le fichier .csv, les éléments sont répartis de façon à afficher la liste des quantités consommées pour chaque ressource pendant la période de facturation actuelle.
 
 ![csv snapshot](./media/billing-understand-your-bill/csvsnapshotportal.png)
 
-Les colonnes suivantes affichent les détails qui affectent les tarifs au début de la période de facturation :
+Les colonnes suivantes affichent les détails qui affectent les tarifs au début de la période de facturation :
 
-**Version 1** | **Version 2** | **Description** |
+**Version 1** | **Version 2** | **Description** |
 :---------------| :----------------| -----|
 Date d'utilisation | Date d'utilisation | Date à laquelle la ressource a été émise.
 Nom | Catégorie du compteur | Identifie le service de niveau supérieur dont cette utilisation relève.
@@ -219,7 +204,7 @@ GUID de ressource | ID du compteur | Identificateur du compteur facturé. Cette 
 Type | Sous-catégorie du compteur | Le service Azure peut aussi être défini par type dans cette colonne, ce qui peut affecter le tarif.
 Ressource | Nom du compteur | Identifie l'unité de mesure de la ressource consommée.
 Région | Région du compteur | Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.
-Unité | Unité | Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s.
+Unité | Unité | Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s.
 Consommé | Quantité consommée | Contient la quantité de la ressource consommée ce jour-là.
 Sous-région | Emplacement de la ressource | Identifie le centre de données dans lequel la ressource est en cours d’exécution.
 de diffusion en continu | Service consommé | Cette colonne est utilisée pour suivre le service individuel de plateforme Azure qui ne peut pas être spécifiquement identifié dans la colonne Nom. La colonne Service colonne indique à quel service spécifique l'utilisation se rapporte.
@@ -228,19 +213,19 @@ Composant | ID de l’instance | Identificateur de la ressource en cours d’ex�
 N/A | Balises | _**Ajout de nouvelle colonne.**_ Nouveaux types de ressource dans Azure qui vous permettent de baliser les ressources. Voir http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/
 Informations supplémentaires | Informations supplémentaires | Métadonnées supplémentaires associées au service.
 Informations sur le service 1 | Informations sur le service 1 | Cette colonne indique le nom du projet auquel le service appartient sur votre abonnement.
-Informations sur le service 2 | Informations sur le service 2 | Champ hérité capturant les métadonnées facultatives propres au service.
+Informations sur le service 2 | Informations sur le service 2 | Champ hérité capturant les métadonnées facultatives propres au service.
 
-Outre certains nouveaux champs et changements de nom, la version 2 du fichier .csv inclut une mise en forme standardisée des données dans les champs ci-dessous :
+Outre certains nouveaux champs et changements de nom, la version 2 du fichier .csv inclut une mise en forme standardisée des données dans les champs ci-dessous :
 
-- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
+- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
-- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
+- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :  
+- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :  
     - Machines virtuelles
     - Stockage
     - Services de mise en réseau approvisionnés à l’aide de l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -249,7 +234,7 @@ Outre certains nouveaux champs et changements de nom, la version 2 du fichier .c
 
 
 ## Autres ressources
-Accédez à la section **Gestion des comptes, des abonnements et des rôles d’administrateur** sous [Gestion de vos services](https://msdn.microsoft.com/library/azure/dn578292.aspx) pour consulter certains liens très utiles :
+Accédez à la section **Gestion des comptes, des abonnements et des rôles d’administrateur** sous [Gestion de vos services](https://msdn.microsoft.com/library/azure/dn578292.aspx) pour consulter certains liens très utiles :
 
 - [FAQ sur la facturation et l’abonnement Azure](billing-subscription-faq.md)
 
@@ -267,4 +252,4 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

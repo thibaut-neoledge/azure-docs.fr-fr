@@ -3,7 +3,7 @@
 	description="Réinitialisez le mot de passe administrateur ou les services Bureau à distance sur une machine virtuelle Windows créée avec le modèle de déploiement du Gestionnaire des ressources."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows
 
@@ -27,7 +27,7 @@ Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison 
 Selon le modèle de déploiement de votre machine virtuelle, vous pouvez utiliser le portail Azure ou l’extension VMAccess dans Azure PowerShell. Si vous utilisez PowerShell, assurez-vous d’installer le dernier module PowerShell sur votre ordinateur de travail et d’être connecté à votre abonnement Azure. Pour plus de détails sur la procédure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] Vous pouvez vérifier la version de PowerShell que vous avez installée à l’aide de la commande `Get-Module azure | format-table version`.
+> [AZURE.TIP] Vous pouvez vérifier la version de PowerShell que vous avez installée à l’aide de la commande `Import-Module Azure; Get-Module Azure | Format-Table Version`.
 
 
 ## Machines virtuelles Windows dans le modèle de déploiement classique
@@ -140,4 +140,4 @@ Si vous ne pouvez toujours pas vous connecter à distance à votre machine virtu
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

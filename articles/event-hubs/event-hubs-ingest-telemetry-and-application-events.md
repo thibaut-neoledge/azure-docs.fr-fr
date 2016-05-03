@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sethm"/>
 
 # Ingestion d’événements d’application et de télémétrie à grande échelle
  
-Les applications modernes créent une énorme quantité d'informations lorsqu'elles sont en cours d'exécution. Qu'il s'agisse d'actions de l'utilisateur dans une application mobile ou de données de parcours sur un site web, ces données télémétriques sont précieuses à la fois pour les analyses à long terme et pour l’analyse du fonctionnement ou l'aide à la décision en temps réel. Service Bus fournit les outils dont vous avez besoin pour capturer et traiter ces informations.
+Les applications modernes créent une énorme quantité d'informations lorsqu'elles sont en cours d'exécution. Qu'il s'agisse d'actions de l'utilisateur dans une application mobile ou de données de parcours sur un site web, ces données télémétriques sont précieuses à la fois pour les analyses à long terme et pour l’analyse du fonctionnement ou l'aide à la décision en temps réel. Microsoft Azure Event Hubs fournit les outils dont vous avez besoin pour capturer et traiter ces informations.
 
 
 ## Explorer
@@ -37,4 +37,4 @@ Les applications modernes créent une énorme quantité d'informations lorsqu'el
 - [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

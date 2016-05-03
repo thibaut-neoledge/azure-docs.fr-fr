@@ -3,8 +3,8 @@
 	description="Découvrez comment ajouter des unités d’encodage avec .NET"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,milangada,gtrifonov" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #Mise à l’échelle de l’encodage avec le Kit de développement logiciel (SDK) .NET
 
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-encoding-units.md)
+- [Portail](media-services-portal-encoding-units.md)
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -81,4 +81,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

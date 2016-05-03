@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -112,13 +112,13 @@ Pour les règles de synchronisation sortantes, il existe deux constantes différ
 
 ### ImportedValue
 
-La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets : ImportedValue(“proxyAddresses”).
+La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets : ImportedValue(”proxyAddresses”).
 
 Généralement lors de la synchronisation, un attribut utilise la valeur attendue, même s’il n’a pas encore été exporté ou si une erreur a été reçue pendant l’exportation (“top of the tower”). Une synchronisation entrante part du principe qu’un attribut qui n’a pas encore atteint un annuaire connecté finira par l’atteindre. Dans certains cas, il est important de ne synchroniser qu’une valeur qui a été confirmée par l’annuaire connecté, et dans ce cas la fonction ImportedValue est utilisée (“hologram and delta import tower”).
 
 Un exemple se trouve dans la règle de synchronisation par défaut In from AD – User Common d’Exchange où, dans la version hybride d’Exchange, la valeur ajoutée par Exchange Online doit être synchronisée uniquement s’il a été confirmé que la valeur avait été exportée avec succès :
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync : référence des fonctions](active-directory-aadconnectsync-functions-reference.md)
 
@@ -130,4 +130,4 @@ Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

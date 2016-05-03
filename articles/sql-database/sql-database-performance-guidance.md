@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/11/2016"
+	ms.date="04/19/2016"
 	ms.author="carlrab" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
 
-## Vue d'ensemble 
+## Vue d'ensemble
 
 La base de données SQL Microsoft Azure compte trois [niveaux de service](sql-database-service-tiers.md) : De base, Standard et Premium. Tous ces niveaux isolent strictement les ressources fournies à votre base de données SQL Azure et garantissent des performances prévisibles. Le débit garanti pour votre base de données augmente du niveau De base à Standard, puis passe à Premium.
 
@@ -39,10 +39,10 @@ Pour comprendre comment les niveaux de service De base, Standard et Premium amé
 
 Microsoft inclut également de nombreuses fonctionnalités de gestion automatique dans la base de données SQL Azure, notamment la haute disponibilité automatique et la gestion intégrée.
 
-### Haute disponibilité automatique 
+### Haute disponibilité automatique
  La base de données SQL Azure conserve au moins trois réplicas pour chaque base de données utilisateur et possède une logique permettant de valider automatiquement chaque modification de façon synchrone sur un quorum de réplicas. Cela garantit qu’une défaillance d’ordinateur unique n’entraîne pas de perte de données. En outre, chaque réplica est placé sur différents racks matériels de sorte qu’une perte de puissance ou de commutateurs réseau n’affecte pas votre base de données. Enfin, il est logique de reconstruire automatiquement les réplicas si un ordinateur est perdu, afin que le système conserve automatiquement les propriétés souhaitées d’intégrité même si un ordinateur devient défectueux. Ces mécanismes évitent le processus chronophage actuellement requis pour installer et configurer des solutions haute disponibilité. Disposer d’une solution haute disponibilité préconfigurée pour vos données supprime un autre grand casse-tête : la création d’une solution de base de données stratégique à l’aide de techniques traditionnelles.
 
-### Gestion intégrée 
+### Gestion intégrée
  La base de données SQL Azure est exécutée en tant que service. Cela signifie qu’il existe des cibles de temps de fonctionnement définies pour chaque base de données, évitant ainsi les longs temps d’arrêt liés à la maintenance. Microsoft fournit une solution de fournisseur unique pour le service, ce qui signifie qu’il n’y a qu’une société à contacter en cas de problèmes éventuels. En outre, Microsoft met continuellement à jour le service, ajoute des fonctionnalités, de la capacité et recherche des moyens pour améliorer votre expérience. Les mises à jour s’effectuent en toute transparence et sans temps d’arrêt, ce qui signifie qu’elles sont intégrées dans notre mécanisme normal de basculement haute disponibilité. Cela vous permet de tirer immédiatement parti des nouvelles fonctionnalités dès qu’elles sont disponibles au lieu d’attendre la mise à niveau d’un serveur lors d’un futur temps d’arrêt.
 
 Toutes ces fonctionnalités sont fournies dans tous les niveaux de service, à partir d’un petit prix d’entrée de quelques dollars par mois. Le coût est bien inférieur au coût que représenteraient l’achat et l’utilisation de votre propre serveur, ce qui signifie que même les plus petits projets peuvent tirer parti d’Azure sans impliquer de dépenses importantes.
@@ -68,18 +68,18 @@ Bien que chaque charge de travail puisse différer, les niveaux de service visen
 
 ### Cas d’utilisation du niveau de service De base :
 
-- **Prise en main de la base de données SQL Azure** : souvent, les applications en cours de développement ne nécessitent pas des niveaux de performances élevés. Les bases de données De base fournissent un environnement idéal de développement de base de données à moindre coût.
-- **Base de données avec un seul utilisateur** : généralement, les applications qui associent un seul utilisateur avec une base de données n'ont pas des exigences élevées en matière d'accès concurrentiel et de performances. Les applications de ce type font des candidates idéales pour le niveau de service De base.
+- **Prise en main de la base de données SQL Azure** : souvent, les applications en cours de développement ne nécessitent pas des niveaux de performances élevés. Les bases de données De base fournissent un environnement idéal de développement de base de données à moindre coût.
+- **Base de données avec un seul utilisateur** : généralement, les applications qui associent un seul utilisateur avec une base de données n'ont pas des exigences élevées en matière d'accès concurrentiel et de performances. Les applications de ce type font des candidates idéales pour le niveau de service De base.
 
 ### Cas d’utilisation du niveau de service Standard :
 
-- **Base de données avec plusieurs demandes simultanées** : les applications qui gèrent plusieurs utilisateurs simultanément, telles que des sites web avec un trafic modéré ou des applications de service qui requièrent une quantité supérieure de ressources, font des candidates idéales pour le niveau de service Standard.
+- **Base de données avec plusieurs demandes simultanées** : les applications qui gèrent plusieurs utilisateurs simultanément, telles que des sites web avec un trafic modéré ou des applications de service qui requièrent une quantité supérieure de ressources, font des candidates idéales pour le niveau de service Standard.
 
 ### Cas d’utilisation du niveau de service Premium :
 
 - **Charge maximale élevée**: une application qui nécessite un volume élevé d'UC, de mémoire ou d'E/S pour exécuter ses opérations. Par exemple, si une opération de base de données est connue pour utiliser plusieurs cœurs d’UC pendant une période prolongée, l’utilisation de bases de données Premium est appropriée.
-- **Nombreuses demandes simultanées** : certaines applications de base de données gèrent de nombreuses demandes simultanées, par exemple un site web avec un volume de trafic élevé. Les niveaux de service De base et Standard présentent des limites au nombre de demandes simultanées. Les applications qui requièrent plus de connexions doivent choisir une taille de réservation appropriée pour traiter le nombre maximum de demandes nécessaires.
-- **Faible latence** : certaines applications doivent garantir une réponse de la base de données dans un délai minimum. Si une procédure stockée donnée est appelée dans le cadre d’une opération client plus large, il existe peut-être une exigence de renvoi depuis l’appel en moins de 20 millisecondes 99 % du temps. Ce type d’application bénéficiera de bases de données Premium afin de garantir la disponibilité de la puissance de calcul.
+- **Nombreuses demandes simultanées** : certaines applications de base de données gèrent de nombreuses demandes simultanées, par exemple un site web avec un volume de trafic élevé. Les niveaux de service De base et Standard présentent des limites au nombre de demandes simultanées. Les applications qui requièrent plus de connexions doivent choisir une taille de réservation appropriée pour traiter le nombre maximum de demandes nécessaires.
+- **Faible latence** : certaines applications doivent garantir une réponse de la base de données dans un délai minimum. Si une procédure stockée donnée est appelée dans le cadre d’une opération client plus large, il existe peut-être une exigence de renvoi depuis l’appel en moins de 20 millisecondes 99 % du temps. Ce type d’application bénéficiera de bases de données Premium afin de garantir la disponibilité de la puissance de calcul.
 
 Le niveau exact dont vous aurez besoin dépend des exigences de charge maximale pour chaque dimension de ressource. Certaines applications peuvent utiliser des quantités insignifiantes pour une ressource mais avoir des exigences considérables pour une autre.
 
@@ -123,12 +123,12 @@ Le **In-Memory OLTP maximal** fait référence à la quantité maximale de stock
 
 Le **nombre maximal de requêtes simultanées** représente le nombre maximal de requêtes simultanées qu'un utilisateur ou une application exécute en même temps dans la base de données. Pour afficher le nombre de requêtes simultanées, exécutez la requête Transact-SQL suivante sur votre base de données SQL :
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 
 Si vous analysez la charge de travail d'une base de données SQL Server locale, vous devez modifier cette requête pour la filtrer selon la base de données spécifique que vous analysez. Par exemple, si vous utilisez une base de données locale nommée MyDatabase, la requête Transact-SQL suivante renverra le nombre de requêtes simultanées dans cette base de données.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 	INNER JOIN sys.databases D ON D.database_id = R.database_id
 	AND D.name = 'MyDatabase'
@@ -173,17 +173,17 @@ Il existe deux vues qui vous permettent de surveiller l'utilisation des ressourc
 ### Avec sys.dm\_db\_resource\_stats
 La vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe dans chaque base de données SQL et fournit les dernières données sur l'utilisation des ressources par rapport au niveau de service. Les pourcentages moyens de CPU, d'E/S des données, d'écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
-Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm\_db\_resource\_stats** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
+Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm\_db\_resource\_stats ** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
 
 	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
-	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
-	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
-	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent',
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent',
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent',
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent'
 	FROM sys.dm_db_resource_stats;  
 
 Pour les autres requêtes, consultez les exemples dans [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
@@ -206,9 +206,9 @@ La base de données SQL Azure expose les informations sur les ressources utilis�
 
 L’exemple suivant montre comment les données de cette vue sont exposées :
 
-	SELECT TOP 10 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 10 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![sys resource stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
@@ -218,16 +218,16 @@ L'exemple suivant montre différentes approches permettant de comprendre l'utili
 >[AZURE.NOTE] Comme certaines colonnes de la vue **sys.resource\_stats** ont changé dans les bases de données V12 actuelles, les exemples de requêtes des exemples suivants peuvent générer des erreurs. Les mises à jour ultérieures de cette rubrique fourniront de nouvelles versions de requêtes qui corrigeront ce problème.
 
 1. Par exemple, pour examiner l’utilisation des ressources de la semaine précédente pour la base de données userdb1, vous pouvez exécuter la requête suivante.
-	
-		SELECT * 
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND 
+
+		SELECT *
+		FROM sys.resource_stats
+		WHERE database_name = 'userdb1' AND
 		      start_time > DATEADD(day, -7, GETDATE())
 		ORDER BY start_time DESC;
-	
+
 2. Afin d’évaluer l’adéquation entre votre charge de travail et le niveau de performances, vous devez étudier les différents aspects des métriques de ressources : UC, lectures, écritures, nombre de Workers et nombre de sessions. Voici une requête modifiée à l’aide de sys.resource\_stats afin d’indiquer les valeurs moyennes, ainsi que les valeurs maximales de ces métriques de ressources.
-	
-		SELECT 
+
+		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
 		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
@@ -238,41 +238,41 @@ L'exemple suivant montre différentes approches permettant de comprendre l'utili
 		    max(active_session_count) AS 'Maximum # of Sessions',
 		    avg(active_worker_count) AS 'Average # of Workers',
 		    max(active_worker_count) AS 'Maximum # of Workers'
-		FROM sys.resource_stats 
+		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 3. Avec les informations ci-dessus relatives aux valeurs moyennes et maximales de chaque métrique de ressources, vous pouvez évaluer l’adéquation entre votre charge de travail et le niveau de performances que vous avez choisi. Dans la plupart des cas, les valeurs moyennes de sys.resource\_stats vous offrent une bonne référence à utiliser par rapport à la taille cible. Elles doivent constituer votre principale jauge de mesure. Par exemple, si vous utilisez le niveau de service Standard avec un niveau de performances S2, si les pourcentages d’utilisation moyens de l’UC, des lectures et des écritures sont inférieurs à 40 %, le nombre moyen de Workers inférieur à 50 et le nombre moyen de sessions inférieur à 200, votre charge de travail peut s’intégrer au niveau de performances S1. Il est facile de voir si votre base de données s’intègre dans les limites de Workers et de sessions. Pour voir si une base de données s’adapte à un niveau de performances inférieur en ce qui concerne l’UC, les lectures et les écritures, divisez le nombre de DTU du niveau de performances inférieur par le nombre de DTU de votre niveau de performances actuel et multipliez le résultat par 100 :
-	
+
 	**DTU S1 / DTU S2 × 100 = 20 / 50 × 100 = 40**
-	
+
 	Le résultat est la différence de performances relative entre les deux niveaux de performances en pourcentage. Si votre utilisation ne dépasse pas ce pourcentage, votre charge de travail peut s’adapter au niveau de performances inférieur. Toutefois, vous devez également examiner toutes les plages de valeurs d’utilisation des ressources et déterminer, en vous appuyant sur le pourcentage, la fréquence selon laquelle la charge de travail de votre base de données s’adapterait au niveau de performances inférieur. La requête suivante génère le pourcentage d’adéquation par dimension de ressource, selon le seuil de 40 % calculé ci-dessus.
-	
-		SELECT 
+
+		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	En fonction de votre objectif de niveau de service de la base de données, vous pouvez décider si votre charge de travail s’adapte au niveau de performances inférieur. Si votre objectif de niveau de service de charge de travail de la base de données est de 99,9 % et que la requête ci-dessus retourne des valeurs supérieures à 99,9 pour les trois dimensions de ressources, il est très probable que votre charge de travail s’adapte au niveau de performances inférieur.
-	
+
 	Examiner le pourcentage d’adéquation vous indique également si vous devez passer au niveau de performances supérieur pour atteindre votre objectif de niveau de service. Par exemple, la base de données userdb1 indique l’utilisation suivante pour la semaine précédente.
-	
+
 	| Pourcentage moyen d’UC | Pourcentage maximum d’UC |
 	|---|---|
 	| 24,5 | 100,00 |
-	
+
 	Le pourcentage moyen d’UC représente environ un quart de la limite du niveau de performances, ce qui conviendrait bien au niveau de performances de la base de données. Toutefois, la valeur maximum montre que la base de données atteint la limite du niveau de performances. Devez-vous passer au niveau de performances supérieur ? Là encore, vous devez examiner le nombre de fois où votre charge de travail atteint 100 % et comparer ce chiffre à votre objectif de niveau de service de charge de travail de la base de données.
-	
-		SELECT 
+
+		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
 		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	Si la requête ci-dessus retourne une valeur inférieure à 99,9 pour l’une des trois dimensions de ressources, vous devez envisager de passer au niveau de performances supérieur, ou employer des techniques de paramétrage de l’application afin de réduire la charge sur la base de données SQL Azure.
-	
+
 4. L’exercice ci-dessus doit également prendre en compte l’augmentation prévue de votre charge de travail à l’avenir.
 
 ## Paramétrage de votre application
@@ -283,10 +283,10 @@ Dans un SQL Server local traditionnel, le processus de planification de la capac
 
 Alors que les niveaux de service sont conçus pour améliorer la stabilité et la prévisibilité des performances d’une application, il existe quelques meilleures pratiques, recommandées pour le paramétrage de votre application afin de mieux tirer de ses fonctionnalités. De nombreuses applications gagneront considérablement en performances en passant simplement à un niveau de performances et/ou à un niveau de service supérieur. Toutefois, toutes les applications n’en tireront pas autant parti sans paramétrage supplémentaire. Les applications dotées des caractéristiques suivantes doivent également envisager un paramétrage supplémentaire afin d’optimiser les performances lors de l’utilisation de la base de données SQL Azure.
 
-- **Les applications dont les performances sont lentes en raison d'un comportement bavard** : cela inclut les applications qui effectuent trop d'opérations d'accès aux données qui sont sensibles à la latence du réseau. De telles applications peuvent nécessiter une modification pour réduire le nombre d’opérations d’accès aux données sur la base de données SQL Azure. Par exemple, l’application peut être améliorée à l’aide de techniques comme le traitement par lot des requêtes ad hoc ou le déplacement des requêtes dans des procédures stockées. Pour plus d’informations, consultez la section Traitement par lot des requêtes ci-après.
-- **Les bases de données avec une charge de travail intensive qui ne peuvent pas être prises en charge par un seul ordinateur** : les bases de données qui dépassent les ressources du niveau de performances Premium le plus élevé ne sont pas de bonnes candidates. Ces bases de données peuvent bénéficier de la montée en charge de la charge de travail. Pour plus d’informations, consultez les sections Partitionnement entre plusieurs bases de données et Partitionnement fonctionnel ci-après.
-- **Les applications qui contiennent des requêtes non optimales** : les applications, en particulier dans la couche d'accès aux données, qui ont des requêtes mal paramétrées peuvent ne pas être en mesure de choisir un niveau de performances supérieur comme prévu. Cela inclut les requêtes dépourvues d’une clause WHERE et les requêtes présentant des index manquants ou des statistiques obsolètes. Ces applications bénéficieront des techniques de paramétrage des performances de requête standards. Pour plus d’informations, consultez les sections Index manquants et Paramétrage/Compréhension de requêtes ci-après.
-- **Les applications dotées d'un accès aux données non optimal** : les applications qui rencontrent des problèmes inhérents de concurrence d'accès aux données, par exemple d'interblocage, peuvent ne pas être en mesure de choisir un niveau de performances supérieur. Les développeurs d’applications doivent envisager de réduire les boucles sur la base de données SQL Azure en mettant en cache des données côté client à l’aide du service Azure Caching ou d’autres technologies de mise en cache. Consultez la section relative à la mise en cache de la couche Application ci-après.
+- **Les applications dont les performances sont lentes en raison d'un comportement bavard** : cela inclut les applications qui effectuent trop d'opérations d'accès aux données qui sont sensibles à la latence du réseau. De telles applications peuvent nécessiter une modification pour réduire le nombre d’opérations d’accès aux données sur la base de données SQL Azure. Par exemple, l’application peut être améliorée à l’aide de techniques comme le traitement par lot des requêtes ad hoc ou le déplacement des requêtes dans des procédures stockées. Pour plus d’informations, consultez la section Traitement par lot des requêtes ci-après.
+- **Les bases de données avec une charge de travail intensive qui ne peuvent pas être prises en charge par un seul ordinateur** : les bases de données qui dépassent les ressources du niveau de performances Premium le plus élevé ne sont pas de bonnes candidates. Ces bases de données peuvent bénéficier de la montée en charge de la charge de travail. Pour plus d’informations, consultez les sections Partitionnement entre plusieurs bases de données et Partitionnement fonctionnel ci-après.
+- **Les applications qui contiennent des requêtes non optimales** : les applications, en particulier dans la couche d'accès aux données, qui ont des requêtes mal paramétrées peuvent ne pas être en mesure de choisir un niveau de performances supérieur comme prévu. Cela inclut les requêtes dépourvues d’une clause WHERE et les requêtes présentant des index manquants ou des statistiques obsolètes. Ces applications bénéficieront des techniques de paramétrage des performances de requête standards. Pour plus d’informations, consultez les sections Index manquants et Paramétrage/Compréhension de requêtes ci-après.
+- **Les applications dotées d'un accès aux données non optimal** : les applications qui rencontrent des problèmes inhérents de concurrence d'accès aux données, par exemple d'interblocage, peuvent ne pas être en mesure de choisir un niveau de performances supérieur. Les développeurs d’applications doivent envisager de réduire les boucles sur la base de données SQL Azure en mettant en cache des données côté client à l’aide du service Azure Caching ou d’autres technologies de mise en cache. Consultez la section relative à la mise en cache de la couche Application ci-après.
 
 ## Techniques de paramétrage
 Cette section explique certaines techniques que vous pouvez utiliser pour paramétrer la base de données SQL Azure afin d’obtenir les meilleures performances de votre application et d’être en mesure d’exécuter le plus petit niveau de performances possible. Plusieurs techniques correspondent aux meilleures pratiques de paramétrage SQL Server traditionnelles, mais certaines sont spécifiques à la base de données SQL Azure. Dans certains cas, les techniques SQL Server traditionnelles peuvent être étendues pour également fonctionner sur la base de données SQL Azure en examinant les ressources utilisées par une base de données afin de déterminer des zones à paramétrer davantage.
@@ -316,8 +316,8 @@ Dans l’exemple suivant, le plan de requête sélectionné contient une analyse
 	END
 	COMMIT TRANSACTION;
 	GO
-	SELECT m1.col1 
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
+	SELECT m1.col1
+	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
 	WHERE m1.col2 = 4;
 
 ![plan de requête avec index manquants](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
@@ -328,25 +328,25 @@ La base de données SQL Azure contient des fonctionnalités pour indiquer aux ad
 
 La requête suivante peut être utilisée pour évaluer les index manquants éventuels.
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
-	    mig.index_group_handle, mid.index_handle, 
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
-	              (' + ISNULL (mid.equality_columns,'') 
-	              + CASE WHEN mid.equality_columns IS NOT NULL 
-	                          AND mid.inequality_columns IS NOT NULL 
+	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+	    mig.index_group_handle, mid.index_handle,
+	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+	              (' + ISNULL (mid.equality_columns,'')
+	              + CASE WHEN mid.equality_columns IS NOT NULL
+	                          AND mid.inequality_columns IS NOT NULL
 	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')' 
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
-	    migs.*, 
-	    mid.database_id, 
+	              + ')'
+	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+	    migs.*,
+	    mid.database_id,
 	    mid.[object_id]
 	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
+	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
 	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid 
+	INNER JOIN sys.dm_db_missing_index_details AS mid
 	    ON mig.index_handle = mid.index_handle
 	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
@@ -371,7 +371,7 @@ Vous trouverez ci-dessous un exemple de configuration.
 
 	DROP TABLE psptest1;
 	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
-	
+
 	DECLARE @a int = 0;
 	SET NOCOUNT ON;
 	BEGIN TRANSACTION
@@ -384,16 +384,16 @@ Vous trouverez ci-dessous un exemple de configuration.
 	COMMIT TRANSACTION
 	CREATE INDEX i1 on psptest1(col2);
 	GO
-	
+
 	CREATE PROCEDURE psp1 (@param1 int)
 	AS
 	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 
+	    INSERT INTO t1 SELECT * FROM psptest1
 	    WHERE col2 = @param1
 	    ORDER BY col2;
 	END
 	GO
-	
+
 	CREATE PROCEDURE psp2 (@param2 int)
 	AS
 	BEGIN
@@ -402,7 +402,7 @@ Vous trouverez ci-dessous un exemple de configuration.
 	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
 	END
 	GO
-	
+
 	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 	GO
 
@@ -413,7 +413,7 @@ Le code d’installation crée une table qui contient une distribution décalée
 	-- Prime Procedure Cache with scan plan
 	EXEC psp1 @param1=1;
 	TRUNCATE TABLE t1;
-	
+
 	-- Iterate multiple times to show the performance difference
 	DECLARE @i int = 0;
 	WHILE @i < 1000
@@ -427,7 +427,7 @@ Le code d’installation crée une table qui contient une distribution décalée
 
 	EXEC psp2 @param2=1;
 	TRUNCATE TABLE t1;
-	
+
 	DECLARE @i int = 0;
 	WHILE @i < 1000
 	BEGIN
@@ -452,9 +452,9 @@ La deuxième partie de l’exemple utilise un indicateur de requête pour spéci
 
 Les répercussions peuvent être observées en examinant la table **sys.resource\_stats**. Remarque : il y aura un délai entre le moment où vous exécutez le test et le moment où les données seront renseignées dans la table. Dans cet exemple, la partie 1 s’est exécutée pendant la fenêtre temporelle 22:25:00, et la partie 2 pendant la fenêtre temporelle 22:35:00. Notez que la première fenêtre temporelle a utilisé plus de ressources que la dernière (en raison d’améliorations de l’efficacité du plan).
 
-	SELECT TOP 1000 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 1000 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![Paramétrage de requêtes](./media/sql-database-performance-guidance/query_tuning_4.png)
@@ -491,4 +491,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

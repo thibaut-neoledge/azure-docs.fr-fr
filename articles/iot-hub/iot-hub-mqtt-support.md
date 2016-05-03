@@ -67,7 +67,7 @@ Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événem
 
 ### Envoi de messages à IoT Hub
 
-Après avoir correctement établi la connexion, un appareil peut envoyer des messages à IoT Hub à l’aide de `devices/{did}/messages/events/` ou `devices/{did}/messages/events/{property_bag}` comme **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple :
+Après avoir correctement établi la connexion, un appareil peut envoyer des messages à IoT Hub à l’aide de `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple :
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -75,11 +75,11 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [AZURE.NOTE] Ce codage est le même que celui utilisé pour les chaînes de requête dans le protocole HTTP.
 
-L’application cliente de l’appareil peut également utiliser `devices/{did}/messages/events/{property_bag}` comme **nom de canal « Will »** pour définir des *messages « Will »* à transmettre en tant que message de télémétrie.
+L’application cliente de l’appareil peut également utiliser `devices/{device_id}/messages/events/{property_bag}` comme **nom de canal « Will »** pour définir des *messages « Will »* à transmettre en tant que message de télémétrie.
 
 ### Réception de messages
 
-Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisant `devices/{did}/messages/devicebound/#”` comme **filtre de canal**. IoT Hub remet les messages avec le **nom de canal** `devices/{did}/messages/devicebound/` ou `devices/{did}/messages/devicebound/{property_bag}` s’il existe des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$**, tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
+Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisant `devices/{device_id}/messages/devicebound/#”` comme **filtre de canal**. IoT Hub remet les messages avec le **nom de canal** `devices/{device_id}/messages/devicebound/` ou `devices/{device_id}/messages/devicebound/{property_bag}` s’il existe des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$**, tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
 
 ## Étapes suivantes
 
@@ -102,4 +102,4 @@ Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

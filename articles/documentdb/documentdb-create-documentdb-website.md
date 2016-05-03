@@ -2,7 +2,7 @@
 	pageTitle="Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager | Microsoft Azure" 
 	description="Découvrez comment déployer un compte DocumentDB, Azure App Service Web Apps et un exemple d’application web avec un modèle Azure Resource Manager." 
 	services="documentdb, app-service\web" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2016" 
-	ms.author="ryancraw"/>
+	ms.author="stbaro"/>
 
-# Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager #
+# Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager
 
 Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
 
@@ -26,7 +26,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 -	Comment puis-je utiliser un modèle Azure Resource Manager pour déployer et intégrer un compte DocumentDB, une application web dans App Service Web Apps et une application Webdeploy ?
 
 <a id="Prerequisites"></a>
-## Configuration requise ##
+## Configuration requise
 > [AZURE.TIP] Ce didacticiel ne suppose pas d'être familiarisé avec les modèles de gestionnaire des ressources Azure, avec JSON ou avec Azure PowerShell, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 
 Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des éléments suivants :
@@ -47,7 +47,7 @@ Commençons par télécharger les fichiers d'exemple que nous utiliserons dans c
 ![Capture d’écran de la fenêtre Propriétés avec le bouton Débloquer mis en surbrillance](./media/documentdb-create-documentdb-website/image1.png)
 
 <a id="Build"></a>
-##Étape 2 : déploiement de l’exemple de compte DocumentDB, d’une application web App Service et d’une application de démonstration ##
+##Étape 2 : déploiement de l’exemple de compte DocumentDB, d’une application web App Service et d’une application de démonstration
 
 Maintenant, nous allons déployer notre premier modèle.
 
@@ -147,7 +147,7 @@ Maintenant, nous allons déployer notre premier modèle.
 12. N'hésitez pas à explorer l'utilisation du portail DocumentDB ou modifier l'exemple d'application Todo. Lorsque vous êtes prêt, nous allons déployer un autre modèle.
 	
 <a id="Build"></a>
-## Étape 3 : déploiement de l’exemple de compte DocumentDB et d’application web ##
+## Étape 3 : déploiement de l’exemple de compte DocumentDB et d’application web
 
 Maintenant nous allons déployer notre deuxième modèle.
 
@@ -210,4 +210,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->
