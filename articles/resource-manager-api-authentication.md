@@ -301,7 +301,8 @@ Les données de la demande de jeton d’octroi d’informations d’identificati
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | ID client de votre application
-| resource | Identificateur codé URL de la ressource pour laquelle le jeton d’accès est demandé. Dans ce cas, l’identificateur de l’API Azure AD Graph est le suivant : **https://graph.windows.net/** | clé\_secrète\_client or type\_assertion\_client + assertion\_client | Si votre application utilise des informations d’identification de mot de passe, utilisez la valeur clé\_secrète\_client. Si votre application utilise des informations d’identification de certificat, utilisez la valeur assertion\_client.
+| resource | Identificateur codé URL de la ressource pour laquelle le jeton d’accès est demandé. Dans ce cas, l’identificateur de l’API Azure AD Graph est le suivant : **https://graph.windows.net/** 
+| clé\_secrète\_client or type\_assertion\_client + assertion\_client | Si votre application utilise des informations d’identification de mot de passe, utilisez la valeur clé\_secrète\_client. Si votre application utilise des informations d’identification de certificat, utilisez la valeur assertion\_client.
 
 Voici un exemple de demande de jeton d’octroi d’informations d’identification du client :
 

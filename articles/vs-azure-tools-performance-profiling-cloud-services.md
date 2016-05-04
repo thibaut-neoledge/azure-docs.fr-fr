@@ -94,7 +94,7 @@ Vous avez le choix entre plusieurs méthodes de collecte pour le profilage, selo
 
 - **Accès concurrentiel** : cette méthode collecte des données sur la contention de ressources, ainsi que des données sur l’exécution des threads et processus qui sont utiles pour analyser les applications multithread et multiprocessus. La méthode d’accès concurrentiel collecte des données pour chaque événement qui bloque l’exécution de votre code, par exemple quand un thread attend la libération d’un verrou d’accès à une ressource d’application. Cette méthode est utile pour l’analyse des applications multithread.
 
-- Vous pouvez également activer le **profilage d’interaction de couche **, qui fournit des informations supplémentaires sur les temps d’exécution des appels ADO.NET synchrones dans les fonctions des applications multicouches qui communiquent avec une ou plusieurs bases de données. Vous pouvez collecter des données d’interaction de couche à l’aide de n’importe quelle méthode de profilage. Pour plus d’informations sur le profilage d’interaction de couche, consultez [Vue Interactions de couche](https://msdn.microsoft.com/library/azure/dd557764.aspx).
+- Vous pouvez également activer le **profilage d’interaction de couche**, qui fournit des informations supplémentaires sur les temps d’exécution des appels ADO.NET synchrones dans les fonctions des applications multicouches qui communiquent avec une ou plusieurs bases de données. Vous pouvez collecter des données d’interaction de couche à l’aide de n’importe quelle méthode de profilage. Pour plus d’informations sur le profilage d’interaction de couche, consultez [Vue Interactions de couche](https://msdn.microsoft.com/library/azure/dd557764.aspx).
 
 ## Configuration des paramètres de profilage
 
