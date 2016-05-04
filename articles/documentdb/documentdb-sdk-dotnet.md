@@ -50,7 +50,7 @@
     - Opérateur Take pour activer le comportement SELECT TOP dans LINQ
     - Opérateur CompareTo pour activer les comparaisons de plages de chaînes
     - Opérateurs Conditional (?) et Coalesce (??)
-  - **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de projection de modèle avec Where-In dans la requête linq. [N°81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de projection de modèle avec Where-In dans la requête linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Résolu]** Si la dernière expression n’est pas Select, le fournisseur LINQ n’effectuait aucune projection et créait une expression SELECT * incorrecte. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
