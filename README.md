@@ -92,7 +92,7 @@ Tous les articles dans ce dépôt font appel à Markdown dans GitHub. Voici une 
 
 ## Métadonnées d’articles
 
-Les métadonnées d’articles activent certaines fonctionnalités sur le site web azure.microsoft.com, telles que l’attribution de l’auteur, l’attribution du contributeur, les vues miniatures, les descriptions des articles et les optimisations du référencement d’un site auprès d’un moteur de recherche, ainsi que la création de rapports Microsoft pour évaluer les performances du contenu. Les métadonnées sont donc très importantes. [Voici quelques instructions qui vous aideront à optimiser vos métadonnées](./contributor-guide/article-metadata.md).
+Les métadonnées d’articles activent certaines fonctionnalités sur le site web azure.microsoft.com, telles que l’attribution de l’auteur, l’attribution du contributeur, les vues miniatures, les descriptions des articles et les optimisations du référencement d’un site auprès d’un moteur de recherche, ainsi que la création de rapports Microsoft pour évaluer les performances du contenu. Les métadonnées sont donc très importantes. [Voici quelques instructions qui vous aideront à optimiser vos métadonnées](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## Autres ressources
 
