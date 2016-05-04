@@ -14,7 +14,7 @@ Merci de l’intérêt que vous portez à la documentation Azure.
 * [Utiliser GitHub, Git et ce dépôt](#use-github-git-and-this-repository)
 * [Comment utiliser Markdown pour mettre en forme votre rubrique](#how-to-use-markdown-to-format-your-topic)
 * [Autres ressources](#more-resources)
-* [Index de tous les articles du guide du contributeur](./contributor-guide/contributor-guide-index.md) (ouvre une nouvelle page)
+* [Index de tous les articles du guide du contributeur](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (ouvre une nouvelle page)
 
 ## Comment contribuer ?
 
@@ -47,7 +47,7 @@ Le contenu du dépôt azure-content suit l’organisation de la documentation su
 Le dossier *\articles* contient les articles de la documentation mis en forme en tant que fichiers Markdown avec une extension *.md*.
 
 
-* **Noms de fichier des articles :** consultez [nos instructions sur l’affectation des noms de fichier](./contributor-guide/file-names-and-locations.md).
+* **Noms de fichier des articles :** consultez [nos instructions sur l’affectation des noms de fichier](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md).
 
 Les articles dans leur propre dossier de service sont publiés dans Azure.Microsoft.com. Chemin :
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
@@ -56,7 +56,7 @@ Les articles dans leur propre dossier de service sont publiés dans Azure.Micros
 
 ### \includes
 
-Vous pouvez créer des sections de contenu réutilisables à inclure dans un ou plusieurs articles. Consultez [Extensions personnalisées utilisées dans notre contenu technique](./contributor-guide/custom-markdown-extensions.md).
+Vous pouvez créer des sections de contenu réutilisables à inclure dans un ou plusieurs articles. Consultez [Extensions personnalisées utilisées dans notre contenu technique](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -68,9 +68,9 @@ Ce dossier contient des articles qui font partie de notre guide du contributeur.
 
 ## Utiliser GitHub, Git et ce dépôt
 
-Pour plus d’informations sur la façon de contribuer, d’utiliser l’interface utilisateur de GitHub pour apporter des modifications mineures, et de répliquer et cloner le dépôt pour effectuer des contributions majeures, consultez [Installer et configurer les outils de création dans GitHub](./contributor-guide/tools-and-setup.md).
+Pour plus d’informations sur la façon de contribuer, d’utiliser l’interface utilisateur de GitHub pour apporter des modifications mineures, et de répliquer et cloner le dépôt pour effectuer des contributions majeures, consultez [Installer et configurer les outils de création dans GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
 
-Si vous installez GitBash et que vous choisissez de travailler localement, les étapes permettant de créer une branche de travail locale, d’apporter des modifications et de les renvoyer vers la branche principale sont répertoriées dans [Commandes Git pour créer un article ou mettre à jour un article existant](./contributor-guide/git-commands-for-master.md).
+Si vous installez GitBash et que vous choisissez de travailler localement, les étapes permettant de créer une branche de travail locale, d’apporter des modifications et de les renvoyer vers la branche principale sont répertoriées dans [Commandes Git pour créer un article ou mettre à jour un article existant](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md).
 
 ### Branches
 
@@ -86,16 +86,16 @@ Tous les articles dans ce dépôt font appel à Markdown dans GitHub. Voici une 
 
 - [Principes fondamentaux de Markdown](https://help.github.com/articles/markdown-basics/)
 
-- [Fiche récapitulative imprimable sur Markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Fiche récapitulative imprimable sur Markdown](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- Pour obtenir notre liste d’éditeurs Markdown, consultez la rubrique sur [les outils et l’installation](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- Pour obtenir notre liste d’éditeurs Markdown, consultez la rubrique sur [les outils et l’installation](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Métadonnées d’articles
 
-Les métadonnées d’articles activent certaines fonctionnalités sur le site web azure.microsoft.com, telles que l’attribution de l’auteur, l’attribution du contributeur, les vues miniatures, les descriptions des articles et les optimisations du référencement d’un site auprès d’un moteur de recherche, ainsi que la création de rapports Microsoft pour évaluer les performances du contenu. Les métadonnées sont donc très importantes. [Voici quelques instructions qui vous aideront à optimiser vos métadonnées](./contributor-guide/article-metadata.md).
+Les métadonnées d’articles activent certaines fonctionnalités sur le site web azure.microsoft.com, telles que l’attribution de l’auteur, l’attribution du contributeur, les vues miniatures, les descriptions des articles et les optimisations du référencement d’un site auprès d’un moteur de recherche, ainsi que la création de rapports Microsoft pour évaluer les performances du contenu. Les métadonnées sont donc très importantes. [Voici quelques instructions qui vous aideront à optimiser vos métadonnées](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## Autres ressources
 
-Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du contributeur](./contributor-guide/contributor-guide-index.md).
+Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du contributeur](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
 <!----HONumber=AcomDC_0307_2016-->
