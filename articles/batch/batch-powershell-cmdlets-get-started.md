@@ -110,7 +110,7 @@ Utilisez les applets de commande telles que **Get-AzureBatchPool**, **Get-AzureB
 
 ### Interrogation des données
 
-Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l’objet BatchAccountContext dans *$context* :
+Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l’objet BatchAccountContext dans *$context* :
 
 
     Get-AzureBatchPool -BatchContext $context
