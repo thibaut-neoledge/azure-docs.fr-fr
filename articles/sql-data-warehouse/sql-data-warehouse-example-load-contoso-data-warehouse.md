@@ -1232,7 +1232,9 @@ GROUP BY p.[BrandName]
 Explorez vos données avec SQL Data Warehouse.
 
 ## Étapes suivantes
-Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][]. Pour en savoir plus sur la gestion des index columnstore consultez [gérer les index columnstore][].
+Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][].
+
+Pour en savoir plus sur la gestion des index columnstore consultez [gérer les index columnstore][].
 
 Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][].
 
@@ -1241,7 +1243,7 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Article references-->
 [Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[gérer les index columnstore] :
+[gérer les index columnstore]:
 [statistiques]: ./sql-data-warehouse-develop-statistics.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [libellés]: ./sql-data-warehouse-develop-label.md
@@ -1253,4 +1255,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
