@@ -139,4 +139,4 @@ Ou trouvez encore du contenu relatif à la plage d’applications que vous pouve
 - [Créer des applications mobiles](/documentation/learning-paths/appservice-mobileapps/)
 - [Créer des applications API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->
