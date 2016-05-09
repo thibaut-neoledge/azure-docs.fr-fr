@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="04/15/2016" 
 	ms.author="adegeo"/>
 
 # Dois-je choisir Cloud Services ou un autre service ?
@@ -57,4 +57,4 @@ La nature PaaS de Cloud Services a également d'autres implications. L'une des p
 ## Étapes suivantes
 [Création d’une application de service cloud dans .NET](cloud-services-dotnet-get-started.md) [Création d’une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md) [Création d’une application de service cloud dans PHP](../cloud-services-php-create-web-role.md) [Création d’une application de service cloud dans Python](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

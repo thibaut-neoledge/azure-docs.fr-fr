@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -53,7 +53,7 @@ Au cours de cette tâche, vous allez vous inscrire au service Text Analytics.
 
 1. Accédez à **Cognitive Services** dans le [portail Azure](//go.microsoft.com/fwlink/?LinkId=761108) et assurez-vous que le type d’API **Text Analytics** est sélectionné.
 
-1. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Comme c’est un plan gratuit, vous ne serez pas facturé pour l’utilisation du service. Vous devrez vous connecter à votre abonnement Azure.
+1. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devrez vous connecter à votre abonnement Azure.
 
 1. Renseignez les autres champs et créez votre compte.
 
@@ -238,6 +238,6 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 
 ## Étapes suivantes ##
 
-Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données, et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
+Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données, et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

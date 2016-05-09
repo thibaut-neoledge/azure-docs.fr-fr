@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/15/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc" />
 
 # Utilisation des certificats racine auto-signés pour les configurations point à site
@@ -40,7 +40,7 @@ Makecert est l’une des méthodes permettant de créer un certificat racine aut
 
     	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-	>[AZURE.NOTE]Comme vous avez créé un certificat racine permettant de générer des certificats clients, il peut être utile d'exporter ce certificat avec sa clé privée et de l'enregistrer à un emplacement sûr à partir duquel il pourra être récupéré.
+	>[AZURE.NOTE] Comme vous avez créé un certificat racine permettant de générer des certificats clients, il peut être utile d'exporter ce certificat avec sa clé privée et de l'enregistrer à un emplacement sûr à partir duquel il pourra être récupéré.
 
 ## Génération, exportation et installation de certificats clients
 
@@ -95,4 +95,4 @@ Poursuivez votre configuration point à site.
 - Pour connaître les étapes du modèle de déploiement **Resource Manager**, consultez [Configurer une connexion point à site à un réseau virtuel à l'aide de PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
 - Pour connaître les étapes du modèle de déploiement **classique**, consultez [Configurer une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

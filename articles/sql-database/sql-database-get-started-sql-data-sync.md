@@ -3,7 +3,7 @@
 	description="Ce didacticiel présente la synchronisation des données SQL Azure (aperçu)."
 	services="sql-database"
 	documentationCenter=""
-	authors="jhubbard"
+	authors="jennieHubbard"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/26/2016"
 	ms.author="jhubbard"/>
 
 
@@ -117,10 +117,10 @@ Une fois l’agent client installé, inscrivez chaque base de données SQL Serve
 3. Patientez jusqu'à ce que la synchronisation des données confirme le nom d'utilisateur et le mot de passe. Une coche verte apparaît à droite du mot de passe lorsque les informations d’identification sont confirmées.
 4. Dans la liste déroulante, sélectionnez la stratégie **CONFLICT RESOLUTION**.
 
- **Hub Wins** : les modifications écrites dans la base de données hub sont écrites dans les bases de données de référence et écrasent les modifications apportées dans le même enregistrement de base de données de référence. En pratique, cela signifie que la première modification écrite dans le hub est propagée vers les autres bases de données.
+ **Hub Wins** : les modifications écrites dans la base de données hub sont écrites dans les bases de données de référence et écrasent les modifications apportées dans le même enregistrement de base de données de référence. En pratique, cela signifie que la première modification écrite dans le hub est propagée vers les autres bases de données.
 
 
- **Client Wins** : les modifications apportées au hub sont écrasées par celles apportées aux bases de données de référence. En pratique, cela signifie que la dernière modification écrite dans le hub est conservée et propagée vers les autres bases de données.
+ **Client Wins** : les modifications apportées au hub sont écrasées par celles apportées aux bases de données de référence. En pratique, cela signifie que la dernière modification écrite dans le hub est conservée et propagée vers les autres bases de données.
 
 5.	Cliquez sur la flèche droite.
 
@@ -138,11 +138,11 @@ Répétez cette procédure pour chaque base de données supplémentaire que vous
 2.	Entrez les informations d'identification de cette base de données, à savoir le **nom d'utilisateur** et le **mot de passe**.
 3.	Dans la liste déroulante, sélectionnez le **sens de la synchronisation** de cette base de données.
 
-	**Bi-directional** : les modifications apportées à la base de données de référence sont écrites dans la base de données hub et inversement.
+	**Bi-directional** : les modifications apportées à la base de données de référence sont écrites dans la base de données hub et inversement.
 
-	**Sync from the Hub** : la base de données reçoit les mises à jour du hub. Elle ne lui envoie pas de modifications.
+	**Sync from the Hub** : la base de données reçoit les mises à jour du hub. Elle ne lui envoie pas de modifications.
 
-	**Sync to the Hub** : la base de données envoie les mises à jour au hub. Les modifications apportées au hub ne sont pas écrites dans cette base de données.
+	**Sync to the Hub** : la base de données envoie les mises à jour au hub. Les modifications apportées au hub ne sont pas écrites dans cette base de données.
 
 4.	Pour finaliser la création de ce groupe de synchronisation, cliquez sur la coche située en bas à droite de l'Assistant. Patientez jusqu'à ce que la synchronisation des données SQL confirme les informations d'identification, ce qui sera indiqué par une coche verte.
 
@@ -202,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

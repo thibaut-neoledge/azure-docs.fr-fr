@@ -3,7 +3,7 @@
 	description="Apprenez à personnaliser la date d’expiration pour vos certificats de fédération, mais aussi à renouveler les certificats arrivant à expiration."
 	services="active-directory"
 	documentationCenter=""
-	authors="liviodlc"
+	authors="asmalser-msft"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="liviodlc"/>
+	ms.author="asmalser-msft"/>
 
 #Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory
 
@@ -82,4 +82,4 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 - [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

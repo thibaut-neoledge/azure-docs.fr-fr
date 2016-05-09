@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/25/2016"
 	ms.author="byvinyal"/>
 
 # Azure App Service : Mise à l’échelle des applications d’App Service
@@ -38,4 +38,4 @@ Cette section vous aidera à comprendre tous les facteurs et à concevoir une st
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Cas d’utilisation - Recommandations de produits 
 
-Azure Data Factory est un des nombreux services permettent d'implémenter la solution d’accélérateurs Cortana Analytics Suite. Consultez la page [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails concernant cette suite. Dans ce document, nous décrivons un cas d'utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l'aide d’Azure Data Factory et d'autres services Cortana Analytics.
+Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite. Consultez la page [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
 
 ## Scénario
 
@@ -36,7 +36,7 @@ Troisièmement, les recommandations doivent être immédiatement communiquées �
 
 ## Vue d’ensemble de la solution
 
-Cet exemple de cas d'utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Analytics, y compris [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/) pour recevoir, préparer, transformer, analyser et publier les données finales.
+Cet exemple de cas d’utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Intelligence, y compris [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/) pour recevoir, préparer, transformer, analyser et publier les données finales.
 
 Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail. Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse.
 
@@ -52,7 +52,7 @@ Enfin, le jeu de résultats des recommandations de produits personnalisées est 
 
 ## Avantages
 
-En optimisant leur stratégie de recommandation de produits et en l’alignant sur les objectifs commerciaux, la solution répond aux besoins de merchandising et de marketing du détaillant en ligne. En outre, les détaillants ont pu gérer et rendre opérationnel le flux de travail de recommandation de produits de manière efficace, fiable et économique. Ainsi, ils ont été en mesure de mettre à jour leur modèle et d’optimiser son efficacité en s’appuyant sur les ventes concrétisées. Grâce à Azure Data Factory, ils ont pu se débarrasser de leur système de gestion manuelle des ressources de cloud, à la fois long et coûteux, pour passer à une gestion des ressources de cloud à la demande, économisant ainsi du temps, de l’argent, tout en réduisant le délai de déploiement de la solution. Il est alors facile de visualiser et dépanner les vues de lignage des données et l’intégrité du service opérationnel grâce à une interface utilisateur de surveillance et gestion Data Factory intuitive, disponible sur le portail Azure Classic. Leur solution peut maintenant être planifiée et gérée de sorte que les données terminées sont produites et transmises de façon fiable à leurs utilisateurs. Par ailleurs, les données et les dépendances de traitement sont gérées automatiquement, sans intervention humaine.
+En optimisant leur stratégie de recommandation de produits et en l’alignant sur les objectifs commerciaux, la solution répond aux besoins de merchandising et de marketing du détaillant en ligne. En outre, les détaillants ont pu gérer et rendre opérationnel le flux de travail de recommandation de produits de manière efficace, fiable et économique. Ainsi, ils ont été en mesure de mettre à jour leur modèle et d’optimiser son efficacité en s’appuyant sur les ventes concrétisées. Grâce à Azure Data Factory, ils ont pu se débarrasser de leur système de gestion manuelle des ressources de cloud, à la fois long et coûteux, pour passer à une gestion des ressources de cloud à la demande, économisant ainsi du temps, de l’argent, tout en réduisant le délai de déploiement de la solution. Ils ont pu visualiser et dépanner facilement les vues de lignage des données et l’intégrité du service opérationnel grâce à une interface utilisateur de surveillance et gestion Data Factory intuitive, disponible sur le portail Azure. Leur solution peut maintenant être planifiée et gérée de sorte que les données terminées sont produites et transmises de façon fiable à leurs utilisateurs. Par ailleurs, les données et les dépendances de traitement sont gérées automatiquement, sans intervention humaine.
 
 Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a créé une expérience client plus compétitive et plus attrayante, augmentant ainsi les ventes et la satisfaction globale des clients.
 
@@ -60,4 +60,4 @@ Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a cr
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

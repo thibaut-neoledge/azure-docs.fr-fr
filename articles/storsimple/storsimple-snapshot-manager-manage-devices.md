@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
@@ -51,7 +51,7 @@ Si vous cliquez sur le nœud **Appareils** puis cliquez avec le bouton droit sur
 - Suppression de la configuration d’un appareil 
 - Modification du mot de passe d’un appareil
 
->[AZURE.NOTE]L’ensemble de ces actions sont également disponibles dans le volet **Actions**.
+>[AZURE.NOTE] L’ensemble de ces actions sont également disponibles dans le volet **Actions**.
  
 Ce didacticiel explique comment utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer les appareils et effectuer les tâches suivantes :
 
@@ -65,7 +65,7 @@ Ce didacticiel explique comment utiliser le Gestionnaire d’instantanés StorSi
 - Modification d’un mot de passe expiré d’appareil
 - Remplacement d’un appareil défaillant
 
->[AZURE.NOTE]Pour consulter des informations générales sur l’utilisation de l’interface du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
+>[AZURE.NOTE] Pour consulter des informations générales sur l’utilisation de l’interface du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
 
 ## Ajout ou remplacement d’un appareil
@@ -222,9 +222,9 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 #### Pour se connecter à un nouvel appareil après un basculement
 
-1. Reconfigurez la connexion iSCSI au nouvel appareil. Pour obtenir les instructions, accédez à « Étape 7 : Montage, initialisation et formatage d’un volume » de la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md). 
+1. Reconfigurez la connexion iSCSI au nouvel appareil. Pour obtenir les instructions, accédez à « Étape 7 : Montage, initialisation et formatage d’un volume » de la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough-u2.md). 
 
->[AZURE.NOTE]Si le nouvel appareil StorSimple possède la même adresse que l’ancien, il est possible que vous puissiez connecter l’ancienne configuration.
+>[AZURE.NOTE] Si le nouvel appareil StorSimple possède la même adresse que l’ancien, il est possible que vous puissiez connecter l’ancienne configuration.
 
 2. Arrêtez le service de gestion Microsoft StorSimple :
 
@@ -263,4 +263,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

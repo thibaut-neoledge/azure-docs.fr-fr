@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sondes personnalisées de l’équilibreur de charge et surveillance de l’état d’intégrité | Microsoft Azure"
+   pageTitle="Sondes personnalisées de l’équilibreur de charge et surveillance de l’état d’intégrité | Microsoft Azure"
    description="Découvrez comment utiliser les sondes personnalisées pour l’équilibreur de charge Azure afin de surveiller les instances situées derrière un équilibreur de charge"
    services="load-balancer"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -35,7 +35,7 @@ La valeur du délai d’expiration et de la fréquence définie dans SuccessFail
 La configuration de sonde de toutes les instances à charge équilibrée pour un point de terminaison (jeu d’équilibrage de la charge) doit être identique. Cela signifie que vous ne pouvez pas avoir de configuration de sonde différente pour chaque instance de rôle ou machine virtuelle du même service hébergé pour une combinaison de points de terminaison donnée. Par exemple, chaque instance doit avoir des délais d’expiration et des ports locaux identiques.
 
 
->[AZURE.IMPORTANT] Une sonde d’équilibreur de charge utilise une adresse IP 168.63.129.16. Cette adresse IP publique facilite la communication vers les ressources de plateforme internes pour le scénario « Apportez votre propre réseau virtuel IP Azure ». L’adresse IP publique virtuelle 168.63.129.16 est utilisée dans toutes les régions et ne change pas. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si vous ne l’autorisez pas, un comportement inattendu peut se produire dans divers scénarios comme la configuration de la même plage d’adresses IP 168.63.129.16 et l’obtention de plusieurs adresses IP identiques.
+>[AZURE.IMPORTANT] Une sonde d’équilibreur de charge utilise une adresse IP 168.63.129.16. Cette adresse IP publique facilite la communication vers les ressources de plateforme internes pour le scénario « Apportez votre propre réseau virtuel IP Azure ». L’adresse IP publique virtuelle 168.63.129.16 est utilisée dans toutes les régions et ne change pas. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si vous ne l’autorisez pas, un comportement inattendu peut se produire dans divers scénarios comme la configuration de la même plage d’adresses IP 168.63.129.16 et l’obtention de plusieurs adresses IP identiques.
 
 
 ## En savoir plus sur les types de sondes
@@ -82,7 +82,7 @@ Pour plus d’informations sur la configuration d’une sonde d’intégrité HT
 
 ## Rajout d’instances saines à l’équilibreur de charge
 
-Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance de rôle comme saine dans les cas suivants :
+Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance de rôle comme saine dans les cas suivants :
 
 -  L’équilibreur de charge reçoit une sonde positive la première fois que la machine virtuelle démarre.
 - Le nombre SuccessFailCount (décrit précédemment) définit la valeur des sondes ayant réussi nécessaires pour marquer l’instance de rôle comme étant saine. Si une instance de rôle a été supprimée, le nombre de sondes ayant réussi successives doit être égal ou supérieur à la valeur de SuccessFailCount pour marquer l’instance de rôle comme étant en cours d’exécution.
@@ -93,4 +93,4 @@ Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance 
 
 Vous pouvez utiliser l’[analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

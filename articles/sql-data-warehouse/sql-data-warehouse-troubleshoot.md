@@ -3,7 +3,7 @@
    description="Dépannage de SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Résolution de problèmes
 La rubrique suivante répertorie certains des problèmes les plus courants auxquels les clients sont confrontés avec Azure SQL Data Warehouse.
 
 ## Connectivité
-La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
+La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
 
 - Les règles du pare-feu ne sont pas définies
 - Les outils/protocoles ne sont pas pris en charge
@@ -28,66 +28,134 @@ La connexion à Azure SQL Data Warehouse peut échouer pour plusieurs raisons :
 ### Règles de pare-feu
 Les bases de données SQL Azure sont protégées par des pare-feux au niveau du serveur et de la base de données pour s'assurer que seules les adresses IP connues peuvent accéder aux bases de données. Les pare-feux sont sécurisés par défaut, ce qui signifie que vous devez autoriser l'accès de votre adresse IP avant de vous connecter.
 
-Pour configurer votre pare-feu pour l'accès, suivez les étapes décrites dans la section [Configurer l'accès au pare-feu du serveur pour l'adresse IP de votre client](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) de la page [Mise en service](sql-data-warehouse-get-started-provision.md).
+Pour configurer votre pare-feu pour l'accès, suivez les étapes décrites dans la section [Configurer l'accès au pare-feu du serveur pour l'adresse IP de votre client][] de la page [Mise en service][].
 
 ### Les outils/protocoles ne sont pas pris en charge
-SQL Data Warehouse prend en charge [Visual Studio 2013/2015](sql-data-warehouse-get-started-connect.md) comme environnements de développement et [SQL Server Native Client 10/11 (ODBC)](https://msdn.microsoft.com/library/ms131415.aspx) pour la connectivité client.
+SQL Data Warehouse prend en charge [Visual Studio 2013/2015][] comme environnements de développement et [SQL Server Native Client 10/11 (ODBC)][] pour la connectivité client.
 
-Consultez nos pages sur la [connexion](sql-data-warehouse-get-started-connect.md) pour en savoir plus.
+Consultez nos pages sur la [connexion][] pour en savoir plus.
 
 ## Performances des requêtes
-SQL Data Warehouse utilise des constructions SQL Server communes pour l'exécution de requêtes, notamment les statistiques. Les [statistiques](sql-data-warehouse-develop-statistics.md) sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Vous pouvez utiliser la requête suivante pour déterminer la dernière fois que vos statistiques ont été mises à jour.
+
+### Statistiques
+
+Les [statistiques][] sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Contrairement à SQL Server ou SQL DB, SQL Data Warehouse ne prend pas en charge les statistiques de création ou de mise à jour automatiques. Les statistiques doivent être manuellement gérées sur toutes les tables.
+
+Vous pouvez utiliser la requête suivante pour déterminer la dernière fois que vos statistiques ont été mises à jour sur chaque table.
 
 ```sql
 SELECT
-	sm.[name]								    AS [schema_name],
-	tb.[name]								    AS [table_name],
-	co.[name]									AS [stats_column_name],
-	st.[name]									AS [stats_name],
-	STATS_DATE(st.[object_id],st.[stats_id])	AS [stats_last_updated_date]
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
 FROM
-	sys.objects				AS ob
-	JOIN sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-	JOIN sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND	st.[object_id]		= sc.[object_id]
-	JOIN sys.columns		AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-	JOIN sys.types           AS ty	ON	co.[user_type_id]	= ty.[user_type_id]
-	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
-	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
 WHERE
-	1=1
-	AND st.[user_created] = 1;
+    st.[user_created] = 1;
 ```
 
-Consultez notre pages [Statistiques](sql-data-warehouse-develop-statistics.md) pour en savoir plus.
+### Qualité du segment Columnstore en cluster
 
-## Concepts clés de performances
+La qualité du segment Columnstore en cluster est importante pour garantir des performances de requête optimales au niveau des tables Columnstore en cluster. La qualité du segment peut être mesurée par le nombre de lignes dans un groupe de lignes compressé. La requête suivante identifiera les tables comportant un segment d’index Columnstore dégradé et générera le code T-SQL pour recréer l'index Columnstore sur ces tables. La première colonne de ce résultat de requête vous donnera le code T-SQL pour reconstruire chaque index. La seconde colonne fournira une recommandation concernant la classe minimum de ressources à utiliser pour optimiser la compression.
+ 
+**ÉTAPE 1 :** Exécuter cette requête sur chaque base de données SQL Data Warehouse afin d’identifier tous les index Columnstore en cluster non optimaux. Si aucune ligne n'est renvoyée, cette régression ne vous a pas affecté et aucune autre action n'est nécessaire.
 
-Consultez les articles suivants afin de mieux comprendre certains concepts supplémentaires clés de performance et de mise à l’échelle :
+```sql
+SELECT 
+     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
+    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
+    ,s.name AS [Schema Name]
+    ,t.name AS [Table Name]
+    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
+FROM 
+    sys.pdw_nodes_column_store_row_groups rg
+    JOIN sys.pdw_nodes_tables pt 
+        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
+    JOIN sys.pdw_table_mappings tm 
+        ON pt.name = tm.physical_name
+    INNER JOIN sys.tables t 
+        ON tm.object_id = t.object_id
+INNER JOIN sys.schemas s
+    ON t.schema_id = s.schema_id
+CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
+GROUP BY 
+    n.nbr_nodes, s.name, t.name
+HAVING 
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+ORDER BY 
+    s.name, t.name
+```
+ 
+**ÉTAPE 2 :** Augmenter la classe de ressource d'un utilisateur qui dispose des autorisations pour reconstruire l'index sur cette table en fonction de la classe de ressource recommandée dans la colonne 2 de la requête ci-dessus.
+
+```sql
+EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+```
+
+> [AZURE.NOTE]  La valeur LoadUser ci-dessus doit représenter un utilisateur valide que vous créez pour exécuter l'instruction ALTER INDEX. La classe de ressource de l'utilisateur db\_owner ne peut pas être modifiée. Vous trouverez plus d'informations sur les classes de ressource et sur la création d’un utilisateur en cliquant sur le lien ci-dessous.
+
+ 
+**ÉTAPE 3 :** Se connecter en tant que l'utilisateur à l’étape 2 (par exemple « LoadUser »), qui utilise maintenant une classe de ressource supérieure, puis exécuter les instructions ALTER INDEX générées par la requête à l'étape 1. N'oubliez pas que cet utilisateur possède l'autorisation ALTER pour les tables identifiées dans la requête de l'étape 1.
+ 
+**ÉTAPE 4 :** Réexécuter la requête de l'étape 1. Si les index sont correctement créés, aucune ligne ne devrait être retournée par cette requête. Si aucune ligne n'est retournée, vous avez terminé. Si vous avez plusieurs bases de données SQL DW, vous pouvez répéter cette procédure sur chacune de vos bases de données. Si des lignes sont retournées, passez à l'étape 5.
+ 
+**ÉTAPE 5 :** Si des lignes sont retournées lorsque vous réexécutez la requête de l'étape 1, vous utilisez peut-être des tables contenant des lignes très larges nécessitant de grandes quantités de mémoire pour construire de façon optimale des index Columnstore en cluster. Si c'est le cas, recommencez cette procédure pour ces tables en utilisant la classe xlargerc. Pour modifier la classe de ressource, répétez l'étape 2 en utilisant xlargerc. Puis répétez l'étape 3 pour les tables comportant toujours des index non optimaux. Si vous utilisez une base de données DW100 - DW300 et avez déjà exécuté xlargerc, vous pouvez laisser les index tels quels ou augmenter temporairement l’unité DWU afin de fournir plus de mémoire pour cette opération.
+ 
+**DERNIÈRES ÉTAPES :** La classe de ressource ci-dessus est la classe de ressource minimale recommandée pour créer des index Columnstore de qualité optimale. Nous vous conseillons de conserver ce paramètre pour l'utilisateur qui charge les données. Mais si vous souhaitez annuler la modification de l'étape 2, vous pouvez le faire avec la commande suivante.
+
+```sql
+EXEC sp_droprolemember 'smallrc', 'LoadUser'
+```
+
+
+La recommandation concernant la classe de ressource minimum pour les charges de travail dans une table CCI consiste à utiliser xlargerc pour DW100 DW300, largerc pour DW400-DW600 et mediumrc pour toute autre base de données égale ou supérieure à DW1000. Cette recommandation s’applique à la plupart des charges de travail. L'objectif est d’attribuer à chaque opération de création d'index 400 Mo de mémoire ou plus. Mais une taille unique ne convient pas à tous les scénarios. La mémoire nécessaire pour optimiser un index Columnstore dépend des données chargées, principalement influencées par la taille de la ligne. Les tables avec des lignes plus étroites utilisent moins de mémoire, tandis que les lignes plus larges en consomment plus. Si vous souhaitez faire quelques tests, vous pouvez utiliser la requête de l'étape 1 pour vérifier si vous obtenez des index Columnstore optimaux avec des allocations de mémoire inférieures. Vous devriez en moyenne obtenir au minimum plus de 100 000 lignes par groupe de lignes. Les résultats seront encore meilleurs avec 500 000 lignes. La valeur maximale affichée est 1 million de lignes par groupe de lignes. Pour plus d'informations sur la gestion des classes de ressource et la simultanéité, cliquez sur le lien ci-dessous.
+
+
+### Concepts clés de performances
+
+Consultez les articles suivants afin de mieux comprendre certains concepts supplémentaires clés de performance et de mise à l’échelle :
 
 - [performances et mise à l’échelle][]
 - [modèle concurrentiel][]
 - [tables de conception][]
 - [associer une clé de distribution par hachage à votre table][]
-- [statistiques pour améliorer les performances][]
 
 ## Étapes suivantes
-Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de recommandations sur le développement d’une solution SQL Data Warehouse.
+Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de recommandations sur le développement d’une solution SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-
 [performances et mise à l’échelle]: sql-data-warehouse-performance-scale.md
 [modèle concurrentiel]: sql-data-warehouse-develop-concurrency.md
 [tables de conception]: sql-data-warehouse-develop-table-design.md
 [associer une clé de distribution par hachage à votre table]: sql-data-warehouse-develop-hash-distribution-key
-[statistiques pour améliorer les performances]: sql-data-warehouse-develop-statistics.md
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[Mise en service]: sql-data-warehouse-get-started-provision.md
+[Configurer l'accès au pare-feu du serveur pour l'adresse IP de votre client]: sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
+[Visual Studio 2013/2015]: sql-data-warehouse-get-started-connect.md
+[connexion]: sql-data-warehouse-get-started-connect.md
+[statistiques]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
+[SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->
