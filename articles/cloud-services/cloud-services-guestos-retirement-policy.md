@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/07/2015"
+   ms.date="04/19/2016"
    ms.author="yuemlu"/>
 
 # Prise en charge et stratégie de suppression du SE invité d’Azure
@@ -90,4 +90,4 @@ Si l’architecture de votre application web nécessite une intégration plus av
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

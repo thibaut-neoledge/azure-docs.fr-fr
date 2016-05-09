@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Calcul haute performance et orchestration de données à l’aide des services Azure Batch et Data Factory
 
@@ -761,11 +761,11 @@ Au cours de cette étape, vous allez créer un pipeline comprenant une seule act
 
 	-   Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotNetActivity.dll**.
 
-	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de \<namespace\>.\<classname\> dans votre code.
+	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de <namespace>.<classname> dans votre code.
 
 	-   **PackageLinkedService** est défini sur **StorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose que vous utilisez le même compte Azure Storage.
 
-	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format \<containerforthezip\>/\<nameofthezip.zip\>.
+	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format <containerforthezip>/<nameofthezip.zip>.
 
 	-   L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
 
@@ -901,13 +901,13 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 Après avoir traité des données, vous pouvez les employer avec des outils en ligne tels que **Microsoft Power BI**. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
--   [Explorer un jeu de données dans Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-service-get-data/)
 
--   [Prise en main de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
 
--   [Actualisation des données dans Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-refresh-data/)
 
--   [Azure et Power BI](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure et Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-azure-and-power-bi/)
 
 ## Références
 
@@ -929,4 +929,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

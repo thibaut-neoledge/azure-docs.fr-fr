@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Déployer une application métier à haute disponibilité dans Azure
@@ -85,7 +85,7 @@ Il s'agit d'une architecture normative prédéfinie. N'oubliez pas les élément
 - Si vous avez déjà une implémentation de cloud hybride Azure, n'hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger les machines virtuelles de la nouvelle application sur le sous-réseau approprié.
 - Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l'isolation de sous-réseaux, vous pouvez utiliser des [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configurer une application métier basée sur le Web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configurer une application métier basée sur le Web dans un cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 Pour plus d’informations sur la conception des charges de travail informatiques pour Azure, consultez [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-linux-infrastructure-service-guidelines.md).
 
@@ -93,4 +93,4 @@ Pour plus d’informations sur la conception des charges de travail informatique
 
 - Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

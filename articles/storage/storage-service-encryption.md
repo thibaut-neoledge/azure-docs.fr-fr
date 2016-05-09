@@ -77,11 +77,11 @@ Cette fonctionnalité est prise en charge uniquement pour les comptes Azure Stor
 
 -   Pour vous inscrire à la fonctionnalité, vous pouvez utiliser l’applet de commande PowerShell Register-AzureRmProviderFeature.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   Pour interroger l’état de votre inscription afin de voir si l’abonnement a été approuvé, vous pouvez utiliser l’applet de commande PowerShell Get-AzureRmProviderFeature.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 Lorsque l’état d’inscription est défini sur Inscrit, cela signifie que votre abonnement a été approuvé. Consultez également notre groupe dédié à la version préliminaire d’Azure Storage Service Encryption sur Yammer.
 
@@ -225,4 +225,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

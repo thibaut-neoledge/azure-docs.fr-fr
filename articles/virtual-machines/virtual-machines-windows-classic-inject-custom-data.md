@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Injection de données personnalisées dans des machines virtuelles | Microsoft Azure"
-	description="Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure quand l’instance est créée, et comment localiser les données personnalisées dans Windows ou Linux."
+	pageTitle="Injection de données personnalisées dans des machines virtuelles | Microsoft Azure"
+	description="Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure quand l’instance est créée, et comment localiser les données personnalisées dans Windows ou Linux."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="squillace"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="04/18/2016"
 	ms.author="rasquill"/>
 
 #Injection de données personnalisées dans une machine virtuelle Azure
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

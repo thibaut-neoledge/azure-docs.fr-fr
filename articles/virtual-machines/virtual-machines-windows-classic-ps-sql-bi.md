@@ -3,7 +3,7 @@
 	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server s’exécutant sur Azure Virtual Machines."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Business Intelligence de SQL Server dans les machines virtuelles Azure
 
@@ -174,13 +174,13 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
 
-1. Dans **Windows Server 2012** :
+1. Dans **Windows Server 2012** :
 
 1. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
 
 1. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
-1. Dans **Windows Server 2008 R2** :
+1. Dans **Windows Server 2008 R2** :
 
 1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
 
@@ -270,7 +270,7 @@ Si vous souhaitez vous connecter au Gestionnaire de rapports sur la machine virt
 
 1. Accédez au Gestionnaire de rapports en utilisant le **Nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple :
 
-	**Gestionnaire de rapports** : http://uebi.cloudapp.net/reportserver **Serveur de rapports** : http://uebi.cloudapp.net/reports
+	**Gestionnaire de rapports** : http://uebi.cloudapp.net/reportserver **Serveur de rapports** : http://uebi.cloudapp.net/reports
 
 	[Configurer un pare-feu pour accéder au serveur de rapports](https://technet.microsoft.com/library/bb934283.aspx)
 
@@ -278,7 +278,7 @@ Si vous souhaitez vous connecter au Gestionnaire de rapports sur la machine virt
 
 Le tableau suivant résume certaines des options disponibles pour publier des rapports existants à partir d’un ordinateur local vers le serveur de rapports hébergé sur la machine virtuelle Microsoft Azure :
 
-- **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
+- **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
 
 	1. Démarrez votre navigateur avec des privilèges administratifs.
 
@@ -286,9 +286,9 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 	Pour plus d’informations, consultez la page [Installer, désinstaller et prendre en charge le Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 
-- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
+- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 
-- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
+- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
 
 	![propriétés de projet ssdt pour un projet SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
@@ -388,9 +388,7 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 
 	|Port|Type|Description|
 |---|---|---|
-|**80**|TCP|Accès distant au serveur de rapports (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|SQL Server Browser. Nécessaire lorsque la machine virtuelle est jointe à un domaine.|
+|**80**|TCP|Accès distant au serveur de rapports (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Nécessaire lorsque la machine virtuelle est jointe à un domaine.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instance par défaut et instance en cluster nommée de SQL Server Analysis Services.|
 |**Définie par l’utilisateur**|TCP|Créez une instance nommée Analysis Services statique pour un numéro de port que vous choisissez, puis débloquez le numéro de port dans le pare-feu.|
@@ -433,4 +431,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

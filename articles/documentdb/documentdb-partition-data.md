@@ -252,8 +252,8 @@ Vous pouvez également exécuter des transactions atomiques sur des documents av
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        "XMS-001-FE24C",
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        "XMS-001-FE24C");
 
 Dans la section suivante, nous examinons la manière de passer de collections à partition unique à des collections partitionnées.
 
@@ -319,4 +319,4 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

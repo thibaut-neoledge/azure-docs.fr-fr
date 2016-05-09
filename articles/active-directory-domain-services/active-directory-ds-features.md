@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)*
@@ -45,4 +45,4 @@ Les fonctionnalités suivantes sont disponibles dans la version préliminaire de
 
 - **Utilisation d’outils de gestion familiers :** vous pouvez utiliser les outils de gestion Windows Server Active Directory familiers tels que le Centre d’administration Active Directory ou Active Directory PowerShell pour administrer des domaines fournis par les services de domaine Azure AD.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

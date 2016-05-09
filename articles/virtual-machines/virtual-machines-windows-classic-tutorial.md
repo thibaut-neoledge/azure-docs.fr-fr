@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer une machine virtuelle exécutant Windows dans le portail classique | Microsoft Azure"
-	description="Création d'une machine virtuelle Windows dans le portail Azure Classic."
+	description="Création d'une machine virtuelle Windows dans le portail Azure Classic."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
-# Créer une machine virtuelle exécutant Windows dans le portail Azure Classic
+# Créer une machine virtuelle exécutant Windows dans le portail Azure Classic
 
 > [AZURE.SELECTOR]
 - [Portail Azure](virtual-machines-windows-hero-tutorial.md)
 - [Portail Azure Classic](virtual-machines-windows-classic-tutorial.md)
-- [PowerShell : Déploiement Resource Manager](virtual-machines-windows-ps-manage.md)
-- [PowerShell : Déploiement classique](virtual-machines-windows-classic-create-powershell.md)
+- [PowerShell : Déploiement Resource Manager](virtual-machines-windows-ps-manage.md)
+- [PowerShell : Déploiement classique](virtual-machines-windows-classic-create-powershell.md)
 
 <!-- HHTML comment in to break between the selector and the note in the include below-->
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-hero-tutorial.md).
 
-Ce didacticiel vous montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows dans le portail Azure Classic. Nous allons utiliser une image Windows Server comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau Windows peuvent être accessibles aux abonnés MSDN.
+Ce didacticiel vous montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows dans le portail Azure Classic. Nous allons utiliser une image Windows Server comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau Windows peuvent être accessibles aux abonnés MSDN.
 
 
 Vous pouvez également créer des machines virtuelles en utilisant [vos propres images](virtual-machines-windows-classic-createupload-vhd.md). Pour en savoir plus à ce sujet et connaître d’autres méthodes, consultez [les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-creation-choices.md).
@@ -56,4 +56,4 @@ Cette section vous montre comment utiliser l’option **À partir de la galerie*
 
 - Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

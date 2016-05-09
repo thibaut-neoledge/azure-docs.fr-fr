@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Utilisez les actions du menu MMC dans Gestionnaire d’instantanés StorSimple
@@ -27,9 +27,7 @@ Dans le Gestionnaire d’instantanés StorSimple, les actions suivantes figurero
 - Exporter la liste 
 - Aide 
 
-Ces actions font partie de la Microsoft Management Console (MMC) et ne sont pas spécifiques au gestionnaire d’instantanés StorSimple.
-
-Ce didacticiel décrit ces actions et explique comment utiliser chacune d’elles dans le Gestionnaire d’instantanés StorSimple.
+Ces actions font partie de la Microsoft Management Console (MMC) et ne sont pas spécifiques au gestionnaire d’instantanés StorSimple. Ce didacticiel décrit ces actions et explique comment utiliser chacune d’elles dans le Gestionnaire d’instantanés StorSimple.
 
 ## Affichage
 
@@ -128,4 +126,4 @@ Utilisez le menu **Aide** pour consulter l’aide en ligne disponible du Gestion
 - En savoir plus sur [l’interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 - En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,7 +3,7 @@
    description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmon" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/04/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Gestion des enregistrements DNS à l'aide de PowerShell
 
@@ -297,4 +297,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset.md)<BR> [Réalisation d'opérations sur des zones DNS](dns-operations-dnszones.md)<BR> [Automatisation d'opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

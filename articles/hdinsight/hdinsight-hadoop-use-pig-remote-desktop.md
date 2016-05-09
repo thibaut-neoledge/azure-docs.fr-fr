@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig depuis une connexion Bureau à distance
@@ -64,22 +64,22 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à 
 5. Continuez à appliquer des transformations à l’aide des instructions suivantes. Utilisez `DUMP` pour afficher le résultat de la transformation après chaque étape.
 
 	<table>
-<tr>
-<th>Instruction</th><th>Résultat</th>
-</tr>
-<tr>
-<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Supprime les lignes contenant une valeur null pour le niveau de journal et stocke les résultats dans FILTEREDLEVELS.</td>
-</tr>
-<tr>
-<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Regroupe les lignes par niveau de journal et stocke les résultats dans GROUPEDLEVELS.</td>
-</tr>
-<tr>
-<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crée un jeu de données qui contient chaque valeur unique au niveau journal et le nombre de fois où elle se produit. Ces informations sont stockées dans FREQUENCIES</td>
-</tr>
-<tr>
-<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Trie les niveaux du journal par décompte (décroissant) et stocke ces informations dans RESULT</td>
-</tr>
-</table>
+	<tr>
+	<th>Instruction</th><th>Résultat</th>
+	</tr>
+	<tr>
+	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Supprime les lignes contenant une valeur null pour le niveau de journal et stocke les résultats dans FILTEREDLEVELS.</td>
+	</tr>
+	<tr>
+	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Regroupe les lignes par niveau de journal et stocke les résultats dans GROUPEDLEVELS.</td>
+	</tr>
+	<tr>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crée un jeu de données qui contient chaque valeur unique au niveau journal et le nombre de fois où elle se produit. Ces informations sont stockées dans FREQUENCIES</td>
+	</tr>
+	<tr>
+	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Trie les niveaux du journal par décompte (décroissant) et stocke ces informations dans RESULT</td>
+	</tr>
+	</table>
 
 6. Vous pouvez également enregistrer les résultats d’une transformation à l’aide de l’instruction `STORE`. Par exemple, la commande suivante enregistre `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster :
 
@@ -136,4 +136,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

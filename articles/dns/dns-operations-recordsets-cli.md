@@ -3,7 +3,7 @@
    description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes d’interface de ligne de commande pour les opérations sur les jeux d'enregistrements et les enregistrements." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/04/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Gestion des enregistrements DNS à l'aide de l’interface de ligne de commande
 
@@ -50,7 +50,7 @@ Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME
 
 ### Enregistrements génériques
 
-Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « \* », ou un nom dont la première étiquette est « \* », par exemple, « \*.foo ».
+Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
 
 Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
 
@@ -241,9 +241,8 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invi
 
 ## Étapes suivantes
 
-[Déléguer un domaine dans Azure DNS](dns-domain-delegation.md)<BR>
-[Gérer les zones DNS](dns-operations-dnszones-cli.md)<BR>
-[Automatiser les opérations avec le kit de développement logiciel (SDK) .NET](dns-sdk.md)
+Après avoir créé la zone DNS et les enregistrements, vous pouvez [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).<BR> Apprenez à [gérer des zones DNS](dns-operations-dnszones-cli.md) à l’aide de l’interface de ligne de commande.<BR> Vous pouvez aussi [automatiser les opérations à l’aide du Kit SDK .NET](dns-sdk.md) pour coder les opérations Azure DNS dans votre application.
+
  
 
-<!------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

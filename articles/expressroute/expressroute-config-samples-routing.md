@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,14 +12,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Exemples de configuration de routeur pour configurer et gérer le routage
 
 Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
 
->[AZURE.IMPORTANT]Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
+>[AZURE.IMPORTANT] Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
 
 Les exemples de configuration de routeur ci-dessous s’appliquent à toutes les homologations. Consultez [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour plus d’informations sur le routage.
 
@@ -210,4 +210,4 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

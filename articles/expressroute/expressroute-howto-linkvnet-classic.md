@@ -156,4 +156,4 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

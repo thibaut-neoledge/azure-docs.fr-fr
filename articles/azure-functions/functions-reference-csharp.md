@@ -180,7 +180,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 #### Pour charger project.json à l’aide du point de terminaison SCM (Kudu) du conteneur de fonctions
 
-1. Accédez à *https://<function_app_name>.scm.azurewebsites.net*.
+1. Accédez à : `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Cliquez sur **Console de débogage > CMD**.
 
@@ -190,9 +190,9 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 #### Pour charger project.json à l’aide de FTP
 
-1. Suivez les instructions [ici](../app-service-web/web-sites-deploy.md#ftp) pour configurer FTP.
+1. Suivez les instructions [ici](../app-service-web/web-sites-deploy.md#ftp) pour configurer le FTP.
 
-2. Lorsque vous êtes connecté au site du conteneur de fonctions, copiez votre fichier *project.json* dans */site/wwwroot/<function_name>*.
+2. Lorsque vous êtes connecté au site de l’application de fonction, copiez votre fichier *project.json* dans */site/wwwroot/<function_name>*.
 
 #### Journal d’installation du package 
 
@@ -248,7 +248,7 @@ Vous pouvez utiliser un chemin d’accès relatif avec la directive `#load` :
 
 * `#load "..\shared\mylogger.csx"` charge un fichier situé dans un dossier situé au même niveau que le dossier de la fonction, c’est-à-dire, directement sous *wwwroot*.
  
-La directive `#load` ne fonctionne qu’avec des fichiers *.csx* (script C#) et pas avec des fichiers *.cs*.
+La directive `#load` ne fonctionne qu’avec des fichiers *.csx* (script C#) et non avec des fichiers *.cs*.
 
 ## Étapes suivantes
 
@@ -258,4 +258,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -152,7 +152,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Chaque service dispose de son propre package de configuration individuel. Il n’existe aucun mécanisme intégré permettant à toutes les applications d’un cluster d’accéder à l’ensemble des paramètres de configuration. Lorsque vous utilisez le fichier de configuration spécial Settings.xml de Service Fabric dans un package de configuration, les valeurs du fichier Settings.xml peuvent être remplacées au niveau de l’application, permettant ainsi l’utilisation de paramètres de configuration au niveau de l’application.
 
@@ -196,7 +196,7 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Chacun des trois types de package d’un service (Code, Config et Data) inclut des événements qui informent une instance de service lorsqu’un package est mis à jour, ajouté ou supprimé. Un service peut contenir plusieurs packages de chaque type. Par exemple, un service peut avoir plusieurs packages de configuration, chacun pouvant être géré et mis à niveau individuellement.
 
@@ -277,4 +277,4 @@ Découvrez plus en détail les services fiables Service Fabric et les différenc
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

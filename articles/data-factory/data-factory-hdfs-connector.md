@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Transfert de données à partir d’un HDFS en local à l’aide d’Azure Data Factory
@@ -27,11 +27,11 @@ Le service Data Factory prend en charge la connexion à des sources HDFS locales
 
 Bien qu’il soit possible d’installer la passerelle sur le même ordinateur local ou la même machine virtuelle Azure que le HDFS, nous vous recommandons de l’installer sur un ordinateur ou une machine virtuelle IaaS Azure distinct(e) afin d’éviter les conflits de ressources et d’obtenir de meilleures performances. Lorsque vous installez la passerelle sur un ordinateur distinct, l’ordinateur doit être en mesure d’accéder à l’ordinateur qui exécute le système HDFS.
 
-## Exemple : copie de données entre un système HDFS local et un objet blob Azure
+## Exemple : copie de données entre un système HDFS local et un objet blob Azure
 
-Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
  
-L’exemple contient les entités de fabrique de données suivantes :
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -43,7 +43,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié de HDFS** : cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS** : cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "HDFSLinkedService",
@@ -61,7 +61,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	    }
 	}
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -73,9 +73,9 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  }
 	}
 
-**Jeu de données d’entrée HDFS** : ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
+**Jeu de données d’entrée HDFS** : ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
 
-La définition de « external » : « true » et la spécification de la stratégie externalData (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » : « true » et la spécification de la stratégie externalData (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
 	{
 	    "name": "InputDataset",
@@ -98,7 +98,7 @@ La définition de « external » : « true » et la spécification de la straté
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
 	{
 	    "name": "OutputDataset",
@@ -256,15 +256,15 @@ Pour en savoir plus sur la définition des informations d’identification pour 
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **FileShare** (comprenant le jeu de données HDFS) présente les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **FileShare** (comprenant le jeu de données HDFS) présente les propriétés suivantes.
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-folderPath | Chemin d'accès au dossier. Exemple : myfolder<br/><br/>Utilisez le caractère d’échappement « \\ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\\subfolder et pour d:\\samplefolder, spécifiez d:\\\samplefolder.<br/><br/>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin. | Oui
+folderPath | Chemin d'accès au dossier. Exemple : myfolder<br/><br/>Utilisez le caractère d’échappement « \\ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\\subfolder et pour d:\\samplefolder, spécifiez d:\\\samplefolder.<br/><br/>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin. | Oui
 fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : <br/><br/>Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Non
 partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non
-fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (un seul caractère).<br/><br/>Exemples 1 : "fileFilter": "*.log"<br/>Exemple 2 : "fileFilter": 2014-1-?.txt"<br/><br/>**Remarque** : fileFilter s’applique à un jeu de données FileShare d’entrée | Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (un seul caractère).<br/><br/>Exemples 1 : "fileFilter": "*.log"<br/>Exemple 2 : "fileFilter": 2014-1-?.txt"<br/><br/>**Remarque** : fileFilter s’applique à un jeu de données FileShare d’entrée | Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 | format | Trois types de formats sont pris en charge : **TextFormat**, **AvroFormat** et **JsonFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. Consultez la section [Définition de JsonFormat](#specifying-jsonformat) si vous utilisez le format JsonFormat. | Non 
 
 
@@ -277,7 +277,7 @@ Comme mentionné ci-dessus, vous pouvez spécifier un folderPath dynamique, file
 
 Consultez les articles [Création de jeux de données](data-factory-create-datasets.md), [Planification et exécution](data-factory-scheduling-and-execution.md) et [Création de pipelines](data-factory-create-pipelines.md) pour mieux comprendre les jeux de données de série chronologique, la planification et les segments.
 
-#### Exemple 1 :
+#### Exemple 1 :
 
 	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
 	"partitionedBy": 
@@ -307,12 +307,12 @@ Si le format est défini sur **TextFormat**, vous pouvez spécifier les proprié
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
-| columnDelimiter | Caractère utilisé comme séparateur de colonnes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est virgule (,). | Non |
-| rowDelimiter | Caractère utilisé comme séparateur de lignes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
+| columnDelimiter | Caractère utilisé comme séparateur de colonnes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est virgule (,). | Non |
+| rowDelimiter | Caractère utilisé comme séparateur de lignes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
 | escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous utilisez une virgule (,) comme séparateur de colonnes, mais que vous voulez insérer une virgule dans le texte (par exemple, « Hello, world »), définissez « $ » comme caractère d’échappement et spécifiez la chaîne « Hello$, world » dans la source.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non | 
-| quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non |
+| quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non |
 | nullValue | Caractère(s) utilisé(s) pour représenter la valeur Null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N ».<br/><br/>Par exemple, selon l’exemple ci-dessus, « NaN » dans l’objet blob est converti en tant que valeur Null au moment de la copie vers SQL Server, par exemple. | Non |
-| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
+| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
 
 #### Exemple pour TextFormat
 L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
@@ -331,12 +331,12 @@ L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
 	    }
 	},
 
-Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par ce qui suit :
+Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par ce qui suit :
 
 	"escapeChar": "$",
 
 ### Définition d'AvroFormat
-Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
+Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
 
 	"format":
 	{
@@ -357,7 +357,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 Dans le cas d’une activité de copie, quand la source est de type **FileSystemSource**, les propriétés suivantes sont disponibles dans la section typeProperties :
 
-**FileSystemSource** prend en charge les propriétés suivantes :
+**FileSystemSource** prend en charge les propriétés suivantes :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -367,4 +367,7 @@ Dans le cas d’une activité de copie, quand la source est de type **FileSystem
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## Performances et réglage  
+Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
+
+<!---HONumber=AcomDC_0427_2016-->

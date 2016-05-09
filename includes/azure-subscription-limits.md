@@ -16,6 +16,6 @@ Règles d’alerte par abonnement|250|250
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<sup>2</sup>Si vous avez besoin de plus de 100 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise. Si elle l’approuve, elle vous permettra d’avoir jusqu’à 250 comptes de stockage.
+<sup>2</sup>Cela inclut à la fois les comptes de stockage standard et Premium. Si vous avez besoin de plus de 100 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->
