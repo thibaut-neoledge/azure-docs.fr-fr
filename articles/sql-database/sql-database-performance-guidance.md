@@ -173,7 +173,7 @@ Il existe deux vues qui vous permettent de surveiller l'utilisation des ressourc
 ### Avec sys.dm\_db\_resource\_stats
 La vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe dans chaque base de données SQL et fournit les dernières données sur l'utilisation des ressources par rapport au niveau de service. Les pourcentages moyens de CPU, d'E/S des données, d'écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
-Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm\_db\_resource\_stats ** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
+Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm_db_resource_stats** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',

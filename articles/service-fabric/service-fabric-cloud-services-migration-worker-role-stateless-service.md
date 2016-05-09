@@ -38,7 +38,7 @@ D’un point de vue conceptuel, un rôle de travail représente une charge de tr
 
 Comme pour le rôle de travail, un rôle web représente également une charge de travail sans état, et, d’un point de vue conceptuel, il peut donc lui aussi être mappé vers un service sans état Service Fabric. Toutefois, contrairement aux rôles web, Service Fabric ne prend pas en charge les IIS. Pour migrer une application web d’un rôle web vers un service sans état, vous devez d’abord passer à une infrastructure web auto-hébergée et qui ne dépend pas d’IIS ou de System.Web, comme ASP.NET Core 1.
 
-****Application ** | **Prise en charge** | **Chemin de migration**
+**Application** | **Prise en charge** | **Chemin de migration**
 --- | --- | ---
 Formulaires web ASP.NET | Non | Convertir en ASP.NET Core 1 MVC
 ASP.NET MVC | Avec migration | Mettre à niveau vers ASP.NET Core 1

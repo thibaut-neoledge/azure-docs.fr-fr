@@ -241,7 +241,8 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invi
 
 ## Étapes suivantes
 
-Après avoir créé la zone DNS et les enregistrements, vous pouvez [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).<BR> Apprenez à [gérer des zones DNS](dns-operations-dnszones-cli.md) à l’aide de l’interface de ligne de commande.<BR> Vous pouvez aussi [automatiser les opérations à l’aide du Kit SDK .NET](dns-sdk.md) pour coder les opérations Azure DNS dans votre application.
+Après avoir créé la zone DNS et les enregistrements, vous pouvez [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).<BR> 
+Apprenez à [gérer des zones DNS](dns-operations-dnszones-cli.md) à l’aide de l’interface de ligne de commande.<BR> Vous pouvez aussi [automatiser les opérations à l’aide du Kit SDK .NET](dns-sdk.md) pour coder les opérations Azure DNS dans votre application.
 
  
 

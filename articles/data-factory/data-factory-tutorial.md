@@ -226,7 +226,7 @@ Dans cette étape, vous allez créer les services liés suivants :
 
 ### Création du service AzureSqlLinkedService
 1. Dans **Data Factory Editor**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Base de données SQL Azure** dans le menu déroulant. Le modèle JSON pour la création du service lié SQL Azure doit apparaître dans le volet droit.
-2. Remplacez les éléments **nom\_serveur**, ****username@servername** et **mot\_de\_passe** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.
+2. Remplacez les éléments **nom\_serveur**, **username@servername** et **mot\_de\_passe** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.
 3. Remplacez l’élément **nom\_BD** par **MarketingCampaigns**. Il s’agit de la base de données SQL Microsoft Azure créée par les scripts que vous avez exécutés à l’étape 1. Vous devez confirmer que cette base de données a bien été créée par les scripts (en cas d’erreurs). 
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService.
 

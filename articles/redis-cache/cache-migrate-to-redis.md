@@ -85,7 +85,7 @@ Une fois le cache créé et configuré, vous devez supprimer la configuration du
 
 Pour pouvoir configurer les applications clientes pour le Cache Redis Azure, vous devez au préalable supprimer la configuration et les références d’assembly existantes du Service de cache géré en désinstallant le package NuGet du Service de cache géré.
 
-Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** ** Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
+Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
 
 ![Désinstaller le package NuGet du Service de cache géré Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 

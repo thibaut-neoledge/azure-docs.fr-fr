@@ -16,7 +16,7 @@
 	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(version préliminaire)* - Guide de dépannage
+# Services de domaine Azure AD *(version préliminaire)* - Guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
 
 

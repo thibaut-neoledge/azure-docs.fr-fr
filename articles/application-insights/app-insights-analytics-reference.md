@@ -1288,7 +1288,17 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
+|`!=`|Non égal à
 
 
 

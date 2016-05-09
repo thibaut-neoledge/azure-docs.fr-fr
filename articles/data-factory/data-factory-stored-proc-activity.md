@@ -108,7 +108,7 @@ Après avoir créé la fabrique de données, vous créez un service lié Azure S
 
 7.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **SProcDF**. Cette action lance l'éditeur Data Factory Editor. 
 2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **SQL Azure**. Le script JSON de création d’un service lié Azure SQL doit apparaître dans l’éditeur. 
-4. Remplacez **servername** par le nom de votre serveur de base de données SQL Azure, **databasename** par la base de données dans laquelle vous avez créé la table et la procédure stockée, ****username@servername** par le compte d’utilisateur qui a accès à la base de données et **password** par le mot de passe du compte d’utilisateur.
+4. Remplacez **servername** par le nom de votre serveur de base de données SQL Azure, **databasename** par la base de données dans laquelle vous avez créé la table et la procédure stockée, **username@servername** par le compte d’utilisateur qui a accès à la base de données et **password** par le mot de passe du compte d’utilisateur.
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 ### Créer un jeu de données de sortie

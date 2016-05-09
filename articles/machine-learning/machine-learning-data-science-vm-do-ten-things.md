@@ -404,7 +404,7 @@ Si vos données se trouvent dans Azure Blob Storage, vous pouvez les lire direct
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données de stockage d’objets blob, utilisez ****wasb://** ; lorsque vous référencez les données d’Azure Data Lake, utilisez ****swbhdfs://**
+Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données de stockage d’objets blob, utilisez **wasb://** ; lorsque vous référencez les données d’Azure Data Lake, utilisez **swbhdfs://**
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

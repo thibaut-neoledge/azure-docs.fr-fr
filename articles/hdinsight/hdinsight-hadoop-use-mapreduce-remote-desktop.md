@@ -47,7 +47,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. Comme entrée, elle utilise le document ****wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : ****wasb:///example/data/WordCountOutput**.
+	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. Comme entrée, elle utilise le document **wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Pour plus d'informations sur cette tâche MapReduce et sur les exemples de données, consultez <a href="hdinsight-use-mapreduce.md">Utilisation de MapReduce dans HDInsight Hadoop</a>.
 
@@ -58,7 +58,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 		File Output Format Counters
         Bytes Written=337623
 
-3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur ****wasb://example/data/WordCountOutput** :
+3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
@@ -70,7 +70,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Cela affiche une liste des mots contenus dans le fichier ****wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
+	Cela affiche une liste des mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
 
 		wreathed        3
 		wreathing       1

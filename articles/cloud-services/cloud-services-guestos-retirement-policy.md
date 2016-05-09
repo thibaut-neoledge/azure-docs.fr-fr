@@ -57,7 +57,8 @@ Si les clients définissent la mise à jour automatique pour leur système d'exp
 
 Les versions de SE invité sont publiées chaque mois. En raison de la fréquence des publications régulières, chaque version est associée à un cycle de vie défini.
 
-Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
+Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
+Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
 
 Ultérieurement, la version du SE invité obtient le statut « *expiré* » et toutes les installations qui exécutent encore cette version sont obligatoirement mises à niveau et paramétrées pour mettre à jour automatiquement le SE invité dans le futur. L'expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l'expiration peut varier.
 

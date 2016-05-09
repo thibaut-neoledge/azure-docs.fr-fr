@@ -26,7 +26,7 @@
 
 Ce didacticiel vous montre comment créer une machine virtuelle Azure à l’aide du modèle de déploiement **Azure Resource Manager** et d’applets de commande Azure PowerShell. Dans ce didacticiel, nous allons créer une machine virtuelle à l’aide d’un lecteur de disque à partir d’une image dans la galerie SQL. Nous allons créer des fournisseurs pour les ressources de stockage, de réseau et de calcul qui seront utilisées par la machine virtuelle. Si vous avez déjà des fournisseurs pour ces ressources, vous pouvez les utiliser.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique. Si vous avez besoin de la version classique de cette rubrique, consultez la page [Créer une machine virtuelle SQL Server dans Azure PowerShell (classique)](virtual-machines-windows-classic-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique. Si vous avez besoin de la version classique de cette rubrique, consultez la page [Créer une machine virtuelle SQL Server dans Azure PowerShell (classique)](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Configuration requise
 

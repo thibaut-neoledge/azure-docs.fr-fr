@@ -388,7 +388,9 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 
 	|Port|Type|Description|
 |---|---|---|
-|**80**|TCP|Accès distant au serveur de rapports (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Nécessaire lorsque la machine virtuelle est jointe à un domaine.|
+|**80**|TCP|Accès distant au serveur de rapports (*).| 
+|**1433**|TCP|SQL Server Management Studio (*).| 
+|**1434**|UDP|SQL Server Browser. Nécessaire lorsque la machine virtuelle est jointe à un domaine.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instance par défaut et instance en cluster nommée de SQL Server Analysis Services.|
 |**Définie par l’utilisateur**|TCP|Créez une instance nommée Analysis Services statique pour un numéro de port que vous choisissez, puis débloquez le numéro de port dans le pare-feu.|

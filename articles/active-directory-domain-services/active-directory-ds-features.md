@@ -39,7 +39,7 @@ Les fonctionnalités suivantes sont disponibles dans la version préliminaire de
 
 - **Stratégie de groupe :** vous pouvez vous servir d’un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur, ainsi que pour les ordinateurs joints au domaine.
 
-- **Disponibilité dans plusieurs régions Azure **: consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
+- **Disponibilité dans plusieurs régions Azure** : consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 
 - **Haute disponibilité :** les services de domaine Azure AD offrent une haute disponibilité pour votre domaine. Vous bénéficiez ainsi d’une disponibilité de service et d’une tolérance aux pannes plus élevées. La surveillance intégrée de l’intégrité permet de corriger automatiquement les défaillances en configurant de nouvelles instances pour remplacer les instances défectueuses et fournir un service continu pour votre domaine.
 

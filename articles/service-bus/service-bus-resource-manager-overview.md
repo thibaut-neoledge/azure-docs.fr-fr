@@ -168,7 +168,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### Définir le groupe de ressources
 
-Si vous ne disposez pas d’un groupe de ressources, créez-en un avec la commande ** New-AzureRmResourceGroup **. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
+Si vous ne disposez pas d’un groupe de ressources, créez-en un avec la commande **New-AzureRmResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
 
 ```
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
@@ -252,6 +252,6 @@ Vous avez maintenant vu le flux de travail et les commandes de base pour le dép
 [Présentation d’Azure Resource Manager]: ../resource-group-overview.md
 [Déploiement de ressources avec des modèles Azure Resource Manager]: ../resource-group-template-deploy.md
 [Déployer des ressources à l’aide de modèles Azure Resource Manager]: ../resource-group-template-deploy.md
-[Galerie de modèles de démarrage rapide Azure]: https://azure.microsoft.com/fr-FR/documentation/templates/?term=service+bus
+[Galerie de modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 <!---HONumber=AcomDC_0427_2016-->

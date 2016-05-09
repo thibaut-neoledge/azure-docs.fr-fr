@@ -433,6 +433,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[service cloud]: https://azure.microsoft.com/fr-FR/documentation/services/cloud-services/
+[service cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0427_2016-->
