@@ -199,7 +199,8 @@ Dans cette section, vous allez déployer le projet web dans l’application web.
 
 	![Application web exécutée dans Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour effectuer la publication ou cliquer sur un bouton pour ouvrir l’Assistant **Publier le site web**. ![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour effectuer la publication ou cliquer sur un bouton pour ouvrir l’Assistant **Publier le site web**. 
+	![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Résolution de problèmes
 

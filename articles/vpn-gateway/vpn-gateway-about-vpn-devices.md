@@ -40,12 +40,12 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 
 | **Fournisseur** | **Famille de périphériques** | **Version de système d’exploitation minimale** | **Basé sur des stratégies** | **Basé sur un itinéraire** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Allied Telesis | Routeurs VPN série AR | 2\.9.2 | Bientôt disponible | Non compatible |
+| Allied Telesis | Routeurs VPN série AR | 2.9.2 | Bientôt disponible | Non compatible |
 | Barracuda Networks, Inc. | Barracuda NextGen Firewall série F | Basé sur des stratégies : 5.4.3, basé sur un itinéraire : 6.2.0 | [Instructions de configuration](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Instructions de configuration](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. | Barracuda NextGen Firewall série X | Pare-feu Barracuda 6.5 | [Pare-feu Barracuda](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Non compatible |
 | Brocade | Routeur virtuel Vyatta 5400 | Routeur virtuel 6.6R3 GA | [Instructions de configuration](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Non compatible |
 | Check Point | Passerelle de sécurité | R75.40, R75.40VS | [Instructions de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instructions de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Non compatible |
+| Cisco | ASA | 8.3 | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Non compatible |
 | Cisco | ASR | IOS 15.1 (basé sur des stratégies), IOS 15.2 (basé sur un itinéraire) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco | ISR | IOS 15.0 (basé sur des stratégies), IOS 15.1 (basé sur un itinéraire) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Exemples Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | Appliance MPX CloudBridge ou appliance virtuelle VPX | N/A | [Instructions d’intégration](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatible |
@@ -59,7 +59,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Juniper | SSG | ScreenOS 6.2 (basé sur des stratégies et basé sur un itinéraire) | [Exemples Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Exemples Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | Service de routage et d’accès à distance | Windows Server 2012 | Non compatible | [Exemples Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG | Passerelle Mission Control Security | N/A | [Guide d’installation](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Guide d’installation](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
-| Openswan | Openswan | 2\.6.32 | (Bientôt disponible) | Non compatible |
+| Openswan | Openswan | 2.6.32 | (Bientôt disponible) | Non compatible |
 | Palo Alto Networks | Tous les périphériques exécutant PAN-OS | PAN-OS 6.1.5 ou version ultérieure (basé sur des stratégies), PAN-OS 7.0.5 ou version ultérieure (basé sur un itinéraire) | [Instructions de configuration](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) | [Instructions de configuration](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | Watchguard | Tout | Fireware XTM v11.x | [Instructions de configuration](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Non compatible |
 
@@ -80,17 +80,17 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 
 | **Texte de l’exemple** | **Valeur de substitution** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| &lt;RP\_OnPremisesNetwork&gt; | Nom que vous choisissez pour cet objet. Exemple : MonRéseauLocal |
-| &lt;RP\_AzureNetwork&gt; | Nom que vous choisissez pour cet objet. Exemple : MonRéseauAzure |
-| &lt;RP\_AccessList&gt; | Nom que vous choisissez pour cet objet. Exemple : MaListeAccèsAzure |
-| &lt;RP\_IPSecTransformSet&gt; | Nom que vous choisissez pour cet objet. Exemple : MonJeuTransformationsIPSec |
-| &lt;RP\_IPSecCryptoMap&gt; | Nom que vous choisissez pour cet objet. Exemple : MaCarteChiffrementIPSec |
-| &lt;SP\_AzureNetworkIpRange&gt; | Spécifiez une plage. Exemple : 192.168.0.0 |
-| &lt;SP\_AzureNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau. Exemple : 255.255.0.0 |
-| &lt;SP\_OnPremisesNetworkIpRange&gt; | Spécifiez une plage locale. Exemple : 10.2.1.0 |
-| &lt;SP\_OnPremisesNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau local. Exemple : 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
-| &lt;SP\_PresharedKey&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
+| &lt;RP_OnPremisesNetwork&gt; | Nom que vous choisissez pour cet objet. Exemple : MonRéseauLocal |
+| &lt;RP_AzureNetwork&gt; | Nom que vous choisissez pour cet objet. Exemple : MonRéseauAzure |
+| &lt;RP_AccessList&gt; | Nom que vous choisissez pour cet objet. Exemple : MaListeAccèsAzure |
+| &lt;RP_IPSecTransformSet&gt; | Nom que vous choisissez pour cet objet. Exemple : MonJeuTransformationsIPSec |
+| &lt;RP_IPSecCryptoMap&gt; | Nom que vous choisissez pour cet objet. Exemple : MaCarteChiffrementIPSec |
+| &lt;SP_AzureNetworkIpRange&gt; | Spécifiez une plage. Exemple : 192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau. Exemple : 255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; | Spécifiez une plage locale. Exemple : 10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; | Spécifiez un masque de sous-réseau local. Exemple : 255.255.255.0 |
+| &lt;SP_AzureGatewayIpAddress&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
+| &lt;SP_PresharedKey&gt; | Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
 
 
@@ -117,7 +117,10 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | Version IKE | IKEv1 | IKEv2 |
 | Algorithme de hachage | SHA1(SHA128) | SHA1(SHA128) |
 | Durée de vie d’association de sécurité de phase 2 (temps) | 3 600 secondes | 3 600 secondes |
-| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - | | Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) | | PFS (Perfect Forward Secrecy) | Non | Oui (groupe 1, 2, 5, 14, 24 DH) | | Détection d’homologue mort | Non prise en charge | Prise en charge |
+| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - |
+| Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) |
+| PFS (Perfect Forward Secrecy) | Non | Oui (groupe 1, 2, 5, 14, 24 DH) |
+| Détection d’homologue mort | Non prise en charge | Prise en charge |
 
 ### Offres d'association de sécurité IPsec pour passerelle basée sur un itinéraire
 
@@ -137,11 +140,12 @@ Le tableau ci-après répertorie les offres d’authentification et de chiffreme
 | 10 | AH MD5 avec ESP 3\_DES MD5, aucune durée de vie | ESP DES SHA1, aucune durée de vie |
 | 11 | ESP DES MD5 | AH SHA1 avec ESP DES et HMAC Null, aucune durée de vie proposée |
 | 12 | ESP DES SHA1, aucune durée de vie | AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée |
-| 13\. | AH SHA1 avec ESP DES et HMAC Null, aucune durée de vie proposée | AH SHA1 avec ESP DES SHA1, aucune durée de vie |
+| 13 | AH SHA1 avec ESP DES et HMAC Null, aucune durée de vie proposée | AH SHA1 avec ESP DES SHA1, aucune durée de vie |
 | 14 | AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée | AH MD5 avec ESP DES MD5, aucune durée de vie |
 | 15 | AH SHA1 avec ESP DES SHA1, aucune durée de vie | ESP SHA, aucune durée de vie |
 | 16 | AH MD5 avec ESP DES MD5, aucune durée de vie | ESP MD5, aucune durée de vie |
-| 17 | - | AH SHA, aucune durée de vie | | 18 | - | AH MD5, aucune durée de vie |
+| 17 | - | AH SHA, aucune durée de vie |
+| 18 | - | AH MD5, aucune durée de vie |
 
 
 - Vous pouvez spécifier le chiffrement IPsec ESP NULL avec les passerelles VPN basées sur un itinéraire et hautes performances. Le chiffrement Null ne fournit pas de protection des données en transit. Il doit être utilisé uniquement lorsqu’un débit maximal et une latence minimale sont requis. Les clients peuvent choisir de l’utiliser dans les scénarios de communication entre les réseaux virtuels ou lorsque le chiffrement est appliqué ailleurs dans la solution.

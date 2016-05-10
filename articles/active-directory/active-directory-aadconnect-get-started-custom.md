@@ -57,9 +57,11 @@ Ne pas configurer | Aucune fonctionnalité n’est installée ni configurée. Ch
 ## Connexion à Azure AD
 Sur l’écran Connexion à Azure AD, entrez un compte et un mot de passe d’administrateur général. Si vous avez sélectionné l’option **Fédération avec AD FS** sur la page précédente, ne vous connectez pas avec un compte dans un domaine que vous activerez pour la fédération. Il est recommandé d’utiliser un compte du domaine **onmicrosoft.com** par défaut, qui est fourni avec votre annuaire Azure AD.
 
-Ce compte est uniquement utilisé pour créer un compte de service dans Azure AD et n’est plus utilisé une fois l’assistant terminé. ![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+Ce compte est uniquement utilisé pour créer un compte de service dans Azure AD et n’est plus utilisé une fois l’assistant terminé. 
+![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-Si la fonction MFA est activée sur votre compte d’administrateur global, vous devez à nouveau fournir le mot de passe dans la fenêtre contextuelle de connexion et passer le test MFA. Ce test peut consister à fournir un code de vérification ou à passer un appel téléphonique. ![MFA par connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+Si la fonction MFA est activée sur votre compte d’administrateur global, vous devez à nouveau fournir le mot de passe dans la fenêtre contextuelle de connexion et passer le test MFA. Ce test peut consister à fournir un code de vérification ou à passer un appel téléphonique. 
+![MFA par connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) peut aussi être activé sur le compte d’administrateur global.
 
@@ -68,14 +70,18 @@ Si vous recevez une erreur et rencontrez des problèmes de connectivité, consul
 ## Pages de la section Synchronisation
 
 ### Connexion de vos annuaires
-Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\\syncuser ou fabrikam.com\\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour en savoir plus, voir [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
+Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\syncuser ou fabrikam.com\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour en savoir plus, voir [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
 
 ![Répertoire Connect](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### Filtrage domaine et unité organisationnelle
-Par défaut, tous les domaines et unités d’organisation sont synchronisés. S’il existe des domaines ou des unités d’organisation que vous ne souhaitez pas synchroniser avec Azure AD, vous pouvez les désélectionner. ![Filtrage par domaine/unité d’organisation](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Cette page de l’Assistant porte sur la configuration du filtrage basé sur le domaine. Pour en savoir plus, voir [Filtrage basé sur le domaine](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+Par défaut, tous les domaines et unités d’organisation sont synchronisés. S’il existe des domaines ou des unités d’organisation que vous ne souhaitez pas synchroniser avec Azure AD, vous pouvez les désélectionner. 
+![Filtrage par domaine/unité d’organisation](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) 
+Cette page de l’Assistant porte sur la configuration du filtrage basé sur le domaine. Pour en savoir plus, voir [Filtrage basé sur le domaine](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
 
-Il est également possible que certains domaines ne soient pas accessibles en raison de restrictions de pare-feu. Ces domaines sont désélectionnés par défaut et présentent un avertissement. ![Domaines inaccessibles](./media/active-directory-aadconnect-get-started-custom/unreachable.png) S’il s’affiche, vérifiez que ces domaines sont effectivement inaccessibles et que ce message est normal.
+Il est également possible que certains domaines ne soient pas accessibles en raison de restrictions de pare-feu. Ces domaines sont désélectionnés par défaut et présentent un avertissement. 
+![Domaines inaccessibles](./media/active-directory-aadconnect-get-started-custom/unreachable.png) 
+S’il s’affiche, vérifiez que ces domaines sont effectivement inaccessibles et que ce message est normal.
 
 ### Identification unique de vos utilisateurs
 La fonctionnalité Correspondance entre les forêts vous permet de définir la méthode de représentation des utilisateurs de vos forêts AD DS dans Azure AD. Il est possible de représenter seulement une fois chaque utilisateur entre toutes les forêts, ou de présenter une combinaison des comptes activés et désactivés. L’utilisateur peut également être représenté en tant que contact dans certaines forêts.

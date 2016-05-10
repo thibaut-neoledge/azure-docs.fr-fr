@@ -30,7 +30,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | Modèle de l'appareil | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacité maximale** | 30 To | 64 To |
-| **Microsoft Azure** | Standard\_A3 (4 cœurs, 7 Go de mémoire) | Standard\_DS3 (4 cœurs, 14 Go de mémoire) |
+| **Microsoft Azure** | Standard_A3 (4 cœurs, 7 Go de mémoire) | Standard_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** | Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure | Les versions exécutant Update 2 ou version ultérieure |
 | **Disponibilité des régions** | Toutes les régions Azure | Régions Azure qui prennent en charge Premium Storage<br></br>Pour obtenir la liste des régions, consultez [Régions prises en charge pour 8020](#supported-regions-for-8020). |
 | **Type de stockage** | Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard]() | Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
@@ -44,7 +44,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 
 Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
 
-| N° | Actuellement pris en charge dans les régions |
+| No | Actuellement pris en charge dans les régions |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Centre des États-Unis |
 | 2 | Est des États-Unis |
@@ -58,9 +58,9 @@ Les régions Premium Storage actuellement prises en charge pour 8020 sont indiqu
 | 10 | Est de l’Australie |
 | 11 | Sud-Est de l’Australie* |
 | 12 | Asie de l’Est* |
-| 13\. | Centre-Sud des États-Unis* |
+| 13 | Centre-Sud des États-Unis* |
 
-**Premium Storage a été lancé récemment dans ces zones géographiques.
+*Premium Storage a été lancé récemment dans ces zones géographiques.
 
 Cet article décrit le processus de déploiement pas à pas d'un appareil virtuel StorSimple dans Azure. À la fin de cet article, vous serez capable :
 
@@ -144,7 +144,8 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
+[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 

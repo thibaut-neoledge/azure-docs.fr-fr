@@ -229,9 +229,9 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
 ### Configurer les vues
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Shared** et double-cliquez sur **\_Layout.cshtml**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Shared** et double-cliquez sur **_Layout.cshtml**.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![_Layout.cshtml][cache-layout-cshtml]
 
 2. Modifiez le contenu de l’élément `title` et remplacez `My ASP.NET Application` par `Contoso Team Stats`, comme indiqué dans l’exemple suivant.
 

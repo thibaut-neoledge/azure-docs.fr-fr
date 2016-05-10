@@ -82,7 +82,7 @@ Vous avez maintenant créé un nouveau projet d’application universelle Window
 			 //... rest of the code
            }
 
-    c. Initialisez le kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
+    c. Initialisez le kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
@@ -108,7 +108,7 @@ Pour commencer à envoyer des données et vous assurer que les utilisateurs sont
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. Remplacez la classe de base de **MainPage** **Page** par **EngagementPageOverlay** :
+2. Remplacez la classe de base de **MainPage** **Page** par **EngagementPageOverlay** :
 
 		class MainPage : EngagementPageOverlay
 

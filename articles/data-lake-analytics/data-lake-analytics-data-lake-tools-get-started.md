@@ -87,7 +87,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 	![nouveau projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Cliquez sur **OK**. Visual Studio crée une solution avec un fichier **Script.usql**.
-4. Insérez le script suivant dans le fichier **Script.usql** :
+4. Insérez le script suivant dans le fichier **Script.usql** :
 
         @searchlog =
             EXTRACT UserId          int,
@@ -132,7 +132,8 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
     - **Développez les colonnes ***
 
-        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. 
+	![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Cliquez sur **Développer les colonnes**. L’outil remplace alors * par le nom des colonnes.
 
@@ -168,7 +169,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 	![Soumettre un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
-8. Vous devez cliquer sur le bouton Actualiser pour afficher le dernier état du travail et actualiser l'écran. Si le travail réussit, vous verrez le **Graphique** associé, les **Opérations sur les métadonnées**, l’**Historique de l’état**, les **Diagnostics** :
+8. Vous devez cliquer sur le bouton Actualiser pour afficher le dernier état du travail et actualiser l'écran. Si le travail réussit, vous verrez le **Graphique** associé, les **Opérations sur les métadonnées**, l’**Historique de l’état**, les **Diagnostics** :
 
 	![Graphique des performances du travail U-SQL Visual Studio Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 

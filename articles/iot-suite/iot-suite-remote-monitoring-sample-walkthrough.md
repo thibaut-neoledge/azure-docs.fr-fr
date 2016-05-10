@@ -209,7 +209,7 @@ Lorsque l’application a terminé de déployer l’appareil simulé, l’appare
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_04.png)
 
-Le portail de solutions vous permet d’envoyer à l’appareil des commandes du type **ChangeSetPointTemp** :
+Le portail de solutions vous permet d’envoyer à l’appareil des commandes du type **ChangeSetPointTemp** :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_05.png)
 

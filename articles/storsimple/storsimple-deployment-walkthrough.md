@@ -146,7 +146,7 @@ Avant de commencer, assurez-vous que :
 | | | |
 | **NTP** | Nous déclenchons une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
+| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | | Le trafic est-il acheminé via le proxy ? | Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
 | | | |
 | **Inscription** | Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -167,7 +167,8 @@ Procédez comme suit pour créer une instance du service StorSimple Manager.
 
 > [AZURE.IMPORTANT] Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 >
-> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
+> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
+> Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
 
 ## Étape 2 : Obtention de la clé d’inscription
 

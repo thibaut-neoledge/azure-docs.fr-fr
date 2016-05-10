@@ -91,7 +91,7 @@ Pour générer les exemples et configurer les appareils dans votre service IoT H
 
 Ce script effectue les opérations suivantes :
 
-1.  Exécute **cmake** pour créer une solution Visual Studio 2015 associée à l’appareil simulé. Ce fichier projet se nomme **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Les fichiers source se trouvent dans le dossier ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Exécute **cmake** pour créer une solution Visual Studio 2015 associée à l’appareil simulé. Ce fichier projet se nomme **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Les fichiers source se trouvent dans le dossier **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Génère le projet d’appareil simulé **iotdm\_simple\_sample.vcxproj**.
 

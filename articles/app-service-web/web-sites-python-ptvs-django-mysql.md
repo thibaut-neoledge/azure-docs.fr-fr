@@ -99,7 +99,7 @@ Pour créer une base de données avec un plan gratuit, procédez comme suit :
 
   
 
-1.  Entrez « **mysql** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**. -->
+1.  Entrez « **mysql** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**. -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configurez la nouvelle base de données MySQL en créant un nouveau groupe de ressources, puis sélectionnez l’emplacement approprié pour celui-ci.

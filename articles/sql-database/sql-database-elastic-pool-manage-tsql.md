@@ -31,7 +31,7 @@ Utilisez les commandes [Create Database (Azure SQL Database)](https://msdn.micro
 
 
 ## Créer une base de données dans un pool de base de données élastique
-Utilisez la commande CREATE DATABASE avec l’option SERVICE\_OBJECTIVE.
+Utilisez la commande CREATE DATABASE avec l’option SERVICE_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ Utilisez la commande ALTER DATABASE avec MODIFY et définissez l’option SERVIC
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Déplacer une base de données dans un pool élastique 
-Utilisez la commande ALTER DATABASE avec MODIFY et définissez l’option SERVICE\_OBJECTIVE sur ELASTIC\_POOL ; définissez le nom sur le nom du pool cible.
+Utilisez la commande ALTER DATABASE avec MODIFY et définissez l’option SERVICE\_OBJECTIVE sur ELASTIC_POOL ; définissez le nom sur le nom du pool cible.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Déplacer une base de données hors d’un pool élastique
-Utilisez la commande ALTER DATABASE et définir l’option SERVICE\_OBJECTIVE sur l’un des niveaux de performances (S0, S1, etc.).
+Utilisez la commande ALTER DATABASE et définir l’option SERVICE_OBJECTIVE sur l’un des niveaux de performances (S0, S1, etc.).
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.

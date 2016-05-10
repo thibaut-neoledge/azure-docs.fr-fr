@@ -67,7 +67,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 	![Capture d’écran du panneau Paramètres où vous pouvez configurer les fonctionnalités facultatives d’une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
-7. Cliquez sur **Synthèse** pour passer en revue vos options. Quand vous avez terminé, cliquez sur **OK**.
+7. Cliquez sur **Synthèse** pour passer en revue vos options. Quand vous avez terminé, cliquez sur **OK**.
 
 	![Capture d’écran de la page Synthèse affichant les options de configuration choisies pour la machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 

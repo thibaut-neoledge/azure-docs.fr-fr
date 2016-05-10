@@ -89,7 +89,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 

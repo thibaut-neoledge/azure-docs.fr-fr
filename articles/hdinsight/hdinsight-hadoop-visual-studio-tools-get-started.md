@@ -184,7 +184,7 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 
 HDInsight Tools utilisé pour envoyer des tâches Hive via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (également appelé Templeton). Il fallait auparavant beaucoup de temps pour renvoyer les détails d’une tâche et les informations d’erreur. Pour résoudre ce problème de performances, HDInsight Tools exécute dorénavant les tâches Hive directement dans le cluster via HiveServer2, de manière à contourner RDP/SSH. En plus de bénéficier de meilleures performances, les utilisateurs peuvent afficher Hive sur des graphiques Tez et consulter les détails de la tâche.
 
-Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
+Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
 
 ![hdinsight visual studio exécution de tools via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
