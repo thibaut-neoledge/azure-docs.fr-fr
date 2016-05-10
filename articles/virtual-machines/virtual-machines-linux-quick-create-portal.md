@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/12/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
@@ -35,7 +35,7 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
 3. Dans la page **Fonctions de base** entrez :
     - un nom pour la machine virtuelle ;
     - un nom d’utilisateur pour l’administrateur ;
-    - la définition du Type d’authentification sur **Clé publique SSH** ;
+    - la définition du Type d’authentification sur **Clé publique SSH** ;
     - votre clé publique SSH sous forme de chaîne (par défaut, à partir de votre répertoire `~/.ssh/`) ;
     - un nom de groupe de ressources (pour créer un groupe de déploiement), ou sélectionnez un groupe existant.
 
@@ -66,7 +66,7 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
 9. Connectez-vous avec SSH à l’adresse IP publique à l’aide de votre clé publique SSH.
 
 ```
-ahmetL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
 ## Étapes suivantes
@@ -79,4 +79,4 @@ Vous venez de créer rapidement une machine virtuelle Linux à des fins de test 
 
 Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

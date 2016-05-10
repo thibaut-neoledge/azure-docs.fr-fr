@@ -2,7 +2,7 @@
 	pageTitle="Installation et configuration d’Azure PowerShell"
 	description="Découvrez comment installer et configurer Azure PowerShell."
 	editor="tysonn"
-	manager="stevenka"
+	manager="dongill"
 	documentationCenter=""
 	services=""
 	authors="coreyp-at-msft"/>
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/22/2016"
 	ms.author="coreyp"/>
 
 # Installation et configuration d’Azure PowerShell
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
 
-##Qu’est-ce qu’Azure PowerShell ?
+##Qu’est-ce qu’Azure PowerShell ?
 Azure PowerShell est un ensemble de modules fournissant des applets de commande pour gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure. Dans la plupart des cas, les applets de commande peuvent être utilisées pour les mêmes tâches que le portail de gestion Azure, telles que la création et la configuration de services cloud, de machines virtuelles, de réseaux virtuels et d’applications web.
 
 <a id="Install"></a>
-## Étape 1 : Installer
+## Étape 1 : Installer
 
-Voici les deux méthodes d’installation d’Azure PowerShell. Vous pouvez procéder à l’installation à partir de WebPI ou de la galerie PowerShell :
+Voici les deux méthodes d’installation d’Azure PowerShell. Vous pouvez procéder à l’installation à partir de WebPI ou de la galerie PowerShell :
 
 ###Installation d’Azure PowerShell depuis Web PI
 
@@ -67,14 +67,14 @@ Installez Azure PowerShell version 1.3.0 ou version supérieure à partir de Pow
 ####En savoir plus sur ces commandes.
 
 - **Install-Module AzureRM** installe un module cumulatif pour les applets de commande Azure Resource Manager. Le module AzureRM dépend d’une plage de versions spécifique pour chaque module Azure Resource Manager. La plage de versions incluse garantit qu’aucune modification récente du module ne peut être incluse lors de l’installation des modules AzureRM avec la même version principale. Lorsque vous installez le module AzureRM, tout module Azure Resource Manager qui n’a pas encore été installé sera téléchargé et installé à partir de PowerShell Gallery. Pour plus d’informations sur le contrôle de version sémantique utilisé par les modules Azure PowerShell, consultez [semver.org](http://semver.org). 
-- **Install-Module Azure** installe le module Azure. Ce module est le module de gestion des services d’Azure PowerShell 0.9.x. Il ne doit pas représenter de modification majeure et doit pouvoir remplacer la version précédente du module Azure.
+- **Install-Module Azure** installe le module Azure. Ce module est le module de gestion des services d’Azure PowerShell 0.9.x. Il ne doit pas représenter de modification majeure et doit pouvoir remplacer la version précédente du module Azure.
 
-## Étape 2 : Démarrer
-Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell standard ou depuis l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). La méthode utilisée pour l’ouverture d’une console ou de l’autre dépend de votre version de Windows :
+## Étape 2 : Démarrer
+Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell standard ou depuis l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). La méthode utilisée pour l’ouverture d’une console ou de l’autre dépend de votre version de Windows :
 
-- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran **Démarrer**, commencez par taper power. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran **Démarrer**, cliquez avec le bouton droit sur l’icône.)
+- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran **Démarrer**, commencez par taper power. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran **Démarrer**, cliquez avec le bouton droit sur l’icône.)
 
-- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu **Démarrer**. À partir du menu **Démarrer**, cliquez sur **Tous les programmes**, cliquez sur **Accessoires**, cliquez sur le dossier **Windows PowerShell**, puis cliquez sur **Windows PowerShell**.
+- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu **Démarrer**. À partir du menu **Démarrer**, cliquez sur **Tous les programmes**, cliquez sur **Accessoires**, cliquez sur le dossier **Windows PowerShell**, puis cliquez sur **Windows PowerShell**.
 
 Vous pouvez également exécuter **Windows PowerShell ISE** pour utiliser des éléments de menu et des raccourcis clavier pour effectuer la plupart des tâches que vous exécuteriez avec la console Windows PowerShell. Pour utiliser l’ISE, dans la console Windows PowerShell, Cmd.exe ou dans la zone **Exécuter** saisissez **powershell\_ise.exe**.
 
@@ -110,7 +110,7 @@ Vous pouvez également exécuter **Windows PowerShell ISE** pour utiliser des é
     Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 
 
-## Étape 3 : Connecter
+## Étape 3 : Connecter
 Les applets de commande nécessitent vos informations d’abonnement pour pouvoir gérer vos services. Vous pouvez acheter un abonnement Azure si vous n’en avez pas encore. Pour obtenir des instructions, consultez [Comment acheter Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
 1. Saisissez **Login-AzureRmAccount**
@@ -119,11 +119,11 @@ Les applets de commande nécessitent vos informations d’abonnement pour pouvoi
 
 -Ou-
 
-Connectez-vous à votre compte professionnel ou scolaire :
+Connectez-vous à votre compte professionnel ou scolaire :
 
     $cred = Get-Credential
     Login-AzureRmAccount -Credential $cred
-> [AZURE.NOTE] Si plusieurs clients sont associés à votre compte professionnel, spécifiez le paramètre TenantId :
+> [AZURE.NOTE] Si plusieurs clients sont associés à votre compte professionnel, spécifiez le paramètre TenantId :
 
     $loadersubscription = Get-AzureRmSubscription -SubscriptionName $YourSubscriptionName -TenantId $YourAssociatedSubscriptionTenantId
 
@@ -134,13 +134,13 @@ Connectez-vous à votre compte professionnel ou scolaire :
 
 > 2. S'il n'existe aucun annuaire, sélectionnez **Create your directory** et fournissez les informations demandées.
 
-> 3. Sélectionnez votre annuaire et ajoutez un nouvel utilisateur. Ce nouvel utilisateur peut se connecter à l’aide d’un compte professionnel ou scolaire. Pendant la création de l'utilisateur, une adresse de messagerie est fournie pour l'utilisateur, ainsi qu'un mot de passe temporaire. Conservez ces informations, car vous en aurez besoin lors de l’étape 5.
+> 3. Sélectionnez votre annuaire et ajoutez un nouvel utilisateur. Ce nouvel utilisateur peut se connecter à l’aide d’un compte professionnel ou scolaire. Pendant la création de l'utilisateur, une adresse de messagerie est fournie pour l'utilisateur, ainsi qu'un mot de passe temporaire. Conservez ces informations, car vous en aurez besoin lors de l’étape 5.
 
 > 4. Dans le portail Azure Classic, sélectionnez **Paramètres**, puis **Administrateurs**. Sélectionnez **Ajouter** et ajoutez le nouvel utilisateur en tant que co-administrateur. Cela permet au compte professionnel ou scolaire de gérer votre abonnement Azure.
 
 > 5. Pour finir, déconnectez-vous du portail Azure Classic et reconnectez-vous en utilisant le compte professionnel ou scolaire. Si vous vous connectez pour la première fois avec ce compte, vous êtes invité à changer le mot de passe.
 
-> Pour plus d’informations sur l’inscription à Microsoft Azure avec un compte professionnel ou scolaire, voir [Inscription à Azure en tant qu’organisation](./active-directory/sign-up-organization.md).
+> Pour plus d’informations sur l’inscription à Microsoft Azure avec un compte professionnel ou scolaire, voir [Inscription à Azure en tant qu’organisation](./active-directory/sign-up-organization.md).
 
 > Pour plus d’informations sur la gestion de l’authentification et de l’abonnement dans Azure, consultez [Gérer des comptes, des abonnements et des rôles d’administrateur](http://go.microsoft.com/fwlink/?LinkId=324796).
 
@@ -154,12 +154,12 @@ Pour afficher vos abonnements Azure, tapez **Get-AzureSubscription**.
 
 ##<a id="Help"></a>Accès à l’aide##
 
-Consultez les ressources suivantes pour obtenir de l’aide sur des applets de commande spécifiques :
+Consultez les ressources suivantes pour obtenir de l’aide sur des applets de commande spécifiques :
 
 
 -   Dans la console, vous pouvez utiliser le système d’aide intégré, accessible par la commande **Get-Help**. 
 
-- Pour obtenir de l’aide de la communauté, essayez ces forums populaires :
+- Pour obtenir de l’aide de la communauté, essayez ces forums populaires :
 
  - [Forum Azure sur MSDN (en anglais)](http://go.microsoft.com/fwlink/p/?LinkId=320212)
  - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
@@ -167,7 +167,7 @@ Consultez les ressources suivantes pour obtenir de l’aide sur des applets de c
 ##En savoir plus
 
 
-Pour en savoir plus sur l’utilisation des applets de commande, consultez les ressources suivantes :
+Pour en savoir plus sur l’utilisation des applets de commande, consultez les ressources suivantes :
 
 Pour obtenir des instructions de base sur l’utilisation de Windows PowerShell, voir [Utilisation Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=321939).
 
@@ -175,4 +175,4 @@ Pour obtenir des informations de référence sur les applets de commande, voir [
 
 Pour obtenir des exemples de script et des instructions d’utilisation des scripts pour gérer Azure, voir [Centre de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

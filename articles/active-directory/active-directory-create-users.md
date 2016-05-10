@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajouter des utilisateurs ou modifier les informations utilisateur dans Azure Active Directory | Microsoft Azure"
-	description="Explique comment ajouter des utilisateurs ou modifier les informations utilisateur dans Azure Active Directory, y compris celles des utilisateurs externes et invités."
+	pageTitle="Ajout de nouveaux utilisateurs à Azure Active Directory | Microsoft Azure"
+	description="Expliquez comment ajouter de nouveaux utilisateurs, ou comment modifier les informations d’un utilisateur dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -16,80 +16,38 @@
 	ms.date="03/31/2016"
 	ms.author="curtand;viviali"/>
 
-# Ajout ou modification d’utilisateurs dans Azure Active Directory
+# Ajouter de nouveaux utilisateurs ou des utilisateurs disposant de comptes Microsoft à Azure Active Directory
 
-Ajoutez un compte au répertoire de votre client pour chaque utilisateur qui accède à un service cloud Microsoft. Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
+Ajoutez des utilisateurs afin de remplir le répertoire. Cet article explique comment ajouter de nouveaux utilisateurs dans votre organisation, et comment ajouter des utilisateurs qui disposent de comptes Microsoft. Pour en savoir plus sur l’ajout d’utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou sur l’ajout d’utilisateurs à partir d’entreprises partenaires, voir [Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory](active-directory-create-users-external.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
 
 ## Ajouter un utilisateur
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) avec un compte d’administrateur général pour le répertoire.
-2. Cliquez sur **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
-3. Sélectionnez l’onglet **Utilisateurs** puis, dans la barre de commandes, sélectionnez **Ajouter un utilisateur**.
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en utilisant un compte d’administrateur général pour le répertoire.
+2. Sélectionnez **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
+3. Sélectionnez l’onglet **Utilisateurs** et, dans la barre de commandes, sélectionnez **Ajouter un utilisateur**.
 4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez l’une des options suivantes :
 
 	- **Nouvel utilisateur dans votre organisation** : permet d’ajouter un nouveau compte d’utilisateur dans votre répertoire.
 	- **Utilisateur avec un compte Microsoft existant** : permet d’ajouter un compte consommateur Microsoft existant à votre répertoire (par exemple, un compte Outlook).
-	- **Utilisateur dans un autre annuaire Azure AD** : permet d’ajouter un compte d’utilisateur à votre répertoire à partir d’un autre répertoire Azure AD. Vous pouvez sélectionner un utilisateur dans un autre répertoire uniquement si vous êtes également membre de ce répertoire.
-	- **Utilisateurs dans les entreprises partenaires** : pour inviter et autoriser les utilisateurs des entreprises partenaires dans votre répertoire (Voir [Collaboration B2B Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md))
 
-
-5. En fonction de **Type d’utilisateur**, entrez un nom d’utilisateur, une adresse de messagerie, ou téléchargez un fichier CSV contenant des adresses de messagerie.
-6. Sur la page **Profil** de l’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Spécifiez si vous voulez **Activer l’authentification multifacteur**.
+5. En fonction de la valeur du champ **Type d’utilisateur**, saisissez un nom d’utilisateur (pour un nouvel utilisateur) ou une adresse e-mail (pour un utilisateur doté d’un compte Microsoft).
+6. Sur la page **Profil** de l’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur, à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Indiquez si vous voulez choisir l’option **Activer l’authentification multifacteur** pour cet utilisateur.
 7. Sur la page **Obtenir un mot de passe temporaire**, sélectionnez **Créer**.
 
 > [AZURE.IMPORTANT] Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance des problèmes suivants lorsque vous ajoutez un compte d’utilisateur :
 >
-> - Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord**, par exemple, geoffgrisso@contoso.onmicrosoft.com, **suivi de** geoffgrisso@contoso.com.
-> - **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir ajouté geoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
+> - Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord** geoffgrisso@contoso.onmicrosoft.com, par exemple, **suivi de** geoffgrisso@contoso.com.
+> - **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir indiqué geoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
 
 ## Modification des informations utilisateur
 
 Vous pouvez modifier tous les attributs de l’utilisateur à l’exception de l’ID d’objet.
 
 1. Ouvrez votre annuaire.
-2. Sélectionnez l’onglet **Utilisateurs**, puis sélectionnez le nom d’affichage de l’utilisateur que vous souhaitez modifier.
+2. Sélectionnez l’onglet **Utilisateurs**, puis choisissez le nom d’affichage de l’utilisateur que vous souhaitez modifier.
 3. Apportez les modifications nécessaires, puis cliquez sur **Enregistrer**.
 
 Si l’utilisateur auquel vous apportez des modifications est synchronisé avec votre service Active Directory local, vous ne pouvez pas modifier les informations utilisateur en suivant cette procédure. Pour apporter des modifications à l’utilisateur, servez-vous de vos outils de gestion Active Directory locaux.
-
-## Réinitialiser le mot de passe d’un utilisateur
-
-1. Ouvrez votre annuaire.
-2. Sélectionnez l’onglet **Utilisateurs**, puis sélectionnez le nom d’affichage de l’utilisateur que vous souhaitez modifier.
-3. Dans la barre de commandes, sélectionnez **Réinitialiser le mot de passe**.
-4. Dans la boîte de dialogue de réinitialisation du mot de passe, cliquez sur **Réinitialiser**.
-5. Cochez la case pour finaliser la réinitialisation du mot de passe.
-
-## Ajouter des utilisateurs externes
-
-Vous pouvez également ajouter des utilisateurs à partir d’un autre répertoire Azure AD auquel vous appartenez ou à partir d’entreprises partenaires en téléchargeant un fichier CSV. Pour ajouter un utilisateur externe, indiquez **Utilisateur dans un autre annuaire Microsoft Azure AD** ou **Utilisateurs dans les entreprises partenaires** pour **Type d’utilisateur**.
-
-Les deux types d’utilisateurs proviennent d’un autre répertoire et sont ajoutés comme **utilisateurs externes**. Les utilisateurs externes peuvent collaborer avec d’autres utilisateurs dans un répertoire sans qu’il y ait besoin d’ajouter de nouveaux comptes et informations d’identification. Quand ils se connectent, les utilisateurs externes sont authentifiés par leur répertoire de base, et cette authentification fonctionne pour tout autre répertoire dans lequel ils ont été ajoutés.
-
-## Gestion des utilisateurs externes et limitations
-
-Lorsque vous ajoutez à votre annuaire un utilisateur provenant d’un autre annuaire, cet utilisateur est ajouté à votre annuaire en tant qu’utilisateur externe. Le nom d’affichage et le nom d’utilisateur sont copiés à partir de son répertoire de base et utilisés pour l’utilisateur externe dans votre répertoire. Dès lors, les propriétés du compte d’utilisateur externe sont entièrement indépendantes. Si des modifications sont apportées aux propriétés de l’utilisateur dans son répertoire de base, ces modifications ne seront pas appliquées au compte d’utilisateur externe dans votre répertoire.
-
-Le seul lien entre les deux comptes est que l’utilisateur s’authentifie toujours auprès de l’annuaire de base ou à l’aide de son compte Microsoft. C’est pourquoi l’option de réinitialisation du mot de passe ou de l’activation de l’authentification multifacteur ne s’affiche pas pour un utilisateur externe. Actuellement, la stratégie d’authentification du répertoire de base ou du compte Microsoft est la seule qui est évaluée lorsque l’utilisateur se connecte.
-
-> [AZURE.NOTE]
-Vous pouvez quand même désactiver l’utilisateur externe dans le répertoire, ce qui l’empêche d’accéder à votre répertoire.
-
-Si un utilisateur est supprimé de son annuaire de base ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans votre annuaire. Cependant, l’utilisateur de votre répertoire ne peut pas accéder aux ressources étant donné qu’il ne peut pas s’authentifier avec son répertoire de base ni à l’aide de son compte Microsoft.
-
-### Services auxquels peuvent avoir accès les utilisateurs externes Azure AD
-
-- **Portail Azure Classic** : permet aux utilisateurs externes administrant plusieurs répertoires de gérer chacun d’entre eux.
-- **SharePoint Online** : permet aux utilisateurs externes d’accéder aux ressources autorisées SharePoint Online si le partage externe est activé.
-- **Dynamics CRM** : permet aux utilisateurs externes d’accéder aux ressources autorisées Dynamics CRM s’ils sont sous licence via PowerShell.
-- **Dynamics AX** : permet aux utilisateurs externes d’accéder aux ressources autorisées Dynamics AX s’ils sont sous licence via PowerShell. Les limitations des [utilisateurs externes Azure AD](#known-limitations-of-azure-ad-external-users) et des [utilisateurs invités](#guest-user-management-and-limitations) s’appliquent également aux utilisateurs externes dans Dynamics AX.
-
-### Limitations connues des utilisateurs externes d’Azure AD
-
-- Les utilisateurs externes qui sont administrateurs ne peuvent pas ajouter d’utilisateurs issus d’entreprises partenaires à des répertoires (collaboration B2B) en dehors de leur répertoire de base
-- Les utilisateurs externes ne peuvent pas donner leur consentement aux applications mutualisées dans des répertoires en dehors de leur répertoire de base
-- Pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI
-- Les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
 
 ## Gestion des utilisateurs invités et limitations
 
@@ -101,24 +59,25 @@ Au sein de l’annuaire, les invités disposent de droits limités. Ces droits l
 - Voir les membres des groupes auxquels ils appartiennent
 - Rechercher d’autres utilisateurs dans le répertoire, à condition de connaître leur adresse e-mail complète
 - Voir un ensemble d’attributs limité au nom d’affichage, à l’adresse e-mail, au nom d’utilisateur principal (UPN) et à la photo miniature des utilisateurs qu’ils recherchent
-- Obtenir la liste des domaines vérifiés du répertoire client
+- Obtenir une liste des domaines vérifiés dans le répertoire
 - Donner leur consentement aux applications, en leur accordant le même accès qu’aux membres dans votre annuaire
 
 ## Définir les stratégies d’accès utilisateur
 
-L'onglet **Configurer** d'un annuaire inclut des options de contrôle d'accès des utilisateurs externes. Ces options peuvent uniquement être modifiées dans le portail Azure Classic par un administrateur général du répertoire. Pour le moment, il n’existe aucune méthode PowerShell ou API.
+L’onglet **Configurer** d’un répertoire inclut des options de contrôle d’accès des utilisateurs invités. Ces options peuvent uniquement être modifiées dans le portail Azure Classic par un administrateur général du répertoire. Pour le moment, il n’existe aucune méthode PowerShell ou API.
 
 Pour ouvrir l’onglet **Configurer** dans le portail Azure Classic, sélectionnez **Active Directory**, puis le nom du répertoire.
 
 ![Onglet Configurer d’Azure Active Directory][1]
 
-Vous pouvez ensuite modifier les options de contrôle d'accès des utilisateurs externes.
+Vous pouvez ensuite modifier les options de contrôle d’accès des utilisateurs invités.
 
-![][2]
+![Options de contrôle d’accès des utilisateurs invités][2]
 
 
 ## Étapes suivantes
 
+- [Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory](active-directory-create-users-external.md)
 - [Administration d’Azure AD](active-directory-administer.md)
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
@@ -127,4 +86,4 @@ Vous pouvez ensuite modifier les options de contrôle d'accès des utilisateurs 
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

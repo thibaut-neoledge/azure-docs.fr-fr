@@ -25,14 +25,14 @@ La solution préconfigurée de surveillance à distance IoT Suite est une soluti
 
 ## Architecture logique
 
-Le schéma suivant décrit les composants logiques de la solution préconfigurée :
+Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 
 ### Simulations d’appareils
 
-Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
+Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
 
 
 | Message | Description |
@@ -40,7 +40,7 @@ Dans la solution préconfigurée, l’appareil simulé représente un système d
 | Démarrage | Lorsque l’appareil démarre, il envoie un message **device-info** contenant des informations qui le concernent, telles que son identifiant, ses métadonnées, la liste des commandes qu’il peut prendre en charge, ou encore sa configuration actuelle. |
 
 
-Les appareils simulés envoient les propriétés suivantes sous la forme de métadonnées :
+Les appareils simulés envoient les propriétés suivantes sous la forme de métadonnées :
 
 | Propriété | Objectif |
 |------------------------|--------- |
@@ -61,7 +61,7 @@ Les appareils simulés envoient les propriétés suivantes sous la forme de mét
 Le simulateur amorce ces propriétés dans les appareils simulés avec des exemples de valeurs. À chaque fois que le simulateur initialise un appareil simulé, l’appareil publie les métadonnées prédéfinies dans IoT Hub. Notez que cette opération remplace les métadonnées mises à jour dans le portail des appareils.
 
 
-Les appareils simulés peuvent gérer les commandes suivantes envoyées à partir d’un IoT Hub :
+Les appareils simulés peuvent gérer les commandes suivantes envoyées à partir d’un IoT Hub :
 
 | Commande | Description |
 |------------------------|-----------------------------------------------------|
@@ -79,13 +79,13 @@ L’accusé de réception de la commande de l’appareil est fourni via l’IoT 
 ### Tâches d’Azure Stream Analytics
 
 
-La **Tâche 1 : Informations de l’appareil** filtre les messages d’informations de l’appareil en provenance du flux de messages entrants et les envoie à un point de terminaison du Hub d’événements. Un appareil envoie des messages d’informations d’appareil au démarrage et en réponse à une commande **SendDeviceInfo**. Cette tâche utilise la définition de requête suivante :
+La **Tâche 1 : Informations de l’appareil** filtre les messages d’informations de l’appareil en provenance du flux de messages entrants et les envoie à un point de terminaison du Hub d’événements. Un appareil envoie des messages d’informations d’appareil au démarrage et en réponse à une commande **SendDeviceInfo**. Cette tâche utilise la définition de requête suivante :
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-La **Tâche 2 : Règles** compare les valeurs de télémétrie entrantes (température et humidité) aux seuils définis pour chaque appareil. Les valeurs de seuil sont définies dans l’éditeur de règles fourni avec la solution. Chaque paire appareil/valeur est stockée par horodatage dans un objet blob qui est lu dans Stream Analytics en tant que **Données de référence**. La tâche compare toutes les valeurs non vides au seuil défini pour l’appareil. En cas de dépassement de la condition ’>’, la tâche génère un événement d’**alarme** indiquant que le seuil a été dépassé et renseigne l’appareil, la valeur et l’horodatage. Cette tâche utilise la définition de requête suivante :
+La **Tâche 2 : Règles** compare les valeurs de télémétrie entrantes (température et humidité) aux seuils définis pour chaque appareil. Les valeurs de seuil sont définies dans l’éditeur de règles fourni avec la solution. Chaque paire appareil/valeur est stockée par horodatage dans un objet blob qui est lu dans Stream Analytics en tant que **Données de référence**. La tâche compare toutes les valeurs non vides au seuil défini pour l’appareil. En cas de dépassement de la condition ’>’, la tâche génère un événement d’**alarme** indiquant que le seuil a été dépassé et renseigne l’appareil, la valeur et l’horodatage. Cette tâche utilise la définition de requête suivante :
 
 ```
 WITH AlarmsData AS 
@@ -126,7 +126,7 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-La **Tâche 3 : Télémesure** agit sur le flux de télémétrie de l’appareil entrant de deux manières différentes. La première consiste à transférer tous les messages de télémétrie des appareils vers le stockage persistant d’objets blob. La deuxième calcule les valeurs d’humidité moyenne, minimale et maximale sur une fenêtre glissante de cinq minutes. Ces données sont également envoyées au stockage d’objets blob. Cette tâche utilise la définition de requête suivante :
+La **Tâche 3 : Télémesure** agit sur le flux de télémétrie de l’appareil entrant de deux manières différentes. La première consiste à transférer tous les messages de télémétrie des appareils vers le stockage persistant d’objets blob. La deuxième calcule les valeurs d’humidité moyenne, minimale et maximale sur une fenêtre glissante de cinq minutes. Ces données sont également envoyées au stockage d’objets blob. Cette tâche utilise la définition de requête suivante :
 
 ```
 WITH 
@@ -166,9 +166,9 @@ GROUP BY
 
 ### Processeur d’événements
 
-Le **processeur d’événements** gère les messages d’informations de l’appareil et les réponses aux commandes. Il utilise :
+Le **processeur d’événements** gère les messages d’informations de l’appareil et les réponses aux commandes. Il utilise :
 
-- les messages d’informations de l’appareil pour mettre à jour le registre de périphériques (stocké dans la base de données DocumentDB) avec les dernières informations relatives à l’appareil ;
+- les messages d’informations de l’appareil pour mettre à jour le registre de périphériques (stocké dans la base de données DocumentDB) avec les dernières informations relatives à l’appareil ;
 - les messages de réponse aux commandes pour mettre à jour l’historique des commandes de l’appareil (stocké dans la base de données DocumentDB).
 
 ## Allons plus loin
@@ -181,11 +181,11 @@ Cette page de l’application Web utilise les contrôles Javascript PowerBI (voi
 
 ### Portail d’administration des appareils
 
-Cette application Web vous permet de :
+Cette application Web vous permet de :
 
-- configurer un nouvel appareil pour définir l’identifiant unique de l’appareil et générer la clé d’authentification ;
-- gérer les propriétés de l’appareil, notamment l’affichage des propriétés existantes et l’incorporation de nouvelles propriétés ;
-- envoyer des commandes à un appareil ;
+- configurer un nouvel appareil pour définir l’identifiant unique de l’appareil et générer la clé d’authentification ;
+- gérer les propriétés de l’appareil, notamment l’affichage des propriétés existantes et l’incorporation de nouvelles propriétés ;
+- envoyer des commandes à un appareil ;
 - afficher l’historique de commande d’un appareil.
 
 ### Observer le comportement de la solution cloud
@@ -193,15 +193,15 @@ Vous pouvez afficher vos ressources approvisionnées depuis le [portail Azure](h
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
-Lors de la première exécution, la solution simule quatre appareils préconfigurés :
+Lors de la première exécution, la solution simule quatre appareils préconfigurés :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_01.png)
 
-Vous pouvez utiliser le portail d’administration des appareils pour ajouter un nouvel appareil simulé :
+Vous pouvez utiliser le portail d’administration des appareils pour ajouter un nouvel appareil simulé :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_02.png)
 
-Dans le portail d’administration des appareils, l’appareil apparaît initialement à l’état **Pending** (En attente) :
+Dans le portail d’administration des appareils, l’appareil apparaît initialement à l’état **Pending** (En attente) :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_03.png)
 
@@ -213,16 +213,24 @@ Le portail de solutions vous permet d’envoyer à l’appareil des commandes du
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_05.png)
 
-Lorsque l’appareil signale qu’il a correctement exécuté la commande, il passe à l’état **Success** (Terminé) :
+Lorsque l’appareil signale qu’il a correctement exécuté la commande, il passe à l’état **Success** (Terminé) :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_06.png)
 
-Vous pouvez utiliser le portail de solutions pour rechercher des appareils ayant des caractéristiques spécifiques (par exemple, un numéro de modèle) :
+Vous pouvez utiliser le portail de solutions pour rechercher des appareils ayant des caractéristiques spécifiques (par exemple, un numéro de modèle) :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_07.png)
 
-Vous pouvez désactiver un appareil puis le supprimer :
+Vous pouvez désactiver un appareil puis le supprimer :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Étapes suivantes
+
+Les billets de blog TechNet suivants fournissent des détails supplémentaires sur la solution préconfigurée de surveillance à distance :
+
+- [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx) (en anglais)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx) (en anglais)
+
+<!---HONumber=AcomDC_0504_2016-->

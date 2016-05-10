@@ -3,7 +3,7 @@
     description="Apprenez à utiliser Salesforce avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
 
@@ -216,7 +216,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Si vous configurez un environnement **développeur** Salesforce, vous ne disposerez que d'un nombre de licences limité pour chaque profil. Pour cette raison, il vaut mieux proposer aux utilisateurs un profil **Utilisateur Chatter Free**, pour lequel 4 999 licences sont disponibles.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Salesforce**.
 
@@ -256,4 +256,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

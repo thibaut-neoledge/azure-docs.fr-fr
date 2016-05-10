@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Planification et exécution avec Data Factory
@@ -48,21 +48,21 @@ Avec Azure Data Factory, vous pouvez traiter les données de série par lot pend
       "interval": 1
     },
 
-Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée **tranche** de données. Le diagramme ci-dessous montre un exemple d’activité contient un jeu de données de série chronologique, dont la propriété Disponibilité est définie sur une fréquence de «Toutes les heures ».
+Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée **tranche** de données. Le diagramme ci-dessous montre un exemple d’activité contient un jeu de données de série chronologique, dont la propriété Disponibilité est définie sur une fréquence de «Toutes les heures ».
 
 ![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme ci-dessus. Le diagramme montre 3 tranches d’entrée prêtes pour le traitement et l’exécution de l’activité entre 10 et 11 h en cours, et générant la tranche de sortie de 10 à 11 h.
+Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme ci-dessus. Le diagramme montre 3 tranches d’entrée prêtes pour le traitement et l’exécution de l’activité entre 10 et 11 h en cours, et générant la tranche de sortie de 10 à 11 h.
 
 L’intervalle de temps associé à la tranche actuelle en cours de production est accessible dans le jeu de données JSON avec des variables **SliceStart** et **SliceEnd**.
 
 Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, reportez-vous à l’article [Création de jeux de données](data-factory-create-datasets.md).
 
-## Exemple : activité de copie déplaçant des données de SQL Azure vers un objet blob Azure
+## Exemple : activité de copie déplaçant des données de SQL Azure vers un objet blob Azure
 
 Réunissons les informations et réexaminons le modèle d’activité de copie affiché dans l’article [Création de Pipelines](data-factory-create-pipelines.md) qui copie les données d’une table SQL Azure vers un objet blob Azure toutes les heures.
 
-**Entrée : jeu de données SQL Azure**
+**Entrée : jeu de données SQL Azure**
 
 	{
 	    "name": "AzureSqlInput",
@@ -85,7 +85,7 @@ Réunissons les informations et réexaminons le modèle d’activité de copie a
 
 Notez que la **fréquence**est définie sur **Heure** et l’**intervalle** sur **1**dans la section **Disponibilité**.
 
-**Sortie : jeu de données Blob Azure**
+**Sortie : jeu de données Blob Azure**
 	
 	{
 	    "name": "AzureBlobOutput",
@@ -145,7 +145,7 @@ Notez que la **fréquence**est définie sur **Heure** et l’**intervalle** sur 
 
 
 
-**Activité : activité de copie**
+**Activité : activité de copie**
 
 	{
 	    "name": "SamplePipeline",
@@ -191,9 +191,9 @@ Notez que la **fréquence**est définie sur **Heure** et l’**intervalle** sur 
 
 L’exemple ci-dessus montre les sections Planification d’activité et Disponibilité d’un jeu de données défini à la fréquence toutes les heures. L’exemple montre comment vous pouvez utiliser les variables **WindowStart** et **WindowEnd** pour sélectionner les données pertinentes pour l’exécution de l’activité et l’envoyer vers un objet blob avec le chemin dynamique **folderPath** paramétré pour avoir le dossier toutes les heures.
 
-Lorsque 3 des tranches entre 8 et 11 h s’exécutent, c’est à cela que ressemble un exemple de table et d’objet blob Azure.
+Lorsque 3 des tranches entre 8 et 11 h s’exécutent, c’est à cela que ressemble un exemple de table et d’objet blob Azure.
 
-Supposez que les données d’Azure SQL soient les suivantes :
+Supposez que les données d’Azure SQL soient les suivantes :
 
 ![Exemple d’entrée](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
@@ -206,7 +206,7 @@ En déployant le pipeline ci-dessus, l’objet blob Azure sera renseigné comme 
 		10991568,2,7,2015-01-01 08:56:34.5300000
 
 	**Remarque :** <Guid>sera remplacé par un guid actuel. Exemple de nom de fichier : Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	Fichier mypath/2015/1/1/9/Data.<Guid>.txt avec données :
+2.	Fichier mypath/2015/1/1/9/Data.<Guid>.txt avec données :
 
 		10002345,334,1,2015-01-01 09:13:00.3900000
 		24379245,569,23,2015-01-01 09:25:00.3130000
@@ -237,7 +237,7 @@ Le diagramme ci-dessus montre que, parmi les 3 tranches récentes, il y a eu un 
 
 Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échouée. Pour plus d’informations sur la façon de lancer les réexécutions, comprendre les états de transition des tranches de données, consultez l’article [Analyse et gestion](data-factory-monitor-manage-pipelines.md).
 
-Une fois que vous avez relancé l’exécution et que la tranche de 9-10 h pour dataset2 est prête, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final comme indiqué dans le schéma ci-dessous.
+Une fois que vous avez relancé l’exécution et que la tranche de 9-10 h pour dataset2 est prête, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final comme indiqué dans le schéma ci-dessous.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -246,18 +246,18 @@ Pour de plus amples informations sur la spécification et le suivi de dépendanc
 ## Chaînage des activités
 Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
 
-Considérez l’exemple suivant :
+Considérez l’exemple suivant :
  
 1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
 2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
  
 Dans ce scénario, l’activité A1 s’exécutera lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécutera lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 ne sera pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
 
-La vue de diagramme se présente comme suit :
+La vue de diagramme se présente comme suit :
 
 ![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-La vue de diagramme avec les deux activités dans le même pipeline se présente comme suit :
+La vue de diagramme avec les deux activités dans le même pipeline se présente comme suit :
 
 ![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
@@ -266,19 +266,19 @@ Il est possible d’exécuter plusieurs opérations de copie l’une après l’
 
 ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
 
-ActivitédeCopie2 : Entrées : JeudeDonnées2 Sortie : JeudeDonnées 4
+ActivitédeCopie2 : Entrées : JeudeDonnées2 Sortie : JeudeDonnées4
 
 ActivitédeCopie2 s’exécute uniquement si ActivitédeCopie1 s’est exécutée avec succès et que JeudeDonnées2 est disponible.
 
-Dans l’exemple ci-dessus, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous devrez également spécifier JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne puisse pas s’exécuter avant que ActivitédeCopie1 ne soit terminée. Par exemple :
+Dans l’exemple ci-dessus, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous devez alors également spécifier JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne s’exécute pas avant la fin d’ActivitédeCopie1. Par exemple :
 
 ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
 
-ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonnées 4
+ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonnées4
 
-Lorsque plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 ne commence que lorsque les conditions suivantes sont remplies :
+Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
 
-- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données ne sera pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
+- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
 - JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
 
 
@@ -287,13 +287,13 @@ Lorsque plusieurs entrées sont spécifiées, seul le premier jeu de données d�
 
 Dans les exemples ci-dessus, les fréquences de planification des jeux de données d’entrée et de sortie et l’intervalle d’activité sont les mêmes. Certains scénarios exigent que la fréquence de génération d’une sortie à soit différente de celles d’une ou de plusieurs entrées. Data factory prend en charge la modélisation de ces scénarios.
 
-### Exemple 1 : la production d’un rapport de sortie quotidien pour les données d’entrée est disponible toutes les heures
+### Exemple 1 : la production d’un rapport de sortie quotidien pour les données d’entrée est disponible toutes les heures
 
 Imaginez un scénario dans lequel nous entrons des données de mesure issues de capteurs disponibles toutes les heures dans les objets Blob Azure et souhaitons générer un rapport agrégeant quotidiennement les statistiques telles que la moyenne, le maximum, le minimum, etc.... pour la journée avec l’[activité Hive](data-factory-hive-activity.md) de Data Factory.
 
-Voici ce que vous pouvez modéliser avec data factory :
+Voici ce que vous pouvez modéliser avec data factory :
 
-**Entrée jeu de données d’objet blob Azure :**
+**Entrée jeu de données d’objet blob Azure :**
 
 Les fichiers d’entrée des heures sont supprimés dans le dossier pour le jour donné. La disponibilité de l’entrée est définie toutes les heures (fréquence : Heure, intervalle: 1).
 
@@ -321,9 +321,9 @@ Les fichiers d’entrée des heures sont supprimés dans le dossier pour le jour
 	  }
 	}
 
-**Sortie : Jeu de données d’objet blob Azure**
+**Sortie : Jeu de données d’objet blob Azure**
 
-Un fichier de sortie est placé chaque jour dans le dossier pour la journée. Disponibilité de sortie a pour valeur Quotidien (fréquence : jour et intervalle : 1).
+Un fichier de sortie est placé chaque jour dans le dossier pour la journée. Disponibilité de sortie a pour valeur Quotidien (fréquence : jour et intervalle : 1).
 
 
 	{
@@ -349,7 +349,7 @@ Un fichier de sortie est placé chaque jour dans le dossier pour la journée. Di
 	  }
 	}
 
-**Activité : activité Hive dans un pipeline**
+**Activité : activité Hive dans un pipeline**
 
 Le script Hive reçoit les informations de date en tant que paramètres et utilise la variable **WindowStart** comme indiqué ci-dessous. Le script Hive utilise cette variable pour charger les données à partir du dossier correspondant à la journée et exécuter l’agrégation pour générer la sortie.
 
@@ -402,10 +402,10 @@ Voilà comment le tout se présente du point de vue de la dépendance des donné
 
 ![Dépendance de données](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
-La tranche de sortie dépend des 24 tranches horaires depuis l’ensemble de données en entrée. Data Factory calcule automatiquement ces dépendances en déterminant les tranches de données d’entrée qui tombent dans la même période que la tranche de données à générer. Si l’une des 24 tranches d’entrée n’est pas disponible (en raison du traitement générant la tranche en amont par exemple), Data Factory attend que la tranche d’entrée soit prête avant de lancer l’exécution de l’activité quotidienne.
+La tranche de sortie dépend des 24 tranches horaires depuis l’ensemble de données en entrée. Data Factory calcule automatiquement ces dépendances en déterminant les tranches de données d’entrée qui tombent dans la même période que la tranche de données à générer. Si l’une des 24 tranches d’entrée n’est pas disponible (en raison du traitement générant la tranche en amont par exemple), Data Factory attend que la tranche d’entrée soit prête avant de lancer l’exécution de l’activité quotidienne.
 
 
-### Exemple 2 : spécifier les dépendances avec des expressions et des fonctions Data Factory
+### Exemple 2 : spécifier les dépendances avec des expressions et des fonctions Data Factory
 
 Prenons en compte un autre scénario. Supposons que vous disposez d’une activité Hive qui traite deux jeux de données d’entrée. L’un d’eux reçoit des nouvelles données tous les jours, mais l’autre obtient de nouvelles données toutes les semaines. Supposons que vous vouliez faire la jonction entre les deux entrées et générer une sortie quotidiennement.
  
@@ -413,7 +413,7 @@ L’approche simple consistant pour Data Factory à déterminer des tranches d�
 
 Vous devez trouver un moyen de spécifier (pour chaque exécution d’activité que Data Factory doit utiliser) les tranches de données de la semaine précédente pour les jeux de données d’entrée. Vous pouvez le faire à l’aide de fonctions Data Factory comme indiqué ci-dessous.
 
-**Entrée1 : Azure Blob**
+**Entrée1 : Azure Blob**
 
 La première entrée est mise à jour avec l’objet blob Azure **quotidiennement**.
 	
@@ -441,7 +441,7 @@ La première entrée est mise à jour avec l’objet blob Azure **quotidiennemen
 	  }
 	}
 
-**Entrée2 : objet Blob Azure**
+**Entrée2 : objet Blob Azure**
 
 Entrée2 est mis à jour avec l’objet blob Azure de manière **hebdomadaire**.
 
@@ -469,9 +469,9 @@ Entrée2 est mis à jour avec l’objet blob Azure de manière **hebdomadaire**.
 	  }
 	}
 
-**Sortie : objet Blob Azure**
+**Sortie : objet Blob Azure**
 
-Un fichier de sortie est placé chaque jour dans le dossier pour la journée. La disponibilité de sortie est définie sur Quotidiennement (fréquence : jour et intervalle : 1).
+Un fichier de sortie est placé chaque jour dans le dossier pour la journée. La disponibilité de sortie est définie sur Quotidiennement (fréquence : jour et intervalle : 1).
 	
 	{
 	  "name": "AzureBlobOutputDaily",
@@ -496,7 +496,7 @@ Un fichier de sortie est placé chaque jour dans le dossier pour la journée. La
 	  }
 	}
 
-**Activité : activité Hive dans un pipeline**
+**Activité : activité Hive dans un pipeline**
 
 L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous les jours. Vous pouvez spécifier la tranche de sortie de tous les jours dépendant de la tranche de semaine pour la sortie hebdomadaire comme suit.
 	
@@ -621,6 +621,51 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 	} 
 
 
+## Pipeline onetime
+Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (toutes les heures, tous les jours, etc.) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d’informations, consultez [Planification des activités](#scheduling-and-execution). Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime** comme indiqué dans l’exemple JSON ci-dessous. La valeur par défaut de cette propriété est **scheduled** (planifié).
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Notez les points suivants :
+ 
+- Vous n’avez pas besoin de spécifier une heure de **début** et de **fin** pour le pipeline. 
+- Vous devez spécifier la disponibilité des jeux de données d’entrée et de sortie (fréquence et intervalle) à ce stade, même si les valeurs ne sont pas utilisées par Data Factory.  
+- La vue schématique n’affiche pas les pipelines à usage unique (onetime). C’est normal. 
+- Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre. 
+
+  
 
 
 
@@ -653,4 +698,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

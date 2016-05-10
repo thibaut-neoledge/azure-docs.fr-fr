@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Notes de publication sur Azure Data Factory
@@ -270,7 +270,10 @@ Vous voyez maintenant les listes **Tranches récemment mises à jour** et **Tran
 
 Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur **Filtre** dans la barre d’outils pour filtrer les tranches.
  
-Vous pouvez toujours afficher les tranches triées en fonction de leur heure de tranche en cliquant sur la vignette **Tranches de données (par heure de tranche)**. Les tranches de ces collections sont classées par heure de tranche. Par exemple, dans le cas d’une planification horaire, les tranches sont : - 4/4/2015 17:00 en cours - 4/4/2015 16:00 réussite - 4/4/2015 15:00 échec
+Vous pouvez toujours afficher les tranches triées en fonction de leur heure de tranche en cliquant sur la vignette **Tranches de données (par heure de tranche)**. Les tranches de ces collections sont classées par heure de tranche. Par exemple, s’il s’agit d’une planification horaire, les tranches seraient :
+- 4/4/2015 17h00 En cours 
+- 4/4/2015 16h00 Réussite
+- 4/4/2015 15h00 Échec
 
 Mais, si une tranche antérieure est réexécutée, elle n’apparaît pas en haut de cette liste, même si c’est probablement ce que l’utilisateur souhaite le plus.
 
@@ -353,4 +356,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

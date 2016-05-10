@@ -19,15 +19,13 @@ Les tâches les plus courantes sont :
 
 ##Recherche d'extensions disponibles
 
-Les extensions de machines virtuelles Azure sont (pour une liste complète des extensions suivant les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)). Vous pouvez localiser l'extension et obtenir des informations étendues en utilisant :
+Vous pouvez localiser l’extension et obtenir des informations étendues en utilisant :
 
 -   PowerShell
 -   Interface multiplateforme Azure (Azure CLI)
 -   API REST de gestion de service
 
-Utilisez les applets de commande [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) ou les [API REST de gestion de service](https://msdn.microsoft.com/library/ee460799.aspx) pour rechercher des informations sur les extensions disponibles.
-
-###Azure PowerShell
+###Azure PowerShell
 
 Certaines extensions disposent d'applets de commande Powershell spécifiques, ce qui simplifie leur configuration à partir de PowerShell. Mais les applets de commande suivantes fonctionnent pour toutes les extensions de machine virtuelle.
 
@@ -99,11 +97,11 @@ Vous pouvez utiliser les API REST suivantes pour obtenir des informations sur le
 Des extensions peuvent être ajoutées à une instance créée ou déjà exécutée. Des extensions peuvent être mises à jour, désactivées ou supprimées. Vous pouvez effectuer ces actions à l'aide des applets de commande Azure PowerShell ou des opérations de l'API REST de gestion des services. Des paramètres sont requis pour installer et configurer certaines extensions. Des paramètres publics et privés sont pris en charge pour les extensions.
 
 
-###Azure PowerShell
+###Azure PowerShell
 
 Le moyen le plus simple pour ajouter et mettre à jour des extensions consiste à utiliser les applets de commande Azure PowerShell. Lorsque vous utilisez les applets de commande de l'extension, la majeure partie de la configuration de l'extension est effectuée pour vous. Il peut arriver que vous deviez ajouter une extension par programmation. Le cas échéant, vous devez indiquer la configuration de l'extension.
 
-Vous pouvez utiliser les applets de commande suivantes pour savoir si une extension nécessite une configuration de paramètres publics et privés :
+Vous pouvez utiliser les applets de commande suivantes pour savoir si une extension nécessite une configuration de paramètres publics et privés :
 
 -   pour les instances de rôles web ou de travail, vous pouvez utiliser l'applet de commande **Get-AzureServiceAvailableExtension**.
 
@@ -113,7 +111,7 @@ Vous pouvez utiliser les applets de commande suivantes pour savoir si une extens
 
 Lorsque vous récupérez une liste d'extensions disponibles à l'aide des API REST, vous recevez des informations sur la procédure de configuration de l'extension. Elles peuvent comporter des informations sur les paramètres représentés par un schéma public et un schéma privé. Les valeurs de paramètres publics sont renvoyées dans des requêtes relatives aux instances. Les valeurs de paramètres privés ne sont pas renvoyées.
 
-Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécessite une configuration de paramètres publics et privés :
+Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécessite une configuration de paramètres publics et privés :
 
 -   Pour les instances de rôles web ou de travail, les éléments **PublicConfigurationSchema** et **PrivateConfigurationSchema** contiennent les informations dans la réponse provenant de l’opération [Liste des extensions disponibles](https://msdn.microsoft.com/library/dn169559.aspx).
 
@@ -121,4 +119,4 @@ Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécess
 
 >[AZURE.NOTE]Des extensions peuvent également utiliser des configurations définies avec JSON. En cas d'utilisation de ces types d'extension, seul l'élément **SampleConfig** est utilisé.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

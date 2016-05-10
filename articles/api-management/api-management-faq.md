@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="04/26/2016" 
 	ms.author="sdanie"/>
 
 # FAQ sur la gestion des API Azure
@@ -29,11 +29,20 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[Puis-je gérer mon instance de gestion des API par programme ?](#can-i-manage-my-api-management-instance-programmatically)
 -	[Comment puis-je ajouter un utilisateur au groupe d’administrateurs ?](#how-can-i-add-a-user-to-the-administrators-group)
 -	[Pourquoi la stratégie que je veux ajouter n’est-elle pas activée dans l’éditeur de stratégie ?](#why-is-the-policy-that-i-want-to-add-not-enabled-in-the-policy-editor)
+-	[Comment puis-je contrôler la version de l’API avec la gestion des API ?](#how-can-i-achieve-api-versioning-with-api-management)
+-	[Comment puis-je configurer plusieurs environnements d’API, par exemple Sandbox et Production ?](#how-can-i-configure-multiple-environments-of-apis-for-example-sandbox-and-production)
+-	[SOAP est-il pris en charge dans la gestion des API ?](#is-soap-supported-in-api-management)
+-	[L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+-	[Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité ADFS ?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+-	[Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+
+
 
 ### Comment puis-je poser une question à l’équipe de gestion des API ?
 
 -	Vous pouvez publier vos questions sur notre [forum MSDN de gestion des API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
--	Vous pouvez également nous envoyer un courrier électronique à l’adresse : `apimgmt@microsoft.com`.
+-	Vous pouvez nous envoyer un courrier électronique à l’adresse : `apimgmt@microsoft.com`.
+-	Vous pouvez nous envoyer une [demande de fonctionnalité](https://feedback.azure.com/forums/248703-api-management).
 
 ### Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?
 
@@ -58,7 +67,7 @@ Il existe plusieurs options que vous pouvez utiliser pour copier une instance de
 
 ### Puis-je gérer mon instance de gestion des API par programme ?
 
-Oui, vous pouvez la gérer à l’aide de l’[API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx) et des applets de commande PowerShell de [déploiement du service](https://msdn.microsoft.com/library/mt619282.aspx) et de [gestion du service](https://msdn.microsoft.com/library/mt613507.aspx).
+Oui, vous pouvez la gérer à l’aide de l’[API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx), du [Kit de développement logiciel (SDK) de la bibliothèque de gestion du service de gestion des API Microsoft Azure](http://aka.ms/apimsdk) et des applets de commande PowerShell de [déploiement du service](https://msdn.microsoft.com/library/mt619282.aspx) et de [gestion du service](https://msdn.microsoft.com/library/mt613507.aspx).
 
 ### Comment puis-je ajouter un utilisateur au groupe d’administrateurs ?
 
@@ -69,4 +78,47 @@ Oui, vous pouvez la gérer à l’aide de l’[API REST de gestion des API](http
 
 Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour une utilisation dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section **Utilisation** de cette stratégie dans la [Référence de la stratégie](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+### Comment puis-je contrôler la version de l’API avec la gestion des API ?
+
+-	Vous pouvez configurer des API distinctes dans Gestion des API représentant différentes versions. Par exemple, vous pouvez avoir `MyAPI v1` et `MyAPI v2` comme deux API différentes et les développeurs peuvent choisir la version qu’ils souhaitent utiliser.
+-	Vous pouvez également configurer votre API avec une URL de service qui n’inclut pas un segment de version, par exemple : `https://my.api`. Vous pouvez ensuite configurer un segment de version sur le modèle de [réécriture de l’URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de chaque opération. Vous pouvez, par exemple, avoir une opération avec un [modèle d’URL](api-management-howto-add-operations.md#url-template) de type `/resource` et un modèle de [réécriture de l’URL](api-management-howto-add-operations.md#rewrite-url-template) de type `/v1/Resource`. De cette façon, vous pouvez modifier la valeur du segment de version de chaque opération séparément.
+-	Si vous souhaitez conserver un segment de version « par défaut » dans l’URL du service de l’API, vous pouvez définir, sur les opérations sélectionnées, une stratégie qui utilise la stratégie [Définir le service principal](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) pour modifier le chemin d’accès de requête principal.
+
+### Comment puis-je configurer plusieurs environnements d’API, par exemple Sandbox et Production ?
+
+À ce stade, les options disponibles sont :
+
+-	Vous pouvez héberger des API distinctes sur le même client
+-	Vous pouvez héberger les mêmes API sur plusieurs clients
+
+### SOAP est-il pris en charge dans la gestion des API ?
+
+Actuellement, nous proposons un support limité pour SOAP dans la gestion des API Azure. Nous étudions actuellement cette fonctionnalité. Il serait très intéressant pour nous de recevoir des exemples de WSDL de la part de votre client, ainsi qu’une description des fonctionnalités requises. Cela nous permettrait de développer notre stratégie. Veuillez nous contacter en utilisant les informations de contact référencées dans [Comment puis-je poser une question à l’équipe de gestion des API?](#how-can-i-ask-a-question-to-the-api-management-team)
+
+Si vous avez besoin que cette fonctionnalité soit opérationnelle, certains membres de notre communauté ont suggéré des solutions. Consultez [Gestion des API Azure - APIM, consommer un service WCF de SOAP sur HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
+
+Cette implémentation de la solution nécessite la configuration manuelle des stratégies, ne prend pas en charge l’importation ou l’exportation WSDL et les utilisateurs doivent former le corps des requêtes effectuées à l’aide de la console de test dans le portail des développeurs.
+
+### L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?
+
+Dans les niveaux Standard et Premium, l’adresse IP publique (VIP, adresse IP virtuelle) du client de gestion des API est statique pour la durée de vie du client, avec quelques exceptions répertoriées ci-dessous. Notez que les clients du niveau Premium configurés pour un déploiement dans plusieurs régions se voient attribués une seule adresse IP publique par région.
+
+L’adresse IP est modifiée dans les circonstances suivantes :
+
+-	Le service est supprimé et recréé
+-	L’abonnement au service est suspendu (par exemple pour non-paiement) et relancé
+-	Le réseau virtuel est ajouté ou supprimé (le réseau virtuel n’est pris en charge que dans le niveau Premium)
+-	L’adresse régionale change si la région est libérée et réactivée (déploiement dans plusieurs régions pris en charge dans le niveau Premium uniquement)
+
+L’adresse IP (ou les adresses dans le cas de déploiement dans plusieurs régions) est accessible sur la page client dans le portail Azure Classic.
+
+### Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité ADFS ?
+
+Pour plus d’informations sur la configuration de ce scénario, consultez [Utilisation d’ADFS dans la gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+
+### Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ? 
+
+La gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour plus d’informations sur les différentes méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+
+<!---HONumber=AcomDC_0427_2016-->
