@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell
@@ -95,7 +95,7 @@ Pour les étapes de configuration, la principale différence réside dans le fai
 - [Réseaux virtuels situés dans différents abonnements](#difsub)
 
 
-## <a name ="samesub"/>Connexion de réseaux virtuels situés dans le même abonnement
+## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
 
 Cette configuration s’applique aux réseaux virtuels situés dans le même abonnement, comme illustré dans le schéma ci-dessous :
 
@@ -107,7 +107,7 @@ Cette configuration s’applique aux réseaux virtuels situés dans le même abo
 	
 - Vous aurez besoin d’installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-### <a name ="Step1"/>Étape 1 : planifiez vos plages d’adresses IP
+### <a name="Step1"></a>Étape 1 : planifiez vos plages d’adresses IP
 
 
 Il est important de choisir les plages que vous utiliserez pour paramétrer votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
@@ -152,7 +152,7 @@ Pour cet exercice, utilisez les valeurs suivantes pour les réseaux virtuels :
 
 
 
-### <a name ="Step2"/>Étape 2 : créez et configurez TestVNet1
+### <a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
 
 1. Déclarer vos variables
 
@@ -312,13 +312,13 @@ Une fois que vous avez configuré TestVNet1, vous devez répéter les étapes po
 
 	Après quelques minutes, la connexion doit être établie.
 
-## <a name ="Verify"/>Vérification d’une connexion de réseau virtuel à réseau virtuel
+## <a name="Verify"></a>Vérification d’une connexion de réseau virtuel à réseau virtuel
 
 Les exemples ci-dessous expliquent comment vérifier votre connexion. Veillez à modifier les valeurs pour les faire correspondre à votre environnement.
 
 ### Vérification de votre connexion à l'aide du portail Azure
 
-Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** -> **cliquez sur le nom de votre passerelle** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
+Vous pouvez vérifier une connexion VPN dans le Portail Azure en accédant à **Passerelles de réseau virtuel** -> **cliquez sur le nom de votre passerelle** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le panneau **Connexion**.
 
 
 ### Vérification de votre connexion à l'aide de PowerShell
@@ -355,7 +355,7 @@ Une fois l'applet de commande exécutée, faites défiler pour afficher les vale
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>Connexion de réseaux virtuels situés dans différents abonnements
+## <a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
 
 Les étapes de configuration ci-dessous ajoutent une connexion de réseau virtuel à réseau virtuel supplémentaire pour connecter TestVNet1 à TestVNet5, qui se trouve dans un autre abonnement. La différence réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement, notamment lorsque les deux abonnements appartiennent à différentes organisations. À la fin de la procédure ci-dessous, la configuration obtenue est illustrée dans le schéma ci-dessous :
 
@@ -530,4 +530,4 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

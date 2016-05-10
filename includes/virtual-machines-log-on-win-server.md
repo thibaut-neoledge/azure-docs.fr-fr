@@ -2,9 +2,11 @@
 
 4. Un clic sur **Connecter** permet de créer et de télécharger un fichier de protocole Remote Desktop Protocol (fichier .rdp). Cliquez sur **Ouvrir** pour utiliser ce fichier.
 
-5. Dans la fenêtre Bureau à distance, cliquez sur **Connecter** pour continuer.
+	![Capture d’écran du fichier .rdp téléchargé.](./media/virtual-machines-log-on-win-server/open-rdp.png)
 
-	![Capture d'écran d'avertissement relatif à un éditeur inconnu.](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+5. Un message vous avertit que le fichier .rdp provient d’un éditeur inconnu. C’est normal. Dans la fenêtre Bureau à distance, cliquez sur **Connecter** pour continuer.
+
+	![Capture d’écran d’avertissement relatif à un éditeur inconnu.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 
 6. Dans la fenêtre Sécurité de Windows, tapez les informations d’identification d’un compte sur la machine virtuelle, puis cliquez sur **OK**.
 
@@ -16,6 +18,6 @@
 
 7.	Cliquez sur **Oui** pour vérifier l’identité de la machine virtuelle et terminer la connexion.
 
-	![Capture d'écran montrant un message relatif à la vérification de l'identité de la machine virtuelle.](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![Capture d'écran montrant un message relatif à la vérification de l'identité de la machine virtuelle.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

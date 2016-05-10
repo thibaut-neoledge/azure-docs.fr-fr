@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/14/2016"
+	ms.date="04/28/2016"
 	ms.author="cynthn"/>
 
 # Connexion à une machine virtuelle Azure exécutant Windows Server 
@@ -32,7 +32,7 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 4. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**.
 
-	![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
+	![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle.](./media/virtual-machines-windows-connect-logon/connect.png)
 
 ## Connexion à la machine virtuelle
 
@@ -43,4 +43,4 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

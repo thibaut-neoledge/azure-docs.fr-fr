@@ -1,5 +1,5 @@
-> [AZURE.IMPORTANT] Les exemples PowerShell décrits dans ce document ont été testés avec la dernière version d’Azure PowerShell. Si vous utilisez une version antérieure, la procédure peut ne pas fonctionner ou renvoyer des erreurs.
+> [AZURE.IMPORTANT] La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager (ASM) est __déconseillée__ ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager (ARM).
 >
-> Pour installer la dernière version, suivez les étapes du document [Installer et configurer Azure PowerShell](../articles/powershell-install-configure.md) pour installer la version la plus récente.
+> Suivez les étapes indiquées dans [Installation et de configuration d’Azure PowerShell](../articles/powershell-install-configure.md) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migration vers les outils de développement basés sur Azure Resource Manager pour les clusters HDInsight) pour plus d’informations.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
