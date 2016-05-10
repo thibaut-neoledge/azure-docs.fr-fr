@@ -77,7 +77,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **NTT Communications** | Pris en charge | Pris en charge | Londres, Osaka, Tokyo |
-| **[Orange](http://www.orange-business.com/)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
 | **PCCW Global Limited** | Pris en charge | Pris en charge | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Non pris en charge | Singapour |
 | **Softbank** | Pris en charge | Pris en charge | Osaka, Tokyo | 
@@ -89,7 +89,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
@@ -157,4 +157,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

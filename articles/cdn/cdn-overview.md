@@ -48,7 +48,7 @@ Les avantages de l'utilisation du CDN pour mettre en cache des données Azure so
 
 Le niveau Standard de CDN inclut les fonctionnalités suivantes :
 
-- Intégration simplifiée avec les services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), Web Apps et [Media Services](../media-services/media-services-manage-origins.md#enable_cdn)
+- Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) et [Media Services](../media-services/media-services-manage-origins.md#enable_cdn)
 - Prise en charge de HTTPS
 - Équilibrage de la charge
 - Protection DDOS
@@ -71,10 +71,10 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 
 ## Étapes suivantes
 
-Pour commencer avec le CDN, consultez [Utilisation du CDN Azure](./cdn-create-new-endpoint.md).
+Pour une prise en main du CDN, consultez [Utilisation du CDN Azure](./cdn-create-new-endpoint.md).
 
 Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com).
 
-Pour découvrir le CDN en action, visionnez la [vidéo de notre session Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Pour voir le CDN en action, regardez la [vidéo de notre session Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

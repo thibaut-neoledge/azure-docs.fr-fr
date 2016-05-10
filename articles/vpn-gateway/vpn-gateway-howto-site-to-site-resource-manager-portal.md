@@ -14,34 +14,36 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/25/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
-# Créer un réseau virtuel de gestionnaire de ressources avec une connexion VPN de site à site à l’aide du portail Azure
+# Créer un réseau virtuel avec une connexion VPN de site à site à l’aide du Portail Azure et d’Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portail Azure - Classic](vpn-gateway-site-to-site-create.md)
+- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager et du portail Azure.
 
-**Outils et modèles de déploiement**
-
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
-Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **À propos des modèles de déploiement Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+**Modèles de déploiement et outils pour les connexions de site à site**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
+
+Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
+
+
 ## Avant de commencer
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
 
-- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
+- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
 
 - Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 	
@@ -60,17 +62,17 @@ Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utili
 
 ### <a name="values"></a>Exemples de valeurs de configuration pour cet exercice
 
-- Nom du réseau virtuel : TestVNet1
+- Nom du réseau virtuel : TestVNet1
 - Espace d’adressage :10.11.0.0/16 et 10.12.0.0/16
-- Sous-réseaux : 
-	- FrontEnd : 10.11.0.0/24
-	- BackEnd : 10.12.0.0/24
-	- GatewaySubnet : 10.12.255.0/27
-- Groupe de ressources : TestRG1
+- Sous-réseaux : 
+	- FrontEnd : 10.11.0.0/24
+	- BackEnd : 10.12.0.0/24
+	- GatewaySubnet : 10.12.255.0/27
+- Groupe de ressources : TestRG1
 - Emplacement : Est des États-Unis
-- Serveur DNS : 8.8.8.8
+- Serveur DNS : 8.8.8.8
 - Nom de passerelle : VNet1GW
-- Adresse IP publique : VNet1GWIP
+- Adresse IP publique : VNet1GWIP
 - Type de VPN : Route-based
 - Type de connexion : Site-to-site (IPsec)
 - Type de passerelle : VPN
@@ -142,6 +144,8 @@ Avant de commencer cette section, vérifiez que la création de votre passerelle
 
 ## Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
+- Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
 
-<!---HONumber=AcomDC_0406_2016-->
+- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuration du protocole BGP).
+
+<!---HONumber=AcomDC_0504_2016-->

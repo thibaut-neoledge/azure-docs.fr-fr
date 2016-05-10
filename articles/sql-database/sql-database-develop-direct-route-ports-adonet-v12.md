@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
-	ms.author="genemi"/>
+	ms.date="04/25/2016" 
+	ms.author="annemill"/>
 
 
 # Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12
@@ -120,4 +120,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

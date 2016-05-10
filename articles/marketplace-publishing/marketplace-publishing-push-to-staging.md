@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="04/25/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -29,30 +29,59 @@ Dans cette étape du processus de publication, vous devez fournir du contenu mar
   > [AZURE.IMPORTANT] Tous les champs doivent avoir des entrées, y compris les images, pour que vous puissiez procéder au déploiement dans un environnement intermédiaire.
 
 ### Détails
-1. Entrez un bref résumé, un résumé plus long et une description de votre offre.
-2.	Téléchargez des images des spécifications requises (mentionnées sur le portail de publication) au format PNG, une pour chaque taille.
+1. Entrez le titre de l'offre (50 caractères maximum), le résumé de l’offre (100 caractères maximum), le résumé long de l’offre (256 caractères maximum), la description de l’offre (1 300 caractères maximum) et les logos sous l’onglet **Détails**
+2. Entrez le titre de la référence (50 caractères maximum), le résumé de la référence (100 caractères maximum), la description de la référence (2 000 caractères maximum) sous l’onglet **Plans**
+3. N'entrez pas deux fois le même texte dans la description de l’offre et de la référence.
+4. N’entrez pas deux fois le même texte sous le titre de la référence et le résumé long de l’offre.
+5. N’entrez pas deux fois le même texte sous le titre de la référence et le résumé de l’offre.
+6. Téléchargez des images des spécifications requises (mentionnées sur le portail de publication) au format PNG, une pour chaque taille.
+7. Vérifiez que les logos suivent les instructions relatives aux logos Azure Marketplace indiquées ci-dessous.
 
-  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *Titre de l’offre, description et logos*
+**Instructions relatives aux logos Azure Marketplace**
+
+Tous les logos téléchargés dans le portail de publication doivent respecter les instructions ci-dessous :
+
+- Le design Azure a une palette de couleurs simple. Veuillez limiter le nombre de couleurs primaires et secondaires sur les logos.
+- Les logos ne doivent pas être placés sur un arrière-plan blanc. Nous recommandons des couleurs primaires simples ou des arrière-plans transparents.
+- N'utilisez pas d’arrière-plan dégradé sur le logo.
+- Évitez de placer du texte, même s’il s’agit du nom votre société ou de votre marque, sur le logo.
+- L'apparence de votre logo doit être « plate » et éviter les dégradés.
+- Le logo ne doit pas être étiré.
+- Les petits logos doivent être de la taille 40 x 40 px
+- Les logos moyens doivent être de la taille 90 x 90 px
+- Les grands logos doivent être de la taille 115 x 115 px
+- Les logos larges doivent être de la taille 255 x 115 px
+- Les bannières doivent être de la taille 815 x 290 px
+
+  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**Recommandations supplémentaires pour les bannières :**
+
+- La bannière est facultative. Vous pouvez choisir de ne pas télécharger de bannière.
+- Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés automatiquement à la bannière une fois l'offre publiée. Vous n'avez par conséquent pas besoin de les entrer lorsque vous concevez la bannière.
+- Étant donné que le nom d'affichage de l'éditeur, le titre de la référence et le résumé de l’offre sont affichés en blanc, il est conseillé d’éviter de conserver un arrière-plan blanc ou de couleur claire pour la bannière.
+- Laissez de l'espace pour le texte ci-dessus en haut de la bannière. L'espace pour le texte est de 415 x 100, décalé de 370 px sur la gauche.
+
+  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Liens
 Sous l’onglet **Links** (Liens) de la barre de gauche, entrez des liens utiles ainsi que toute information susceptible d’aider les clients. Entrez un nom et une URL pour chaque lien.
 
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Images d’exemple (facultatif)
 > [AZURE.NOTE] L’ajout d’une image d’exemple est une étape facultative. Le contenu marketing suffit à remplir les conditions pour l’envoi vers l’environnement intermédiaire.
 
 Sous l’onglet **Sample Images** (Images d’exemple) dans le menu de gauche, cliquez sur **Télécharger une nouvelle image** pour télécharger une image. Si vous avez déjà chargé une image que vous voulez remplacer, cliquez sur **Remplacer l’image**.
 
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### Abonnements
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### Informations juridiques
-Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre politique ou vos conditions d’utilisation. Entrez ou collez les conditions d’utilisation dans la grande zone **Conditions d’utilisation**.
+Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre politique ou vos conditions d’utilisation. Entrez ou collez les conditions d’utilisation dans la grande zone **Conditions d’utilisation**. La limite de caractères pour les conditions d'utilisation est de 1 000 000 caractères.
+
+![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
 > [AZURE.NOTE] Pour les machines virtuelles, vous ne pouvez pas modifier ce qui suit une fois qu'une référence SKU est publiée de manière intermédiaire ou en direct : **Identificateur de l'offre**, **Identificateur de l'éditeur** et **SKU de l'identificateur**.
 
@@ -107,7 +136,7 @@ Les offres peuvent constituer une combinaison quelconque de tarifs De base + Con
 |Gold|1 000 $ par mois|Quota de 10 000 pour la fonctionnalité X, 1 000 pour la fonctionnalité Y et illimité pour la fonctionnalité Z.|Permet de migrer vers toutes les offres sauf Gratuit|
 
 ## Étape 3 : Fournir les informations de support
-Certaines de ces informations auront été complétées pendant l’étape de certification. Vous pouvez ajouter ou modifier des informations à l’aide de la procédure ci-dessous. Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et Microsoft. L’URL de support sera disponible pour les clients finaux.
+Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et Microsoft. L’URL de support sera disponible pour les clients finaux.
 
 1.	Accédez à l’en-tête **Support** à gauche du portail de publication.
 2.	Entrez les informations sous **Engineering Contact** (Contact Ingénieur).
@@ -118,7 +147,7 @@ Certaines de ces informations auront été complétées pendant l’étape de ce
 L’onglet **Categories** (Catégories) offre diverses options. Votre offre peut appartenir à l’une d’elles et vous pouvez sélectionner jusqu’à cinq catégories.
 
 ## Présentation de votre contenu marketing
-Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.microsoft.com/marketplace/) et dans le [portail Azure en version préliminaire](https://ms.portal.azure.com).
+Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.microsoft.com/marketplace/) et dans le [portail Azure](https://portal.azure.com).
 
 ### Site web Azure Marketplace
 ![dessin](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -135,21 +164,21 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 
 *Détails de tarification de la description de l’offre sur le site web Azure Marketplace*
 
-### Portail Azure en version préliminaire
+### Portail Azure
 ![dessin](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Liste des offres dans le portail Azure en version préliminaire*
+*Liste des offres dans le portail Azure*
 
 ![dessin](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Détails de la description de l’offre sur le portail Azure en version préliminaire*
+*Détails de la description de l’offre sur le portail Azure*
 
 ## Étapes suivantes
 Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
 
 ||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
 |----|----|----|----|----|
-| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Version préliminaire privée | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Version préliminaire privée | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -163,4 +192,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

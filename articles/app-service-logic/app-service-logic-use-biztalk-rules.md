@@ -115,8 +115,8 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
 
    ![Alt text][4]
 
-2. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche
-3. Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire.
+2.Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche
+3.Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire.
 Deux types de définitions de vocabulaire sont actuellement prises en charge : les définitions littérales et XML.
 
 ##Définition littérale

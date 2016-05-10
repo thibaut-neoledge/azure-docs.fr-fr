@@ -1,0 +1,133 @@
+<properties
+	pageTitle="Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Azure"
+	description="Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tysonn"/>
+
+<tags
+	ms.service="virtual-machines-linux"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="04/20/2016"
+	ms.author="rasquill"/>
+
+# Utiliser Docker Machine avec le pilote Azure
+
+[Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des conteneurs Linux plutôt que des machines virtuelles pour isoler les données d’application et le traitement sur des ressources partagées. Cette rubrique explique quand et comment utiliser [Docker Machine](https://docs.docker.com/machine/) (la commande `docker-machine`) pour créer des machines virtuelles Linux dans Azure et activées en tant qu'hôtes Docker pour vos conteneurs Linux.
+
+
+## Créer des machines virtuelles avec Docker Machine
+
+Créez des machines virtuelles hôtes Docker dans Azure avec la commande `docker-machine create` en utilisant l’argument de pilote `azure` pour l'option de pilote (`-d`) et tous les autres arguments.
+
+L'exemple suivant repose sur les valeurs par défaut, mais il ouvre le port 80 sur la machine virtuelle pour accéder à Internet et effectuer un test avec un conteneur nginx, utilise `ops` comme utilisateur d'ouverture de session SSH, puis appelle la nouvelle machine virtuelle `machine`.
+
+Tapez `docker-machine create --driver azure` pour voir les options et leurs valeurs par défaut ; vous pouvez également lire la [documentation Docker Azure Driver](https://docs.docker.com/machine/drivers/azure/). (Notez que si l'authentification à deux facteurs est activée, vous devrez vous identifier à l’aide du second facteur).
+
+```bash
+docker-machine create -d azure \
+  --azure-ssh-user ops \
+  --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> \
+  --azure-open-port 80 \
+  machine
+```
+
+La sortie doit ressembler à ceci, si l'authentification à deux facteurs a été configurée dans votre compte.
+
+```
+Creating CA: /Users/user/.docker/machine/certs/ca.pem
+Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
+Running pre-create checks...
+(machine) Microsoft Azure: To sign in, use a web browser to open the page https://aka.ms/devicelogin. Enter the code <code> to authenticate.
+(machine) Completed machine pre-create checks.
+Creating machine...
+(machine) Querying existing resource group.  name="machine"
+(machine) Creating resource group.  name="machine" location="eastus"
+(machine) Configuring availability set.  name="docker-machine"
+(machine) Configuring network security group.  name="machine-firewall" location="eastus"
+(machine) Querying if virtual network already exists.  name="docker-machine-vnet" location="eastus"
+(machine) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(machine) Creating public IP address.  name="machine-ip" static=false
+(machine) Creating network interface.  name="machine-nic"
+(machine) Creating storage account.  name="vhdsolksdjalkjlmgyg6" location="eastus"
+(machine) Creating virtual machine.  name="machine" location="eastus" size="Standard_A2" username="ops" osImage="canonical:UbuntuServer:15.10:latest"
+Waiting for machine to be running, this may take a few minutes...
+Detecting operating system of created instance...
+Waiting for SSH to be available...
+Detecting the provisioner...
+Provisioning with ubuntu(systemd)...
+Installing Docker...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+Checking connection to Docker...
+Docker is up and running!
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
+```
+
+## Configurer votre interpréteur de commandes Docker
+
+À présent, tapez `docker-machine env <VM name>` pour voir ce que vous devez faire pour configurer l'interpréteur de commandes.
+
+```bash
+docker-machine env machine
+```
+
+Imprime les informations d'environnement, qui ressemblent à ceci. Notez l'adresse IP qui a été attribuée et dont vous aurez besoin pour tester la machine virtuelle.
+
+```
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://191.237.46.90:2376"
+export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
+export DOCKER_MACHINE_NAME="machine"
+# Run this command to configure your shell:
+# eval $(docker-machine env machine)
+```
+
+Vous pouvez exécuter la commande de configuration suggérée, ou définir les variables d'environnement vous-même.
+
+## Exécuter un conteneur
+
+Vous pouvez maintenant exécuter un serveur web simple pour vérifier si tout fonctionne correctement. Comme nous utilisons ici une image nginx standard, spécifiez que le serveur doit écouter sur le port 80, et que si la machine virtuelle redémarre, le conteneur doit également redémarrer (`--restart=always`).
+
+```bash
+docker run -d -p 80:80 --restart=always nginx
+```
+
+La sortie doit ressembler à ceci :
+
+```
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+efd26ecc9548: Pull complete
+a3ed95caeb02: Pull complete
+83f52fbfa5f8: Pull complete
+fa664caa1402: Pull complete
+Digest: sha256:12127e07a75bda1022fbd4ea231f5527a1899aad4679e3940482db3b57383b1d
+Status: Downloaded newer image for nginx:latest
+25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
+```
+
+## Tester le conteneur
+
+Examinez les conteneurs en cours d'exécution en utilisant `docker ps` :
+
+```bash
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
+```
+
+Pour vérifier le conteneur en cours d'exécution, tapez `docker-machine ip <VM name>` pour rechercher l'adresse IP (si vous avez oublié la commande `env`) :
+
+![Exécution d’un conteneur ngnix](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
+
+## Étapes suivantes
+
+Si vous le souhaitez, vous pouvez utiliser Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) pour effectuer la même opération à l'aide de l'interface de ligne de commande (CLI) Azure ou des modèles Azure Resource Manager.
+
+<!---HONumber=AcomDC_0427_2016-->

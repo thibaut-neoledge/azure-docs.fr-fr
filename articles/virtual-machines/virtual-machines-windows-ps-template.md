@@ -27,7 +27,7 @@ Il vous faudra environ 20 minutes pour effectuer les étapes décrites dans cet 
 
 Vous pouvez créer votre propre modèle à l'aide des informations figurant dans [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). Vous pouvez également déployer des modèles qui ont été créés pour vous à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). L'exemple utilisé dans cet article est similaire à celui décrit dans [Déployer une machine virtuelle Windows simple dans l’Ouest des États-Unis](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).
 
-1. Ouvrez votre éditeur de texte et copiez ces informations JSON dans un nouveau fichier nommé *VirtualMachineTemplate.json* :
+1. Ouvrez votre éditeur de texte et copiez ces informations JSON dans un nouveau fichier nommé *VirtualMachineTemplate.json* :
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -201,7 +201,7 @@ Vous pouvez créer votre propre modèle à l'aide des informations figurant dans
 
 Pour spécifier des valeurs pour les paramètres de ressource qui ont été définis dans le modèle, créez un fichier de paramètres qui contient les valeurs et envoyez-le au Gestionnaire de ressources avec le modèle.
 
-1. Dans l'éditeur de texte, copiez ces informations JSON dans un nouveau fichier appelé *Parameters.json* :
+1. Dans l'éditeur de texte, copiez ces informations JSON dans un nouveau fichier appelé *Parameters.json* :
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",

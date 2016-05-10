@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/25/2016"
 	ms.author="thmullan"/>
 
 # Didacticiel : application web avec une base de données mutualisée à l’aide d‘Entity Framework et de la sécurité de niveau de ligne
@@ -250,4 +250,4 @@ Ce didacticiel a seulement effleuré la surface de ce qui est possible avec RLS.
 
 Au-delà de ces possibilités, nous nous efforçons d’améliorer encore RLS. Si vous avez des questions, des idées ou des choses que vous aimeriez voir, faites-le nous savoir par le biais de vos commentaires. Nous apprécions vos commentaires !
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

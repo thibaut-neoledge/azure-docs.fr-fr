@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/09/2016" 
+	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
 # Présentation du service Azure Data Factory
@@ -69,4 +69,4 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 Nous avons l’intention d’étendre la prise en charge d’Azure Data Factory à toutes les zones géographiques.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

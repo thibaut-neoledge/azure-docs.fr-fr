@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="04/29/2016"
    ms.author="v-livech"/>
 
 
@@ -23,22 +23,29 @@ Cet article explique comment déployer rapidement une machine virtuelle Linux su
 
 ## Résumé des commandes rapides
 
+Une seule commande pour déployer la machine virtuelle et joindre votre clé SSH
+
 ```
-# One command to deploy the VM and attach your SSH key
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Déployer la machine virtuelle Linux
 
 À l’aide de la commande déjà utilisée plus haut, nous indiquerons chaque invite, ainsi que la sortie que vous devriez obtenir.
 
-Pour ImageURN, nous utiliserons `canonical:ubuntuserver:14.04.2-LTS:latest` pour déployer une machine virtuelle Ubuntu 14.04. (Pour rechercher une image dans le Marketplace, [recherchez une image](virtual-machines-linux-cli-ps-findimage.md) ou [chargez votre propre image personnalisée](virtual-machines-linux-create-upload-generic.md).)
+Pour ImageURN, nous allons utiliser `canonical:ubuntuserver:14.04.2-LTS:latest` pour déployer une machine virtuelle Ubuntu 14.04. (Pour rechercher une image dans le Marketplace, [recherchez une image](virtual-machines-linux-cli-ps-findimage.md) ou [chargez votre propre image personnalisée](virtual-machines-linux-create-upload-generic.md).)
 
 Dans la procédure suivante, remplacez les invites par les valeurs de votre propre environnement. Nous utilisons des exemples de valeurs. La sortie doit ressembler au bloc de sortie suivant.
 
+Suivez les invites et entrez vos propres noms
+
 ```bash
-# Follow the prompts and enter your own names
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+```
+
+Sortie
+
+```bash
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -48,10 +55,6 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
-```
-
-```bash
-########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
@@ -130,7 +133,7 @@ info:    vm quick-create command OK
 Vous pouvez désormais intégrer SSH à votre machine virtuelle sur le port SSH 22 par défaut et l’adresse IP publique répertoriée dans la sortie ci-dessus (ou le nom de domaines complet).
 
 ```
-ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
 ## Étapes suivantes
@@ -145,4 +148,4 @@ La procédure `azure vm quick-create` permet de déployer rapidement une machine
 
 Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 0.3 - Février 2015
@@ -27,7 +27,7 @@ Nous vous recommandons de rechercher les mises à jour éventuelles et de les ap
 
 Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT]   
 >
 > - Utilisez le service StorSimple Manager, pas Windows PowerShell pour StorSimple, pour installer la mise à jour de février.   
 > - L’installation de cette mise à jour prend environ une heure. Toutefois, si vous installez des mises à jour cumulatives, la procédure peut prendre environ 3 heures.  
@@ -86,4 +86,4 @@ Cette version ne contient aucune mise à jour pour le microprogramme ou le contr
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -240,9 +240,9 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 
 ## Étapes suivantes
 
-- Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
+- Configuration d’un [appareil virtuel](storsimple-virtual-device-u2.md).
 
 - Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

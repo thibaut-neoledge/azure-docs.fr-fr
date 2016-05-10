@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/19/2016"
+	ms.date="04/20/2016"
 	ms.author="carlrab" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
@@ -173,7 +173,7 @@ Il existe deux vues qui vous permettent de surveiller l'utilisation des ressourc
 ### Avec sys.dm\_db\_resource\_stats
 La vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe dans chaque base de données SQL et fournit les dernières données sur l'utilisation des ressources par rapport au niveau de service. Les pourcentages moyens de CPU, d'E/S des données, d'écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
-Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm\_db\_resource\_stats ** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
+Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm_db_resource_stats** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
@@ -491,4 +491,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

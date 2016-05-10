@@ -1,3 +1,5 @@
+
+
 ## Connexion à une base de données SQL Azure à l'aide d'une connexion du principal au niveau du serveur
 
 Utilisez les étapes suivantes pour vous connecter à une base de données SQL Azure avec SSMS en utilisant une connexion du principal au niveau du serveur.
@@ -37,4 +39,4 @@ Utilisez les étapes suivantes pour vous connecter à une base de données SQL A
 
 Les échecs de connexion les plus courants sont dus à des erreurs dans le nom du serveur (rappelez-vous que <*nom\_serveur*> est le nom du serveur logique et non celui de la base de données), dans le nom d’utilisateur ou dans le mot de passe, ou quand le serveur n’autorise pas les connexions pour des raisons de sécurité.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

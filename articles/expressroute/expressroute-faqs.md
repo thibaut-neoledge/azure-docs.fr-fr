@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -86,7 +86,7 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 ### Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour prendre en charge la charge de votre réseau. Vous pouvez également créer plusieurs circuits dans un autre emplacement d’homologation pour bénéficier de la tolérance de panne.
 
-### Si je ne suis pas colocalisé au niveau d'un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ? 
+### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d'un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ? 
 Non, vous n’avez besoin que d’une connexion physique si votre fournisseur de services peut établir deux circuits virtuels Ethernet sur la connexion physique. La connexion physique (par exemple, une fibre optique) s’achève sur un appareil de couche 1 (L1) (voir l'image ci-dessous). Les deux circuits virtuels Ethernet sont marqués avec des ID de VLAN différents, l’un pour le circuit principal et l’autre pour le circuit secondaire. Ces ID de VLAN se trouvent dans l’en-tête Ethernet 802.1Q externe. L’en-tête Ethernet 802.1Q interne (non illustré) est mappé à un [domaine de routage ExpressRoute](expressroute-circuit-peerings.md) spécifique.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -149,9 +149,7 @@ Vous devez établir un circuit ExpressRoute et configurer des itinéraires pour 
 Oui. Nous acceptons jusqu’à 4000 préfixes d’itinéraires pour l’homologation privée et 200 pour l’homologation publique et l’homologation Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par homologation privée si vous activez la fonctionnalité Premium d’ExpressRoute.
 
 ### Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
-Les préfixes publiés via BGP doivent être /29 ou plus (/28 à /8).
-
-Nous filtrons les préfixes privés (RFC1918) dans la session BGP d’homologation publique.
+Nous n’acceptons pas les préfixes privés (RFC1918) dans la session BGP d’homologation publique.
 
 ### Que se passe-t-il si je dépasse les limites du protocole BGP ?
 Les sessions BGP sont supprimées. Elles sont ensuite réinitialisées lorsque le nombre de préfixes tombe en dessous de la limite.
@@ -247,4 +245,4 @@ Consultez la rubrique [Partenaires et emplacements ExpressRoute](expressroute-lo
 ### Puis-je accéder à Office 365 via Internet même si ExpressRoute a été configuré pour mon organisation ?
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

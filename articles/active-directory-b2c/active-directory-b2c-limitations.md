@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire d’Azure Active Directory B2C : limites et restrictions | Microsoft Azure"
+	pageTitle="Version préliminaire d’Azure Active Directory B2C : limites et restrictions | Microsoft Azure"
 	description="Une liste des limites et restrictions pour Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
-# Version préliminaire d’Azure Active Directory B2C : limites et restrictions
+# Version préliminaire d’Azure Active Directory B2C : limites et restrictions
 
 Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Azure AD) B2C qui ne sont pas encore prises en charge dans la version préliminaire. Plusieurs de ces limites seront supprimées avant qu'Azure AD B2C ne bénéficie d'une disponibilité générale, mais vous devez les garder à l'esprit si vous concevez des applications grand public à l'aide de la version préliminaire d'Azure AD B2C.
 
@@ -24,11 +24,11 @@ Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Az
 
 ## Problèmes lors de la création de clients Azure AD B2C
 
-Si vous rencontrez des problèmes lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started), consultez [Création d’un client Azure AD ou d’un client Azure AD B2C : problèmes et résolutions](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
+Si vous rencontrez des problèmes lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started), consultez [Création d’un client Azure AD ou d’un client Azure AD B2C : problèmes et résolutions](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
 
 ## Problèmes de marque sur le courrier électronique de vérification
 
-Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
+Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
 
 ## Prise en charge des applications de production
 
@@ -36,7 +36,7 @@ Les applications qui s’intègrent avec Azure AD B2C ne doivent pas être mises
 
 ## Restrictions sur les applications
 
-Les types d'applications suivants ne sont actuellement pas pris en charge dans la version préliminaire d'Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, consultez [Version préliminaire d’Azure AD B2C : types d’applications](active-directory-b2c-apps.md).
+Les types d'applications suivants ne sont actuellement pas pris en charge dans la version préliminaire d'Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, consultez [Version préliminaire d’Azure AD B2C : types d’applications](active-directory-b2c-apps.md).
 
 ### Applications à page unique (JavaScript)
 
@@ -44,31 +44,31 @@ Plusieurs applications modernes présentent une application frontale à page uni
 
 ### Démons / applications côté serveur
 
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un client), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Ce flux n’est pas encore disponible dans la version préliminaire d’Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu’un flux de connexion interactif de client s’est produit.
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un client), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Ce flux n’est pas encore disponible dans la version préliminaire d’Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu’un flux de connexion interactif de client s’est produit.
 
 ### API Web autonome
 
-Dans la version préliminaire d’Azure AD B2C, vous avez la possibilité de [concevoir une API web sécurisée à l’aide de jetons OAuth 2.0](active-directory-b2c-apps.md#web-apis). Toutefois, cette API Web pourra recevoir uniquement les jetons d'un client qui partage le même ID d'application. La création d'une API Web accessible par différents clients n'est pas prise en charge.
+Dans la version préliminaire d’Azure AD B2C, vous avez la possibilité de [concevoir une API web sécurisée à l’aide de jetons OAuth 2.0](active-directory-b2c-apps.md#web-apis). Toutefois, cette API Web pourra recevoir uniquement les jetons d'un client qui partage le même ID d'application. La création d'une API Web accessible par différents clients n'est pas prise en charge.
 
 ### Chaînes d’API Web (On-Behalf-Of)
 
-De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d’une API Web principale, qui à son tour appelle un service Microsoft Online, comme l’API Graph Azure AD.
+De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d’une API Web principale, qui à son tour appelle un service Microsoft Online, comme l’API Graph Azure AD.
 
-Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n'est pas actuellement implémenté dans la version préliminaire d'Azure AD B2C.
+Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n'est pas actuellement implémenté dans la version préliminaire d'Azure AD B2C.
 
 ## Restriction sur les bibliothèques et les kits de développement logiciel
 
 Toutes les langues et plateformes ne possèdent pas de bibliothèques prenant en charge la version préliminaire d'Azure AD B2C. L’ensemble de bibliothèques d’authentification est actuellement limité à .NET, iOS, Android et NodeJS. Des didacticiels de démarrage rapide correspondant à chacun des éléments sont disponibles dans la section [Prise en main](active-directory-b2c-overview.md#getting-started).
 
-Si vous souhaitez intégrer une application avec la version préliminaire d’Azure AD B2C en utilisant une langue ou plateforme différente, consultez [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md), qui vous expliquera comment rédiger les messages HTTP nécessaires à la communication avec le service Azure AD B2C.
+Si vous souhaitez intégrer une application avec la version préliminaire d’Azure AD B2C en utilisant une langue ou plateforme différente, consultez [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md), qui vous expliquera comment rédiger les messages HTTP nécessaires à la communication avec le service Azure AD B2C.
 
 ## Restriction sur les protocoles
 
-La version préliminaire d'Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans la version préliminaire d’Azure AD B2C, consultez notre page [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md). La prise en charge de SAML et WS-Fed n’est pas disponible.
+La version préliminaire d'Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans la version préliminaire d’Azure AD B2C, consultez notre page [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md). La prise en charge de SAML et WS-Fed n’est pas disponible.
 
 ## Restriction sur les jetons
 
-La plupart des jetons émis par la version préliminaire d'Azure AD B2C sont implémentés en tant que jetons Web JSON (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred\_username ». Attendez-vous à de grandes modifications par rapport à la version préliminaire. Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
+La plupart des jetons émis par la version préliminaire d'Azure AD B2C sont implémentés en tant que jetons Web JSON (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred\_username ». Attendez-vous à de grandes modifications par rapport à la version préliminaire. Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
 
 ## Problèmes de gestion des utilisateurs sur le portail Azure Classic
 
@@ -92,4 +92,4 @@ Vous ne pourrez pas supprimer un client Azure AD B2C dans le portail Azure Class
 
 Actuellement, vous ne pouvez pas vérifier un domaine avec succès sur le [portail Azure Classic](https://manage.windowsazure.com/). Nous développons actuellement un correctif.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

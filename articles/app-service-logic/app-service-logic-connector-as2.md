@@ -70,7 +70,7 @@ Consultez les étapes à suivre pour [créer un accord de partenariat commercial
 
 2. Cliquez sur la flèche droite → : ![Options du déclencheur][4]
 
-3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : ![Entrée Recevoir et décoder][5]
+3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : ![Entrée Recevoir et décoder][5]
 
 4. Ce déclencheur ne possède aucune entrée. Cliquez sur la flèche droite → : ![Recevoir et décoder configuré][6]
 
@@ -83,7 +83,7 @@ Le déclencheur est déclenché lorsqu'une charge utile AS2 prend la forme d'une
 
 2. Cliquez sur la flèche droite → : ![Liste d'actions][8]
 
-3. Le connecteur AS2 ne prend en charge qu’une seule action. Sélectionnez *Encoder et envoyer* : ![Entrée Encoder et envoyer][9]
+3. Le connecteur AS2 ne prend en charge qu’une seule action. Sélectionnez *Encoder et envoyer* : ![Entrée Encoder et envoyer][9]
 
 4. Indiquez les entrées de l'action et configurez celle-ci : ![Encoder et envoyer configuré][10]
 

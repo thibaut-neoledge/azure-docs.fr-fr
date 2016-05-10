@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide de démarrage rapide : API Machine Learning Recommendations | Microsoft Azure"
+	pageTitle="Guide de démarrage rapide : API Machine Learning Recommendations | Microsoft Azure"
 	description="Azure Machine Learning Recommendations - Guide de démarrage rapide"
 	services="cognitive-services"
 	documentationCenter=""
@@ -30,13 +30,13 @@ Cet exercice prend environ 30 minutes.
 
 Pour utiliser l’[API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759710), procédez comme suit :
 
-1. Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
+1. Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
 1. Importez les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments.
-1. Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
+1. Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
   -  En téléchargeant un fichier qui contient les données d'utilisation.
   -  Envoyez des événements d’acquisition de données. Généralement, vous téléchargez un fichier d’utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l’utiliser jusqu’à ce que le système rassemble suffisamment de données en utilisant le format d’acquisition de données.
-1. Générez un modèle de recommandation : il s’agit d’une opération asynchrone dans laquelle le système de recommandation prend toutes les données d’utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la build, vous obtenez un ID de build. Utilisez-le pour vérifier à quel moment s’est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations.
-1. Utilisez les recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d’éléments.
+1. Générez un modèle de recommandation : il s’agit d’une opération asynchrone dans laquelle le système de recommandation prend toutes les données d’utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la build, vous obtenez un ID de build. Utilisez-le pour vérifier à quel moment s’est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations.
+1. Utilisez les recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d’éléments.
 
 <a name="GetStarted"></a>
 ### C’est parti !
@@ -79,7 +79,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  Vous pouvez télécharger les données [ici](http://aka.ms/RecoSampleData). Copiez et décompressez l’archive MsStoreData.Zip dans un dossier sur votre ordinateur local.
 
- > ** Remarque :** l'exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
+ > ** Remarque:** l'exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
 
 1.	Examinons maintenant le fichier de catalogue. Naviguez jusqu'à l'emplacement où vous avez copié les données. Ouvrez le fichier de catalogue dans le **bloc-notes**.
 
@@ -89,11 +89,11 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  À noter qu'un fichier de catalogue peut être beaucoup plus riche. Par exemple, vous pouvez ajouter des métadonnées sur les produits (ce que nous appelons *caractéristiques d'éléments*). Consultez la section [format de catalogue](http://go.microsoft.com/fwlink/?LinkID=760716) dans la Référence de l’API pour plus d'informations sur le format de catalogue.
 
-1. Faisons de même avec les données d'utilisation. Vous remarquerez que les données d'utilisation sont au format `<User Id>,<Item Id>`.
+1. Faisons de même avec les données d'utilisation. Vous remarquerez que les données d’utilisation sont au format `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
-  > 00030000A11B024B,GZA-00202<br> 0003BFFD93B934B7,P2W-00004<br> 000300009C01C881,W6F-00121<br> 00060000AF0D2B04,QR2-00011<br>
+  > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase 0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase 00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase 0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase 00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
- Voici les données requises au minimum pour qu’un fichier d'utilisation soit valide. Un fichier d'utilisation plus complexe pourrait contenir des informations supplémentaires pour chaque transaction, par exemple l’horodatage de la transaction et le type d'événement qui s'est produit (un clic, un achat, etc.). Vous pouvez extraire le [format d’utilisation](http://go.microsoft.com/fwlink/?LinkID=760712) pour plus d'informations sur cette rubrique.
+Notez que les trois premiers éléments sont obligatoires. Le type d’événement est facultatif. Vous pouvez consulter le [format d’utilisation](http://go.microsoft.com/fwlink/?LinkID=760712) pour plus d’informations sur cette rubrique.
 
  > **De quelle quantité de données avez-vous besoin ?**
  <p>
@@ -107,9 +107,9 @@ Maintenant que vous avez un compte et que vous disposez de données, créons vot
 
 Dans cette tâche, vous allez utiliser l'exemple d'application pour générer votre premier modèle.
 
-1. Avant tout vous devez connaître la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348).
+1. Avant tout, vous devez connaître la [Référence de l’API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348).
 
-1. Téléchargez l'[Exemple d'application](http://go.microsoft.com/fwlink/?LinkID=759344) dans un dossier local.
+1. Téléchargez l’[Exemple d’application](http://go.microsoft.com/fwlink/?LinkID=759344) dans un dossier local.
 
 1. Dans Visual Studio, ouvrez la solution **RecommendationsSample.sln** située dans le dossier **C#**.
 
@@ -121,7 +121,7 @@ Dans cette tâche, vous allez utiliser l'exemple d'application pour générer vo
  + Récupération d’une recommandation basée sur une paire d'éléments
 <p></p>
 
-1. Remplacez les valeurs des champs **accountEmail** et **accountKey** par votre adresse de messagerie et la clé de la tâche 1.
+1. Remplacez la valeur du champ **AccountKey** avec la clé de la tâche 1.
 
 1. Parcourez la solution : vous verrez comment se crée un modèle.
 
@@ -134,7 +134,7 @@ Dans cette tâche, vous allez utiliser l'exemple d'application pour générer vo
 
 Maintenant que vous savez comment créer un modèle et utiliser des recommandations, l'étape suivante est la mise en production sur votre site web ou votre application mobile ou l’intégration à votre système CRM ou ERP. Évidemment, chacune de ces implémentations est différente. Étant donné que l'API de recommandations est interrogée en tant que service web, vous devriez pouvoir l'appeler facilement à partir de ces différents environnements.
 
-**Important :** si vous souhaitez afficher les recommandations à partir d'un client public (par exemple, votre site de commerce électronique), vous devez créer un serveur proxy pour fournir les recommandations. Ceci est important pour que votre clé d'API ne soit pas exposée à des entités externes (potentiellement non fiables).
+**Important :** si vous souhaitez afficher les recommandations à partir d’un client public (par exemple, votre site de commerce électronique), vous devez créer un serveur proxy pour fournir les recommandations. Ceci est important pour que votre clé d'API ne soit pas exposée à des entités externes (potentiellement non fiables).
 
 Voici quelques idées d’emplacements où vous pouvez utiliser les recommandations :
 
@@ -163,7 +163,7 @@ Un modèle de recommandation peut prendre en entrée l'identifiant utilisateur. 
 Consultez la [documentation Obtenir des recommandations d’articles](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
-### Et ensuite ?
-Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n'hésitez pas à nous contacter au mlapi@microsoft.com
+### Et ensuite ?
+Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l’API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n’hésitez pas à nous contacter à l’adresse mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

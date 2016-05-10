@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure
@@ -92,7 +92,7 @@ N'oubliez pas les éléments suivants :
 - Si un déploiement de cloud hybride Azure existe déjà, n’hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
 - Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l’isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 Pour en savoir plus sur SharePoint avec les groupes de disponibilité SQL Server AlwaysOn, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
@@ -100,4 +100,4 @@ Pour en savoir plus sur SharePoint avec les groupes de disponibilité SQL Serve
 
 - Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-windows-ps-sp-intranet-ph1.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

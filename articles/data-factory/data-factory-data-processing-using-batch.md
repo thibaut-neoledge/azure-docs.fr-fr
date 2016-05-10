@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Calcul haute performance et orchestration de données à l’aide des services Azure Batch et Data Factory
 
@@ -552,7 +552,7 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     2.  Remplacez **clé d’accès** avec la clé d’accès du compte Azure Batch.
 
-    3.  Entrez l’ID du pool pour la propriété **poolName****. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
+    3.  Entrez l’ID du pool pour la propriété **poolName** **. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
 
     4.  Entrez l’URI du lot pour la propriété JSON **batchUri**. L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
 
@@ -901,13 +901,13 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 Après avoir traité des données, vous pouvez les employer avec des outils en ligne tels que **Microsoft Power BI**. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
--   [Explorer un jeu de données dans Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-service-get-data/)
 
--   [Prise en main de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
 
--   [Actualisation des données dans Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-refresh-data/)
 
--   [Azure et Power BI](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure et Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-azure-and-power-bi/)
 
 ## Références
 
@@ -929,4 +929,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="12/08/2015"
+ ms.date="04/15/2016"
  ms.author="rasquill"/>
 
 #Gestion des extensions de machine virtuelle
@@ -24,4 +24,4 @@ Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machin
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

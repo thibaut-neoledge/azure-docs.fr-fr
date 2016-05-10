@@ -19,7 +19,7 @@ Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Pré
 
 5. Vérifiez qu’il s’agit de l’**abonnement** approprié. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
 
-6. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources existant, ou créez un groupe de ressources. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md/#resource-groups).
+6. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources existant, ou créez un groupe de ressources. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md#resource-groups).
 
 7. Ensuite, sélectionnez les paramètres d’**emplacement** pour votre réseau virtuel. Notez que l’emplacement déterminera où se trouveront les ressources que vous déployez sur ce réseau virtuel. Vous ne pouvez pas le modifier ultérieurement sans avoir à redéployer vos ressources.
 
@@ -32,4 +32,4 @@ Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Pré
 
 	![Mosaïque de création du réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

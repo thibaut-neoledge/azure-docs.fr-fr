@@ -19,8 +19,9 @@
 # Configurer un groupe de disponibilité AlwaysOn dans des machines virtuelles Azure Resource Manager (GUI)
 
 > [AZURE.SELECTOR]
-- [Portail - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portail - Azure Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Portail - Resource Manager - Modèle ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Portail - Resource Manager - Manuel ](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Portail - Classic - Manuel](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [PowerShell - Classique](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
@@ -76,10 +77,8 @@ Azure fournit une image de galerie pour l’ensemble de la solution. Pour locali
 
 1. 	Connectez-vous au portail Azure avec votre compte.
 1.	Dans le portail Azure, cliquez sur **+Nouveau**. Le portail ouvre le panneau Nouveau.
-1.	Dans le panneau Nouveau, recherchez **AlwaysOn**.
-![Rechercher le modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	Dans les résultats de la recherche, recherchez **Cluster AlwaysOn SQL Server**.
-![Modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	Dans le panneau Nouveau, recherchez **AlwaysOn**. ![Rechercher le modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	Dans les résultats de la recherche, recherchez **Cluster AlwaysOn SQL Server**. ![Modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	Dans **Sélectionner un modèle de déploiement**, choisissez **Resource Manager**.
 
 ### Concepts de base
@@ -245,8 +244,7 @@ Pour établir une connexion RDP au contrôleur de domaine principal, procédez c
 
 1.	Dans le panneau **Ressources**, cliquez sur **ad-primary-dc**, qui correspond au nom de la machine virtuelle pour le contrôleur de domaine principal.
 
-1.	Dans le panneau pour **ad-primary-dc**, cliquez sur **Se connecter**. Votre navigateur vous demande si vous voulez ouvrir ou enregistrer l’objet de connexion à distance. Cliquez sur **Ouvrir**.
-![Se connecter au contrôleur de domaine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	Dans le panneau pour **ad-primary-dc**, cliquez sur **Se connecter**. Votre navigateur vous demande si vous voulez ouvrir ou enregistrer l’objet de connexion à distance. Cliquez sur **Ouvrir**. ![Se connecter au contrôleur de domaine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	La **connexion Bureau à distance** peut vous informer que le serveur de publication de cette connexion à distance n’est pas identifiable. Cliquez sur **Connecter**.
 
 1.	La sécurité de Windows vous invite à entrer vos informations d’identification pour vous connecter à l’adresse IP du contrôleur de domaine principal. Cliquez sur **Utiliser un autre compte**. Pour **Nom d’utilisateur**, tapez **contoso\\DomainAdmin**. Il s’agit du compte que vous avez choisi pour le nom d’utilisateur de l’administrateur. Utilisez le mot de passe complexe que vous avez choisi quand vous avez configuré le modèle.
@@ -263,4 +261,4 @@ Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établ
 
 Vous êtes maintenant connecté avec RDP au serveur SQL Server. Vous pouvez ouvrir SQL Server Management Studio, vous connecter à l’instance par défaut de SQL Server et vérifier que le groupe de disponibilité AlwaysOn est configuré.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -6,19 +6,19 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
-	
+
 # Interroger efficacement le service Azure Batch
 
-Dans cet article, vous allez apprendre à augmenter les performances de votre application Azure Batch en réduisant la quantité de données renvoyées lorsque vous interrogez le service Batch à l'aide de la bibliothèque [Batch .NET][api_net].
+Vous allez apprendre à augmenter les performances de votre application Azure Batch en réduisant la quantité de données renvoyées lorsque vous interrogez le service Batch à l’aide de la bibliothèque [Batch .NET][api_net].
 
 Azure Batch offre des fonctionnalités de calcul importantes, et dans un environnement de production, les entités telles que les travaux, les tâches et les nœuds de calcul peuvent se compter en milliers. L’obtention d’informations sur ces éléments peut donc générer une grande quantité de données qui doivent être transférées du service à votre application sur chaque requête. En limitant le nombre d’éléments et le type d’informations renvoyé pour chacun, vous pouvez augmenter la vitesse des requêtes et donc, les performances de votre application.
 
@@ -26,14 +26,14 @@ Presque toutes les applications qui utilisent Azure Batch effectueront une certa
 
 Cet extrait de code de l’API [Batch.NET][api_net] récupère chaque tâche associée à un travail, ainsi que *toutes* les propriétés de ces tâches :
 
-```
+```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
 Une requête de liste beaucoup plus efficace peut toutefois être exécutée. Pour ce faire, fournissez un objet [ODATADetailLevel][odata] à la méthode [JobOperations.ListTasks][net_list_tasks]. Cet extrait de code renvoie simplement les propriétés d’identifiant, de ligne de commande et d’informations du nœud de calcul pour les tâches terminées uniquement :
 
-```
+```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
@@ -43,10 +43,10 @@ detailLevel.SelectClause = "id,commandLine,nodeInfo";
 IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-Si, dans l’exemple de scénario ci-dessus, les tâches associées au travail se comptent par milliers, les résultats de la deuxième requête seront généralement renvoyés bien plus rapidement que ceux de la première requête. Vous trouverez d’autres informations sur l’utilisation de ODATADetailLevel pour répertorier les éléments avec l’API Batch .NET ci-dessous.
+Si, dans l’exemple de scénario ci-dessus, les tâches associées au travail se comptent par milliers, les résultats de la deuxième requête seront généralement renvoyés bien plus rapidement que ceux de la première requête. Vous trouverez d’autres informations sur l’utilisation de ODATADetailLevel pour répertorier les éléments avec l’API Batch .NET [ci-dessous](#efficient-querying-in-batch-net).
 
 > [AZURE.IMPORTANT]
-Nous vous recommandons vivement de *toujours* fournir un objet ODATADetailLevel à vos appels d’API de liste .NET afin de garantir une efficacité maximale et les performances de votre application. En spécifiant un niveau de détail, vous pouvez réduire les délais de réponse du service Batch, améliorer le taux d’utilisation du réseau et réduire l’utilisation de la mémoire par les applications clientes.
+Nous vous recommandons vivement de *toujours* fournir un objet ODATADetailLevel à vos appels d’API de liste .NET afin de garantir une efficacité et des performances maximales de votre application. En spécifiant un niveau de détail, vous pouvez réduire les délais de réponse du service Batch, améliorer le taux d’utilisation du réseau et réduire l’utilisation de la mémoire par les applications clientes.
 
 ## Outils permettant une requête efficace
 
@@ -89,13 +89,13 @@ La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir
 
 Dans l’API [Batch .NET][api_net], la classe [ODATADetailLevel][odata] sert à fournir les chaînes filter, select et expand aux opérations de liste. La classe ODataDetailLevel possède trois propriétés de chaîne publiques qui peuvent être spécifiées dans le constructeur ou définies directement sur l'objet. Vous transmettez ensuite l'objet ODataDetailLevel en tant que paramètre à plusieurs opérations de liste tel que [ListPools][net_list_pools], [ListJobs][net_list_jobs] et [ListTasks][net_list_tasks].
 
-- [ODATADetailLevel.FilterClause][odata_filter] : limiter le nombre d’éléments renvoyés.
-- [ODATADetailLevel.SelectClause][odata_select] : spécifier les valeurs de propriété renvoyées avec chaque élément.
-- [ODATADetailLevel.ExpandClause][odata_expand] \: extraire les données de tous les éléments en utilisant un seul appel d'API au lieu d'appels distincts pour chaque élément.
+- [ODATADetailLevel][odata].[FilterClause][odata_filter] : limiter le nombre d’éléments renvoyés.
+- [ODATADetailLevel][odata].[SelectClause][odata_select] \: spécifier les valeurs de propriété renvoyées avec chaque élément.
+- [ODATADetailLevel][odata].[ExpandClause][odata_expand] \: extraire les données de tous les éléments en utilisant un seul appel d'API au lieu d'appels distincts pour chaque élément.
 
 L’extrait de code suivant utilise l’API .NET Batch pour interroger efficacement le service Batch pour les statistiques d’un ensemble spécifique de pools. Dans ce scénario, l’utilisateur de Batch comporte à la fois des pools de test et des pools de production. Les ID de pool de test sont précédés du préfixe « test » et les ID de production sont précédés de « prod ». Dans l’extrait de code, *myBatchClient* est une instance initialisée correctement de la classe [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
 
-```
+```csharp
 // First we need an ODATADetailLevel instance on which to set the expand, filter, and select
 // clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
@@ -183,6 +183,8 @@ La chaîne select permettant d’inclure uniquement l’ID et la ligne de comman
 
 ## Étapes suivantes
 
+### Exemple de code pour des requêtes de liste efficaces
+
 Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] sur GitHub pour savoir comment une interrogation efficace de liste peut affecter les performances d’une application. Cette application de console C# crée et ajoute de nombreuses tâches à un travail. Ensuite, elle effectue plusieurs appels de la méthode [JobOperations.ListTasks][net_list_tasks] et transfère des objets [ODATADetailLevel][odata] configurés avec différentes valeurs de propriété pour faire varier la quantité de données à renvoyer. Vous générez ainsi des informations qui ressemblent à ce qui suit :
 
 		Adding 5000 tasks to job jobEffQuery...
@@ -199,10 +201,16 @@ Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] 
 
 Comme le montrent les informations sur le temps écoulé, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés. Cet exemple et d’autres exemples de projet sont disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub.
 
+### Forum Azure Batch
+
+Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
+
+
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[forum]: https://social.msdn.microsoft.com/forums/azure/fr-FR/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx
@@ -246,4 +254,4 @@ Comme le montrent les informations sur le temps écoulé, vous pouvez réduire d
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

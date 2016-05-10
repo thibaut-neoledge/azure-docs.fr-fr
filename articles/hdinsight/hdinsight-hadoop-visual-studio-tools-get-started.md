@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="01/27/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -184,7 +184,7 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 
 HDInsight Tools utilisé pour envoyer des tâches Hive via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (également appelé Templeton). Il fallait auparavant beaucoup de temps pour renvoyer les détails d’une tâche et les informations d’erreur. Pour résoudre ce problème de performances, HDInsight Tools exécute dorénavant les tâches Hive directement dans le cluster via HiveServer2, de manière à contourner RDP/SSH. En plus de bénéficier de meilleures performances, les utilisateurs peuvent afficher Hive sur des graphiques Tez et consulter les détails de la tâche.
 
-Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
+Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
 
 ![hdinsight visual studio exécution de tools via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
@@ -264,15 +264,15 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 
 <!--Link references-->
-[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-hadoop-introduction.md
 [hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight.hive]: hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
