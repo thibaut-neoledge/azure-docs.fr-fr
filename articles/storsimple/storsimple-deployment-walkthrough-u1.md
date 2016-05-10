@@ -244,7 +244,7 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
 <!--can take 1-4 hours--> 
 
-<!--Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Mise à jour de votre appareil
 
@@ -285,9 +285,9 @@ Pour obtenir les instructions d'installation et de configuration de MPIO pour un
 
 ## Étapes suivantes
 
-- Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
+- Configuration d’un [appareil virtuel](storsimple-virtual-device-u2.md).
 
 - Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

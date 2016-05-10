@@ -12,18 +12,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
-# Déploiement et gestion d’un appareil virtuel StorSimple dans Azure (Update 2)
+# Déployer et gérer un appareil virtuel StorSimple dans Azure
 
-> [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [Version Mise à la disposition générale](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Vue d'ensemble
-L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes.
+L’appareil virtuel StorSimple série 8000 est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes. Ce didacticiel explique comment déployer et gérer un appareil virtuel dans Azure. Il s’applique à tous les appareils virtuels exécutant le logiciel version Update 2 et inférieure.
 
 
 #### Comparaison des modèles d’appareils virtuels
@@ -37,16 +33,18 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | **Microsoft Azure** | Standard\_A3 (4 cœurs, 7 Go de mémoire) | Standard\_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** | Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure | Les versions exécutant Update 2 ou version ultérieure |
 | **Disponibilité des régions** | Toutes les régions Azure | Régions Azure qui prennent en charge Premium Storage<br></br>Pour obtenir la liste des régions, consultez [Régions prises en charge pour 8020](#supported-regions-for-8020). |
-| **Type de stockage** | Utilise le stockage Azure Standard<br></br> Découvrez comment [créer un compte de stockage Standard]() | Utilise le stockage Azure Premium<br></br>Découvrez comment [créer un compte de stockage Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Type de stockage** | Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard]() | Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Aide relative à la charge de travail** | Récupération au niveau des éléments des fichiers à partir de sauvegardes | Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes<br></br>Appareil secondaire pour la récupération d’urgence |
  
-<sup>1</sup> *Anciennement 1100*.
+<sup>1</sup> *Anciennement, 1100*.
+
+<sup>2</sup> *Le 8010 et la 8020 utilisent tous deux le stockage Azure Standard pour le niveau cloud. La différence existe uniquement au niveau local au sein de l’appareil*.
 
 #### Régions prises en charge pour 8020
 
 Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
 
-| No | Actuellement pris en charge dans les régions |
+| N° | Actuellement pris en charge dans les régions |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Centre des États-Unis |
 | 2 | Est des États-Unis |
@@ -146,8 +144,7 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
-[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 
@@ -282,4 +279,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

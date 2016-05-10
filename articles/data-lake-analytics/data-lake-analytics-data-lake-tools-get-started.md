@@ -3,7 +3,7 @@
    description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL."
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/15/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio
 
@@ -130,7 +130,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
 
 		IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
 
-    - **Développez les colonnes***
+    - **Développez les colonnes ***
 
         Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
@@ -361,4 +361,4 @@ Le script PowerShell suivant prépare un compte Azure Data Lake Analytics et la 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

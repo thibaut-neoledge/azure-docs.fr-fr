@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Que sont les applications Mobile Apps ?"
+	pageTitle="Que sont les applications Mobile Apps ?"
 	description="Découvrez les avantages qu'App Service apporte à vos applications mobiles d'entreprise."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>Qu’est ce que la fonctionnalité Mobile Apps ?
+# <a name="getting-started"> </a>Qu’est ce que la fonctionnalité Mobile Apps ?
 
 Azure App Service est une offre PaaS (Platform as a Service) entièrement gérée, destinée aux développeurs professionnels, qui permet de bénéficier d'un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d'intégration. La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles.
 
-![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
+![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
-##Pourquoi Mobile Apps ?
-La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles. Mobile Apps vous permet d'effectuer les opérations suivantes :
+##Pourquoi Mobile Apps ?
+La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles. Mobile Apps vous permet d'effectuer les opérations suivantes :
 
-- **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d'App Service à l'aide de Kits de développement logiciel (SDK) natifs.
-- **Se connecter aux systèmes de votre entreprise** : la fonctionnalité Applications mobiles vous permet d'ajouter une authentification d'entreprise en quelques minutes et de vous connecter à vos ressources locales et cloud de votre entreprise.
+- **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d'App Service à l'aide de Kits de développement logiciel (SDK) natifs.
+- **Se connecter aux systèmes de votre entreprise** : la fonctionnalité Applications mobiles vous permet d'ajouter une authentification d'entreprise en quelques minutes et de vous connecter à vos ressources locales et cloud de votre entreprise.
 - **Créer des applications disponibles hors connexion avec la synchronisation des données** : augmentez la productivité de votre personnel mobile en créant des applications qui fonctionnent hors connexion et qui utilisent la fonctionnalité Applications mobiles pour synchroniser les données en arrière-plan quand la connexion est établie avec l’une de vos sources de données d’entreprise ou API SaaS.
-- **Notifications push pour des millions de personnes en quelques secondes** : fidélisez vos clients en leur envoyant en temps opportun des notifications push instantanées, adaptées à leurs besoins, sur n'importe quel appareil.
+- **Notifications push pour des millions de personnes en quelques secondes** : fidélisez vos clients en leur envoyant en temps opportun des notifications push instantanées, adaptées à leurs besoins, sur n'importe quel appareil.
 
 ## Fonctionnalités Mobile Apps
 Les fonctions qui suivent sont importantes pour le développement mobile Cloud :
@@ -51,7 +51,7 @@ Les fonctions qui suivent sont importantes pour le développement mobile Cloud :
 ## Fonctionnalités d’Azure App Service
 Les fonctionnalités suivantes de la plate-forme sont généralement utiles aux sites de production mobile.
 
-- **Mise à l'échelle automatique** : App Service vous permet d'augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n'importe quelle charge cliente entrante. Sélectionnez manuellement le nombre et la taille des machines virtuelles, ou configurez la mise à l'échelle automatique pour dimensionner votre backend d'application mobile en fonction de la charge ou d'une planification.
+- **Mise à l'échelle automatique** : App Service vous permet d'augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n'importe quelle charge cliente entrante. Sélectionnez manuellement le nombre et la taille des machines virtuelles, ou configurez la mise à l'échelle automatique pour dimensionner votre backend d'application mobile en fonction de la charge ou d'une planification.
 
   En savoir plus sur la [mise à l’échelle automatique].
 
@@ -69,14 +69,14 @@ Les fonctionnalités suivantes de la plate-forme sont généralement utiles aux 
 
 - **Environnements isolé/dédié** : App Service peut être exécuté dans un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle. Cela est idéal pour des charges de travail nécessitant un accès à très grande échelle, isolé ou avec réseau sécurisé.
 
-  En savoir plus sur les [environnements App Service].
+  En savoir plus sur les [environnements App Service].
 
 ## Mise en route ##
 Pour prendre en main la fonctionnalité Applications mobiles, suivez le didacticiel [Prise en main]. Ceci permet de couvrir les notions de base de la création d’un serveur principal mobile et le client de votre choix, puis d’intégrer l’authentification, la synchronisation hors connexion et des notifications push. Vous pouvez suivre le didacticiel [Prise en main] plusieurs fois : une fois pour chaque application cliente.
 
 Pour plus d’informations sur Mobile Apps Azure, veuillez consulter notre [carte d’apprentissage]. Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service].
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -99,7 +99,7 @@ Pour plus d’informations sur Mobile Apps Azure, veuillez consulter notre [cart
 [connexions hybrides]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [les réseaux virtuels]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
-[environnements App Service]: ../app-service-web/app-service-app-service-environment-intro.md
+[environnements App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [carte d’apprentissage]: https://azure.microsoft.com/fr-FR/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

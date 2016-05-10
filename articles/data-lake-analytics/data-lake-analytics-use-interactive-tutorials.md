@@ -3,7 +3,7 @@
    description="Démarrage rapide avec Data Lake Analytics et U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 
 # Utiliser les didacticiels interactifs Azure Data Lake Analytics
@@ -88,4 +88,4 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](../
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

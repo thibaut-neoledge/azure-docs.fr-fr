@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Qu’est-ce qu’Azure IoT Hub ?
@@ -57,7 +57,10 @@ Azure IoT Hub répond aux défis liés à la connectivité de l’appareil comme
 
 -   **Un ensemble complet de bibliothèques d’appareils**. Les [Kits de développement logiciel (SDK) d’appareil Azure IoT][lnk-device-sdks] sont disponibles et pris en charge pour différents langages et plateformes : C pour les distributions Linux, Windows et les systèmes d’exploitation en temps réel. Les Kits de développement logiciel (SDK) d’appareil Azure IoT prennent également en charge les langages gérés tels que C#, Java et JavaScript.
 
--   **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques d’appareil, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge d’un protocole personnalisé en adaptant le composant open source [Azure IoT Protocol Gateway][protocol-gateway]. Vous pouvez exécuter la passerelle de protocole Azure IoT (Azure IoT Protocol Gateway) localement ou dans le cloud.
+-   **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques d’appareils, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge des protocoles personnalisés en :
+
+    - Créant une passerelle de champ avec le [Kit de développement logiciel (SDK) Azure IoT Gateway][lnk-gateway-sdk] qui convertit votre protocole personnalisé en l’un des trois protocoles compris par IoT Hub. 
+    - Personnalisant la [passerelle de protocole Azure IoT][protocol-gateway], composant open source qui s’exécute dans le cloud.
 
 -   **Mise à l’échelle** Azure IoT Hub peut supporter des millions d’appareils connectés simultanément et des millions d’événements par seconde.
 
@@ -71,7 +74,7 @@ Vous pouvez également implémenter d’autres modèles populaires tels que le c
 
 ## Passerelles
 
-Une passerelle dans une solution IoT est généralement une [passerelle de protocole][lnk-gateway] déployée dans le cloud ou une [passerelle de champ][lnk-field-gateway] déployée localement avec vos appareils. Une passerelle de protocole effectue la traduction de protocole, par exemple MQTT à AMQP. Une passerelle de champ fournit des services de gestion locale de vos appareils. Il peut s’agir d’un appareil ou logiciel autonome spécialisé qui s’exécute sur du matériel existant. Les deux types de passerelle agissent comme intermédiaire entre vos appareils et votre IoT Hub.
+Une passerelle dans une solution IoT est généralement une [passerelle de protocole][lnk-gateway] déployée dans le cloud ou une [passerelle de champ][lnk-field-gateway] déployée localement avec vos appareils. Une passerelle de protocole effectue la traduction de protocole, par exemple MQTT à AMQP. Une passerelle de champ peut exécuter des analyses sur le périmètre, prendre des décisions urgentes susceptibles de réduire la latence, fournir des services de gestion des appareils, appliquer des contraintes de confidentialité et de sécurité, mais aussi effectuer la traduction de protocole. Les deux types de passerelle agissent comme intermédiaire entre vos appareils et votre IoT Hub.
 
 Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution.
 
@@ -116,5 +119,6 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

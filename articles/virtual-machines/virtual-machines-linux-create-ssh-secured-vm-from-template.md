@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Créer une machine virtuelle Linux sécurisée à l’aide d’un modèle Azure
@@ -66,4 +66,4 @@ Vous pouvez créer un groupe de ressources et déployer une machine virtuelle à
 
 Lorsque vous créerez des machines virtuelles Linux avec des modèles, vous souhaiterez probablement savoir quelles autres infrastructures d’application peuvent être utilisées avec des modèles. Consultez la [galerie de modèles](https://azure.microsoft.com/documentation/templates/) pour découvrir les infrastructures d’application à déployer ensuite.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="04/08/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Prise en main d’Azure Mobile Engagement pour les applications Android
@@ -36,7 +36,7 @@ Le [Kit de développement logiciel (SDK) Mobile Engagement Android](https://aka.
 
 ## Connexion de votre application au serveur principal Mobile Engagement
 
-Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push. Vous trouverez la documentation complète sur l’intégration dans le [Kit de développement logiciel (SDK) Mobile Engagement pour Android](../mobile-engagement-android-sdk-overview/).
+Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push. Vous trouverez la documentation complète sur l’intégration dans le [Kit de développement logiciel (SDK) Mobile Engagement pour Android](mobile-engagement-android-sdk-overview.md).
 
 Nous allons créer une application de base avec Android Studio afin d'illustrer l'intégration.
 
@@ -175,4 +175,4 @@ Mobile Engagement vous permet d’interagir et d’ATTEINDRE vos utilisateurs �
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

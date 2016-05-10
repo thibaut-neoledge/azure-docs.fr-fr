@@ -181,6 +181,7 @@ Dans cette section, vous allez remplacer l’implémentation côté serveur du c
         import com.sun.jersey.core.header.FormDataContentDisposition;
         import com.sun.jersey.multipart.FormDataParam;
         import javax.ws.rs.core.Response;
+        import javax.ws.rs.core.SecurityContext;
 
         @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
         public class ContactsApiServiceImpl extends ContactsApiService {
@@ -295,4 +296,4 @@ Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code
 
 Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

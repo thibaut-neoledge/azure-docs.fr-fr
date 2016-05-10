@@ -21,10 +21,10 @@
 
 > [AZURE.SELECTOR]
 - [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portail Azure - Classic](vpn-gateway-site-to-site-create.md)
+- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local, à l’aide du modèle de déploiement **Azure Resource Manager**. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
+Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
 
 **À propos des modèles de déploiement Azure**
 
@@ -67,7 +67,9 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 
 ## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
 
-Les exemples ci-dessous illustrent un sous-réseau de passerelle de /28. Bien qu’il soit possible de créer un sous-réseau de passerelle de /29, nous vous déconseillons de le faire. Nous vous recommandons de créer un sous-réseau de passerelle /27 ou de taille supérieure (/26, /25, etc.) afin de prendre en charge des fonctionnalités supplémentaires. Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle /29 ou de taille supérieure, vous pouvez passer d’emblée à l’[Étape 3 : Ajouter votre passerelle de réseau local](#localnet).
+Les exemples ci-dessous illustrent un sous-réseau de passerelle de /28. Bien qu’il soit possible de créer un sous-réseau de passerelle de /29, nous vous déconseillons de le faire. Nous vous recommandons de créer un sous-réseau de passerelle /27 ou de taille supérieure (/26, /25, etc.) afin de prendre en charge des fonctionnalités supplémentaires.
+
+Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle /29 ou de taille supérieure, vous pouvez passer d’emblée à l’étape [Ajouter votre passerelle de réseau local](#localnet).
 
 ### Pour créer un réseau virtuel et un sous-réseau de passerelle
 
@@ -146,10 +148,10 @@ Dans cette étape, vous allez créer la passerelle de réseau virtuel. Notez que
 
 Utilisez les valeurs suivantes :
 
-- Le paramètre **-GatewayType** pour une configuration de site à site est **Vpn**. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
+- Le paramètre *-GatewayType* pour une configuration de site à site est *Vpn*. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
 
-- Le paramètre **-VpnType** peut avoir pour valeur **RouteBased** (appelé passerelle dynamique dans certaines documentations) ou **PolicyBased** (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md#vpntype).
-- La valeur de **-GatewaySku** peut être **Basic**, **Standard**, ou **HighPerformance**. 	
+- Le paramètre *-VpnType* peut avoir pour valeur *RouteBased* (appelé passerelle dynamique dans certaines documentations) ou *PolicyBased* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md#vpntype).
+- La valeur de *-GatewaySku* peut être *Basic*, *Standard*, ou *HighPerformance*. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -163,7 +165,7 @@ Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, uti
 
 ## 8\. Créer la connexion VPN
 
-Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer ces valeurs par les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN. Notez que le `-ConnectionType` de site à site est **IPsec**.
+Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer ces valeurs par les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN. Notez que le `-ConnectionType` de site à site est *IPsec*.
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -187,6 +189,8 @@ Si vous devez modifier les préfixes de votre passerelle de réseau local, suive
 
 ## Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
+- Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0427_2016-->
+- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuration du protocole BGP).
+
+<!---HONumber=AcomDC_0504_2016-->

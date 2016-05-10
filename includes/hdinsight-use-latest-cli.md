@@ -1,5 +1,5 @@
-> [AZURE.IMPORTANT] Les étapes décrites dans ce document ont été testées avec la dernière version de l'interface de ligne de commande (CLI) Azure. Si vous utilisez une version antérieure, les étapes peuvent ne pas fonctionner ou renvoyer des erreurs.
+> [AZURE.IMPORTANT] La prise en charge de la gestion des ressources HDInsight par l’interface de ligne de commande Azure à l’aide d’Azure Service Manager (ASM) est __déconseillée__ ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles commandes de l’interface de ligne de commande Azure qui fonctionnent avec Azure Resource Manager (ARM).
 >
-> Pour installer la dernière version, suivez les étapes du document [Installation et configuration de l’interface Azure CLI](../articles/xplat-cli-install.md) pour installer la version la plus récente.
+> Suivez les étapes indiquées dans [Installer et configurer l’interface de ligne de commande Azure](../articles/xplat-cli-install.md) pour installer la dernière version de l’interface de ligne de commande Azure. Si vous devez modifier certains scripts pour utiliser les nouvelles commandes fonctionnant avec Azure Resource Manager, consultez [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migration vers les outils de développement basés sur Azure Resource Manager pour les clusters HDInsight) pour plus d’informations.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

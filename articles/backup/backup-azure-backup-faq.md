@@ -47,7 +47,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR6 depuis juillet 2015)
 
-**Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
+****Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
 **Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
 
@@ -96,7 +96,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Question 18. Si j’annule une opération de sauvegarde après le démarrage, les données de sauvegarde sont-elles supprimées ?** <br/> R18 : non. L’archivage de sauvegarde stocke les données sauvegardées qui ont été transférées jusqu’au moment de l’annulation. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Une sauvegarde incrémentielle optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données plusieurs fois.
 
-**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/> R19 : cet avertissement est généré lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-backup-windows-server.md), puis **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.
+**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/> R19 : cet avertissement est généré lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-manage-windows-server.md), puis sélectionnez **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.
 
 **Question 20. Quelles sont les règles de pare-feu devant être configurées pour Azure Backup ?** <br/> R20. Pour avoir une protection transparente des données sur site vers Azure et la charge de travail vers Azure, il est recommandé que vous autorisiez votre pare-feu à communiquer avec les URL suivantes :
 
@@ -123,7 +123,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données du système d’exploitation pris en charge est :
 
-|N|	Système d’exploitation |	Taille maximale de la source de données |
+|N° |	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
 |2| Windows 8 ou version ultérieure| 54 400 Go|
@@ -204,4 +204,4 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

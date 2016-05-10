@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -22,7 +22,7 @@ Pour vous connecter aux services de cloud Microsoft à l'aide d'ExpressRoute, vo
 
 Reportez-vous à l’article [Circuits et domaines de routage](expressroute-circuit-peerings.md) pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité.
 
-**Remarque :** Microsoft ne prend pas en charge les protocoles de redondance de routeur (HSRP, VRRP, par exemple) pour les configurations à haute disponibilité. Nous nous appuyons sur une paire de sessions BGP par homologation pour la haute disponibilité.
+**Remarque :** Microsoft ne prend pas en charge les protocoles de redondance de routeur (HSRP, VRRP, par exemple) pour les configurations à haute disponibilité. Nous nous appuyons sur une paire de sessions BGP par homologation pour la haute disponibilité.
 
 ## Adresses IP pour les homologations
 
@@ -46,7 +46,7 @@ Si vous choisissez d'utiliser un sous-réseau a.b.c.d/29 pour configurer l'homol
 
 a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft via les API d’approvisionnement. Vous utiliserez a.b.c.d+1 comme l'IP VRF pour le PE principal et Microsoft utilisera a.b.c.d+2 comme IP VRF pour le MSEE principal. Vous allez utiliser a.b.c.d+5 comme l'IP VRF pour le PE secondaire et Microsoft utilisera a.b.c.d+6 IP VRF pour le MSEE secondaire.
 
-Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
+Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
 
 - 192\.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
 - 192\.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
@@ -78,7 +78,7 @@ L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP 
 
 ## Numéros système autonomes
 
-Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé le numéro AS 65515 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
+Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
 
 Il n'existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
@@ -101,7 +101,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
  - L’homologation publique Azure est activée pour acheminer le trafic vers les points de terminaison publics
  - Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l'utilisateur.
 
-**Remarque :** la publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
+**Remarque :** la publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
 
 ## Prise en charge des communautés BGP (Bientôt disponible)
 
@@ -134,8 +134,6 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 | **Europe** | | |
 | | Europe du Nord | 12076:51003 |
 | | Europe de l'Ouest | 12076:51002 |
-| | Nord du Royaume-Uni | 12076:51022 |
-| | Sud du Royaume-Uni 2 | 12076:51023 |
 | **Asie-Pacifique** | | |
 | | Est de l'Asie | 12076:51010 |
 | | Asie du Sud-Est | 12076:51011 |
@@ -159,11 +157,11 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 | **Service** |	**Valeur de communauté BGP** |
 |---|---|
-| **Microsoft Exchange** | 12076:5010 |
+| **Microsoft Exchange** | 12076:5010 |
 | **SharePoint** | 12076:5020 |
 | **Skype Entreprise** | 12076:5030 |
 | **CRM Online** | 12076:5040 |
-| **Autres services Office 365** | 12076:5100 |
+| **Autres services Office 365** | 12076:5100 |
 
 
 ### Manipulation des préférences de routage
@@ -178,4 +176,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

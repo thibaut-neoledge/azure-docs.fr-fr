@@ -3,7 +3,7 @@
    description="Apprenez à gérer des comptes Data Lake Analytics, des sources de données, des utilisateurs et des tâches à l’aide du kit de développement logiciel Azure pour Node.js"
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/21/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Gestion d’Azure Data Lake Analytics à l’aide du kit de développement logiciel (SDK) Azure pour Node.js
 
@@ -143,4 +143,4 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 - [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js - Gestion du Magasin Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

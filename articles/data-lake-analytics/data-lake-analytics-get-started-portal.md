@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Didacticiel : Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure
@@ -26,7 +26,7 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Composants requis
+##Configuration requise
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -155,4 +155,4 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 - Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

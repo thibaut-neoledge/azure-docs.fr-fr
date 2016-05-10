@@ -41,11 +41,11 @@ Les concepts de haut niveau suivants décrivent ce que vous pouvez faire avec Ap
 ### Types d'application
 App Service vous permet de créer les types d'application suivants à partir d'une expérience de développement unique :
 
-- [**Web Apps**](../app-service-web-overview) - Créez et déployez rapidement des applications web critiques, capables d’évoluer avec votre entreprise.
-- [**Mobile Apps**](../app-service-mobile-value-prop-preview) - Impliquez des employés, des partenaires et des clients sur un appareil quelconque, à tout instant.
-- [**API Apps**](../app-service-api-apps-why-best-platform) - Créez et consommez facilement des API de cloud.
-- [**Function Apps**](../functions-overview) - Créez des fonctions légères qui répondent à des événements dans Azure, localement et via des fournisseurs SaaS.
-- [**Logic Apps**](../app-service-logic-what-are-logic-apps) - Automatisez l’accès et l’utilisation des données entre des clouds sans écrire de code.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md) - Créez et déployez rapidement des applications web critiques, capables d’évoluer avec votre entreprise.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) - Impliquez des employés, des partenaires et des clients sur un appareil quelconque, à tout instant.
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - Créez et consommez facilement des API de cloud.
+- [**Function Apps**](../azure-functions/functions-overview.md) - Créez des fonctions légères qui répondent à des événements dans Azure, localement et via des fournisseurs SaaS.
+- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Automatisez l’accès et l’utilisation des données entre des clouds sans écrire de code.
 
 En tant que service intégré unique, App Service facilite l’assemblage des types d’application ci-dessus en une solution unique. Cela vous permet de créer aisément des applications qui ciblent des clients web et mobiles en utilisant un même backend, et qui s’intègrent dans des systèmes sur site et des services populaires tels qu’Office 365 et salesforce.com.
 
@@ -60,4 +60,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

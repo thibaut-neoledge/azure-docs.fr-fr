@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Création d'une application Xamarin.Android
@@ -70,7 +70,9 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 
 ##Étapes suivantes
 
-* [Ajouter l’authentification à votre application ](app-service-mobile-xamarin-android-get-started-users.md) <br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajouter l’authentification à votre application](app-service-mobile-xamarin-android-get-started-users.md) Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-android-get-started-push.md) Découvrez comment ajouter des notifications Push à votre application.
+* [Comment utiliser le client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) Découvrez comment utiliser le Kit de développement logiciel (SDK) du client géré dans votre application Xamarin. 
 
 
 <!-- Images. -->
@@ -84,4 +86,4 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->
