@@ -219,4 +219,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm da
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->
