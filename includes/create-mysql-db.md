@@ -1,6 +1,6 @@
 Ce guide présente l'utilisation de [ClearDB] pour créer une base de données MySQL à partir du [Magasin Azure] et la création d'une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][waws]. [ClearDB] est un fournisseur de services database-as-a-service à tolérance de panne permettant d’exécuter et de gérer des bases de données MySQL dans les centres de données Azure et de s’y connecter à partir d’une application.
 
-> [AZURE.NOTE]Lors de la création d'une base de données MySQL pendant le processus de création du site web, vous pouvez créer seulement une base de données gratuite. La création d'une base de données MySQL à partir du Magasin Azure vous permet de créer une base de données gratuite ou de choisir une des options payantes.
+> [AZURE.NOTE] Lors de la création d'une base de données MySQL pendant le processus de création du site web, vous pouvez créer seulement une base de données gratuite. La création d'une base de données MySQL à partir du Magasin Azure vous permet de créer une base de données gratuite ou de choisir une des options payantes.
 
 ## Création d’une base de données MySQL à partit de l’Azure Store
 
@@ -65,13 +65,12 @@ Pour créer une base de données MySQL comme ressource liée lors de la créatio
 
 	![Chaîne de connexion affichée](./media/create-mysql-db/shown-conn-string.png)
 
-> [AZURE.NOTE]L'application du site peut accéder aux chaînes de connexion par leur nom. Dans les applications .NET, les chaînes de connexion sont disponibles dans l'objet **connectionStrings**. Dans les autres langages de programmation, les chaînes de connexion sont accessibles par des variables d’environnement. Pour plus d'informations, consultez la rubrique [Configuration des sites Web][configure].
+> [AZURE.NOTE] L'application du site peut accéder aux chaînes de connexion par leur nom. Dans les applications .NET, les chaînes de connexion sont disponibles dans l'objet **connectionStrings**. Dans les autres langages de programmation, les chaînes de connexion sont accessibles par des variables d’environnement. Pour plus d'informations, consultez la rubrique [Configuration des sites Web][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
 [Azure Store]: ../articles/store.md
 [Magasin Azure]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../article/app-service-web/web-sites-configure.md
+[configure]: ../articles/app-service-web/web-sites-configure.md
 
-<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tâches de mises à l’échelle des ressources de calcul dans Azure SQL Data Warehouse | Microsoft Azure"
-   description="Découvrez comment interrompre (suspendre) ou démarrer (reprendre) des ressources de calcul pour une base de données Azure SQL Data Warehouse et comment augmenter ou diminuer le paramètre DWU pour l'objectif de niveau de service (SLO). Ces tâches utilisent les applets de commande Azure PowerShell."
+   pageTitle="Gestion des tâches d’évolutivité de l’Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="Tâches Powershell permettant une montée en charge des performances de l’Azure SQL Data Warehouse. Modifiez les ressources de calcul en ajustant les unités DWU Ou suspendez et reprenez des ressources de calcul pour réduire les coûts."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,23 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="04/28/2016"
    ms.author="barbkess;sonyama"/>
 
-# Tâches de mises à l’échelle (augmentation ou diminution) des ressources de calcul dans Azure SQL Data Warehouse
+# Gestion des tâches d’évolutivité de l’Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portail Azure](sql-data-warehouse-manage-scale-out-tasks.md)
+- [Vue d'ensemble](sql-data-warehouse-overview-scalability.md)
+- [Portail](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
-
+- [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
+- [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
 
 Mettez à l'échelle de façon élastique les ressources de calcul et la mémoire pour répondre aux besoins changeants de votre charge de travail, et réduisez vos coûts en réduisant les ressources pendant les heures creuses.
 
 Cette collection de tâches utilise des applets de commande PowerShell pour :
 
+- Mise à l’échelle des performances en ajustant les unités DWU
 - Interrompre des ressources de calcul
 - Reprendre des ressources de calcul
-- Modifier les ressources de calcul en ajustant les unités DWU
+
+Pour en savoir plus, consultez la [vue d’ensemble de l’évolutivité des performances][] (en anglais).
+
+<a name="before-you-begin-bk"></a>
 
 ## Avant de commencer
 
@@ -50,45 +56,9 @@ Pour commencer :
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-## Tâche 1 : Suspendre le calcul
+<a name="scale-performance-bk"></a>
 
-[AZURE.INCLUDE [Description de la suspension de SQL Data Warehouse](../../includes/sql-data-warehouse-pause-description.md)]
-
-Pour suspendre une base de données, utilisez l’applet de commande [Suspend-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est interrompue. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
-
-> [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
-
-```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-```
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Puis il redirige l’objet récupéré vers [Suspend-AzureRmSqlDatabase][]. Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
-
-```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
-$resultDatabase
-```
-
-## Tâche 2 : Reprendre le calcul
-
-[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]
-
-Pour démarrer une base de données, utilisez l’applet de commande [Resume-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est démarrée. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
-
-```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
-```
-
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l'objet [Resume-AzureRmSqlDatabase][] et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
-
-```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
-$resultDatabase
-```
-
-
-## Tâche 3 : Mettre à l'échelle les unités DWU
+## Mise à l’échelle des performances
 
 [AZURE.INCLUDE [Description de la mise à l’échelle des unités DWU SQL Data Warehouse](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -98,15 +68,63 @@ Pour modifier les unités DWU, utilisez l’applet de commande PowerShell [Set-A
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
+<a name="pause-compute-bk"></a>
+
+## Suspension du calcul
+
+[AZURE.INCLUDE [Description de la suspension de SQL Data Warehouse](../../includes/sql-data-warehouse-pause-description.md)]
+
+Pour suspendre une base de données, utilisez l’applet de commande [Suspend-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est interrompue. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+
+> [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
+```
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Puis il redirige l’objet récupéré vers [Suspend-AzureRmSqlDatabase][]. Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
+
+```Powershell
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase
+```
+
+<a name="resume-compute-bk"></a>
+
+## Reprise du calcul
+
+[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]
+
+Pour démarrer une base de données, utilisez l’applet de commande [Resume-AzureRmSqlDatabase][]. Dans l’exemple suivant, une base de données appelée Database02 et hébergée sur un serveur appelé Server01 est démarrée. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" -DatabaseName "Database02"
+```
+
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l'objet [Resume-AzureRmSqlDatabase][] et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
+
+```Powershell
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase
+```
+
+<a name="next-steps-bk"></a>
+
 ## Étapes suivantes
 
-Pour d'autres tâches de gestion, consultez la rubrique [Vue d'ensemble de la gestion][].
+Pour d'autres tâches de gestion, consultez la [vue d'ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[Vue d'ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
+[vue d'ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
+[vue d’ensemble de l’évolutivité des performances]: ./sql-data-warehouse-overview-scalability.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -118,4 +136,4 @@ Pour d'autres tâches de gestion, consultez la rubrique [Vue d'ensemble de la ge
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

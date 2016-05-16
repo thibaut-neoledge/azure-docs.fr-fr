@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 
@@ -111,13 +111,13 @@ Le résultat ressemble à ce qui suit.
 
 3. Dans la page suivante de la boîte de dialogue, entrez les informations suivantes :
 
-	* **NOM** : HTTP
+	* **NOM** : HTTP
 
-	* **PROTOCOLE** : TCP
+	* **PROTOCOLE** : TCP
 
-	* **PORT PUBLIC** : 80
+	* **PORT PUBLIC** : 80
 
-	* **PORT PRIVÉ** : 3000
+	* **PORT PRIVÉ** : 3000
 
 	Ainsi, un port public 80 est créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
 
@@ -147,7 +147,7 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 
 <!-- WA.com links -->
-[blobs]: ../storage-ruby-how-to-use-blob-storage.md
+[blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
 
 [cdn-howto]: /develop/ruby/app-services/
 
@@ -175,4 +175,4 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

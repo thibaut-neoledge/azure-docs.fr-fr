@@ -17,7 +17,7 @@
 
 # Configuration de la journalisation Azure Diagnostics dans Application Insights
 
-Lorsque vous configurez un projet Cloud Services ou une machine virtuelle dans Microsoft Azure, [ce dernier peut générer un journal de diagnostic](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). Vous pouvez l’envoyer à Application Insights pour l’analyser en même temps que les données de télémétrie de diagnostic et d’utilisation envoyées depuis l’application par le Kit de développement logiciel (SDK) Application Insights. Le journal Azure inclut les événements liés à la gestion de l’application telles que les démarrages, arrêts et incidents, ainsi que ceux des compteurs de performances. Le journal comporte également les appels de l’application vers System.Diagnostics.Trace.
+Lorsque vous configurez un projet Cloud Services ou une machine virtuelle dans Microsoft Azure, [ce dernier peut générer un journal de diagnostic](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Vous pouvez l’envoyer à Application Insights pour l’analyser en même temps que les données de télémétrie de diagnostic et d’utilisation envoyées depuis l’application par le Kit de développement logiciel (SDK) Application Insights. Le journal Azure inclut les événements liés à la gestion de l’application telles que les démarrages, arrêts et incidents, ainsi que ceux des compteurs de performances. Le journal comporte également les appels de l’application vers System.Diagnostics.Trace.
 
 Cet article décrit en détail la configuration de la capture de diagnostic.
 
@@ -146,4 +146,4 @@ Il existe certaines limitations à connaître pour cette fonctionnalité :
 * [Utilisation de PowerShell pour l’envoi de diagnostics Azure vers Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Fichier de configuration Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

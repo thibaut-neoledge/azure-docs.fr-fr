@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure
@@ -22,7 +22,7 @@
 - [Écouteur interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn accessible en externe sur Internet. Il est possible d'associer l'**adresse IP virtuelle publique** du service cloud à l'écouteur.
+Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn accessible en externe sur Internet. Il est possible d’associer l’**adresse IP virtuelle publique** du service cloud à l’écouteur.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
@@ -130,4 +130,4 @@ Si les réplicas AlwaysOn se situent dans des sous-réseaux différents, les cli
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

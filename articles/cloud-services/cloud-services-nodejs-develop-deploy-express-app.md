@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -25,13 +25,13 @@
 
 Node.js inclut un ensemble minimal de fonctionnalités dans le runtime principal. Les développeurs utilisent souvent des modules tiers pour fournir des fonctionnalités supplémentaires lors du développement d'une application Node.js. Dans ce didacticiel, vous allez créer une application en utilisant le module [Express][], qui fournit une infrastructure MVC pour créer des applications Web Node.js.
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d'écran de l'application terminée :
 
 ![Navigateur Web affichant Bienvenue sur Express dans Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ##Création d'un projet de service cloud
 
-Procédez comme suit pour créer un projet de service cloud nommé « expressapp » :
+Procédez comme suit pour créer un projet de service cloud nommé « expressapp » :
 
 1. À partir du **menu Démarrer** ou de l’**écran d’accueil**, recherchez **Windows PowerShell**. Enfin, cliquez avec le bouton droit sur **Windows PowerShell** et sélectionnez **Exécuter en tant qu’administrateur**.
 
@@ -49,15 +49,15 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 
 ##Installation d'Express
 
-1. Installez le générateur Express en exécutant la commande suivante :
+1. Installez le générateur Express en exécutant la commande suivante :
 
 		PS C:\node\expressapp> npm install express-generator -g
 
-	Le résultat de la commande npm doit ressembler à l'exemple ci-dessous :
+	Le résultat de la commande npm doit ressembler à l'exemple ci-dessous :
 
 	![Windows PowerShell affichant le résultat de la commande npm install express.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
 
-2. Remplacez les répertoires du répertoire **WebRole1** et utilisez la commande express pour créer une application :
+2. Remplacez les répertoires du répertoire **WebRole1** et utilisez la commande express pour créer une application :
 
         PS C:\node\expressapp\WebRole1> express
 
@@ -66,7 +66,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 	![Résultat de la commande express](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 
 
-5.  Pour installer les dépendances supplémentaires définies dans le fichier package.json, entrez la commande suivante :
+5.  Pour installer les dépendances supplémentaires définies dans le fichier package.json, entrez la commande suivante :
 
         PS C:\node\expressapp\WebRole1> npm install
 
@@ -78,7 +78,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 
 	Une fois cette commande terminée, un fichier **server.js** doit se trouver dans le répertoire WebRole1.
 
-7.  Modifiez **server.js** pour supprimer l'un des caractères « . » de la ligne suivante.
+7.  Modifiez **server.js** pour supprimer l'un des caractères « . » de la ligne suivante.
 
 		var app = require('../app');
 
@@ -88,7 +88,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 
 	Cette modification est nécessaire, car nous avons déplacé le fichier (anciennement **bin/www**) vers le même répertoire que le fichier d'application requis. Une fois cette modification effectuée, enregistrez le fichier **server.js**.
 
-8.  Utilisez la commande suivante pour exécuter l'application dans l'émulateur Azure :
+8.  Utilisez la commande suivante pour exécuter l'application dans l'émulateur Azure :
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -96,9 +96,9 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 
 ## Modification de la vue
 
-À présent, modifiez la vue pour afficher le message « Bienvenue sur Express dans Azure ».
+À présent, modifiez la vue pour afficher le message « Bienvenue sur Express dans Azure ».
 
-1.  Entrez la commande suivante pour ouvrir le fichier index.jade :
+1.  Entrez la commande suivante pour ouvrir le fichier index.jade :
 
         PS C:\node\expressapp\WebRole1> notepad views/index.jade
 
@@ -108,7 +108,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressapp
 
 2.  Modifiez la dernière ligne du texte en ajoutant **dans Azure**.
 
-	![Dernières lignes du fichier index.jade : p Bienvenue sur #{title} dans Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+	![Dernières lignes du fichier index.jade : p Bienvenue sur #{title} dans Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 
 3.  Enregistrez le fichier et quittez le Bloc-notes.
 
@@ -138,4 +138,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,45 +12,78 @@ Le nom de l'application logique à créer.
         "type": "string"
     }
 
-### svcPlanName
+### hostingPlanName
 
 Le nom du plan App Service à créer pour l'hébergement de l'application logique.
     
-    "svcPlanName": {
-        "type": "string"
+    "hostingPlanName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the App Service plan to create for hosting the logic app."
+      }
     }
 
-### sku
+### flowSkuName
 
 Le niveau de tarification de l'application logique.
 
-    "sku": {
-        "type": "string",
-        "defaultValue": "Standard",
-        "allowedValues": [
-            "Free",
-            "Basic",
-            "Standard",
-            "Premium"
-        ]
-    }
+    "flowSkuName": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Free",
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "The pricing tier for the logic app."
+      }
+    },
+
 
 Le modèle définit les valeurs autorisées pour ce paramètre (Gratuit, De base, Standard ou Premium) et affecte une valeur par défaut (Standard) si aucune valeur n'est spécifiée.
 
-### svcPlanSize
+### hostingSkuName
+
+Le niveau de tarification du plan App Service.
+
+    "hostingSkuName": {
+      "type": "string",
+      "defaultValue": "S1",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "metadata": {
+        "description": "Describes plan's pricing tier and instance size."
+      }
+    },
+
+
+### hostingSkuCapacity
 
 La taille d'instance de l'application.
 
-    "svcPlanSize": {
-        "defaultValue": "0",
-        "type": "string",
-        "allowedValues": [
-            "0",
-            "1",
-            "2"
-        ]
-    }
+    "hostingSkuCapacity": {
+      "type": "int",
+      "defaultValue": 1,
+      "minValue": 1,
+      "metadata": {
+        "description": "Describes plan's instance count"
+      }
+    },
+
 
 Le modèle définit les valeurs autorisées pour ce paramètre (0, 1 ou 2) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Les valeurs correspondent à une taille petite, moyenne et grande.
 
-<!---HONumber=Oct15_HO3-->

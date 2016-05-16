@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="03/21/2015"
+      ms.date="05/03/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Comment résoudre les problèmes courants de publication dans Azure Marketplace
@@ -36,8 +36,8 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
 
   ![2\_RequestRefund][2]
 
-5. fournir des informations de contact ;
-6. Dans la zone **Quel est le problème ?**, entrez les informations suivantes :
+5. fournir des informations de contact ;
+6. Dans la zone **Quel est le problème ?**, entrez les informations suivantes :
 
     - L’ID d’abonnement du client concerné
     - Le nom du client
@@ -46,7 +46,7 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
     - La date de facturation de cette période
     - La raison de l’avoir
 
-Vous recevez ensuite dans un délai de 24 heures un accusé de réception par e-mail indiquant que nous avons reçu les informations que vous avez fournies. Dès qu'une décision est prise par rapport à votre demande, vous êtes informé du résultat.
+Vous recevez ensuite dans un délai de 24 heures un accusé de réception par e-mail indiquant que nous avons reçu les informations que vous avez fournies. Dès qu'une décision est prise par rapport à votre demande, vous êtes informé du résultat.
 
 ## Validation de l’abonnement d’un client
 
@@ -61,9 +61,9 @@ Dans certains cas, vous pouvez avoir besoin de valider les détails de l’abonn
 - Microsoft vous contactera pour confirmer que l'adresse de facturation et l'ID d'abonnement appartiennent effectivement à ce client.
 
 
-## Comment mettre à jour mon profil d'éditeur ?
+## Comment mettre à jour mon profil d'éditeur ?
 
-Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire par le biais du Centre de développement Microsoft :
+Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire par le biais du Centre de développement Microsoft :
 
 **1. Connectez-vous au Centre de développement Windows**.
 
@@ -76,7 +76,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 ![signin][5]
 
-**3. Effectuez la vérification « Aidez-nous à protéger votre compte »**.
+**3. Effectuez la vérification « Aidez-nous à protéger votre compte »**.
 
 > [AZURE.NOTE] Vous pouvez utiliser votre numéro de téléphone ou votre adresse e-mail pour la vérification.
 
@@ -86,7 +86,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 ![acctdetails][7]
 
-## Comment ajouter ou supprimer un administrateur de mon compte de publication ?
+## Comment ajouter ou supprimer un administrateur de mon compte de publication ?
 
 ![manageadmins][8]
 
@@ -96,19 +96,19 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 4. Ajoutez l'adresse e-mail du coadministrateur que vous voulez ajouter ou supprimer.
 5. Sélectionnez **Enregistrer**.
 
-## Étapes suivantes : autres demandes de support
+## Étapes suivantes : autres demandes de support
 
-Pour les problèmes suivants, envoyez une demande de support sur le site [https://portal.azure.com](https://portal.azure.com) :
+Pour les problèmes suivants, envoyez une demande de support sur le site [https://portal.azure.com](https://portal.azure.com) :
 
-- Comment signaler une erreur de facturation ?
+- Comment signaler une erreur de facturation ?
 - J'ai remarqué des incohérences dans mes relevés de facturation ou d'utilisation.
 - J'ai besoin d'aide pour comprendre mes relevés de facturation.
 
 
-Pour les problèmes suivants, créez une demande de support sur le site [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975) :
+Pour les problèmes suivants, créez une demande de support sur le site [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975) :
 
 - Je rencontre des problèmes pour gérer les services web.
-- Comment modifier le compte Microsoft associé à mon compte vendeur ?
+- Comment modifier le compte Microsoft associé à mon compte vendeur ?
 
 
 [1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
@@ -120,4 +120,4 @@ Pour les problèmes suivants, créez une demande de support sur le site [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

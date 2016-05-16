@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -39,7 +39,7 @@ Les rôles Azure proposent les pages de propriétés qui suivent.
 * [Propriétés de débogage](#debugging_properties)
 * [Propriétés des points de terminaison](#endpoints_properties)
 * [Propriétés des variables d’environnement](#environment_variables_properties)
-* [Propriétés d’équilibre de charge/affinité de session (appelées « sessions temporaires »)](#session_affinity_properties)
+* [Propriétés d’équilibre de charge/affinité de session (appelées « sessions temporaires »)](#session_affinity_properties)
 * [Propriétés du stockage local](#local_storage_properties)
 * [Propriétés de configuration de serveur](#server_configuration_properties)
 * [Propriétés de déchargement SSL](#ssl_offloading_properties)
@@ -51,7 +51,7 @@ Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateu
 
 ![][ic719499]
 
->[AZURE.NOTE] Windows uniquement : lorsque vous définissez le nombre d’instances sur une valeur supérieure à 1 et configurez également un serveur d’applications, la boîte à outils permet à une seule instance de rôle de s’exécuter dans l’émulateur, indépendamment de ce paramètre. Il s’agit d’éviter les conflits de liaisons de port entre les différentes instances de serveur (par exemple, que toutes essaient d’établir une liaison avec le port 8080) lorsqu’elles s’exécutent sur le même ordinateur. Le paramètre de nombre d’instances souhaité est conservé, mais ne prend effet qu’au moment du déploiement sur le cloud.
+>[AZURE.NOTE] Windows uniquement : lorsque vous définissez le nombre d’instances sur une valeur supérieure à 1 et configurez également un serveur d’applications, la boîte à outils permet à une seule instance de rôle de s’exécuter dans l’émulateur, indépendamment de ce paramètre. Il s’agit d’éviter les conflits de liaisons de port entre les différentes instances de serveur (par exemple, que toutes essaient d’établir une liaison avec le port 8080) lorsqu’elles s’exécutent sur le même ordinateur. Le paramètre de nombre d’instances souhaité est conservé, mais ne prend effet qu’au moment du déploiement sur le cloud.
 
 <a name="caching_properties"></a>
 ### Propriétés de mise en cache ###
@@ -60,7 +60,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 ![][ic719483]
 
-Dans la page de propriété **Mise en cache**, vous pouvez spécifier des paramètres globaux des éléments suivants :
+Dans la page de propriété **Mise en cache**, vous pouvez spécifier des paramètres globaux des éléments suivants :
 
 * indique si la mise en cache colocalisée est activée ou non.
 * taille du cache sous forme de pourcentage de mémoire.
@@ -72,14 +72,14 @@ La boîte de dialogue suivante présente les propriétés d’une mémoire cache
 
 ![][ic719501]
 
-* **Nom :** nom de la mise en cache colocalisée.
-* **Numéro de port :** numéro de port à utiliser pour la mise en cache.
-* **Stratégie d’expiration :** une des valeurs qui suivent indique le moment où clé de mise en cache expire.
-    * **Absolu :** la clé expire lorsque le délai spécifié par **Minutes de vie** est atteint.
-    * **N’expire jamais :** la clé n’a pas de date d’expiration.
-    * **Fenêtre coulissante :** la clé expire si aucun accès n’a duré le temps spécifié dans **Minutes de validité** ; à chaque accès, l’heure d’expiration est réinitialisée.
-* **Minutes de validité :** nombre maximal de minutes de validité d’une clé, en fonction de la stratégie d’expiration.
-* **Haute disponibilité avec sauvegardes répliquées sur des instances de rôle différentes :** si cette option est activée, elle offre la haute disponibilité en utilisant des sauvegardes répliquées sur différentes instances de rôle. Notez qu’au moins deux instances de rôles doivent fonctionner pour que le déploiement de cette fonctionnalité fonctionne.
+* **Nom :** nom de la mise en cache colocalisée.
+* **Numéro de port :** numéro de port à utiliser pour la mise en cache.
+* **Stratégie d’expiration :** une des valeurs qui suivent indique le moment où clé de mise en cache expire.
+    * **Absolu :** la clé expire lorsque le délai spécifié par **Minutes de vie** est atteint.
+    * **N’expire jamais :** la clé n’a pas de date d’expiration.
+    * **Fenêtre coulissante :** la clé expire si aucun accès n’a duré le temps spécifié dans **Minutes de validité** ; à chaque accès, l’heure d’expiration est réinitialisée.
+* **Minutes de validité :** nombre maximal de minutes de validité d’une clé, en fonction de la stratégie d’expiration.
+* **Haute disponibilité avec sauvegardes répliquées sur des instances de rôle différentes :** si cette option est activée, elle offre la haute disponibilité en utilisant des sauvegardes répliquées sur différentes instances de rôle. Notez qu’au moins deux instances de rôles doivent fonctionner pour que le déploiement de cette fonctionnalité fonctionne.
 
 Pour ajouter un nouveau cache, cliquez sur le bouton **Ajouter** situé dans la page de propriété **Mise en cache**, et une boîte de dialogue **Configurer un cache nommé** s’ouvre. Attribuez des valeurs aux propriétés décrites ci-dessus.
 
@@ -109,36 +109,36 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 La fonctionnalité des composants vous permet d’ajouter des dépendances à votre projet de déploiement Azure, notamment des projets d’application Java, des fichiers spéciaux et les instructions de ligne de commande exécutables nécessaires à votre déploiement.
 
-Pour chaque composant, vous pouvez spécifier :
+Pour chaque composant, vous pouvez spécifier :
 
 * L’opération à effectuer lors de l’importation du composant dans votre projet de déploiement Azure lors sa création.
 * L’opération à exécuter lors du déploiement de ce composant dans le cloud Azure.
 
 >[AZURE.NOTE] Lorsque vous spécifiez des fichiers de composants ou des lignes de commande, n’oubliez pas que votre déploiement est destiné à être publié sur une machine virtuelle Windows, de sorte que les étapes de personnalisation doivent être valides sur un système d’exploitation Windows.
 
-Les composants possèdent les propriétés suivantes :
+Les composants possèdent les propriétés suivantes :
 
-* **Importation :** méthode qui indique la façon dont le composant est importé dans le projet au moment où ce dernier est généré. Il peut s’agir de l’une des valeurs suivantes :
-    * **copie :** le composant est copié depuis le chemin d’accès local spécifié par la propriété **De** dans le répertoire **approot** du rôle.
-    * **EAR :** le composant est une archive d’entreprise Java (EAR) et est importé à partir d’un projet d’application d’entreprise dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
-    * **JAR :** le composant est une archive Java (JAR) et est importé à partir d’un projet Java dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
-    * **aucun :** aucune action n’est exécutée pour importer le composant. Ceci s’applique lorsque le composant est supposé être déjà présent dans le répertoire **approot** du rôle, ou lorsqu’il s’agit d’une simple instruction de ligne de commande exécutable, comme spécifié dans la propriété **En tant que** lorsque la méthode de **déploiement** est **exec**.
-    * **WAR :** le composant est une archive d’application web Java (WAR) et est importé à partir d’un projet web dynamique dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
-    * **zip :** le composant est un fichier compressé et est importé par la compression du répertoire ou du fichier spécifié par la propriété **De**.
-* **De :** chemin d’accès source sur votre ordinateur local vers le dossier ou le fichier qui représente le ou les éléments à importer dans votre déploiement. Les variables d’environnement Windows peuvent être utilisées dans cette propriété. Tous les composants importables seront importés dans le répertoire **approot** du rôle au moment de la génération du projet.
+* **Importation :** méthode qui indique la façon dont le composant est importé dans le projet au moment où ce dernier est généré. Il peut s’agir de l’une des valeurs suivantes :
+    * **copie :** le composant est copié depuis le chemin d’accès local spécifié par la propriété **De** dans le répertoire **approot** du rôle.
+    * **EAR :** le composant est une archive d’entreprise Java (EAR) et est importé à partir d’un projet d’application d’entreprise dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
+    * **JAR :** le composant est une archive Java (JAR) et est importé à partir d’un projet Java dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
+    * **aucun :** aucune action n’est exécutée pour importer le composant. Ceci s’applique lorsque le composant est supposé être déjà présent dans le répertoire **approot** du rôle, ou lorsqu’il s’agit d’une simple instruction de ligne de commande exécutable, comme spécifié dans la propriété **En tant que** lorsque la méthode de **déploiement** est **exec**.
+    * **WAR :** le composant est une archive d’application web Java (WAR) et est importé à partir d’un projet web dynamique dans le chemin d’accès local spécifié par la propriété **De**. (Il est détecté automatiquement par la boîte à outils en fonction de la nature du projet à cet emplacement.)
+    * **zip :** le composant est un fichier compressé et est importé par la compression du répertoire ou du fichier spécifié par la propriété **De**.
+* **De :** chemin d’accès source sur votre ordinateur local vers le dossier ou le fichier qui représente le ou les éléments à importer dans votre déploiement. Les variables d’environnement Windows peuvent être utilisées dans cette propriété. Tous les composants importables seront importés dans le répertoire **approot** du rôle au moment de la génération du projet.
 	
 	Notez que vous avez la possibilité de déployer un composant à partir d’un téléchargement lorsque vous procédez à un déploiement sur le cloud (et non dans l’émulateur de calcul). Consultez les informations connexes ci-dessous concernant l’ajout d’un composant.
 	
-* **En tant que :** nom de fichier sous lequel le composant sera importé dans le répertoire **approot** du rôle et enfin, déployé dans le cloud Azure. Laissez cette propriété vide pour garder le même nom sur l’ordinateur local. (Pour les composants exécutables, c’est-à-dire ceux dont la méthode de **déploiement** est définie sur **exec**, il peut s’agir d’une instruction de ligne de commande Windows arbitraire.)
+* **En tant que :** nom de fichier sous lequel le composant sera importé dans le répertoire **approot** du rôle et enfin, déployé dans le cloud Azure. Laissez cette propriété vide pour garder le même nom sur l’ordinateur local. (Pour les composants exécutables, c’est-à-dire ceux dont la méthode de **déploiement** est définie sur **exec**, il peut s’agir d’une instruction de ligne de commande Windows arbitraire.)
 
 	>[AZURE.IMPORTANT] Si vous utilisez des espaces dans cette valeur, ils sont gérés différemment selon la méthode de déploiement. Si la méthode de déploiement est **exec**, les espaces sont considérés comme des séparateurs d’arguments de ligne de commande et non comme faisant partie du nom de fichier. Pour toutes les autres méthodes de déploiement, les espaces sont interprétés comme des composants du nom de fichier.
 	
-* **Déployer :** méthode qui indique l’action appliquée au composant au démarrage du déploiement. Il peut s’agir de l’une des valeurs suivantes :
-    * **copie :** le composant de téléchargement est copié dans le chemin de destination spécifié par la propriété **À**.
-    * **exec :** le composant est une instruction de ligne de commande Windows exécutée dans le contexte du chemin d’accès spécifié par la propriété **À** au moment où le déploiement démarre.
-    * **aucune :** aucune action n’est appliquée au composant lorsque le déploiement démarre.
-    * **zip :** le composant de téléchargement est extrait dans le chemin de destination spécifié par la propriété **À**. Cette méthode est disponible uniquement lorsque la propriété **Importer** est définie sur **zip**.
-* **À :** chemin de destination de la machine virtuelle sur laquelle le composant va être déployé. Des variables d’environnement Windows peuvent être utilisées dans cette propriété, et les chemins d’accès sont relatifs à **approot**.
+* **Déployer :** méthode qui indique l’action appliquée au composant au démarrage du déploiement. Il peut s’agir de l’une des valeurs suivantes :
+    * **copie :** le composant de téléchargement est copié dans le chemin de destination spécifié par la propriété **À**.
+    * **exec :** le composant est une instruction de ligne de commande Windows exécutée dans le contexte du chemin d’accès spécifié par la propriété **À** au moment où le déploiement démarre.
+    * **aucune :** aucune action n’est appliquée au composant lorsque le déploiement démarre.
+    * **zip :** le composant de téléchargement est extrait dans le chemin de destination spécifié par la propriété **À**. Cette méthode est disponible uniquement lorsque la propriété **Importer** est définie sur **zip**.
+* **À :** chemin de destination de la machine virtuelle sur laquelle le composant va être déployé. Des variables d’environnement Windows peuvent être utilisées dans cette propriété, et les chemins d’accès sont relatifs à **approot**.
 	
 Pour ajouter un nouveau composant, cliquez sur le bouton **Ajouter** situé dans la page de propriété **Composants** et une boîte de dialogue **Composant de rôle Azure** s’ouvre. Attribuez des valeurs aux propriétés décrites ci-dessus.
 
@@ -146,11 +146,11 @@ Ce qui suit est un exemple d’ajout d’un nouveau composant WAR.
 
 ![][ic719503]
 
-Lors d’un déploiement sur le cloud (et non sur l’émulateur de calcul), si vous souhaitez déployer le composant à partir d’un téléchargement, assurez-vous que l’option **Dans le cloud, ne pas inclure dans le package, mais déployer à partir de** est activée. Si vous souhaitez effectuer le téléchargement à partir de votre compte de stockage Azure, sélectionnez-le compte dans la liste déroulante **Compte de stockage** (vous pouvez cliquer sur le lien **Comptes** pour modifier le contenu de la liste). Le champ **URL** sera alors partiellement renseigné. Remplissez ensuite la partie de l’URL restante. Si vous ne souhaitez pas utiliser le stockage Azure, sélectionnez **(aucun)** dans la liste déroulante **Compte de stockage**, puis saisissez l’URL de votre composant dans le champ **URL**. Spécifiez l’une des méthodes suivantes :
+Lors d’un déploiement sur le cloud (et non sur l’émulateur de calcul), si vous souhaitez déployer le composant à partir d’un téléchargement, assurez-vous que l’option **Dans le cloud, ne pas inclure dans le package, mais déployer à partir de** est activée. Si vous souhaitez effectuer le téléchargement à partir de votre compte de stockage Azure, sélectionnez-le compte dans la liste déroulante **Compte de stockage** (vous pouvez cliquer sur le lien **Comptes** pour modifier le contenu de la liste). Le champ **URL** sera alors partiellement renseigné. Remplissez ensuite la partie de l’URL restante. Si vous ne souhaitez pas utiliser le stockage Azure, sélectionnez **(aucun)** dans la liste déroulante **Compte de stockage**, puis saisissez l’URL de votre composant dans le champ **URL**. Spécifiez l’une des méthodes suivantes :
 
-* **copie :** le composant de téléchargement est copié dans le chemin d’accès de destination spécifié par le chemin d’accès **Vers le répertoire**.
-* **même :** la méthode utilisée pour le **déploiement à partir du téléchargement** est la même que pour **déploiement à partir d’un package**.
-* **zip :** le composant de téléchargement est extrait dans le chemin d’accès de destination spécifié par le chemin d’accès **Vers le répertoire**.
+* **copie :** le composant de téléchargement est copié dans le chemin d’accès de destination spécifié par le chemin d’accès **Vers le répertoire**.
+* **même :** la méthode utilisée pour le **déploiement à partir du téléchargement** est la même que pour **déploiement à partir d’un package**.
+* **zip :** le composant de téléchargement est extrait dans le chemin d’accès de destination spécifié par le chemin d’accès **Vers le répertoire**.
 
 Pour modifier un composant, sélectionnez-le, puis cliquez sur le bouton **Modifier** situé dans la page de propriété de **Composants**. Une boîte de dialogue vous permettant de modifier les propriétés du composant s’ouvre. Appuyez sur **OK** pour enregistrer les valeurs du composant.
 
@@ -182,7 +182,7 @@ Pour ajouter un point de terminaison, cliquez sur le bouton **Ajouter** dans la 
 
 Saisissez un nom pour le point de terminaison, sélectionnez le type (**Entrée**, **Interne**, ou **Entrée d’instance**), puis spécifiez le port public et privé. Appuyez sur **OK** pour enregistrer les nouvelles valeurs de point de terminaison.
 
-Selon le type de point de terminaison, vous pouvez utiliser des plages de ports comme suit :
+Selon le type de point de terminaison, vous pouvez utiliser des plages de ports comme suit :
 
 * Pour un point de terminaison d’instance d’entrée, le port public peut être une plage de ports (par exemple **2000-2010**) et le port privé une valeur fixe.
 * Dans le cas d’un point de terminaison interne, le port public n’est pas utilisé, et le port privé peut être une plage, être vide ou défini sur un astérisque pour indiquer qu’il est défini automatiquement par Azure.
@@ -215,14 +215,14 @@ Pour obtenir un exemple de variable d’environnement disponible au démarrage d
 
 ![][ic659268]
 
-Dans votre code jsp, vous pouvez afficher la valeur en utilisant la méthode `System.getenv` :
+Dans votre code jsp, vous pouvez afficher la valeur en utilisant la méthode `System.getenv` :
 
     <body>
       <b> Hello World!</b>
       <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
     </body>
 
-Résultat de cette sortie lors de l’exécution de votre application :
+Résultat de cette sortie lors de l’exécution de votre application :
 
 ![][ic552233]
 
@@ -233,7 +233,7 @@ Pour supprimer une variable d’environnement, sélectionnez-la, puis cliquez su
 Pour configurer correctement certaines fonctionnalités (telles que la configuration serveur, le débogage distant ou le stockage local) activées par l’utilisateur sur un rôle, la boîte à outils peut configurer automatiquement des variables d’environnement spéciales qui seront répertoriées avec des variables d’environnement définies par l’utilisateur. La boîte à outils empêche l’utilisateur de modifier ou de supprimer les variables d’environnement générées aussi longtemps que la fonctionnalité associée est activée.
 
 <a name="session_affinity_properties"></a>
-### Propriétés d’équilibrage de charge/affinité de session (appelées « sessions temporaires ») ###
+### Propriétés d’équilibrage de charge/affinité de session (appelées « sessions temporaires ») ###
 
 Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse, cliquez sur **Azure**, puis sur **Équilibrage de la charge**. Dans cette boîte de dialogue, vous avez la possibilité d’activer ou de désactiver l’affinité de session, comme indiqué dans l’image suivante.
 
@@ -250,7 +250,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 Vous pouvez également spécifier une variable d’environnement qui correspond au stockage local.
 
-Par défaut, tous les éléments que vous déployez dans Azure sont placés (et décompressés) dans le dossier **approot** de l’instance de rôle. Bien que la plupart des déploiements simples puissent rester dans le dossier après la décompression, l’espace affecté au répertoire **approot** est limité et n’est pas bien défini (moins de 1 Go est un principe de base raisonnable). Par conséquent, pour vous assurer qu’Azure attribue suffisamment d’espace disque à des déploiements plus volumineux ne pouvant pas tenir dans le dossier **approot**, vous devez définir une ressource de stockage local à l’aide de la boîte de dialogue **Stockage local**. Pour connaître un moyen plus simple d’exécuter cette opération, consultez la page [Déploiements à grande échelle][].
+Par défaut, tous les éléments que vous déployez dans Azure sont placés (et décompressés) dans le dossier **approot** de l’instance de rôle. Bien que la plupart des déploiements simples puissent rester dans le dossier après la décompression, l’espace affecté au répertoire **approot** est limité et n’est pas bien défini (moins de 1 Go est un principe de base raisonnable). Par conséquent, pour vous assurer qu’Azure attribue suffisamment d’espace disque à des déploiements plus volumineux ne pouvant pas tenir dans le dossier **approot**, vous devez définir une ressource de stockage local à l’aide de la boîte de dialogue **Stockage local**. Pour connaître un moyen plus simple d’exécuter cette opération, consultez la page [Déploiements à grande échelle][].
 
 Il est facile de référencer les ressources de stockage à partir de scripts de démarrage (par exemple, votre **startup.cmd**) en utilisant la variable d’environnement automatiquement associée à la ressource par la boîte à outils Eclipse, comme indiqué dans la boîte de dialogue **Stockage local**. Cette variable d’environnement contiendra le chemin complet de la ressource locale que vous avez configuré au moment de l’exécution du script de démarrage.
 
@@ -271,13 +271,13 @@ Voici un exemple de la façon dont vous pouvez spécifier un JDK sur une applica
 
 ![][ic780647]
 
-Si vous utilisez Eclipse sur Windows, vous pouvez spécifier un JDK à utiliser avec l’émulateur de calcul. Pour ce faire, vérifiez que l’option **Utiliser le JDK à partir de ce chemin d’accès pour un test local** est activée dans la section **Déploiement d’émulateur**. Ensuite, spécifiez le chemin d’accès local vers votre JDK ; vous pouvez accéder à différents JDK si celui que vous souhaitez utiliser n’est pas sélectionné automatiquement. Vous avez également la possibilité de déployer votre JDK sur votre service cloud Azure ; pour ce faire, sélectionnez l’option **Déployer mon JDK local (chargement automatique dans un stockage cloud)** dans la section **déploiement Cloud**.
+Si vous utilisez Eclipse sur Windows, vous pouvez spécifier un JDK à utiliser avec l’émulateur de calcul. Pour ce faire, vérifiez que l’option **Utiliser le JDK à partir de ce chemin d’accès pour un test local** est activée dans la section **Déploiement d’émulateur**. Ensuite, spécifiez le chemin d’accès local vers votre JDK ; vous pouvez accéder à différents JDK si celui que vous souhaitez utiliser n’est pas sélectionné automatiquement. Vous avez également la possibilité de déployer votre JDK sur votre service cloud Azure ; pour ce faire, sélectionnez l’option **Déployer mon JDK local (chargement automatique dans un stockage cloud)** dans la section **déploiement Cloud**.
 
-Remarque : sur les systèmes d’exploitation autres que Windows, les paramètres de **déploiement d’émulateur** et l’option **Déployer mon JDK local** ne sont pas disponibles. L’exemple suivant illustre la spécification d’un JDK sur un Mac ou un autre système d’exploitation autre que Windows pris en charge :
+Remarque : sur les systèmes d’exploitation autres que Windows, les paramètres de **déploiement d’émulateur** et l’option **Déployer mon JDK local** ne sont pas disponibles. L’exemple suivant illustre la spécification d’un JDK sur un Mac ou un autre système d’exploitation autre que Windows pris en charge :
 
 ![][ic789643]
 
-Quel que soit le système d’exploitation que vous utilisez, vous disposez des deux options de **déploiement Cloud** suivantes comme source et type de votre package JDK :
+Quel que soit le système d’exploitation que vous utilisez, vous disposez des deux options de **déploiement Cloud** suivantes comme source et type de votre package JDK :
 
 * **Déployer un package JDK tiers disponible Azure** 
 * **Déploiement depuis un téléchargement personnalisé** 
@@ -286,7 +286,7 @@ Si vous utilisez l’option **Déployer un package JDK tiers disponible dans Azu
 
 1. Cochez la case **Déployer un package JDK tiers disponible dans Azure**.
 1. Dans la liste déroulante, sélectionnez le package JDK tiers disponible sur Azure.
-1. Votre onglet **JDK** ressemble à ce qui suit sur Windows : ![][ic780648] et il doit se présenter comme suit sur Mac OS ou d’autres systèmes d’exploitation autres que Windows pris en charge : ![][ic789643]
+1. Votre onglet **JDK** ressemble à ce qui suit sur Windows : ![][ic780648] et il doit se présenter comme suit sur Mac OS ou d’autres systèmes d’exploitation autres que Windows pris en charge : ![][ic789643]
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 1. Lorsque vous êtes invité à accepter le contrat de licence d’un fournisseur de package JDK tiers, prenez connaissance des termes du contrat de licence. Si vous les acceptez, cliquez sur **Oui** pour fermer la boîte de dialogue **Accepter le contrat de licence**. Notez que la logique sous-jacente des éléments apparaissant dans la liste déroulante pour l’option **Déployer un package JDK tiers disponible dans Azure** peut être personnalisée. Pour personnaliser les éléments, dans la boîte de dialogue **JDK**, cliquez sur le lien **Personnaliser**. Cela fermera la page de propriété **JDK** et ouvrira le fichier **componentsets.xml** dans Eclipse, et vous pourrez le modifier par la suite si nécessaire. La documentation relative à **componentsets.xml** est incluse dans le fichier **componentsets.xml** lui-même.
 
@@ -298,7 +298,7 @@ Si vous utilisez l’option **Déployer un JDK à partir d’un téléchargement
 1. Assurez-vous que la zone de texte **JAVA\_HOME** contient bien le nom de répertoire correct. Par défaut, elle fait référence au nom du répertoire JDK que vous avez choisi pour l’utilisation en local. Mais si le répertoire contenu dans le fichier zip porte un nom autre (par exemple, en raison de l’utilisation d’une version différente), mettez à jour le nom de répertoire dans la zone de texte **JAVA\_HOME** en conséquence, car ce paramètre sera utilisé dans le cloud (et non dans l’émulateur de calcul).
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 
-Vous avez terminé. Maintenant, lorsque vous faites une compilation pour le cloud, vous pouvez constater que la taille du package est beaucoup plus limitée, le processus de génération prend généralement moins de temps, comme la publication sur le cloud. Notez que les options **Déployer mon JDK local (chargement automatique vers un stockage cloud)** ou **Déployer un JDK à partir d’un téléchargement personnalisé** sont appliquées uniquement lorsque votre application est déployée dans le cloud. Elles n’ont aucun effet sur votre expérience avec l’émulateur de calcul ; la version locale des composants est toujours utilisée lors du déploiement vers l’émulateur de calcul.
+Vous avez terminé. Maintenant, lorsque vous faites une compilation pour le cloud, vous pouvez constater que la taille du package est beaucoup plus limitée, le processus de génération prend généralement moins de temps, comme la publication sur le cloud. Notez que les options **Déployer mon JDK local (chargement automatique vers un stockage cloud)** ou **Déployer un JDK à partir d’un téléchargement personnalisé** sont appliquées uniquement lorsque votre application est déployée dans le cloud. Elles n’ont aucun effet sur votre expérience avec l’émulateur de calcul ; la version locale des composants est toujours utilisée lors du déploiement vers l’émulateur de calcul.
 
 ### Configuration serveur ###
 
@@ -308,7 +308,7 @@ Voici un exemple de la façon dont vous pouvez spécifier un serveur d’applica
 
 Vérifiez que la case à cocher **Déployer un serveur de ce type** est sélectionnée, puis choisissez le type de serveur d’applications à utiliser.
 
-Pour spécifier un serveur à utiliser pour le déploiement cloud, vous pouvez utiliser les options suivantes :
+Pour spécifier un serveur à utiliser pour le déploiement cloud, vous pouvez utiliser les options suivantes :
 
 1. **Déployer un serveur tiers disponible sur Azure** : cela s’applique en particulier dans les scénarios de développement/test où l’efficacité du déploiement et la simplicité sont une priorité et lorsque le serveur ne nécessite pas une configuration personnalisée. C’est également le cas lorsque vous souhaitez utiliser un de ces serveurs comme point de départ, mais que vous intégrez les étapes de personnalisation du serveur appropriées dans le programme de démarrage de votre déploiement.
 1. **Déployer à partir d’un téléchargement personnalisé** : cette option s’applique en particulier à des scénarios de production lorsque vous disposez d’un serveur spécialement préparé et configuré à utiliser dans le cloud.
@@ -323,7 +323,7 @@ Si vous utilisez l’option **Déployer un serveur tiers disponible sur Azure** 
 Si vous utilisez l’option **Déployer à partir d’un téléchargement personnalisé** :
 
 1. Assurez-vous que vous avez sélectionné le type de serveur en respectant les étapes qui précèdent. Cette option déterminera la façon dont le plug-in déploiera le serveur à partir de votre téléchargement personnalisé, car il doit être de la même famille que le type de serveur sélectionné.
-1. Cochez la case **Déployer à partir d’un téléchargement personnalisé**. Si vous souhaitez effectuer le téléchargement à partir de votre compte de stockage Azure, sélectionnez le compte de stockage dans la liste déroulante **Compte de stockage** (vous pouvez cliquer sur le lien **Comptes** pour modifier le contenu de la liste). Le champ **URL** est partiellement renseigné. Remplissez la partie restante de l’URL vers le fichier zip de téléchargement serveur (lors de l’utilisation du stockage Azure, les noms d’objets blob dans l’URL doivent être en minuscules). Si vous ne souhaitez pas utiliser le stockage Azure, sélectionnez **(aucun)** dans la liste déroulante **Compte de stockage**, puis saisissez l’URL de votre fichier zip de téléchargement serveur dans le champ **URL**. Le fichier zip contient un dossier enfant représentant votre répertoire d’installation de serveur d’applications. Par exemple, si vous utilisez un fichier zip pour Apache Tomcat 7.0.35, vous devez trouver à l’intérieur un dossier enfant représentant le répertoire d’installation, par exemple **apache-tomcat-7.0.35**. 
+1. Cochez la case **Déployer à partir d’un téléchargement personnalisé**. Si vous souhaitez effectuer le téléchargement à partir de votre compte de stockage Azure, sélectionnez le compte de stockage dans la liste déroulante **Compte de stockage** (vous pouvez cliquer sur le lien **Comptes** pour modifier le contenu de la liste). Le champ **URL** est partiellement renseigné. Remplissez la partie restante de l’URL vers le fichier zip de téléchargement serveur (lors de l’utilisation du stockage Azure, les noms d’objets blob dans l’URL doivent être en minuscules). Si vous ne souhaitez pas utiliser le stockage Azure, sélectionnez **(aucun)** dans la liste déroulante **Compte de stockage**, puis saisissez l’URL de votre fichier zip de téléchargement serveur dans le champ **URL**. Le fichier zip contient un dossier enfant représentant votre répertoire d’installation de serveur d’applications. Par exemple, si vous utilisez un fichier zip pour Apache Tomcat 7.0.35, vous devez trouver à l’intérieur un dossier enfant représentant le répertoire d’installation, par exemple **apache-tomcat-7.0.35**. 
 1. Spécifiez la valeur de la variable d’environnement du répertoire de base. Le cas échéant, elle prendra par défaut la valeur utilisée pour votre serveur d’applications local, mais vous pouvez spécifier une valeur différente si le serveur d’applications cloud est différent de votre serveur d’applications local. Vous devez toutefois être sûr que votre serveur d’applications cloud est de la même famille que le type de serveur sélectionné plus tôt. Si vous mettez à jour le fichier zip du serveur d’applications cloud, vous pouvez manuellement changer la configuration de répertoire de base ou l’adapter à la configuration locale (si vous avez également modifié votre serveur d’applications local).
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 
@@ -335,7 +335,7 @@ Si vous utilisez l’option **Déployer mon serveur local (chargement automatiqu
 1. Avec la liste déroulante **Compte de stockage**, sélectionnez **(auto)**. Si vous spécifiez **(auto)** à ce stade, la boîte à outils Eclipse utilisera pour votre serveur le même compte de stockage que celui que vous sélectionnez pour votre déploiement dans la boîte de dialogue **Publier sur Azure**.
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 
-Sélectionnez un chemin d’installation de serveur sur votre ordinateur dans la zone de texte **Chemin d’accès au serveur Local** si l’une des conditions suivantes est vraie :
+Sélectionnez un chemin d’installation de serveur sur votre ordinateur dans la zone de texte **Chemin d’accès au serveur Local** si l’une des conditions suivantes est vraie :
 
 * Vous souhaitez tester votre déploiement dans l’émulateur (s’applique uniquement à Windows).
 * Vous souhaitez déployer votre serveur installé localement dans le cloud.
@@ -351,27 +351,27 @@ Voici un exemple de la façon dont vous pouvez spécifier une application.
 
 Cliquez sur **Ajouter** pour ajouter une autre application, ou sur **Supprimer** pour en supprimer une. Pour des raisons d’efficacité, si vous souhaitez utiliser un téléchargement comme source d’une application lors du déploiement dans le cloud, utilisez [Propriétés des composants](#components_properties) pour spécifier une URL, un compte de stockage, etc.
 
-Depuis la version d’avril 2014, vos applications sont automatiquement téléchargées dans le même compte de stockage (sous le conteneur **eclipsedeploy**) que celui qui est sélectionné pour votre déploiement. La logique de démarrage de votre déploiement contient une étape qui télécharge d’abord ces applications depuis ce compte de stockage. Vous pouvez donc mettre à niveau les applications de votre déploiement sans avoir à recréer et redéployer l’intégralité du package, en téléchargeant manuellement les versions plus récentes de l’application directement dans ce compte de stockage (en utilisant le portail Azure, par exemple), en remplaçant les fichiers WAR téléchargés à l’origine par la boîte à outils. Initiez ensuite le recyclage de toutes les instances de rôle à l’aide du portail de gestion Azure, ou via les utilitaires de ligne de commande. (Le déclenchement du recyclage de rôle directement depuis la boîte à outils Eclipse n’est pas pris en charge actuellement.)
+Depuis la version d’avril 2014, vos applications sont automatiquement téléchargées dans le même compte de stockage (sous le conteneur **eclipsedeploy**) que celui qui est sélectionné pour votre déploiement. La logique de démarrage de votre déploiement contient une étape qui télécharge d’abord ces applications depuis ce compte de stockage. Vous pouvez donc mettre à niveau les applications de votre déploiement sans avoir à recréer et redéployer l’intégralité du package, en téléchargeant manuellement les versions plus récentes de l’application directement dans ce compte de stockage (en utilisant le portail Azure, par exemple), en remplaçant les fichiers WAR téléchargés à l’origine par la boîte à outils. Initiez ensuite le recyclage de toutes les instances de rôle à l’aide du portail de gestion Azure, ou via les utilitaires de ligne de commande. (Le déclenchement du recyclage de rôle directement depuis la boîte à outils Eclipse n’est pas pris en charge actuellement.)
 
 ### Notes au sujet de la configuration du serveur ###
 
 Les modifications apportées dans la page de propriété **Configuration du serveur** sont répercutées dans les éléments `<component>` du fichier package.xml.
 
-Lorsque vous utilisez les options **Télécharger automatiquement...** ou **Déployer à partir de téléchargement...** pour le JDK ou le serveur d’applications, si vous procédez à la génération sur le Cloud (et non l’émulateur de calcul) et êtes connecté au réseau, il se peut que vous receviez des messages de notification de génération sur la sortie de console, car le compilateur Ant vérifie la disponibilité du téléchargement :
+Lorsque vous utilisez les options **Télécharger automatiquement...** ou **Déployer à partir de téléchargement...** pour le JDK ou le serveur d’applications, si vous procédez à la génération sur le Cloud (et non l’émulateur de calcul) et êtes connecté au réseau, il se peut que vous receviez des messages de notification de génération sur la sortie de console, car le compilateur Ant vérifie la disponibilité du téléchargement :
 
 `[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...`
 
-Si vous avez sélectionné l’option **Déployer à partir du téléchargement...**, l’avertissement suivant peut s’afficher, mais la compilation se poursuit :
+Si vous avez sélectionné l’option **Déployer à partir du téléchargement...**, l’avertissement suivant peut s’afficher, mais la compilation se poursuit :
 
 `[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).`
 
 Cet avertissement est le seul élément qui indique que la disponibilité du téléchargement n’a pas été vérifiée. Par conséquent, pour une raison quelconque, si un déploiement échoue dans le cloud vérifiez si vous avez reçu cet avertissement.
 
-Si vous souhaitez désactiver la vérification du téléchargement (par exemple, si vous pensez qu’elle ralentit inutilement la compilation), définissez l’attribut `verifydownloads` sur `false` dans l’élément `<windowsazurepackage>` de package.xml :
+Si vous souhaitez désactiver la vérification du téléchargement (par exemple, si vous pensez qu’elle ralentit inutilement la compilation), définissez l’attribut `verifydownloads` sur `false` dans l’élément `<windowsazurepackage>` de package.xml :
 
 `<windowsazurepackage verifydownloads="false" ...>`
 
-Si vous avez sélectionné l’option **Télécharger automatiquement...**, dans la fenêtre console, vous verrez des messages de compilation indiquant la progression du téléchargement toutes les 5 secondes, à chaque fois qu’un téléchargement est nécessaire.
+Si vous avez sélectionné l’option **Télécharger automatiquement...**, dans la fenêtre console, vous verrez des messages de compilation indiquant la progression du téléchargement toutes les 5 secondes, à chaque fois qu’un téléchargement est nécessaire.
 
 <a name="ssl_offloading_properties"></a>
 ### Propriétés de déchargement SSL ###
@@ -384,7 +384,7 @@ Dans cette boîte de dialogue, vous pouvez activer le déchargement SSL, ce qui 
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Kit de ressources Azure pour Eclipse][]
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
@@ -400,7 +400,7 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
 [portail de gestion]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Liste du compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [résumé de package com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
@@ -439,4 +439,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 
@@ -57,9 +57,7 @@ Suivez cette étape pour tous les comptes que vous souhaitez migrer vers la nouv
 
 Une fois que vous avez ajouté tous les comptes à la nouvelle application, désinstallez l’ancienne application de votre téléphone.
 
-Vous voulez savoir comment supprimer des comptes individuels de l’ancienne application ? Appuyez sur le compte. Vous obtiendrez une option de suppression.
 
-![Supprimer un compte](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## Ajout d'un compte à l'aide du scanneur de codes-barres
 
@@ -164,4 +162,10 @@ La configuration de Touch ID avec Azure Authenticator est très simple. Vous eff
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+## Suppression d'un compte
+
+Pour supprimer des comptes individuels à partir de l'application Azure Authenticator, cliquez simplement sur le compte. Vous obtiendrez une option de suppression.
+
+![Supprimer un compte](./media/multi-factor-authentication-azure-authenticator/remove.png)
+
+<!---HONumber=AcomDC_0504_2016-->

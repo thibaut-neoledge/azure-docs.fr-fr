@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 
@@ -82,7 +82,7 @@ Si votre expérience ne forme pas un modèle d’analyse prédictive, vous n’a
 
 Une fois que vous avez parcouru votre expérience et que vous la jugez satisfaisante :
 
-1.  Cliquez sur **Configurer le service web** : les nœuds d’entrée et de sortie sont automatiquement ajoutés
+1.  Cliquez sur **Configurer le service web** : les nœuds d’entrée et de sortie sont automatiquement ajoutés
 
 2.  Cliquez sur **Exécuter**
 
@@ -134,9 +134,9 @@ Voici un exemple : supposons que votre expérience prédictive retourne toute l
 
 Si vous souhaitez conserver votre modèle d’apprentissage automatique, mais en le reformant avec de nouvelles données, vous avez deux possibilités :
 
-1.  **Reformer le modèle pendant l’exécution du service web** : si vous souhaitez reformer votre modèle pendant l’exécution du service web prédictif, vous pouvez procéder en apportant quelques modifications à l’expérience de formation pour en faire une ***expérience de reformation***, puis le déployer en tant que ***service web* de reformation**. Pour connaître la procédure à suivre, consultez la page [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
+1.  **Reformer le modèle pendant l’exécution du service web** : si vous souhaitez reformer votre modèle pendant l’exécution du service web prédictif, vous pouvez procéder en apportant quelques modifications à l’expérience de formation pour en faire une ***expérience de reformation***, puis le déployer en tant que ***service web* de reformation**. Pour connaître la procédure à suivre, consultez la page [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-2.  **Revenir à l’expérience de formation d’origine et utiliser d’autres données de formation pour développer votre modèle** : votre expérience prédictive est liée au service web, mais l’expérience de formation n’est pas directement liée de cette façon. Si vous modifiez l’expérience de formation d’origine, cliquez sur **Configurer le service web**. Vous obtiendrez alors une *nouvelle* expérience prédictive qui, une fois déployée, créera un *nouveau* service web. L’opération ne se résume pas à mettre simplement à jour le service web d’origine.
+2.  **Revenir à l’expérience de formation d’origine et utiliser d’autres données de formation pour développer votre modèle** : votre expérience prédictive est liée au service web, mais l’expérience de formation n’est pas directement liée de cette façon. Si vous modifiez l’expérience de formation d’origine, cliquez sur **Configurer le service web**. Vous obtiendrez alors une *nouvelle* expérience prédictive qui, une fois déployée, créera un *nouveau* service web. L’opération ne se résume pas à mettre simplement à jour le service web d’origine.
 
     Par conséquent, si vous devez modifier l’expérience de formation, ouvrez-la et cliquez sur **Enregistrer sous** pour effectuer une copie. Cette précaution garantira l’intégrité de l’expérience d’apprentissage d’origine, de l’expérience prédictive et du service web. Vous pouvez désormais créer un service web avec vos modifications. Une fois que vous avez déployé le nouveau service web, vous pouvez alors décider d’arrêter le service web précédent ou de le maintenir en exécution simultanée.
 
@@ -160,4 +160,4 @@ Pour obtenir des exemples de l’ensemble du processus, consultez :
 
 -   [Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

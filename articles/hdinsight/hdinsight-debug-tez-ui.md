@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows
@@ -147,4 +147,4 @@ Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informa
 
 Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/) (en anglais).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

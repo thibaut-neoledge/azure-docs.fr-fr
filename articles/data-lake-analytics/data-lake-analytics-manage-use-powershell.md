@@ -3,7 +3,7 @@
    description="Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/26/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 
@@ -392,4 +392,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

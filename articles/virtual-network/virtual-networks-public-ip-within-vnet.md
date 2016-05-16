@@ -12,26 +12,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Espace d’adressage IP public dans un réseau virtuel
 
-Vous pouvez maintenant ajouter un espace d'adressage IP public à vos réseaux virtuels. Auparavant, vous ne pouviez ajouter que des blocs d'adresses RFC 1918 (espace privé) à vos réseaux virtuels. Lorsque vous ajoutez une plage d'adresses IP publique, celle-ci est considérée comme faisant partie de l'espace d'adressage IP du réseau virtuel privé qui est uniquement accessible dans le réseau virtuel, les réseaux virtuels interconnectés et depuis votre emplacement local.
+Les réseaux virtuels (VNets) peuvent contenir des plages d’adresses IP publiques et privées (blocs d’adresses RFC 1918). Lorsque vous ajoutez une plage d'adresses IP publique, celle-ci est considérée comme faisant partie de l'espace d'adressage IP du réseau virtuel privé qui est uniquement accessible dans le réseau virtuel, les réseaux virtuels interconnectés et depuis votre emplacement local.
 
-En principe, l’ajout d'un espace d'adressage IP public fonctionne comme suit :
+L’illustration ci-dessous montre un réseau virtuel qui inclut des plages d’adresse IP publiques et privées.
 
 ![Adresse IP publique conceptuelle](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
-## Comment puis-je ajouter une plage d'adresses IP publique ?
+## Comment puis-je ajouter une plage d'adresses IP publique ?
 
-Vous ajoutez une plage d'adresses IP publique de la même façon que lorsque vous ajoutez une plage d'adresses IP privées : en utilisant un fichier *netcfg* ou en effectuant la configuration dans le portail. Vous pouvez ajouter une plage d'adresses IP publique lorsque vous créez votre réseau virtuel, ou vous pouvez revenir en arrière et l’ajouter par la suite. L'exemple ci-dessous montre l’espace d'adresses IP public et privé configuré dans le même réseau virtuel.
+Vous ajoutez une plage d'adresses IP publiques de la même manière que vous ajoutez une plage d'adresses IP privées : en utilisant un fichier *netcfg* ou en ajoutant la configuration dans le [portail Azure](http://portal.azure.com). Vous pouvez ajouter une plage d'adresses IP publique lorsque vous créez votre réseau virtuel, ou vous pouvez revenir en arrière et l’ajouter par la suite. L'exemple ci-dessous montre l’espace d'adressage IP public et privé configuré dans le même réseau virtuel.
 
 ![Adresse IP publique dans le Portail](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 
-## Existe-t-il des restrictions ?
+## Existe-t-il des restrictions ?
 
-Certaines plages d'adresses IP ne sont pas autorisées :
+Certaines plages d'adresses IP ne sont pas autorisées :
 
 - 224\.0.0.0/4 (multidiffusion)
 
@@ -45,10 +45,6 @@ Certaines plages d'adresses IP ne sont pas autorisées :
 
 ## Étapes suivantes
 
-[Gestion des propriétés du réseau virtuel](../virtual-networks-settings)
-
 [Gestion des serveurs DNS utilisés par un réseau virtuel](../virtual-networks-manage-dns-in-vnet)
 
-[Suppression d'un réseau virtuelle](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

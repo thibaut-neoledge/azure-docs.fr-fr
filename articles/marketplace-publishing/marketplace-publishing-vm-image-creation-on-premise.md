@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Développer une image de machine virtuelle locale pour Azure Marketplace
@@ -27,7 +27,7 @@ Pour télécharger le disque dur virtuel, vous devez d’abord localiser l’URL
 
 Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure](https://ms.portal.azure.com) :
 
-1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
+1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
 2.	Sous **Configurer**, sélectionnez la mosaïque **Disques** qui ouvre le panneau Disques.
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
@@ -94,7 +94,7 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
 4.	Cliquez sur **Create**.
-5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
+5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
 6.	Sélectionnez **Conteneurs**.
 
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
@@ -116,7 +116,7 @@ Ensuite, vous pouvez créer un conteneur dans ce compte de stockage au moyen de 
 
 > [AZURE.NOTE] Ces commandes supposent que le contexte actuel du compte de stockage a déjà été défini dans PowerShell. Reportez-vous à [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md) pour plus d’informations sur la configuration de PowerShell.
 ### Créer un compte de stockage à l’aide de l’outil en ligne de commande pour Mac et Linux
-Dans l’[outil en ligne de commande Linux](../virtual-machines/command-line-tools/), créez un compte de stockage comme suit :
+Dans l’[outil en ligne de commande Linux](../virtual-machines/virtual-machines-linux-cli-manage.md), créez un compte de stockage comme suit :
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -139,4 +139,4 @@ Avec l’[outil en ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

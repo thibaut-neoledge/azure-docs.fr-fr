@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Développer des scripts d’action de script pour HDInsight
@@ -31,6 +31,8 @@ L’action de script permet d’installer des logiciels supplémentaires s’ex�
 ## Exemples de scripts
 
 Pour créer des clusters HDInsight sur le système d’exploitation Windows, l’action de script est un script Azure PowerShell. L’exemple de script suivant montre comment configurer les fichiers de configuration de site :
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -351,4 +353,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

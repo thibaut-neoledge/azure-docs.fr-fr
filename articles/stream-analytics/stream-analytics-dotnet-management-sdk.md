@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/16/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 
@@ -132,7 +132,7 @@ Pour créer une tâche d’analyse à l’aide de l’API Stream Analytics pour 
 
 Un objet **StreamAnalyticsManagementClient** vous permet de gérer le travail et les composants de travail, comme l’entrée, la sortie et la transformation.
 
-Ajoutez le code suivant au début de la méthode **Main** :
+Ajoutez le code suivant au début de la méthode **Main** :
 
 	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
 	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -366,4 +366,4 @@ Vous avez appris les principes de base de l’utilisation d’un Kit de dévelop
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

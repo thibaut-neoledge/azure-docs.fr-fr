@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Prise en charge de MQTT au niveau d’IoT Hub
@@ -48,9 +48,9 @@ Si un appareil ne peut pas utiliser les Kits device client SDK, il peut toujours
 
     Par exemple, si le nom de votre IoT Hub est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ complet **Nom d’utilisateur** doit contenir `contoso.azure-devices.net/MyDevice01`.
 
-- Dans le champ **Mot de passe**, utilisez un jeton SAP. Le [format du jeton SAP][lnk-iothub-security] est identique à celui décrit pour les protocoles HTTP et AMQP :<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- Dans le champ **Mot de passe**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTP et AMQP : <br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
-    Pour plus d’informations sur la génération de jetons SAS, consultez [Utilisation de jetons de sécurité IoT Hub][lnk-sas-tokens].
+    Pour plus d’informations sur la génération de jetons SAS, consultez la section consacrée aux appareils dans la rubrique [Utilisation de jetons de sécurité IoT Hub][lnk-sas-tokens].
     
     Lors du test, vous pouvez également utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] pour générer rapidement un jeton SAP à copier et coller dans votre propre code :
     
@@ -93,13 +93,12 @@ Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-iothub-security]: iot-hub-devguide.md#security
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-sas-tokens.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

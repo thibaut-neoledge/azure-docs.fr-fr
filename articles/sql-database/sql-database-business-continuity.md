@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="elfisher"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/09/2016"
+   ms.date="04/27/2016"
    ms.author="elfish"/>
 
 # Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database
@@ -64,8 +64,7 @@ Le tableau suivant compare les fonctionnalités de continuité des activités cl
 | --- |--- | --- | ---
 | Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 14 jours | Tout point de restauration dans un délai de 35 jours
 | Restauration géographique | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h
-| Géo-réplication standard | Non incluse | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
-| Géo-réplication active | Non incluse | Non incluse | ERT < 30s, RPO < 5s
+| Géo-réplication active | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
 Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés ci-dessus. Reportez-vous à la section [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour savoir comment sélectionner la fonctionnalité spécifique.
 
@@ -80,12 +79,8 @@ La Limite de restauration dans le temps est conçue pour restaurer votre base de
 
 La géo-restauration est également disponible avec les bases de données de base, standard et Premium. Elle fournit l'option de récupération par défaut lorsque la base de données est également indisponible en raison d'un incident dans la région où la base de données est hébergée. Similaire à la Limite de restauration dans le temps, la géo-restauration s'appuie sur les sauvegardes de base de données dans le stockage Azure redondant au niveau géographique. Elle restaure à partir de la copie de sauvegarde répliquées au niveau géographique. Donc, elle est résistante aux pannes de stockage dans la région principale. Consultez [Récupération après une panne](sql-database-disaster-recovery.md) pour obtenir des détails sur l'utilisation de la géo-restauration.
 
-###Géo-réplication standard
-
-La géo-réplication standard est disponible pour les bases de données standard et Premium. Elle est conçue pour les applications qui peuvent utiliser la capacité de niveau de service standard, mais qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. Lorsque la base de données principale échoue, vous pouvez lancer le basculement vers une base de données secondaire non lisible stockée dans la région associée à la récupération d'urgence. Consultez [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour plus d'informations sur la configuration de la géo-réplication et [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur le basculement vers la base de données secondaire.
-
 ###Géo-réplication active
 
-La géo-réplication active est disponible pour les bases de données Premium. Elle est conçue pour les applications gourmandes en écriture avec les exigences de récupération les plus agressives. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement vers l'une des répliques secondaires de la même façon qu'avec la géo-réplication standard. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Consultez [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour plus d'informations sur la configuration de la géo-réplication et [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur le basculement vers la base de données secondaire. Consultez [Mise à niveau de l'application sans interruption de service](sql-database-business-continuity-application-upgrade.md) pour plus d'informations sur la mise en œuvre de la mise à niveau de l'application sans interruption.
+La géo-réplication active est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Consultez [Conception pour la continuité d’activité](sql-database-business-continuity-design.md) pour plus d'informations sur la [configuration de la géo-réplication](sql-database-geo-replication-portal.md) et le [basculement vers la base de données secondaire](sql-database-geo-replication-failover-portal.md). Consultez [Mise à niveau de l'application sans interruption de service](sql-database-business-continuity-application-upgrade.md) pour plus d'informations sur la mise en œuvre de la mise à niveau de l'application sans interruption.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

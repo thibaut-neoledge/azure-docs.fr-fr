@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Configuration et gestion de l’accès à IoT Hub
@@ -30,14 +30,15 @@ Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers 
 | AMQP | 5671 |
 | AMQP sur WebSockets | 443 |
 | MQTT | 8883 |
+| LWM2M (gestion des appareils) | 5684 |
 
 Lorsque vous avez créé un hub IoT dans une région Azure, le hub conserve la même adresse IP pour la durée de vie de ce hub. Toutefois, pour maintenir la qualité du service, si Microsoft déplace le hub IoT vers une autre unité d’échelle, il recevra une nouvelle adresse IP.
 
 ## IoT Hub et sécurité
 
-Seuls les appareils inscrits avec un hub IoT sont autorisés à communiquer avec ce hub IoT. Un appareil enregistré doit disposer de l’autorisation *DeviceConnect*. Un appareil s’identifie en incluant un jeton qui encapsule l’ID unique des appareils dans chaque demande effectuée, tandis que le hub vérifie que le jeton est valide et que l’appareil n’est pas sur liste noire (autorisation *DeviceConnect* révoquée).
+Seuls les appareils inscrits avec un hub IoT sont autorisés à communiquer avec ce hub IoT. Un appareil enregistré doit disposer de l’autorisation *DeviceConnect*. Un appareil s’identifie en incluant un jeton qui encapsule l’ID unique des appareils dans chaque demande effectuée, tandis que le concentrateur vérifie que le jeton est valide et que l’appareil n’est pas sur liste noire (autorisation *DeviceConnect* révoquée).
 
-L’accès aux autres points de terminaison de gestion dans un hub IoT est également contrôlé par un ensemble d’autorisations : *iothubowner*, *service*, *registryRead* et *registryReadWrite*. Une application de gestion de client qui se connecte à un hub IoT doit inclure un jeton avec les autorisations appropriées.
+L’accès aux autres points de terminaison de gestion dans un concentrateur IoT est également contrôlé par un ensemble d’autorisations : *iothubowner*, *service*, *registryRead* et *registryReadWrite*. Une application de gestion de client qui se connecte à un hub IoT doit inclure un jeton avec les autorisations appropriées.
 
 ## Étapes suivantes
 
@@ -51,4 +52,4 @@ Cet article contient des informations destinées aux professionnels de l’infor
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

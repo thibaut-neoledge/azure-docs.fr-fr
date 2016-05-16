@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 # Débogage des travaux Stream Analytics à l’aide des journaux des opérations et de service
@@ -23,7 +23,7 @@ Tous les services Azure fournissent des messages de journalisation opérationnel
 
 ## Rechercher des journaux d’opérations dans le portail de gestion Azure
 
-Les journaux des opérations sont accessibles de deux manières :
+Les journaux des opérations sont accessibles de deux manières :
 
 - Tableau de bord de la tâche Stream Analytics  
 - Services de gestion dans le portail Azure Classic  
@@ -36,7 +36,7 @@ Un lien vers les journaux correspondants d'une tâche Stream Analytics s'affiche
 
 ## Services de gestion
 
-Pour accéder manuellement aux journaux des opérations pour Stream Analytics et d’autres services dans le portail Azure Classic :
+Pour accéder manuellement aux journaux des opérations pour Stream Analytics et d’autres services dans le portail Azure Classic :
 
 1.	Cliquez sur **Services de gestion** dans le [portail Azure Classic](https://manage.windowsazure.com).
 2.	Sélectionnez **Stream Analytics** pour **Type** et le nom de la tâche pour **Nom du service**.  
@@ -49,7 +49,7 @@ Pour rechercher des journaux d’opérations pour votre tâche Stream Analytics 
 
   ![Sélection Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
-Cette action ouvre un panneau répertoriant les événements survenus au cours des 7 derniers jours pour toutes les ressources de votre abonnement. Vous pouvez filtrer ces informations pour afficher les événements d’un type ou d’un intervalle de temps spécifique en cliquant sur la commande **Filtrer**.
+Cette action ouvre un panneau répertoriant les événements survenus au cours des 7 derniers jours pour toutes les ressources de votre abonnement. Vous pouvez filtrer ces informations pour afficher les événements d’un type ou d’un intervalle de temps spécifique en cliquant sur la commande **Filtrer**.
 
   ![Sélection Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
@@ -71,7 +71,7 @@ Dans le portail Azure, cliquez sur une entrée de journal pour afficher le déta
 
 ## Débogage d’une tâche ayant échoué
 
-Dans le portail de gestion Azure, cliquez sur l’icône Rechercher et tapez « échoué ». Vous obtenez comme résultat tous les journaux avec des erreurs.
+Dans le portail de gestion Azure, cliquez sur l’icône Rechercher et tapez « échoué ». Vous obtenez comme résultat tous les journaux avec des erreurs.
 
   ![Débogage d'une tâche ayant échoué](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

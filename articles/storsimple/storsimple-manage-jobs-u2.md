@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Utilisez le service StorSimple Manager pour afficher et gérer les tâches StorSimple (Mise à jour 2)
@@ -21,29 +21,29 @@
 
 ## Vue d’ensemble
 
-La page **Tâches** est un portail centralisé unique qui permet de consulter et de gérer les tâches qui ont été lancées sur les appareils connectés à votre service StorSimple Manager. Vous pouvez consulter les tâches planifiées, en cours d'exécution, terminées et en échec pour plusieurs appareils. Les résultats sont présentés sous forme de tableau.
+La page **Tâches** est un portail centralisé unique qui permet de consulter et de gérer les tâches qui ont été lancées sur les appareils connectés à votre service StorSimple Manager. Vous pouvez consulter les tâches planifiées, en cours d'exécution, terminées, annulées et en échec pour plusieurs appareils. Les résultats sont présentés sous forme de tableau.
 
-![Page Tâches](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Page Tâches](./media/storsimple-manage-jobs-u2/jobs.png)
 
 Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
 
-- **État** : les tâches peuvent être en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
-- **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
+- **État** : les tâches peuvent être en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
+- **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
 - **Type** : le type de tâche peut être sauvegarde, sauvegarde manuelle, restauration, clonage, basculement d'appareil, créer un volume épinglé localement, modifier le volume, mettre à jour, prendre en charge le package ou approvisionnement de l'appareil virtuel.
 
-- **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
+- **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
 
     - **Type** : sauvegarde, sauvegarde manuelle, restauration, clonage, basculement d'appareil, créer un volume épinglé localement, modifier le volume, mettre à jour, prendre en charge le package ou approvisionnement de l'appareil virtuel.
 
-    - **État** : en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
+    - **État** : en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
 
-    - **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Par exemple, une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
+    - **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Par exemple, une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
 
-    - **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+    - **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
 
-    - **Démarré le** : heure à laquelle la tâche a été lancée.
+    - **Démarré le** : heure à laquelle la tâche a été lancée.
 
-    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
 La liste des tâches est actualisée toutes les 30 secondes.
 
@@ -73,7 +73,7 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 
 Pour annuler une tâche en cours d’exécution, procédez comme suit.
 
->[AZURE.NOTE]Certaines tâches, telles que la modification d'un volume pour modifier le type de volume ou l'extension d'un volume, ne peuvent pas être annulées.
+>[AZURE.NOTE] Certaines tâches, telles que la modification d'un volume pour modifier le type de volume ou l'extension d'un volume, ne peuvent pas être annulées.
 
 ### Pour annuler une tâche
 
@@ -93,4 +93,4 @@ Cette tâche est à présent annulée.
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

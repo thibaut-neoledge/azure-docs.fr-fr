@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="04/15/2016"
    ms.author="mcoskun"/>
 
 # Sauvegarder et restaurer Reliable Services et Reliable Actors
@@ -34,6 +34,19 @@ Par exemple, un service peut souhaiter sauvegarder des données dans les scénar
 
 La fonctionnalité Sauvegarder/Restaurer permet aux services reposant sur l’API Reliable Services de créer et de restaurer des sauvegardes. Les API de sauvegarde fournies par la plateforme permettent d’effectuer des sauvegardes de l’état d’une partition sans bloquer les opérations de lecture ou d’écriture. Les API de restauration permettent la restauration de l’état d’une partition d’être à partir d’une sauvegarde choisie.
 
+## Types de sauvegarde
+
+Il existe deux options de sauvegarde : complète et incrémentielle. Une sauvegarde complète est une sauvegarde qui contient toutes les données nécessaires pour recréer l’état du réplica, à savoir des points de contrôle et l’ensemble des enregistrements de journal. Dans la mesure où une sauvegarde complète regroupe les points de contrôle et les journaux, elle ne peut être restaurée d’elle-même.
+
+Les sauvegardes complètes posent problème dès lors qu’elles impliquent des points de contrôle volumineux. Par exemple, un réplica associé à un état de 16 Go verra ses points de contrôle s’accumuler jusqu’à environ 16 Go. Si l’objectif de point de récupération est fixé à 5 minutes, le réplica devra être sauvegardé toutes les 5 minutes. Chaque sauvegarde suppose de copier 16 Go de points de contrôle en plus des 50 Mo (configurables à l’aide du paramètre **CheckpointThresholdInMB**) de journaux.
+
+![Exemple de sauvegarde complète.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
+
+La solution à ce problème consiste à recourir à des sauvegardes incrémentielles, au cours desquelles sont sauvegardés uniquement les enregistrements de journaux écrits depuis la dernière sauvegarde.
+
+![Exemple de sauvegarde incrémentielle.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
+
+Puisque les sauvegardes incrémentielles ne portent que sur les modifications apportées depuis la dernière sauvegarde (sans les points de contrôle), elles sont généralement plus rapides, mais ne peuvent pas être restaurées d’elles-mêmes. La restauration d’une sauvegarde incrémentielle implique l’ensemble de la chaîne de sauvegarde. Une chaîne de sauvegarde est une chaîne de sauvegardes qui commence par une sauvegarde complète, suivie d’un nombre de sauvegardes incrémentielles contigües.
 
 ## Sauvegarder Reliable Services
 
@@ -41,7 +54,7 @@ Le créateur du service contrôle intégralement le moment auquel les sauvegarde
 
 Pour démarrer une sauvegarde, le service doit appeler la fonction de membre hérité **BackupAsync**. Les sauvegardes peuvent uniquement être effectuées à partir de réplicas principaux et ont besoin de bénéficier du statut d’écriture.
 
-Comme indiqué ci-dessous, **BackupAsync** prend un objet **BackupDescription**, dans lequel il est possible de spécifier une sauvegarde complète ou incrémentielle, ainsi qu’une fonction de rappel, **Func<< BackupInfo  bool >>**, qui est appelée lorsque le dossier de sauvegarde a été créé en local et est prêt à être déplacé vers un stockage externe.
+Comme indiqué ci-dessous, **BackupAsync** prend un objet **BackupDescription**, dans lequel il est possible de spécifier une sauvegarde complète ou incrémentielle, ainsi qu’une fonction de rappel, **Func<< BackupInfo, CancellationToken, Task<bool>>>**, qui est appelée lorsque le dossier de sauvegarde a été créé en local et est prêt à être déplacé vers un stockage externe.
 
 ```C#
 
@@ -51,16 +64,18 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
+Une demande de sauvegarde incrémentielle peut échouer en générant l’exception **FabricFullBackupMissingException**, qui indique que le réplica n’a jamais fait l’objet d’une sauvegarde complète ou qu’une partie des enregistrements du journal écrits depuis cette dernière sauvegarde est tronquée. Les utilisateurs peuvent modifier le taux de troncation en modifiant le paramètre **CheckpointThresholdInMB**.
+
 **BackupInfo** fournit des informations sur la sauvegarde, notamment l’emplacement du dossier où le runtime l’a enregistrée (**BackupInfo.Directory**). La fonction peut déplacer **BackupInfo.Directory** vers un magasin externe ou un autre emplacement. Cette fonction renvoie également une valeur booléenne qui indique si elle a été en mesure de déplacer correctement le dossier de sauvegarde vers son emplacement cible.
 
-Le code suivant montre comment la méthode **BackupCallbackAsync** peut être utilisée pour charger la sauvegarde vers Azure Storage :
+Le code suivant montre comment la méthode **BackupCallbackAsync** peut être utilisée pour charger la sauvegarde vers Azure Storage :
 
 ```C#
-private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
 {
     var backupId = Guid.NewGuid();
 
-    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, cancellationToken);
 
     return true;
 }
@@ -102,7 +117,7 @@ Le créateur du service doit effectuer les opérations suivantes pour assurer la
 
 - Renvoyer l’état True en cas de succès de la restauration.
 
-Voici un exemple d’implémentation de la méthode **OnDataLossAsync** :
+Voici un exemple d’implémentation de la méthode **OnDataLossAsync** :
 
 ```C#
 
@@ -118,14 +133,17 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
+La fonction **RestoreDescription** transférée à l’appel **RestoreContext.RestoreAsync** contient un membre appelé **BackupFolderPath**. Lorsque vous restaurez une seule sauvegarde complète, ce membre **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient votre sauvegarde complète. Lorsque vous restaurez une sauvegarde complète ainsi qu’un certain nombre de sauvegardes incrémentielles, **BackupFolderPath** doit être défini sur le chemin d’accès local du dossier qui contient à la fois la sauvegarde complète et l’ensemble des sauvegardes incrémentielles. L’appel **RestoreAsync** peut lever une exception **FabricFullBackupMissingException** si le **BackupFolderPath** fourni ne contient pas de sauvegarde complète. Il peut également lever l’exception **ArgumentException** si **BackupFolderPath** contient une chaîne de sauvegardes incrémentielles interrompue. Par exemple, s’il contient la sauvegarde complète, les première et troisième sauvegardes incrémentielles, mais pas la deuxième sauvegarde incrémentielle.
+
 >[AZURE.NOTE] Par défaut, RestorePolicy est défini sur Sécurisé. Cela signifie que l’API **RestoreAsync** va échouer avec ArgumentException si elle détecte que le dossier de sauvegarde contient un état antérieur ou égal à l’état contenu dans ce réplica. **RestorePolicy.Force** permet d’ignorer cette vérification de sécurité. Cela est spécifié dans le cadre de **RestoreDescription**.
 
 ## Service supprimé ou perdu
 
-Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées. Il est important de créer le service avec la même configuration, par exemple, le schéma de partitionnement, afin que les données puissent être restaurées en toute transparence. Une fois que le service est opérationnel, l’API pour restaurer les données (**OnDataLossAsync** ci-dessus) doit être appelée sur chaque partition de ce service. Un moyen d’y parvenir consiste à utiliser **FabricClient.ServiceManager.InvokeDataLossAsync** sur chaque partition.
+Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées. Il est important de créer le service avec la même configuration, par exemple, le schéma de partitionnement, afin que les données puissent être restaurées en toute transparence. Une fois que le service est opérationnel, l’API pour restaurer les données (**OnDataLossAsync** ci-dessus) doit être appelée sur chaque partition de ce service. Un moyen d’y parvenir consiste à utiliser **[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)** sur chaque partition.
 
 À ce stade, l’implémentation est identique au scénario ci-dessus. Chaque partition doit restaurer la dernière sauvegarde pertinente à partir du magasin externe. L’inconvénient est que l’ID de partition peut avoir changé, étant donné que le runtime crée des ID de partition de manière dynamique. Par conséquent, le service doit stocker les informations de partition appropriées et le nom du service pour identifier la dernière sauvegarde correcte à restaurer pour chaque partition.
 
+>[AZURE.NOTE] Il n’est pas recommandé d’utiliser **FabricClient.ServiceManager.InvokeDataLossAsync** sur chaque partition pour restaurer l’ensemble du service, car cela pourrait altérer l’état de votre cluster.
 
 ## Réplication des données d’application endommagées
 
@@ -147,9 +165,12 @@ Notez les points suivants :
 
 La sauvegarde et la restauration de Reliable Actors s’appuie sur les fonctionnalités de sauvegarde et de restauration fournies par des services fiables. Le propriétaire du service doit créer un service d’acteur personnalisé, qui dérive d’**ActorService** (service Service Fabric fiable hébergeant des acteurs), puis effectuer une sauvegarde/restauration similaires à celles des services fiables, comme décrit dans les sections précédentes. Étant donné que les sauvegardes sont effectuées par partition, les états de tous les acteurs dans cette partition particulière sont sauvegardés (et la restauration se produit de façon similaire par partition).
 
-Notez les points suivants :
 
-(1) Lorsque vous créez un service d’acteur personnalisé, vous devez l’inscrire également lors de l’inscription de l’acteur. Voir **ActorRuntime.RegistorActorAsync**. (2) Actuellement, le **KvsActorStateProvider** prend en charge uniquement la sauvegarde complète. La prise en charge de la sauvegarde incrémentielle apparaîtra dans des futures versions. De même, le **KvsActorStateProvider** ignore l’option **RestorePolicy.Safe**.
+- Lorsque vous créez un service d’acteur personnalisé, vous devez l’inscrire également lors de l’inscription de l’acteur. Voir **ActorRuntime.RegistorActorAsync**.
+- Actuellement, le **KvsActorStateProvider** prend en charge uniquement la sauvegarde complète. De même, le **KvsActorStateProvider** ignore l’option **RestorePolicy.Safe**.
+
+>[AZURE.NOTE] L’ActorStateProvider par défaut (c’est-à-dire **KvsActorStateProvider**) ne nettoie **pas** les dossiers de sauvegarde de lui-même (sous le dossier de travail de l’application obtenu via ICodePackageActivationContext.WorkDirectory). Cela peut entraîner une saturation du dossier de travail. Vous devez nettoyer explicitement le dossier de sauvegarde dans le rappel de sauvegarde après avoir déplacé la sauvegarde vers un stockage externe.
+
 
 ## Test de la sauvegarde et de la restauration
 
@@ -170,7 +191,6 @@ Une transaction validée après l’appel de **BackupAsync** peut figurer ou non
 
 Le gestionnaire d’état fiable permet de restaurer une sauvegarde à l’aide de l’API **RestoreAsync**. La méthode **RestoreAsync** sur **RestoreContext** peut être appelée uniquement à l’intérieur de la méthode **OnDataLossAsync**. La valeur booléenne renvoyée par **OnDataLossAsync** indique si le service a été restauré à cet état à partir d’une source externe. Si la méthode **OnDataLossAsync** renvoie la valeur true, Service Fabric recrée tous les autres réplicas à partir de ce réplica principal. Service Fabric s’assure que les réplicas qui vont recevoir l’appel de la méthode **OnDataLossAsync** effectuent tout d’abord une transition vers le rôle principal, mais ne se voient pas accorder de statut de lecture ou d’écriture. Pour les responsables de l’implémentation de StatefulService, cela implique que la méthode **RunAsync** n’est pas appelée tant que l’exécution de la méthode **OnDataLossAsync** ne s’est pas terminée correctement. Ensuite, la méthode **OnDataLossAsync** est appelée sur le nouveau réplica principal. L’API continuera d’être appelée jusqu’à ce que l’API se termine correctement (en renvoyant true ou false) et termine la reconfiguration concernée.
 
-
 La méthode **RestoreAsync** supprime d’abord tout état existant dans le réplica principal sur lequel elle a été appelée. Le gestionnaire d’état fiable crée ensuite tous les objets fiables qui existent dans le dossier de sauvegarde. Les objets fiables sont alors invités à procéder à une restauration à partir de leurs points de contrôle dans le dossier de sauvegarde. Enfin, le gestionnaire d’état fiable récupère son propre état à partir d’enregistrements de journal dans le dossier de sauvegarde, puis effectue la récupération. Dans le cadre de la récupération, les opérations commençant à partir du point de départ qui ont validé des enregistrements de journal dans le dossier de sauvegarde sont relues dans les objets fiables. Cette étape garantit que l’état récupéré est cohérent.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

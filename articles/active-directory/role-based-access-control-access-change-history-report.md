@@ -10,17 +10,17 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/23/2016"
+	ms.date="04/28/2016"
 	ms.author="kgremban"/>
 
 # Créer un rapport d’historique des modifications d’accès
 
 Lorsque vous n’êtes pas le seul propriétaire de vos abonnements Azure, ou des ressources et groupes de ressources qu’ils contiennent, vous devez être en mesure de suivre toutes les modifications d’accès. Chaque fois qu’un utilisateur autorise ou interdit l’accès dans vos abonnements, les modifications sont consignées dans les événements Azure. Vous pouvez créer des rapports d’historique de modification d’accès pour voir toutes les modifications apportées au cours des 90 derniers jours.
 
-## Créer un rapport avec Azure PowerShell
+## Créer un rapport avec Azure PowerShell
 Pour créer un rapport d’historique des modifications d’accès dans PowerShell, utilisez la commande suivante :
 
 ```
@@ -67,4 +67,4 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 - Prise en main du [contrôle d’accès basé sur les rôles Azure](role-based-access-control-configure.md)
 - Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="" 
 	tags=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="04/28/2016" 
 	ms.author="genemi"/>
 
 
@@ -28,12 +28,12 @@ Vous pouvez utiliser un exemple de code complet pour capturer et signaler les in
 Dans Microsoft SQL Server, la [cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) est utilisée pour stocker les sorties d’événement dans un fichier sur le disque dur local. Mais ce type de fichier n’est pas disponible dans Azure SQL Database. À la place, nous utilisons le service Azure Storage pour prendre en charge la cible du fichier d’événements.
 
 
-Cette rubrique présente un exemple de code en deux phases :
+Cette rubrique présente un exemple de code en deux phases :
 
 
 - PowerShell, pour créer un conteneur Azure Storage dans le cloud.
 
-- Transact-SQL :
+- Transact-SQL :
  - Pour affecter le conteneur Azure Storage à une cible du fichier d’événements.
  - Pour créer et démarrer la session d’événement, etc.
 
@@ -41,14 +41,14 @@ Cette rubrique présente un exemple de code en deux phases :
 ## Configuration requise
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données dans laquelle vous pouvez créer une table.
  - Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
 
 
-- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe :
+- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe :
  - À partir de la rubrique [Télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
  - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe. Dans certains cas, ssms.exe est mis à jour chaque mois.
@@ -58,7 +58,7 @@ Cette rubrique présente un exemple de code en deux phases :
  - Ces modules fournissent des commandes, telles que **New-AzureStorageAccount**.
 
 
-## Phase 1 : code PowerShell pour le conteneur Azure Storage
+## Phase 1 : code PowerShell pour le conteneur Azure Storage
 
 
 Il s’agit de la première phase de l’exemple de code en deux phases.
@@ -255,14 +255,14 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 &nbsp;
 
 
-Prenez note des quelques valeurs nommées que le script PowerShell affiche à la fin de son exécution. Vous devrez modifier ces valeurs dans le script Transact-SQL lors de la phase 2 ci-après.
+Prenez note des quelques valeurs nommées que le script PowerShell affiche à la fin de son exécution. Vous devrez modifier ces valeurs dans le script Transact-SQL lors de la phase 2 ci-après.
 
 
-## Phase 2 : code Transact-SQL utilisant le conteneur Azure Storage
+## Phase 2 : code Transact-SQL utilisant le conteneur Azure Storage
 
 
-- Lors de la phase 1 de cet exemple de code, vous avez exécuté un script PowerShell pour créer un conteneur Azure Storage.
-- Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
+- Lors de la phase 1 de cet exemple de code, vous avez exécuté un script PowerShell pour créer un conteneur Azure Storage.
+- Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
 
 
 Le script commence par des commandes à supprimer s’il a déjà été exécuté au préalable. Il est conçu pour pouvoir être exécuté plusieurs fois.
@@ -485,7 +485,7 @@ GO
 &nbsp;
 
 
-Si la liaison avec la cible n’a pas pu se faire au moment de l’exécution, vous devez arrêter et redémarrer la session d’événement :
+Si la liaison avec la cible n’a pas pu se faire au moment de l’exécution, vous devez arrêter et redémarrer la session d’événement :
 
 
 ```
@@ -504,7 +504,7 @@ GO
 
 Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event\_data\_XML**. Un élément **<event>** s’affiche, avec une instruction UPDATE.
 
-Voici un élément **<event>** ayant été généré pendant le test :
+Voici un élément **<event>** ayant été généré pendant le test :
 
 
 &nbsp;
@@ -581,13 +581,13 @@ La rubrique suivante fournit des informations essentielles au sujet des événem
  - Cette rubrique décrit les différences à prendre en compte entre les événements étendus dans Azure SQL Database et ceux dans Microsoft SQL Server.
 
 
-- [Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database](sql-database-xevent-code-ring-buffer.md) : cette rubrique fournit un exemple de code analogue, simple et rapide à utiliser, mais qui est plus approprié pour les tests rapides et moins efficace pour les opérations de plus grande ampleur.
+- [Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database](sql-database-xevent-code-ring-buffer.md) : cette rubrique fournit un exemple de code analogue, simple et rapide à utiliser, mais qui est plus approprié pour les tests rapides et moins efficace pour les opérations de plus grande ampleur.
 
 
-Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
+Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
 
-- [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md/)
-- [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+- [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Utilisation du conteneur racine](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 
 
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

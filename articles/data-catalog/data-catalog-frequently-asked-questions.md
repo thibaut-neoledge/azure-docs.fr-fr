@@ -64,7 +64,7 @@ Les demandes de fonctionnalités et d’autres commentaires peuvent être envoy�
 
 ## Q : Comment effectuer mes premiers pas avec Azure Data Factory ?
 
-Le mieux est de commencer par suivre les instructions du didacticiel [Prise en main de Data Catalog](../data-catalog-get-started/). Cet article présente de bout en bout les fonctionnalités intégrées au service.
+Le mieux est de commencer par suivre les instructions du didacticiel [Prise en main de Data Catalog](data-catalog-get-started.md). Cet article présente de bout en bout les fonctionnalités intégrées au service.
 
 ## Q : Comment inscrire mes données ?
 
@@ -140,4 +140,4 @@ R : Pour mettre à jour les métadonnées pour les ressources de données qui s
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

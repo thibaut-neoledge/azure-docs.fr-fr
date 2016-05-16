@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Conseils pour choisir une plateforme d’analyse de diffusion en continu : comparaison d’Apache Storm et d’Azure Stream Analytics
@@ -588,4 +588,4 @@ Si ces deux plateformes d’analyse fournissent les avantages d’une solution 
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

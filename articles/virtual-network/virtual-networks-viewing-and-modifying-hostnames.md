@@ -12,26 +12,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/27/2016"
    ms.author="joaoma" />
 
 # Affichage et modification des noms d'hôtes
 
-Pour permettre le référence par nom d’hôte de vos instances de rôle, vous devez définir la valeur de nom d’hôte dans le fichier de configuration de service associé à chaque rôle. Pour ce faire, ajoutez le nom d’hôte à l’attribut **vmName** de l’élément **Role**. La valeur de l’attribut **vmName** est utilisée comme base de nom d’hôte pour chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* e*webrole2*. Il n’est pas nécessaire de définir un nom d’hôte pour les machines virtuelles dans le fichier de configuration, car ces noms sont renseignés en fonction du nom de la machine virtuelle. Pour en savoir plus sur la configuration d’un service Microsoft Azure, consultez la section [Schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+Pour permettre le référence par nom d’hôte de vos instances de rôle, vous devez définir la valeur de nom d’hôte dans le fichier de configuration de service associé à chaque rôle. Pour ce faire, ajoutez le nom d’hôte à l’attribut **vmName** de l’élément **Role**. La valeur de l’attribut **vmName** est utilisée comme base de nom d’hôte pour chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* e*webrole2*. Il n’est pas nécessaire de définir un nom d’hôte pour les machines virtuelles dans le fichier de configuration, car ces noms sont renseignés en fonction du nom de la machine virtuelle. Pour en savoir plus sur la configuration d’un service Microsoft Azure, consultez la section [Schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx) (en anglais).
 
 ## Affichage des noms d’hôtes
 
-Vous pouvez afficher les noms d’hôte des machines virtuelles et des instances de rôle d’un service cloud à l’aide de différents outils : le portail Azure, le fichier de configuration de service, le Bureau à distance et l’[API REST de gestion des services Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+Vous pouvez afficher les noms d’hôtes des machines virtuelles et des instances de rôle dans un service cloud à l’aide des utilitaires ci-dessous.
 
 ### Portail Azure
 
-Vous pouvez utiliser le portail Azure pour afficher les noms d’hôtes associés aux machines virtuelles sur la page du tableau de bord des machines virtuelles. N’oubliez pas que le tableau de bord comporte des valeurs pour les attributs **Nom** et **Nom d’hôte**. Bien que ces deux éléments soient initialement identiques, toute modification du nom d’hôte n’affecte en rien le nom de la machine virtuelle ou de l’instance de rôle.
+Vous pouvez utiliser le [portail Azure](http://portal.azure.com) pour afficher les noms d’hôtes pour les machines virtuelles sur le panneau de vue d’ensemble d’une machine virtuelle. N’oubliez pas que panneau comporte des valeurs pour les attributs **Nom** et **Nom d’hôte**. Bien que ces deux éléments soient initialement identiques, toute modification du nom d’hôte n’affecte en rien le nom de la machine virtuelle ou de l’instance de rôle.
 
-Les instances de rôle peuvent être également placées dans le portail Azure. Cependant, lorsque vous répertoriez les instances dans un service cloud, le nom d’hôte ne s’affiche pas. Un nom apparaît pour chaque instance, mais il ne représente aucunement le nom d’hôte.
+Les instances de rôle peuvent être également affichées dans le portail Azure. Cependant, lorsque vous répertoriez les instances dans un service cloud, le nom d’hôte ne s’affiche pas. Un nom apparaît pour chaque instance, mais il ne représente aucunement le nom d’hôte.
 
 ### Fichier de configuration de service
 
-Vous pouvez télécharger le fichier de configuration de service d’un service déployé à partir de la page **Configurer** du service dans le portail Azure. Pour afficher le nom d’hôte, il vous suffit de rechercher l’attribut **vmName** associé à l’élément **Nom de rôle**. Gardez à l’esprit que ce nom d’hôte est utilisé comme base pour le nom d’hôte de chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* et *webrole2*.
+Vous pouvez télécharger le fichier de configuration de service d’un service déployé à partir du panneau **Configurer** du service dans le portail Azure. Pour afficher le nom d’hôte, il vous suffit de rechercher l’attribut **vmName** associé à l’élément **Nom de rôle**. Gardez à l’esprit que ce nom d’hôte est utilisé comme base pour le nom d’hôte de chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* et *webrole2*.
 
 ### Bureau à distance
 
@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

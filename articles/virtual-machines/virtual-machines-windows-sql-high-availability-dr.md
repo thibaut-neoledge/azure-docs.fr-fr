@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/27/2016"
 	ms.author="mikeray" />
 
 # Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
@@ -109,7 +109,7 @@ Les écouteurs de groupe de disponibilité sont pris en charge sur les machines 
 
 Il existe deux options principales de configuration de votre écouteur : externe (public) ou interne. Le port d'écoute externe (public) est associé à une adresse IP virtuelle publique (VIP) accessible via Internet. Avec un écouteur externe, vous devez activer le retour direct du serveur, ce qui signifie que vous devez vous connecter à l'écouteur à partir d'un ordinateur qui n'est pas dans le même service cloud que les nœuds du groupe de disponibilité AlwaysOn. Vous pouvez également utiliser un écouteur interne avec équilibrage de charge interne (ILB). Un écouteur interne prend uniquement en charge les clients qui se trouvent dans le même réseau virtuel.
 
-Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse les régions Azure), la chaîne de connexion du client doit inclure « **MultisubnetFailover=True** ». Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions sur la configuration d'un port d'écoute, consultez
+Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse les régions Azure), la chaîne de connexion du client doit inclure « **MultisubnetFailover=True** ». Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions sur la configuration d'un port d'écoute, consultez
 
 - [Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -153,4 +153,4 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 - [Installation d’une nouvelle forêt Active Directory dans Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Création du cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure ](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

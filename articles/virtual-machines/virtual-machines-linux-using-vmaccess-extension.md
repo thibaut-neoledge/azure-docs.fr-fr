@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
@@ -34,7 +34,7 @@ Dans les exemples de commandes suivants, remplacez les valeurs entre &lt; et &gt
 Pour réinitialiser le mot de passe racine :
 
 ```bash
-ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePassword>
+azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePassword>
 ```
 
 ## Réinitialiser la clé SSH
@@ -42,7 +42,7 @@ ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u root -p 
 Pour réinitialiser la clé SSH d'un utilisateur non racine :
 
 ```bash
-ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 ## Créer un utilisateur
@@ -50,13 +50,13 @@ ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u <example
 Pour créer un utilisateur :
 
 ```bash
-ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
+azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
 ```
 
 ## Supprimer un utilisateur
 
 ```bash
-ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
+azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
 ```
 
 ## Réinitialiser SSHD
@@ -64,7 +64,7 @@ ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -R <example
 Pour réinitialiser la configuration SSHD :
 
 ```bash
-ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -r
+azure vm reset-access -g <resource group> -n <vm name> -r
 ```
 
 
@@ -94,7 +94,7 @@ Pour vérifier puis réparer le disque, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -117,7 +117,7 @@ Pour réinitialiser le mot de passe racine, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -136,7 +136,7 @@ Pour réinitialiser la clé SSH d'un utilisateur non racine, utilisez ce script 
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -160,7 +160,7 @@ Pour créer un utilisateur, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -178,7 +178,7 @@ Pour créer un utilisateur, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -200,9 +200,9 @@ Pour réinitialiser la configuration SSHD, utilisez ce script VMAccess :
 Exécutez le script VMAccess avec :
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

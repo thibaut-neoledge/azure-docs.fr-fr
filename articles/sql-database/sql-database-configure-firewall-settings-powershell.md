@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer le pare-feu pour les adresses IP qui accèdent aux bases de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="BYHAM"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="02/04/2016"
-	ms.author="rickbyh"/>
+	ms.date="05/03/2016"
+	ms.author="stevestein"/>
 
 
 # Configurer un pare-feu sur une base de données Azure SQL à l’aide de PowerShell
@@ -68,4 +68,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Planification et conception de la passerelle VPN
 
-La planification et la conception de vos connexions entre locaux et entre deux réseaux virtuels peuvent être très simples ou très complexes, selon vos besoins de mise en réseau.
+La planification et de la conception de vos configurations entre plusieurs locaux et entre deux réseaux virtuels peuvent être très simples ou très complexes, selon vos besoins de mise en réseau. Cet article vous indiquera les considérations importantes relatives à la conception et à la planification de base.
 
 ## Planification
 
@@ -164,4 +164,4 @@ Ce tableau présente le modèle de déploiement correspondant au tunneling forc�
 
 Consultez le [Forum aux questions - Passerelle VPN](vpn-gateway-vpn-faq.md) et [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md) pour plus d’informations pouvant vous aider dans votre conception. Pour plus d’informations sur les topologies de connexion, consultez [Topologies de connexion](vpn-gateway-topology.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

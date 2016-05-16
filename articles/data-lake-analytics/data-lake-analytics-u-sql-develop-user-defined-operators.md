@@ -3,7 +3,7 @@
    description="Apprenez à développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Data Lake Analytics." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 
 # Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics
@@ -147,4 +147,4 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 - [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Utiliser les outils Data Lake pour Visual Studio pour le développement d’applications U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

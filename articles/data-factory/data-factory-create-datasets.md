@@ -251,6 +251,8 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 ## Étendue des jeux de données
 Vous pouvez créer des jeux de données étendues vers un pipeline à l’aide de la propriété **datasets**. Ces jeux de données peuvent uniquement être utilisés par les activités dans ce pipeline et non pas par les activités d’autres pipelines. L’exemple suivant définit un pipeline avec deux jeux de données à utiliser dans le pipeline : InputDataset-rdc et OutputDataset-rdc.
 
+> [AZURE.IMPORTANT] Les étendues des jeux de données sont uniquement prises en charge avec les pipelines à usage unique (**pipelineMode** défini sur **OneTime**). Pour plus d’informations, consultez [Pipeline onetime](data-factory-scheduling-and-execution.md#onetime-pipeline).
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {
@@ -340,4 +342,4 @@ Vous pouvez créer des jeux de données étendues vers un pipeline à l’aide d
 	    }
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

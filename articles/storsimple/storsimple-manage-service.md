@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="04/04/2016"
    ms.author="v-sharos" />
 
 # Déployer le service StorSimple Manager
@@ -23,13 +23,13 @@ Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte �
 
 La page d’accueil StorSimple Manager répertorie tous les services StorSimple Manager que vous pouvez utiliser pour gérer vos dispositifs de stockage StorSimple. Pour chaque service StorSimple Manager, les informations suivantes s’affichent sur la page StorSimple Manager :
 
-- **Nom** : le nom affecté à votre service StorSimple Manager lors de sa création. Impossible de modifier le nom du service une fois que le service a été créé.
+- **Nom** : le nom affecté à votre service StorSimple Manager lors de sa création. Impossible de modifier le nom du service une fois que le service a été créé.
 
-- **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
+- **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
 
-- **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
+- **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
 
-- **Abonnement** : l’abonnement de facturation associé à votre service.
+- **Abonnement** : l’abonnement de facturation associé à votre service.
 
 Les tâches courantes qui peuvent être effectuées via la page StorSimple Manager sont les suivantes :
 
@@ -50,7 +50,7 @@ Utilisez l’option **Création rapide** pour créer un service StorSimple Manag
 
 Vous pouvez également choisir de générer un compte de stockage par défaut lorsque vous créez le service.
 
-Un seul service peut gérer plusieurs appareils. Cependant, un appareil ne peut pas couvrir plusieurs services. Une grande entreprise peut avoir plusieurs instances de service pour utiliser différents abonnements, organisations ou même emplacements de déploiement.
+Un seul service peut gérer plusieurs appareils. Cependant, un appareil ne peut pas couvrir plusieurs services. Une grande entreprise peut avoir plusieurs instances de service pour utiliser différents abonnements, organisations ou même emplacements de déploiement. Veuillez noter que vous devez créer des instances distinctes du service StorSimple Manager pour gérer les appareils de la gamme StorSimple 8000 et les tableaux virtuels StorSimple.
 
 Procédez comme suit pour créer un service.
 
@@ -60,7 +60,7 @@ Procédez comme suit pour créer un service.
 
 Avant de supprimer un service, assurez-vous qu’aucun appareil connecté ne l’utilise. Si le service est en cours d’utilisation, désactivez les appareils connectés. L’opération de désactivation rompt la connexion entre l’appareil et le service, mais conserve les données de l’appareil dans le cloud.
 
-[AZURE.IMPORTANT]Après qu’un service a été supprimé, l’opération ne peut pas être annulée. Un appareil qui utilisait le service doit être réinitialisé aux paramètres d’usine avant de pouvoir être utilisé avec un autre service. Dans ce scénario, les données locales de l’appareil, ainsi que la configuration, seront perdues.
+[AZURE.IMPORTANT] Après qu’un service a été supprimé, l’opération ne peut pas être annulée. Un appareil qui utilisait le service doit être réinitialisé aux paramètres d’usine avant de pouvoir être utilisé avec un autre service. Dans ce scénario, les données locales de l’appareil, ainsi que la configuration, seront perdues.
 
 Pour supprimer un service, procédez comme suit.
 
@@ -115,4 +115,4 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0504_2016-->

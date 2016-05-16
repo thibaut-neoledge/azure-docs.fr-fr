@@ -23,10 +23,10 @@ Les bases de données partitionnées répartissent des lignes sur une mise à l�
 
 Pour démarrer rapidement, consultez la rubrique [Création de rapports sur des bases de données cloud mises à l’échelle](sql-database-elastic-query-getting-started.md).
 
-Pour les bases de données non partitionnées, consultez la rubrique [Requêtes sur des bases de données cloud partitionnées (partitionnement vertical)](sql-database-elastic-query-vertical-partitioning.md).
+Pour les bases de données non partitionnées, consultez [Interroger plusieurs bases de données cloud avec différents schémas](sql-database-elastic-query-vertical-partitioning.md).
 
  
-## Composants requis
+## Configuration requise
 
 * Créez une carte de partitions à l’aide d’une bibliothèque de base de données élastique cliente. Consultez la rubrique [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Ou utilisez l’exemple d’application de la rubrique [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Vous pouvez également consulter la rubrique [Migrer des bases de données existantes vers des bases de données mises à l’échelle](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -143,7 +143,7 @@ La clause DISTRIBUTION spécifie la distribution des données utilisée pour cet
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l'aide d'une méthode de distribution liée à l'application. 
 
-**Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
+**Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
 
 
 ### Sécurité 
@@ -173,7 +173,7 @@ La requête suivante effectue une jonction tridirectionnelle entre les entrepôt
  
 ## Procédure stockée pour l’exécution de T-SQL à distance : sp\_execute\_remote
 
-La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée **sp\_execute\_remote** et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte :
+La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte :
 
 * Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
 * Requête (nvarchar) : requête T-SQL à exécuter sur chaque partition. 
@@ -208,4 +208,4 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

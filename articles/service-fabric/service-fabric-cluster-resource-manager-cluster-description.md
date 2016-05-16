@@ -214,10 +214,10 @@ Pour aider les utilisateurs à gérer la capacité globale du cluster, nous avon
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 Les appels de création générant de nouveaux services échouent lorsque le cluster est hors de la capacité de mise en mémoire tampon, garantissant ainsi que le cluster conserve suffisamment d’espace de secours pour que les défaillances et les mises à niveau n’entraînent pas un dépassement de la capacité par les nœuds. Le Gestionnaire de ressources expose un grand nombre de ces informations via PowerShell et les API de requête, ce qui vous permet de voir les paramètres de capacité de mise en mémoire tampon, la capacité totale et la consommation actuelle de chaque métrique donnée. Voici un exemple de cette sortie :
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

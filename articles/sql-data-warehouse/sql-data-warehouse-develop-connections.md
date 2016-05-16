@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Se connecter à SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Se connecter à SQL Data Warehouse | Microsoft Azure"
    description="Conseils en matière de connexion à SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Se connecter à SQL Data Warehouse
-Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, vous découvrirez également que certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête.
+Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, vous découvrirez également que certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête. Vous pouvez également consulter l’article [Sécuriser une base de données dans SQL Data Warehouse][] pour plus d’informations sur la sécurité et la manière d’activer des connexions à votre SQL Data Warehouse.
 
-Cet article détaille les aspects suivants de la connexion à SQL Data Warehouse :
+Cet article détaille les aspects suivants de la connexion à SQL Data Warehouse :
 
 - Authentification
 - Paramètres de connexion
@@ -27,7 +27,7 @@ Cet article détaille les aspects suivants de la connexion à SQL Data Warehouse
 
 
 ## Authentification
-Pour vous connecter à SQL Data Warehouse, vous devrez fournir les informations suivantes :
+Pour vous connecter à SQL Data Warehouse, vous devrez fournir les informations suivantes :
 
 - Nom complet du serveur
 - Authentification SQL
@@ -37,9 +37,9 @@ Pour vous connecter à SQL Data Warehouse, vous devrez fournir les informations 
 
 Il est important de noter que les utilisateurs doivent s’authentifier à l’aide de l’authentification SQL. L’authentification approuvée n’est pas prise en charge pour l’instant.
 
-Par défaut, votre connexion se connecte à la base de données MASTER et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
+Par défaut, votre connexion se connecte à la base de données MASTER et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
 
-1. Spécifiez la base de données par défaut lors de l’inscription de votre serveur auprès de l’Explorateur d’objets SQL Server dans SQL Server Data Tools (SSDT) ou dans votre chaîne de connexion d’application. Par exemple, insérez le paramètre InitialCatalog pour une connexion ODBC.
+1. Spécifiez la base de données par défaut lors de l’inscription de votre serveur auprès de l’Explorateur d’objets SQL Server dans SQL Server Data Tools (SSDT) ou dans votre chaîne de connexion d’application. Par exemple, insérez le paramètre InitialCatalog pour une connexion ODBC.
 2. Commencez par sélectionner la base de données utilisateur avant de créer une session dans SSDT.
 
 > [AZURE.NOTE] Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article de prise en main des procédures pour [se connecter et envoyer des requêtes][].
@@ -47,12 +47,14 @@ Par défaut, votre connexion se connecte à la base de données MASTER et non à
 Il est important de noter que l’instruction Transact-SQL **USE <your DB>** n’est pas prise en charge pour la modification de la base de données pour une connexion.
 
 ## Protocoles de connexion d’application
-Vous pouvez vous connecter à SQL Data Warehouse à l’aide de l’un des protocoles suivants :
+Vous pouvez vous connecter à SQL Data Warehouse à l’aide de l’un des protocoles suivants :
 
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+Voici quelques exemples de chaînes de connexion pour chaque protocole. Vous pouvez également utiliser le portail Azure pour vous aider à configurer votre chaîne de connexion. Accédez simplement à votre base de données dans le portail Azure. Sous *Essentials* cliquez sur *Afficher les chaînes de connexion de la base de données*.
 
 ### Exemple de chaîne de connexion ADO.NET
 
@@ -95,7 +97,7 @@ Une fois qu’une connexion et qu’une session ont été établies, vous êtes 
 
 Chaque requête sera représentée par un ou plusieurs identificateurs de demande. Toutes les requêtes soumises sur cette connexion font partie d’une même session et seront donc représentées par un ID de session unique.
 
-Toutefois, étant donné que SQL Data Warehouse est un système MPP distribué, les identificateurs de session et de demande sont tous deux exposés un peu différemment que dans SQL Server.
+Toutefois, étant donné que SQL Data Warehouse est un système MPP (Massively Parallel Processing) distribué, les identificateurs de session et de demande sont tous deux exposés différemment par rapport à SQL Server.
 
 Les sessions et les demandes sont représentées de manière logique par leurs identificateurs respectifs.
 
@@ -104,18 +106,18 @@ Les sessions et les demandes sont représentées de manière logique par leurs i
 | ID de la session | SID123456 |
 | ID de la demande | QID123456 |
 
-Notez que l’ID de la session présente le préfixe SID (forme courte de « Session ID ») et que les demandes comportent le préfixe QID (forme courte de « Query ID »).
+Notez que l’ID de la session présente le préfixe SID (forme courte de « Session ID ») et que les demandes comportent le préfixe QID (forme courte de « Query ID »).
 
 Ces informations vous aideront à identifier vos requêtes lorsque vous surveillerez les performances de ces dernières. Vous pouvez surveiller les performances de vos requêtes en utilisant le [portail Azure] et les vues de gestion dynamique.
 
-Pour identifier la session actuelle, utilisez la fonction suivante :
+Pour identifier la session actuelle, utilisez la fonction suivante :
 
 ```sql
 SELECT SESSION_ID()
 ;
 ```
 
-Pour visualiser toutes les requêtes qui sont en cours d’exécution ou qui ont été récemment exécutées dans votre entrepôt de données, vous pouvez utiliser une requête comme celle ci-dessous :
+Pour visualiser toutes les requêtes qui sont en cours d’exécution ou qui ont été récemment exécutées dans votre entrepôt de données, vous pouvez utiliser une requête comme celle ci-dessous :
 
 ```sql
 CREATE VIEW dbo.vSessionRequests
@@ -153,9 +155,10 @@ Une fois connecté, vous pouvez commencer à concevoir vos tables. Pour plus d�
 <!--Azure.com references-->
 [se connecter et envoyer des requêtes]: ./sql-data-warehouse-get-started-connect.md
 [conception de tables]: ./sql-data-warehouse-develop-table-design.md
+[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

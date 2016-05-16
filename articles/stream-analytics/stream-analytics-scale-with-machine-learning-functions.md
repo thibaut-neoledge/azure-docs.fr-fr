@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"
 />
 
@@ -31,7 +31,7 @@ Une fonction Machine Learning dans Stream Analytics peut être utilisée comme u
 
 Lorsque vous configurez une fonction Machine Learning pour un travail Stream Analytics, vous devez prendre en compte deux paramètres : la taille de lot des appels de fonction Machine Learning et les unités de diffusion en continu approvisionnées pour le travail Stream Analytics. Pour déterminer les valeurs appropriées pour ces paramètres, commencez par trouver le bon compromis entre latence et débit, autrement dit, entre la latence du travail Stream Analytics et le débit de chaque unité de diffusion en continu. Il est toujours possible d’ajouter des unités de diffusion en continu à un travail pour augmenter le débit d’une requête Stream Analytics correctement partitionnée. Toutefois, cet ajout augmente le coût d’exécution du travail.
 
-Il est donc important de déterminer la *tolérance* de latence pour l’exécution d’un travail Stream Analytics. L’augmentation de la taille de lot entraîne naturellement une latence supplémentaire dans le cadre de l’exécution des demandes de services Azure Machine Learning, et donc une augmentation de la latence du travail Stream Analytics. En revanche, l’accroissement de la taille de lot permet au travail Stream Analytics de traiter *davantage d’événements avec le *même nombre* de demandes de services web Machine Learning. L’augmentation de la latence de service web Machine Learning est souvent consécutive à l’augmentation de la taille de lot ; il est donc important de prendre en compte la taille de lot la plus rentable pour un service web Machine Learning dans n’importe quelle situation donnée. La taille de lot par défaut pour les demandes de service web est de 1 000 et peut être modifiée au moyen de l’[API REST Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client PowerShell pour Stream Analytics").
+Il est donc important de déterminer la *tolérance* de latence pour l’exécution d’un travail Stream Analytics. L’augmentation de la taille de lot entraîne naturellement une latence supplémentaire dans le cadre de l’exécution des demandes de services Azure Machine Learning, et donc une augmentation de la latence du travail Stream Analytics. En revanche, l’accroissement de la taille de lot permet au travail Stream Analytics de traiter *davantage d’événements avec le *même nombre* de demandes de services web Machine Learning. L’augmentation de la latence de service web Machine Learning est souvent consécutive à l’augmentation de la taille de lot ; il est donc important de prendre en compte la taille de lot la plus rentable pour un service web Machine Learning dans n’importe quelle situation donnée. La taille de lot par défaut pour les demandes de service web est de 1 000 et peut être modifiée au moyen de l’[API REST Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client PowerShell pour Stream Analytics").
 
 Une fois qu’une taille de lot a été déterminée, la quantité d’unités de diffusion en continu peut être fixée en fonction du nombre d’événements que la fonction doit traiter par seconde. Pour plus d’informations sur les unités de diffusion en continu, voir l’article décrivant la procédure de [mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md#configuring-streaming-units).
 
@@ -63,7 +63,7 @@ La requête est une requête simple entièrement partitionnée suivie de la fonc
 
 Considérons le scénario suivant ; avec un débit de 10 000 tweets par seconde, un travail Stream Analytics doit être créé pour effectuer une analyse de sentiments relative aux tweets (événements). Avec 1 unité de diffusion en continu, ce travail Stream Analytics serait-il en mesure de gérer le trafic ? L’utilisation de la taille de lot par défaut de 1 000 devrait permettre de prendre en charge le trafic d’entrée. En outre, la fonction Machine Learning ajoutée ne devrait pas générer plus d’une seconde de latence, ce qui constitue la latence générale par défaut du service web Machine Learning d’analyse de sentiments (avec une taille de lot par défaut de 1 000). La latence **totale** ou de bout en bout du travail Stream Analytics serait généralement de l’ordre de quelques secondes. Examinons ce travail Stream Analytics plus en détail, *en particulier* les appels de fonction Machine Learning. La taille de lot étant de 1 000, un débit de 10 000 événements nécessitera l’envoi de 10 demandes environ au service web. Même avec 1 unité de diffusion en continu, le nombre de connexions simultanées est suffisant pour prendre en charge ce trafic d’entrée.
 
-Mais que se passera-t-il si le taux d’événements d’entrée est multiplié par 100 et que le travail Stream Analytics doit alors traiter 1 000 000 de tweets par seconde ? Nous avons deux options :
+Mais que se passera-t-il si le taux d’événements d’entrée est multiplié par 100 et que le travail Stream Analytics doit alors traiter 1 000 000 de tweets par seconde ? Nous avons deux options :
 
 1.  augmenter la taille de lot ;
 2.  partitionner le flux d’entrée pour traiter les événements en parallèle.
@@ -84,14 +84,14 @@ Le tableau ci-après présente le débit du travail Stream Analytics pour diffé
 |--------|-------------------------|---------------|---------------|----------------|----------------|
 | | | | | | |
 | | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
-| 1 unité de recherche | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
-| 3 unités de diffusion en continu | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
-| 6 unités de diffusion en continu | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
-| 12 unités de diffusion en continu | 5 000 | 10 000 | 40 000 | 60 000 | 100 000 |
+| 1 unité de recherche | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
+| 3 unités de diffusion en continu | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
+| 6 unités de diffusion en continu | 2 500 | 5 000 | 20 000 | 30 000 | 50 000 |
+| 12 unités de diffusion en continu | 5 000 | 10 000 | 40 000 | 60 000 | 100 000 |
 | 18 unités de diffusion en continu | 7 500 | 15 000 | 60 000 | 90 000 | 150 000 |
-| 24 unités de diffusion en continu | 10 000 | 20 000 | 80 000 | 120 000 | 200 000 |
+| 24 unités de diffusion en continu | 10 000 | 20 000 | 80 000 | 120 000 | 200 000 |
 | … | … | … | … | … | … |
-| 60 unités de diffusion en continu | 25 000 | 50 000 | 200 000 | 300 000 | 500 000 |
+| 60 unités de diffusion en continu | 25 000 | 50 000 | 200 000 | 300 000 | 500 000 |
 
 À ce stade, vous devriez déjà avoir une bonne compréhension du mode de fonctionnement des fonctions Machine Learning dans Stream Analytics. Vous devez également avoir compris que les travaux Stream Analytics envoient les données de sources de données par le biais d’une transmission de type pull, et que chaque transmission de ce type renvoie un lot d’événements destinés à être traités par le travail Stream Analytics. Comment ce modèle de transmission de type pull affecte-t-il les demandes de service web Machine Learning ?
 
@@ -116,18 +116,18 @@ Les définitions de ces métriques sont les suivantes :
 Pour récapituler les points principaux, la mise à l’échelle d’un travail Stream Analytics avec des fonctions Machine Learning nécessite la prise en compte des éléments suivants :
 
 1.  taux d’événements d’entrée ;
-2.  latence tolérée pour le travail Stream Analytics en cours d’exécution (et donc taille de lot des demandes de service web Machine Learning) ;
+2.  latence tolérée pour le travail Stream Analytics en cours d’exécution (et donc taille de lot des demandes de service web Machine Learning) ;
 3.  unités de diffusion en continu Stream Analytics approvisionnées et nombre de demandes de service web Machine Learning (coûts associés aux fonctions supplémentaires).
 
 Notre exemple portait sur une requête Stream Analytics entièrement partitionnée. Si vous avez besoin d’une requête plus complexe, le [Forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics) est une précieuse ressource vous permettant d’obtenir une aide complémentaire auprès de l’équipe Stream Analytics.
 
 ## Étapes suivantes
 
-Pour en savoir plus sur Stream Analytics, consultez :
+Pour en savoir plus sur Stream Analytics, consultez :
 
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

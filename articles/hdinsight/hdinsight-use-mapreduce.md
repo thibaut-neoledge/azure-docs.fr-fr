@@ -1,5 +1,5 @@
 <properties
-   pageTitle="MapReduce avec Hadoop sur HDInsight | Microsoft Azure"
+   pageTitle="MapReduce avec Hadoop sur HDInsight | Microsoft Azure"
    description="Apprenez à exécuter des tâches MapReduce sur Hadoop dans des clusters HDInsight. Vous exécuterez une opération de comptage de mots de base implémentée en tant que tâche MapReduce en Java."
    services="hdinsight"
    documentationCenter=""
@@ -23,20 +23,20 @@
 
 Dans cet article, vous allez apprendre à exécuter des tâches MapReduce sur Hadoop dans des clusters HDInsight. Nous exécutons une opération de comptage de mots de base implémentée en tant que tâche MapReduce en Java.
 
-##<a id="whatis"></a>Qu'est-MapReduce ?
+##<a id="whatis"></a>Qu'est-MapReduce ?
 
-Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des tâches traitant d'importantes quantités de données. Les données d'entrée sont divisées en blocs indépendants, qui sont ensuite traitées en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
+Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des tâches traitant d'importantes quantités de données. Les données d'entrée sont divisées en blocs indépendants, qui sont ensuite traitées en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
 
 * **Mappeur** : il consomme les données d'entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur)
 * **Raccord de réduction** : il consomme les tuples émis par le Mappeur et effectue une opération de synthèse qui crée un résultat plus petit, combiné à partir des données du Mappeur
 
-Un exemple de tâche MapReduce de comptage de mots de base est illustré dans le diagramme suivant :
+Un exemple de tâche MapReduce de comptage de mots de base est illustré dans le diagramme suivant :
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 Le résultat de cette tâche indique le nombre d’occurrences de chaque mot dans le texte qui a été analysé.
 
-* Le mappeur prend chaque ligne du texte saisi en tant qu'entrée, et la divise en mots. Il émet une paire clé/valeur pour chaque occurrence de mot ou si le mot est suivi d’un 1. Le résultat est trié avant d'être envoyé au raccord de réduction.
+* Le mappeur prend chaque ligne du texte saisi en tant qu'entrée, et la divise en mots. Il émet une paire clé/valeur pour chaque occurrence de mot ou si le mot est suivi d’un 1. Le résultat est trié avant d'être envoyé au raccord de réduction.
 
 * Ce dernier calcule la somme du compte de mots, puis émet une seule paire clé/valeur contenant le mot défini, suivi par la somme de ses occurrences.
 
@@ -46,13 +46,13 @@ MapReduce peut être implémenté dans plusieurs langages. Java est l'implément
 
 Les langages ou infrastructures basés sur Java et la Machine virtuelle Java (par exemple, Scalding ou en cascade) peuvent être exécutés directement comme une tâche MapReduce, similaire à une application Java. D'autres, tels que c# ou Python ou des exécutables autonomes, doivent utiliser la diffusion en continu Hadoop.
 
-La diffusion en continu Hadoop communique avec le mappeur et le raccord de réduction sur les propriétés STDIN et STDOUT - le mappeur et le raccord de réduction lisent les données ligne par ligne à partir de STDIN et écrivent le résultat dans STDOUT. Chaque ligne lue ou émise par le mappeur et le raccord de réduction doit être au format d'une paire clé/valeur, délimitée par un caractère de tabulation :
+La diffusion en continu Hadoop communique avec le mappeur et le raccord de réduction sur les propriétés STDIN et STDOUT - le mappeur et le raccord de réduction lisent les données ligne par ligne à partir de STDIN et écrivent le résultat dans STDOUT. Chaque ligne lue ou émise par le mappeur et le raccord de réduction doit être au format d'une paire clé/valeur, délimitée par un caractère de tabulation :
 
     [key]/t[value]
 
 Pour plus d’informations, consultez [Diffusion en continu Hadoop](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Pour obtenir des exemples d'utilisation de diffusion en continu Hadoop avec HDInsight, consultez les rubriques suivantes :
+Pour obtenir des exemples d'utilisation de diffusion en continu Hadoop avec HDInsight, consultez les rubriques suivantes :
 
 * [Développement de tâches MapReduce Python](hdinsight-hadoop-streaming-python.md)
 
@@ -60,21 +60,21 @@ Pour obtenir des exemples d'utilisation de diffusion en continu Hadoop avec HDIn
 
 Dans cet exemple, pour l’exemple de données vous allez utiliser les Carnets de Léonard de Vinci, qui sont fournis comme document texte dans votre cluster HDInsight.
 
-L’exemple de données est stocké dans le module de stockage d'objets blob Azure, que HDInsight utilise comme système de fichiers par défaut pour les clusters Hadoop. HDInsight peut accéder aux fichiers stockés dans un stockage d'objets blob à l'aide du préfixe **wasb**. Par exemple, pour accéder au fichier sample.log, vous devez utiliser la syntaxe suivante :
+L’exemple de données est stocké dans le module de stockage d'objets blob Azure, que HDInsight utilise comme système de fichiers par défaut pour les clusters Hadoop. HDInsight peut accéder aux fichiers stockés dans un stockage d'objets blob à l'aide du préfixe **wasb**. Par exemple, pour accéder au fichier sample.log, vous devez utiliser la syntaxe suivante :
 
 	wasb:///example/data/gutenberg/davinci.txt
 
 Étant donné que le stockage d’objets blob Azure est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE] Dans la syntaxe précédente, ****wasb:///** permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage. Par exemple : ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] Dans la syntaxe précédente, **wasb:///** permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage. Par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>À propos de l'exemple MapReduce
 
-La tâche MapReduce qui est utilisée dans cet exemple se trouve dans ****wasb://example/jars/hadoop-mapreduce-examples.jar**, et cet exemple est fourni avec votre cluster HDInsight. Il contient un exemple de comptage de mots que vous exécuterez pour **davinci.txt**.
+La tâche MapReduce qui est utilisée dans cet exemple se trouve dans **wasb://example/jars/hadoop-mapreduce-examples.jar**, et cet exemple est fourni avec votre cluster HDInsight. Il contient un exemple de comptage de mots que vous exécuterez pour **davinci.txt**.
 
-> [AZURE.NOTE] Dans les clusters HDInsight 2.1, l'emplacement du fichier est ****wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] Dans les clusters HDInsight 2.1, l'emplacement du fichier est **wasb:///example/jars/hadoop-examples.jar**.
 
-Pour référence, voici le code Java pour la tâche MapReduce de comptage de mots :
+Pour référence, voici le code Java pour la tâche MapReduce de comptage de mots :
 
 	package org.apache.hadoop.examples;
 
@@ -154,14 +154,14 @@ HDInsight peut exécuter des tâches HiveQL à l’aide de différentes méthode
 
 | **Élément à utiliser...** | **...pour faire cela** | ...avec ce **système d’exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:-------------------------------------------------------------------|:--------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
-| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) | Utilisation de la commande Hadoop via **SSH** | Linux | Linux, Unix, Mac OS X ou Windows |
-| [Curl](hdinsight-hadoop-use-mapreduce-curl.md) | Envoyer la tâche à distance à l'aide de **REST** | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | Envoyer la tâche à distance à l'aide de **Windows PowerShell** | Linux ou Windows | Windows |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) | Utilisation de la commande Hadoop via **SSH** | Linux | Linux, Unix, Mac OS X ou Windows |
+| [Curl](hdinsight-hadoop-use-mapreduce-curl.md) | Envoyer la tâche à distance à l'aide de **REST** | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | Envoyer la tâche à distance à l'aide de **Windows PowerShell** | Linux ou Windows | Windows |
 | [Bureau à distance](hdinsight-hadoop-use-mapreduce-remote-desktop) | Utilisation de la commande Hadoop via le **bureau à distance** | Windows | Windows |
 
 ##<a id="nextsteps"></a>Étapes suivantes
 
-Même si MapReduce est doté de puissantes capacités de diagnostic, il peut être assez difficile à maîtriser. Il existe plusieurs infrastructures Java qui facilitent la définition d’applications MapReduce, ainsi que des technologies telles que Pig et Hive, qui facilitent également l’utilisation des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
+Même si MapReduce est doté de puissantes capacités de diagnostic, il peut être assez difficile à maîtriser. Il existe plusieurs infrastructures Java qui facilitent la définition d’applications MapReduce, ainsi que des technologies telles que Pig et Hive, qui facilitent également l’utilisation des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Développement de programmes MapReduce en Java pour HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 
@@ -179,7 +179,6 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
@@ -189,4 +188,4 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

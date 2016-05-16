@@ -3,7 +3,7 @@
 	description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/03/2016" 
 	ms.author="sidneyh"/>
 
 # FAQ sur les outils de bases de données élastiques 
@@ -56,4 +56,4 @@ Non. Pour les opérations de **fractionnement**, la base de données cible doit 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

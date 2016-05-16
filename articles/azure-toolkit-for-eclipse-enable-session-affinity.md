@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
 
 # Activer l'affinité de session #
 
-Dans le Kit de ressources Azure pour Eclipse, vous pouvez activer l'affinité de session HTTP, ou « sessions temporaires », pour vos rôles. L'illustration suivante montre la boîte de dialogue des propriétés de **l'équilibrage de charge** utilisé pour activer la fonctionnalité d'affinité de session :
+Dans le Kit de ressources Azure pour Eclipse, vous pouvez activer l'affinité de session HTTP, ou « sessions temporaires », pour vos rôles. L'illustration suivante montre la boîte de dialogue des propriétés de **l'équilibrage de charge** utilisé pour activer la fonctionnalité d'affinité de session :
 
 ![][ic719492]
 
@@ -47,9 +47,9 @@ Pour obtenir un exemple montrant comment gérer les données de session lorsque 
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Kit de ressources Azure pour Eclipse][]
 
-[Création d’une application « Hello World » pour Azure dans Eclipse][]
+[Création d’une application « Hello World » pour Azure dans Eclipse][]
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
@@ -60,8 +60,8 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 <!-- URL List -->
 
 [Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Comment gérer les données de session avec l'affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
@@ -69,4 +69,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

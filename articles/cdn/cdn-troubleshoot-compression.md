@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # Résolution des problèmes de compression des fichiers CDN
@@ -36,12 +36,14 @@ Il existe plusieurs causes possibles, y compris :
 
 ## Étapes de dépannage
 
+> [AZURE.TIP] Comme lors du déploiement de nouveaux points de terminaison, les modifications de configuration CDN prennent un certain temps à se propager sur le réseau. Dans la plupart des cas, vous verrez que vos modifications s’appliquent dans les 90 minutes. S’il s’agit de la première fois que vous avez configuré la compression pour votre point de terminaison CDN, vous devez envisager d’attendre 1 à 2 heures pour vous assurer que les paramètres de compression ont été transmis aux POP.
+
 ### Vérifier la requête
 
 Tout d’abord, effectuez une vérification rapide de l’intégrité de la requête. Vous pouvez utiliser les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur pour afficher les requêtes en cours.
 
 - Vérifiez que la requête est envoyée à l’URL de point de terminaison, `<endpointname>.azureedge.net`, et non à l’origine.
-- Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **defalte** ou **bzip2**.
+- Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **deflate** ou **bzip2**.
 
 ![En-têtes de requête CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
@@ -63,11 +65,10 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 Accédez à votre point de terminaison dans le [portail Azure](https://portal.azure.com) et cliquez sur le bouton **Gérer**. Le portail supplémentaire s’ouvre. Pointez sur l'onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**. Cliquez sur **Compression**.
 
 - Vérifiez que la compression est activée.
-- Vérifiez que la liste **Types de fichiers** contient une liste séparée par des virgules des types MIME.
+- Vérifiez que la liste **Types de fichiers** contient une liste séparée par des virgules (sans espace) des types MIME.
 - Vérifiez que le type MIME pour le contenu à compresser est inclus dans la liste des formats compressés.
 
 ![Paramètres de compression Premium CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### Vérifier que le contenu est mis en cache
 
@@ -85,4 +86,4 @@ Pour être éligible pour la compression, un fichier doit respecter les exigence
 - Plus de 128 octets.
 - Moins de 1 Mo.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

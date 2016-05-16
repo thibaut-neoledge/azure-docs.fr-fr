@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Utiliser Azure CDN dans Azure App Service" 
 	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -566,13 +566,12 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 ## Plus d'informations 
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](../cdn/cdn-overview.md)
-- [Distribution de contenu depuis Azure CDN dans votre application web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Utilisation d’Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Intégration d’un service cloud à Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [Regroupement et minimisation d’ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Utilisation d’Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

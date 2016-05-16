@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/08/2016"
+   ms.date="04/29/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store avec les API REST
@@ -35,24 +35,66 @@ Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
-- **Créez une application Azure Active Directory**. Consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md). Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
-	- Obtenez l’ID client et l’ID de locataire associés à l’application.
-	- Créer une clé d’authentification
-	- Définir des autorisations déléguées
+- **Créez une application Azure Active Directory**. Il existe deux modes d’authentification à l’aide d’Azure Active Directory : **interactif** et **non interactif**. Les conditions préalables requises varient selon le mode d’authentification.
+	* **Pour l’authentification interactive** (utilisée dans cet article) - Dans Azure Active Directory, vous devez créer une **application cliente native**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client** et l’**URI de redirection** associés à l’application.
+		- Définir des autorisations déléguées
 
-	Vous pouvez utiliser le lien ci-dessus pour obtenir des instructions sur la manière de récupérer ces valeurs.
-- **Affectez l’application Azure Active Directory à un rôle**. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources. Pour obtenir des instructions, consultez [Affecter l’application à un rôle](../resource-group-create-service-principal-portal.md#assign-application-to-role).
+	* **Pour l’authentification non interactive** - Dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client**, la **clé secrète client** et l’**URI de redirection** associés à l’application.
+		- Définir des autorisations déléguées
+		- Attribuez l’application Azure Active Directory à un rôle. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources. Pour obtenir des instructions, consultez [Affecter l’application à un rôle](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+
+	Pour obtenir des instructions sur la récupération de ces valeurs, la définition des autorisations et l’attribution de rôles, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md).
+
 - [cURL](http://curl.haxx.se/). Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Store.
 
 ## Comment s’authentifier à l’aide d’Azure Active Directory ?
 
 Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’Azure Active Directory :
 
-* Avec la méthode **interactive**, l’application invite l’utilisateur à se connecter. Pour plus d’informations, consultez [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+### Authentification interactive (authentification utilisateur)
 
-* Avec la méthode **non interactive**, l’application fournit ses propres informations d’identification. Pour plus d’informations, consultez [Appels de service à service à l’aide d’informations d’identification](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+Dans ce scénario, l’application invite l’utilisateur à se connecter. Toutes les opérations sont effectuées dans le contexte de l’utilisateur. Pour l’authentification interactive, procédez comme suit.
 
-Cet article utilise la méthode **non interactive**. Avec cette méthode, vous devez émettre une demande POST, comme celle illustrée ci-dessous.
+1. Dans votre application, redirigez l’utilisateur vers l’URL suivante :
+
+		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+
+	>[AZURE.NOTE] L’URI <REDIRECT-URI> doit être codée pour être utilisée dans une URL. Par conséquent, pour https://localhost, utilisez `https%3A%2F%2Flocalhost`.)
+
+	Pour les besoins de ce didacticiel, vous pouvez remplacer les valeurs d’espace réservé de l’URL ci-dessus et la coller dans la barre d’adresse d’un navigateur web. Vous serez redirigé pour vous authentifier à l’aide de vos informations de connexion Azure. Lorsque vous êtes connecté, la réponse s’affiche dans la barre d’adresse du navigateur. La réponse présente le format suivant :
+		
+		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Capturez le code d’autorisation de la réponse. Pour ce didacticiel, vous pouvez copier le code d’autorisation de la barre d’adresse du navigateur web et le transmettre dans la demande POST au point de terminaison de jeton, comme indiqué ci-dessous :
+
+		curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<CLIENT-ID> \
+        -F code=<AUTHORIZATION-CODE>
+
+	>[AZURE.NOTE] Dans ce cas, il n’est pas nécessaire de coder l’URI <REDIRECT-URI>.
+
+3. La réponse est un objet JSON contenant un jeton d’accès (par exemple, `"access_token": "<ACCESS_TOKEN>"`) et un jeton d’actualisation (par exemple, `"refresh_token": "<REFRESH_TOKEN>"`). Votre application utilise le jeton d’accès pour accéder à Azure Data Lake Store et le jeton d’actualisation pour obtenir un autre jeton d’accès lorsque l’un d’eux expire.
+
+		{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":	"1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4.  Lorsque le jeton d’accès arrive à expiration, vous pouvez demander un nouveau jeton d’accès à l’aide du jeton d’actualisation, comme indiqué ci-dessous :
+
+		 curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      		-F grant_type=refresh_token \
+      		-F resource=https://management.core.windows.net/ \
+      		-F client_id=<CLIENT-ID> \
+      		-F refresh_token=<REFRESH-TOKEN>
+ 
+Pour plus d’informations sur l’authentification utilisateur interactive, consultez [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+
+### Authentification non interactive
+
+Dans ce scénario, l’application fournit ses propres informations d’identification pour effectuer les opérations. Avec cette méthode, vous devez émettre une demande POST, comme celle illustrée ci-dessous.
 
 	curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -64,13 +106,15 @@ La sortie de cette demande inclut un jeton d’autorisation (indiqué par `acces
 
 	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
+Cet article utilise la méthode **non interactive**. Pour plus d’informations sur l’authentification non interactive (appels de service à service), consultez [Appels de service à service à l’aide d’informations d’identification](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+
 ## Créer un compte Data Lake Store
 
 Cette opération est basée sur l’appel d’API REST défini [ici](https://msdn.microsoft.com/library/mt694078.aspx).
 
 Utilisez la commande cURL suivante. Remplacez **<yourstorename>** par le nom de votre Data Lake Store.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@C:\temp\input.json
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
 Dans la commande ci-dessus, remplacez <`REDACTED`> par le jeton d’autorisation que vous avez récupéré précédemment. La charge utile de la demande pour cette commande est contenue dans le fichier **input.json** fourni pour le paramètre `-d` ci-dessus. Le contenu du fichier input.json ressemble à ceci :
 
@@ -232,4 +276,4 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 - [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -24,7 +24,9 @@ Cet article présente les principes de base de la sécurisation de votre base de
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre à l’adresse IP publique de l’ordinateur client ou à votre application de tenter de se connecter à une nouvelle base de données, vous devez d’abord créer une règle de pare-feu au niveau du serveur, via le portail Classic de Microsoft Azure, l’API REST ou PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure][].
+Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure Classic, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure][].
+
+Les connexions à votre SQL Data Warehouse peuvent être chiffrées en définissant le mode de chiffrement dans votre chaîne de connexion. La syntaxe pour l’activation du chiffrement de la connexion varie en fonction du protocole. Pour obtenir de l’aide pour la configuration de votre chaîne de connexion, accédez à votre base de données dans le portail Azure. Sous *Essentials* cliquez sur *Afficher les chaînes de connexion de la base de données*.
 
 
 ## Authentification
@@ -43,7 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Ensuite, connectez-vous à votre base de données SQL Data Warehouse avec votre avec votre identifiant de connexion d'administrateur du serveur, et créez un utilisateur de base de données basé sur l’identifiant de connexion au serveur que vous venez de créer.
+Ensuite, connectez-vous à votre base de données SQL Data Warehouse avec votre identifiant de connexion d'administrateur du serveur, puis créez un utilisateur de base de données basé sur l’identifiant de connexion au serveur que vous venez de créer.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -91,14 +93,13 @@ Vous pouvez également activer le chiffrement transparent des données à partir
 Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
-
+Pour plus d’informations sur la connexion à SQL Data Warehouse avec différents protocoles et voir des exemples, consultez [Se connecter à SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
-
+[Se connecter à SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
+[Prise en main de l’audit de base de données SQL]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Pare-feu de base de données SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,10 +108,9 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
 [chiffrement transparent des données]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Prise en main de l’audit de base de données SQL]: sql-database-auditing-get-started.md
 [portail Azure Classic]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

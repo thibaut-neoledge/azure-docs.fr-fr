@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -103,7 +103,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **separator** | Requis | String | Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1... sourceN ** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
+| **source1... sourceN** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
 
 
 
@@ -131,7 +131,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Fonction :**<br> Not(source)
 
-**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
+**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
 
 
 **Paramètres :**<br>
@@ -315,4 +315,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

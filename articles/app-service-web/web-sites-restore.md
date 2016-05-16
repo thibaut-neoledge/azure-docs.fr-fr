@@ -18,7 +18,7 @@
 
 # Restauration d'une application dans Azure App Service
 
-Cet article vous explique comment restaurer une application App Service que vous avez précédemment sauvegardée à l'aide de la fonctionnalité de sauvegarde d'[App Service](app-service-value-prop-what-is). Pour en savoir plus, consultez [Sauvegardes App Service](web-sites-backup.md).
+Cet article vous explique comment restaurer une application App Service que vous avez précédemment sauvegardée à l'aide de la fonctionnalité de sauvegarde d'[App Service](../app-service/app-service-value-prop-what-is.md). Pour en savoir plus, consultez [Sauvegardes App Service](web-sites-backup.md).
 
 La fonctionnalité de restauration App Service vous permet de restaurer votre application avec ses bases de données liées (base de données SQL ou MySQL) à la demande à un état antérieur ou de créer une application à partir de la sauvegarde de votre application d'origine. La création d'une application s'exécutant parallèlement à la dernière version peut se révéler utile à des fins de test A/B.
 
@@ -106,4 +106,4 @@ Vous pouvez également sauvegarder et restaurer des applications App Service à 
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

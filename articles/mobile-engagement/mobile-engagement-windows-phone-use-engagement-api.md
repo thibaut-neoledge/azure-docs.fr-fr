@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Comment utiliser l'API Engagement sur Windows Phone Silverlight
 
-Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
+Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 Si vous souhaitez qu'Engagement signale uniquement les sessions, activités, incidents et informations techniques de votre application, la méthode la plus simple consiste à configurer toutes vos sous-classes `PhoneApplicationPage` de manière à ce qu'elles héritent de la classe `EngagementPage`.
 
@@ -372,7 +372,7 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations de l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
@@ -386,4 +386,4 @@ Le Kit de développement logiciel (SDK) peut être configuré pour générer des
 			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
 			EngagementAgent.Instance.Init();
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

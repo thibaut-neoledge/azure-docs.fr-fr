@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight
@@ -38,7 +38,7 @@ Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acycliq
 
 La vue Tez fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d’afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d’accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu’aux informations d’erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
 
-* Surveiller les processus à long terme, voir l’avancement des tâches de mappage et de réduction.
+* Surveiller les processus à long terme, voir l'avancement des tâches de mappage et de réduction.
 
 * Analyser les données historiques des processus ayant réussi ou échoué, afin de savoir comment le traitement peut être amélioré ou pourquoi il a échoué.
 
@@ -46,7 +46,7 @@ La vue Tez fournit des informations sur les processus en cours d’exécution, o
 
 La vue Tez contient des données uniquement si une tâche qui utilise le moteur Tez est en cours d’exécution ou a déjà été exécutée. Les requêtes Hive simples peuvent généralement être résolues sans utiliser Tez. Toutefois, Tez est généralement nécessaire pour les requêtes plus complexes destinées à filtrer, regrouper, classer, joindre, etc.
 
-Utilisez les étapes suivantes pour exécuter une requête Hive à l’aide de Tez.
+Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez.
 
 1. Dans un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net, où __CLUSTERNAME__ est le nom de votre cluster HDInsight.
 
@@ -141,4 +141,4 @@ Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Horton
 
 Pour plus d’informations sur l’utilisation d’Ambari avec HDInsight, consultez la page [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

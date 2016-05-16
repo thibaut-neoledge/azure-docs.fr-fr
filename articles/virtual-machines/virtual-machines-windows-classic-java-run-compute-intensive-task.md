@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Application Java nécessitant beaucoup de ressources sur une machine virtuelle | Microsoft Azure"
-	description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller."
+	description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller."
 	services="virtual-machines-windows"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -26,21 +26,21 @@ Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessita
 
 Ce didacticiel part du principe que vous savez créer des applications console Java, importer des bibliothèques dans votre application Java et générer une archive Java (JAR). Aucune connaissance de Microsoft Azure n'est nécessaire.
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
-* créer une machine virtuelle déjà dotée d'un kit de développement Java (JDK) ;
-* vous connecter à distance à votre machine virtuelle ;
-* créer un espace de noms Service Bus ;
-* créer une application Java exécutant une tâche qui nécessite beaucoup de ressources ;
-* créer une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources ;
-* exécuter les applications Java ;
+* créer une machine virtuelle déjà dotée d'un kit de développement Java (JDK) ;
+* vous connecter à distance à votre machine virtuelle ;
+* créer un espace de noms Service Bus ;
+* créer une application Java exécutant une tâche qui nécessite beaucoup de ressources ;
+* créer une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources ;
+* exécuter les applications Java ;
 * arrêter les applications Java.
 
 Dans le cadre de ce didacticiel, la tâche nécessitant beaucoup de ressources repose sur le problème du voyageur de commerce. Vous trouverez ci-dessous un exemple d'application Java qui exécute la tâche nécessitant beaucoup de ressources.
 
 ![Résolution du problème du voyageur de commerce][solver_output]
 
-Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche nécessitant beaucoup de ressources :
+Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche nécessitant beaucoup de ressources :
 
 ![Client du problème du voyageur de commerce][client_output]
 
@@ -48,9 +48,9 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 
 ## Création d’une machine virtuelle
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
-3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
+3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4. Cliquez sur **Suivant**.
 4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
@@ -58,7 +58,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5. Cliquez sur **Next**.
-5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
+5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
     1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
@@ -71,7 +71,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 
 ## Connexion distante à votre machine virtuelle
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
@@ -83,15 +83,15 @@ Notez que la fonctionnalité Azure Service Bus requiert l'installation du certif
 
 Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
 
-Pour créer un espace de noms de service :
+Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2.  En bas du volet de navigation gauche du portail Azure Classic, cliquez sur **Service Bus, Contrôle d’accès et Cache**.
-3.  Dans le volet supérieur gauche du portail Azure Classic, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**. ![Capture d’écran du nœud Service Bus][svc_bus_node]
+1.  Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+2.  En bas du volet de navigation gauche du portail Azure Classic, cliquez sur **Service Bus, Contrôle d’accès et Cache**.
+3.  Dans le volet supérieur gauche du portail Azure Classic, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**. ![Capture d’écran du nœud Service Bus][svc_bus_node]
 4.  Dans la boîte de dialogue **Créer un espace de noms de service**, entrez un **Espace de noms**, puis vérifiez qu'il est unique en cliquant sur le bouton **Vérifier la disponibilité**. ![Capture d'écran Créer un espace de noms][create_namespace]
 5.  Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms**.  
 
-    L’espace de noms que vous avez créé apparaît alors dans le portail Azure Classic. Son activation peut prendre un peu de temps. Attendez que l'état **Actif** apparaisse avant de passer à l'étape suivante.
+    L’espace de noms que vous avez créé apparaît alors dans le portail Azure Classic. Son activation peut prendre un peu de temps. Attendez que l'état **Actif** apparaisse avant de passer à l'étape suivante.
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
@@ -419,7 +419,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 1. Connectez-vous à votre machine virtuelle.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\\TSP**.
 3. Copiez **TSPSolver.jar** sous **c:\\TSP**.
-4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
+4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -478,14 +478,14 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
         java -jar TSPSolver.jar createqueue
 
-8. Maintenant que la file d'attente est créée, vous pouvez exécuter les permutations de solveur TSP. Par exemple, exécutez la commande suivante afin d'exécuter le solveur pour 8 villes.
+8. Maintenant que la file d'attente est créée, vous pouvez exécuter les permutations de solveur TSP. Par exemple, exécutez la commande suivante afin d'exécuter le solveur pour 8 villes.
 
         java -jar TSPSolver.jar 8
 
- Si vous n'entrez aucun nombre, l'exécution portera sur 10 villes. Dès que le solveur trouve les itinéraires les plus courts, il les ajoute à la file d’attente.
+ Si vous n'entrez aucun nombre, l'exécution portera sur 10 villes. Dès que le solveur trouve les itinéraires les plus courts, il les ajoute à la file d’attente.
 
 > [AZURE.NOTE]
-Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
+Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
 
 ### Exécution de la surveillance de l'application cliente
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
@@ -497,11 +497,11 @@ Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue
 
         java -jar TSPClient.jar
 
-    Vous pouvez éventuellement spécifier le nombre de minutes de veille entre les vérifications de la file d’attente via un argument de ligne de commande. La période de veille par défaut de la vérification de la file d'attente est de 3 minutes et elle est appliquée si aucun argument de ligne de commande n'est transmis à **TSPClient**. Si vous souhaitez utiliser une autre valeur pour l’intervalle de veille (une minute, par exemple), exécutez la commande suivante :
+    Vous pouvez éventuellement spécifier le nombre de minutes de veille entre les vérifications de la file d’attente via un argument de ligne de commande. La période de veille par défaut de la vérification de la file d'attente est de 3 minutes et elle est appliquée si aucun argument de ligne de commande n'est transmis à **TSPClient**. Si vous souhaitez utiliser une autre valeur pour l’intervalle de veille (une minute, par exemple), exécutez la commande suivante :
 
 	    java -jar TSPClient.jar 1
 
-    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**) suivante.
+    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**) suivante.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -521,4 +521,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->
