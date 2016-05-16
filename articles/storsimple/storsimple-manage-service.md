@@ -23,13 +23,13 @@ Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte �
 
 La page d’accueil StorSimple Manager répertorie tous les services StorSimple Manager que vous pouvez utiliser pour gérer vos dispositifs de stockage StorSimple. Pour chaque service StorSimple Manager, les informations suivantes s’affichent sur la page StorSimple Manager :
 
-- **Nom** : le nom affecté à votre service StorSimple Manager lors de sa création. Impossible de modifier le nom du service une fois que le service a été créé.
+- **Nom** : le nom affecté à votre service StorSimple Manager lors de sa création. Impossible de modifier le nom du service une fois que le service a été créé.
 
-- **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
+- **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
 
-- **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
+- **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
 
-- **Abonnement** : l’abonnement de facturation associé à votre service.
+- **Abonnement** : l’abonnement de facturation associé à votre service.
 
 Les tâches courantes qui peuvent être effectuées via la page StorSimple Manager sont les suivantes :
 

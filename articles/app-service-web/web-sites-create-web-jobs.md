@@ -44,7 +44,7 @@ Les types de fichier suivants sont acceptés :
 
 ## <a name="CreateOnDemand"></a>Création d’une tâche Web à la demande sur le portail
 
-1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
+1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
 	
 	![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -99,7 +99,7 @@ Autres exemples de planification CRON :
 - À 9h30 tous les jours : `0 30 9 * * *`
 - À 9h30 tous les jours de la semaine : `0 30 9 * * 1-5`
 
-**Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
+**Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
 
 
 ## <a name="CreateScheduled"></a>Créer une tâche web planifiée à l’aide d’Azure Scheduler
@@ -116,11 +116,11 @@ Le portail Azure ne permet pas encore de créer une tâche Web planifiée. Pour 
 	
 2. Sélectionnez la **région Scheduler** pour votre tâche, puis cliquez sur la flèche située dans le coin inférieur droit de la boîte de dialogue pour passer à l'écran suivant.
 
-3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
+3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
 	
 	![Périodicité de la planificiation][SchdRecurrence]
 	
-4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
+4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
 	
 	![Heure de début de la planification][SchdStart]
 	

@@ -124,9 +124,9 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
      ![Création d’un appareil virtuel StorSimple](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
-	1. **Nom** : nom unique de votre appareil virtuel.
+	1. **Nom** : nom unique de votre appareil virtuel.
 
-	2. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques de version Update 1 (ou ultérieure) auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et de mise à jour postérieure 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
+	2. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques de version Update 1 (ou ultérieure) auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et de mise à jour postérieure 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
 
 	   - la version Update 0.3 en cas de basculement ou de clonage à partir d’un appareil physique avec version GA ou version Update 0.1 à 0.3. 
 	   - la version Update 1 en cas de basculement ou de clonage à partir d’un appareil physique avec Update 1 (ou version ultérieure). La sélection d’Update 1 dans la liste déroulante entraîne l’approvisionnement d’un appareil virtuel Update 1.1.

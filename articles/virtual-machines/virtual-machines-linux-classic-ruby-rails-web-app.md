@@ -111,13 +111,13 @@ Le résultat ressemble à ce qui suit.
 
 3. Dans la page suivante de la boîte de dialogue, entrez les informations suivantes :
 
-	* **NOM** : HTTP
+	* **NOM** : HTTP
 
-	* **PROTOCOLE** : TCP
+	* **PROTOCOLE** : TCP
 
-	* **PORT PUBLIC** : 80
+	* **PORT PUBLIC** : 80
 
-	* **PORT PRIVÉ** : 3000
+	* **PORT PRIVÉ** : 3000
 
 	Ainsi, un port public 80 est créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
 

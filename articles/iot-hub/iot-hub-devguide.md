@@ -42,14 +42,14 @@ Azure IoT Hub est un service mutualisé qui propose ses fonctionnalités à di
 
 Vous trouverez ci-dessous une description des points de terminaison :
 
-* **Fournisseur de ressources** : le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager][lnk-arm] qui permet aux titulaires d’abonnements Azure de créer des hubs IoT, de les supprimer et de mettre à jour leurs propriétés. Les propriétés de IoT Hub régissent les stratégies de sécurité au niveau du hub, par opposition au contrôle d’accès au niveau de l’appareil (voir [Contrôle d’accès](#accesscontrol) ci-dessous), ainsi que les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources vous permet également d’[exporter les identités des appareils](#importexport).
-* **Gestion d’identité de l’appareil** : chaque hub IoT expose un ensemble de points de terminaison HTTP REST afin de gérer les identités des appareils (par exemple, pour les opérations de création, de récupération, de mise à jour et de suppression). Les identités des appareils sont utilisées pour l’authentification des appareils et le contrôle d’accès. Consultez la rubrique [Registre des identités des appareils](#device-identity-registry) pour plus d’informations.
-* **Points de terminaison des appareils** : pour chaque appareil approvisionné dans le registre des identités des appareils, IoT Hub expose un ensemble de points de terminaison qu’un appareil peut utiliser pour envoyer et recevoir des messages :
+* **Fournisseur de ressources** : le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager][lnk-arm] qui permet aux titulaires d’abonnements Azure de créer des hubs IoT, de les supprimer et de mettre à jour leurs propriétés. Les propriétés de IoT Hub régissent les stratégies de sécurité au niveau du hub, par opposition au contrôle d’accès au niveau de l’appareil (voir [Contrôle d’accès](#accesscontrol) ci-dessous), ainsi que les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources vous permet également d’[exporter les identités des appareils](#importexport).
+* **Gestion d’identité de l’appareil** : chaque hub IoT expose un ensemble de points de terminaison HTTP REST afin de gérer les identités des appareils (par exemple, pour les opérations de création, de récupération, de mise à jour et de suppression). Les identités des appareils sont utilisées pour l’authentification des appareils et le contrôle d’accès. Consultez la rubrique [Registre des identités des appareils](#device-identity-registry) pour plus d’informations.
+* **Points de terminaison des appareils** : pour chaque appareil approvisionné dans le registre des identités des appareils, IoT Hub expose un ensemble de points de terminaison qu’un appareil peut utiliser pour envoyer et recevoir des messages :
     - *Envoyer des messages appareil-à-cloud*. Utilisez ce point de terminaison pour envoyer des messages appareil-à-cloud. Pour plus d’informations, consultez [Messages appareil-à-cloud](#d2c)
     - *Recevoir des messages cloud-à-appareil*. Un appareil utilise ce point de terminaison pour recevoir les messages cloud-à-appareil qui lui sont adressés. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
 
     Ces points de terminaison sont exposés à l’aide de protocoles HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
-* **Points de terminaison de service** : chaque IoT Hub expose un ensemble de points de terminaison que votre système principal d’application peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement exposés uniquement à l’aide du protocole [AMQP][lnk-amqp].
+* **Points de terminaison de service** : chaque IoT Hub expose un ensemble de points de terminaison que votre système principal d’application peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement exposés uniquement à l’aide du protocole [AMQP][lnk-amqp].
     - *Recevoir des messages appareil-à-cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs][lnk-event-hubs] et peut être utilisé par un service principal pour lire tous les messages appareil-à-cloud envoyés par vos appareils. Pour plus d’informations, consultez [Messages appareil-à-cloud](#d2c)
     - *Envoyer des messages cloud-à-appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre système principal d’application à envoyer des messages cloud-à-appareil et à recevoir les accusés de réception ou d’expiration correspondants. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
 
@@ -68,7 +68,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou intégrations
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au hub d’événements ci-dessus.
 
@@ -131,7 +131,7 @@ Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel op
 Un registre des identités des appareils IoT Hub :
 
 - ne contient pas de métadonnées de l’application ;
-- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
+- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
 - ne prend pas en charge les requêtes expressives.
 
 Une solution IoT possède généralement une zone de stockage distincte spécifique à la solution qui contient les métadonnées propres à l’application. Dans une solution de développement intelligente, par exemple, la zone de stockage spécifique à la solution doit enregistrer l’espace dans lequel un capteur de température sera déployé.
@@ -174,11 +174,11 @@ Vous pouvez accorder les autorisations de différentes manières :
 
 * **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
 
-    - *iothubowner* : stratégie jouissant de toutes les autorisations
-    - *service* : stratégie jouissant de l’autorisation **ServiceConnect**
-    - *device* : stratégie jouissant de l’autorisation **DeviceConnect**
-    - *registryRead* : stratégie jouissant de l’autorisation **RegistryRead**
-    - *registryReadWrite* : stratégie jouissant des autorisations **RegistryRead** et **RegistryWrite**
+    - *iothubowner* : stratégie jouissant de toutes les autorisations
+    - *service* : stratégie jouissant de l’autorisation **ServiceConnect**
+    - *device* : stratégie jouissant de l’autorisation **DeviceConnect**
+    - *registryRead* : stratégie jouissant de l’autorisation **RegistryRead**
+    - *registryReadWrite* : stratégie jouissant des autorisations **RegistryRead** et **RegistryWrite**
 
 * **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre d’identité des appareils](#device-identity-registry). Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
@@ -272,7 +272,7 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 | EnqueuedTime | Date et heure de réception du message par IoT Hub. |
 | CorrelationId | Propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |
 | UserId | Permet de spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |
-| Ack | Propriété utilisée dans les messages cloud-à-appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
+| Ack | Propriété utilisée dans les messages cloud-à-appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
 | ConnectionDeviceId | Propriété définie par IoT Hub sur les messages appareil-à-cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. |
 | ConnectionDeviceGenerationId | Propriété définie par IoT Hub sur les messages appareil-à-cloud. Elle contient la propriété **generationId** (conformément aux [Propriétés d’identité des appareils](#deviceproperties)) de l’appareil qui a envoyé le message. |
 | ConnectionAuthMethod | Propriété définie par IoT Hub sur les messages appareil-à-cloud. Informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message. Pour plus d’informations, consultez [Prévention d’usurpation d’identité entre un appareil et le cloud](#antispoofing).|
@@ -295,8 +295,8 @@ IoT Hub prend en charge les protocoles [AMQP][lnk-amqp], AMQP sur WebSockets, MQ
 #### Remarques sur la prise en charge MQTT
 IoT Hub implémente le protocole MQTT v3.1.1 avec le comportement spécifique et les limitations suivantes :
 
-  * **QoS 2 n’est pas pris en charge** : quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
-  * **Retain** : si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+  * **QoS 2 n’est pas pris en charge** : quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
+  * **Retain** : si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
   
 Consultez l’article [Prise en charge de MQTT au niveau d’IoT Hub][lnk-mqtt-support] pour plus de détails.
 
@@ -371,7 +371,7 @@ Comme expliqué dans la section [Points de terminaison](#endpoints), vous pouvez
 
 Chaque message cloud-à-appareil cible un seul appareil en définissant la propriété **to** sur **/devices/{deviceId}/messages/devicebound**.
 
-**Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages Cloud vers appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
+**Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages Cloud vers appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
 
 > [AZURE.NOTE] Quand vous envoyez des messages appareil-à-cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -498,7 +498,7 @@ Le billet de blog [Limitation d’IoT Hub et vous][lnk-throttle-blog] fournit un
 
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 
-**Important** : les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils sont prises en charge via les [tâches d’importation/exportation](#importexport).
+**Important** : les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils sont prises en charge via les [tâches d’importation/exportation](#importexport).
 
 ## Étapes suivantes
 

@@ -388,7 +388,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | fileName | Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la [section Utilisation de la propriété partitionedBy](#Leveraging-partitionedBy-property) ci-dessous pour obtenir plus d’informations et des exemples. | Non
 | format | Trois types de formats sont pris en charge : **TextFormat**, **AvroFormat** et **JsonFormat**. Vous devez définir la propriété de **type** sous format sur l’une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat) et [Définition de JsonFormat](#specifying-jsonformat). | Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -430,7 +430,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
@@ -439,7 +439,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
 
-**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |

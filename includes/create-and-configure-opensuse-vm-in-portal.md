@@ -10,7 +10,7 @@
 
 4. Sous le groupe **SUSE**, sélectionnez une image de machine virtuelle OpenSUSE, puis cliquez sur la flèche pour continuer.
 
-5. Sur la première page **Configuration de la machine virtuelle** :
+5. Sur la première page **Configuration de la machine virtuelle** :
 
 	- Entrez le **Nom de la machine virtuelle**, par exemple, « testlinuxvm ». Le nom doit contenir entre 3 et 15 caractères, peut contenir uniquement des lettres, des chiffres et des traits d’union, et doit commencer par une lettre et se terminer par une lettre ou un chiffre.
 

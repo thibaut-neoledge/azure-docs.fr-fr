@@ -233,8 +233,8 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 ### Si aucune donnée de compteur de performances ne s’affiche
 
 * **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
-* **Site Web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
-* **Serveur Unix** : [installer collectd](app-insights-java-collectd.md)
+* **Site Web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
+* **Serveur Unix** : [installer collectd](app-insights-java-collectd.md)
 
 ### Pour afficher davantage de compteurs de performances
 

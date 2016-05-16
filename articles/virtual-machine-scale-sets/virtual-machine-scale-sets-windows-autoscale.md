@@ -45,9 +45,9 @@ Consultez [Installation et configuration d’Azure PowerShell](../powershell-ins
 
 ## Étape 2 : créer un groupe de ressources et un compte de stockage
 
-1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-2. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
+2. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
 
 ## Étape 3 : créer le modèle
 Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
@@ -471,18 +471,18 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
     Pour ce didacticiel, il s’agit de valeurs importantes :
 
-    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
-- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
-    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
-    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
-    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
-    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
-    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
-    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
-    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
-    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
-    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
-    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
+    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
+	- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
+    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
+    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
+    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
+    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
 
 12.	Enregistrez le fichier de modèle.
 

@@ -30,15 +30,15 @@ Dans ce didacticiel, vous allez apprendre à créer une application web App Serv
 
 Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont disponibles gratuitement, de sorte que vous pouvez commencer à développer gratuitement pour Azure.
 
-- **Abonnement Azure** : pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/).
+- **Abonnement Azure** : pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/).
 
 - **Visual Studio 2013** - Pour télécharger une version d'évaluation gratuite de Visual Studio 2013, consultez la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez ceci avant de poursuivre.
 
-- **Microsoft .NET Framework 3.5 Service Pack 1** : si votre système d'exploitation est Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 ou Windows Server 2008 R2, vous pouvez activer cette mise à jour dans Panneau de configuration > Programmes et fonctionnalités > Activer ou désactiver des fonctionnalités Windows. Sinon, vous pouvez la télécharger depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
+- **Microsoft .NET Framework 3.5 Service Pack 1** : si votre système d'exploitation est Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 ou Windows Server 2008 R2, vous pouvez activer cette mise à jour dans Panneau de configuration > Programmes et fonctionnalités > Activer ou désactiver des fonctionnalités Windows. Sinon, vous pouvez la télécharger depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
 
 - **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](http://www.microsoft.com/web/platform/database.aspx). Choisissez la version **Express** (pas LocalDB). La version **Express with Tools** inclut SQL Server Management Studio, que vous utiliserez dans ce didacticiel.
 
-- **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](http://www.microsoft.com/web/platform/database.aspx).
+- **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](http://www.microsoft.com/web/platform/database.aspx).
 
 Ce didacticiel part du principe que vous possédez un abonnement Azure, que vous avez installé Visual Studio 2013 et que vous avez installé ou activé .NET Framework 3.5. Il explique comment installer SQL Server 2014 Express dans une configuration adaptée à la fonctionnalité Connexions hybrides d'Azure (une instance par défaut avec un port IP statique). Avant de commencer ce didacticiel, téléchargez SQL Server 2014 Express with Tools depuis l'emplacement mentionné ci-dessus si vous n'avez pas installé SQL Server.
 
@@ -145,7 +145,7 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 
 2. Dans le panneau Connexions hybrides, cliquez sur **Ajouter** > **Nouvelle connexion hybride**.
 
-3. Dans le panneau **Créer une connexion hybride** :
+3. Dans le panneau **Créer une connexion hybride** :
 	- Sous **Nom**, entrez un nom pour la connexion.
 	- Sous **Nom d'hôte**, entrez le nom de votre ordinateur hôte SQL Server.
 	- Sous **Port**, entrez 1433 (le port par défaut pour SQL Server).

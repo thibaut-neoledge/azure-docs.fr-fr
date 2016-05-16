@@ -101,7 +101,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 
 9. Cliquez sur **Propriétés**. Dans la boîte de dialogue **Propriétés**, cliquez sur **Ajouter une session**.
 10. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
-11. Dans la boîte de dialogue **Paramètres avancés** :										
+11. Dans la boîte de dialogue **Paramètres avancés** :										
 	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur Microsoft iSCSI.
 	-  Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à l’hôte. Dans ce cas, vous connectez deux interfaces réseau sur l’appareil à une seule interface réseau sur l’hôte. Par conséquent, cette interface est identique à celle fournie pour la première session.
 	-  Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.
@@ -140,13 +140,13 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
 4. Dans la boîte de dialogue **Propriétés de l’initiateur iSCSI**, sélectionnez l’onglet **Cibles**, mettez en surbrillance la cible détectée, puis cliquez sur **Connexion**. La boîte de dialogue **Se connecter à la cible** s’affiche.
 
-5. Dans la boîte de dialogue **Se connecter à la cible** :
+5. Dans la boîte de dialogue **Se connecter à la cible** :
 	
 	- Laissez le paramètre cible sélectionné par défaut pour **Ajouter cette connexion** à la liste des cibles favorites. Le périphérique tentera automatiquement de redémarrer la connexion à chaque redémarrage de cet ordinateur.
 	- Sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**.
 	- Cliquez sur **Avancé**.
 
-6. Dans la boîte de dialogue **Paramètres avancés** :
+6. Dans la boîte de dialogue **Paramètres avancés** :
 	- Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	- Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP de l’hôte.
 	- Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de l’interface de données activée sur l’appareil.
@@ -156,7 +156,7 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
 8. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**, puis cliquez sur **Avancé**.
 
-9. Dans la boîte de dialogue **Paramètres avancés** :
+9. Dans la boîte de dialogue **Paramètres avancés** :
 	1. Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	2. Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à la deuxième interface sur l’hôte.
 	3. Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.

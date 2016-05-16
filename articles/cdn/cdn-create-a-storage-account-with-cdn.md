@@ -41,7 +41,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 4. Dans le champ **Stockage**, tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
 
-    Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour adresser une ressource de conteneur dans le service BLOB, vous utilisez un URI au format suivant, où *&lt;StorageAccountLabel&gt;* fait référence à la valeur entrée dans **Entrer une URL** :
+    Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour adresser une ressource de conteneur dans le service BLOB, vous utilisez un URI au format suivant, où *&lt;StorageAccountLabel&gt;* fait référence à la valeur entrée dans **Entrer une URL** :
 
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 

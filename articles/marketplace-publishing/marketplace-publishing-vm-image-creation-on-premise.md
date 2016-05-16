@@ -27,7 +27,7 @@ Pour télécharger le disque dur virtuel, vous devez d’abord localiser l’URL
 
 Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure](https://ms.portal.azure.com) :
 
-1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
+1.	Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
 2.	Sous **Configurer**, sélectionnez la mosaïque **Disques** qui ouvre le panneau Disques.
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
@@ -43,6 +43,7 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
 
 ### Télécharger un disque dur virtuel
 Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail Azure](http://manage.windowsazure.com/) ou de PowerShell.
+
 > [AZURE.NOTE] Au moment de la création de ce guide, la fonctionnalité de téléchargement d’un disque dur virtuel n’est pas encore présente dans le nouveau portail Microsoft Azure.
 
 **Télécharger le disque dur virtuel de système d’exploitation à partir du [portail Azure](http://manage.windowsazure.com/)** actuel
@@ -93,7 +94,7 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
 4.	Cliquez sur **Create**.
-5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
+5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
 6.	Sélectionnez **Conteneurs**.
 
   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)

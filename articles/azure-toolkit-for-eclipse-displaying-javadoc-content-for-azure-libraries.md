@@ -30,9 +30,9 @@ Cette procédure part du principe que vous avez déjà ajouté la bibliothèque 
 * Cliquez sur **Propriétés**.
 * Dans la boîte de dialogue **Propriétés**, dans le volet gauche, cliquez sur **Emplacement Javadoc**. La boîte de dialogue **Emplacement Javadoc** s’affiche.
 * Vous pouvez spécifier une **URL Javadoc** ou un **Javadoc dans archive**.
-    * Si vous choisissez de spécifier une **URL Javadoc**, utilisez une URL telle que ****http://dl.windowsazure.com/javadoc** ou ****http://dl.windowsazure.com/storage/javadoc**.
+    * Si vous choisissez de spécifier une **URL Javadoc**, utilisez une URL telle que **http://dl.windowsazure.com/javadoc** ou **http://dl.windowsazure.com/storage/javadoc**.
 * Si vous choisissez d’utiliser **Javadoc dans archive**, vous pouvez spécifier un fichier externe ou un fichier d’espace de travail. Faites votre choix et parcourez/validez en fonction des besoins. L’exemple suivant associe les bibliothèques Azure pour Java au JAR Javadoc correspondant téléchargé localement dans un dossier nommé **c:\\MyAzureJARs**. ![][ic553487]
-* *Facultatif* : Cliquez sur **Valider**. Des problèmes potentiels avec le JAR Javadoc peuvent apparaître ici.
+* *Facultatif* : Cliquez sur **Valider**. Des problèmes potentiels avec le JAR Javadoc peuvent apparaître ici.
 * Cliquez sur **OK**.
 
 Une fois associé à la bibliothèque, le contenu Javadoc doit s’afficher dans votre IDE Eclipse. Par exemple, si `blob` est défini comme étant de type `CloudBlockBlob` dans votre code, ce qui suit est un exemple de contenu Javadoc qui apparaît lorsque vous tapez `blob.acquireLease` dans le code :

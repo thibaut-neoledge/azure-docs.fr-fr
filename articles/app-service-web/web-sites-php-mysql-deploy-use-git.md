@@ -97,7 +97,7 @@ Après avoir créé une application web, vous pouvez la développer localement, 
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L'application se compose d'un seul fichier (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 
 Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et l'outil de ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 
@@ -206,7 +206,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 
 		php -S localhost:8000
 
-Vous pouvez à présent accéder à ****http://localhost:8000/** pour tester l'application.
+Vous pouvez à présent accéder à **http://localhost:8000/** pour tester l'application.
 
 
 ##Publier votre application

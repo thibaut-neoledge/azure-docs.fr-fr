@@ -68,7 +68,7 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
-**Vidéo** :
+**Vidéo** :
  
 - Codec : H.264 
 - Profil : Élevé (niveau 4.0) 
@@ -76,7 +76,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 - Image clé : 2 secondes (60 secondes) 
 - Fréquence d’images : 30
  
-**Audio** :
+**Audio** :
 
 - Codec : AAC (LC) 
 - Débit binaire : 192 kbit/s 

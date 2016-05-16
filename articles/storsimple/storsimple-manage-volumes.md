@@ -37,15 +37,15 @@ La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l
 
 Un volume est constitué d’une série d’attributs :
 
-- **Nom** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
+- **Nom** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
 
-- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
+- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
 
-- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur (serveur). La capacité correspond au volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
+- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur (serveur). La capacité correspond au volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
 
 - **Type** : indique le type de volume pouvant être hiérarchisé ou archivé (un sous-type du volume hiérarchisé)
 
-- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
+- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
 
 - **Analyse** : indique si un volume est ou non en cours d’analyse. Par défaut, l’analyse est activée au moment de la création du volume. Toutefois, elle est désactivée pour un volume cloné. Pour activer l’analyse pour un volume, suivez les instructions données dans Analyse d’un volume.
 

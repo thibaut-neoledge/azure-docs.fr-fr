@@ -70,7 +70,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 
 ### Installation de modules supplémentaires
 
-2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
+2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 

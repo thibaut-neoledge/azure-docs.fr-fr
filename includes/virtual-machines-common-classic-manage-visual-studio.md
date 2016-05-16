@@ -24,11 +24,11 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Vous pouvez choisir les types d’images suivants.
 
-    - **Images publiques** : images de machines virtuelles des systèmes d’exploitation et des logiciels serveurs, tels que Windows Server et SQL Server.
+    - **Images publiques** : images de machines virtuelles des systèmes d’exploitation et des logiciels serveurs, tels que Windows Server et SQL Server.
 
-    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
+    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
 
-    - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
+    - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
 
     Pour en savoir plus sur les machines virtuelles spécialisées et généralisées, consultez [Image de machine virtuelle](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Pour plus d’informations sur l’utilisation d’une machine virtuelle comme modèle pour créer rapidement de nouvelles machines virtuelles préconfigurées, consultez [Capture d’une machine virtuelle Windows à utiliser comme modèle](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 

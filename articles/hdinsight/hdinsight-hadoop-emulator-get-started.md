@@ -72,11 +72,11 @@ L'émulateur Microsoft HDInsight peut être installé via Microsoft Web Platform
 
 L'installation doit avoir installé trois icônes sur votre Bureau. Celles-ci sont liées comme suit :
 
-- **Hadoop Command Line** :invite de commandes Hadoop à partir de laquelle les tâches MapReduce, Pig et Hive sont exécutées dans l’émulateur HDInsight.
+- **Hadoop Command Line** :invite de commandes Hadoop à partir de laquelle les tâches MapReduce, Pig et Hive sont exécutées dans l’émulateur HDInsight.
 
-- **Hadoop NameNode Status** : NameNode gère une arborescence de répertoires pour tous les fichiers dans HDFS. NameNode effectue également le suivi de l’emplacement des données conservées dans un cluster Hadoop pour tous les fichiers. Les clients communiquent avec NameNode pour obtenir l'emplacement de stockage des nœuds de données pour tous les fichiers.
+- **Hadoop NameNode Status** : NameNode gère une arborescence de répertoires pour tous les fichiers dans HDFS. NameNode effectue également le suivi de l’emplacement des données conservées dans un cluster Hadoop pour tous les fichiers. Les clients communiquent avec NameNode pour obtenir l'emplacement de stockage des nœuds de données pour tous les fichiers.
 
-- **Hadoop Yarn Status** : dispositif de suivi des tâches qui alloue des tâches MapReduce à des nœuds dans un cluster.
+- **Hadoop Yarn Status** : dispositif de suivi des tâches qui alloue des tâches MapReduce à des nœuds dans un cluster.
 
 L'installation doit également avoir installé plusieurs services locaux. La capture d'écran suivante présente la fenêtre Services :
 
@@ -202,9 +202,9 @@ Les exemples de données tournent autour du traitement des données de journal I
 
 Le scénario W3C génère et importe les données du journal IIS W3C vers un fichier Hadoop (HDFS) ou un stockage d’objets blob Azure en trois tailles : petite (1 Mo), moyenne (500 Mo) et grande (2 Go). Il fournit trois types de tâches et implémente chacune d'elles en C#, Java, Pig et Hive.
 
-- **totalhits** : calcule le nombre total de requêtes pour une page donnée.
-- **avgtime** : calcule la durée moyenne prise (en secondes) par une requête par page.
-- **errors** : calcule le nombre d’erreurs par page, par heure, pour les requêtes avec un état 404 ou 500.
+- **totalhits** : calcule le nombre total de requêtes pour une page donnée.
+- **avgtime** : calcule la durée moyenne prise (en secondes) par une requête par page.
+- **errors** : calcule le nombre d’erreurs par page, par heure, pour les requêtes avec un état 404 ou 500.
 
 Ces exemples et leur documentation ne fournissent pas une étude approfondie ou une implémentation complète des principales technologies Hadoop. Le cluster utilisé possède seulement un nœud unique, par conséquent, les effets de l'ajout de plusieurs nœuds ne peuvent pas être observés avec cette version.
 
@@ -330,7 +330,7 @@ Il ne faut pas beaucoup de temps aux analystes expérimentés en SQL (Structured
 		OK
 		Time taken: 2.881 seconds
 
-6. Exécutez la commande suivante pour exécuter le fichier de script HiveQL **w3ctotalhitsbypage.hql** :
+6. Exécutez la commande suivante pour exécuter le fichier de script HiveQL **w3ctotalhitsbypage.hql** :
 
 	> [AZURE.NOTE] Comme expliqué précédemment, vous pouvez aussi exécuter cette requête en utilisant les outils Visual Studio HDInsight.
 
@@ -494,7 +494,7 @@ Voici un exemple d'envoi d'une tâche Hadoop :
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Vous devez voir apparaître une boîte de dialogue lors de l'appel à Get-Credential : Vous devez utiliser **hadoop** comme nom d’utilisateur. Le mot de passe peut être une chaîne quelconque. Le nom du cluster est toujours ****http://localhost:50111**.
+Vous devez voir apparaître une boîte de dialogue lors de l'appel à Get-Credential : Vous devez utiliser **hadoop** comme nom d’utilisateur. Le mot de passe peut être une chaîne quelconque. Le nom du cluster est toujours **http://localhost:50111**.
 
 Pour plus d’informations sur l’envoi de tâches Hadoop, consultez la page [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md). Pour plus d’informations sur les applets de commande Azure PowerShell pour HDInsight, consultez la page [Documentation de référence des applets de commande HDInsight PowerShell][hdinsight-powershell-reference].
 

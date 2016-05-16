@@ -19,8 +19,8 @@
 # Adresses IP dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types :
 
-- **Adresses IP publiques** : elles sont utilisées pour la communication avec Internet, notamment les services Azure accessibles au public.
-- **Adresses IP privées** : elles sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
+- **Adresses IP publiques** : elles sont utilisées pour la communication avec Internet, notamment les services Azure accessibles au public.
+- **Adresses IP privées** : elles sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 

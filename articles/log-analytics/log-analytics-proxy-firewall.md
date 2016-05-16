@@ -131,7 +131,7 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 
 2. Développez **Operational Insights**, puis sélectionnez **Connexion à Operational Insights**. ![Connexion à Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**. ![Connexion à Operations Manager OMS, Configurer le serveur proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, ****http://myproxy:80**. ![Adresse proxy Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, **http://myproxy:80**. ![Adresse proxy Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Pour spécifier les informations d'identification si le serveur proxy nécessite une authentification

@@ -38,25 +38,26 @@ Nous allons utiliser l’application du didacticiel [Utilisation de la biblioth�
     >[AZURE.IMPORTANT] Comme mentionné ci-dessus, nous vous recommandons vivement de déboguer dans l’émulateur de calcul dans la plupart des cas, puis de déboguer dans l’environnement intermédiaire uniquement si un débogage supplémentaire est nécessaire. Nous vous recommandons de ne pas déboguer dans l’environnement de production.
 1. Une fois votre déploiement prêt dans Azure, récupérez le nom DNS du déploiement sur le [portail de gestion Azure][]. Un déploiement intermédiaire a un nom DNS au format http://*&lt;guid&gt;*.cloudapp.net, où *&lt;guid&gt;* est une valeur GUID attribuée par Azure.
 1. Dans l’Explorateur de projets d’Eclipse, cliquez sur **WorkerRole1**, sur **Azure**, puis cliquez sur **Débogage**.
-1. Dans la boîte de dialogue **Propriétés de débogage pour WorkerRole1** :
+1. Dans la boîte de dialogue **Propriétés de débogage pour WorkerRole1** :
     1. Cochez la case **Activer le débogage distant pour ce rôle**.
     1. Pour **Point de terminaison d’entrée à utiliser**, utilisez **Débogage (public:8090,privé:8090)**.
     1. Vérifiez que l’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est désactivée.
         >[AZURE.IMPORTANT] L’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est conçue pour les scénarios de débogage avancés dans l’émulateur de calcul uniquement (et non pour les déploiements cloud). Si l’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est activée, elle interrompt le processus de démarrage du serveur jusqu’à ce que le débogueur Eclipse soit connecté à sa machine virtuelle Java. Vous pouvez utiliser cette option pour une session de débogage avec l’émulateur de calcul, mais ne l’utilisez pas pour une session de débogage dans un déploiement cloud. L’initialisation d’un serveur a lieu dans une tâche de démarrage Azure, et le cloud Azure ne rend pas les points de terminaison publics disponibles tant que la tâche de démarrage n’est pas terminée. Ainsi, un processus de démarrage ne se termine pas correctement si cette option est activée dans un déploiement cloud, car il ne pourra pas recevoir de connexion à partir d’un client Eclipse externe.
     1. Cliquez sur **Créer des configurations de débogage**.
-1. Dans la boîte de dialogue **Configuration de débogage Azure** :
+1. Dans la boîte de dialogue **Configuration de débogage Azure** :
     1. Pour **Projet Java à déboguer**, sélectionnez le projet **MyHelloWorld**.
     1. Pour **Configurer le débogage pour**, cochez **Cloud Azure (intermédiaire)**.
     1. Assurez-vous que l’option **Émulateur de calcul Azure** soit désactivée.
-    1. Pour **Hôte**, entrez le nom DNS de votre déploiement intermédiaire, mais sans le préfixe ****http://**. Par exemple (insérez votre GUID à la place du GUID indiqué ici) : **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Pour **Hôte**, entrez le nom DNS de votre déploiement intermédiaire, mais sans le préfixe **http://**. Par exemple (insérez votre GUID à la place du GUID indiqué ici) : **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Configuration de débogage Azure**.
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Si vous n’avez pas encore défini de point d’arrêt dans index.jsp, faites-le maintenant :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537]
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
+        ![][ic551537]
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Cloud Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.
-1. Dans votre navigateur, exécutez votre application intermédiaire, ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, en remplaçant *&lt;guid&gt;* par le GUID de votre nom DNS. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
+1. Dans votre navigateur, exécutez votre application intermédiaire, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, en remplaçant *&lt;guid&gt;* par le GUID de votre nom DNS. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
 
 >[AZURE.NOTE] Si vous tentez de démarrer une connexion de débogage à distance vers un déploiement où plusieurs instances de rôles sont en cours d’exécution, vous ne pouvez pas contrôler à quelle instance le débogueur se connecte initialement, car l’équilibreur de charge Azure choisit une instance au hasard. Une fois connecté à cette instance, cependant, vous continuerez à déboguer la même instance. Notez également qu’en cas d’inactivité supérieure à quatre minutes (par exemple, lorsque vous êtes arrêté à un point d’arrêt pendant trop longtemps), Azure peut fermer la connexion.
 
@@ -81,13 +82,13 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Générez votre projet de test dans l’émulateur : dans l’Explorateur de projets d’Eclipse, cliquez sur **MonProjetAzure**, sur **Propriétés**, sur **Azure**, puis affectez la valeur **Test dans l’émulateur** à **Générer pour**.
 1. Régénérez votre projet : dans le menu Eclipse, cliquez sur **Projet**, puis sur **Générer tout**.
 1. Dans l’Explorateur de projets d’Eclipse, cliquez sur **WorkerRole1**, sur **Azure**, puis cliquez sur **Débogage**.
-1. Dans la boîte de dialogue **Propriétés de débogage pour WorkerRole1** :
+1. Dans la boîte de dialogue **Propriétés de débogage pour WorkerRole1** :
     1. Cochez la case **Activer le débogage distant pour ce rôle**.
     1. Pour **Point de terminaison d’entrée à utiliser**, utilisez le point de terminaison par défaut généré automatiquement par la boîte à outils, répertorié comme **Débogage (public:8090,privé:8090)**.
     1. Vérifiez que l’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est désactivée.
         >[AZURE.IMPORTANT] L’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est conçue pour les scénarios de débogage avancés dans l’émulateur de calcul uniquement (et non pour les déploiements cloud). Si l’option **Démarrer la JVM en mode d’attente, en attendant la connexion au débogueur** est activée, elle interrompt le processus de démarrage du serveur jusqu’à ce que le débogueur Eclipse soit connecté à sa machine virtuelle Java. Vous pouvez utiliser cette option pour une session de débogage avec l’émulateur de calcul, mais ne l’utilisez pas pour une session de débogage dans un déploiement cloud. L’initialisation d’un serveur a lieu dans une tâche de démarrage Azure, et le cloud Azure ne rend pas les points de terminaison publics disponibles tant que la tâche de démarrage n’est pas terminée. Ainsi, un processus de démarrage ne se termine pas correctement si cette option est activée dans un déploiement cloud, car il ne pourra pas recevoir de connexion à partir d’un client Eclipse externe.
     1. Cliquez sur **Créer des configurations de débogage**.
-1. Dans la boîte de dialogue **Configuration de débogage Azure** :
+1. Dans la boîte de dialogue **Configuration de débogage Azure** :
     1. Pour **Projet Java à déboguer**, sélectionnez le projet **MyHelloWorld**.
     1. Pour **Configurer le débogage pour**, cochez **Émulateur de calcul Azure**.
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Configuration de débogage Azure**.
@@ -100,7 +101,7 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Démarrez l’application dans l’émulateur de calcul en cliquant sur le bouton **Exécuter dans l’émulateur Azure** dans la barre d’outils Azure.
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Émulateur Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.
-1. Une fois que l’émulateur de calcul indique que votre application est en cours d’exécution, dans votre navigateur, exécutez ****http://localhost:8080/MyHelloWorld**. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
+1. Une fois que l’émulateur de calcul indique que votre application est en cours d’exécution, dans votre navigateur, exécutez **http://localhost:8080/MyHelloWorld**. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
 
 Nous venons de voir comment déboguer dans l’émulateur de calcul. La section suivante montre comment déboguer une application déployée dans Azure.
 

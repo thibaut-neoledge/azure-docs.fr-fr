@@ -49,7 +49,7 @@ Les étapes de base du processus sont énoncées ci-dessous. La solution inclut 
 
 La solution compte le nombre d’occurrences d’un terme de recherche (« Microsoft ») dans les fichiers d’entrée organisés en série chronologique. Il renvoie le nombre de fichiers de sortie.
 
-**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
+**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
 
 ## Composants requis
 
@@ -153,13 +153,13 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 
 -   La méthode accepte quatre paramètres :
 
-    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
+    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
 
-    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
+    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
 
-    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
+    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
 
-    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
+    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
 
 -   La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les activités personnalisées. Nous n’utiliserons pas cette fonctionnalité dans cet exemple de solution.
 
@@ -552,7 +552,7 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     2.  Remplacez **clé d’accès** avec la clé d’accès du compte Azure Batch.
 
-    3.  Entrez l’ID du pool pour la propriété **poolName****. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
+    3.  Entrez l’ID du pool pour la propriété **poolName**. pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
 
     4.  Entrez l’URI du lot pour la propriété JSON **batchUri**. L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
 
@@ -887,7 +887,7 @@ Le débogage consiste à utiliser quelques techniques de base :
 
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d’Azure Data Factory et d’Azure Batch. Par exemple, pour traiter des tranches d’une autre plage de temps, procédez comme suit :
 
-1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
+1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
 
 2.  Augmentez ou réduisez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement qui se produit sur Azure Batch. (Pour plus d’informations sur le paramètre **concurrency**, voir l’étape 4 : Créer et exécuter le pipeline.)
 

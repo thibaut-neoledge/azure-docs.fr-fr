@@ -53,7 +53,7 @@ Notez le point d'interrogation en regard du type de données du champ Durée. Ce
 
 Quelques concepts et mots-clés du script :
 
-- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
+- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
 - **EXTRACT** vous donne la possibilité de définir un schéma lors de la lecture. Le schéma est spécifié par une paire nom de colonne et nom de type C# par colonne. Il utilise un **Extracteur**, par exemple **Extractors.Tsv()**, pour extraire les fichiers tsv. Vous pouvez développer des extracteurs personnalisés.
 - **OUTPUT** prend un ensemble de lignes et le sérialise. Outputters.Csv() génère un fichier séparé par des virgules dans l'emplacement spécifié. Vous pouvez également développer des générateurs de sortie personnalisés.
 - Notez que les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple : 

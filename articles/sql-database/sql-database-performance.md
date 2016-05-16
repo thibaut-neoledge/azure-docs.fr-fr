@@ -20,7 +20,7 @@
 
 La base de données SQL Azure fournit des outils de performances pour vous aider à identifier et à améliorer les performances de vos bases de données en fournissant des recommandations et des actions de paramétrage intelligentes.
 
-1. Accédez à votre base de données dans le [portail Azure](http://portal.azure.com) et cliquez sur **Tous les paramètres** > ** Performances ** > **Vue d'ensemble** pour ouvrir la page **Performances**.
+1. Accédez à votre base de données dans le [portail Azure](http://portal.azure.com) et cliquez sur **Tous les paramètres** > **Performances** > **Vue d'ensemble** pour ouvrir la page **Performances**.
 
 
 2. Cliquez sur **Recommandations** pour ouvrir [SQL Database Advisor](#sql-database-advisor), puis cliquez sur **Requêtes** pour ouvrir [Query Performance Insight](#query-performance-insight).

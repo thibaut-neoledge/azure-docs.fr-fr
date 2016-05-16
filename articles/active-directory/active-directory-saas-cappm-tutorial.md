@@ -120,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **Identificateur**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application CA PPM, au format suivant : **https://ca.ondemand.saml.20.post.\<nom entreprise>**.
 	
-	b. Dans la zone de texte **URL de réponse**, tapez ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
+	b. Dans la zone de texte **URL de réponse**, tapez **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
 
 	c. Cliquez sur **Next**
  

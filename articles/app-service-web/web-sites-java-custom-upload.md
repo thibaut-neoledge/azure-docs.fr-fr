@@ -49,7 +49,7 @@ Exemples (avec **processPath** inclus) :
     arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
-**processPath** : chemin d'accès à l'exécutable ou au script qui démarre un processus d'écoute des requêtes HTTP.
+**processPath** : chemin d'accès à l'exécutable ou au script qui démarre un processus d'écoute des requêtes HTTP.
 
 Exemples :
 

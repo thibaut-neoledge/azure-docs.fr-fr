@@ -21,7 +21,7 @@
 
 Vous pouvez utiliser les rapports d'accès et d'utilisation Azure Active Directory pour obtenir une visibilité complète sur l'intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur de répertoire est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.
 
-Il est possible qui les rapports « *Connexions depuis plusieurs zones géographiques* » et « *Connexions à partir d’adresses IP affichant une activité suspecte* » signalent de manière incorrecte des adresses IP qui appartiennent en fait à votre organisation.
+Il est possible qui les rapports « *Connexions depuis plusieurs zones géographiques* » et « *Connexions à partir d’adresses IP affichant une activité suspecte* » signalent de manière incorrecte des adresses IP qui appartiennent en fait à votre organisation.
 
 Cela peut, par exemple, se produire dans les cas suivants :
 

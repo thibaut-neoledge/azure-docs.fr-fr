@@ -165,7 +165,8 @@ Cet événement doit être utilisé lorsque l’utilisateur achète son panier.
 
 Paramètres :
 * event (chaîne) – “purchase”
-* items ( achetés ) – Tableau contenant une entrée pour chaque article acheté.<br><br> Format d’achat :
+* items ( achetés ) – Tableau contenant une entrée pour chaque article acheté.<br><br> 
+Format d’achat :
 	* item (chaîne) – identificateur unique de l'élément.
 	* count (entier ou chaîne) – nombre d'articles achetés.
 	* price (flottant ou chaîne) – champ facultatif – prix de l'élément.

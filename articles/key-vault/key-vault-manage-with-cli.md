@@ -123,8 +123,8 @@ Par exemple, si vous utilisez le nom de coffre ContosoKeyVault, le nom de groupe
 
 La sortie de cette commande affiche les propriétés du coffre de clés que vous venez de créer. Les deux propriétés les plus importantes sont :
 
-- **Nom** : dans l’exemple : ContosoKeyVault. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
-- **vaultUri** : dans l’exemple : https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+- **Nom** : dans l’exemple : ContosoKeyVault. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
+- **vaultUri** : dans l’exemple : https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce coffre de clés.
 
@@ -139,13 +139,13 @@ Toutefois, si vous avez une clé existante dans un fichier .pem enregistré sous
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour ajouter un secret dans le coffre, c’est-à-dire un mot de passe nommé SQLPassword avec la valeur Pa$$w0rd dans Azure Key Vault, tapez le code suivant :
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Examinons la clé ou le secret que vous venez de créer :
 

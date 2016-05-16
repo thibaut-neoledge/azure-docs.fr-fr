@@ -116,7 +116,7 @@ Commençons. Procédez comme suit pour commencer à utiliser le réseau de distr
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-8.PNG)
 
-10.	Cliquez sur le bouton **Télécharger l'objet blob** pour télécharger les images, les scripts ou les feuilles de style utilisés par vos pages web dans le conteneur d'objets blob. La progression du téléchargement est indiquée dans le **Journal des activités Azure** ; les objets blob s'affichent dans la vue du conteneur quand ils sont téléchargés.
+10.	Cliquez sur le bouton **Télécharger l'objet blob** pour télécharger les images, les scripts ou les feuilles de style utilisés par vos pages web dans le conteneur d'objets blob. La progression du téléchargement est indiquée dans le **Journal des activités Azure** ; les objets blob s'affichent dans la vue du conteneur quand ils sont téléchargés.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-9.PNG)
 
@@ -140,7 +140,7 @@ Commençons. Procédez comme suit pour commencer à utiliser le réseau de distr
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-cdn.PNG)
 
- 	Faites attention aux nombres indiqués pour la durée de la **demande** qui représente le temps jusqu'au premier octet ou le temps nécessaire entre l'envoi de la demande et la réception de la réponse du serveur. Lorsque j'accède à l'objet blob hébergé dans la région East Asia, il me faut 266 ms du fait que la demande doit traverser l'Océan Pacifique juste pour atteindre le serveur. Cependant, lorsque j'accède au réseau CDN Azure, cela ne prend que 16 ms, soit une **amélioration des performances pratiquement multipliée par 20** !
+ 	Faites attention aux nombres indiqués pour la durée de la **demande** qui représente le temps jusqu'au premier octet ou le temps nécessaire entre l'envoi de la demande et la réception de la réponse du serveur. Lorsque j'accède à l'objet blob hébergé dans la région East Asia, il me faut 266 ms du fait que la demande doit traverser l'Océan Pacifique juste pour atteindre le serveur. Cependant, lorsque j'accède au réseau CDN Azure, cela ne prend que 16 ms, soit une **amélioration des performances pratiquement multipliée par 20** !
 	
 15.	Il ne s'agit plus maintenant que d'utiliser le nouveau lien dans votre page web. Exemple : je peux ajouter la balise d'image suivante :
 

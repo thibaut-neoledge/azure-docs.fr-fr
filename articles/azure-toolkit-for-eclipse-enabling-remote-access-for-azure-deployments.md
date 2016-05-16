@@ -30,7 +30,7 @@ L’illustration suivante montre la boîte de dialogue de propriétés **Accès 
 
 ![][ic719494]
 
-Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
+Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
 
 * Cliquer sur le lien **Avancé** dans la section **Accès distant** de la boîte de dialogue **Publier sur Azure**.
 * Ouvrir la boîte de dialogue **Propriétés** de votre projet Azure.
@@ -68,9 +68,11 @@ Un message indique que la modification de votre configuration est en cours et qu
 * Dans la boîte de dialogue **Nouveau certificat**, spécifiez et confirmez le mot de passe que vous utiliserez pour votre fichier PFX.
 * Acceptez la valeur fournie pour **Nom (CN)** ou utilisez un nom personnalisé.
 * Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat sera enregistré au format .cer. Pour cette étape et la suivante, vous pouvez utiliser le dossier **cert** de votre projet Azure, mais vous êtes libre de choisir un autre emplacement. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.cer**. (Avant de continuer, créez le dossier **c:\\mycert** ou choisissez un dossier existant.)
-* Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat et sa clé privée seront enregistrés au format .pfx. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.pfx**. La boîte de dialogue **Nouveau certificat** doit ressembler à ce qui suit (si vous n’utilisez pas **c:\\mycert**, mettez à jour les chemins d’accès de dossier) : ![][ic712275]
+* Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat et sa clé privée seront enregistrés au format .pfx. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.pfx**. La boîte de dialogue **Nouveau certificat** doit ressembler à ce qui suit (si vous n’utilisez pas **c:\\mycert**, mettez à jour les chemins d’accès de dossier) :
+    ![][ic712275]
 * Cliquez sur **OK** pour fermer la boîte de dialogue **Nouveau certificat**.
-* La boîte de dialogue **Accès distant** doit ressembler à celle-ci :</p> ![][ic719495]
+* La boîte de dialogue **Accès distant** doit ressembler à celle-ci :</p>
+    ![][ic719495]
 * Cliquez sur **OK** pour fermer la boîte de dialogue **Accès distant**.
 	
 Régénérez votre application, avec la build définie pour le déploiement dans le cloud.
@@ -79,9 +81,10 @@ Régénérez votre application, avec la build définie pour le déploiement dans
 
 Une fois votre instance de rôle prête, vous pouvez vous connecter à distance à la machine virtuelle hébergeant votre application.
 
-* Si vous utilisez Eclipse dans Windows et que vous avez sélectionné l’option **Démarrer le Bureau à distance lors du déploiement ** durant le déploiement dans Azure, l’écran d’ouverture de session Connexion Bureau à distance s’affiche au démarrage du déploiement. Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
-* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
-    * Dans l’affichage **Cloud Services** du portail de gestion Azure, cliquez sur votre service cloud, sur **Instances**, sur une instance spécifique, puis sur le bouton **Connexion**. Le bouton **Connexion** s’affiche comme suit dans la barre de commandes : ![][ic659273]
+* Si vous utilisez Eclipse dans Windows et que vous avez sélectionné l’option **Démarrer le Bureau à distance lors du déploiement** durant le déploiement dans Azure, l’écran d’ouverture de session Connexion Bureau à distance s’affiche au démarrage du déploiement. Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
+* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
+    * Dans l’affichage **Cloud Services** du portail de gestion Azure, cliquez sur votre service cloud, sur **Instances**, sur une instance spécifique, puis sur le bouton **Connexion**. Le bouton **Connexion** s’affiche comme suit dans la barre de commandes : 
+    ![][ic659273]  
     >[AZURE.NOTE] Si vous exécutez un système d’exploitation autre que Windows, vous devez utiliser un client Bureau à distance compatible avec votre système d’exploitation et suivre les étapes de configuration de ce client avec les paramètres définis dans le fichier RDP que vous avez téléchargé.
     * Après avoir cliqué sur le bouton **Connexion**, vous êtes invité à ouvrir un fichier RDP. Ouvrez le fichier et suivez les invites. (Vous pouvez aussi enregistrer ce fichier sur votre ordinateur local, puis l’exécuter en double-cliquant dessus pour vous connecter à distance à votre machine virtuelle sans avoir à accéder d’abord au portail de gestion).
     * Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.

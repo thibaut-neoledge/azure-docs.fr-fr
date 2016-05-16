@@ -359,7 +359,7 @@ Suivez les étapes ci-dessous pour accomplir les tâches de configuration compl�
 
 ## Préparer les instances de SQL Server pour le groupe de disponibilité
 
-Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
+Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
 
 - Ajouter une connexion pour **NT AUTHORITY\\System** avec les autorisations nécessaires pour l’instance SQL Server par défaut
 
@@ -371,7 +371,7 @@ Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
-Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
+Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
 
 1. Si vous ne vous êtes pas déconnecté de la session Bureau à distance pour la machine virtuelle, faites-le maintenant.
 
@@ -435,7 +435,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 - Sauvegarde complète et sauvegarde du journal des transactions de la base de données
 
-- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
+- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
 
 - Création du groupe de disponibilité (**AG1**) avec validation synchrone, basculement automatique et réplicas secondaires lisibles
 

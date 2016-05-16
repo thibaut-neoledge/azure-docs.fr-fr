@@ -44,7 +44,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 7.
 4. Cliquez sur **Next**.
-5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez saisir, car vous devrez les réutiliser pour vous connecter à distance à votre machine virtuelle.
@@ -57,7 +57,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
@@ -94,8 +94,8 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Add**.
-6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome ** est cochée, puis cliquez sur **Suivant**.
-7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
+6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome** est cochée, puis cliquez sur **Suivant**.
+7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
     3. Indiquez **80** pour le port public.
@@ -114,7 +114,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 9. Dans l’écran **Profil**, vérifiez que les options **Domaine**, **Privé** et **Public** sont sélectionnées, puis cliquez sur **Suivant**. ![Profil de nouvelle règle de trafic entrant][NewRuleProfile]
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**. ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format ****http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps**. Par exemple, créez un projet Web dynamique JSP (Java Service Page) de base et exportez-le en tant que fichier WAR, copiez celui-ci dans le dossier **webapps** d'Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.

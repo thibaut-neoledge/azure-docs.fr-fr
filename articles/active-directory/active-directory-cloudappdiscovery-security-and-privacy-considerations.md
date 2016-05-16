@@ -47,14 +47,14 @@ Pour plus d’informations sur les options de déploiement, consultez le [Guide 
 
 ### Données recueillies par l’agent
 
-Les informations présentées dans la liste ci-dessous sont recueillies par l’agent quand des connexions sont établies à des applications web. Les informations sont recueillies uniquement pour les applications que l’administrateur a configurées pour la détection. <br> Vous pouvez modifier la liste des applications cloud surveillées par l’agent via le panneau Cloud App Discovery du [portail Azure](https://portal.azure.com/), sous **Paramètres**->**Collection de données**->**Liste App Collection**. Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Catégorie d’informations** : Informations sur l’utilisateur <br> **Description** : <br> Nom d’utilisateur Windows du processus qui a adressé une demande à l’application web cible (par exemple : DOMAIN\\nom\_utilisateur), ainsi que l’identificateur de sécurité Windows (SID) de l’utilisateur.
+Les informations présentées dans la liste ci-dessous sont recueillies par l’agent quand des connexions sont établies à des applications web. Les informations sont recueillies uniquement pour les applications que l’administrateur a configurées pour la détection. <br> Vous pouvez modifier la liste des applications cloud surveillées par l’agent via le panneau Cloud App Discovery du [portail Azure](https://portal.azure.com/), sous **Paramètres**->**Collection de données**->**Liste App Collection**. Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Catégorie d’informations** : Informations sur l’utilisateur <br> **Description** : <br> Nom d’utilisateur Windows du processus qui a adressé une demande à l’application web cible (par exemple : DOMAIN\\nom\_utilisateur), ainsi que l’identificateur de sécurité Windows (SID) de l’utilisateur.
 
 
-**Catégorie d’informations** : Informations sur le processus <br> **Description** : <br> Nom du processus qui a adressé la demande à l’application web cible (par exemple : « iexplore.exe »).
+**Catégorie d’informations** : Informations sur le processus <br> **Description** : <br> Nom du processus qui a adressé la demande à l’application web cible (par exemple : « iexplore.exe »).
 
-**Catégorie d’informations** : Informations sur l’ordinateur <br> **Description** : <br> Nom NetBIOS de l’ordinateur sur lequel l’agent est installé.
+**Catégorie d’informations** : Informations sur l’ordinateur <br> **Description** : <br> Nom NetBIOS de l’ordinateur sur lequel l’agent est installé.
 
-**Catégorie d’informations** : Informations sur le trafic d’application <br> **Description** : <br>
+**Catégorie d’informations** : Informations sur le trafic d’application <br> **Description** : <br>
 
 Les informations de connexion suivantes :
 
@@ -115,11 +115,11 @@ Le composant pilote intercepte le trafic chiffré et s’introduit dans le flux 
 
 Notre objectif est de fournir aux administrateurs les outils nécessaires pour définir un équilibre entre une optique détaillée de l’utilisation d’application et la confidentialité utilisateur, conformément aux exigences de leur organisation. À cette fin, nous fournissons les boutons suivants dans la page Paramètres du portail :
 
-- **Collecte de données** : les administrateurs peuvent choisir de spécifier les applications ou les catégories d’applications pour lesquelles ils souhaitent obtenir des données de découverte.
+- **Collecte de données** : les administrateurs peuvent choisir de spécifier les applications ou les catégories d’applications pour lesquelles ils souhaitent obtenir des données de découverte.
 
-- **Inspection approfondie** : les administrateurs peuvent choisir de spécifier si l’agent recueille le trafic HTTP pour les connexions SSL/TLS (c’est ce que l’on appelle l’**inspection approfondie**). Pour plus d'informations à ce sujet, consultez la section suivante.
+- **Inspection approfondie** : les administrateurs peuvent choisir de spécifier si l’agent recueille le trafic HTTP pour les connexions SSL/TLS (c’est ce que l’on appelle l’**inspection approfondie**). Pour plus d'informations à ce sujet, consultez la section suivante.
 
-- **Options de consentement** : les administrateurs peuvent utiliser le portail Cloud App Discovery pour choisir d’avertir ou non les utilisateurs de la collecte de données par l’agent et de demander le consentement de l’utilisateur avant le début de la collecte en question.
+- **Options de consentement** : les administrateurs peuvent utiliser le portail Cloud App Discovery pour choisir d’avertir ou non les utilisateurs de la collecte de données par l’agent et de demander le consentement de l’utilisateur avant le début de la collecte en question.
 
 L’agent de point de terminaison Cloud App Discovery recueille uniquement les informations décrites dans la section ci-dessus, **Données recueillies par l’agent**.
 

@@ -43,7 +43,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié de HDFS** : cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS** : cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "HDFSLinkedService",
@@ -73,7 +73,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  }
 	}
 
-**Jeu de données d’entrée HDFS** : ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
+**Jeu de données d’entrée HDFS** : ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
 
 La définition de « external » : « true » et la spécification de la stratégie externalData (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
@@ -263,8 +263,8 @@ Propriété | Description | Requis
 folderPath | Chemin d'accès au dossier. Exemple : myfolder<br/><br/>Utilisez le caractère d’échappement « \\ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\\subfolder et pour d:\\samplefolder, spécifiez d:\\\samplefolder.<br/><br/>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin. | Oui
 fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : <br/><br/>Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Non
 partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non
-fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (un seul caractère).<br/><br/>Exemples 1 : "fileFilter": "*.log"<br/>Exemple 2 : "fileFilter": 2014-1-?.txt"<br/><br/>**Remarque** : fileFilter s’applique à un jeu de données FileShare d’entrée | Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (un seul caractère).<br/><br/>Exemples 1 : "fileFilter": "*.log"<br/>Exemple 2 : "fileFilter": 2014-1-?.txt"<br/><br/>**Remarque** : fileFilter s’applique à un jeu de données FileShare d’entrée | Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 | format | Trois types de formats sont pris en charge : **TextFormat**, **AvroFormat** et **JsonFormat**. Vous devez définir la propriété de **type** sous format sur l’une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat) et [Définition de JsonFormat](#specifying-jsonformat). | Non 
 
 

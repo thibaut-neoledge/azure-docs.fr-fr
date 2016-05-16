@@ -41,7 +41,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables** :
+**Conditions préalables** :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
@@ -51,7 +51,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java 
 
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 

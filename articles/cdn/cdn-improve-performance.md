@@ -83,7 +83,7 @@ CDN peut prendre en charge la compression de deux façons :
 	
 3.	Le POP Edge le plus proche vérifie l’état du cache, la méthode de compression et si sa durée de vie est valide.
 	1.	**Absence** du cache : si la version demandée n’est pas mise en cache, la demande est transmise à l’origine.
-	2.	**Correspondance** : si la version requise est mise en cache avec la méthode de compression demandée, le serveur Edge fournit immédiatement le contenu compressé au client.
+	2.	**Correspondance** : si la version requise est mise en cache avec la méthode de compression demandée, le serveur Edge fournit immédiatement le contenu compressé au client.
 	3.	**Correspondance** du cache : si le fichier est mis en cache avec une méthode de compression différente, le serveur Edge transcode l’élément multimédia selon la méthode de compression demandée.
 	4.	**Correspondance** du cache : si le fichier est mis en cache dans un format non compressé, une vérification sera effectuée pour déterminer si la demande est éligible pour la compression du serveur Edge (voir la remarque ci-dessous). Si elle est éligible, le serveur Edge compresse le fichier et le sert au client. Sinon, il retourne le contenu non compressé.
 		

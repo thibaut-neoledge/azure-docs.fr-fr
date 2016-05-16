@@ -74,15 +74,15 @@ Pour plus d’informations sur les abonnements Azure, consultez [Attribution de 
 
 6. Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration.
 
-    - **<storage_account_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+    - **<storage_account_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
 
-    - **<storage_account_key>** : clé d’accès associée à votre compte de stockage.
+    - **<storage_account_key>** : clé d’accès associée à votre compte de stockage.
 
-    - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
+    - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
 
-    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
+    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
 
-    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
+    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
 
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches « Échap, :, wq! » pour enregistrer le script.
 
@@ -183,7 +183,7 @@ Un répertoire fournit une structure hiérarchique facultative pour un partage d
 
         azure storage directory create myshare myDir
 
-Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, *par exemple* : **a/b**. Cependant, vous devez vous assurer que tous les répertoires parents existent. Par exemple, pour le chemin d’accès **a/b**, vous devez créer le répertoire **a**, puis le répertoire **b**.
+Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, *par exemple* : **a/b**. Cependant, vous devez vous assurer que tous les répertoires parents existent. Par exemple, pour le chemin d’accès **a/b**, vous devez créer le répertoire **a**, puis le répertoire **b**.
 
 ### Charger un fichier local vers le répertoire
 

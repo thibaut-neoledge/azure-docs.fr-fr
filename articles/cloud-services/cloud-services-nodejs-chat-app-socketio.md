@@ -48,7 +48,7 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
  
 		PS C:\> cd node
 
-4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -115,7 +115,7 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Ouvrez un navigateur et accédez à ****http://127.0.0.1**.
+2.  Ouvrez un navigateur et accédez à **http://127.0.0.1**.
 
 3.  À l'ouverture de la fenêtre du navigateur, entrez un pseudonyme, puis appuyez sur Entrée. Vous pouvez ainsi publier des messages sous ce pseudonyme. Pour tester la fonctionnalité multi-utilisateurs, ouvrez d'autres fenêtres du navigateur en utilisant la même URL et en entrant différents pseudonymes.
 

@@ -63,9 +63,9 @@ Procédez comme suit pour ajouter un utilisateur ou un groupe à un espace de tr
 
 Vous pouvez modifier le rôle de compte pour un utilisateur associé à votre compte OMS. Vous pouvez choisir parmi les rôles suivants :
 
- - *Administrateur* : peut gérer les utilisateurs, afficher et agir sur toutes les alertes, ainsi qu’ajouter et supprimer des serveurs
+ - *Administrateur* : peut gérer les utilisateurs, afficher et agir sur toutes les alertes, ainsi qu’ajouter et supprimer des serveurs
 
- - *Utilisateur* : peut afficher et agir sur toutes les alertes, ainsi qu’ajouter et supprimer des serveurs
+ - *Utilisateur* : peut afficher et agir sur toutes les alertes, ainsi qu’ajouter et supprimer des serveurs
 
 #### Pour modifier un compte
 1. Sur la page **Paramètres**, dans l’onglet **Comptes** dans OMS, sélectionnez le rôle de l’utilisateur que vous souhaitez modifier.
@@ -125,7 +125,7 @@ Il est possible de créer un espace de travail à partir du site web [microsoft.
 
 ## Mise à niveau d’un espace de travail vers un plan de données payant
 
-Il existe trois types de plans de données d’espace de travail pour OMS : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « **plan avec paiement à l’utilisation** » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification OMS, consultez les [détails de tarification](https://www.microsoft.com/fr-FR/server-cloud/operations-management-suite/pricing.aspx).
+Il existe trois types de plans de données d’espace de travail pour OMS : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « **plan avec paiement à l’utilisation** » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification OMS, consultez les [détails de tarification](https://www.microsoft.com/fr-FR/server-cloud/operations-management-suite/pricing.aspx).
 
 >[AZURE.IMPORTANT] Les plans d’espace de travail peuvent uniquement être modifiés s’ils sont *liés* à un abonnement Azure. Si vous avez créé votre espace de travail dans Azure ou si vous avez *déjà* lié votre espace de travail, vous pouvez ignorer ce message. Si vous avez créé votre espace de travail à partir du [site web OMS](http://www.microsoft.com/oms), vous devez suivre les étapes de [liaison d’un espace de travail existant à un abonnement Azure](#link-an-existing-workspace-to-an-azure-subscription).
 

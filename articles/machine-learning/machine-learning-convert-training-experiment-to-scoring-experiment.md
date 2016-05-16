@@ -50,17 +50,17 @@ Les modules de cette expérience effectuent quatre fonctions de base :
 
 Lorsque vous convertissez cette expérience d’apprentissage en expérience prédictive, certains de ces modules ne sont plus nécessaires ou présentent un objectif différent :
 
-- **Data** : les données de cet exemple de jeu de données ne sont pas utilisées pour le calcul de la notation ; l’utilisateur du service web fournit les données à noter. Toutefois, les métadonnées de ce jeu de données, comme les types de données, sont utilisées par le modèle formé. Vous devez donc conserver le jeu de données dans l’expérience prédictive, afin qu’il puisse fournir ces métadonnées.
+- **Data** : les données de cet exemple de jeu de données ne sont pas utilisées pour le calcul de la notation ; l’utilisateur du service web fournit les données à noter. Toutefois, les métadonnées de ce jeu de données, comme les types de données, sont utilisées par le modèle formé. Vous devez donc conserver le jeu de données dans l’expérience prédictive, afin qu’il puisse fournir ces métadonnées.
 
-- **Prep** : selon les données qui seront soumises pour le calcul de la notation, il se peut que ces modules soient requis ou non pour le traitement des données entrantes.
+- **Prep** : selon les données qui seront soumises pour le calcul de la notation, il se peut que ces modules soient requis ou non pour le traitement des données entrantes.
 
 	Par exemple, l’exemple de jeu de données indiqué ici peut présenter des valeurs manquantes ; il inclut des colonnes qui ne sont pas nécessaires pour former le modèle. Par conséquent, un module [Clean Missing Data][clean-missing-data] a été inclus pour gérer les valeurs manquantes et un autre module, [Project Columns][project-columns], permet d’exclure ces colonnes supplémentaires du flux de données. Si vous savez qu’aucune donnée ne manque parmi les données qui seront soumises à des fins de calcul de la notation via le service web, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu’il permet de définir l’ensemble de fonctionnalités qui sont notées, le module [Project Columns][project-columns] doit être conservé.
 
-- **Train** : une fois le modèle formé, vous pouvez l'enregistrer en tant que module unique de modèle formé. Vous devez ensuite remplacer ces modules individuels par le modèle formé enregistré.
+- **Train** : une fois le modèle formé, vous pouvez l'enregistrer en tant que module unique de modèle formé. Vous devez ensuite remplacer ces modules individuels par le modèle formé enregistré.
 
-- **Score** : dans cet exemple, le module Split est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience prédictive, ce module n’est pas nécessaire et peut être supprimé. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
+- **Score** : dans cet exemple, le module Split est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience prédictive, ce module n’est pas nécessaire et peut être supprimé. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas nécessaires à l’expérience prédictive. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
 
-Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web** :
+Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Définir un service Web** :
 
 ![Expérience prédictive convertie][figure3]
 

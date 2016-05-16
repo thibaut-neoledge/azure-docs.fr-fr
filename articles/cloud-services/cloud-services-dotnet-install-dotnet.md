@@ -68,7 +68,7 @@ Les tâches de démarrage permettent d'effectuer des opérations avant le démar
 
 	> [AZURE.NOTE] Utilisez un simple éditeur de texte tel que le Bloc-notes pour créer ce fichier. Si vous utilisez Visual Studio pour créer un fichier texte, puis le renommez « .cmd », le fichier peut toujours contenir une marque d'ordre d'octet UTF-8, et l'exécution de la première ligne du script générera une erreur. Si vous devez utiliser Visual Studio pour créer le fichier, ajoutez un REM (remarque) à la première ligne du fichier pour que celle-ci soit ignorée pendant l'exécution.
 
-3. Ajoutez le script suivant au fichier **install.cmd** :
+3. Ajoutez le script suivant au fichier **install.cmd** :
 
 	```
 	REM Set the value of netfx to install appropriate .NET Framework. 
@@ -152,7 +152,7 @@ Les tâches de démarrage permettent d'effectuer des opérations avant le démar
 ## Configurer les diagnostics pour transférer les journaux des tâches de démarrage vers le stockage d’objets blob 
 Pour simplifier la résolution des problèmes d’installation, vous pouvez configurer Azure Diagnostics de façon à transférer tous les fichiers journaux générés par le script de démarrage ou le programme d’installation de .NET vers le stockage d’objets blob. Grâce à cette approche, vous pouvez afficher les journaux en téléchargeant les fichiers journaux depuis le stockage d'objets blob au lieu d'accéder au rôle via le Bureau à distance.
 
-Pour configurer les diagnostics, ouvrez le fichier *diagnostics.wadcfgx*, puis ajoutez-y le code suivant sous le nœud **Directories** :
+Pour configurer les diagnostics, ouvrez le fichier *diagnostics.wadcfgx*, puis ajoutez-y le code suivant sous le nœud **Directories** :
 
 ```xml 
 <DataSources>

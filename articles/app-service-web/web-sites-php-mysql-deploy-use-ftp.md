@@ -70,8 +70,8 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L’application se compose de deux fichiers :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
 
 Pour générer et exécuter l’application localement, suivez la procédure ci-après. notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 

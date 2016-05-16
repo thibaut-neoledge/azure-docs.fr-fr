@@ -63,16 +63,16 @@ Pour modifier un mappage d’attribut existant, sélectionnez le mappage et cliq
 
 Avec les mappages d’attributs, vous contrôlez la façon dont les attributs sont renseignés dans une application SaaS tierce. Quatre différents types de mappages sont pris en charge :
 
-- **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Azure AD.
+- **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Azure AD.
 
 
-- **Constant** : l’attribut cible est renseigné avec une chaîne spécifique que vous avez spécifiée.
+- **Constant** : l’attribut cible est renseigné avec une chaîne spécifique que vous avez spécifiée.
 
 
-- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
-- **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il sera renseigné avec la valeur par défaut que vous spécifiez.
+- **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il sera renseigné avec la valeur par défaut que vous spécifiez.
 
 
 

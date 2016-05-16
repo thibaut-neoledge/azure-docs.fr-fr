@@ -79,7 +79,7 @@ Maintenant, nous allons déployer notre premier modèle.
 
 9. Continuez et créez deux tâches dans l’application web, puis revenez dans le panneau du groupe de ressources du portail Azure. Cliquez sur la ressource de compte DocumentDB dans la liste des ressources, puis cliquez sur **Explorateur de requête**. ![Capture d’écran de l’objectif Résumé avec l’application web myotherdocumentdbwebapp mise en surbrillance](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)
 
-10. Exécutez la requête par défaut, « SELECT * FROM c », et examinez les résultats. Notez que la requête a récupéré la représentation JSON des éléments de tâche que vous avez créés à l'étape 7 ci-dessus. N'hésitez pas à faire des essais avec des requêtes ; par exemple, essayez d'exécuter SELECT * FROM c WHERE c.isComplete = true pour retourner tous les éléments de tâche qui ont été marqués comme terminés.
+10. Exécutez la requête par défaut, « SELECT * FROM c », et examinez les résultats. Notez que la requête a récupéré la représentation JSON des éléments de tâche que vous avez créés à l'étape 7 ci-dessus. N'hésitez pas à faire des essais avec des requêtes ; par exemple, essayez d'exécuter SELECT * FROM c WHERE c.isComplete = true pour retourner tous les éléments de tâche qui ont été marqués comme terminés.
 
 	![Capture d’écran des panneaux Explorateur de requête et Résultats affichant les résultats de requête](./media/documentdb-create-documentdb-website/image5.png)
 

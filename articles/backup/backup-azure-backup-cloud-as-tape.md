@@ -44,10 +44,10 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 7 jours.
-2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant 4 semaines.
-3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
-4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
+1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 7 jours.
+2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant 4 semaines.
+3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
+4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma ci-dessus est calculé comme suit :
 

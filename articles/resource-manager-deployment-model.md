@@ -22,9 +22,9 @@ Dans cette rubrique, vous allez découvrir le modèle de déploiement Azure Reso
 
 Pour la plupart des ressources, vous pouvez passer à Resource Manager sans aucun problème. Cependant, certains fournisseurs de ressources offrent deux versions de la ressource (une pour le modèle classique et une pour Resource Manager) en raison des différences d’architecture entre les modèles. Les fournisseurs de ressources qui font la différence entre les deux modèles sont :
 
-- **Calcul** : il prend en charge les instances de machines virtuelles et les groupes à haute disponibilité facultatifs.
-- **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
-- **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
+- **Calcul** : il prend en charge les instances de machines virtuelles et les groupes à haute disponibilité facultatifs.
+- **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
+- **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
 
 Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Passons en revue les deux modèles pour comprendre lequel a été utilisé pour déployer vos ressources.
 
@@ -38,7 +38,7 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d'utiliser le Gestionnaire des ressources ou le déploiement classique.Sélectionnez **Gestionnaire des ressources**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,7 +85,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement classique (pour les catégories Calcul, Stockage et Mise en réseau)
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

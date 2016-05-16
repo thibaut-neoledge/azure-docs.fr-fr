@@ -52,7 +52,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4. Cliquez sur **Suivant**.
-4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
@@ -65,7 +65,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 

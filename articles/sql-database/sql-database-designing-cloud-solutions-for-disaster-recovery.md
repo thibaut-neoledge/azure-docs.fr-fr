@@ -129,7 +129,7 @@ En cas de panne dans la région secondaire, Traffic Manager marque le point de t
 
 ![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Ce modèle de conception offre plusieurs **avantages** :
+Ce modèle de conception offre plusieurs **avantages** :
 
 + Il évite la perte de données pendant les pannes temporaires.
 + Il ne nécessite pas le déploiement d’une application de surveillance étant donné que la récupération est déclenchée par Traffic Manager.

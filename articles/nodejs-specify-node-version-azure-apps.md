@@ -28,7 +28,7 @@ Les versions de Node.js fournies par Azure sont constamment mises à jour. Sauf 
 
 ##Contrôle de version avec package.json
 
-Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit dans votre fichier **package.json** :
+Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit dans votre fichier **package.json** :
 
 	"engines":{"node":version}
 
@@ -77,7 +77,7 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
 
 	Enregistrez le fichier **node.exe** dans le dossier **bin** créé précédemment.
 
-5. Créez un fichier **iisnode.yml** dans le même répertoire que le fichier **server.js**, puis ajoutez le contenu suivant au fichier **iisnode.yml** :
+5. Créez un fichier **iisnode.yml** dans le même répertoire que le fichier **server.js**, puis ajoutez le contenu suivant au fichier **iisnode.yml** :
 
 		nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 

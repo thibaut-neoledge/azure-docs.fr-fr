@@ -242,14 +242,14 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 
 3. Recherchez **WindowsAzure.Service Bus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) avec toutes ses dépendances.
 
-4. Ajoutez l’instruction **using** suivante au début du fichier **Program.cs** :
+4. Ajoutez l’instruction **using** suivante au début du fichier **Program.cs** :
 
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
-5. Enfin, ajoutez les lignes suivantes à la méthode **Main**, en remplaçant la chaîne de connexion par des autorisations **Listen** pour la file d’attente nommée **d2ctutorial** :
+5. Enfin, ajoutez les lignes suivantes à la méthode **Main**, en remplaçant la chaîne de connexion par des autorisations **Listen** pour la file d’attente nommée **d2ctutorial** :
 
     ```
     Console.WriteLine("Process D2C Interactive Messages app\n");

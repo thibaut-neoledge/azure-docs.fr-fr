@@ -164,28 +164,28 @@ Pour créer le réseau virtuel ARM, avec deux sous-réseaux et un réseau local 
 1. Téléchargez les fichiers azuredeploy.json et azuredeploy-parameters.json depuis [git hub](https://github.com/Azure/azure-quickstart-templates/tree/master/arm-asm-s2s).
 2. Ouvrez le fichier azuredeploy.json dans Visual Studio et notez que le modèle crée quatre ressources : 
 
-	- **Passerelle locale** : cette ressource représente la passerelle créée pour le réseau virtuel auquel vous souhaitez vous connecter. Dans ce scénario, c’est la passerelle pour vnet01.
-	- **Réseau virtuel** : cette ressource représente un réseau virtuel ARM devant être créé. Dans ce scénario, cela correspond à vnet02.
-	- **Adresse IP publique de la passerelle** : cette ressource représente l'adresse IP publique de la passerelle devant être créée pour le réseau virtuel ARM. 
-	- **Passerelle** : cette ressource représente la passerelle devant être créée pour le réseau virtuel ARM (vnet02).
+	- **Passerelle locale** : cette ressource représente la passerelle créée pour le réseau virtuel auquel vous souhaitez vous connecter. Dans ce scénario, c’est la passerelle pour vnet01.
+	- **Réseau virtuel** : cette ressource représente un réseau virtuel ARM devant être créé. Dans ce scénario, cela correspond à vnet02.
+	- **Adresse IP publique de la passerelle** : cette ressource représente l'adresse IP publique de la passerelle devant être créée pour le réseau virtuel ARM. 
+	- **Passerelle** : cette ressource représente la passerelle devant être créée pour le réseau virtuel ARM (vnet02).
 
 3. Notez les paramètres utilisés dans ce fichier. La plupart d'entre eux ont une valeur par défaut. Vous pouvez modifier ces valeurs selon vos besoins.
 
 4. Ouvrez le fichier azuredeploy-parameters.json dans Visual Studio. Ce fichier contient des valeurs à utiliser pour les paramètres du fichier de modèle. Modifiez les valeurs suivantes, si nécessaire.
 
-	- **subscriptionId** : modifiez cette valeur et collez votre ID d'abonnement. Si vous ne connaissez pas votre ID d'abonnement, exécutez l’applet de commande PowerShell **Get-AzureSubscription** pour récupérer votre ID.
-	- **location** : spécifiez l'emplacement Azure où le réseau virtuel sera créé. Dans ce scénario, ce sera **Centre des États-Unis**.
-	- **virtualNetworkName** : le nom du réseau virtuel ARM devant être créé. Dans ce scénario, cela correspond à **vnet02**.
-	- **localGatewayName** : le réseau local auquel vous souhaitez vous connecter, à partir de votre nouveau réseau virtuel ARM. Dans ce scénario, cela correspond à **vnet01**.
-	- **localGatewayIpAddress** : l'adresse IP publique de la passerelle créée pour le réseau auquel vous souhaitez vous connecter. Dans ce scénario, cela correspond à l'adresse IP que vous avez notée à l'étape 9 ci-dessus, lors de la création de la passerelle VPN pour**vnet01**.
-	- **localGatewayAddressPrefix** : le bloc CIDR pour votre réseau local auquel se connecte votre réseau virtuel. Dans ce scénario, le réseau virtuel auquel vous vous connectez est **vnet01** et son bloc CIDR est **10.1.0.0/16**.
-	- **gatewayPublicIPName** : le nom de l'objet IP devant être créé pour l'adresse IP publique de la passerelle qui sera créée pour le réseau virtuel ARM.
-	- **gatewayName** : le nom de l'objet passerelle qui sera créé pour le réseau virtuel ARM.
-	- **addressPrefix** : le bloc CIDR pour le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.0.0/16**.
-	- **subnet1Prefix** : le bloc CIDR pour un sous-réseau dans le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.0.0/24**.
-	- **gatewaySubnetPrefix** : le bloc CIDR pour le sous-réseau de passerelle dans le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.200.0/29**.
-	- **connectionName** : le nom de l'objet de connexion devant être créé.
-	- **sharedKey** : la clé IPSec partagée pour la connexion. Dans ce scénario, cela correspond à **abc123**.
+	- **subscriptionId** : modifiez cette valeur et collez votre ID d'abonnement. Si vous ne connaissez pas votre ID d'abonnement, exécutez l’applet de commande PowerShell **Get-AzureSubscription** pour récupérer votre ID.
+	- **location** : spécifiez l'emplacement Azure où le réseau virtuel sera créé. Dans ce scénario, ce sera **Centre des États-Unis**.
+	- **virtualNetworkName** : le nom du réseau virtuel ARM devant être créé. Dans ce scénario, cela correspond à **vnet02**.
+	- **localGatewayName** : le réseau local auquel vous souhaitez vous connecter, à partir de votre nouveau réseau virtuel ARM. Dans ce scénario, cela correspond à **vnet01**.
+	- **localGatewayIpAddress** : l'adresse IP publique de la passerelle créée pour le réseau auquel vous souhaitez vous connecter. Dans ce scénario, cela correspond à l'adresse IP que vous avez notée à l'étape 9 ci-dessus, lors de la création de la passerelle VPN pour**vnet01**.
+	- **localGatewayAddressPrefix** : le bloc CIDR pour votre réseau local auquel se connecte votre réseau virtuel. Dans ce scénario, le réseau virtuel auquel vous vous connectez est **vnet01** et son bloc CIDR est **10.1.0.0/16**.
+	- **gatewayPublicIPName** : le nom de l'objet IP devant être créé pour l'adresse IP publique de la passerelle qui sera créée pour le réseau virtuel ARM.
+	- **gatewayName** : le nom de l'objet passerelle qui sera créé pour le réseau virtuel ARM.
+	- **addressPrefix** : le bloc CIDR pour le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.0.0/16**.
+	- **subnet1Prefix** : le bloc CIDR pour un sous-réseau dans le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.0.0/24**.
+	- **gatewaySubnetPrefix** : le bloc CIDR pour le sous-réseau de passerelle dans le réseau virtuel ARM. Dans ce scénario, cela correspond à **10.2.200.0/29**.
+	- **connectionName** : le nom de l'objet de connexion devant être créé.
+	- **sharedKey** : la clé IPSec partagée pour la connexion. Dans ce scénario, cela correspond à **abc123**.
 
 5. Pour créer le réseau virtuel ARM et ses objets connexes, exécutez la commande PowerShell suivante dans un nouveau groupe de ressources nommé **RG1**. Assurez-vous que vous modifiez le chemin d'accès pour le fichier de modèle et le fichier de paramètres.
 

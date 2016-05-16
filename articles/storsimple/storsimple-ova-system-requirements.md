@@ -24,9 +24,9 @@ Cet article décrit la configuration système requise importante pour Microsoft 
 
 Les conditions requises sont les suivantes :
 
--   **Configuration logicielle requise pour les clients de stockage** : décrit les plateformes de virtualisation, les navigateurs web, les initiateurs iSCSI, les clients SMB pris en charge, la configuration minimale requise pour les appareils virtuels et toutes les exigences requises pour ces systèmes d'exploitation.
+-   **Configuration logicielle requise pour les clients de stockage** : décrit les plateformes de virtualisation, les navigateurs web, les initiateurs iSCSI, les clients SMB pris en charge, la configuration minimale requise pour les appareils virtuels et toutes les exigences requises pour ces systèmes d'exploitation.
 
--   **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
+-   **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
 
 Les informations de configuration système requise StorSimple publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
 
@@ -85,9 +85,9 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
 | TCP 80 (HTTP) | Sortie | WAN | Non | Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l'utilisateur. |
 | TCP 443 (HTTPS) | Sortie | WAN | Oui | Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l'utilisateur. |
-| UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque** : si vous déployez un serveur de fichiers, nous recommandons l'utilisation d'un serveur DNS local.|
+| UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque** : si vous déployez un serveur de fichiers, nous recommandons l'utilisation d'un serveur DNS local.|
 | UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> **Remarque :** si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l'heure avec vos contrôleurs de domaine Active Directory. |
-| TCP 80 (HTTP) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque** : l'accès à l'interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.|
+| TCP 80 (HTTP) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque** : l'accès à l'interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.|
 | TCP 443 (HTTPS) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale.|
 | TCP 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
 

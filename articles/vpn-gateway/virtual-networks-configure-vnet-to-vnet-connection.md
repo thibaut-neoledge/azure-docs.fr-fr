@@ -120,8 +120,8 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
   ![Détails du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
-  - **Nom** : nommez votre réseau virtuel. Par exemple : VNet1
-  - **Emplacement** : lorsque vous créez un réseau virtuel, vous l’associez à un emplacement Azure (région). Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région Ouest des États-Unis, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
+  - **Nom** : nommez votre réseau virtuel. Par exemple : VNet1
+  - **Emplacement** : lorsque vous créez un réseau virtuel, vous l’associez à un emplacement Azure (région). Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région Ouest des États-Unis, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
 
 
 Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
@@ -129,7 +129,7 @@ Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suiva
   ![Serveurs DNS et connectivité VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
 
-- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans la liste déroulante. Ce paramètre ne crée pas de serveur DNS. Il vous permet de spécifier les serveurs DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Si vous souhaitez disposer de la résolution de noms entre vos réseaux virtuels, vous devez configurer votre propre serveur DNS plutôt que d’utiliser la résolution de noms fournie par Azure.
+- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans la liste déroulante. Ce paramètre ne crée pas de serveur DNS. Il vous permet de spécifier les serveurs DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Si vous souhaitez disposer de la résolution de noms entre vos réseaux virtuels, vous devez configurer votre propre serveur DNS plutôt que d’utiliser la résolution de noms fournie par Azure.
 
   - N’activez aucune des cases à cocher. Cliquez sur la flèche située en bas à droite pour passer à l’écran suivant.
 
@@ -140,8 +140,8 @@ Sur la page **Espaces d’adressage Virtual Network**, indiquez la plage d’adr
 
   **Entrez les informations suivantes**, puis cliquez sur la coche située dans le coin inférieur droit pour configurer votre réseau.
 
-  - **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local. Pour cet exemple, nous allons utiliser 10.1.0.0/16 pour VNet1.
-  - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
+  - **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local. Pour cet exemple, nous allons utiliser 10.1.0.0/16 pour VNet1.
+  - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
 
 **Cliquez sur la coche** en bas à droite de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention *Créé* apparaît sous *État* sur la page *Réseaux* du portail Azure Classic.
 
@@ -150,8 +150,8 @@ Sur la page **Espaces d’adressage Virtual Network**, indiquez la plage d’adr
 Ensuite, répétez la procédure précédente pour créer un autre réseau virtuel. Dans cet exercice, vous connecterez ultérieurement ces deux réseaux virtuels. Notez qu’il est très important de ne pas posséder d’espaces d’adresse dupliqués ou qui se chevauchent. Dans le cadre de ce didacticiel, utilisez ces valeurs :
 
 - **VNet2**
-- **Espace d’adressage** = 10.2.0.0/16
-- **Région** = Est du Japon
+- **Espace d’adressage** = 10.2.0.0/16
+- **Région** = Est du Japon
 
 ## Étape 4 : ajoutez des réseaux locaux
 

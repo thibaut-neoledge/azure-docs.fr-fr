@@ -271,7 +271,7 @@ Vous trouverez ci-dessous des exemples de la façon dont une opération est effe
 		//Service principal auth
 		//This will log the application in as itself, rather than on behalf of a specific user.
 		//For details, including how to set up the application, see:
-		//   https://azure.microsoft.com/fr-FR/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+		//   https://azure.microsoft.com/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
 		 
 		var authFactory = new AuthenticationFactory();
 		 

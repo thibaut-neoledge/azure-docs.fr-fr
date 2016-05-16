@@ -81,7 +81,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 2.  Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements CNAME. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés. La section recherchée doit normalement comporter les mots **CNAME**, **Alias** ou **Subdomains**.
 
-3.  Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME, tel que **www** si vous voulez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
+3.  Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME, tel que **www** si vous voulez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 4. Vous devez ensuite fournir un nom d’hôte canonique, qui correspond au domaine **cloudapp.net** de votre application dans le cas présent.
 
@@ -123,7 +123,7 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
 
 3. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera cet enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
 
-    Si vous voulez créer un enregistrement A pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
+    Si vous voulez créer un enregistrement A pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 4. Entrez l’adresse IP de votre service cloud dans le champ prévu à cet effet. Cette opération permet d’associer le domaine de l’enregistrement A avec l’adresse IP de votre déploiement de service cloud.
 
