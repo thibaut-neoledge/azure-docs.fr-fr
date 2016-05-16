@@ -2,7 +2,7 @@
 	pageTitle="Création et gestion des tâches de bases de données élastiques à l'aide de PowerShell" 
 	description="Gérer la base de données SQL Azure avec PowerShell" 
 	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -11,13 +11,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="05/03/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Création et gestion des tâches de bases de données SQL élastiques à l'aide de PowerShell (version préliminaire)
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Portail Azure Classic](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -694,4 +694,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

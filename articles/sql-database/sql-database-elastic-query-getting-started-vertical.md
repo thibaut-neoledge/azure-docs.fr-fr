@@ -3,7 +3,7 @@
 	description="comment utiliser une requête de base de données élastique avec des bases de données partitionnées verticalement"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Prise en main des requêtes de bases de données croisées (partitionnement vertical) 
+# Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 
 Les requêtes de bases de données élastiques (en version préliminaire) pour base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cette rubrique s'applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -39,7 +39,7 @@ Exécutez les requêtes suivantes sur la base de données **Orders** pour créer
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Exécutez maintenant la requête suivante sur la base de données Customers pour créer la table CustomerInformation et ajouter les exemples de données.
+Exécutez maintenant la requête suivante sur la base de données **Customers** pour créer la table **CustomerInformation** et ajouter les exemples de données.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Exécutez maintenant la requête suivante sur la base de données Customers pour
 
 ## Créez des objets de base de données
 ### Clé principale et informations d’identification de la base de données
-
-
-Celles-ci sont utilisées pour se connecter au gestionnaire des cartes de partition et aux partitions :
 
 1. Ouvrez SQL Server Management Studio ou SQL Server Data Tools dans Visual Studio.
 2. Connectez-vous à la base de données Orders et exécutez les commandes T-SQL suivantes :
@@ -109,4 +106,4 @@ Pour plus d’informations sur la tarification, voir [Tarification des bases de 
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

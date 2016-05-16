@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
@@ -149,7 +149,7 @@ En règle générale, un navigateur n’autorise pas le code JavaScript d’une 
 Ces deux technologies vous aident à éviter toute charge inutile (ainsi que les goulots d’étranglement) au niveau de votre application web.
 
 ####Ressources utiles
-Pour plus d’informations sur SAP, voir la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/)
+Pour plus d’informations sur SAP, voir la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
 Pour plus d’informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -393,7 +393,7 @@ Pour plus d’informations relatives au coût, consultez [Tarification Azure Sto
 ###<a name=subheading44"></a>UpdateMessage
 Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.
 
-Pour plus d’informations, voir l’article [Modification du contenu d’un message en file d’attente](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
+Pour plus d’informations, voir l’article [Modification du contenu d’un message en file d’attente](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Architecture de l’application
 Il est conseillé d’utiliser des files d’attente pour rendre l’architecture de votre application extensible. Vous trouverez, dans les listes suivantes, les méthodes applicables pour accroître l’extensibilité de votre application :
@@ -404,4 +404,4 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 ##Conclusion
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

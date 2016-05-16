@@ -3,8 +3,8 @@
     description="Vue d’ensemble de la fonctionnalité de requête élastique"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
-    authors="sidneyh"/>
+    manager="jhubbard"
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,25 +12,45 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="04/27/2016"
     ms.author="torsteng" />
 
 # Vue d’ensemble de la requête de base de données élastique Azure SQL Database (version préliminaire)
 
-La fonctionnalité de requête de base de données élastique (en version préliminaire), vous permet d’exécuter une requête Transact-SQL portant sur plusieurs bases de données dans Azure SQL Database (BD SQL). Elle vous permet d’effectuer des requêtes de bases de données croisées pour accéder aux tables distantes et à connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) pour lancer des requêtes parmi des couches de données avec plusieurs bases de données. Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI). Pour créer une application de requête de base de données élastique, consultez [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
+La fonctionnalité de requête de base de données élastique (en version préliminaire), vous permet d’exécuter une requête Transact-SQL portant sur plusieurs bases de données dans Azure SQL Database (BD SQL). Elle vous permet d’effectuer des requêtes de bases de données croisées pour accéder aux tables distantes et à connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) pour lancer des requêtes parmi des couches de données avec plusieurs bases de données. Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).
 
-## Nouveautés en matière de requête de base de données élastique
+## Documentation
 
-* Des scénarios d’interrogation sur bases de données croisées distantes uniques peuvent désormais être en totalité définis dans T-SQL. Il est ainsi possible d’interroger en lecture seule des bases de données distantes. Les clients SQL Server locaux actuels ont ainsi la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL.
-* Une requête élastique est désormais prise en charge sur la couche de performance Standard en plus du niveau de performance Premium. Consultez la section sur les limitations de version préliminaire ci-dessous sur les limitations de performances pour les niveaux de performances inférieurs.
-* Les requêtes élastiques peuvent désormais distribuer les paramètres Push SQL aux bases de données distantes pour l’exécution.
-* Les appels de procédure stockés distants ou appels de fonction à distance qui utilisent sp\_execute\_fanout peuvent désormais utiliser des paramètres similaires à [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
-* Les performances de récupération de jeux de résultats très volumineux à partir de la base de données distante ont été améliorées.
-* Les tables externes avec requête élastique peuvent maintenant faire référence à des tables distantes avec un schéma ou un nom de table différent.
+* [Prise en main des requêtes de bases de données croisées](sql-database-elastic-query-getting-started-vertical.md)
+* [Signaler des bases de données cloud étendues](sql-database-elastic-query-getting-started.md)
+* [Interroger plusieurs bases de données cloud partitionnées (horizontalement)](sql-database-elastic-query-horizontal-partitioning.md)
+* [Interroger des bases de données cloud de schémas différents (partitionnées verticalement)](sql-database-elastic-query-vertical-partitioning.md)
+* [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)
+
+
+## Pourquoi utiliser les requêtes élastiques ?
+
+**Azure SQL Database**
+
+Interrogez plusieurs bases de données SQL Azure entièrement dans T-SQL. Il est ainsi possible d’interroger en lecture seule des bases de données distantes. Les clients SQL Server locaux actuels ont ainsi la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL.
+
+**Disponible sur niveau Standard** Une requête élastique est désormais prise en charge sur la couche de performance Standard en plus du niveau de performance Premium. Consultez la section sur les limitations de version préliminaire ci-dessous sur les limitations de performances pour les niveaux de performances inférieurs.
+
+**Envoyer vers les bases de données distantes**
+
+Les requêtes élastiques peuvent désormais distribuer les paramètres Push SQL aux bases de données distantes pour l’exécution.
+
+**Exécution d’une procédure stockée**
+
+Exécutez des appels de procédures stockées ou de fonctions distantes avec [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714).
+
+**Flexibilité**
+
+Les tables externes avec requête élastique peuvent maintenant faire référence à des tables distantes avec un schéma ou un nom de table différent.
 
 ## Requêtes de base de données élastique : scénarios
 
-L’objectif est de simplifier les scénarios d’interrogation dans lesquels plusieurs bases de données fournissent des lignes, regroupées au sein d’un résultat global unique. Cette requête peut être composée directement par l’utilisateur ou l’application, ou indirectement via des outils connectés à la base de données élastique associée à la requête. Ceci est particulièrement utile lors de la création de rapports, à l’aide des outils commerciaux d’intégration BI ou de données, ou toute application qui ne peut pas être modifiée. Avec une requête élastique, vous pouvez interroger facilement plusieurs bases de données à l’aide de l’expérience de connectivité SQL Server familière d’outils tels qu’Excel, PowerBI, Tableau ou Cognos. Une requête de base de données élastique offre un accès facile à un ensemble complet de bases de données via des requêtes émises par SQL Server Management Studio ou Visual Studio, et permet l’interrogation des diverses bases de données croisées à partir d’Entity Framework ou d’autres environnements ORM. La figure 1 illustre un scénario dans lequel une application cloud existante (qui utilise la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)) s’appuie sur une couche de données mise à l’échelle et une requête élastique est utilisée pour les rapports entre plusieurs bases de données croisées.
+L’objectif est de simplifier les scénarios d’interrogation dans lesquels plusieurs bases de données fournissent des lignes, regroupées au sein d’un résultat global unique. Cette requête peut être composée directement par l’utilisateur ou l’application, ou indirectement via des outils connectés à la base de données élastique associée à la requête. Ceci est particulièrement utile lors de la création de rapports, à l’aide des outils commerciaux d’intégration BI ou de données, ou toute application qui ne peut pas être modifiée. Avec une requête élastique, vous pouvez interroger facilement plusieurs bases de données à l’aide de l’expérience de connectivité SQL Server familière d’outils tels qu’Excel, PowerBI, Tableau ou Cognos. Une requête de base de données élastique offre un accès facile à un ensemble complet de bases de données via des requêtes émises par SQL Server Management Studio ou Visual Studio, et permet l’interrogation des diverses bases de données croisées à partir d’Entity Framework ou d’autres environnements ORM. La figure 1 illustre un scénario dans lequel une application cloud existante (qui utilise la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)) s’appuie sur une couche Données avec montée en charge et une requête élastique est utilisée pour les rapports entre plusieurs bases de données croisées.
 
 **Figure 1** Requête de base de données élastique utilisée sur la couche de données mise à l’échelle
 
@@ -66,9 +86,7 @@ Une requête élastique peut être utilisée pour mettre les données situées d
 
 ### Topologie 2 : Partitionnement horizontal - partitionnement
 
-Pour commencer le codage, voir [Prise en main d’une requête de base de données élastique pour le partitionnement horizontal (partitionnement)](sql-database-elastic-query-getting-started.md)
-
-L’utilisation d’une requête élastique destinée à effectuer des tâches de création de rapports sur une couche de données partitionnée exige un [mappage de partitionnement de base de données élastique](sql-database-elastic-scale-shard-map-management.md) pour représenter les bases de données de la couche de données. En règle générale, un seul mappage de partition est utilisé dans ce scénario, et une base de données partitionnée dédiée avec des fonctions d’interrogation élastique sert de point d’entrée pour les requêtes de création de rapport. Seule cette base de données dédiée doit avoir accès à la table de partition. La figure 2 illustre cette topologie et sa configuration avec la base de données de requête élastique et du mappage de partition. Notez que seule la base de données de requête élastique uniquement doit être une base de données Database SQL Azure v12. Les bases de données de la couche de données peuvent appartenir à n’importe quelle version ou édition d’Azure SQL Database. Pour plus d’informations sur la bibliothèque cliente de base de données élastique, consultez [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
+L’utilisation d’une requête élastique destinée à effectuer des tâches de création de rapports sur une couche de données partitionnée exige un [mappage de partitionnement de base de données élastique](sql-database-elastic-scale-shard-map-management.md) pour représenter les bases de données de la couche de données. En règle générale, un seul mappage de partition est utilisé dans ce scénario, et une base de données partitionnée dédiée avec des fonctions d’interrogation élastique sert de point d’entrée pour les requêtes de création de rapport. Seule cette base de données dédiée doit avoir accès à la table de partition. La figure 4 illustre cette topologie et sa configuration avec la base de données de requête élastique et du mappage de partition. Les bases de données de la couche de données peuvent appartenir à n’importe quelle version ou édition d’Azure SQL Database. Pour plus d’informations sur la bibliothèque cliente de base de données élastique, consultez [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4** partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées
 
@@ -76,6 +94,7 @@ L’utilisation d’une requête élastique destinée à effectuer des tâches d
 
 > [AZURE.NOTE] La base de données de requête de la base de données élastique dédiée doit être une base de données SQL DB v12. Il n’existe aucune restriction concernant les partitions.
 
+Pour commencer le codage, voir [Prise en main d’une requête de base de données élastique pour le partitionnement horizontal (partitionnement)](sql-database-elastic-query-getting-started.md).
 
 ## Implémentation de requêtes de base de données élastique
 
@@ -83,7 +102,7 @@ Les opérations servant à implémenter la requête élastique pour les scénari
 
 ### Le partitionnement vertical - requêtes de bases de données croisées
 
-Les étapes suivantes servent à configurer des requêtes de base de données élastique pour des scénarios de partitionnement verticaux qui requièrent l’accès à une table située sur une base de données SQLDB distante :
+Les étapes suivantes servent à configurer des requêtes de base de données élastique pour des scénarios de partitionnement verticaux qui requièrent l’accès à une table située sur des bases de données SQLDB distantes avec le même schéma :
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
@@ -150,4 +169,4 @@ Vous trouverez d’autres informations sur les scénarios de partitionnement hor
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

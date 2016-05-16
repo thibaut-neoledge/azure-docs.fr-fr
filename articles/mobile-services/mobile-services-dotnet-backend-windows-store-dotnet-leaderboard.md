@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="glenga"/>
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
@@ -27,31 +27,31 @@ Ce didacticiel montre comment générer une application Windows Store à l'aide 
 
 ## Vue d'ensemble
 
-L'API web est une infrastructure open source qui offre aux développeurs .NET un moyen idéal de créer des API REST. Vous pouvez héberger une solution d'API web sur Sites Web Azure, sur Azure Mobile Services avec le backend .NET, ou même dans un processus personnalisé. Mobile Services est un environnement d'hébergement spécialement conçu pour les applications mobiles. Lorsque vous hébergez votre service d'API web sur Mobile Services, vous bénéficiez des avantages suivants, en plus du stockage de données :
+L'API web est une infrastructure open source qui offre aux développeurs .NET un moyen idéal de créer des API REST. Vous pouvez héberger une solution d'API web sur Sites Web Azure, sur Azure Mobile Services avec le backend .NET, ou même dans un processus personnalisé. Mobile Services est un environnement d'hébergement spécialement conçu pour les applications mobiles. Lorsque vous hébergez votre service d'API web sur Mobile Services, vous bénéficiez des avantages suivants, en plus du stockage de données :
 
 - Authentification intégrée avec fournisseurs sociaux et Azure Active Directory (AAD).
 - Notifications Push vers les applications utilisant des services de notification propres à l'appareil.
 - Ensemble complet de bibliothèques clientes qui offrent un accès facile à votre service à partir de toutes les applications.
 - Journalisation et diagnostics intégrés.
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
-- créer une API REST grâce à Azure Mobile Services ;
-- publier le service sur Azure ;
-- créer une application Windows Store qui consomme le service ;
-- utiliser Entity Framework (EF) pour créer des relations de clé étrangère et des objets de transfert de données ;
+- créer une API REST grâce à Azure Mobile Services ;
+- publier le service sur Azure ;
+- créer une application Windows Store qui consomme le service ;
+- utiliser Entity Framework (EF) pour créer des relations de clé étrangère et des objets de transfert de données ;
 - utiliser l'API web ASP.NET pour définir une API personnalisée.
 
-Ce didacticiel utilise la [dernière mise à jour de Visual Studio 2013](http://go.microsoft.com/fwlink/p/?LinkID=390465).
+Ce didacticiel utilise la [dernière mise à jour de Visual Studio 2013](http://go.microsoft.com/fwlink/p/?LinkID=390465).
 
 
 ## À propos de l'exemple d'application
 
-Un *classement* affiche la liste des joueurs pour un jeu, ainsi que leur score et leur rang. Un classement peut faire partie d'un plus grand jeu ou peut être une application séparée. Un classement est une application dans le monde réel, mais elle est assez simple dans le cadre d'un didacticiel. Voici une capture d'écran de l'application :
+Un *classement* affiche la liste des joueurs pour un jeu, ainsi que leur score et leur rang. Un classement peut faire partie d'un plus grand jeu ou peut être une application séparée. Un classement est une application dans le monde réel, mais elle est assez simple dans le cadre d'un didacticiel. Voici une capture d'écran de l'application :
 
 ![][1]
 
-Pour maintenir la simplicité de l'application, il n'existe pas de jeu réel. Vous pouvez en revanche ajouter des joueurs et envoyer un score pour chaque joueur. Lorsque vous envoyez un score, le service mobile calcule les nouveaux rangs. Sur le serveur principal, le service mobile crée une base de données avec deux tables :
+Pour maintenir la simplicité de l'application, il n'existe pas de jeu réel. Vous pouvez en revanche ajouter des joueurs et envoyer un score pour chaque joueur. Lorsque vous envoyez un score, le service mobile calcule les nouveaux rangs. Sur le serveur principal, le service mobile crée une base de données avec deux tables :
 
 - Player. Contient l'ID et le nom du joueur.
 - PlayerRank. Contient le score et le rang d'un joueur.
@@ -73,7 +73,7 @@ Lancez Visual Studio et créez un projet d'application web ASP.NET. Nommez ce pr
 
 ![][3]
 
-Dans Visual Studio 2013, le projet d'application web ASP.NET inclut désormais un modèle pour Azure Mobile Services. Sélectionnez ce modèle et cliquez sur **OK**.
+Dans Visual Studio 2013, le projet d'application web ASP.NET inclut désormais un modèle pour Azure Mobile Services. Sélectionnez ce modèle et cliquez sur **OK**.
 
 ![][4]
 
@@ -130,11 +130,11 @@ Dans la boîte de dialogue **Ajouter structure**, agrandissez **Commun** sur la 
 
 ![][7]
 
-Dans la boîte de dialogue **Ajouter un contrôleur** :
+Dans la boîte de dialogue **Ajouter un contrôleur** :
 
 1.	Sous **Classe de modèle**, sélectionnez Player.
 2.	Sous la **classe de contexte de données**, sélectionnez MobileServiceContext.
-3.	Donnez le nom « PlayerController » au contrôleur.
+3.	Donnez le nom « PlayerController » au contrôleur.
 4.	Cliquez sur **Ajouter**.
 
 
@@ -144,14 +144,14 @@ Cette étape ajoute un fichier nommé PlayerController.cs au projet.
 
 Le contrôleur dérive de **TableController<T>**. Cette classe hérite de **ApiController**, mais est spécialisée pour Azure Mobile Services.
 
-- Routage : l'itinéraire par défaut pour un **TableController** est `/tables/{table_name}/{id}`, où *table\_name* correspond au nom de l'entité. L'itinéraire du contrôleur Player est donc */tables/player/{id}*. Cette convention de routage rend **TableController** cohérent avec l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) Mobile Services.
-- Accès aux données : pour les opérations de base de données, la classe **TableController** utilise l'interface **IDomainManager**, qui définit une abstraction pour l'accès aux données. La structure utilise **EntityDomainManager**, qui est une implémentation concrète de **IDomainManager** qui encapsule un contexte EF.
+- Routage : l'itinéraire par défaut pour un **TableController** est `/tables/{table_name}/{id}`, où *table\_name* correspond au nom de l'entité. L'itinéraire du contrôleur Player est donc */tables/player/{id}*. Cette convention de routage rend **TableController** cohérent avec l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) Mobile Services.
+- Accès aux données : pour les opérations de base de données, la classe **TableController** utilise l'interface **IDomainManager**, qui définit une abstraction pour l'accès aux données. La structure utilise **EntityDomainManager**, qui est une implémentation concrète de **IDomainManager** qui encapsule un contexte EF.
 
-À présent, ajoutez un deuxième contrôleur pour les entités PlayerRank. Suivez les mêmes étapes, mais choisissez PlayerRank pour la classe de modèle. Utilisez la même classe de contexte de données, n'en créez pas une. Donnez le nom « PlayerRankController » au contrôleur.
+À présent, ajoutez un deuxième contrôleur pour les entités PlayerRank. Suivez les mêmes étapes, mais choisissez PlayerRank pour la classe de modèle. Utilisez la même classe de contexte de données, n'en créez pas une. Donnez le nom « PlayerRankController » au contrôleur.
 
 ## Utilisation d'un objet de transfert de données pour renvoyer des entités associées
 
-N'oubliez pas que `PlayerRank` possède une entité `Player` associée :
+N'oubliez pas que `PlayerRank` possède une entité `Player` associée :
 
     public class PlayerRank : EntityData
     {
@@ -162,7 +162,7 @@ N'oubliez pas que `PlayerRank` possède une entité `Player` associée :
         public virtual Player Player { get; set; }
     }
 
-La bibliothèque cliente Mobile Services ne prend pas en charge les propriétés de navigation, qui ne seront pas sérialisées. Par exemple, voici la réponse HTTP brute pour GET `/tables/PlayerRank` :
+La bibliothèque cliente Mobile Services ne prend pas en charge les propriétés de navigation, qui ne seront pas sérialisées. Par exemple, voici la réponse HTTP brute pour GET `/tables/PlayerRank` :
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -190,7 +190,7 @@ Un objet de transfert de données est un objet qui définit la façon dont les d
 	    }
 	}
 
-Dans la classe `PlayerRankController`, nous utiliserons la méthode LINQ **Select** pour convertir les instances `PlayerRank` en instances `PlayerRankDto`. Mettez à jour les méthodes de contrôleur `GetAllPlayerRank` et `GetPlayerRank` comme suit :
+Dans la classe `PlayerRankController`, nous utiliserons la méthode LINQ **Select** pour convertir les instances `PlayerRank` en instances `PlayerRankDto`. Mettez à jour les méthodes de contrôleur `GetAllPlayerRank` et `GetPlayerRank` comme suit :
 
 	// GET tables/PlayerRank
 	public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -218,7 +218,7 @@ Dans la classe `PlayerRankController`, nous utiliserons la méthode LINQ **Selec
 	    return SingleResult<PlayerRankDto>.Create(result);
 	}
 
-Suite à ces modifications, les deux méthodes GET renvoient des objets `PlayerRankDto` au client. La propriété `PlayerRankDto.PlayerName` est définie sur le nom du joueur. Voici un exemple de réponse après cette modification :
+Suite à ces modifications, les deux méthodes GET renvoient des objets `PlayerRankDto` au client. La propriété `PlayerRankDto.PlayerName` est définie sur le nom du joueur. Voici un exemple de réponse après cette modification :
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -250,7 +250,7 @@ Tout d'abord, ajoutez une classe nommée `PlayerScore` au dossier DataObjects.
 	    }
 	}
 
-Dans la classe `PlayerRankController`, déplacez la variable `MobileServiceContext` du constructeur vers une variable de classe :
+Dans la classe `PlayerRankController`, déplacez la variable `MobileServiceContext` du constructeur vers une variable de classe :
 
     public class PlayerRankController : TableController<PlayerRank>
     {
@@ -267,13 +267,13 @@ Dans la classe `PlayerRankController`, déplacez la variable `MobileServiceConte
         }
 
 
-Supprimez les méthodes suivantes de `PlayerRankController` :
+Supprimez les méthodes suivantes de `PlayerRankController` :
 
 - `PatchPlayerRank`
 - `PostPlayerRank`
 - `DeletePlayerRank`
 
-Ajoutez ensuite le code suivant à `PlayerRankController` :
+Ajoutez ensuite le code suivant à `PlayerRankController` :
 
     [Route("api/score")]
     public async Task<IHttpActionResult> PostPlayerScore(PlayerScore score)
@@ -313,13 +313,13 @@ Ajoutez ensuite le code suivant à `PlayerRankController` :
         return Ok();
     }
 
-La méthode `PostPlayerScore` prend une instance `PlayerScore` en entrée (le client enverra le `PlayerScore` dans une requête HTTP POST). La méthode effectue les actions suivantes :
+La méthode `PostPlayerScore` prend une instance `PlayerScore` en entrée (le client enverra le `PlayerScore` dans une requête HTTP POST). La méthode effectue les actions suivantes :
 
 1.	Elle ajoute un nouveau `PlayerRank` pour le joueur, s'il n'en existe pas déjà dans la base de données.
 2.	Elle met à jour le score du joueur.
 3.	Elle exécute une requête SQL qui met à jour tous les rangs des joueurs par lots.
 
-L’attribut **[Route]** définit un itinéraire personnalisé pour cette méthode :
+L’attribut **[Route]** définit un itinéraire personnalisé pour cette méthode :
 
 	[Route("api/score")]
 
@@ -341,7 +341,7 @@ Le commutateur -Project indique le projet dans lequel installer le package.
 
 ## Ajout de classes de modèle
 
-Créez un dossier nommé Models et ajoutez les classes suivantes :
+Créez un dossier nommé Models et ajoutez les classes suivantes :
 
 	namespace LeaderboardApp.Models
 	{
@@ -635,12 +635,12 @@ Dans la page principale, ajoutez une instance du modèle de vue. Définissez ens
 
 Comme indiqué précédemment, nous ne verrons pas l'intégralité du XAML pour l'application. L'un des avantages du modèle MVVM est la séparation entre la présentation et la logique d'application. Il est donc facile de modifier l'interface utilisateur, si l'exemple d'application n'est pas à notre goût.
 
-La liste des joueurs s'affiche dans une zone **ListBox** :
+La liste des joueurs s'affiche dans une zone **ListBox** :
 
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-Les rangs s'affichent dans une liste **ListView** :
+Les rangs s'affichent dans une liste **ListView** :
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
 	    <!-- Header and styles not shown -->
@@ -685,7 +685,7 @@ Sélectionnez un service mobile existant ou cliquez sur **Nouveau** pour en cré
 
 Le processus de publication crée automatiquement la base de données. Vous n'avez pas besoin de configurer une chaîne de connexion.
 
-Vous pouvez à présent connecter l'application de classement au service en ligne. Vous avez besoin de deux éléments :
+Vous pouvez à présent connecter l'application de classement au service en ligne. Vous avez besoin de deux éléments :
 
 - L'URL du service
 - La clé de l'application
@@ -718,7 +718,7 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 * [En savoir plus sur Azure Mobile Services]
 * [En savoir plus sur l'API web]
 * [Gestion des conflits d'écriture dans une base de données]
-* [Ajout de notifications Push] ; par exemple, lorsqu'une personne ajoute un nouveau joueur ou met à jour un score.
+* [Ajout de notifications Push] ; par exemple, lorsqu'une personne ajoute un nouveau joueur ou met à jour un score.
 * [Prise en main de l'authentification]
 
 <!-- Anchors. -->
@@ -765,4 +765,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Ajout de notifications Push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

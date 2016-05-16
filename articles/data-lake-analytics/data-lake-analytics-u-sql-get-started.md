@@ -3,7 +3,7 @@
    description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Didacticiel : Prise en main du langage U-SQL Azure Data Lake Analytics
 
-U-SQL est un langage qui allie les avantages de SQL à la puissance d'expression de votre propre code de façon à traiter toutes les données, quelle que soit l'échelle. La fonctionnalité évolutive de requête distribuée d'U-SQL vous permet d'analyser efficacement les données du magasin et entre magasins relationnels comme les bases de données SQL Azure. Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d'intégrer une logique personnalisée et des UDF, et a l'extensibilité nécessaire pour permettre un contrôle précis de l'exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, reportez-vous à ce [Billet de blog Visual Studio](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx).
+U-SQL est un langage qui allie les avantages de SQL à la puissance d'expression de votre propre code de façon à traiter toutes les données, quelle que soit l'échelle. La fonctionnalité évolutive de requête distribuée d'U-SQL vous permet d'analyser efficacement les données du magasin et entre magasins relationnels comme les bases de données SQL Azure. Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d'intégrer une logique personnalisée et des UDF, et a l'extensibilité nécessaire pour permettre un contrôle précis de l'exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, reportez-vous à ce [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Il existe des différences par rapport à ANSI SQL ou à T-SQL. Par exemple, ses mots-clés, comme SELECT, doivent être en MAJUSCULES.
 
@@ -47,7 +47,7 @@ Dans ce didacticiel, vous avez exécuté une tâche Data Lake Analytics avec le 
         TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
 
-Ce script n'a aucune étape de transformation. Il lit le fichier source appelé **SearchLog.tsv**, le schématise et génère l'ensemble de lignes dans un fichier nommé **SearchLog-from-adltools.csv**.
+Ce script n'a aucune étape de transformation. Il lit le fichier source appelé **SearchLog.tsv**, le schématise et génère l'ensemble de lignes dans un fichier nommé **SearchLog-first-u-sql.csv**.
 
 Notez le point d'interrogation en regard du type de données du champ Durée. Cela signifie que le champ Durée peut être null.
 
@@ -64,7 +64,7 @@ Quelques concepts et mots-clés du script :
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Les conteneurs d'objets Blob Azure avec des autorisations d'accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
+    >[AZURE.NOTE] Les conteneurs d'objets Blob Azure avec des autorisations d'accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
 
 ## Utiliser des variables scalaires
 
@@ -419,4 +419,4 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 - [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
 - [Faire des commentaires sur U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0504_2016-->

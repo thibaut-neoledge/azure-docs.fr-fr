@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Utilisez le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azure
 
 ####Chiffrement AES avec jeton 
 
-[http://aestoken.azurewebsites.net]("http://aestoken.azurewebsites.net)
+[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ###Lecteurs Silverlight
 
@@ -93,4 +93,4 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

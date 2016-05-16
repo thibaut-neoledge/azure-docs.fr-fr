@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Approvisionnement de clusters dans HDInsight
 
 Apprenez à planifier l’approvisionnement de clusters HDInsight.
 
-> [AZURE.WARNING] Les étapes de ce document utilisent le portail Azure classique ainsi que d'anciennes versions d'Azure PowerShell et de l'interface de ligne de commande (CLI) Azure. Microsoft déconseille ces étapes. Vous devriez plutôt utiliser le portail Azure et les versions les plus récentes d'Azure PowerShell et de l'interface de ligne de commande (CLI) Azure. Pour obtenir une version de ce document qui utilise le portail Azure et les versions les plus récentes d'Azure PowerShell et de l'interface de ligne de commande (CLI) Azure, consultez la rubrique [Approvisionner des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md)
+> [AZURE.IMPORTANT] Les étapes de ce document utilisent le portail Azure Classic. Microsoft ne recommande pas l’utilisation du portail Classic lors de la création de services. Pour obtenir une explication des avantages du portail Azure, consultez la rubrique [Portail Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Pour obtenir une explication des avantages du portail Azure, consultez la rubrique [Portail Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+> Ce document inclut également des informations sur l’utilisation d’Azure PowerShell et de l’interface de ligne de commande Azure. Les extraits de code fournis sont basés sur des commandes qui utilisent Azure Service Management (ASM) pour travailler avec HDInsight et qui sont __déconseillées__. Ces commandes seront supprimées d’ici au 1er janvier 2017.
+>
+>Pour obtenir une version de ce document qui utilise le portail Azure, ainsi que des extraits de code PowerShell et de l’interface de ligne de commande (CLI) Azure qui utilisent Azure Resource Manager (ARM), consultez [Approvisionner des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 
 **Configuration requise :**
 
@@ -532,7 +534,7 @@ L’interface de ligne de commande Azure peut être installée à l’aide de NP
 
 **Installation de l’interface de ligne de commande à l’aide de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/downloads/**.
+1.	Accédez à ****http://azure.microsoft.com/downloads/**.
 2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
 
 **Pour télécharger et importer des paramètres de publication**
@@ -709,7 +711,6 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

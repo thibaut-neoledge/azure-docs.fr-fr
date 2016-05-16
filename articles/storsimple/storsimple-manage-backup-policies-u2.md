@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde (Mise à jour 2)
@@ -23,7 +23,7 @@
 
 Ce didacticiel vous explique comment utiliser la page **Stratégies de sauvegarde** du service StorSimple Manager pour contrôler les processus de sauvegarde et la rétention de sauvegarde pour vos volumes StorSimple. Il décrit également comment effectuer une sauvegarde manuelle.
 
-Lorsque vous sauvegardez un volume, vous pouvez choisir de créer un instantané local ou un instantané cloud. Si vous sauvegardez un volume épinglé localement, nous vous recommandons de spécifier un instantané cloud. Le fait de prendre un grand nombre d'instantanés locaux associé à un jeu de données qui possède une attrition élevée entraîne une situation dans laquelle vous pourriez rapidement manquer d'espace en local. Si vous choisissez de prendre des instantanés locaux, nous vous recommandons de prendre moins d'instantanés quotidiens pour sauvegarder l'état le plus récent, de les conserver pendant un jour et de les supprimer.
+Lorsque vous sauvegardez un volume, vous pouvez choisir de créer un instantané local ou un instantané cloud. Si vous sauvegardez un volume épinglé localement, nous vous recommandons de spécifier un instantané cloud. Le fait de prendre un grand nombre d'instantanés locaux d’un volume épinglé localement associé à un jeu de données qui possède une attrition élevée entraîne une situation dans laquelle vous pourriez rapidement manquer d'espace local. Si vous choisissez de prendre des instantanés locaux, nous vous recommandons de prendre moins d'instantanés quotidiens pour sauvegarder l'état le plus récent, de les conserver pendant un jour et de les supprimer.
 
 Lorsque vous prenez un instantané cloud d'un volume épinglé localement, vous copiez uniquement les données modifiées dans le cloud, où elles sont dédupliquées et compressées.
 
@@ -96,4 +96,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

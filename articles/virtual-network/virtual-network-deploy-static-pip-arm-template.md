@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Déployer une machine virtuelle avec une adresse IP publique statique à l’aide d’un modèle
@@ -46,9 +46,9 @@ La section ci-dessous illustre la définition de la ressource IP publique d’a
         }
       },
 
-Notez la propriété **publicIPAllocationMethod** qui a la valeur *Static*. Cette propriété peut avoir la valeur *Dynamic* (par défaut) ou *Static*. La valeur Static garantit que l’adresse IP pour cette adresse IP publique ne changera jamais.
+Notez la propriété **publicIPAllocationMethod** qui a la valeur *Static*. Cette propriété peut avoir la valeur *Dynamic* (par défaut) ou *Static*. La valeur Static garantit que l’adresse IP publique affectée ne changera jamais.
 
-La section suivante illustre l’association de l’adresse IP publique ci-dessus à une carte réseau.
+La section suivante illustre l’association de l’adresse IP publique à une interface réseau.
 
       {
         "apiVersion": "2015-06-15",
@@ -83,7 +83,7 @@ La section suivante illustre l’association de l’adresse IP publique ci-dess
 
 Notez la présence de la propriété **publicIPAddress** qui pointe vers l’**Id** d’une ressource nommée **variables('webVMSetting').pipName**. Il s’agit du nom de la ressource IP publique indiquée ci-dessus.
 
-Enfin, la carte réseau ci-dessus est répertoriée dans la propriété **networkProfile** de la machine virtuelle en cours de création.
+Enfin, l’interface réseau ci-dessus est répertoriée dans la propriété **networkProfile** de la machine virtuelle en cours de création.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -95,7 +95,7 @@ Enfin, la carte réseau ci-dessus est répertoriée dans la propriété **networ
 
 ## Déployer le modèle en un clic
 
-L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
+L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, cliquez sur **Déployer dans Azure** dans le fichier Readme.md pour le modèle [Machine virtuelle avec PIP statique](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP). Remplacez les valeurs de paramètre par défaut si vous le souhaitez et entrez des valeurs pour les paramètres vides. Suivez les instructions dans le portail pour créer une machine virtuelle avec une adresse IP publique statique.
 
 ## Déployer le modèle à l’aide de PowerShell
 
@@ -105,11 +105,11 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 
 2. Dans une console PowerShell, exécutez l’applet de commande **New-AzureRmResourceGroup** pour créer un groupe de ressources si nécessaire. Si vous avez déjà créé un groupe de ressources, passez à l’étape 3.
 
-		New-AzureRmResourceGroup -Name StaticPublicIP -Location westus
+		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
 	Sortie attendue :
 
-		ResourceGroupName : StaticPublicIP
+		ResourceGroupName : PIPTEST
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -126,7 +126,7 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
 		ProvisioningState : Succeeded
-		Timestamp         : 1/8/2016 7:04:44 PM
+		Timestamp         : <Deployment date> <Deployment time>
 		Mode              : Incremental
 		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
@@ -152,7 +152,7 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 
 Pour déployer le modèle à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, suivez les étapes répertoriées dans l’article sur [l’installation et la et configuration de l’interface de commande](../xplat-cli-install.md), puis les étapes de connexion de l’interface de ligne de commande à votre abonnement dans la section « Utiliser une connexion azure pour effectuer une authentification interactive » de l’article [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -161,13 +161,13 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 
 		info:    New mode is arm
 
-3. Ouvrez le [fichier de paramètres](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), sélectionnez son contenu et enregistrez-le dans un fichier sur votre ordinateur. Pour cet exemple, nous avons enregistré le fichier de paramètres sous le nom *parameters.json*.
+3. Ouvrez le [fichier de paramètres](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), sélectionnez son contenu et enregistrez-le dans un fichier sur votre ordinateur. Pour cet exemple, les paramètres sont enregistrés dans un fichier nommé *parameters.json*. Modifiez les valeurs de paramètre dans le fichier si vous le souhaitez. Il est recommandé de modifier au minimum la valeur du paramètre adminPassword en un mot de passe complexe unique.
 
-4. Exécutez l’applet de commande **azure group deployment create** pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
+4. Exécutez l’applet de commande **azure group deployment create** pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. Dans la commande ci-dessous, remplacez <path> par le chemin d’accès dans lequel vous avez enregistré le fichier.
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e parameters.json
+		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	Sortie attendue :
+	Sortie attendue (répertorie les valeurs de paramètre utilisées) :
 
 		info:    Executing command group create
 		+ Getting resource group PIPTEST2
@@ -176,7 +176,7 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/PIPTEST2
+		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
 		data:    Name:                PIPTEST2
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -184,4 +184,4 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

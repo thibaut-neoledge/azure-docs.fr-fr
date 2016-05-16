@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="05/02/2016"
    ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
@@ -90,4 +90,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Cibler Azure DocumentDB pour la sortie JSON à partir de Stream Analytics
@@ -54,12 +54,12 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 
 ![écran de sortie documentdb stream analytics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)
 
--   **Alias de sortie** : alias faisant référence à cette sortie dans votre requête ASA  
--   **Nom du compte** : nom ou URI du point de terminaison du compte DocumentDB.  
--   **Clé du compte** : clé d’accès partagé du compte DocumentDB.  
--   **Base de données** : nom de la base de données DocumentDB.  
--   **Modèle de nom de collection** : modèle de nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Voici des exemples d’entrées valides : 1) MyCollection : il doit exister une collection nommée « MyCollection ». (2) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
--   **Clé de partition** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
--   **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
+-   **Alias de sortie** : alias faisant référence à cette sortie dans votre requête ASA  
+-   **Nom du compte** : nom ou URI du point de terminaison du compte DocumentDB.  
+-   **Clé du compte** : clé d’accès partagé du compte DocumentDB.  
+-   **Base de données** : nom de la base de données DocumentDB.  
+-   **Modèle de nom de collection** : modèle de nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Voici des exemples d’entrées valides : 1) MyCollection : il doit exister une collection nommée « MyCollection ». (2) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
+-   **Clé de partition** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
+-   **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

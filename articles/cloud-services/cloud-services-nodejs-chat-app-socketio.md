@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
 Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l'hébergement d'une application de conversation instantanée socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez <http://socket.io/>.
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d'écran de l'application terminée :
 
 ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]
 
 ## Composants requis
 
-Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
+Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
 
 * Installez [Visual Studio 2013](https://www.visualstudio.com/fr-FR/downloads/download-visual-studio-vs.aspx)
 * Installez [Node.js](https://nodejs.org/download/)
@@ -48,12 +48,12 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
  
 		PS C:\> cd node
 
-4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
 
-	Vous obtenez la réponse suivante :
+	Vous obtenez la réponse suivante :
 
 	![Résultat des cmdlets new-azureservice et add-azurenodeworkerrole](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
@@ -75,11 +75,11 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée obt
 
 ### Modification du fichier Server.js et installation des modules
 
-Avant de tester l'application dans l'émulateur Azure, nous allons apporter quelques modifications mineures. Procédez comme suit avec le fichier server.js :
+Avant de tester l'application dans l'émulateur Azure, nous allons apporter quelques modifications mineures. Procédez comme suit avec le fichier server.js :
 
 1.  Ouvrez le fichier **server.js** dans Visual Studio ou un éditeur de texte.
 
-2.  Recherchez la section **Module dependencies** située au début du fichier server.js, puis remplacez la ligne contenant **sio = require('..//..//lib//socket.io')** par **sio = require('socket.io')**, comme indiqué ci-dessous :
+2.  Recherchez la section **Module dependencies** située au début du fichier server.js, puis remplacez la ligne contenant **sio = require('..//..//lib//socket.io')** par **sio = require('socket.io')**, comme indiqué ci-dessous :
 
 		var express = require('express')
   		, stylus = require('stylus')
@@ -87,7 +87,7 @@ Avant de tester l'application dans l'émulateur Azure, nous allons apporter quel
 		//, sio = require('..//..//lib//socket.io'); //Original
   		, sio = require('socket.io');                //Updated
 
-3.  Pour que l'application écoute le bon port, ouvrez le fichier server.js dans le Bloc-notes (ou votre éditeur favori), puis modifiez la ligne suivante en remplaçant **3000** par **process.env.port**, comme indiqué ci-dessous :
+3.  Pour que l'application écoute le bon port, ouvrez le fichier server.js dans le Bloc-notes (ou votre éditeur favori), puis modifiez la ligne suivante en remplaçant **3000** par **process.env.port**, comme indiqué ci-dessous :
 
         //app.listen(3000, function () {            //Original
 		app.listen(process.env.port, function () {  //Updated
@@ -95,23 +95,23 @@ Avant de tester l'application dans l'émulateur Azure, nous allons apporter quel
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-Après avoir enregistré vos modifications dans le fichier **server.js**, procédez comme suit pour installer les modules requis, puis testez l'application dans l'émulateur Azure :
+Après avoir enregistré vos modifications dans le fichier **server.js**, procédez comme suit pour installer les modules requis, puis testez l'application dans l'émulateur Azure :
 
-1.  Utilisez **Azure PowerShell** pour remplacer les répertoires du répertoire **C:\\node\\chatapp\\WorkerRole1**, puis exécutez la commande suivante pour installer les modules requis par cette application :
+1.  Utilisez **Azure PowerShell** pour remplacer les répertoires du répertoire **C:\\node\\chatapp\\WorkerRole1**, puis exécutez la commande suivante pour installer les modules requis par cette application :
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
-    Ceci installe les modules répertoriés dans le fichier package.json. Une fois la commande terminée, un texte similaire à celui présenté ci-dessous doit s'afficher :
+    Ceci installe les modules répertoriés dans le fichier package.json. Une fois la commande terminée, un texte similaire à celui présenté ci-dessous doit s'afficher :
 
     ![Résultat de la commande npm install][The-output-of-the-npm-install-command]
 
-4.  Comme cet exemple fait partie du référentiel GitHub Socket.IO et qu'il est directement référencé par la bibliothèque Socket.IO par un chemin d'accès relatif, Socket.IO n'est pas référencé dans le fichier package.json. Vous devez donc l'installer en exécutant la commande suivante :
+4.  Comme cet exemple fait partie du référentiel GitHub Socket.IO et qu'il est directement référencé par la bibliothèque Socket.IO par un chemin d'accès relatif, Socket.IO n'est pas référencé dans le fichier package.json. Vous devez donc l'installer en exécutant la commande suivante :
 
         PS C:\node\chatapp\WorkerRole1> npm install socket.io --save
 
 ### Test et déploiement
 
-1.  Démarrez l'émulateur en exécutant la commande suivante :
+1.  Démarrez l'émulateur en exécutant la commande suivante :
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
@@ -121,11 +121,11 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 
     ![Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
-3.  Une fois le test de l'application terminé, arrêtez l'émulateur en exécutant la commande suivante :
+3.  Une fois le test de l'application terminé, arrêtez l'émulateur en exécutant la commande suivante :
 
         PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
 
-4.  Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject**. Par exemple :
+4.  Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject**. Par exemple :
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
@@ -170,4 +170,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
   
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

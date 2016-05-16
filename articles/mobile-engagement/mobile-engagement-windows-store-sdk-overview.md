@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Vue d'ensemble du Kit de développement logiciel de Windows Universal pour Azure Engagement Mobile
@@ -68,6 +68,6 @@ Lors de la mise à niveau vers la nouvelle version du Kit de développement logi
 
 ### Mise à niveau à partir de versions antérieures
 
-Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure/)
+Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

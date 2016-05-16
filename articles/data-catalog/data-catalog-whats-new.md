@@ -184,7 +184,7 @@ Depuis la semaine du 25 septembre 2015, les fonctionnalités suivantes ont ét
 Depuis la semaine du 11 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de l’inscription et de la détection d’objets SQL Server Analysis Services via HTTP/HTTPS. Les utilisateurs peuvent désormais se connecter à des serveurs SSAS à l’aide d’une URL (telle que https://servername/olap/msmdpump.dll) au lieu d’un nom de serveur et peuvent utiliser une authentification de base et des connexions anonymes en plus de l’authentification Windows. Pour plus d’informations sur les connexions HTTP/HTTPS à SSAS, consultez [Configuration de l’accès HTTP à Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Prise en charge de sources de données Hive sur HDInsight. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données HDInsight. Pour plus d'informations sur Hive dans HDInsight, consultez le [Centre de documentation HDInsight](../hdinsight-use-hive/).
+- Prise en charge de sources de données Hive sur HDInsight. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données HDInsight. Pour plus d'informations sur Hive dans HDInsight, consultez le [Centre de documentation HDInsight](../hdinsight/hdinsight-use-hive.md).
 - Prise en charge de l’inscription et de la détection de bases de données Oracle et de clusters HDFS en tant que conteneurs. Lors de l’inscription de tables et de vues Oracle ou de HDFS, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être découverte et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’une base de données ou d’un cluster, en plus de la recherche et du filtrage du contenu du catalogue.
 
 
@@ -216,4 +216,4 @@ Depuis la semaine du 28 août 2015, les fonctionnalités suivantes ont été a
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

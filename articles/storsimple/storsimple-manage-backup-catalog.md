@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="04/28/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre catalogue de sauvegarde
@@ -23,7 +23,7 @@ La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous l
 
 Ce didacticiel explique comment répertorier, sélectionner et supprimer un jeu de sauvegarde. Pour savoir comment restaurer votre appareil à partir d’une sauvegarde, accédez à [Restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md). Pour découvrir comment cloner un volume, accédez à [Cloner un volume StorSimple](storsimple-clone-volume.md).
 
-![Catalogue de sauvegarde](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png)
+![Catalogue de sauvegarde](./media/storsimple-manage-backup-catalog/backupcatalog.png)
 
 La page **Catalogue de sauvegarde** comprend une zone de requête pour affiner la sélection des ensembles de sauvegarde. Vous pouvez filtrer les jeux de sauvegarde récupérés selon les paramètres suivants :
 
@@ -117,4 +117,4 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0504_2016-->

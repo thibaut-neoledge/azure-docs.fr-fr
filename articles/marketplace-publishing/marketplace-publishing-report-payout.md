@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/03/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Présentation de vos rapports de paiement Azure Marketplace
@@ -22,9 +22,13 @@
 
 Lors de la transition vers le Centre de développement, certains de vos rapports de paiements peuvent être disponibles dans le Centre de développement sous https://dev.windows.com/fr-FR, alors que d’autres peuvent toujours se trouver sur le Portail de publication sous https://publish.windowsazure.com.
 
-Le rapport Revenus sera alors disponible dans le **Centre de développement** pour les offres du Marketplace qui sont associées à des paiements modernes. Cela inclut actuellement les machines virtuelles, les offres B+C et les services de développement proposés dans le cadre du Contrat Entreprise.
+Le rapport Revenus sera alors disponible dans le **Centre de développement** pour les offres du Marketplace qui sont associées à des paiements modernes. Cela inclut actuellement :
+- Machines virtuelles
+- Offres B+C
+- Services de développement et de données proposés dans le cadre du Contrat Entreprise
 
-Le rapport Revenus sera toujours dans le **Portail de publication** pour les données et les services de développement proposés sous Web Direct (qui utilise toujours le système de paiement hérité).
+Le rapport Revenus sera toujours dans le **Portail de publication** pour :
+- Services de développement et de données proposés sous Web Direct (qui utilise toujours le système de paiement hérité).
 
 Les rapports sont disponibles pendant 45 jours après la fin du trimestre et sont calculés après tout remboursement.
 
@@ -72,7 +76,7 @@ Le rapport de paiement pour chaque trimestre enregistre toutes les transactions 
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
 - Si vous recherchez des écritures comptables se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour ce trimestre dans la liste déroulante. Par exemple, si vous êtes intéressé par les écritures comptables d'avril à juin 2015, sélectionnez cette plage de dates dans la liste déroulante.
-- Si vous recherchez des détails de paiements se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous êtes intéressé par les paiements d'avril à juin 2015, ces montants apparaîtront dans le rapport de paiement suivant, de juillet à septembre 2015. ![readingpayoutreport][6]
+- Si vous recherchez des détails de paiements se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous êtes intéressé par les paiements d'avril à juin 2015, ces montants apparaîtront dans le rapport de paiement suivant, de juillet à septembre 2015. ![readingpayoutreport][6]
 
 - Le volet de synthèse financière indique les soldes, crédits et débits par catégories.
 - Le volet des écritures comptables indique les transactions individuelles.
@@ -112,4 +116,4 @@ Pour les autres requêtes de support, soumettez une demande d’assistance à <h
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

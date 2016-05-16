@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
@@ -24,15 +24,15 @@
 
 Azure permet d'utiliser une machine virtuelle pour obtenir des fonctionnalités de serveur. Par exemple, vous pouvez configurer une machine virtuelle exécutée sur Azure pour qu'elle héberge un serveur d'applications Java, comme Apache Tomcat. Ce guide permet de comprendre comment créer une machine virtuelle exécutée sur Azure et comment la configurer pour exécuter un serveur d’applications Java.
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
-* créer une machine virtuelle déjà dotée d’un kit de développement Java (JDK) ;
-* se connecter à distance à votre machine virtuelle ;
-* installer un serveur d'applications Java sur votre machine virtuelle ;
-* créer un point de terminaison pour votre machine virtuelle ;
+* créer une machine virtuelle déjà dotée d’un kit de développement Java (JDK) ;
+* se connecter à distance à votre machine virtuelle ;
+* installer un serveur d'applications Java sur votre machine virtuelle ;
+* créer un point de terminaison pour votre machine virtuelle ;
 * ouvrir un port dans le pare-feu pour votre serveur d'applications.
 
-Ce didacticiel nécessite l’installation d’un serveur d’applications Apache Tomcat sur une machine virtuelle. Une fois terminée, l'installation Tomcat donne le résultat suivant :
+Ce didacticiel nécessite l’installation d’un serveur d’applications Apache Tomcat sur une machine virtuelle. Une fois terminée, l'installation Tomcat donne le résultat suivant :
 
 ![Machine virtuelle exécutant Apache Tomcat][virtual_machine_tomcat]
 
@@ -42,22 +42,22 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
-3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 7.
+3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 7.
 4. Cliquez sur **Next**.
-5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez saisir, car vous devrez les réutiliser pour vous connecter à distance à votre machine virtuelle.
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5. Cliquez sur **Next**.
-6. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
+6. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
     1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région, par exemple, **Bretagne**.
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
@@ -68,7 +68,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous souhaitez vous connecter.
 4. Une fois que la machine virtuelle a démarré, un menu contextuel au bas de la page autorise les connexions.
 5. Cliquez sur **Connecter**.
-6. Répondez aux invites pour vous connecter à la machine virtuelle. Cela implique d'enregistrer ou d'ouvrir le fichier .rdp qui contient les informations de connexion. Vous devrez peut-être copier le port url:port en tant que dernière partie de la première ligne du fichier .rdp et le coller dans une application de connexion distante.
+6. Répondez aux invites pour vous connecter à la machine virtuelle. Cela implique d'enregistrer ou d'ouvrir le fichier .rdp qui contient les informations de connexion. Vous devrez peut-être copier le port url:port en tant que dernière partie de la première ligne du fichier .rdp et le coller dans une application de connexion distante.
 
 ## Installation d'un serveur d'applications Java sur votre machine virtuelle
 
@@ -95,7 +95,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Add**.
 6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome ** est cochée, puis cliquez sur **Suivant**.
-7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
+7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
     3. Indiquez **80** pour le port public.
@@ -146,4 +146,4 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 [NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

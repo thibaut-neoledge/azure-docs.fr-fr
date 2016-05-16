@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -30,7 +30,7 @@ L’illustration suivante montre la boîte de dialogue de propriétés **Accès 
 
 ![][ic719494]
 
-Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
+Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
 
 * Cliquer sur le lien **Avancé** dans la section **Accès distant** de la boîte de dialogue **Publier sur Azure**.
 * Ouvrir la boîte de dialogue **Propriétés** de votre projet Azure.
@@ -41,13 +41,13 @@ La suite de ce didacticiel montre comment activer l’accès à distance pour un
 
 ## Comment activer l’accès à distance après le déploiement dans Azure ##
 
-Pour activer l’accès à distance après avoir déployé votre application dans Azure, procédez comme suit :
+Pour activer l’accès à distance après avoir déployé votre application dans Azure, procédez comme suit :
 
 1. Connectez-vous au portail de gestion Azure avec votre compte Azure.
 1. Dans la liste **Cloud Services**, sélectionnez votre service cloud déployé.
 1. Dans la page web du service cloud, cliquez sur le lien **Configurer**.
 1. Au bas de la page de configuration, cliquez sur le lien **À distance**.
-1. Lorsque la boîte de dialogue contextuelle s’affiche :
+1. Lorsque la boîte de dialogue contextuelle s’affiche :
     1. Spécifiez le rôle pour lequel vous souhaitez activer l’accès à distance.
     1. Cochez la case **Activer le Bureau à distance**.
     1. Spécifiez un nom d’utilisateur et un mot de passe à utiliser pour l’accès à distance.
@@ -68,11 +68,9 @@ Un message indique que la modification de votre configuration est en cours et qu
 * Dans la boîte de dialogue **Nouveau certificat**, spécifiez et confirmez le mot de passe que vous utiliserez pour votre fichier PFX.
 * Acceptez la valeur fournie pour **Nom (CN)** ou utilisez un nom personnalisé.
 * Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat sera enregistré au format .cer. Pour cette étape et la suivante, vous pouvez utiliser le dossier **cert** de votre projet Azure, mais vous êtes libre de choisir un autre emplacement. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.cer**. (Avant de continuer, créez le dossier **c:\\mycert** ou choisissez un dossier existant.)
-* Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat et sa clé privée seront enregistrés au format .pfx. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.pfx**. La boîte de dialogue **Nouveau certificat** doit ressembler à ce qui suit (si vous n’utilisez pas **c:\\mycert**, mettez à jour les chemins d’accès de dossier) :
-    ![][ic712275]
+* Spécifiez le chemin d’accès et le nom de fichier sous lesquels le nouveau certificat et sa clé privée seront enregistrés au format .pfx. Dans le cadre de ce didacticiel, nous utiliserons **c:\\mycert\\mycert.pfx**. La boîte de dialogue **Nouveau certificat** doit ressembler à ce qui suit (si vous n’utilisez pas **c:\\mycert**, mettez à jour les chemins d’accès de dossier) : ![][ic712275]
 * Cliquez sur **OK** pour fermer la boîte de dialogue **Nouveau certificat**.
-* La boîte de dialogue **Accès distant** doit ressembler à celle-ci :</p>
-    ![][ic719495]
+* La boîte de dialogue **Accès distant** doit ressembler à celle-ci :</p> ![][ic719495]
 * Cliquez sur **OK** pour fermer la boîte de dialogue **Accès distant**.
 	
 Régénérez votre application, avec la build définie pour le déploiement dans le cloud.
@@ -82,18 +80,17 @@ Régénérez votre application, avec la build définie pour le déploiement dans
 Une fois votre instance de rôle prête, vous pouvez vous connecter à distance à la machine virtuelle hébergeant votre application.
 
 * Si vous utilisez Eclipse dans Windows et que vous avez sélectionné l’option **Démarrer le Bureau à distance lors du déploiement ** durant le déploiement dans Azure, l’écran d’ouverture de session Connexion Bureau à distance s’affiche au démarrage du déploiement. Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
-* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
-    * Dans l’affichage **Cloud Services** du portail de gestion Azure, cliquez sur votre service cloud, sur **Instances**, sur une instance spécifique, puis sur le bouton **Connexion**. Le bouton **Connexion** s’affiche comme suit dans la barre de commandes : 
-    ![][ic659273]  
+* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
+    * Dans l’affichage **Cloud Services** du portail de gestion Azure, cliquez sur votre service cloud, sur **Instances**, sur une instance spécifique, puis sur le bouton **Connexion**. Le bouton **Connexion** s’affiche comme suit dans la barre de commandes : ![][ic659273]
     >[AZURE.NOTE] Si vous exécutez un système d’exploitation autre que Windows, vous devez utiliser un client Bureau à distance compatible avec votre système d’exploitation et suivre les étapes de configuration de ce client avec les paramètres définis dans le fichier RDP que vous avez téléchargé.
     * Après avoir cliqué sur le bouton **Connexion**, vous êtes invité à ouvrir un fichier RDP. Ouvrez le fichier et suivez les invites. (Vous pouvez aussi enregistrer ce fichier sur votre ordinateur local, puis l’exécuter en double-cliquant dessus pour vous connecter à distance à votre machine virtuelle sans avoir à accéder d’abord au portail de gestion).
     * Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Kit de ressources Azure pour Eclipse][]
 
-[Création d’une application « Hello World » pour Azure dans Eclipse][]
+[Création d’une application « Hello World » pour Azure dans Eclipse][]
 
 [Installation de la Boîte à outils Azure pour Eclipse][]
 
@@ -103,8 +100,8 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installation de la Boîte à outils Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
@@ -114,4 +111,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

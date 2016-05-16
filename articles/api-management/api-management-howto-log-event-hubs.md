@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
@@ -71,14 +71,12 @@ Spécifiez le corps de la demande en utilisant le modèle suivant.
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        },
-        "isBuffered": "true | false"
+        }
     }
 
 -	`type` doit être défini sur `AzureEventHub`.
 -	`description` fournit une description facultative de l’enregistreur d’événements et peut être une chaîne vide si vous le souhaitez.
 -	`credentials` contient les valeurs `name` et `connectionString` de votre hub d’événements Azure.
--	`isBuffered` détermine si les enregistrements figurant dans l’enregistreur d’événements sont mis en mémoire tampon avant la publication. Cette propriété est facultative et la valeur par défaut est `true`. Lorsque des enregistrements sont mis en mémoire tampon, ils sont envoyés à l’Event hub (hub d’événements) toutes les 15 secondes ou chaque fois que la mémoire tampon reçoit 256 Ko de messages.
 
 Lorsque vous créez la demande, si l’enregistreur d’événements est créé, un code d’état `201 Created` est renvoyé.
 
@@ -135,4 +133,4 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

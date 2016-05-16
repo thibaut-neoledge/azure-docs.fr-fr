@@ -13,14 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="02/04/2016"
+ ms.date="04/29/2016"
  ms.author="danlep"/>
 
-# Options pour créer et gérer un cluster HPC (calcul haute performance) Linux dans Azure avec Microsoft HPC Pack
+# Options pour créer et gérer un cluster HPC (calcul haute performance) dans Azure avec Microsoft HPC Pack
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Si vous souhaitez exécuter des charges de travail HPC Windows avec HPC Pack, consultez la page [Options pour la création et la gestion d’un cluster HPC Windows dans Azure avec Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+Cet article traite des options d’utilisation de HPC Pack pour exécuter des charges de travail Linux. Il existe également des options d’exécution [de charges de travail Windows HPC avec HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -52,12 +52,11 @@ Si vous souhaitez exécuter des charges de travail HPC Windows avec HPC Pack, co
 
 * [Didacticiel : Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-
+* [Didacticiel : Exécuter STAR-CCM+ avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
 ### Gestion de cluster
 
 * [Envoyer des travaux à un cluster HPC Pack dans Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
-
 
 
 ## Créer des clusters RDMA pour des charges de travail MPI
@@ -66,4 +65,4 @@ Si vous souhaitez exécuter des charges de travail HPC Windows avec HPC Pack, co
 
 * [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

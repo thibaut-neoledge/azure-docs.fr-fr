@@ -3,9 +3,9 @@
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui inclut une base de données SQL." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Mettre en service une application Web avec une base de données SQL
 
@@ -22,7 +22,7 @@ Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Ma
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
 Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
@@ -30,7 +30,7 @@ Pour le modèle complet, consultez [Modèle d'application Web avec une base de d
 
 ## Ce que vous allez déployer
 
-Dans ce modèle, vous allez déployer :
+Dans ce modèle, vous allez déployer :
 
 - une application Web
 - Serveur de base de données SQL
@@ -39,29 +39,13 @@ Dans ce modèle, vous allez déployer :
 - Règles d'alerte
 - App Insights
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Paramètres à spécifier
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
-
-### serverName
-
-Le nom du serveur de base de données à créer.
-
-    "serverName": {
-      "type": "string"
-    }
-
-### serverLocation
-
-L'emplacement du serveur de base de données. Pour de meilleures performances, cet emplacement doit être identique à l'emplacement de l'application Web.
-
-    "serverLocation": {
-      "type": "string"
-    }
 
 ### administratorLogin
 
@@ -84,7 +68,8 @@ Le mot de passe à utiliser pour l'administrateur du serveur de base de données
 Le nom de la base de données à créer.
 
     "databaseName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "sampledb"
     }
 
 ### collation
@@ -102,9 +87,14 @@ Le type de base de données à créer.
 
     "edition": {
       "type": "string",
-      "defaultValue": "Standard",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
       "metadata": {
-        "description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+        "description": "The type of database to create."
       }
     }
 
@@ -123,37 +113,61 @@ Le nom correspondant au niveau de performances pour l'édition.
 
     "requestedServiceObjectiveName": {
       "type": "string",
-      "defaultValue": "S0",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
       "metadata": {
-        "description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+        "description": "Describes the performance level for Edition"
       }
     }
+
+## Variables pour les noms
+
+Ce modèle inclut des variables qui construisent les noms utilisés dans le modèle. Les valeurs des variables utilisent la fonction **uniqueString** pour générer un nom à partir de l’ID du groupe de ressources.
+
+    "variables": {
+        "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
+        "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
+        "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]"
+    },
 
 
 ## Ressources à déployer
 
-### Base de données SQL et serveur SQL Server
+### Base de données SQL et serveur SQL Server
 
 Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est spécifié dans le paramètre **serverName** et l'emplacement est spécifié dans le paramètre **serverLocation**. Lorsque vous créez le serveur, vous devez fournir un nom et un mot de passe de connexion pour l'administrateur du serveur de base de données.
 
     {
-      "name": "[parameters('serverName')]",
+      "name": "[variables('sqlserverName')]",
       "type": "Microsoft.Sql/servers",
-      "location": "[parameters('serverLocation')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "SqlServer"
+      },
       "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
       },
       "resources": [
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
-          "location": "[parameters('serverLocation')]",
+          "location": "[resourceGroup().location]",
+          "tags": {
+            "displayName": "Database"
+          },
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+            "[variables('sqlserverName')]"
           ],
           "properties": {
             "edition": "[parameters('edition')]",
@@ -163,41 +177,41 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
           }
         },
         {
+          "type": "firewallrules",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+            "[variables('sqlserverName')]"
           ],
-          "location": "[parameters('serverLocation')]",
+          "location": "[resourceGroup().location]",
           "name": "AllowAllWindowsAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
             "startIpAddress": "0.0.0.0"
-          },
-          "type": "firewallrules"
+          }
         }
       ]
     },
 
-
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Application web
+### Application web
 
     {
       "apiVersion": "2015-08-01",
-      "name": "[parameters('siteName')]",
+      "name": "[variables('webSiteName')]",
       "type": "Microsoft.Web/sites",
-      "location": "[parameters('siteLocation')]",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        "[variables('hostingPlanName')]"
       ],
       "tags": {
-        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "empty",
+        "displayName": "Website"
       },
       "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[parameters('hostingPlanName')]"
+        "name": "[variables('webSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
       },
       "resources": [
         {
@@ -205,30 +219,32 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
           "type": "config",
           "name": "connectionstrings",
           "dependsOn": [
-            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+            "[variables('webSiteName')]"
           ],
           "properties": {
             "DefaultConnection": {
-              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": "SQLAzure"
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "type": "SQLServer"
             }
           }
         }
       ]
     },
 
+
 ### Mise à l'échelle automatique
 
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
+      "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
       "type": "Microsoft.Insights/autoscalesettings",
-      "location": "East US",
+      "location": "[resourceGroup().location]",
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "AutoScaleSettings"
       },
       "dependsOn": [
-        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        "[variables('hostingPlanName')]"
       ],
       "properties": {
         "profiles": [
@@ -243,13 +259,13 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
               {
                 "metricTrigger": {
                   "metricName": "CpuPercentage",
-                  "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                  "metricResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                   "timeGrain": "PT1M",
                   "statistic": "Average",
                   "timeWindow": "PT10M",
                   "timeAggregation": "Average",
                   "operator": "GreaterThan",
-                  "threshold": 80
+                  "threshold": 80.0
                 },
                 "scaleAction": {
                   "direction": "Increase",
@@ -261,13 +277,13 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
               {
                 "metricTrigger": {
                   "metricName": "CpuPercentage",
-                  "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                  "metricResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                   "timeGrain": "PT1M",
                   "statistic": "Average",
                   "timeWindow": "PT1H",
                   "timeAggregation": "Average",
                   "operator": "LessThan",
-                  "threshold": 60
+                  "threshold": 60.0
                 },
                 "scaleAction": {
                   "direction": "Decrease",
@@ -280,38 +296,39 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
           }
         ],
         "enabled": false,
-        "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
-        "targetResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
+        "targetResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
       }
     },
 
+
 ### Règles d'alerte pour les codes d'état 403 et 500, utilisation du processeur et longueur de file d'attente HTTP élevées 
 
-    //Alert-Rules --> 5xx
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat('ServerErrors ', parameters('siteName'))]",
+      "name": "[concat('ServerErrors ', variables('webSiteName'))]",
       "type": "Microsoft.Insights/alertrules",
-      "location": "East US",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+        "[variables('webSiteName')]"
       ],
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "ServerErrorsAlertRule"
       },
       "properties": {
-        "name": "[concat('ServerErrors ', parameters('siteName'))]",
-        "description": "[concat(parameters('siteName'), ' has some server errors, status code 5xx.')]",
+        "name": "[concat('ServerErrors ', variables('webSiteName'))]",
+        "description": "[concat(variables('webSiteName'), ' has some server errors, status code 5xx.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
           "dataSource": {
             "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
+            "resourceUri": "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]",
             "metricName": "Http5xx"
           },
           "operator": "GreaterThan",
-          "threshold": 0,
+          "threshold": 0.0,
           "windowSize": "PT5M"
         },
         "action": {
@@ -321,27 +338,27 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
         }
       }
     },
-    //Alert-Rules --> 403
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
+      "name": "[concat('ForbiddenRequests ', variables('webSiteName'))]",
       "type": "Microsoft.Insights/alertrules",
-      "location": "East US",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+        "[variables('webSiteName')]"
       ],
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "ForbiddenRequestsAlertRule"
       },
       "properties": {
-        "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
-        "description": "[concat(parameters('siteName'), ' has some requests that are forbidden, status code 403.')]",
+        "name": "[concat('ForbiddenRequests ', variables('webSiteName'))]",
+        "description": "[concat(variables('webSiteName'), ' has some requests that are forbidden, status code 403.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
           "dataSource": {
             "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
+            "resourceUri": "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]",
             "metricName": "Http403"
           },
           "operator": "GreaterThan",
@@ -355,27 +372,27 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
         }
       }
     },
-    //Alert-Rules --> High CPU
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
+      "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
       "type": "Microsoft.Insights/alertrules",
-      "location": "East US",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        "[variables('hostingPlanName')]"
       ],
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "CPUHighAlertRule"
       },
       "properties": {
-        "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', parameters('hostingPlanName'))]",
+        "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
+        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
           "dataSource": {
             "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+            "resourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "metricName": "CpuPercentage"
           },
           "operator": "GreaterThan",
@@ -389,31 +406,31 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
         }
       }
     },
-    //Alert-Rules --> HTTP Queue Length
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
+      "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
       "type": "Microsoft.Insights/alertrules",
-      "location": "East US",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        "[variables('hostingPlanName')]"
       ],
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "AutoScaleSettings"
       },
       "properties": {
-        "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', parameters('hostingPlanName'), ' has a large number of pending requests.')]",
+        "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
+        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
           "dataSource": {
             "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
             "metricName": "HttpQueueLength"
           },
           "operator": "GreaterThan",
-          "threshold": 100,
+          "threshold": 100.0,
           "windowSize": "PT5M"
         },
         "action": {
@@ -423,22 +440,23 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
         }
       }
     },
-
+    
 ### App Insights
 
     {
       "apiVersion": "2014-04-01",
-      "name": "[parameters('siteName')]",
+      "name": "[concat('AppInsights', variables('webSiteName'))]",
       "type": "Microsoft.Insights/components",
       "location": "Central US",
       "dependsOn": [
-        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+        "[variables('webSiteName')]"
       ],
       "tags": {
-        "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "AppInsightsComponent"
       },
       "properties": {
-        "ApplicationId": "[parameters('siteName')]"
+        "ApplicationId": "[variables('webSiteName')]"
       }
     }
 
@@ -457,4 +475,4 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

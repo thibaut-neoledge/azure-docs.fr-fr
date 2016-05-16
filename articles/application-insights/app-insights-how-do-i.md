@@ -79,12 +79,12 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 
 ### Configurer automatiquement des alertes
 
-[Utiliser PowerShell pour créer des alertes](app-insights-alerts/#set-alerts-by-using-powershell)
+[Utiliser PowerShell pour créer des alertes](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Utiliser PowerShell pour gérer Application Insights
 
 * [Créer des ressources](app-insights-powershell-script-create-resource.md)
-* [Créer des alertes](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Créer des alertes](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Horodatages et versions d’application
 
@@ -241,4 +241,4 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 * Tout d’abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
 * Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

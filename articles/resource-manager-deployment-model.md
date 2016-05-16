@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
@@ -38,7 +38,7 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d'utiliser le Gestionnaire des ressources ou le déploiement classique.Sélectionnez **Gestionnaire des ressources**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,7 +85,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement classique (pour les catégories Calcul, Stockage et Mise en réseau)
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -131,29 +131,23 @@ Pour plus d’informations sur l’utilisation de balises dans Resource Manager,
 
 ## Opérations prises en charge pour les modèles de déploiement
 
-Les ressources que vous avez créées dans le modèle de déploiement classique ne prennent pas en charge les opérations de Resource Manager. Dans certains cas, une commande Resource Manager peut récupérer des informations sur une ressource créée via un déploiement classique ou effectuer des tâches d’administration, telles que le déplacement d’une ressource classique vers un autre groupe de ressources, mais ces exemples ne doivent pas donner l’impression que le type prend en charge les opérations de Resource Manager. Par exemple, supposons que vous avez un groupe de ressources qui contient des machines virtuelles qui ont été créées avec Resource Manager et un déploiement classique. Si vous exécutez la commande PowerShell suivante :
+Les ressources que vous avez créées dans le modèle de déploiement classique ne prennent pas en charge les opérations de Resource Manager. Dans certains cas, une commande Resource Manager peut récupérer des informations sur une ressource créée via un déploiement classique ou effectuer des tâches d’administration, telles que le déplacement d’une ressource classique vers un autre groupe de ressources, mais ces exemples ne doivent pas donner l’impression que le type prend en charge les opérations de Resource Manager. Par exemple, supposons que vous disposiez d’un groupe de ressources qui contient une machine virtuelle, créée via un déploiement classique. Si vous exécutez la commande PowerShell suivante :
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-Elle renvoie toutes les machines virtuelles :
+Elle renvoie la machine virtuelle :
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-Toutefois, si vous exécutez la commande **Get-AzureRmVM** :
+Toutefois, l’applet de commande **Get-AzureRmVM** renvoie uniquement les machines virtuelles déployées par le biais de Resource Manager. La commande suivante ne renvoie pas la machine virtuelle créée via un déploiement classique.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-Vous obtiendrez uniquement les machines virtuelles qui ont été créées avec Resource Manager.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 En général, vous ne devez pas vous attendre à ce que les ressources créées via un déploiement classique fonctionnent avec les commandes Resource Manager.
 
@@ -175,8 +169,8 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 
 ## Étapes suivantes
 
-- Pour connaître la procédure pas à pas de création d’un modèle qui définit une machine virtuelle, un compte de stockage et le réseau virtuel, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
-- Pour en savoir plus sur la structure des modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour connaître la procédure pas à pas de création d’un modèle qui définit une machine virtuelle, un compte de stockage et un réseau virtuel, voir [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
+- Pour en savoir plus sur la structure des modèles Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

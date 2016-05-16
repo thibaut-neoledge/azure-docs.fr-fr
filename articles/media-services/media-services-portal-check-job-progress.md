@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"  
 	ms.author="juliako"/>
 
 #Procédure : vérification de la progression des tâches
@@ -44,10 +44,10 @@
 
 ##Étape suivante
 
-Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encodage d'une ressource](../media-services-manage-content#publish).
+Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encodage d'une ressource](media-services-manage-content.md#publish).
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

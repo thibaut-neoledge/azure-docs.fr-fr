@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
@@ -455,9 +455,9 @@ Arrêté|Arrêté|Non
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Kit SDK .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
 ##Parcours d’apprentissage de Media Services
@@ -480,4 +480,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

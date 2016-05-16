@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajout de l’API Salesforce à PowerApps Enterprise | Microsoft Azure"
+	pageTitle="Ajout de l’API Salesforce à PowerApps Enterprise | Microsoft Azure"
 	description="Création ou configuration d’une API Salesforce dans l’App Service Environment de votre organisation"
 	services=""
     suite="powerapps"
@@ -14,80 +14,93 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Créer une API Salesforce dans PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-salesforce.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+> [AZURE.IMPORTANT] Cette rubrique est archivée et sera bientôt supprimée. Venez voir ce que nous préparons sur le nouveau [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Pour en savoir plus sur PowerApps et y faire vos premiers pas, accédez à [PowerApps](https://powerapps.microsoft.com).  
+> - Pour en savoir plus sur les connexions disponibles dans PowerApps, accédez à [Connexions disponibles](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Ajoutez l’API Salesforce à l’environnement de service d’application (locataire) de votre organisation.
+<!--Archived
+Add the Salesforce API to your organization's (tenant) app service environment. 
 
-## Créer l’API dans le portail Azure
+## Create the API in the Azure portal
 
-1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][14]
+2. Select **Browse** in the task bar:  
+![][14]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. Dans **POWERAPPS**, sélectionnez **GÉRER LES API** : ![Accès aux API inscrites][1]
+4. In **PowerApps**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Tapez un **nom** descriptif pour votre API.
+6. Enter a descriptive **name** for your API.  
 	
-7. Dans **Source**, sélectionnez **API disponibles** pour sélectionner les API prédéfinies, puis sélectionnez **Salesforce** : ![sélectionner l’api salesforce][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Salesforce**:  
+![select Salesforce api][3]
 
-8. Sélectionnez **Paramètres – Configurer les paramètres requis** : ![configurer les paramètres d’une api dropbox][7]
+8. Select **Settings - Configure required settings**:  
+![configure dropbox API settings][7]
 
-9. Entrez la *clé d’application* et la *question secrète de l’application* de votre application Salesforce. Si vous n’en avez pas, consultez la section « Enregistrer une application Salesforce pour une utilisation avec PowerApps » dans cette rubrique pour créer les valeurs Clé et Question secrète dont vous avez besoin.
+9. Enter the *App Key* and *App Secret* of your Salesforce application. If you don't have one, see the "Register a Salesforce app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Sélectionnez **OK** pour achever la procédure.
+10. Select **OK** to complete the steps.
 
-Quand vous avez terminé, une nouvelle API Salesforce est ajoutée à votre App Service Environment.
+When finished, a new Salesforce API is added to your app service environment.
 
 
-## Facultatif : Enregistrer une application Salesforce pour une utilisation avec PowerApps
+## Optional: Register a Salesforce app for use with PowerApps
 
-Si vous ne disposez pas d’une application Salesforce avec sa clé et sa question secrète, procédez comme suit pour créer l’application et obtenir les valeurs dont vous avez besoin.
+If you don't have an existing Salesforce app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. Ouvrez la [page d’accueil des développeurs Salesforce][5], et connectez-vous avec votre compte Salesforce. 
+1. Open [Salesforce developer homepage][5], and sign in with your Salesforce account. 
 
-2. Sur la page d’accueil, sélectionnez votre profil et sélectionnez **Setup** : ![Page d’accueil Salesforce][6]
+2. In the homepage, select your profile, and select **Setup**:  
+![Salesforce homepage][6]
 
-3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sélectionnez **New** sous **Connected Apps** : ![Création d’applications Salesforce][7]
+3. Select **Create** and select **Apps**. In the **Apps** page, select **New** under **Connected Apps**:  
+![Salesforce create app][7]
 
-4. Dans **New Connected App** :
+4. In **New Connected App**:  
 
-	1. Renseignez le champ **Connected App Name**.  
-	2. Renseignez le champ **API Name**.  
-	3. Renseignez le champ **Contact Email**.  
-	4. Sous _API (Enable OAuth Settings)_, sélectionnez **Enable OAuth Settings**, puis définissez **Callback URL** sur l’URL que vous avez reçue lorsque vous avez ajouté la nouvelle API Salesforce dans le portail Azure (dans cette rubrique).  
+	1. Enter the value for **Connected App Name**.  
+	2. Enter the value for **API Name**.  
+	3. Enter the value for **Contact Email**.  
+	4. Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the redirect URL you received when you added the new Salesforce API in the Azure Portal (in this topic).  
 
-5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes** :
+5. Under _Selected OAuth scopes_, add the following scopes to the **Selected OAuth Scopes**:  
 
-	- Access and manage your Chatter data (chatter\_api)
+	- Access and manage your Chatter data (chatter_api)
 	- Access and manage your data (api)
 	- Allow access to your unique identifier (openid)
-	- Perform requests on your behalf at any time (refresh\_token, offline\_access)
+	- Perform requests on your behalf at any time (refresh_token, offline_access)
 
-6. Cliquez sur **Save** pour enregistrer vos modifications : ![Nouvelle application Salesforce][8]
+6. **Save** your changes:  
+![Salesforce new app][8]
 
-Une application Salesforce est créée. Vous pouvez utiliser cette application dans la configuration de votre API Salesforce dans le portail Azure.
+A new Salesforce app is created. You can use this app in your Salesforce API configuration in the Azure portal. 
 
-## Consulter les API REST
+## See the REST APIs
 
-Informations de référence sur l’[API REST Salesforce](../connectors/connectors-create-api-salesforce.md).
+[Salesforce REST API](../connectors/connectors-create-api-salesforce.md) reference.
 
-## Résumé et étapes suivantes
-Vous venez de voir comment ajouter l’API Salesforce à PowerApps Enterprise. Maintenant, donnez accès à l’API aux utilisateurs, afin qu’ils puissent l’ajouter à leurs applications :
+## Summary and next steps
+In this topic, you added the Salesforce API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Ajouter une connexion et attribuer un accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-salesforce/browse-to-registered-apis.PNG
@@ -101,4 +114,4 @@ Vous venez de voir comment ajouter l’API Salesforce à PowerApps Enterprise. M
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

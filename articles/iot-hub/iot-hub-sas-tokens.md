@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="03/02/2016"
+ ms.date="04/29/2016"
  ms.author="elioda"/>
 
 # Utilisation de jetons de sécurité IoT Hub
@@ -44,7 +44,7 @@ Voici les valeurs attendues :
 | {URL-encoded-resourceURI} | Encodage en URL minuscules de l’URI de ressource en minuscules |
 | {policyName} | Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. Absent dans le cas de jetons faisant référence aux informations d’identification de registre des appareils. |
 
-**Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
+**Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
 
 Il s’agit d’une fonction Node qui calcule le jeton à partir des entrées `resourceUri, signingKey, policyName, expiresInMins`. Les sections suivantes décrivent en détail comment initialiser les différentes entrées pour les différents cas d’utilisation des jetons.
 
@@ -181,4 +181,4 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

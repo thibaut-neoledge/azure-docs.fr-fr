@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # Calcul haute performance et orchestration de données à l’aide des services Azure Batch et Data Factory
 
-Le calcul haute performance (HPC) était autrefois le domaine réservé des centres de données locaux, avec un super-ordinateur exploitant des données, mais limité par le nombre de machines physiques disponibles. Le service Azure Batch révolutionne le HPC en le proposant sous la forme d’un service. Vous pouvez configurer autant d’ordinateurs que nécessaires. Batch gère également le travail de planification et de coordination des activités, ce qui vous permet de vous concentrer sur les algorithmes à exécuter. Parfait complément du service Batch, Azure Data Factory simplifie l’orchestration du déplacement des données. Data Factory vous permet de spécifier des mouvements réguliers de données dans le cadre du processus ETL, de traiter les données, puis de transférer les résultats dans un stockage permanent. Par exemple, les données collectées à partir de capteurs sont déplacées (par Data Factory) vers un emplacement temporaire où Batch (sous contrôle de Data Factory) traite les données et génère un nouveau jeu de résultats. Data Factory déplace transfère ensuite les résultats dans un référentiel final. En utilisant conjointement ces deux services, vous pouvez utiliser efficacement le calcul haute performance pour traiter de grandes quantités de données selon un planning régulier.
+Voici un exemple de solution qui déplace et traite automatiquement des jeux de données à grande échelle. La solution est de bout en bout et inclut l’architecture et le code. Elle est basés sur deux services Azure. Azure Batch fournit HPC en tant que service pour configurer les ordinateurs nécessaires, et pour planifier et coordonner le travail. Azure Data Factory complète Batch en simplifiant l’orchestration du déplacement des données. Vous pouvez spécifier des mouvements réguliers de données dans le cadre du processus ETL, traiter les données, puis transférer les résultats dans un stockage permanent.
 
-Cette section vous propose un exemple de solution de bout en bout qui déplace et traite automatiquement des jeux de données à grande échelle. L’architecture s’applique à de nombreux scénarios, tels que la modélisation des risques par les services financiers, le traitement et la restitution d’images, ou encore l’analyse génomique. Les architectes et les décideurs informatiques disposent d’une vue d’ensemble composée d’un diagramme et d’étapes de base. Les développeurs peuvent utiliser le code comme point de départ pour leur propre implémentation. Cet article contient la solution entière.
+L’architecture s’applique à de nombreux scénarios, tels que la modélisation des risques par les services financiers, le traitement et la restitution d’images, ou encore l’analyse génomique.
 
 Avant de suivre l’exemple de solution, consultez la documentation [Azure Batch](../batch/batch-api-basics.md) et [Data Factory](data-factory-introduction.md) si vous n’êtes pas familiarisé avec ces services.
 
@@ -51,7 +51,7 @@ La solution compte le nombre d’occurrences d’un terme de recherche (« Micr
 
 **Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
 
-### Composants requis
+## Composants requis
 
 1.  **Abonnement Azure**. Si vous n’êtes pas abonné, vous pouvez créer un compte d’essai gratuit en quelques minutes. Voir [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ La solution compte le nombre d’occurrences d’un terme de recherche (« Micr
 
 6.  **Microsoft Visual Studio 2012 ou version ultérieure** (pour créer l’activité Batch personnalisée à utiliser dans la solution Data Factory).
 
-### Principales étapes pour créer la solution
+## Principales étapes pour créer la solution
 
 1.  Créez une activité personnalisée à utiliser dans la solution Data Factory. L’activité personnalisée contient la logique de traitement des données.
 
@@ -552,7 +552,7 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     2.  Remplacez **clé d’accès** avec la clé d’accès du compte Azure Batch.
 
-    3.  Entrez l’ID du pool pour la propriété **poolName** **. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
+    3.  Entrez l’ID du pool pour la propriété **poolName****. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
 
     4.  Entrez l’URI du lot pour la propriété JSON **batchUri**. L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
 
@@ -761,11 +761,11 @@ Au cours de cette étape, vous allez créer un pipeline comprenant une seule act
 
 	-   Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotNetActivity.dll**.
 
-	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de \<namespace\>.\<classname\> dans votre code.
+	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de <namespace>.<classname> dans votre code.
 
 	-   **PackageLinkedService** est défini sur **StorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose que vous utilisez le même compte Azure Storage.
 
-	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format \<containerforthezip\>/\<nameofthezip.zip\>.
+	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format <containerforthezip>/<nameofthezip.zip>.
 
 	-   L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
 
@@ -893,9 +893,18 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 3.  Créez un pool avec une valeur **Maximum tasks per VM** (Nombre maximal de tâches par machine virtuelle) supérieure/inférieure. Mettez à jour le service lié Azure Batch dans la solution Data Factory pour utiliser le nouveau pool créé. (Pour plus d’informations sur le paramètre **Maximum tasks per VM**, voir l’étape 4 : Créer et exécuter le pipeline.)
 
-4.  Créez un pool Azure Batch avec la fonctionnalité **autoscale**. La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. Voir [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md).
+4.  Créez un pool Azure Batch avec la fonctionnalité **autoscale**. La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente :
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    Dans l’exemple de solution, la méthode **Execute** appelle la méthode **Calculate** qui traite une tranche de données d’entrée pour produire une tranche de données de sortie. Vous pouvez écrire votre propre méthode pour traiter les données d’entrée, et remplacer l’appel de la méthode Calculate dans la méthode Execute par un appel à votre méthode.
+	Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md).
+
+	Le service Azure Batch peut prendre de 15 à 30 minutes pour préparer la machine virtuelle avant d’exécuter l’activité personnalisée sur celle-ci.
+	 
+5. Dans l’exemple de solution, la méthode **Execute** appelle la méthode **Calculate** qui traite une tranche de données d’entrée pour produire une tranche de données de sortie. Vous pouvez écrire votre propre méthode pour traiter les données d’entrée, et remplacer l’appel de la méthode Calculate dans la méthode Execute par un appel à votre méthode.
+
+ 
+
 
 ## Étapes suivantes : Consommer les données
 
@@ -929,4 +938,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

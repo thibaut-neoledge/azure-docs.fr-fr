@@ -3,7 +3,7 @@
 	description="Définition du niveau d’informations d’identification, de celui d’administrateur à celui de la lecture seule, pour les applications de base de données élastique." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
@@ -77,4 +77,4 @@ Tout comme pour les informations d’identification de l’administrateur, n’u
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

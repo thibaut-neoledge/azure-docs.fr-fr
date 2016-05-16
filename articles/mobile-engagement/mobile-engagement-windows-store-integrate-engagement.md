@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 # Intégration du Kit de développement logiciel du module Engagement des applications universelles Windows
@@ -238,7 +238,7 @@ Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode 
 
 Vous pouvez éventuellement signaler les événements, erreurs et tâches spécifiques à l'application. Pour cela, utilisez les autres méthodes disponibles dans la classe `EngagementAgent`. L'API Engagement permet d'utiliser toutes les fonctionnalités avancées d'Engagement.
 
-Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](../mobile-engagement-windows-store-use-engagement-api/).
+Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-store-use-engagement-api.md).
 
 ##Configuration avancée
 
@@ -283,4 +283,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

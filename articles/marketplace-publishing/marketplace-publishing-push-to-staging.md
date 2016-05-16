@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="04/26/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -165,11 +165,11 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 *Détails de tarification de la description de l’offre sur le site web Azure Marketplace*
 
 ### Portail Azure
-![dessin](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+![dessin](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Liste des offres dans le portail Azure*
 
-![dessin](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![dessin](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
 *Détails de la description de l’offre sur le portail Azure*
 
@@ -192,4 +192,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

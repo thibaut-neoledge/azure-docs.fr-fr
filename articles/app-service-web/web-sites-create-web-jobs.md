@@ -13,24 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Exécuter des tâches en arrière-plan avec les tâches web
 
 ## Vue d'ensemble
 
-Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue, ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
+Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue, ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
-Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
+Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
 
-Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
+Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
+
+ Azure Functions (actuellement en version préliminaire) est un autre moyen d’exécuter des programmes et des scripts dans Azure App Service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Functions](../azure-functions/functions-overview.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Types de fichier acceptables pour les scripts ou les programmes
 
-Les types de fichier suivants sont acceptés :
+Les types de fichier suivants sont acceptés :
 
 * .cmd, .bat, .exe (en utilisant une commande Windows)
 * .ps1 (en utilisant Powershell)
@@ -42,7 +44,7 @@ Les types de fichier suivants sont acceptés :
 
 ## <a name="CreateOnDemand"></a>Création d’une tâche Web à la demande sur le portail
 
-1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
+1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
 	
 	![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -50,11 +52,11 @@ Les types de fichier suivants sont acceptés :
 	
 	![Panneau Ajouter une tâche Web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « \_ »).
+2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « \_ »).
 	
 4. Dans la zone **How to Run**, sélectionnez **Run on Demand**.
 	
-3. Dans la zone **Téléchargement de fichiers**, cliquez sur l’icône du dossier et recherchez le fichier .zip qui contient votre script. Ce fichier .zip doit contenir votre exécutable (.exe .cmd .bat .sh .php .py .js) ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script.
+3. Dans la zone **Téléchargement de fichiers**, cliquez sur l’icône du dossier et recherchez le fichier .zip qui contient votre script. Ce fichier .zip doit contenir votre exécutable (.exe .cmd .bat .sh .php .py .js) ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script.
 	
 5. Cochez la case **Créer** pour télécharger le script dans votre application Web.
 	
@@ -80,9 +82,9 @@ Cette technique est disponible dans Web Apps s’exécutant en mode De base, Sta
 
 Pour transformer une tâche web à la demande en une tâche web planifiée, il vous suffit d’inclure un fichier `settings.job` à la racine du fichier compressé de la tâche web. Ce fichier JSON doit inclure une propriété `schedule` avec une [expression CRON](https://en.wikipedia.org/wiki/Cron), comme ci-dessous.
 
-L’expression CRON est composée de 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
+L’expression CRON est composée de 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-Par exemple, pour déclencher la tâche web toutes les 15 minutes, le `settings.job` se présente comme suit :
+Par exemple, pour déclencher la tâche web toutes les 15 minutes, le `settings.job` se présente comme suit :
 
 ```json
 {
@@ -90,14 +92,14 @@ Par exemple, pour déclencher la tâche web toutes les 15 minutes, le `settings.
 }
 ``` 
 
-Autres exemples de planification CRON :
+Autres exemples de planification CRON :
 
-- Toutes les heures (autrement dit, chaque fois que le nombre de minutes est 0) : `0 0 * * * *` 
-- Toutes les heures entre 9h et 17h : `0 0 9-17 * * *` 
-- À 9h30 tous les jours : `0 30 9 * * *`
-- À 9h30 tous les jours de la semaine : `0 30 9 * * 1-5`
+- Toutes les heures (autrement dit, chaque fois que le nombre de minutes est 0) : `0 0 * * * *` 
+- Toutes les heures entre 9h et 17h : `0 0 9-17 * * *` 
+- À 9h30 tous les jours : `0 30 9 * * *`
+- À 9h30 tous les jours de la semaine : `0 30 9 * * 1-5`
 
-**Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
+**Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
 
 
 ## <a name="CreateScheduled"></a>Créer une tâche web planifiée à l’aide d’Azure Scheduler
@@ -114,11 +116,11 @@ Le portail Azure ne permet pas encore de créer une tâche Web planifiée. Pour 
 	
 2. Sélectionnez la **région Scheduler** pour votre tâche, puis cliquez sur la flèche située dans le coin inférieur droit de la boîte de dialogue pour passer à l'écran suivant.
 
-3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
+3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
 	
 	![Périodicité de la planificiation][SchdRecurrence]
 	
-4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
+4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
 	
 	![Heure de début de la planification][SchdStart]
 	
@@ -146,13 +148,13 @@ Le portail Azure ne permet pas encore de créer une tâche Web planifiée. Pour 
 	
 	![Planifier des jours de semaine spécifiques certaines semaines du mois][SchdMonthsOnPartWeekDaysOccurences]
 	
-11. Lorsque vous avez créé une ou plusieurs tâches, leurs noms sont affichés sous l'onglet WebJobs avec leur statut, leur type de planification et d'autres informations. L’historique répertorie les 30 dernières tâches web.
+11. Lorsque vous avez créé une ou plusieurs tâches, leurs noms sont affichés sous l'onglet WebJobs avec leur statut, leur type de planification et d'autres informations. L’historique répertorie les 30 dernières tâches web.
 	
 	![Liste des tâches][WebJobsListWithSeveralJobs]
 	
-### <a name="Scheduler"></a>Tâches planifiées et Azure Scheduler
+### <a name="Scheduler"></a>Tâches planifiées et Azure Scheduler
 
-Les tâches planifiées peuvent être configurées avec plus de précision sur les pages Azure Scheduler du [portail Classic](http://manage.windowsazure.com).
+Les tâches planifiées peuvent être configurées avec plus de précision sur les pages Azure Scheduler du [portail Classic](http://manage.windowsazure.com).
 
 1.	Sur la page WebJobs, cliquez sur le lien **schedule** de la tâche pour accéder à la page du portail d'Azure Scheduler. 
 	
@@ -162,7 +164,7 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
 	
 	![Tâches sur la page du portail Scheduler][SchedulerPortal]
 	
-3. La page **Job Action** s'ouvre : vous pouvez y configurer les tâches plus en détail.
+3. La page **Job Action** s'ouvre : vous pouvez y configurer les tâches plus en détail.
 	
 	![Action de tâche PageInScheduler][JobActionPageInScheduler]
 	
@@ -195,20 +197,15 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
 
 ## <a name="WHPNotes"></a>Remarques
 	
-- Les applications web en mode Gratuit peuvent expirer si, pendant 20 minutes, aucune requête à destination du site (de déploiement) SCM et du portail de l'application web n'est ouverte dans Azure. Cette situation ne sera pas annulée par les requêtes à destination du site actif.
+- Les applications web en mode Gratuit peuvent expirer si, pendant 20 minutes, aucune requête à destination du site (de déploiement) SCM et du portail de l'application web n'est ouverte dans Azure. Cette situation ne sera pas annulée par les requêtes à destination du site actif.
 - Le code d'une tâche en continu doit être écrit pour s'exécuter dans une boucle infinie.
 - Les tâches en continu sont uniquement exécutées comme tel lorsque l’application web est opérationnelle.
 - Les modes Basique et Standard proposent la fonctionnalité Toujours actif qui, lorsqu’elle est activée, empêche les applications web de devenir inactives.
 - Vous pouvez uniquement déboguer les tâches Web qui s’exécutent en continu. Le débogage des tâches Web planifiées et à la demande n’est pas pris en charge.
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-
 ## <a name="NextSteps"></a>Étapes suivantes
  
-Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecommendedResources].
-
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecommendedResources].
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -238,4 +235,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecommen
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

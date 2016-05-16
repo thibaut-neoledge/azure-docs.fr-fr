@@ -13,19 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2015"
+	ms.date="04/22/2016"
 	ms.author="mikeray" />
 
 # Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)
 
 > [AZURE.SELECTOR]
-- [Portail - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portail - Azure Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - Classique](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Portail](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
 Ce didacticiel de bout en bout vous montre comment implémenter un groupe de disponibilité en utilisant SQL Server AlwaysOn sur des machines virtuelles Azure.
@@ -360,7 +359,7 @@ Suivez les étapes ci-dessous pour accomplir les tâches de configuration compl�
 
 ## Préparer les instances de SQL Server pour le groupe de disponibilité
 
-Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
+Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
 
 - Ajouter une connexion pour **NT AUTHORITY\\System** avec les autorisations nécessaires pour l’instance SQL Server par défaut
 
@@ -372,7 +371,7 @@ Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
-Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
+Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
 
 1. Si vous ne vous êtes pas déconnecté de la session Bureau à distance pour la machine virtuelle, faites-le maintenant.
 
@@ -549,4 +548,4 @@ Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

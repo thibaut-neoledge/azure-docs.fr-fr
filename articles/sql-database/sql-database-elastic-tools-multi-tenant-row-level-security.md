@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes 
@@ -58,7 +58,7 @@ Une fois la connexion à la base de données de partition établie, via les API 
 
 ### Entity Framework
 
-Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément SESSION\_CONTEXT dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément SESSION\_CONTEXT sur la valeur shardingKey spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément SESSION\_CONTEXT.
+Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément SESSION\_CONTEXT dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément SESSION\_CONTEXT sur la valeur shardingKey spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément SESSION\_CONTEXT.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/27/2016"
 	ms.author="jgao"/>
 
 
-#Disponibilité et fiabilité des clusters Hadoop dans HDInsight
+#Disponibilité et fiabilité des clusters Hadoop Windows dans HDInsight
 
+
+>[AZURE.NOTE] Les étapes de cette procédure sont spécifiques aux clusters HDInsight basés sur Windows. Si vous utilisez un cluster Linux, consultez [Disponibilité et fiabilité des clusters Hadoop Linux dans HDInsight](hdinsight-high-availability-linux.md) pour plus d’informations spécifiques à Linux.
 
 HDInsight permet aux clients de déployer de nombreux types de cluster pour différentes charges de travail d’analyse des données. Les types de cluster proposés actuellement sont les clusters Hadoop pour les charges de travail de requête et d’analyse, les clusters HBase pour les charges de travail NoSQL, et les clusters Storm pour les charges de travail de traitement des événements en temps réel. Un type de cluster donné comprend différent rôles correspondant aux différents nœuds. Par exemple :
 
@@ -106,4 +108,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

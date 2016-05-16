@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Développer une image de machine virtuelle locale pour Azure Marketplace
@@ -43,7 +43,6 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
 
 ### Télécharger un disque dur virtuel
 Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail Azure](http://manage.windowsazure.com/) ou de PowerShell.
-
 > [AZURE.NOTE] Au moment de la création de ce guide, la fonctionnalité de téléchargement d’un disque dur virtuel n’est pas encore présente dans le nouveau portail Microsoft Azure.
 
 **Télécharger le disque dur virtuel de système d’exploitation à partir du [portail Azure](http://manage.windowsazure.com/)** actuel
@@ -116,7 +115,7 @@ Ensuite, vous pouvez créer un conteneur dans ce compte de stockage au moyen de 
 
 > [AZURE.NOTE] Ces commandes supposent que le contexte actuel du compte de stockage a déjà été défini dans PowerShell. Reportez-vous à [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md) pour plus d’informations sur la configuration de PowerShell.
 ### Créer un compte de stockage à l’aide de l’outil en ligne de commande pour Mac et Linux
-Dans l’[outil en ligne de commande Linux](../virtual-machines/command-line-tools/), créez un compte de stockage comme suit :
+Dans l’[outil en ligne de commande Linux](../virtual-machines/virtual-machines-linux-cli-manage.md), créez un compte de stockage comme suit :
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -139,4 +138,4 @@ Avec l’[outil en ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

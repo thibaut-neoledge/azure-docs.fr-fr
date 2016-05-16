@@ -51,7 +51,6 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Ces commandes ajoutent des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
 
@@ -82,7 +81,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
                 private const int NewClusterNumNodes = 1;
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
-                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
                 private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
@@ -371,4 +370,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 - [Exécuter des tâches Sqoop dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Exécuter des tâches Oozie dans HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

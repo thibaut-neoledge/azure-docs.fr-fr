@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/07/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Créer un IoT Hub à l’aide de PowerShell
@@ -48,7 +48,7 @@ Vous pouvez utiliser les commandes suivantes pour découvrir où vous pouvez dé
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
-Créez un groupe de ressources pour contenir votre IoT Hub avec la commande suivante dans l’un des emplacements pris en charge pour l’IoT Hub. Cet exemple crée un groupe de ressources appelé **MyIoTRG1** :
+Créez un groupe de ressources pour contenir votre IoT Hub avec la commande suivante dans l’un des emplacements pris en charge pour l’IoT Hub. Cet exemple crée un groupe de ressources appelé **MyIoTRG1** :
 
 ```
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -112,10 +112,10 @@ Utilisez un modèle JSON pour créer un hub IoT dans votre groupe de ressources.
 
 2. Enregistrez le fichier de modèle sur votre ordinateur local. Cet exemple suppose que vous l'enregistrez dans un dossier appelé **c:\\templates**.
 
-3. Exécutez la commande suivante pour déployer votre nouvel IoT Hub, en utilisant le nom de votre IoT Hub en tant que paramètre. Dans cet exemple, le nom du hub IoT est **MonHubIoT** (notez que ce nom doit être globalement unique) :
+3. Exécutez la commande suivante pour déployer votre nouvel IoT Hub, en utilisant le nom de votre IoT Hub en tant que paramètre. Dans cet exemple, le nom du service IoT Hub est **abcmyiothub** (ce nom doit être globalement unique et inclure votre nom ou vos initiales) :
 
     ```
-    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
+    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 
 4. La sortie affiche les clés de l’IoT Hub que vous avez créé.
@@ -139,4 +139,4 @@ Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM et Po
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

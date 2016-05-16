@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; avikova" />
 
 # Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
@@ -272,4 +272,4 @@ Les éléments suivants sont les types de paramètres et de propriétés pris en
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

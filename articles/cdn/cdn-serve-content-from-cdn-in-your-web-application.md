@@ -3,8 +3,8 @@
 	description="Un didacticiel qui explique comment utiliser le contenu d'un CDN pour améliorer les performances de votre application web." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # Distribution de contenu depuis Azure CDN dans votre application web #
 
@@ -277,4 +277,4 @@ Sans intégration avec les services Azure App Service Web Apps ou Azure Clo
 - [Utilisation d’Azure CDN](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

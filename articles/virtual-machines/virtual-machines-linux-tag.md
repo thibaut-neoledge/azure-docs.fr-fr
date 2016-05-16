@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="04/06/2016"
    ms.author="iainfour;memccror"/>
 
 # Comment baliser une machine virtuelle Linux dans Azure
@@ -29,15 +29,15 @@ Le balisage est également pris en charge pour les ressources qui sont déjà cr
 
 Vous pouvez afficher toutes les propriétés d’une machine virtuelle donnée, y compris les balises, à l’aide de cette commande :
 
-        azure vm show -g MyResourceGroup -n MyVM
+        azure vm show -g MyResourceGroup -n MyTestVM
 
 Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
 
-        azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
 Pour supprimer toutes les balises, vous pouvez utiliser le paramètre **–T** dans la commande `azure vm set`.
 
-        azure vm set – g MyResourceGroup –n MyVM -T
+        azure vm set – g MyResourceGroup –n MyTestVM -T
 
 
 Maintenant que nous avons appliqué des balises à nos ressources via l’interface de ligne de commande et le portail, examinons les détails d’utilisation pour afficher les balises dans le portail de facturation.
@@ -60,4 +60,4 @@ Maintenant que nous avons appliqué des balises à nos ressources via l’interf
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -85,7 +85,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
         blobClient = storageAccount.CreateCloudBlobClient();
         blobContainer = blobClient.GetContainerReference("d2ctutorial");
         blobContainer.CreateIfNotExists();
-        queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString, "d2ctutorial");
+        queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString);
       }
 
       Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
@@ -242,20 +242,20 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 
 3. Recherchez **WindowsAzure.Service Bus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) avec toutes ses dépendances.
 
-4. Ajoutez l’instruction **using** suivante au début du fichier **Program.cs** :
+4. Ajoutez l’instruction **using** suivante au début du fichier **Program.cs** :
 
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
-5. Enfin, ajoutez les lignes suivantes à la méthode **Main**, en remplaçant la chaîne de connexion par des autorisations **Listen** pour la file d’attente nommée **d2ctutorial** :
+5. Enfin, ajoutez les lignes suivantes à la méthode **Main**, en remplaçant la chaîne de connexion par des autorisations **Listen** pour la file d’attente nommée **d2ctutorial** :
 
     ```
     Console.WriteLine("Process D2C Interactive Messages app\n");
 
     string connectionString = "{service bus listen connection string}";
-    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString, "d2ctutorial");
+    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString);
 
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
@@ -314,4 +314,3 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0413_2016-->

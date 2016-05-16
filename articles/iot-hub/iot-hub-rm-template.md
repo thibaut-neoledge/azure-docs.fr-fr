@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Créer un IoT Hub à l'aide d'un programme C# avec un modèle ARM
@@ -115,7 +115,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Ajoutez un nouveau fichier JSON appelé **parameters.json** à votre projet.
 
-4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub sur **mynewiothub** (notez que ce nom doit être globalement unique) :
+4. Remplacez le contenu de **parameters.json** avec les informations des paramètres ci-dessous qui définissent le nom du nouvel IoT Hub, par exemple **{vos initiales}mynewiothub** (notez que ce nom doit être globalement unique et inclure votre nom ou vos initiales) :
 
     ```
     {
@@ -185,7 +185,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(client);
@@ -215,4 +215,4 @@ Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle ARM avec 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

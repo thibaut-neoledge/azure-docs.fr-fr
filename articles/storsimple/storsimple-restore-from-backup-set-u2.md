@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
@@ -23,7 +23,7 @@
 
 La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
- ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 Ce didacticiel explique comment utiliser la page **Catalogue de sauvegarde** pour restaurer l’appareil à partir d’un jeu de sauvegarde.
 
@@ -73,7 +73,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
 
-    ![Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Sélectionnez un jeu de sauvegarde comme suit :
   1. Sélectionnez l’appareil approprié.
@@ -115,4 +115,4 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

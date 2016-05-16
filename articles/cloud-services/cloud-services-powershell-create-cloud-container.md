@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Utilisation d’une commande Azure PowerShell pour créer un conteneur de service cloud vide | Microsoft Azure"
-   description="Cet article explique comment créer un conteneur de service cloud et exécuter des opérations de gestion liées au service cloud à l’aide d’un script PowerShell."
+   pageTitle="Créer un conteneur de service cloud avec PowerShell | Microsoft Azure"
+   description="Cet article explique comment créer un conteneur de service cloud avec PowerShell. Le conteneur héberge les rôles Web et de travail."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Utiliser une commande Azure PowerShell pour créer un conteneur de service cloud vide
@@ -32,11 +32,13 @@ Cet article explique comment créer rapidement un conteneur Cloud Services à l�
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-5. Suivez cet exemple pour appeler l’applet de commande : ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+5. Suivez cet exemple pour appeler l’applet de commande :
+```
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
-Pour plus d’informations sur la création du service cloud Azure, exécutez : ```
+Pour plus d’informations sur la création du service cloud Azure, exécutez :
+```
 Get-help New-AzureService
 ```
 
@@ -46,4 +48,4 @@ Get-help New-AzureService
 
  * Pour publier votre projet de service cloud dans Azure, consultez l’exemple de code **PublishCloudService.ps1** dans l’article [Livraison continue du service cloud dans Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

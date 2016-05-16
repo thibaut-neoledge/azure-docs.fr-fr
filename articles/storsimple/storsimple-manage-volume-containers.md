@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/08/2016"
+   ms.date="05/01/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les conteneurs de volumes StorSimple
@@ -66,4 +66,4 @@ Un conteneur de volumes comporte plusieurs volumes. Il peut être supprimé uniq
 - En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md). 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

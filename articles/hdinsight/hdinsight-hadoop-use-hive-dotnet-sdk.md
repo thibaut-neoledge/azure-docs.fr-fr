@@ -37,8 +37,6 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
 
-L’exemple suivant utilise l’authentification utilisateur interactive. Pour utiliser l’authentification non interactive, consultez [Créer des applications HDInsight .NET d’authentification non interactive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 **Pour soumettre les travaux**
 
 1. Créez une application console C# dans Visual Studio.
@@ -190,4 +188,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

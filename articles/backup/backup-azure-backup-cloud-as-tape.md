@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
+   ms.date="05/03/2016"
    ms.author="jimpark;"/>
 
 # Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
@@ -69,6 +69,6 @@ En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent sp
 Pour plus d'informations sur Azure Backup, consultez la rubrique
 
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
-- [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
+- [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

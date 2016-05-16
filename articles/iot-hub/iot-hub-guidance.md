@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Conception de votre solution
@@ -42,33 +42,20 @@ Les [API du registre identité IoT Hub][lnk-devguide-identityregistry] vous perm
 
 ## Passerelles de champ
 
-Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et votre IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ communique avec IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un appareil ou logiciel autonome spécialisé qui s'exécute sur du matériel existant.
+Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et votre IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ communique avec IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un matériel très spécialisé ou un ordinateur à faible consommation d'énergie exécutant un logiciel qui accomplit de bout en bout le scénario pour lequel la passerelle est prévue.
 
 Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
 
-- Gérer les appareils locaux. Par exemple, une passerelle de champ peut effectuer le traitement de règle d'événement et envoyer des commandes aux appareils en réponse à des données de télémétrie spécifiques.
-- Filtrer ou regrouper des données de télémétrie avant de les transmettre à IoT Hub. Ceci peut réduire la quantité de données qui sont envoyées à IoT Hub et réduire les coûts de votre solution.
-- Aider à l'approvisionnement des appareils.
-- Transformer les données de télémétrie pour faciliter le traitement de votre back-end de solution.
-- Effectuer la traduction de protocole pour permettre aux appareils de communiquer avec IoT Hub, même lorsqu’ils n’utilisent pas les protocoles de transport pris en charge par IoT Hub.
-
-> [AZURE.NOTE] En général, vous déployez une passerelle de champ de façon locale pour vos appareils, mais dans certains scénarios vous pouvez déployer une [passerelle de protocole][lnk-gateway] dans le cloud.
-
-### Types de passerelles de champ
-
-Une passerelle de champ peut être *transparente* ou *opaque* :
-
-| &nbsp; | Passerelle transparente | Passerelle opaque|
-|--------|-------------|--------|
-| Identités stockées dans le registre d’identité IoT Hub | Identités de tous les appareils connectés | Uniquement l'identité de la passerelle de champ |
-| IoT Hub peut fournir un [dispositif anti-usurpation d'identité d'appareil][lnk-devguide-antispoofing] | Oui | Non |
-| [Quotas et limitations][lnk-throttles-quotas] | Appliquer à chaque appareil | Appliquer à la passerelle de champ |
-
-> [AZURE.IMPORTANT]  Quand vous utilisez un modèle de passerelle opaque, tous les appareils qui se connectent par le biais de la passerelle partagent la même file d’attente cloud-à-appareil, qui peut contenir au maximum 50 messages. Ainsi, le modèle de passerelle opaque ne doit être utilisé que quand très peu d’appareils se connectent par le biais de chaque passerelle de champ et que leur trafic cloud-à-appareil est faible.
+- **Ajouter la prise en charge d’appareils nouveaux et hérités** : il existe des millions de capteurs et de mécanismes de positionnement nouveaux et hérités qui ne peuvent pas envoyer les données directement au cloud. Ces appareils utilisent un protocole qui ne convient pas pour Internet, n’implémentent aucun chiffrement, ou ne peuvent pas stocker les certificats d'identité. L’utilisation d'une passerelle facilite la connexion de ces appareils et en réduit le coût.
+- **Exécuter une analyse de périmètre **: de nombreuses opérations peuvent être réalisées localement afin de réduire la quantité de données échangées avec le cloud. Les exemples incluent le filtrage des données, le traitement par lots et la compression. Il peut également être souhaitable d'effectuer certains calculs comme le nettoyage des données ou la notation d’un modèle d’apprentissage automatique avec les données réelles en local.
+- **Minimiser la latence** : chaque milliseconde compte lorsque vous voulez empêcher les arrêts de la ligne de fabrication ou restaurer un service électrique. Analyser les données à proximité de l'appareil qui collecte des données peut faire la différence entre empêcher un sinistre qui entraînerait une défaillance en cascade du système.
+- **Économiser la bande passante réseau** : une plateforme pétrolière offshore standard génère entre 1 et 2 To de données chaque jour. Un Boeing 787 génère la moitié d'un téraoctet de données par vol. Il n'est pas pratique de transférer vers le cloud de grandes quantités de données provenant de centaines voire de milliers d’appareils de périmètre. Et cela n'est pas obligatoire non plus car de nombreuses analyses critiques ne nécessitent pas de stockage ni de traitement à l'échelle du cloud.
+- **Fonctionner de façon fiable** : les données IoT sont plus en plus utilisées pour les décisions concernant la sécurité des citoyens et les infrastructures critiques. L'intégrité et la disponibilité de l'infrastructure et des données ne peuvent pas être compromises par une mauvaise connexion au cloud. L'utilisation de fonctionnalités telles que le stockage et le transfert pour collecter et agir sur les données localement et les envoyer au cloud, le cas échéant, vous aide à créer des solutions fiables.
+- **Résoudre les problèmes de sécurité et de confidentialité** : les appareils IoT et les données qu'ils produisent doivent être protégés. Les passerelles peuvent fournir des services comme isoler des appareils d'Internet, fournir des services de chiffrement et d'identité pour les appareils incapables de fournir eux-mêmes ces services, sécuriser les données mises en mémoire tampon ou stockées localement, et supprimer les informations personnelles identifiables avant leur publication sur Internet.
 
 ### Autres considérations
 
-Vous pouvez utiliser les [kits de développement logiciels d'appareil Azure IoT][lnk-device-sdks] pour implémenter une passerelle de champ. Certains Kits de développement logiciel (SDK) d’appareil offrent des fonctionnalités spécifiques qui vous aident à implémenter une passerelle de champ, comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion à IoT Hub. Comme l’explique le [Guide du développeur IoT Hub - Choisir votre protocole de communication][lnk-devguide-protocol], évitez d’utiliser HTTP/1 comme protocole de transport pour les passerelles de champ.
+Vous pouvez utiliser les [Kits de développement logiciel (SDK) de passerelle Azure IoT][lnk-gateway-sdk] pour implémenter une passerelle de champ. Ces Kits de développement logiciel (SDK) offrent des fonctionnalités spécifiques comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion à IoT Hub.
 
 ## Authentification d'appareil personnalisée
 
@@ -80,7 +67,7 @@ Un service de jeton est un service cloud personnalisé. Il utilise une *stratég
 
 Voici les principales étapes du modèle de service de jeton :
 
-1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre hub IoT. Vous pouvez créer cette stratégie dans le [portail Azure][lnk-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
+1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Vous pouvez créer cette stratégie dans le [portail Azure][lnk-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 2. Lorsqu'un appareil doit accéder à votre hub IoT, il demande à votre service de jetons un jeton signé. L’appareil peut s’authentifier avec votre registre d’identité d’appareil personnalisé/schéma d’authentification pour déterminer l’identité d’appareil que le service de jeton utilise pour créer le jeton.
 3. Le service de jeton renvoie un jeton. Le jeton est créé conformément à la section [Sécurité du Guide du développeur IoT Hub][lnk-devguide-security], en utilisant `/devices/{deviceId}` comme `resourceURI`, `deviceId` étant l’appareil authentifié. Le service de jeton utilise la stratégie d'accès partagé pour construire le jeton.
 4. L’appareil utilise le jeton directement avec le hub IoT.
@@ -103,7 +90,7 @@ Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-clo
 
 Une implémentation plus complexe pourrait inclure les informations de la [surveillance des opérations][lnk-devguide-opmon] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][].
 
-> [AZURE.NOTE] Si une solution IoT a uniquement besoin de l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages cloud-à-appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, une solution plus simple peut être de définir un délai d’expiration court. Vous obtenez le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant beaucoup plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-messaging] pour plus d’informations sur les messages cloud-à-appareil.
+> [AZURE.NOTE] Si une solution IoT a uniquement besoin de l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages cloud-à-appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, une solution plus simple peut être de définir un délai d’expiration court. Vous obtenez le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant beaucoup plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-messaging] pour plus d’informations sur les messages C2D (cloud-à-appareil).
 
 ## Étapes suivantes
 
@@ -132,5 +119,6 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [quotas et limitations IoT Hub]: iot-hub-devguide.md#throttling
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

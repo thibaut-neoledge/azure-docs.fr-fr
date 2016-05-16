@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Utilisation du stockage de fichiers à partir de Java | Microsoft Azure"
+	pageTitle="Utilisation du stockage de fichiers à partir de Java | Microsoft Azure"
 	description="Découvrez comment utiliser le service de fichiers Azure pour charger, télécharger, répertorier et supprimer des fichiers. Les exemples sont écrits en Java."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du stockage de fichiers à partir de Java
@@ -209,11 +209,11 @@ La suppression d’un partage s’effectue en appelant la méthode **deleteIfExi
 Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 
 - [Centre de développement Java](http://azure.microsoft.com/develop/java/)
-- [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
-- [Kit de développement logiciel (SDK) Azure Storage pour Android](https://github.com/azure/azure-storage-android)
-- [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+- [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
+- [Kit de développement logiciel (SDK) Azure Storage pour Android](https://github.com/azure/azure-storage-android)
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

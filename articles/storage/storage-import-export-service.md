@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="renash"/>
 
 
@@ -34,7 +34,7 @@ Cet article offre une vue d’ensemble du service Import/Export et explique comm
 
 ## Présentation du service Import/Export ##
 
-Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
+Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
 
 - Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
 - Une tâche d'exportation vise à transférer des données stockées sous forme d'objets blob dans votre compte de stockage sur des disques durs qui vous sont ensuite expédiés.
@@ -102,7 +102,7 @@ L'outil Azure Import/Export génère un fichier *journal de lecteur* lors de la 
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'importation une fois mon colis envoyé**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
 
 7. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -239,13 +239,13 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 - Pour les régions situées aux États-Unis et en Europe, seul [Federal Express](http://www.fedex.com/us/oadr/) (FedEx) est pris en charge. Tous les colis sont renvoyés via FedEx Ground ou FedEx International Economy.
 
-- Pour les régions situées en Asie, seul [DHL](http://www.dhl.com/) est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
+- Pour l’Est de l’Asie-Pacifique, le Sud-Est de l’Asie-Pacifique, l’Est de l’Australie, le Sud-Est de l’Australie et l’Ouest du Japon, seul [DHL](http://www.dhl.com/) est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Vous devez fournir votre numéro de suivi au service Azure Import/Export ; à défaut, votre tâche n’est pas traitée.
 
 **Les retours d’expédition sont-ils facturés ?**
 
-- Microsoft utilise le numéro de compte de transporteur que vous avez fourni lors de la création de la tâche pour expédier les lecteurs du centre de données vers votre adresse de retour. Veillez à fournir le numéro de compte du transporteur pris en charge dans la région du centre de données. Vous pouvez créer un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) (pour les États-Unis et l'Europe) ou [DHL](http://www.dhl.com/) (Asie) si vous n'en avez pas.
+- Microsoft utilise le numéro de compte de transporteur que vous avez fourni lors de la création de la tâche pour expédier les lecteurs du centre de données vers votre adresse de retour. Veillez à fournir le numéro de compte du transporteur pris en charge dans la région du centre de données. Vous pouvez créer un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) (pour les États-Unis et l’Europe) ou [DHL](http://www.dhl.com/) (Asie et Australie) si vous n’en avez pas.
 
 - Les frais de retour sont facturés sur le compte de votre transporteur et dépendent de ce dernier.
 
@@ -254,12 +254,17 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 - Le service Import/Export prend en charge l’importation et l’exportation de données vers et à partir des comptes de stockage situés dans les régions suivantes :
 	- Est des États-Unis
 	- Ouest des États-Unis
+	- Est des États-Unis 2
+	- Centre des États-Unis
 	- États-Unis - partie centrale septentrionale
 	- États-Unis - partie centrale méridionale
 	- Europe du Nord
 	- Europe de l'Ouest
 	- Est de l'Asie
 	- Asie du Sud-Est
+	- Est de l’Australie
+	- Sud-est de l’Australie
+	- Ouest du Japon
 
 - L'adresse d'expédition qui vous sera communiquée sera située dans la région de votre compte de stockage. Par exemple, si vous habitez aux États-Unis et que votre compte de stockage est situé dans le centre de données Europe de l’Ouest, vous recevrez une adresse d’expédition située en Europe pour l’envoi de vos lecteurs.
 
@@ -275,9 +280,9 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 - Incluez uniquement vos disques durs. N’incluez pas d’accessoires tels que des câbles d’alimentation ou USB.
 
-**Pourquoi l’état de ma tâche sur le portail Classic indique-t-il *En cours d’expédition* alors que le site du transporteur indique que mon package est livré ?**
+**Pourquoi l’état de ma tâche sur le portail Classic indique-t-il *En cours d’expédition* alors que le site du transporteur indique que mon package est livré ?**
 
-- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation alors que son traitement n'a pas démarré, l’état de votre tâche indiquera *En cours d’expédition*.
+- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation alors que son traitement n’a pas démarré, l’état de votre tâche indiquera *En cours d’expédition*.
 
 ## Voir aussi
 
@@ -288,4 +293,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

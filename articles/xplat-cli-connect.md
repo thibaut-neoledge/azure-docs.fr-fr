@@ -31,7 +31,7 @@ Pour vous connecter à votre abonnement à partir de l’interface de ligne de c
 
 Pour obtenir des informations sur les différentes identités de comptes et des différents abonnements Azure, consultez [Association des abonnements Azure avec Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## Utiliser la commande azure login pour effectuer une authentification interactive à l’aide d’un portail web
+## Utiliser la commande azure login pour effectuer une authentification interactive
 
 Utilisez la commande `azure login` (sans arguments) pour vous identifier de manière interactive avec :
 
@@ -54,7 +54,7 @@ Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://ak
 	+
 	info:    login command OK
 
-## Utiliser la commande azure login avec le nom d’utilisateur et le mot de passe d’un compte de société
+## Utiliser une connexion azure avec un nom d’utilisateur et un mot de passe
 
 
 Utilisez la commande `azure login` avec un paramètre de nom d’utilisateur ou bien avec un nom d’utilisateur et un mot de passe pour effectuer l’authentification quand vous voulez utiliser un compte professionnel ou scolaire ne nécessitant pas l’authentification multifacteur. L’exemple suivant passe le nom d’utilisateur d’un compte de société :
@@ -76,7 +76,7 @@ Si c’est la première fois que vous vous connectez avec ces informations d'ide
 
 Si vous avez créé un principal du service pour une application Active Directory, et que ce principal du service dispose d’autorisations sur votre abonnement, vous pouvez utiliser la commande `azure login` pour authentifier le principal du service. En fonction de votre scénario, vous pouvez fournir les informations d’identification du principal du service sous la forme de paramètres explicites de la commande `azure login` ou à l’aide d’un script d’interface de ligne de commande ou d’un code d’application. Vous pouvez également utiliser un certificat pour authentifier le principal du service de façon non interactive pour les scénarios d’automatisation. Pour obtenir plus d’informations et des exemples, consultez l’article [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
-## Utilisation de la méthode basée sur un fichier de paramètres de publication
+## Utiliser un fichier de paramètres de publication
 
 Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande du mode Azure Service Management, vous pouvez vous connecter à l’aide d’un fichier de paramètres de publication.
 
@@ -122,13 +122,13 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 
 L’interface de ligne de commande Azure propose deux modes de commande pour l’utilisation des ressources Azure, avec divers jeux de commandes :
 
-* **Mode Azure Resource Manager** : pour utiliser les ressources Azure dans le modèle de déploiement de Resource Manager. Pour définir ce mode, exécutez `azure config mode arm`.
+* **Mode Resource Manager** : pour utiliser les ressources Azure dans le modèle de déploiement Resource Manager. Pour définir ce mode, exécutez `azure config mode arm`.
 
-* **Mode Azure Service Management** : pour utiliser les ressources Azure dans le modèle de déploiement classique. Pour définir ce mode, exécutez `azure config mode asm`.
+* **Mode Service Management** : pour utiliser les ressources Azure dans le modèle de déploiement classique. Pour définir ce mode, exécutez `azure config mode asm`.
 
 Lors de la première installation, l’interface de ligne de commande est en mode Service Management.
 
->[AZURE.NOTE]Le mode Azure Resource Manager et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+>[AZURE.NOTE]Le mode Resource Manager et le mode Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
 ## Stockage des paramètres de l'interface de ligne de commande
 
@@ -147,10 +147,10 @@ Pour vous déconnecter, utilisez la commande suivante :
 Si les abonnements associés au compte étaient authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d'abonnement du profil local. Toutefois, si un fichier de paramètres de publication avait également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
 ## Étapes suivantes
 
-* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez la rubrique [Commandes de l’interface de ligne de commande Azure en mode Azure Resource Manager](./virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Azure Service Management ](virtual-machines-command-line-tools.md).
+* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez la rubrique [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](./virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management ](virtual-machines-command-line-tools.md).
 
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
 * Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

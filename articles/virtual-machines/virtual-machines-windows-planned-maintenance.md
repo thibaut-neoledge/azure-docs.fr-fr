@@ -22,6 +22,8 @@
 
 Découvrez en quoi consiste la maintenance planifiée Azure et son incidence possible sur la disponibilité de vos machines virtuelles Windows. Cet article est également disponible pour les [machines virtuelles Linux](virtual-machines-linux-planned-maintenance.md).
 
+Cet article fournit des informations de base sur le processus de maintenance planifiée. Si vous souhaitez résoudre les problèmes qui ont entraîné le redémarrage de votre machine virtuelle, vous pouvez [lire ce billet de blog détaillant l’affichage des journaux de redémarrage de machine virtuelle](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
@@ -35,4 +37,4 @@ Il existe deux sortes de maintenance qui peuvent avoir un impact sur la disponib
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

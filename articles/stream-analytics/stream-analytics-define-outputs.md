@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/15/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
@@ -316,4 +316,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

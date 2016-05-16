@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/14/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -39,7 +39,7 @@ Si vous souhaitez enquêter sur l’exécution d’une requête particulière, v
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -143,16 +143,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Étapes suivantes
-Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
-Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [Vues système][]. Pour obtenir des conseils sur la gestion de SQL Data Warehouse, voir [Vue d’ensemble de la gestion][]. Pour connaître les meilleures pratiques, voir [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
-[Conception de table]: sql-data-warehouse-develop-table-design.md
-[Vue d’ensemble de référence]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
+[Meilleures pratiques relatives à SQL Data Warehouse]: sql-data-warehouse-best-practices.md
+[Vues système]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -163,4 +162,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

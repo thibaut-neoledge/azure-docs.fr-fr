@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,12 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
-
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ##Vue d’ensemble
 L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes. Les rubriques suivantes vous aideront à découvrir, à configurer et à utiliser l’appareil virtuel StorSimple.
@@ -36,7 +34,7 @@ L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie 
 
 - Arrêt ou suppression de l’appareil virtuel
 
-Ce didacticiel s’applique à tous les appareils virtuels StorSimple exécutant Update 1.
+Ce didacticiel s’applique à tous les appareils virtuels StorSimple exécutant Update 1.
 
 ## Différences entre l’appareil virtuel et l’appareil physique
 
@@ -44,20 +42,20 @@ L’appareil virtuel StorSimple est une version logicielle de StorSimple qui s�
 
 ### Différences par rapport à l’appareil physique
 
-Voici quelques différences clés entre l’appareil virtuel StorSimple et l’appareil physique StorSimple :
+Voici quelques différences clés entre l’appareil virtuel StorSimple et l’appareil physique StorSimple :
 
-- L’appareil virtuel a une seule interface réseau : DATA 0. L’appareil physique comporte six interfaces réseau : de DATA 0 à DATA 5.
+- L’appareil virtuel a une seule interface réseau : DATA 0. L’appareil physique comporte six interfaces réseau : de DATA 0 à DATA 5.
 - L’appareil virtuel est inscrit au cours de l’étape de configuration et non comme une tâche distincte.
 - Vous ne pouvez pas régénérer la clé de chiffrement des données de service à partir de l’appareil virtuel. Au cours de la substitution de la clé, vous régénérez la clé sur l’appareil physique, puis mettez à jour l’appareil virtuel avec la nouvelle clé.
 - Si des mises à jour doivent être appliquées à l’appareil virtuel, celui-ci sera confronté à un temps d’arrêt, ce qui n’est pas le cas avec l’appareil physique.
 
 ## Considérations de sécurité relatives à l’utilisation d’un appareil virtuel
 
-Gardez à l’esprit les considérations de sécurité suivantes lorsque vous utilisez l’appareil virtuel StorSimple :
+Gardez à l’esprit les considérations de sécurité suivantes lorsque vous utilisez l’appareil virtuel StorSimple :
 
 - L’appareil virtuel est sécurisé via votre abonnement Microsoft Azure. Cela signifie que si vous utilisez l’appareil virtuel et que votre abonnement Azure est compromis, les données stockées sur votre appareil virtuel sont également vulnérables.
 
-- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le Portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
+- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le Portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
 
 - L’appareil virtuel est hébergé dans le centre de données Microsoft Azure.
 
@@ -68,7 +66,7 @@ Les sections suivantes vous aideront à vous préparer à utiliser l’appareil 
 
 ### Conditions requises pour Azure
 
-Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
+Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
 - Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 
 - Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide, la création de l’appareil virtuel échoue.
@@ -76,7 +74,7 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 
 >[AZURE.IMPORTANT] **Assurez-vous que le réseau virtuel est situé dans la même région que les comptes de stockage cloud que vous allez utiliser avec l’appareil virtuel.**
 
-- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier
@@ -85,7 +83,7 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 
 ### Conditions requises pour StorSimple
 
-Apportez les mises à jour suivantes à votre service Azure StorSimple avant de créer un appareil virtuel :
+Apportez les mises à jour suivantes à votre service Azure StorSimple avant de créer un appareil virtuel :
 
 
 - Ajoutez des [enregistrements de contrôle d’accès](storsimple-manage-acrs.md) pour les machines virtuelles qui vont être les serveurs hôtes de votre appareil virtuel.
@@ -94,10 +92,10 @@ Apportez les mises à jour suivantes à votre service Azure StorSimple avant de 
 
 - Assurez-vous que vous utilisez un compte de stockage différent pour la création de l’appareil virtuel de celui utilisé pour vos données. L’utilisation du même compte de stockage peut entraîner une dégradation des performances.
 
-Assurez-vous de disposer des informations suivantes avant de commencer :
+Assurez-vous de disposer des informations suivantes avant de commencer :
 
 
-- Vous disposez d’un compte avec les informations d’identification d’accès au Portail Azure Classic.
+- Vous disposez d’un compte avec les informations d’identification d’accès au Portail Azure Classic.
 
 - Vous disposez des informations d’identification d’accès au compte de stockage Azure.
 
@@ -118,7 +116,7 @@ Après avoir créé un réseau virtuel, configuré un service StorSimple Manager
 
 Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
-1.  Dans le Portail Azure Classic, accédez au service **StorSimple Manager**.
+1.  Dans le Portail Azure Classic, accédez au service **StorSimple Manager**.
 
 2. Accédez à la page **Appareils**. Cliquez sur **Créer un appareil virtuel** en bas de la page **Appareils**.
 
@@ -126,22 +124,22 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
      ![Création d’un appareil virtuel StorSimple](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
-	1. **Nom** : nom unique de votre appareil virtuel.
+	1. **Nom** : nom unique de votre appareil virtuel.
 
-	2. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques de version Update 1 (ou ultérieure) auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et de mise à jour postérieure 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
+	2. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques de version Update 1 (ou ultérieure) auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et de mise à jour postérieure 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
 
-	   - la version Update 0.3 en cas de basculement ou de clonage à partir d’un appareil physique avec version GA ou version Update 0.1 à 0.3. 
-	   - la version Update 1 en cas de basculement ou de clonage à partir d’un appareil physique avec Update 1 (ou version ultérieure). La sélection d’Update 1 dans la liste déroulante entraîne l’approvisionnement d’un appareil virtuel Update 1.1.
+	   - la version Update 0.3 en cas de basculement ou de clonage à partir d’un appareil physique avec version GA ou version Update 0.1 à 0.3. 
+	   - la version Update 1 en cas de basculement ou de clonage à partir d’un appareil physique avec Update 1 (ou version ultérieure). La sélection d’Update 1 dans la liste déroulante entraîne l’approvisionnement d’un appareil virtuel Update 1.1.
  
 	3. **Réseau virtuel** – Nom du réseau virtuel que vous souhaitez utiliser avec cet appareil virtuel.
 
 	4. **Sous-réseau** – Sous-réseau du réseau virtuel pour une utilisation avec l’appareil virtuel.
 
-	5. **Compte de stockage pour la création de l'appareil virtuel** – Compte de stockage qui contiendra l'image de l'appareil virtuel lors de l'approvisionnement et hébergera les disques de l'appareil virtuel après l'approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l’appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste.
+	5. **Compte de stockage pour la création d’un appareil virtuel** – Compte de stockage qui contient l'image de l'appareil virtuel lors de l'approvisionnement et héberge les disques de l'appareil virtuel après l'approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l’appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste.
 
     >[AZURE.NOTE] L’appareil virtuel ne peut fonctionner qu’avec les comptes de stockage Azure. Les autres fournisseurs de services cloud tels qu’Amazon, HP et OpenStack (pris en charge pour l’appareil physique) ne sont pas pris en charge pour l’appareil virtuel StorSimple.
 	
-4. Cliquez sur la coche pour indiquer que vous savez que les données stockées sur l’appareil virtuel sont hébergées dans un centre de données Microsoft. Si vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer. ![Étape de création de l’appareil virtuel StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+4. Cliquez sur la coche pour indiquer que vous savez que les données stockées sur l’appareil virtuel sont hébergées dans un centre de données Microsoft. Si vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer. ![Étape de création de l’appareil virtuel StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
 
     Lorsque vous utilisez un appareil virtuel, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez la page [Considérations de sécurité relatives à l’utilisation d’un appareil virtuel](#security-considerations-for-using-a-virtual-device).
 
@@ -174,7 +172,7 @@ Une fois la configuration et l'inscription terminées, l’appareil est mis en l
 
 La section suivante décrit les paramètres de configuration d’appareil que vous pouvez configurer pour l’appareil virtuel StorSimple si vous envisagez d’utiliser CHAP, le Gestionnaire d'instantanés StorSimple ou de modifier le mot de passe d’administrateur de l’appareil.
 
-#### Configuration de l’initiateur CHAP (facultatif)
+#### Configuration de l’initiateur CHAP (facultatif)
 
 Ce paramètre contient les informations d’identification que votre appareil virtuel (cible) attend des initiateurs (serveurs) qui tentent d’accéder aux volumes. Les initiateurs fournissent un nom d’utilisateur et un mot de passe CHAP pour s’identifier auprès de votre appareil au cours de cette authentification.
 
@@ -194,7 +192,7 @@ Pour modifier le mot de passe du Gestionnaire d’instantanés StorSimple, proc�
 
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
 
-2. Accédez à la section **Gestionnaire d’instantanés**. Entrez un mot de passe 14 ou 15 caractères. Assurez-vous que le mot de passe contient 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
+2. Accédez à la section **Gestionnaire d’instantanés**. Entrez un mot de passe 14 ou 15 caractères. Assurez-vous que le mot de passe contient 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
 
 3. Confirmez le mot de passe.
 
@@ -210,7 +208,7 @@ Pour modifier le mot de passe d’administrateur de votre appareil virtuel StorS
 
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
  
-2. Accédez à la section **Mot de passe Administrateur d’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
+2. Accédez à la section **Mot de passe Administrateur d’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux.
 
 3. Confirmez le mot de passe.
  
@@ -242,7 +240,7 @@ Procédez comme suit pour configurer la gestion à distance de l’appareil virt
 
 ## Utilisation de l’appareil virtuel StorSimple
 
-Maintenant que vous avez créé et configuré l’appareil virtuel StorSimple, vous êtes prêt à commencer à l’utiliser. Vous pouvez utiliser des conteneurs de volumes, des volumes et des stratégies de sauvegarde sur un appareil virtuel comme vous le feriez sur un appareil physique StorSimple ; la seule différence est que vous devez vous assurer que vous sélectionnez l’appareil virtuel à partir de votre liste d’appareils. Reportez-vous aux sections suivantes pour obtenir des instructions sur les tâches associées :
+Maintenant que vous avez créé et configuré l’appareil virtuel StorSimple, vous êtes prêt à commencer à l’utiliser. Vous pouvez utiliser des conteneurs de volumes, des volumes et des stratégies de sauvegarde sur un appareil virtuel comme vous le feriez sur un appareil physique StorSimple ; la seule différence est que vous devez vous assurer que vous sélectionnez l’appareil virtuel à partir de votre liste d’appareils. Reportez-vous aux sections suivantes pour obtenir des instructions sur les tâches associées :
 
 
 - [Conteneurs de volume](storsimple-manage-volume-containers.md)
@@ -255,7 +253,7 @@ Les sections suivantes présentent les différences que vous rencontrez lorsque 
 
 ### Maintenance d’un appareil virtuel StorSimple
 
-Comme il s’agit d’un appareil logiciel uniquement, la maintenance de l’appareil virtuel est minime par rapport à la maintenance de l’appareil physique. Vous disposez des options suivantes :
+Comme il s’agit d’un appareil logiciel uniquement, la maintenance de l’appareil virtuel est minime par rapport à la maintenance de l’appareil physique. Vous disposez des options suivantes :
 
 - **Mises à jour logicielles** – Vous pouvez afficher la date de dernière mise à jour du logiciel, ainsi que les messages d’état de mise à jour. Vous pouvez utiliser le bouton **Rechercher les mises à jour** en bas de la page pour effectuer une recherche manuelle des nouvelles mises à jour. Si les mises à jour sont disponibles, cliquez sur **Installer les mises à jour**. Étant donné qu’il n’y a qu’une interface sur l’appareil virtuel, cela signifie qu’il y aura une brève interruption de service lors de l’application des mises à jour. L’appareil virtuel s’arrête et redémarre (si nécessaire) pour appliquer les mises à jour publiées.
 - **Package de prise en charge** – Vous pouvez créer et télécharger un package de prise en charge pour aider le support Microsoft à résoudre les problèmes que vous rencontrez avec votre appareil virtuel.
@@ -268,7 +266,7 @@ Les comptes de stockage sont créés pour une utilisation par l’appareil physi
 
 La désactivation d’un appareil virtuel supprime la machine virtuelle et les ressources créées lors de son approvisionnement. Une fois l’appareil virtuel désactivé, il ne peut pas être restauré vers son état précédent. Avant de désactiver l’appareil virtuel, arrêtez ou supprimez les clients et ordinateurs hôtes qui en dépendent.
 
-La désactivation d’un appareil virtuel entraîne les actions suivantes :
+La désactivation d’un appareil virtuel entraîne les actions suivantes :
 
 - L’appareil virtuel est supprimé.
 
@@ -290,7 +288,7 @@ Vous devez respecter les procédures de la rubrique [Connexion à distance à vo
 
 Toutefois, si vous souhaitez vous connecter directement à l’appareil virtuel à partir d’un autre ordinateur en dehors du réseau virtuel ou de l’environnement Microsoft Azure, vous devez créer des points de terminaison supplémentaires comme décrit dans la procédure suivante.
 
-Procédez comme suit pour créer un point de terminaison public sur l’appareil virtuel :
+Procédez comme suit pour créer un point de terminaison public sur l’appareil virtuel :
 
 1. Connectez-vous à la version classique du portail Azure.
 
@@ -300,7 +298,7 @@ Procédez comme suit pour créer un point de terminaison public sur l’appareil
 
 - Cliquez sur **Ajouter**. La boîte de dialogue Ajouter un point de terminaison s’affiche. Cliquez sur la flèche pour continuer.
 
-- Pour le **Nom**, tapez le nom de point de terminaison suivant : **WinRMHttps**.
+- Pour le **Nom**, tapez le nom de point de terminaison suivant : **WinRMHttps**.
 
 - Pour le **Protocole**, indiquez **TCP**.
 
@@ -340,9 +338,9 @@ Si vous décidez de repartir de zéro avec votre appareil virtuel, désactivez-l
 
 ## Basculement vers l’appareil virtuel
 
-La récupération d’urgence est un des scénarios clés pour lequel l’appareil virtuel StorSimple a été conçu. Dans ce scénario, l’appareil physique StorSimple ou un centre de données entier peut ne pas être disponible. Heureusement, vous pouvez utiliser un appareil virtuel pour restaurer les opérations dans un autre emplacement. Pendant la récupération d’urgence, la propriété des conteneurs de volumes de l’appareil source change et ces derniers sont transférés vers l’appareil virtuel. Les conditions requises pour la récupération d’urgence sont les suivantes : l’appareil virtuel a été créé et configuré, tous les volumes du conteneur de volumes ont été mis hors connexion et le conteneur de volumes est associé à un instantané cloud.
+La récupération d’urgence est un des scénarios clés pour lequel l’appareil virtuel StorSimple a été conçu. Dans ce scénario, l’appareil physique StorSimple ou un centre de données entier peut ne pas être disponible. Heureusement, vous pouvez utiliser un appareil virtuel pour restaurer les opérations dans un autre emplacement. Pendant la récupération d’urgence, la propriété des conteneurs de volumes de l’appareil source change et ces derniers sont transférés vers l’appareil virtuel. Les conditions requises pour la récupération d’urgence sont les suivantes : l’appareil virtuel a été créé et configuré, tous les volumes du conteneur de volumes ont été mis hors connexion et le conteneur de volumes est associé à un instantané cloud.
 
->[AZURE.NOTE] Vous ne pouvez pas effectuer un basculement ou un clonage à partir d’un appareil exécutant Update 1 sur un appareil exécutant un logiciel de la mise à jour préliminaire 1. Si vous sélectionnez un appareil cible exécutant la mise à jour préliminaire 1, vous êtes averti que vous devez mettre à jour l’appareil cible avant d’effectuer le basculement.
+>[AZURE.NOTE] Vous ne pouvez pas effectuer un basculement ou un clonage à partir d’un appareil exécutant Update 1 sur un appareil exécutant un logiciel de la mise à jour préliminaire 1. Si vous sélectionnez un appareil cible exécutant la mise à jour préliminaire 1, vous êtes averti que vous devez mettre à jour l’appareil cible avant d’effectuer le basculement.
 
 ### Pour restaurer votre appareil physique en fonction de l’appareil virtuel StorSimple
 
@@ -364,13 +362,13 @@ La récupération d’urgence est un des scénarios clés pour lequel l’appare
 
 Le processus de basculement commence. Lorsque le basculement est terminé, accédez à la page Appareils et sélectionnez l’appareil virtuel qui a été utilisé comme cible pour le processus de basculement. Accédez à la page Conteneurs de volumes. Tous les conteneurs de volumes, ainsi que les volumes de l’ancien appareil, doivent être répertoriés.
 
->[AZURE.NOTE] La quantité de stockage prise en charge sur l’appareil virtuel est de 30 To.
+>[AZURE.NOTE] La quantité de stockage prise en charge sur l’appareil virtuel est de 30 To.
 
 ## Arrêt ou suppression de l’appareil virtuel
 
 Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais dans votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent à être facturés.
 
-Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d'informations, consultez [Désactiver et supprimer un appareil StorSimple](storsimple-deactivate-and-delete-device.md).
+Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez [Désactiver et supprimer un appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Arrêt de l’appareil virtuel StorSimple
 
@@ -392,4 +390,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

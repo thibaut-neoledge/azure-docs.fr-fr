@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Didacticiel : Créer un IoT Hub à l'aide d'un programme C# et de l’API REST
@@ -61,7 +61,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     using Newtonsoft.Json;
     ```
     
-7. Dans Program.cs, ajoutez les variables statiques suivantes en remplaçant les valeurs des espaces réservés. Vous avez noté les éléments **ApplicationId**, **SubscriptionId**, **TenantId** et **Password** précédemment dans ce didacticiel. **Resource group name** est le nom du groupe de ressources que vous utiliserez pour créer le IoT Hub. Il peut s’agir d’un groupe de ressources existant ou nouveau. **Nom du hub IoT** est le nom du hub IoT que vous allez créer, par exemple **MonHubIoT** (notez que ce nom doit être globalement unique). **Deployment name** est le nom du déploiement, par exemple **Déploiement\_01**.
+7. Dans Program.cs, ajoutez les variables statiques suivantes en remplaçant les valeurs des espaces réservés. Vous avez noté les éléments **ApplicationId**, **SubscriptionId**, **TenantId** et **Password** précédemment dans ce didacticiel. **Resource group name** est le nom du groupe de ressources que vous utiliserez pour créer le IoT Hub. Il peut s’agir d’un groupe de ressources existant ou nouveau. **Nom du hub IoT** est le nom du hub IoT que vous allez créer, par exemple **MonHubIoT** (notez que ce nom doit être globalement unique et inclure votre nom ou vos initiales). **Deployment name** est le nom du déploiement, par exemple **Déploiement\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -70,7 +70,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     static string password = "{Your application Password}";
     
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
+    static string iotHubName = "{IoT Hub name including your initials}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
@@ -154,7 +154,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(token.AccessToken);
@@ -183,4 +183,4 @@ Maintenant que vous avez déployé un IoT Hub à l'aide de l'API REST, vous pouv
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

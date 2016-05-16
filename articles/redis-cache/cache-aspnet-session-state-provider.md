@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Fournisseur d’état de session ASP.NET du cache"
-   description="Apprenez à stocker l’état de session ASP.NET à l’aide du Cache Redis Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Fournisseur d’état de session ASP.NET du cache | Microsoft Azure"
+	description="Apprenez à stocker l’état de session ASP.NET à l’aide du Cache Redis Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="douge"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="03/04/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Fournisseur d’état de session ASP.NET pour Cache Redis Azure
 
@@ -25,19 +25,19 @@ Dans une application cloud réelle, il n’est souvent pas pratique d’éviter 
 
 Pour configurer une application cliente dans Visual Studio avec le package NuGet de l'état de session Cache Redis, cliquez avec le bouton droit sur l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
-![Cache Redis Azure - Gérer les packages NuGet](./media/cache-asp.net-session-state-provider/IC729541.png)
+![Cache Redis Azure - Gérer les packages NuGet](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
 
-Entrez **RedisSessionStateProvider** dans la zone de texte Rechercher en ligne, choisissez parmi les résultats et cliquez sur Installer.
+Entrez **RedisSessionStateProvider** dans la zone de texte, choisissez-le parmi les résultats et cliquez sur **Installer**.
 
 >[AZURE.IMPORTANT] Si vous utilisez la fonction de clustering du niveau Premium, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
-![Fournisseur d’état de session du Cache Redis Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
+![Fournisseur d’état de session du Cache Redis Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 Le package NuGet du fournisseur d’état de session Redis a une dépendance sur le package StackExchange.Redis.StrongName. Le package StackExchange.Redis.StrongName sera automatiquement installé s’il ne figure pas déjà dans votre projet. Notez qu’il existe, en plus du package StackExchange.Redis.StrongName avec nom fort, une version de StackExchange.Redis sans nom fort. Si votre projet utilise la version de StackExchange.Redis sans nom fort, vous devez la désinstaller avant ou après avoir installé le package NuGet du fournisseur d’état de session Redis. À défaut, vous risquez de rencontrer des conflits de noms dans votre projet. Pour plus d’informations sur ces packages, consultez la section [Configuration des clients de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
 
-    <sessionStatemode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
 		<add name="MySessionStateStore"
@@ -106,4 +106,4 @@ Pour plus d'informations sur l’état de session et obtenir d’autres meilleur
 
 Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure](cache-aspnet-output-cache-provider.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

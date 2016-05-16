@@ -278,7 +278,7 @@ Dans cet exemple, les deux passerelles sont dans le même abonnement. Vous pouve
 Veillez à ouvrir une session et à vous connecter à Abonnement 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. Créer les deux connexions
 
@@ -300,4 +300,4 @@ Si vous avez effectué les trois parties de cet exercice, vous avez obtenu une t
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

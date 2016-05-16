@@ -1,7 +1,7 @@
 > [AZURE.SELECTOR]
-- [Portal (Linux cluster)](../articles/hdinsight/hdinsight-administer-use-portal-linux.md)
-- [Portal (Windows cluster)](../articles/hdinsight/hdinsight-administer-use-management-portal.md)
-- [Azure CLI](../articles/hdinsight/hdinsight-administer-use-command-line.md)
+- [Portail (cluster Linux)](../articles/hdinsight/hdinsight-administer-use-portal-linux.md)
+- [Portail (cluster Windows)](../articles/hdinsight/hdinsight-administer-use-management-portal.md)
+- [Interface de ligne de commande Azure](../articles/hdinsight/hdinsight-administer-use-command-line.md)
 - [Azure PowerShell](../articles/hdinsight/hdinsight-administer-use-powershell.md)
+- [Kit SDK .NET](../articles/hdinsight/hdinsight-administer-use-dotnet-sdk.md)
 
-<!---HONumber=Oct15_HO3-->

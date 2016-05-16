@@ -37,7 +37,7 @@ Comme vous n’avez pas à vous soucier du serveur web ou l’infrastructure d�
 
 Les outils de développement web populaires prennent en charge un ou plusieurs de ces processus de déploiement. L’outil que vous choisissez détermine les processus de déploiement que vous pouvez exploiter, la fonctionnalité DevOps réelle à votre disposition dépend de la combinaison du processus de déploiement et les outils spécifiques que vous choisissez. Par exemple, si vous effectuez le déploiement Web à partir de [Visual Studio avec Azure SDK](#vspros), même si vous n’obtenez pas d’automatisation de la part de Kudu, vous obtenez une restauration de package et l’automatisation MSBuild dans Visual Studio.
 
->[AZURE.NOTE] Ces processus de déploiement n’[approvisionnent pas réellement les ressources Azure](resource-group-portal) dont votre application peut avoir besoin. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate).
+>[AZURE.NOTE] Ces processus de déploiement n’[approvisionnent pas réellement les ressources Azure](../azure-portal/resource-group-portal.md) dont votre application peut avoir besoin. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate).
      
 ## <a name="ftp"></a>Déploiement via FTP par copie manuelle des fichiers dans Azure
 Si vous êtes habitué à copier manuellement votre contenu web sur un serveur web, vous pouvez utiliser un utilitaire [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers, notamment l’Explorateur Windows ou [FileZilla](https://filezilla-project.org/).
@@ -93,7 +93,7 @@ Les avantages du déploiement à partir d’un système de contrôle source sont
 
 - Contrôle de version permettant une restauration.
 - Possibilité de configurer un déploiement continu pour les référentiels Git (et Mercurial le cas échéant). 
-- Le déploiement de branche spécifique, la possibilité de déployer différentes branches à différents [emplacements](web-sites-staged-publishing).
+- Le déploiement de branche spécifique permet de déployer différentes branches à différents [emplacements](web-sites-staged-publishing.md).
 - Toutes les fonctionnalités du moteur de déploiement Kudu sont disponibles (par exemple, le contrôle de version de déploiement, la restauration, la restauration de package, l’automatisation).
 
 Inconvénient du déploiement à partir d’un service de contrôle de source de cloud :
@@ -111,7 +111,7 @@ Si votre équipe de développement utilise un service de gestion du code source 
 Avantages du déploiement à partir de Git local :
 
 - Contrôle de version permettant une restauration.
-- Le déploiement de branche spécifique, la possibilité de déployer différentes branches à différents [emplacements](web-sites-staged-publishing).
+- Le déploiement de branche spécifique permet de déployer différentes branches à différents [emplacements](web-sites-staged-publishing.md).
 - Toutes les fonctionnalités du moteur de déploiement Kudu sont disponibles (par exemple, le contrôle de version de déploiement, la restauration, la restauration de package, l’automatisation).
 
 Inconvénient du déploiement à partir de Git local :
@@ -226,4 +226,4 @@ Pour plus d’informations sur l’utilisation du contrôle d’accès en foncti
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

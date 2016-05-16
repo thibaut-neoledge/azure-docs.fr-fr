@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/29/2016"
    ms.author="hascipio" />
 
 # Publier une offre dans Azure Marketplace
@@ -57,7 +57,7 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines-windows-hero-tutorial/)
+- [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 **Services de données**
 
@@ -82,4 +82,4 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

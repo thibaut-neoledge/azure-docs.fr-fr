@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Utiliser Azure CDN dans Azure App Service" 
 	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -519,27 +519,8 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Republiez votre application web Azure et accédez à la page d'accueil.
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :    
 	
-	``` 
-	... 
- <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-   	if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { 
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -552,11 +533,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mais, du fait que la première partie de l'expression || renvoie toujours la valeur true (dans la ligne juste au-dessus), la fonction document.write() ne s'exécute jamais.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Pour tester le bon fonctionnement du script de secours, revenez au panneau de votre point de terminaison CDN et cliquez sur **Arrêter**.
 
@@ -566,13 +547,12 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 ## Plus d'informations 
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](../cdn/cdn-overview.md)
-- [Distribution de contenu depuis Azure CDN dans votre application web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Utilisation d’Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Intégration d’un service cloud à Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [Regroupement et minimisation d’ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Utilisation d’Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

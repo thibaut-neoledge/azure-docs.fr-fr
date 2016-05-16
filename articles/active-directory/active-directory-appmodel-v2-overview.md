@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/02/2016"
+	ms.date="04/26/2016"
 	ms.author="dastrock"/>
 
 # Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
@@ -22,19 +22,23 @@ Auparavant, un développeur d’application qui souhaitait prendre en charge à 
 
 Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer des API REST à partir de [Microsoft Graph](https://graph.microsoft.io) et [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) à l’aide d’un type de compte.
 
-## Mise en route
-Choisissez votre plateforme préférée ci-dessous pour créer une application à l’aide de nos bibliothèques et infrastructures open source. Vous pouvez également utiliser notre documentation du protocole OAuth 2.0 et OpenID Connect pour envoyer et recevoir les messages de protocole directement sans utiliser une bibliothèque d’authentification.
-<!-- TODO: Finalize this table  -->
+<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
 
+## Mise en route
+[AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
+
+Choisissez votre plateforme préférée ci-dessous pour créer une application à l’aide de nos bibliothèques et infrastructures open source. Vous pouvez également utiliser notre documentation du protocole OAuth 2.0 et OpenID Connect pour envoyer et recevoir les messages de protocole directement sans utiliser une bibliothèque d’authentification.
+
+<!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 ## Nouveautés
 Les informations conceptuelles ici seront utiles pour comprendre ce qui est et ce qui n’est pas possible avec le point de terminaison v2.0.
 
-- Si vous avez créé une application pendant la version préliminaire du point de terminaison v2.0 2015, veillez à [consulter les dernières modifications du protocole](active-directory-v2-preview-oidc-changes.md) que nous avons récemment apportées.
+- Si vous avez créé une application dans le cadre de la version préliminaire du point de terminaison v2.0 2015, veillez à [consulter les dernières modifications du protocole](active-directory-v2-preview-oidc-changes.md) que nous avons récemment apportées.
 - Découvrez les [différents types d’application que vous pouvez créer avec le point de terminaison v2.0](active-directory-v2-flows.md).
 - Si vous êtes développeur et que vous connaissez bien Azure Active Directory, prenez connaissance des [mises à jour concernant nos protocoles, ainsi que des différences qui caractérisent le point de terminaison v2.0](active-directory-v2-compare.md).
-- Familiarisez-vous avec les [limites, les restrictions et les contraintes](active-directory-v2-limitations.md) du point de terminaison v2.0.
+- Familiarisez-vous avec les [limites, restrictions et contraintes](active-directory-v2-limitations.md) du point de terminaison v2.0.
 
 ## Référence
 Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeur :
@@ -57,4 +61,4 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
   - [Client OAuth2 Android](https://github.com/wuman/android-oauth-client)
   - [Client OpenID Connect Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

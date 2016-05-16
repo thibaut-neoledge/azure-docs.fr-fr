@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Mise à l’échelle automatique des machines dans un groupe de machines virtuelles à échelle identique
@@ -39,17 +39,17 @@ Pour plus d’informations sur les ressources de Resource Manager, consultez [Ca
 
 Le modèle que vous créez dans ce didacticiel est similaire à un modèle qui se trouve dans la galerie de modèles. Pour plus d’informations, consultez [Déployer un jeu de mise à l’échelle de machine virtuelle avec des machines virtuelles Windows et une Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Étape 1 : installer Azure PowerShell
 
-## Étape 1 : créer un groupe de ressources et un compte de stockage
+Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
 
-1. **Se connecter à Microsoft Azure**. Ouvrez la fenêtre Microsoft Azure PowerShell et exécutez **Login-AzureRmAccount**.
+## Étape 2 : créer un groupe de ressources et un compte de stockage
 
-2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstestrg1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
+2. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
 
-## Étape 2 : créer le modèle
+## Étape 3 : créer le modèle
 Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
 
 1. Dans votre éditeur favori, créez le fichier C:\\VMSSTemplate.json et ajoutez la structure JSON initiale pour prendre en charge le modèle.
@@ -472,7 +472,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     Pour ce didacticiel, il s’agit de valeurs importantes :
 
     - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
-	- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+- **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
     - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
     - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
     - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
@@ -486,7 +486,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
 12.	Enregistrez le fichier de modèle.
 
-## Étape 3 : charger le modèle dans le stockage
+## Étape 4 : charger le modèle dans le stockage
 
 Le modèle peut être téléchargé depuis la fenêtre Microsoft Azure PowerShell à condition que vous connaissiez le nom du compte et la clé primaire du compte de stockage que vous avez créé à l’étape 1.
 
@@ -515,15 +515,15 @@ Le modèle peut être téléchargé depuis la fenêtre Microsoft Azure PowerShel
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Étape 4 : déployer le modèle
+## Étape 5 : déployer le modèle
 
 Maintenant que vous avez créé le modèle, vous pouvez commencer à déployer les ressources. Utilisez cette commande pour démarrer le processus :
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour les variables que vous avez affectées. Remplacez les valeurs suivantes :
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@ Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour
 
 Il doit prendre environ 15 minutes pour que toutes les ressources soient déployées avec succès.
 
->[AZURE.NOTE]Vous pouvez également utiliser la capacité du portail à déployer les ressources. Pour ce faire, utilisez ce lien : https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] Vous pouvez également utiliser la capacité du portail à déployer les ressources. Pour ce faire, utilisez le lien suivant : « https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template> »
 
-## Étape 5 : analyser les ressources
+## Étape 6 : surveiller les ressources
 
 Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
 
  - Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
  - [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre jeu de mise à l’échelle. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du jeu de mise à l’échelle que vous avez créée :
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell : utilisez cette commande pour obtenir des informations :
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles de l’ensemble de mise à l’échelle pour surveiller les processus individuels.
 
->[AZURE.NOTE]Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans [Ensembles de mise à l’échelle de machine virtuelle](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE] Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans [Ensembles de mise à l’échelle de machine virtuelle](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Étape 6 : supprimer les ressources
+## Étape 7 : supprimer les ressources
 
 Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources et toutes ses ressources seront automatiquement supprimées.
 
@@ -559,6 +563,11 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 
 Si vous souhaitez conserver votre groupe de ressources, vous pouvez supprimer uniquement le jeu de mise à l’échelle.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Étapes suivantes
 
-<!----HONumber=AcomDC_0427_2016-->
+- Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md).
+- Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+
+<!---HONumber=AcomDC_0504_2016-->

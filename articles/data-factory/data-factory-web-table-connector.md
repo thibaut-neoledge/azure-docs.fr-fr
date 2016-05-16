@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
@@ -21,7 +21,7 @@ Cet article explique comment utiliser l’activité de copie d’une fabrique de
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une table web vers d’autres magasins de données, mais pas l’inverse.
 
-## Exemple : copie de données à partir d’une table web vers un objet blob Azure
+## Exemple : copie de données à partir d’une table web vers un objet blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -51,7 +51,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	}
 
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -89,7 +89,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
 	{
 	    "name": "AzureBlobOutput",
@@ -223,7 +223,7 @@ path | URL relative de la ressource qui contient la table. | Non. Quand le chemi
 index | Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page). | Oui
 
 
-**Exemple :**
+**Exemple :**
 
 	{
 	    "name": "WebTableInput",
@@ -242,7 +242,7 @@ index | Index de la table dans la ressource. Pour savoir comment obtenir l’ind
 	    }
 	}
 
-## WebSource : propriétés de type de l’activité de copie
+## WebSource : propriétés de type de l’activité de copie
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -252,15 +252,15 @@ En cas d’activité de copie quand la source est de type **WebSource**, aucune 
 
 ## Obtenir l’index d’une table dans une page HTML
 
-1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.  
+1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.  
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
 	
 	![Menu Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png) 
-3. Dans la boîte de dialogue **À partir du web**, entrez l’**URL** que vous utiliseriez dans le service lié JSON (par exemple : https://en.wikipedia.org/wiki/), ainsi que le chemin d’accès à spécifier pour le jeu de données (par exemple : AFI%27s\_100\_Years...100\_Movies), puis cliquez sur **OK**. 
+3. Dans la boîte de dialogue **À partir du web**, entrez l’**URL** que vous utiliseriez dans le service lié JSON (par exemple : https://en.wikipedia.org/wiki/), ainsi que le chemin d’accès à spécifier pour le jeu de données (par exemple : AFI%27s\_100\_Years...100\_Movies), puis cliquez sur **OK**. 
 
 	![Boîte de dialogue À partir du web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-	URL utilisée dans cet exemple : https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
+	URL utilisée dans cet exemple : https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
 4.  Si la boîte de dialogue **Accéder au contenu web** apparaît, sélectionnez l’**URL** et l’**authentification** adéquates, puis cliquez sur **Se connecter**. 
 
 	![Boîte de dialogue Accéder au contenu web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
@@ -272,15 +272,18 @@ En cas d’activité de copie quand la source est de type **WebSource**, aucune 
 
 	![Bouton Éditeur avancé](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 
-6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
+6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
 
 	![Éditeur avancé - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
 
-Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+## Performances et réglage  
+Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
+
+<!---HONumber=AcomDC_0504_2016-->

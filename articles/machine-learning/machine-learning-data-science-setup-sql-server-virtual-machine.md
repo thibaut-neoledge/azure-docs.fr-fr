@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
@@ -81,6 +81,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Exécution (configuration)
     -   Exécution
 
+
 ##<a name="RemoteDesktop"></a>Ouvrir la machine virtuelle à l’aide du Bureau à distance et achever la configuration
 
 1.  Une fois l’approvisionnement terminé, cliquez sur le nom de votre machine virtuelle pour accéder à la page TABLEAU DE BORD. En bas de la page, cliquez sur **Connect**.
@@ -93,11 +94,12 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l’instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
 
+
 ##<a name="InstallIPython"></a>Installer Notebook IPython et les autres outils connexes
 
 Un script de personnalisation spécial est mis à votre disposition pour vous permettre de configurer la nouvelle machine virtuelle SQL Server en tant que serveur Notebook IPython et pour installer des outils connexes complémentaires, tels qu’AzCopy, l’Explorateur de stockage Azure, des packages de science des données Python très utiles, etc. Pour effectuer l’installation :
 
-- Cliquez avec le bouton droit sur l’icône de démarrage de Windows et sélectionnez **Invite de commandes (admin)**.
+- Cliquez avec le bouton droit sur l’icône **Démarrage Windows** et cliquez sur **Invite de commandes (Admin)**
 - Copiez les commandes ci-après et collez-les au niveau de l’invite de commandes.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -154,7 +156,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	Pour changer le mode d’authentification au moyen de SQL Server Management Studio :
 
-3.  Dans SQL Server Management Studio Object Explorer, cliquez avec le bouton droit sur le nom de l’instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
+3.  Dans l’**Explorateur d’objets SQL Server Management Studio**, cliquez avec le bouton droit sur le nom de l’instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
 
     ![Propriétés de serveur][7]
 
@@ -162,19 +164,20 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
     ![Sélectionner le mode d'authentification][8]
 
-5.  Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **OK** pour confirmer l'obligation de redémarrer SQL Server.
+5.  Dans la boîte de dialogue **SQL Server Management Studio**, cliquez sur **OK** pour confirmer l'obligation de redémarrer SQL Server.
 
-6.  Dans Object Explorer, cliquez avec le bouton droit sur votre serveur, puis cliquez sur **Redémarrer** (si SQL Server Agent est exécuté, il doit également être redémarré).
+6.  Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur votre serveur, puis cliquez sur **Redémarrer**. (si SQL Server Agent est exécuté, il doit également être redémarré).
 
     ![Redémarrer][9]
 
-7.  Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **Oui** pour confirmer que vous voulez redémarrer SQL Server.
+7.  Dans la boîte de dialogue **SQL Server Management Studio**, cliquez sur **Oui** pour confirmer que vous voulez redémarrer SQL Server.
 
 ##<a name="Logins"></a>Créer des connexions d’authentification SQL Server
 
 Pour vous connecter au moteur de base de données à partir d’un autre ordinateur, vous devez créer au moins une connexion d’authentification SQL Server.
 
-> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le nom d’utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d’informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
+Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le *nom d’utilisateur* et le *mot de passe* de votre choix.
+
 
     USE master
     go
@@ -185,9 +188,12 @@ Pour vous connecter au moteur de base de données à partir d’un autre ordinat
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
+
+Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
+
 Pour créer des connexions SQL Server à l’aide de SQL Server Management Studio :
 
-1.  Dans SQL Server Management Studio Object Explorer, développez le dossier de l’instance de serveur dans laquelle vous voulez créer la connexion.
+1.  Dans l’**Explorateur d’objets SQL Server Management Studio**, développez le dossier de l’instance de serveur dans laquelle vous voulez créer la connexion.
 
 2.  Cliquez avec le bouton droit sur le dossier **Sécurité**, pointez sur **Nouveau**, puis sélectionnez **Connexion**.
 
@@ -221,11 +227,13 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 ##<a name="DNS"></a>Déterminer le nom DNS de la machine virtuelle
 
-Pour vous connecter au moteur de base de données SQL Server à partir d’un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
+Pour vous connecter au moteur de base de données SQL Server à partir d’un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle.
+
+Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
 
 1.  Dans le portail Azure Classic (ou à partir de l’étape précédente), sélectionnez **VIRTUAL MACHINES**.
 
-2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne **http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
+2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne ****http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
 
 ##<a name="cde"></a>Se connecter au moteur de base de données à partir d’un autre ordinateur
 
@@ -243,7 +251,7 @@ Pour vous connecter au moteur de base de données SQL Server à partir d’un au
 
 ##<a name="amlconnect"></a>Se connecter au moteur de base de données à partir d’Azure Machine Learning
 
-Dans les étapes ultérieures du Processus d’analyse avancé et technologie en action, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module Lecteur dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail via les liens du guide du Processus d’analyse avancé et technologie en action. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
+Dans les étapes ultérieures du processus Cortana Analytics, vous allez utiliser [Azure Machine Learning Studio](https://studio.azureml.net) pour générer et déployer des modèles d’apprentissage automatique. Pour recevoir des données provenant de vos bases de données de machine virtuelle SQL Server directement dans Azure Machine Learning à des fins d’apprentissage ou de notation, utilisez le module **Lecteur** dans une nouvelle expérience [Azure Machine Learning Studio](https://studio.azureml.net). Cette rubrique est traitée plus en détail dans les liens du guide du processus Cortana Analytics. Pour découvrir une introduction, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 
 2.	Dans le volet **Propriétés** du [module Lecteur](https://msdn.microsoft.com/library/azure/dn905997.aspx), sélectionnez **Base de données SQL Azure** dans la liste déroulante **Source de données**.
 
@@ -298,4 +306,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

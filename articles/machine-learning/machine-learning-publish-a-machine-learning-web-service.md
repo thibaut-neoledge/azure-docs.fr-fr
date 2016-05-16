@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 # Déploiement d’un service web Azure Machine Learning
@@ -31,7 +31,7 @@ D'un point de vue très général, cela s'effectue en trois étapes :
 Une fois que vous avez déployé le service web, vous pouvez :
 
 - **[y accéder]** via l'API du service web
-- **[le gérer]** via le portail Azure Classic et
+- **[le gérer]** avec le portail Azure Classic et
 - **[le mettre à jour]** si vous modifiez votre modèle
 
 [Créez une expérience d'apprentissage]: #create-a-training-experiment
@@ -76,7 +76,7 @@ Pour tester le service web, cliquez sur le lien **Test** dans le tableau de bord
 
 ![Test du service web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Sur l'onglet **CONFIGURATION**, vous pouvez modifier le nom d'affichage du service et lui donner une description. Le nom et la description s'affichent dans le portail Azure Classic où vous gérez vos services web. Vous pouvez fournir une description de vos données d'entrée, de vos données de sortie et des paramètres de service web en saisissant une chaîne pour chaque colonne sous **SCHÉMA D'ENTRÉE**, **SCHÉMA DE SORTIE** et **PARAMÈTRE DU SERVICE WEB**. Ces descriptions sont utilisées dans la documentation relative à l'exemple de code fournie pour le service web. Vous pouvez également activer la journalisation pour diagnostiquer toute défaillance que vous observez lors de l’accès à votre service web.
+Sur l'onglet **CONFIGURATION**, vous pouvez modifier le nom d'affichage du service et lui donner une description. Le nom et la description s'affichent dans le [portail Azure Classic](http://manage.windowsazure.com/) où vous gérez vos services web. Vous pouvez fournir une description de vos données d'entrée, de vos données de sortie et des paramètres de service web en saisissant une chaîne pour chaque colonne sous **SCHÉMA D'ENTRÉE**, **SCHÉMA DE SORTIE** et **PARAMÈTRE DU SERVICE WEB**. Ces descriptions sont utilisées dans la documentation relative à l'exemple de code fournie pour le service web. Vous pouvez également activer la journalisation pour diagnostiquer toute défaillance que vous observez lors de l’accès à votre service web.
 
 Pour plus d'informations, consultez [Activation de la journalisation pour les services web de Machine Learning](machine-learning-web-services-logging.md).
 
@@ -92,11 +92,11 @@ Le tableau de bord fournit toutes les informations dont vous avez besoin pour ac
 Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
 
 
-## Gestion du service web dans le portail Azure Classic
+## Gestion du service web dans le portail Azure Classic
 
-Dans le portail Azure Classic, vous pouvez gérer vos services web en cliquant sur le service **Machine Learning**, en ouvrant votre espace de travail Machine Learning puis en ouvrant le service web à partir de l'onglet **SERVICES WEB**. À partir de cette page, vous pouvez contrôler le service web, le mettre à jour et le supprimer. Vous pouvez également ajouter un deuxième point de terminaison pour votre service web en plus du point de terminaison par défaut qui est créé lorsque vous le déployez.
+Dans le [portail Azure Classic](http://manage.windowsazure.com/), vous pouvez gérer vos services web en cliquant sur le service **Machine Learning**, en ouvrant votre espace de travail Machine Learning puis en ouvrant le service web à partir de l'onglet **SERVICES WEB**. À partir de cette page, vous pouvez contrôler le service web, le mettre à jour et le supprimer. Vous pouvez également ajouter un deuxième point de terminaison pour votre service web en plus du point de terminaison par défaut qui est créé lorsque vous le déployez.
 
-Pour plus d'informations, consultez [Gestion d'un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
+Pour plus d’informations, consultez la page [Gestion d’un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
@@ -112,4 +112,4 @@ Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine u
 
 Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

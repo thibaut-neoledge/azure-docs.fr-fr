@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="na" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Déployer des tâches web à l’aide de Visual Studio
@@ -39,16 +39,12 @@ Vous pouvez ajouter ces éléments à un projet d'application console existant o
 Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet web afin qu'il soit déployé automatiquement lorsque vous déployez le projet web. Pour lier les projets, Visual Studio inclut le nom du projet compatible avec les tâches web dans un fichier [webjobs-list.json](#webjobslist) dans le projet web.
 
 ![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
- 
 
+## Composants requis
 
-## Configuration requise
+Les fonctionnalités de déploiement de WebJobs sont disponibles dans Visual Studio 2015 lorsque vous installez le Kit de développement logiciel (SDK) Azure pour .NET :
 
-Les fonctionnalités de déploiement WebJobs sont disponibles dans Visual Studio 2013 lorsque vous installez le Kit de développement logiciel (SDK) Azure version 2.4 ou ultérieure :
-
-* [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
-
-Les fonctionnalités de déploiement WebJobs sont également incluses dans [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) et les mises à jour ultérieures.
+* [Kit de développement logiciel (SDK) Azure .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003)
 
 ## <a id="convert"></a>Activer le déploiement de tâches web pour un projet d’application de console
 
@@ -100,7 +96,7 @@ Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le m
 
 	Créez un projet configuré pour être déployé automatiquement sous forme de tâche web lorsqu'un projet web dans la même solution est déployé. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans la même application web que celle dans laquelle vous exécutez l’application web liée.
 
-> [AZURE.NOTE]Le modèle de nouveau projet WebJobs installe automatiquement les packages NuGet et inclut le code dans *Program.cs* pour le [Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Si vous ne souhaitez pas utiliser le Kit de développement logiciel (SDK) WebJobs, ou si vous voulez utiliser une tâche WebJob planifiée plutôt que continue, supprimez ou modifiez l'instruction `host.RunAndBlock` dans *Program.cs*.
+> [AZURE.NOTE] Le modèle de nouveau projet WebJobs installe automatiquement les packages NuGet et inclut le code dans *Program.cs* pour le [Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Si vous ne souhaitez pas utiliser le Kit de développement logiciel (SDK) WebJobs, ou si vous voulez utiliser une tâche WebJob planifiée plutôt que continue, supprimez ou modifiez l'instruction `host.RunAndBlock` dans *Program.cs*.
 
 ### <a id="createnolink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante
   
@@ -188,13 +184,8 @@ Pour déployer un projet de tâches web seul, cliquez avec le bouton droit sur l
 	
 Pour une tâche web indépendante, l'Assistant **Publier le site Web** utilisé pour les projets web s'affiche, mais avec moins de paramètres modifiables.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-
 ## <a id="nextsteps"></a>Étapes suivantes
 
-Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual Studio. Pour des informations sur le déploiement d'Azure WebJobs à partir de Visual Studio et selon un processus continu, consultez la page [Azure WebJobs - Ressources recommandées - Déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual Studio. Pour plus d’informations sur le déploiement d’Azure WebJobs, consultez la rubrique [Azure WebJobs - Ressources recommandées - Déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

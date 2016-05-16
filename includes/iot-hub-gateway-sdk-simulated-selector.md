@@ -2,60 +2,60 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+Cette procédure pas à pas de l’[exemple de chargement d’un appareil simulé sur le cloud] montre comment utiliser le [Kit SDK de passerelle Microsoft Azure IoT][lnk-sdk] pour envoyer la télémétrie appareil-vers-cloud à IoT Hub à partir d’appareils simulés.
 
-This walkthrough covers:
+Cette procédure pas à pas inclut les étapes suivantes :
 
-1. **Architecture**: important architectural information about the Simulated Device Cloud Upload sample.
+1. **Architecture** : informations architecturales importantes concernant l'exemple de chargement d’un appareil simulé sur le cloud.
 
-2. **Build and run**: the steps required to build and run the sample.
+2. **Créer et exécuter** : les étapes requises pour créer et exécuter l'exemple.
 
 ## Architecture
 
-The Simulated Device Cloud Upload sample shows how to use the SDK to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
+L’exemple de chargement d’un appareil simulé sur le cloud montre comment utiliser le Kit de développement logiciel (SDK) pour créer une passerelle qui envoie les données de télémétrie d’appareils simulés vers un hub IoT. Les appareils simulés ne peuvent pas se connecter directement à IoT Hub car :
 
-- The devices do not use a communications protocol understood by IoT Hub.
-- The devices are not smart enough to remember the identity assigned to them by IoT Hub.
+- Les appareils n'utilisent pas un protocole de communication compris par IoT Hub.
+- Les appareils ne sont pas suffisamment intelligents pour mémoriser l'identité attribuée par IoT Hub.
 
-The gateway solves these problems for the simulated devices in the following ways:
+La passerelle résout ces problèmes pour les appareils simulés comme suit :
 
-- The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the hub.
-- The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
+- La passerelle comprend le protocole utilisé par les appareils simulés, reçoit les données de télémétrie appareil-cloud à partir des appareils, puis transfère ces messages vers IoT Hub à l'aide d'un protocole compris par le hub.
+- La passerelle stocke les identités IoT Hub pour le compte des appareils simulés et agit comme un proxy lorsque les appareils simulés envoient des messages à IoT Hub.
 
-The following diagram shows the main components of the sample, including the gateway modules:
+Le diagramme suivant montre les principaux composants de l'exemple, notamment les modules de la passerelle :
 
 ![][1]
 
 
-> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal message bus that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the Gateway SDK][lnk-gw-getstarted].
+> [AZURE.NOTE] Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un bus de messages interne qui remet les messages aux autres modules à l'aide d'un mécanisme d'abonnement comme indiqué dans le diagramme ci-dessous. Pour plus d’informations, consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) de passerelle][lnk-gw-getstarted].
 
-### Protocol ingestion module
+### Module d'ingestion de protocole
 
-This module is the starting point for getting data from devices, through the gateway, and into the cloud. In the sample, the module performs four tasks:
+Ce module est le point de départ pour transférer des données depuis des périphériques vers le cloud, via la passerelle. Dans l'exemple, le module effectue quatre tâches :
 
-1.  It creates simulated temperature data.
+1.  Il crée les données de la température simulée.
     
-    Note: if you were using real devices, the module would read data from those physical devices.
+    Remarque : si vous utilisez des périphériques réels, le module lit les données à partir de ces périphériques physiques.
 
-2.  It places the simulated temperature data into the contents of a message.
+2.  Il place les données de la température simulée dans le contenu d'un message.
 
-3.  It adds a property with a fake MAC address to the message that contains the simulated temperatue data.
+3.  Il ajoute une propriété avec une adresse MAC factice au message contenant les données de la température simulée.
 
-4.  It makes the message available to the next module in the chain.
+4.  Il rend le message disponible au module suivant dans la chaîne.
 
-> [AZURE.NOTE] The module called **Protocol X ingestion** in the diagram above is called **Simulated device** in the source code.
+> [AZURE.NOTE] Le module appelé **Protocol X ingestion** dans le diagramme ci-dessus est appelé **Simulated device** dans le code source.
 
 ### MAC &lt;-&gt; IoT Hub ID module
 
-This module scans for messages that include a property that contains the MAC address, added by the protocol ingestion module, of the simulated device. If the module finds such a property, it adds another property with an IoT Hub device key to the message and then makes the message available to the next module in the chain. This is how the sample associates IoT Hub device identities with simulated devices. The developer sets up the mapping between MAC addresses and IoT Hub identities manually as part of the module configuration. 
+Ce module recherche les messages qui incluent une propriété contenant l'adresse MAC, ajoutée par le module d'ingestion de protocole, de l’appareil simulé. Si le module détecte une telle propriété, il ajoute une autre propriété avec une clé d’appareil IoT Hub au message, puis rend le message disponible au module suivant dans la chaîne. Voici comment l'exemple associe les identités des appareils IoT Hub aux appareils simulés. Le développeur configure manuellement le mappage entre les adresses MAC et les identités IoT Hub dans le cadre de la configuration du module.
 
-> [AZURE.NOTE]  This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, you may have devices with unique serial numbers or telemetry data that has a unique device name embedded in it that you could use to determine the IoT Hub device identity.
+> [AZURE.NOTE]  Cet exemple utilise une adresse MAC comme identificateur unique de l'appareil et la met en corrélation avec une identité d'appareil IoT Hub. Toutefois, vous pouvez écrire votre propre module qui utilise un autre identificateur unique. Par exemple, vous pouvez avoir des appareils avec un numéro de série unique ou des données de télémétrie qui utilisent un nom d’appareil unique incorporé permettant de déterminer l’identité de l’appareil IoT Hub.
 
-### IoT Hub communication module
+### Module de communication IoT Hub
 
-This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTPS. HTTPS is one of the three protocols understood by IoT Hub.
+Ce module reçoit les messages dont l’identité d’appareil IoT Hub est attribuée par le module précédent puis envoie le contenu du message vers IoT Hub à l'aide du protocole HTTPS. HTTPS est un des trois protocoles compris par IoT Hub.
 
-Instead of opening a connection to IoT Hub for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
+Au lieu d'ouvrir une connexion vers IoT Hub pour chaque appareil simulé, ce module ouvre une connexion HTTP à partir de la passerelle vers IoT Hub et multiplexe des connexions à partir de tous les appareils simulés sur cette connexion. Cela permet à une passerelle unique de connecter de nombreux autres appareils, simulés ou non, comme si une connexion unique était ouverte pour chaque appareil.
 
 ![][2]
 
@@ -65,6 +65,7 @@ Instead of opening a connection to IoT Hub for each simulated device, this modul
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
+

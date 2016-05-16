@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -103,7 +103,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **separator** | Requis | String | Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1... sourceN ** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
+| ****source1... sourceN ** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
 
 
 
@@ -131,7 +131,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Fonction :**<br> Not(source)
 
-**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
+**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
 
 
 **Paramètres :**<br>
@@ -173,7 +173,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **source** | Requis | String | Généralement le nom de l’attribut de l’objet source. |
-| **oldValue** | Facultatif | String | Valeur à remplacer dans **source** ou **template**. |
+| **oldValue** | Facultatif | String | Valeur à remplacer dans **source ** ou **template**. |
 | **regexPattern** | Facultatif | String | Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
 | **regexGroupName** | Facultatif | String | Nom du groupe à l’intérieur de **regexPattern**. Uniquement quand replacementPropertyName est utilisé, nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement. |
 | **replacementValue** | Facultatif | String | Nouvelle valeur par laquelle remplacer l’ancienne. |
@@ -228,7 +228,7 @@ Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un
 
 - **ENTRÉE** (mail) : « john.doe@contoso.com »
 
-- **SORTIE** : « john.doe »
+- **SORTIE** : « john.doe »
 
 
 ### Ajouter un suffixe de constante à un nom d’utilisateur
@@ -242,10 +242,10 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 
 **Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
+- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
 
 
-- **SORTIE** : « John.Doe@contoso.com.test »
+- **SORTIE** : « John.Doe@contoso.com.test »
 
 
 
@@ -264,7 +264,7 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 
 - **ENTRÉE** (surname) : « Doe »
 
-- **SORTIE** : « JohDoe »
+- **SORTIE** : « JohDoe »
 
 
 
@@ -283,7 +283,7 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 - **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
 
-- **SORTIE** : « 2015-01-23 »
+- **SORTIE** : « 2015-01-23 »
 
 
 
@@ -302,7 +302,7 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 - **ENTRÉE** (state) : « QLD »
 
-- **SORTIE** : « Australia/Brisbane »
+- **SORTIE** : « Australia/Brisbane »
 
 
 ##Articles connexes
@@ -315,4 +315,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->
