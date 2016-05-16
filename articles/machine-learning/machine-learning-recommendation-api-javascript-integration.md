@@ -59,6 +59,7 @@ Les étapes suivantes facilitent l’envoi d’événements :
 1.	Incluez la bibliothèque JQuery dans votre code. Vous pouvez la télécharger à partir de nuget sur l’URL suivante.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
+
 2.	Incluez la bibliothèque JavaScript Recommandations depuis l’URL suivante : http://1drv.ms/1Aoa1Zp
 
 3.	Initialisez la bibliothèque Azure ML Recommandations avec les paramètres appropriés.
@@ -185,7 +186,12 @@ Cet événement doit être utilisé après la connexion utilisateur à votre sit
 
 Paramètres :
 * event (chaîne) – “userlogin”
-* user (chaîne) – identification unique de l’utilisateur. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* user (chaîne) – identification unique de l’utilisateur.
+
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4\. Utiliser les recommandations via JavaScript
 Le code qui utilise les recommandations est déclenché par un événement JavaScript de la page Web du client. La réponse de recommandation inclut les ID des articles recommandés, leurs noms et leurs évaluations. Il est préférable d’utiliser cette option uniquement pour afficher les articles recommandés sous forme de liste : les opérations de gestion plus complexes (par exemple l’ajout de métadonnées de l’article) doivent être effectuées sur l’intégration du côté serveur.
@@ -223,4 +229,4 @@ Exemple : le code suivant demande 8 recommandations pour l’article « 64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
