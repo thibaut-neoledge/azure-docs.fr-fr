@@ -19,7 +19,7 @@ Le service de table contient les composants suivants :
       
     Vous pouvez traiter les tables Azure directement à l’aide de cette adresse avec le protocole OData. Pour plus d'informations, consultez [OData.org][]
 
--   **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](storage-scalability-targets.md).
+-   **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/storage-scalability-targets.md).
 
 -   **Table** : une table est une collection d’entités. Les tables n’appliquent pas de schéma sur les entités, ce qui signifie qu’une seule table peut contenir des entités ayant différents ensembles de propriétés. Le nombre de tables qu’un compte de stockage peut contenir est uniquement limité par la limite de capacité du compte de stockage.
 
