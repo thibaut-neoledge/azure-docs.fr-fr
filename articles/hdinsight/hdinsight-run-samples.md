@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="jgao"/>
 
 #Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
@@ -41,11 +41,13 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables** :
+**Conditions préalables** :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java 
 
@@ -119,15 +121,15 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d�
 
 > [AZURE.NOTE] Les étapes de ce didacticiel s’appliquent uniquement aux clusters Azure HDInsight Windows. Pour obtenir un exemple de diffusion en continu pour les clusters HDInsight Linux, consultez la rubrique [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin-stdout-stderr] (ligne par ligne), puis envoient leur résultat vers stdoutstdin-stdout-stderr. Le programme compte tous les mots dans le texte.
+Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin-stdout-stderr] (ligne par ligne), puis émettent leur résultat vers [stdout][stdin-stdout-stderr]. Le programme compte tous les mots dans le texte.
 
-Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit ses entrées en lignes et les utilise pour alimenter le [stdin][stdin-stdout-stderr] du processus.
+Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit votre saisie en lignes et les utilise pour alimenter le stdin du processus.
 
 Entre-temps, le mappeur collecte les résultats en forme de lignes depuis le stdout du processus. Il convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du mappeur. Par défaut, la valeur va du début d’une ligne jusqu’à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l’exception du caractère de tabulation). Si la ligne ne contient pas de caractère de tabulation, elle constitue intégralement la clé, tandis que la valeur est nulle.
 
 Lorsqu'un exécutable est spécifié pour les **raccords de réduction**, chaque tâche de raccord de réduction lance l'exécutable en tant que processus distinct lorsque le raccord de réduction est initialisé. Durant son exécution, la tâche du raccord de réduction convertit ses paires clé/valeur en lignes et les utilise pour alimenter le [stdin][stdin-stdout-stderr] du processus.
 
-Pendant ce temps, le raccord de réduction collecte les résultats en forme de lignes depuis le [stdout][stdin-stdout-stderr] du processus. Il convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du raccord de réduction. Par défaut, la valeur va du début d’une ligne jusqu’à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l’exception du caractère de tabulation).
+Entre-temps, le raccord de réduction collecte les résultats en forme de lignes depuis le [stdout][stdin-stdout-stderr] du processus. Il convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du raccord de réduction. Par défaut, la valeur va du début d’une ligne jusqu’à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l’exception du caractère de tabulation).
 
 Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page [Hadoop Streaming][hadoop-streaming].
 
@@ -981,7 +983,7 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
@@ -996,5 +998,6 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

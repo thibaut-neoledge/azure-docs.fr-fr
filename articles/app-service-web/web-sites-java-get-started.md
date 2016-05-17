@@ -167,9 +167,12 @@ Maintenant que vous avez créé l’application web avec un conteneur d’appli
 
 Pour plus d’informations sur le développement des applications Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [obtenir un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-- IMG List -->
+
+<!---HONumber=AcomDC_0511_2016-->

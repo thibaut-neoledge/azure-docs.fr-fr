@@ -3,7 +3,7 @@
 	description="Découvrez comment activer les diagnostics pour les services cloud à l’aide de PowerShell"
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="sbtron"
+	authors="Thraka"
 	manager=""
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="saurabh"/>
+	ms.author="adegeo"/>
 
 
 # Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell
@@ -127,4 +127,4 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) explique les différentes options de configuration xml pour l’extension de diagnostics.
 - Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

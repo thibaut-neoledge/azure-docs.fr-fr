@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter l’API SharePoint Server à PowerApps Enterprise | Microsoft Azure"
+	pageTitle="Ajouter l’API SharePoint Server à PowerApps Enterprise | Microsoft Azure"
 	description="Créer ou configurer une API SharePoint Server dans l’environnement App Service de votre organisation"
 	services=""
     suite="powerapps"
@@ -14,60 +14,71 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Créer une API SharePoint Server dans PowerApps Enterprise
 
-Ajoutez l’API SharePoint Server à l’environnement de service d’application (locataire) de votre organisation.
+> [AZURE.IMPORTANT] Cette rubrique est archivée et sera bientôt supprimée. Venez voir ce que nous préparons sur le nouveau [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Pour en savoir plus sur PowerApps et pour commencer, accédez à [PowerApps](https://powerapps.microsoft.com).  
+> - Pour en savoir plus sur les connexions disponibles dans PowerApps, accédez à [Connexions disponibles](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-## Créer l’API dans le portail Azure
+<!--Archived
+Add the SharePoint Server API to your organization's (tenant) app service environment. 
 
-1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
+## Create the API in the Azure portal
+
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][14]
+2. Select **Browse** in the task bar:  
+![][14]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. Dans **POWERAPPS**, sélectionnez **GÉRER LES API** : ![Accéder aux API inscrites][5]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][5]
 
-5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][6]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][6]
 
-6. Entrez un **Nom** descriptif pour votre API.
-7. Dans **SOURCE**, sélectionnez **API DISPONIBLES** pour sélectionner les API prédéfinies, puis sélectionnez **SHAREPOINT SERVER**. 
-8. Sélectionnez **PARAMÈTRES – CONFIGURER LES PARAMÈTRES REQUIS**.
-9. Entrez l’*ID CLIENT* et la *CLÉ D’APPLICATION* du serveur SharePoint Azure Active Directory (application AAD) ainsi que l’*URL SHAREPOINT* et l’*ID DE RESSOURCE* de l’application Proxy AAD. Suivez les étapes décrites dans la section suivante pour configurer la connectivité à votre serveur SharePoint local.  
+6. Enter a descriptive **name** for your API.	
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SharePoint Server**. 
+8. Select **Settings - Configure required settings**.
+9. Enter the *Client Id* and *App Key* for the SharePoint Server Azure Active Directory (AAD app), and the *SharePoint URL* and *Resource Id* of the AAD Proxy app. Follow the steps outlined in the following section to configure connectivity to your on-premises SharePoint Server.  
 
-	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 	
-10. Sélectionnez **OK** pour achever la procédure.
+10. Select **OK** to complete the steps.
 
-Quand vous avez terminé, une nouvelle API SharePoint Server est ajoutée à votre environnement App Service.
+When finished, a new SharePoint Server API is added to your app service environment.
 
 
-## Configurer la connectivité à un serveur SharePoint local
+## Configure connectivity to an on-premises SharePoint Server
 
-Le serveur SharePoint utilise Active Directory pour l'authentification utilisateur. Les API dans les environnements App Service sont authentifiées à l'aide d'Azure Active Directory (AAD). Vous n'avez pas besoin d’échanger le jeton AAD de l’utilisateur et de le convertir en jeton AD. Ce jeton AD peut ensuite être utilisé pour se connecter au service local.
+SharePoint Server use Active Directory for user authentication. APIs in the app serviced environments are authenticated using Azure Active Directory (AAD). You do need to exchange the user’s AAD token and convert it to the AD token. This AD token can then be used to connect to the on-premises service.
 
-[Proxy d'application Azure (proxy AAD)](../active-directory/active-directory-application-proxy-publish.md) est utilisée pour cette spécification. Il s’agit d’un service Azure dans GA qui sécurise l'accès à distance et l'authentification unique des applications web locales. La procédure d'activation du proxy AAD est bien documentée dans MSDN. À un niveau supérieur, les étapes sont les suivantes :
+[Azure Application Proxy (AAD Proxy)](../active-directory/active-directory-application-proxy-publish.md) is used for this requirement. It is an Azure Service in GA, and it secures remote access and SSO to on-premises web applications. The steps to enable AAD Proxy is well documented in MSDN. At a high level, the steps include:  
 
-1. [Activer les services de proxy d’application](../active-directory/active-directory-application-proxy-enable.md) – Cela inclut :  
+1. [Enable Application Proxy Services](../active-directory/active-directory-application-proxy-enable.md) – This includes:  
 
-	- Activer le proxy d’application dans Azure AD
-	- Installer et inscrire le connecteur du proxy d'application Azure AD
+	- Enable Application Proxy in Azure AD
+	- Install and Register the Azure Application Proxy Connector
 
-2. [Publier des applications avec le proxy d’application](../active-directory/active-directory-application-proxy-publish.md) – Cela inclut :
+2. [Publish Applications with Application  Proxy](../active-directory/active-directory-application-proxy-publish.md) – This includes:  
 
-	- Publiez une application Proxy d'application à l’aide de l’assistant. Notez l'URL du site sharepoint intranet externe une fois l'application Proxy créée.
-	- Affecter des utilisateurs et un groupe à l’application
-	- Entrez la configuration avancée comme le SPN (nom principal de service) utilise par le connecteur du proxy d'application afin d’extraire le jeton Kerberos local.
+	- Publish an Application Proxy app using the wizard. Note the external URL of the intranet sharepoint site once the Proxy app has been created.
+	- Assign users and group to the application.
+	- Enter advanced configuration like the SPN (Service Principal Name) that is used by the Application Proxy Connector to fetch the Kerberos token on-premises.
 
-Une fois l'application Proxy créée, vous devez créer une autre application AAD qui délègue l’accès à l'application de proxy. Cela est nécessaire pour obtenir le jeton d'accès et actualiser le jeton requis pour le flux d’autorisation. Vous pouvez créer une application AAD en suivant [ces instructions](../active-directory/active-directory-integrating-applications.md).
+Once the Proxy app is created, you have to create another AAD app that delegates to the proxy application. This is required to obtain the access token and refresh token that are required for the consent flow. You can create a new AAD application by following [these instructions](../active-directory/active-directory-integrating-applications.md).
 
-## Résumé et étapes suivantes
-Vous venez de voir comment ajouter l’API Office 365 Outlook à PowersApps Enterprise. Ensuite, donnez accès à l’API pour les utilisateur afin qu’ils puissent l’ajouter à leurs applications :
+## Summary and next steps
+In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Ajouter une connexion et attribuer un accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 
 <!--References-->
@@ -79,4 +90,4 @@ Vous venez de voir comment ajouter l’API Office 365 Outlook à PowersApps Ente
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

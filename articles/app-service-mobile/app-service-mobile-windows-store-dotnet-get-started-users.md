@@ -3,8 +3,8 @@
 	description="Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application Windows à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/02/2016"
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Windows
@@ -32,7 +32,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Vous devez com
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Avec l’un des projets d’application Windows défini en tant que projet de démarrage, appuyez sur la touche F5 pour exécuter l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application. Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table *TodoItem* requiert désormais une authentification.
+À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Avec l’un des projets d’application Windows défini en tant que projet de démarrage, appuyez sur la touche F5 pour exécuter l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application. Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table *TodoItem* requiert désormais une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
@@ -61,4 +61,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

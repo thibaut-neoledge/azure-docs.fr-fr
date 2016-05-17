@@ -3,8 +3,8 @@
    description="Didacticiel de bout en bout présentant des scénarios et des fonctionnalités d’Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Prise en main d’Azure Data Catalog
 
@@ -184,6 +184,8 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour a
 
 Dans cet exercice, vous avez ajouté des informations descriptives aux ressources de données inscrites afin que les utilisateurs du catalogue puissent découvrir les sources de données à l’aide de termes qu’ils comprennent.
 
+> [AZURE.NOTE] L’édition Standard de Data Catalog comprend un glossaire d’entreprise qui permet aux administrateurs de catalogue de définir une taxonomie commerciale centrale. Les utilisateurs du catalogue peuvent ensuite annoter les ressources de données avec la terminologie du glossaire. Pour plus d’informations, consultez [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuration du glossaire d’entreprise pour un balisage gouverné)
+
 ## Exercice 5 : métadonnées en crowdsourcing
 
 Dans cet exercice, vous allez travailler avec un autre utilisateur pour ajouter des métadonnées aux ressources de données du catalogue. L’approche des annotations basée sur le crowdsourcing d’**Azure Data Catalog** permet aux utilisateurs d’ajouter des étiquettes, des descriptions et d’autres métadonnées afin que tout utilisateur ayant un point de vue sur une ressource de données et son utilisation puisse capturer ce point de vue et le mettre à disposition des autres utilisateurs.
@@ -260,4 +262,4 @@ Dans cet exercice, vous avez exploré les fonctionnalités de gestion **Azure Da
 
 Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

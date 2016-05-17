@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Comment utiliser l'API Engagement sur Windows Universal
 
-Ce document est un complément du document [Comment intégrer Engagement sur Windows Universal](../mobile-engagement-windows-store-integrate-engagement/) : il explique en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de vos applications.
+Ce document est un complément du document [Comment intégrer Engagement sur Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) : il explique en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de vos applications.
 
 N'oubliez pas que si vous souhaitez seulement qu'Engagement signale les sessions, les activités, les incidents et les informations techniques de votre application, la méthode la plus simple consiste à configurer toutes vos sous-classes `Page` de manière à ce qu’elles héritent de la classe `EngagementPage`.
 
@@ -30,7 +30,7 @@ Même si le module de l'agent n'a pas été initialisé, chaque appel à l'API e
 
 ##Concepts liés à Engagement
 
-Les sections qui suivent affinent les [concepts Mobile Engagement](../mobile-engagement-concepts/) courants pour la plateforme Windows Universal.
+Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md) courants pour la plateforme Windows Universal.
 
 ### `Session` et `Activity`
 
@@ -353,7 +353,7 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations de l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
@@ -368,4 +368,4 @@ Le Kit de développement logiciel (SDK) peut être configuré pour générer des
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

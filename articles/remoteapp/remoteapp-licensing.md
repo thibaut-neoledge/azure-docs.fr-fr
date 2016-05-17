@@ -21,7 +21,7 @@
 
 Vous avez donc configuré votre service Azure RemoteApp, créé vos modèles et vous êtes prêt à publier des applications pour vos utilisateurs. Toutefois, vous devez encore résoudre la question des licences. Et comprendre comment elles fonctionnent pour RemoteApp et les applications que vous partagez par l’intermédiaire de RemoteApp.
 
-RemoteApp ne requiert pas de licences Windows ni de licences d'accès client du Bureau à distance. Votre abonnement s'occupe du côté RemoteApp lui-même. (Consultez les détails des [plans de tarification](../../../pricing/details/remoteapp/).)
+RemoteApp ne requiert pas de licences Windows ni de licences d'accès client du Bureau à distance. Votre abonnement s'occupe du côté RemoteApp lui-même. (Consultez les détails des [plans de tarification](https://azure.microsoft.com/pricing/details/remoteapp).)
 
 Si vous utilisez l'une des images incluses dans votre abonnement, vous pouvez partager n'importe laquelle des applications installées sur cette image sans avoir besoin d'une licence distincte. Par exemple, si vous utilisez l'image de modèle Windows Server 2012 R2 pour créer votre collection, vous pouvez partager System Center Endpoint Protection avec vos utilisateurs. Les seules exceptions à cette règle sont Office 365 ProPlus, qui requiert un abonnement distinct et Office 2013 qui ne peut pas être partagé dans une collection de production.
 
@@ -35,4 +35,4 @@ Ce qui paraît logique. Vous pouvez publier une application que vous êtes léga
 
 Notez que vous ne pouvez pas utiliser de contrat de licence d'accès client ou de contrat de licence en volume dans une collection cloud. Vous *pouvez* utiliser un contrat de licence en volume pour activer des applications dans votre collection hybride (sauf pour Office). Vous devez simplement les installer dans votre image de modèle à partir du support de la licence en volume. Suivez les instructions du fournisseur de l'application pour installer des licences dans un environnement Bureau à distance.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

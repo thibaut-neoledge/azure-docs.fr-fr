@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les volumes
@@ -37,13 +37,15 @@ La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l
 
 Un volume est constitué d’une série d’attributs :
 
-- **Nom** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
+- **Nom** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
 
-- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
+- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
 
-- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur (serveur). La capacité correspond au volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
+- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur (serveur). La capacité correspond au volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
 
-- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
+- **Type** : indique le type de volume pouvant être hiérarchisé ou archivé (un sous-type du volume hiérarchisé)
+
+- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
 
 - **Analyse** : indique si un volume est ou non en cours d’analyse. Par défaut, l’analyse est activée au moment de la création du volume. Toutefois, elle est désactivée pour un volume cloné. Pour activer l’analyse pour un volume, suivez les instructions données dans Analyse d’un volume.
 
@@ -73,7 +75,7 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u1.md#step-6-crea
 
   1. Saisissez un **nom** pour le volume.
   2. Indiquez la **capacité allouée** au volume en Go ou To. La capacité doit être comprise entre 1 Go et 64 To pour un appareil physique. La capacité maximale qui peut être allouée pour un volume d’un appareil virtuel StorSimple est 30 To.
-  3. Dans la liste déroulante, sélectionnez le **type d’utilisation** du volume. Si vous utilisez ce volume pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**. Dans tous les autres cas, sélectionnez **Volume à plusieurs niveaux**. (Les volumes à plusieurs niveaux étaient appelés volumes principaux).
+  3. Sélectionnez le **Type d’utilisation** pour le volume. Si vous utilisez le volume hiérarchisé pour les données d’archivage, l’activation de la case à cocher **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** définit la taille de segment de déduplication pour votre volume sur 512 Ko. Si cette option n’est pas activée, le volume à plusieurs niveaux correspondant utilise une taille de segment de 64 Ko. Une grande taille de segment de déduplication permet à l’appareil d’accélérer le transfert des données d’archivage volumineuses vers le cloud (Les volumes à plusieurs niveaux étaient appelés volumes principaux).
   5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
@@ -105,7 +107,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 4. Dans l’Assistant Modifier un volume, sous **Paramètres de base**, vous pouvez effectuer les opérations suivantes :
 
-  - Modifier le **nom** et le **type d’application**.
+  - Modifiez le **Nom** et le **Type** si vous souhaitez modifier un volume d’archivage hiérarchisé en sélectionnant la case à cocher **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** définit la taille de segment de déduplication pour votre volume sur 512 Ko.
   - Augmenter la **capacité allouée**. La **capacité allouée** peut uniquement être augmentée. Vous ne pouvez pas réduire la taille d’un volume après sa création.
 
     > [AZURE.NOTE] Vous ne pouvez pas modifier le conteneur de volumes après qu’il a été affecté à un volume.
@@ -198,4 +200,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="05/02/2016"
 	ms.author="billmath"/>
 
 # Déterminer les besoins d’identité pour votre solution d’identités hybrides
@@ -44,7 +44,10 @@ Maintenant que vous avez une idée des exigences de votre entreprise, vous devez
 - Votre entreprise dispose-t-elle actuellement de services de synchronisation en local ?
 - Votre entreprise utilise-t-elle des fournisseurs d’identité tiers ?
 
-Vous devez également connaître les services cloud dont votre entreprise dispose. Il est très important d’effectuer une évaluation pour comprendre l’intégration actuelle avec les modèles SaaS, IaaS ou PaaS dans votre environnement. Assurez-vous de répondre aux questions suivantes lors de cette évaluation : Votre entreprise dispose-t-elle d’une intégration avec un fournisseur de services cloud ? - Si oui, quels services sont utilisés ? - Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
+Vous devez également connaître les services cloud dont votre entreprise dispose. Il est très important d’effectuer une évaluation pour comprendre l’intégration actuelle avec les modèles SaaS, IaaS ou PaaS dans votre environnement. Veillez à répondre aux questions suivantes durant cette évaluation :
+- Votre entreprise dispose-t-elle d’une intégration avec un fournisseur de services cloud ?
+- Le cas échéant, quels sont les services utilisés ?
+- Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 
 >[AZURE.NOTE]
@@ -89,7 +92,8 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 - En général, comment les utilisateurs vont-ils se connecter à leur environnement local ?
 - Comment les utilisateurs vont-ils se connecter au cloud
 
->[Remarque] Veillez à prendre note de chaque réponse et à comprendre le raisonnement derrière la réponse. La section [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles et les pour et contre de chaque option En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
+>[AZURE.NOTE]
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. La section [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles et les pour et contre de chaque option En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
 
 ## Étapes suivantes
 [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -97,4 +101,4 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

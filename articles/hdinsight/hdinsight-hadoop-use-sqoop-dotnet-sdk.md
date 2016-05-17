@@ -35,8 +35,6 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table de base de données SQL créée précédemment dans ce didacticiel.
 
-L’exemple suivant utilise l’authentification utilisateur interactive. Pour utiliser l’authentification non interactive, consultez [Créer des applications HDInsight .NET d’authentification non interactive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 
 **Pour envoyer une tâche Sqoop**
 
@@ -170,4 +168,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 - [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data.md) : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
 - [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

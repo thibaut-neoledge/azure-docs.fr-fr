@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
@@ -27,9 +27,9 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
-- **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+- **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
-- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
+- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
 >[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage **standard**). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 >
@@ -370,7 +370,7 @@ S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null.
 
-**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
+**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
 
 - Résolution maximale de 1920 x 1080
 - Taille maximale de 3 Mo.
@@ -455,9 +455,9 @@ Arrêté|Arrêté|Non
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Kit SDK .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
 ##Parcours d’apprentissage de Media Services
@@ -480,4 +480,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

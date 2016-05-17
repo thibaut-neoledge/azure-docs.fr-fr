@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/29/2016"
 	ms.author="cynthn"/>
 
 # Création d’une machine virtuelle personnalisée exécutant Windows
@@ -30,4 +30,4 @@
 
 Vous pouvez également [créer une machine virtuelle personnalisée exécutant Linux](virtual-machines-linux-classic-createportal.md) dans le portail Azure Classic.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

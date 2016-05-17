@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main du stockage d’objets blob Azure à l’aide de .NET | Microsoft Azure"
-	description="Stockez des données de fichier dans le cloud avec Azure Blob Storage (stockage d’objets). Commencez par des opérations simples de stockage d’objets blob, notamment la création d’un conteneur, puis le chargement et le téléchargement de contenu des objets blob, l’établissement de listes correspondantes et la suppression de ce contenu."
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -380,7 +380,7 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 
 ### Guides conceptuels
 
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
 - [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -395,4 +395,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

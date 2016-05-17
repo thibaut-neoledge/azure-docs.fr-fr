@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/07/2016"  
+ 	ms.date="05/03/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,7 +97,7 @@ Vous pouvez cliquer sur le bouton **importer le xml de la stratégie** et fourni
 
 
 ##Étapes suivantes
-La stratégie d’autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment utiliser le portail Azure Classic pour activer le chiffrement](../media-services-manage-content#encrypt/).
+La stratégie d’autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment utiliser le portail Azure Classic pour activer le chiffrement](media-services-manage-content.md#encrypt).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -105,4 +105,4 @@ La stratégie d’autorisation de la clé de contenu étant configurée, consult
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

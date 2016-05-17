@@ -14,174 +14,72 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles
 
-Azure PowerShell vous offre beaucoup de puissance et de flexibilité pour gérer les ressources dans Microsoft Azure. Utilisez les tâches décrites dans cet article pour gérer les ressources de machine virtuelle de votre jeu de mise à l’échelle de machine virtuelle.
-
-- [Afficher les informations relatives à un jeu de mise à l’échelle de machine virtuelle](#displayvm)
-- [Démarrer une machine virtuelle dans un jeu de mise à l’échelle](#start)
-- [Arrêter une machine virtuelle dans un jeu de mise à l’échelle](#stop)
-- [Redémarrer une machine virtuelle dans un jeu de mise à l’échelle](#restart)
-- [Supprimer une machine virtuelle d’un jeu de mise à l’échelle](#delete)
+Utilisez les tâches décrites dans cet article pour gérer les ressources de machine virtuelle de votre jeu de mise à l’échelle de machine virtuelle.
 
 Toutes les tâches qui impliquent la gestion d'une machine virtuelle dans un jeu de mise à l'échelle nécessitent de connaître l'ID d'instance de la machine que vous souhaitez gérer. Vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour rechercher l'ID d'instance d'une machine virtuelle dans un jeu de mise à l'échelle. Vous utilisez également Resource Explorer pour vérifier l'état des tâches que vous avez terminées.
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
 
-## <a id="displayvm"></a>Afficher les informations relatives à un jeu de mise à l’échelle de machine virtuelle
+## Afficher les informations relatives à un jeu de mise à l’échelle de machine virtuelle
 
 Vous pouvez obtenir des informations générales sur un jeu de mise à l'échelle, également appelé la vue d'instance. Ou vous pouvez obtenir des informations plus spécifiques, par exemple des informations sur les ressources du jeu.
 
-Dans cette commande, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle et *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, puis exécutez la commande :
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle et le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, puis exécutez la commande :
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
 Le résultat suivant doit s’afficher :
 
-    Sku                      :  {
-                                  "name": "Standard_A0",
-                                  "tier": "Standard",
-                                  "capacity": 4
-                                }
-    UpgradePolicy            :  {
-                                  "mode": "Manual"
-                                }
-    VirtualMachineProfile    :  {
-                                  "osProfile": {
-                                    "computerNamePrefix": "myvmss1",
-                                    "adminUserName": "user1",
-                                    "adminPassword": null,
-                                    "customData": null,
-                                    "windowsConfiguration": {
-                                      "provisionVMAgent": true,
-                                      "enableAutomaticUpdates": true,
-                                      "timeZone": null,
-                                      "additionalUnattendContent": null,
-                                      "winRM": null
-                                    }
-                                    "linuxConfiguration": null,
-                                    "secrets": []
-                                  },
-                                  "storageProfile": {
-                                    "imageReference": {
-                                      "publisher": "MicrosoftWindowsServer",
-                                      "offer": "WindowsServer",
-                                      "sku": "2012-R2-Datacenter",
-                                      "version": "latest"
-                                    },
-                                    "osDisk": {
-                                      "name": "vmssosdisk",
-                                      "caching": "ReadOnly",
-                                      "createOption": "FromImage",
-                                      "osType": null,
-                                      "image": null,
-                                      "vhdContainers": [
-                                        "https://amyst1.blob.core.windows.net/vmss",
-                                        "https://gmyst1.blob.core.windows.net/vmss",
-                                        "https://mmyst1.blob.core.windows.net/vmss",
-                                        "https://smyst1.blob.core.windows.net/vmss",
-                                        "https://ymyst1.blob.core.windows.net/vmss"
-                                      ]
-                                    }
-                                  },
-                                  "networkProfile": {
-                                    "networkInterfaceConfigurations": [
-                                      {
-                                        "name": "myresnc2",
-                                        "properties.primary": true,
-                                        "properties.ipConfigurations": [
-                                          {
-                                            "name": "ip1",
-                                            "properties.subnet": {
-                                              "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myresvn1/subnets/myressn1"
-                                            },
-                                            "properties.loadBalancerBackendAddressPools": [
-                                              {
-                                                "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/myreslb1/backendAddressPools/bepool1"
-                                              }
-                                            ],
-                                            "properties.loadBalancerInboundNatPools": [
-                                              {
-                                                "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/myreslb1/inboundNatPools/natpool1"
-                                              }
-                                            ],
-                                            "id": null
-                                          }
-                                        ],
-                                        "id": null
-                                      }
-                                    ]
-                                  },
-                                  "extensionProfile": {
-                                    "extensions": [
-                                      {
-                                        "name": "Microsoft.Insights.VMDiagnosticsSettings",
-                                        "properties.publisher": "Microsoft.Azure.Diagnostics",
-                                        "properties.type": "IaaSDiagnostics",
-                                        "properties.typeHandlerVersion": "1.5",
-                                        "properties.autoUpgradeMinorVersion": true,
-                                        "properties.settings": {
-                                          "xmlCfg": "{encoded configuration}",
-                                          "storageAccount": "amyst1"
-                                        },
-                                        "properties.protectedSettings": null,
-                                        "properties.provisioningState": null,
-                                        "id": null
-                                      }
-                                    ]
-                                  }
-                                }
-    ProvisioningState           : Succeeded
-    Id                          : /subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
-    Name                        : myvmss1
-	Type                        : Microsoft.Compute/virtualMachineScaleSets
-	Location                    : westus
-	Tags.Count                  : 0
-	Tags                        :
+    Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+    UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+    VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+    ProvisioningState     : Succeeded
+    OverProvision         :
+    Id                    : /subscriptions/{subscription-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
+    Name                  : myvmss1
+    Type                  : Microsoft.Compute/virtualMachineScaleSets
+    Location              : centralus
+    Tags                  :
 
-Dans obtenir des informations générales, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle et *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, puis exécutez la commande :
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, et *#* par l’identificateur d’instance de la machine virtuelle sur laquelle vous souhaitez obtenir des informations, puis exécutez la commande :
 
-	Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
-
+    Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+        
 Le résultat suivant doit s’afficher :
 
-    VirtualMachine   :  {
-                          "statusesSummary": [
-                            {
-                              "code": "ProvisioningState/succeeded",
-                              "count": 4
-                            }
-                          ]
-                        }
-    Extensions.Count :  1
-    Extensions       :  {
-                          "name": "Microsoft.Insights.VMDiagnosticsSettings",
-                          "statusesSummary": [
-                            {
-                              "code": "ProvisioningState/succeeded",
-                              "count": 4
-                            }
-                          ]
-                        }
-	Statuses.Count   :  1
-	Statuses         :  {
-                          "code": "ProvisioningState/succeeded",
-                          "level": "Info",
-                          "displayStatus": "Provisioning succeeded",
-                          "message": null,
-                          "time": "2016-03-14T20:29:37.170809Z"
-                        }
+    InstanceId         : 1
+    Sku                : Microsoft.Azure.Management.Compute.Models.Sku
+    LatestModelApplied : True
+    InstanceView       :
+    HardwareProfile    :
+    StorageProfile     : Microsoft.Azure.Management.Compute.Models.StorageProfile
+    OsProfile          : Microsoft.Azure.Management.Compute.Models.OSProfile
+    NetworkProfile     : Microsoft.Azure.Management.Compute.Models.NetworkProfile
+    DiagnosticsProfile :
+    AvailabilitySet    :
+    ProvisioningState  : Succeeded
+    LicenseType        :
+    Plan               :
+    Resources          :
+    Id                 : /subscriptions/{subscription-id}/resourceGroups/myrg1/providers/Microsoft.
+                         Compute/virtualMachineScaleSets/myvmss1/virtualMachines/1
+    Name               : myvmss1_1
+    Type               : Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+    Location           : centralus
+    Tags               :
+        
+## Démarrer une machine virtuelle dans un jeu de mise à l’échelle
 
-## <a id="start"></a>Démarrer une machine virtuelle dans un jeu de mise à l’échelle
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez démarrer, puis exécutez la commande :
 
-Dans cette commande, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, *nom du jeu de mise à l’échelle de machine virtuelle* par le nom du jeu de mise à l’échelle, *ID d’instance* par l’identificateur de la machine virtuelle que vous voulez redémarrer, puis exécutez la commande :
+    Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-    Start-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
-
-Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **running** (en cours d’exécution) :
+Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **running** (en cours d’exécution) :
 
     "statuses": [
       {
@@ -197,13 +95,15 @@ Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **ru
       }
     ]
 
-## <a id="stop"></a>Arrêter une machine virtuelle dans un jeu de mise à l’échelle
+Vous pouvez démarrer toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
+    
+## Arrêter une machine virtuelle dans un jeu de mise à l’échelle
 
-Dans cette commande, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *ID d’instance* par l’identificateur de la machine virtuelle que vous voulez arrêter, puis exécutez la commande :
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez arrêter, puis exécutez la commande :
 
-	Stop-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
+	Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **deallocated** (libéré) :
+Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **deallocated** (libéré) :
 
 	"statuses": [
       {
@@ -218,17 +118,23 @@ Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **de
         "displayStatus": "VM deallocated"
       }
     ]
+    
+Pour arrêter une machine virtuelle sans la libérer, utilisez le paramètre - StayProvisioned. Vous pouvez arrêter toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
+    
+## Redémarrer une machine virtuelle dans un jeu de mise à l’échelle
 
-## <a id="restart"></a>Redémarrer une machine virtuelle dans un jeu de mise à l’échelle
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez redémarrer, puis exécutez la commande :
 
-Dans cette commande, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *ID d’instance* par l’identificateur de la machine virtuelle que vous voulez redémarrer, puis exécutez la commande :
+	Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+    
+Vous pouvez redémarrer toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
 
-	Restart-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
+## Supprimer une machine virtuelle d’un jeu de mise à l’échelle
 
-## <a id="delete"></a>Supprimer une machine virtuelle d’un jeu de mise à l’échelle
+Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez supprimer du jeu de mise à l’échelle, puis exécutez la commande :
 
-Dans cette commande, remplacez *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *ID d’instance* par l’identificateur de la machine virtuelle que vous voulez supprimer du jeu de mise à l’échelle, puis exécutez la commande :
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
-	Remove-AzureRmVmssVM -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId "instance id"
+Vous pouvez supprimer simultanément tous les jeux de mise à l’échelle de machine virtuelle en n’utilisant ne pas le paramètre - InstanceId.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

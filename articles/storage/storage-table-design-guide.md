@@ -216,7 +216,7 @@ $filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’
 $filter=LastName eq ’Jones’  
 -	Les requêtes qui retournent plusieurs entités les retournent triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu.  
 
-Notez que l’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme :
+Notez que l’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme :
 $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)
 
 Pour obtenir des exemples de code côté client qui utilisent la bibliothèque cliente de stockage pour exécuter des requêtes efficaces, consultez les pages suivantes :
@@ -612,7 +612,7 @@ La propriété **EmployeeIDs** contient une liste des ID d’employés pour les 
 
 Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l'ID 000152 et dont le nom de famille est Jones :
 1.	Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l'ETag de cette entité pour l'utiliser lors de l'étape 2.  
-2.	Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions). 
+2.	Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions).  
 3.	Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre vient de modifier l’entité d’index), vous devez recommencer à l’étape 1.  
 
 Vous pouvez utiliser une approche similaire pour supprimer un employé si vous utilisez la deuxième option. La modification du nom d’un employé est légèrement plus complexe, car vous devrez exécuter une transaction de groupe d’entités qui met à jour trois entités : l’entité d’employé, l’entité d’index pour l’ancien nom et l’entité d’index pour le nouveau nom. Vous devez récupérer chaque entité avant d'apporter des modifications afin de récupérer les valeurs ETag que vous pouvez ensuite utiliser pour effectuer les mises à jour à l'aide de l'accès concurrentiel optimiste.
@@ -1460,8 +1460,7 @@ Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemb
 
 ### Opérations asynchrones et parallèles  
 
-Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles. 
-Par exemple, vous pouvez avoir plusieurs instances de rôle de travail accédant à vos tables en parallèle. Vous pouvez avoir des rôles de travail individuels responsables d'ensembles particuliers de partitions ou simplement plusieurs instances de rôle de travail, chacune étant en mesure d'accéder à toutes les partitions d'une table.
+Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles. Par exemple, vous pouvez avoir plusieurs instances de rôle de travail accédant à vos tables en parallèle. Vous pouvez avoir des rôles de travail individuels responsables d'ensembles particuliers de partitions ou simplement plusieurs instances de rôle de travail, chacune étant en mesure d'accéder à toutes les partitions d'une table.
 
 Dans une instance cliente, vous pouvez améliorer le débit en exécutant des opérations de stockage en mode asynchrone. La bibliothèque cliente de stockage facilite l'écriture des modifications et des requêtes asynchrones. Par exemple, vous pouvez commencer avec la méthode synchrone qui récupère toutes les entités dans une partition, comme illustré dans le code C# suivant :
 
@@ -1583,4 +1582,4 @@ Nous aimerions également remercier les MVP Microsoft suivants pour leurs préci
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

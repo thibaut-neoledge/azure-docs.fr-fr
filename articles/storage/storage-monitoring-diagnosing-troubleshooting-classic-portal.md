@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
@@ -28,7 +28,7 @@ Pour gérer avec succès de telles applications, vous devez les analyser de faç
 
 > [AZURE.NOTE] Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
 
-Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting/).
+Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](storage-e2e-troubleshooting.md).
 
 + [Introduction]
 	+ [Organisation de ce guide]
@@ -409,7 +409,7 @@ Si vous constatez une valeur **AverageServerLatency** élevée pour les demandes
 
 Des valeurs **AverageServerLatency** élevées peuvent également indiquer la présence de tables mal conçues ou de requêtes donnant lieu à des opérations d'analyse ou qui suivent l'anti-modèle d'ajout/ajout de préfixe. Voir la section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » pour plus d'informations.
 
-> [AZURE.NOTE] Pour obtenir une liste de contrôle exhaustive des autres problèmes, consultez « [Liste de contrôle pour la conception d’applications de stockage évolutives et performantes](storage-performance-checklist.md) ».
+> [AZURE.NOTE] Pour obtenir une liste de contrôle des performances exhaustive, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Vous constatez des retards inattendus dans la livraison des messages en file d’attente
 
@@ -487,7 +487,8 @@ Dans ce scénario, vous devez rechercher pourquoi le jeton SAS expire avant que 
 
 - Généralement, vous ne devez pas définir d'heure de début lorsque vous créez une SAS à utiliser immédiatement par un client. S'il existe de faibles variations d'horloges entre l'hôte qui génère la SAS sur base de l'heure actuelle et le service de stockage, il est possible que le service de stockage reçoive une SAS qui n'est pas encore valide.
 - Vous ne devez pas définir une durée d'expiration très courte pour une SAS. À nouveau, de petites variations d'horloges entre l'hôte qui génère la SAS et le service de stockage peuvent donner l'impression que la SAS a expiré plus tôt que prévu.
-- Le paramètre de version dans la clé SAS (par exemple **sv=2012-02-12**) correspond-il à la version de la bibliothèque cliente de stockage que vous utilisez ? Vous devez toujours utiliser la dernière version de la bibliothèque cliente de stockage. Pour plus d’informations sur la gestion des versions du jeton SAS et les dépendances envers la version de la bibliothèque cliente, consultez <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Nouveauté de Microsoft Azure Storage</a>.
+- Le paramètre de version dans la clé SAS (par exemple **sv=2012-02-12**) correspond-il à la version de la bibliothèque cliente de stockage que vous utilisez ? Vous devez toujours utiliser la dernière version de la bibliothèque cliente de stockage. Pour plus d’informations sur la gestion des versions du jeton SAS, consultez [Nouveautés de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- 
 - Si vous régénérez vos clés d’accès de stockage (cliquez sur **Gérer les clés d’accès** dans n’importe quelle page de votre compte de stockage sur le portail Azure Classic), cela peut invalider tous les jetons SAS existants. Un problème peut survenir si vous générez des jetons SAS avec une durée d'expiration longue pour les applications clientes dans le cache.
 
 Si vous utilisez la bibliothèque cliente de stockage pour générer des jetons SAS, il est facile de créer un jeton valide. Mais si vous utilisez l’API REST de stockage et créez des jetons SAS manuellement, vous devez lire avec attention la rubrique <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Délégation de l’accès avec une signature d’accès partagé</a> sur MSDN.
@@ -920,4 +921,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

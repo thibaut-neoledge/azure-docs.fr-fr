@@ -1,22 +1,23 @@
 <properties
    pageTitle="Sécurité dans Azure Automation"
-   description="Cet article fournit une vue d’ensemble de la sécurité et les méthodes d’authentification disponibles pour les comptes Automation dans Azure Automation."
+   description="Cet article présente une vue d’ensemble de la sécurité de l’automatisation et les méthodes d’authentification disponibles pour les comptes Automation dans Azure Automation."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
-   editor="tysonn" />
+   editor="tysonn"
+   keywords="sécurité de l’automatisation, automatisation sécurisée" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte" />
 
 # Sécurité dans Azure Automation
-Azure Automation vous permet d’automatiser des tâches sur des ressources dans Azure, en local et avec d’autres fournisseurs de cloud comme Amazon Web Services (AWS). Pour qu’un runbook exécute les actions requises, il doit avoir les autorisations nécessaires pour accéder aux ressources avec lesquelles il travaille en toute sécurité et uniquement avec les droits minimaux requis dans l’abonnement. Cet article couvre les différents scénarios de sécurité pris en charge par Azure Automation et vous montre comment vous lancer en fonction de l’environnement ou des environnements que vous devez gérer.
+Azure Automation vous permet d’automatiser des tâches sur des ressources dans Azure, en local et avec d’autres fournisseurs de cloud comme Amazon Web Services (AWS). Pour qu’un Runbook exécute les actions requises, il doit avoir les autorisations nécessaires pour accéder en toute sécurité aux ressources avec les droits minimaux requis dans l’abonnement. Cet article couvre les différents scénarios d’authentification pris en charge par Azure Automation et vous montre comment vous lancer en fonction de l’environnement ou des environnements que vous devez gérer.
 
 ## Présentation du compte Automation
 Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources Automation (Runbooks, ressources, configurations) des ressources contenues dans d’autres comptes Automation. Vous pouvez utiliser des comptes Automation pour séparer les ressources dans des environnements logiques distincts. Par exemple, vous pouvez utiliser un compte pour le développement, un autre pour la production et un autre pour l’environnement local. Un compte Azure Automation est différent de votre compte Microsoft ou des comptes créés dans votre abonnement Azure.
@@ -29,9 +30,9 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 
 Nous avons récemment publié une autre mise à jour, où nous créons maintenant automatiquement un objet principal du service Azure AD lors de la création du compte Automation. Cela correspond à un compte d’authentification Azure. Il s’agit de la méthode d’authentification par défaut pour l’automatisation des runbooks avec Azure Resource Manager.
 
-Le contrôle d’accès en fonction du rôle est disponible dans le mode ARM pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un principal du service, et pour authentifier ce principal du service. Veuillez lire [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md) pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation.
+Le contrôle d’accès en fonction du rôle est disponible dans le mode ARM pour attribuer des actions autorisées à un compte d’utilisateur Azure AD et à un principal du service, et pour authentifier ce principal du service. Pour obtenir plus d’informations susceptibles de vous aider à développer votre modèle de gestion des autorisations Automation, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).
 
-Les Runbooks exécutés sur un Runbook Worker hybride dans votre centre de données ou sur des services informatiques dans AWS ne peuvent pas utiliser la même méthode que celle généralement utilisée pour l’authentification des Runbooks auprès des ressources Azure. Cela est dû au fait que ces ressources sont en cours d’exécution en dehors d’Azure et, par conséquent, elles nécessitent leurs propres informations d’identification de sécurité définies dans Automation pour l’authentification auprès des ressources auxquelles elles accèdent localement.
+Les Runbooks exécutés sur un Runbook Worker hybride dans votre centre de données ou sur des services informatiques dans AWS ne peuvent pas utiliser la même méthode que celle généralement utilisée pour l’authentification des Runbooks auprès des ressources Azure. Cela est dû au fait que ces ressources sont en cours d’exécution en dehors d’Azure et, par conséquent, elles nécessitent leurs propres informations d’identification de sécurité définies dans Automation pour s’authentifier auprès des ressources auxquelles elles accèdent localement.
 
 ## Méthodes d’authentification
 
@@ -44,4 +45,4 @@ Objet principal du service Azure AD | Azure Resource Manager | [Authentifier des
 Authentification Windows | Centre de données local | [Authentifier des Runbooks pour des Runbook Workers hybrides](../automation/automation-hybrid-runbook-worker.md)
 Informations d'identification AWS | Amazon Web Services | [Authentifier des Runbooks avec Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

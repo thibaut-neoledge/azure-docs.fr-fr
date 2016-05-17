@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/25/2016"
+   	ms.date="05/02/2016"
    	ms.author="jgao"/>
 
 
@@ -45,7 +45,22 @@ Chaque type de cluster possède sa propre terminologie pour les nœuds appartena
 |Storm|Nœud Nimbus (2), Serveur Supervisor (1+), Nœud Zookeeper (3)|![Nœuds de cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Nœud principal (2), Nœud Worker (1+), Nœud Zookeeper (3) (gratuits pour les machines virtuelles Zookeeper A1)|![Nœuds de cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
+Remarque : les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
+
+Le tableau suivant répertorie les tailles de machine virtuelle par défaut pour HDInsight :
+
+|Type du cluster|	Hadoop|	HBase|	Storm|	Spark|
+|------------|--------|------|-------|-------|
+|Head : taille de machine virtuelle par défaut|	D3 |A3|	A3|	D12|
+|Head : tailles de machine virtuelle recommandées|	D3, D4, D12 |A3, A4, A5 |A3, A4, A5|	D12, D13, D14|
+|Worker : taille de machine virtuelle par défaut|	D3|	D3|	D3|	D12|
+|Worker : tailles de machine virtuelle recommandées |	D3, D4, D12|	D3, D4, D12 |D3, D4, D12|	D12, D13, D14|
+|Zookeeper : taille de machine virtuelle par défaut| |	A2|	A2 | |
+|Zookeeper : tailles de machine virtuelle recommandées | |A2, A3, A4 |A2, A3, A4 | |
+
+Remarque : Head est appelé Nimbus pour le type de cluster Storm. Worker est connu en tant que Region pour le type de cluster HBase et en tant que Supervisor pour le type de cluster Storm.
+
+
 
 > [AZURE.IMPORTANT] Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
@@ -268,4 +283,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

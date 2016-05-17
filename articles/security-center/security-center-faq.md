@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -96,6 +96,11 @@ Le Centre de sécurité Azure collecte, analyse et fusionne automatiquement les 
 - Des attaques par force brute contre des machines virtuelles
 - Des alertes de sécurité émises par des solutions de sécurité partenaires intégrées, telles que des logiciels anti-programme malveillant ou des pare-feu d’applications web
 
+### Quelle est la différence entre les menaces détectées et faisant l’objet d’une alerte par Microsoft Security Response Center et par Azure Security Center ?
+Microsoft Security Response Center (MSRC) effectue certaines analyses de sécurité sur l'infrastructure et le réseau Azure et reçoit des informations sur les menaces et des plaintes pour mauvaise utilisation provenant de tiers. Lorsque MSRC constate que les données client ont été utilisées par un tiers illégal ou non autorisé ou que l'utilisation d’Azure par le client ne respecte pas les conditions de bon usage, un gestionnaire des incidents de sécurité informe le client. La notification correspond généralement à un courrier électronique envoyé au(x) contact(s) de sécurité spécifié(s) dans Azure Security Center ou au propriétaire de l'abonnement Azure si aucun contact de sécurité n'est spécifié.
+
+Security Center est un service Azure qui surveille en continu l'environnement Azure du client et applique des analyses de façon à détecter automatiquement un large éventail d'activités potentiellement malveillantes. Ces détections sont signalées en tant qu'alertes de sécurité dans le tableau de bord du Security Center. À l'avenir, une notification par courrier électronique des alertes de sécurité sera également envoyée au(x) contact(s) de sécurité.
+
 ### Comment les autorisations sont-elles gérées dans le Centre de sécurité Azure ?
 Le Centre de sécurité Azure prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
@@ -111,4 +116,4 @@ Les recommandations relatives aux listes de contrôle d’accès s’appliquent 
 ### Les machines virtuelles Linux sont-elles prises en charge ?
 Le Centre de sécurité Azure fournit une surveillance de base pour les machines virtuelles Linux (Ubuntu versions 12.04, 14.04, 14.10 et 15.04 uniquement). Une surveillance renforcée de l’intégrité de la sécurité et une analyse/collecte de données améliorée seront prochainement disponibles, tout comme la prise en charge d’autres distributions de Linux.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

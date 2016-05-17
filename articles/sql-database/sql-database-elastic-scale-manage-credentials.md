@@ -3,7 +3,7 @@
 	description="Définition du niveau d’informations d’identification, de celui d’administrateur à celui de la lecture seule, pour les applications de base de données élastique." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
 
 La [bibliothèque cliente de la base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilise trois types d'informations d'identification différents pour accéder au [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). En fonction du besoin, utilisez les informations d'identification avec le niveau d'accès le plus faible possible.
 
-* **Informations d'identification d'administration** : pour créer ou manipuler un gestionnaire des cartes de partitions. (Voir le [glossaire](sql-database-elastic-scale-glossary.md).) 
-* **Informations d’identification d’accès** : pour accéder à un gestionnaire des cartes de partitions existant afin d’obtenir des informations sur les partitions.
-* **Informations d'identification de connexion** : pour se connecter à des partitions. 
+* **Informations d'identification d'administration** : pour créer ou manipuler un gestionnaire des cartes de partitions. (Voir le [glossaire](sql-database-elastic-scale-glossary.md).) 
+* **Informations d’identification d’accès** : pour accéder à un gestionnaire des cartes de partitions existant afin d’obtenir des informations sur les partitions.
+* **Informations d'identification de connexion** : pour se connecter à des partitions. 
 
 Consultez également la section [Gestion des bases de données et des connexions dans la base de données Azure SQL](sql-database-manage-logins.md)
  
@@ -52,7 +52,7 @@ Lorsque vous créez un gestionnaire des cartes de partitions dans une applicatio
             ShardMapManagerLoadPolicy.Lazy
     );  
 
-Notez l’utilisation de **smmReadOnlyConnectionString** afin de refléter l’utilisation d’informations d’identification différentes pour l’accès des utilisateurs **non-administrateurs** : ces informations d’identification ne doivent pas fournir d’autorisations d’écriture sur la carte de partitions globale.
+Notez l’utilisation de **smmReadOnlyConnectionString** afin de refléter l’utilisation d’informations d’identification différentes pour l’accès des utilisateurs **non-administrateurs** : ces informations d’identification ne doivent pas fournir d’autorisations d’écriture sur la carte de partitions globale.
 
 ## Informations d'identification de connexion 
 
@@ -77,4 +77,4 @@ Tout comme pour les informations d’identification de l’administrateur, n’u
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

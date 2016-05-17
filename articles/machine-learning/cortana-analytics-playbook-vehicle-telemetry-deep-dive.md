@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="bradsev" />
 
 
@@ -135,7 +135,7 @@ La tâche Stream Analytics reçoit les données du composant Event Hub, effectue
 *Figure 7 - Requête de la tâche Stream Analytics pour l’ingestion de données*
 
 ### Analyse en mode batch
-Nous allons également générer un volume supplémentaire de signaux de véhicules simulés ainsi qu’un jeu de données de diagnostic pour permettre une analyse en mode batch approfondie. Cette étape est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela un pipeline nommé « PrepareSampleDataPipeline » dans le workflow Azure Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Cliquez sur [Activité personnalisée Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) pour télécharger la solution Data Factory custom DotNet activity Visual Studio afin de la personnaliser en fonction de vos besoins.
+Nous allons également générer un volume supplémentaire de signaux de véhicules simulés ainsi qu’un jeu de données de diagnostic pour permettre une analyse en mode batch approfondie. Cette étape est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela un pipeline nommé « PrepareSampleDataPipeline » dans le flux de travail Azure Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Cliquez sur [Activité personnalisée Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) pour télécharger la solution Data Factory custom DotNet activity Visual Studio afin de la personnaliser en fonction de vos besoins.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -147,7 +147,7 @@ Le pipeline est composé d’un élément ADF .NET Activity personnalisé, comme
 
 *Figure 9 - PrepareSampleDataPipeline*
 
-Une fois que le pipeline est correctement exécuté et que le jeu de données « RawCarEventsTable » est marqué comme « Prêt », l’équivalent d’une année de données de signaux et de diagnostics de véhicules simulés est généré. Le dossier et le fichier ci-dessous sont créés dans votre compte de stockage sous le conteneur « connectedcar ».
+Une fois que le pipeline est correctement exécuté et que le jeu de données « RawCarEventsTable » est marqué comme « Prêt », l’équivalent d’une année de données de signaux et de diagnostics de véhicules simulés est généré. Le dossier et le fichier ci-dessous sont créés dans votre compte de stockage sous le conteneur « connectedcar » :
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png)
 
@@ -165,7 +165,7 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 ## Préparation
 >[AZURE.ALERT] Cette étape de la solution s’applique uniquement au traitement par lots.
 
-Le jeu de données de signaux et de diagnostic brut semi-structuré est partitionné au cours de l’étape de préparation des données au format ANNÉE/MOIS pour permettre une interrogation efficace et un stockage extensible à long terme (c’est-à-dire qu’il bascule d’un compte de stockage d’objets blob à un autre dès que le premier est alimenté). Les données de sortie (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « lac de données » du client. Les données d’entrée de ce pipeline sont généralement ignorées car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
+Le jeu de données de signaux et de diagnostic brut semi-structuré est partitionné au cours de l’étape de préparation des données au format ANNÉE/MOIS pour permettre une interrogation efficace et un stockage extensible à long terme (*c’est-à-dire* qu’il bascule d’un compte de stockage d’objets blob à un autre dès que le premier est alimenté). Les données de sortie (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « “Data Lake (lac de données) » du client. Les données d’entrée de ce pipeline sont généralement ignorées car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
@@ -328,9 +328,9 @@ Les données sont maintenant optimisées, plus faciles à gérer et prêtes à �
 
 Dans cette section, vous verrez comment nous avons utilisé les composants Azure Stream Analytics, Azure Machine Learning, Azure Data Factory et Azure HDInsight pour analyser avec précision l’état des véhicules et les habitudes de conduite. Nous proposons ici 3 sous-sections :
 
-1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
-2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
-3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
+1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
+2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
+3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
 
 ### Apprentissage automatique
 
@@ -387,16 +387,16 @@ Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez i
 
 Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) pour télécharger la solution RealtimeDashboardApp Visual Studio pour les personnalisations.
 
-**Pour exécuter l’application de tableau de bord en temps réel**
+**** Pour exécuter l’application de tableau de bord en temps réel **
 
-1.	Cliquez sur le nœud Power BI sur la vue schématique, puis cliquez sur le lien Download Real-time Dashboard Application dans le volet des propriétés. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 - Instructions de configuration du tableau de bord Power BI*
+1.	Cliquez sur le nœud PowerBI sur la vue schématique, puis cliquez sur le lien Télécharger l’application de tableau de bord en temps réel dans le volet des propriétés. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 - Instructions de configuration du tableau de bord Power BI*
 2.	Extrayez le fichier et enregistrez-le en local ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 18 – Dossier RealtimeDashboardApp*
 3.	Exécutez l’application RealtimeDashboardApp.exe
 4.	Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur Accept ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 19 – RealtimeDashboardApp : connexion à Power BI*
 
->[AZURE.NOTE] Remarque : si vous voulez vider le jeu de données Power BI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » :
+>[AZURE.NOTE] Remarque : si vous voulez vider le jeu de données PowerBI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » :
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

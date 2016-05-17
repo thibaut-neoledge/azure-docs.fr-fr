@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="powershell workflow, exemples de workflows powershell, workflows powershell" />
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier runbook PowerShell Workflow
@@ -26,8 +26,8 @@ Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automat
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
--	abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous <a href="/pricing/free-account/" target="_blank">[inscrire pour un compte gratuit](https://azure.microsoft.com/free/).
--	Un [compte Automation](automation-security-overview.md) pour y stocker le Runbook et s’authentifier auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
+-	abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
+-	Un [compte Automation](automation-security-overview.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 -	Une machine virtuelle Azure. Nous arrêterons et démarrerons cet ordinateur afin qu'il ne soit pas en production.
 
 ## Étape 1 - Création d’un Runbook
@@ -116,4 +116,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 -	[Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 -	[Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

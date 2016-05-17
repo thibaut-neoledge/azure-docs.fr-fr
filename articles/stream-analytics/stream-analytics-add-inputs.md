@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"
 />
 
@@ -28,24 +28,24 @@ Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs
 
 Cet article est une étape dans le [parcours d'apprentissage de Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
-## Entrée de données : données de référence et données de diffusion en continu
+## Entrée de données : données de référence et données de diffusion en continu
 
-Il existe deux types d’entrées dans Stream Analytics : les flux de données et les données de référence.
+Il existe deux types d’entrées dans Stream Analytics : les flux de données et les données de référence.
 
 - **Flux de données** : les tâches Stream Analytics doivent contenir au moins une entrée de flux de données qui sera traitée et transformée par la tâche. Le stockage d’objets blob Azure et Azure Event Hubs sont pris en charge en tant que sources d’entrée de flux de données. Les hubs d'événements Azure sont utilisés pour collecter les flux d'événements à partir des appareils, services et applications connectés. Le stockage d'objets blob Azure peut être utilisé comme source d'entrée pour la réception de données en bloc en tant que flux.  
 - **Données de référence** : Stream Analytics prend en charge un deuxième type d'entrée auxiliaire appelé données de référence. Par opposition aux données en mouvement, ces données sont statiques ou changent lentement. Elles sont généralement utilisées pour effectuer des recherches et des corrélations avec des flux de données pour créer un jeu de données plus riche. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence.  
 
-Pour ajouter une entrée à votre tâche Stream Analytics :
+Pour ajouter une entrée à votre tâche Stream Analytics :
 
 1. Dans le portail Azure, cliquez sur **Entrées**, puis sur **Ajouter une entrée** dans votre tâche Stream Analytics.
 
     ![Portail Azure Classic - ajouter une entrée.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    Dans le portail Azure, cliquez sur le titre **Entrées** de votre tâche Stream Analytics.
+    Dans le portail Azure, cliquez sur le titre **Entrées** de votre tâche Stream Analytics.
 
     ![Portail Azure - ajouter une entrée de données.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
-2. Spécifiez le type de l'entrée : **Flux de données** ou **Données de référence**.
+2. Spécifiez le type de l'entrée : **Flux de données** ou **Données de référence**.
 
     ![Ajouter l’entrée de données appropriée (diffusion en continu ou référence)](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
@@ -63,7 +63,7 @@ Pour ajouter une entrée à votre tâche Stream Analytics :
 
     ![Ajouter une entrée de données de hub d’événements](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)
 
-5. Spécifiez les paramètres de sérialisation pour les données d'entrée :
+5. Spécifiez les paramètres de sérialisation pour les données d'entrée :
 	- Pour vous assurer que vos requêtes fonctionnent comme vous le souhaitez, spécifiez le **Format de sérialisation d'événements** des données entrantes. Les formats de sérialisation pris en charge sont JSON, CSV et Avro.
 	- Vérifiez le **codage** des données. UTF-8 est le seul format de codage actuellement pris en charge.
 
@@ -88,4 +88,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Analyse de journaux pour les groupes de sécurité réseau (NSG)
@@ -30,7 +30,7 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les gr
 ##Activation de la journalisation
 La journalisation d’audit est automatiquement activée systématiquement pour chaque ressource Resource Manager. Vous devez activer la journalisation des événements et des compteurs pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, procédez comme suit.
 
-1.  Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com). Si vous ne disposez pas d’un groupe de sécurité réseau existant, [créez un NSG](virtual-networks-create-nsg-arm-ps.md) avant de continuer.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas d’un groupe de sécurité réseau existant, [créez un NSG](virtual-networks-create-nsg-arm-ps.md) avant de continuer.
 
 2.  Dans le portail en version préliminaire, cliquez sur **Parcourir>** > **Groupes de sécurité réseau**.
 
@@ -114,4 +114,4 @@ Vous devez vous connecter à votre compte de stockage et récupérer les entrée
 - Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

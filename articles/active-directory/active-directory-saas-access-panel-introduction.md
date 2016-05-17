@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -46,9 +46,9 @@ Le volet d’accès permet aux utilisateurs de modifier certains paramètres de 
 ## Accès au volet d’accès
 
 
-Les utilisateurs accèdent au volet d’accès en visitant l’URL suivante dans un navigateur web : <br> ****http://myapps.microsoft.com**
+Les utilisateurs accèdent au volet d’accès en visitant l’URL suivante dans un navigateur web : <br> **http://myapps.microsoft.com**
 
-Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation par défaut en ajoutant le domaine de votre organisation à la fin de l’URL : <br> ****http://myapps.microsoft.com/contosobuild.com**
+Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation par défaut en ajoutant le domaine de votre organisation à la fin de l’URL : <br> **http://myapps.microsoft.com/contosobuild.com**
 
 Dans ce cas, tout nom de domaine actif ou vérifié ayant été configuré sous l’onglet Domaines de votre annuaire dans le portail de gestion Azure peut être utilisé, comme illustré dans la capture d’écran ci-dessous.
 
@@ -128,9 +128,9 @@ Si vous êtes administrateur Azure et que vous êtes connecté au portail de ges
 
 **Pour tester sous un compte d’utilisateur différent**
 
-1. Cliquez sur le menu utilisateur dans le coin supérieur droit du portail Azure ou du volet d’accès, puis sélectionnez « **Déconnexion** ». Vous êtes alors déconnecté d’Azure AD.
+1. Cliquez sur le menu utilisateur dans le coin supérieur droit du portail Azure ou du volet d’accès, puis sélectionnez « **Déconnexion** ». Vous êtes alors déconnecté d’Azure AD.
 
-2. Accédez au volet d’accès à la page ****http://myapps.microsoft.com**.
+2. Accédez au volet d’accès à la page **http://myapps.microsoft.com**.
 
 3. Dans la page de connexion, entrez le nom d’utilisateur et le mot de passe du compte dans l’annuaire que vous souhaitez tester.
  
@@ -146,13 +146,13 @@ Quand un utilisateur clique sur la vignette d’une application Office 365, il 
 
 ### Applications Microsoft et tierces configurées avec l’authentification unique basée sur la fédération
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec Microsoft Azure AD * ». Un utilisateur voit ces applications uniquement si l’accès lui a été accordé explicitement par l’administrateur.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec Microsoft Azure AD * ». Un utilisateur voit ces applications uniquement si l’accès lui a été accordé explicitement par l’administrateur.
 
 Quand un utilisateur clique sur la vignette de l’une de ces applications, il est redirigé vers cette application et connecté automatiquement.
 
 ### Authentification unique avec mot de passe sans approvisionnement d’identité
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * ». <br> Tous les utilisateurs de l’annuaire voient toutes les applications qui ont été configurées dans ce mode.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * ». <br> Tous les utilisateurs de l’annuaire voient toutes les applications qui ont été configurées dans ce mode.
 
 La première fois qu’un utilisateur clique sur une vignette de l’une de ces applications, il est invité à installer le plug-in d’authentification par mot de passe pour Internet Explorer ou Chrome, ce qui peut nécessiter le redémarrage de son navigateur web. Quand il est renvoyé au volet d’accès et qu’il clique de nouveau sur la vignette de l’application, il est invité à fournir un nom d’utilisateur et un mot de passe pour l’application. Une fois le nom d’utilisateur et le mot de passe entrés, ces informations d’identification sont stockées de manière sécurisée dans Azure AD et liées à son compte dans Azure AD, et le volet d’accès connecte automatiquement l’utilisateur à l’application à l’aide de ces informations d’identification.
 
@@ -162,7 +162,7 @@ Si les informations d’identification d’un utilisateur ont changé dans l’a
 
 ### Authentification unique avec mot de passe avec approvisionnement d’identité
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * » ainsi que l’approvisionnement d’identité.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * » ainsi que l’approvisionnement d’identité.
 
 La première fois qu’un utilisateur clique sur une vignette de l’une de ces applications, il est invité à installer le plug-in d’authentification par mot de passe pour Internet Explorer ou Chrome, ce qui peut nécessiter le redémarrage de son navigateur web. Quand il est renvoyé au volet d’accès et qu’il clique de nouveau sur la vignette de l’application, il est connecté automatiquement à l’application.
 
@@ -185,4 +185,4 @@ Lors de la configuration de l’authentification unique pour une application, le
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

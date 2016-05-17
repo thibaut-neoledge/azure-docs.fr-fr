@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main d’Azure HDInsight
 
-La galerie de prise en main de HDInsight fournit un moyen facile et rapide de découvrir Hadoop en exécutant des exemples d’applications dans HDInsight. Certains exemples sont fournis avec des exemples de données. Vous pouvez fournir vos propres données pour le reste des exemples. Actuellement, les six exemples (d’autres sont en préparation) suivants sont disponibles :
+La Galerie de prise en main est uniquement disponible pour les clusters HDInsight basés sur Windows. La galerie fournit un moyen facile et rapide de découvrir Hadoop en exécutant des exemples d’applications dans HDInsight. Certains exemples sont fournis avec des exemples de données. Vous pouvez fournir vos propres données pour le reste des exemples. Actuellement, les six exemples (d’autres sont en préparation) suivants sont disponibles :
 
 - Solutions avec vos données Azure
 	- Analyse des journaux du site Web Microsoft Azure
@@ -60,8 +60,8 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

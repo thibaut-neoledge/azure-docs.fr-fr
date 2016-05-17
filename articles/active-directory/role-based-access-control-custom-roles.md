@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="04/28/2016"
 	ms.author="kgremban"/>
 
 
@@ -99,4 +99,4 @@ La propriété **AssignableScopes** du rôle personnalisé contrôle également 
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Rôles intégrés](role-based-access-built-in-roles.md) : obtenez des informations sur les rôles qui livrés en standard dans RBAC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

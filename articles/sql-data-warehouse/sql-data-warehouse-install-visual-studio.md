@@ -29,8 +29,8 @@ Si vous choisissez d’installer Visual Studio, vous pouvez utiliser Visual Stud
 
 Pour installer Visual Studio 2015 :
 
-1. [Télécharger Visual Studio 2015](https://www.visualstudio.com/downloads) à partir de Visual Studio Team Services.
-2. Procédez à l’installation en suivant le guide d’[installation de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) sur MSDN et sélectionnez les configurations par défaut
+1. [Télécharger Visual Studio 2015][] à partir de Visual Studio Team Services.
+2. Procédez à l’installation en suivant le guide d’[installation de Visual Studio][] sur MSDN et sélectionnez les configurations par défaut
 
 ## Étape 2 : Téléchargez et installez la version préliminaire de SQL Server Data Tools (SSDT)
 
@@ -38,15 +38,23 @@ Que vous ayez ou non installé Visual Studio, vous avez toujours besoin de la ve
 
 Pour installer la dernière version de SSDT :
 
-1. [Télécharger la version préliminaire de SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) pour Visual Studio 2013 ou 2015.
+1. [Télécharger la version préliminaire de SQL Server Data Tools][] pour Visual Studio 2013 ou 2015.
 2. Procédez à l’installation des instructions d’installation sur le site de téléchargement.
 
 ## Étapes suivantes
 
-Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
+Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt à vous [connecter][] à votre base de données.
 
 <!--Anchors-->
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!--Arcticles-->
+[connecter]: ./sql-data-warehouse-get-started-connect.md
+
+<!--Other-->
+[Télécharger Visual Studio 2015]: https://www.visualstudio.com/downloads/
+[installation de Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[Télécharger la version préliminaire de SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+
+<!---HONumber=AcomDC_0511_2016-->

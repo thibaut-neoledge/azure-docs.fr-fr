@@ -3,8 +3,8 @@
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application logique vide pour la définition de workflows." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	authors="MSFTMan" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="deonhe"/>
 
 # Créer une application logique à l'aide d'un modèle
 
@@ -56,20 +56,22 @@ Crée un plan de service d'application.
 Il utilise le même emplacement que le groupe de ressources sur lequel il est déployé.
 
     {
-        "apiVersion": "2014-06-01",
-        "name": "[parameters('svcPlanName')]",
-        "type": "Microsoft.Web/serverfarms",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "AppServicePlan"
-        },
-        "properties": {
-            "name": "[parameters('svcPlanName')]",
-            "sku": "[parameters('sku')]",
-            "workerSize": "[parameters('svcPlanSize')]",
-            "numberOfWorkers": 1
-        }
-    }
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "HostingPlan"
+      },
+      "sku": {
+        "name": "[parameters('hostingSkuName')]",
+        "capacity": "[parameters('hostingSkuCapacity')]"
+      },
+      "properties": {
+        "name": "[parameters('hostingPlanName')]"
+      }
+    },
+
 
 ### Application logique
 
@@ -80,52 +82,53 @@ Le modèle utilise une valeur de paramètre pour le nom de l'application logique
 Cette définition spécifique s’exécute une fois par heure et exécute une commande ping sur l’emplacement spécifié dans le paramètre **testUri**.
 
     {
-        "type": "Microsoft.Logic/workflows",
-        "apiVersion": "2015-02-01-preview",
-        "name": "[parameters('logicAppName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "LogicApp"
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2015-08-01-preview",
+      "name": "[parameters('logicAppName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "LogicApp"
+      },
+      "properties": {
+        "sku": {
+          "name": "[parameters('flowSkuName')]",
+          "plan": {
+            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
+          }
         },
-        "properties": {
-            "sku": {
-                "name": "[parameters('sku')]",
-                "plan": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-                }
-            },
-            "definition": {
-                "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {
-                    "testURI": {
-                        "type": "string",
-                        "defaultValue": "[parameters('testUri')]"
-                    }
-                },
-                "triggers": {
-                    "recurrence": {
-                        "type": "recurrence",
-                        "recurrence": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        }
-                    }
-                },
-                "actions": {
-                    "http": {
-                        "type": "Http",
-                        "inputs": {
-                            "method": "GET",
-                            "uri": "@parameters('testUri')"
-                        }
-                    }
-                },
-                "outputs": { }
-            },
-            "parameters": { }
-        }
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              }
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
+      }
     }
+
 
 ## Commandes pour l’exécution du déploiement
 
@@ -142,4 +145,4 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

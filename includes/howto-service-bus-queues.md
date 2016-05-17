@@ -16,7 +16,7 @@ L’utilisation de files d’attente vous permet de mettre à l’échelle vos a
 
 Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-Pour créer un espace de noms de service :
+Pour créer un espace de noms :
 
 1.  Connectez-vous au [portail Azure Classic][].
 
@@ -30,7 +30,7 @@ Pour créer un espace de noms de service :
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
-	 >[AZURE.IMPORTANT] choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+	 > [AZURE.IMPORTANT] choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
 6. 	Gardez la valeur par défaut des autres champs de la boîte de dialogue (**Messagerie** et **Niveau Standard**), puis cliquez sur la coche OK. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
@@ -61,4 +61,3 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
   [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->

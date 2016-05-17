@@ -250,6 +250,12 @@ Pour le trafic entre différents réseaux virtuels Azure, seul le trafic passant
 
 Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel](../expressroute/expressroute-howto-coexist-classic.md).
 
+## BGP
+
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+
+
+
 ## Connectivité entre locaux et machines virtuelles
 
 ### Si ma machine virtuelle est dans un réseau virtuel et que j'ai une connexion entre différents locaux, comment dois-je me connecter à la machine virtuelle ?
@@ -273,4 +279,4 @@ Pour plus d’informations sur les passerelles VPN, consultez la [page de docume
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

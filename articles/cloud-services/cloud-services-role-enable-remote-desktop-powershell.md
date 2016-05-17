@@ -3,7 +3,7 @@ pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cl
 description="Configuration de l’application de service cloud Azure à l’aide de PowerShell pour autoriser les connexions Bureau à distance" 
 services="cloud-services" 
 documentationCenter="" 
-authors="sbtron" 
+authors="thraka" 
 manager="timlt" 
 editor=""/>
 <tags 
@@ -13,14 +13,14 @@ ms.tgt_pltfrm="na"
 ms.devlang="na" 
 ms.topic="article" 
 ms.date="01/19/2016" 
-ms.author="saurabh"/>
+ms.author="adegeo"/>
 
 # Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 
 >[AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
+- [Portail Azure Classic](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution.
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

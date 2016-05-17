@@ -235,4 +235,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!------HONumber=AcomDC_0427_2016-->

@@ -27,7 +27,7 @@
 
     ![Aide + Support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
 
-3. Dans le panneau Aide + Support, cliquez sur **Créer une demande de support**.
+3. Dans le panneau Aide + Support, cliquez sur **Créer une demande de support**.
 
     ![Nouvelle demande de support](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
 
@@ -39,14 +39,14 @@
 
     ![Abonnement](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
-6. Sélectionnez **SQL Data Warehouse** en tant que ressource.
+6. Sélectionnez **SQL Data Warehouse** en tant que ressource.
 
     ![Ressource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
 7. Sélectionnez votre **plan de support**.
 
     - Les problèmes liés à la gestion de la facturation et des abonnements sont pris en charge à tous les niveaux de support.
-    - Les problèmes couverts par la garantie de réparation et d'assistance sont pris en charge via les supports suivants : Developer, Standard, Pro Direct et Premier. Les problèmes couverts par la garantie de réparation et d'assistance sont des problèmes rencontrés par les clients lors de l'utilisation d'Azure et qui peuvent être raisonnablement imputés à Microsoft.
+    - Les problèmes couverts par la garantie de réparation et d'assistance sont pris en charge via les supports suivants : Developer, Standard, Pro Direct et Premier. Les problèmes couverts par la garantie de réparation et d'assistance sont des problèmes rencontrés par les clients lors de l'utilisation d'Azure et qui peuvent être raisonnablement imputés à Microsoft.
     - Les services d'expertise et de tutorat pour développeur sont disponibles aux niveaux de support Professional Direct et Premier.
     - Apprenez-en plus sur le support Azure, y compris la portée, le temps de réponse, la tarification, etc. sous [Plans de support Azure][].
 
@@ -84,4 +84,4 @@ En outre, vous pouvez contacter la communauté SQL Data Warehouse à l'aide de l
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

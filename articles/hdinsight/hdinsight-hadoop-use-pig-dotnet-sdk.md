@@ -40,7 +40,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez le [portail Azure](preview-portal).
+1. Visitez le [portail Azure][preview-portal].
 
 2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 
@@ -51,8 +51,6 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 ## Création de l'application
 
 Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
-
-L’exemple suivant utilise l’authentification utilisateur interactive. Pour utiliser l’authentification non interactive, consultez [Créer des applications HDInsight .NET d’authentification non interactive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Ouvrez Visual Studio 2012 ou 2013
@@ -209,4 +207,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

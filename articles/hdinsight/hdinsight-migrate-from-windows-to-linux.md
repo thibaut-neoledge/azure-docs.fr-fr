@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/07/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 #Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
@@ -218,7 +218,7 @@ Les clusters Spark étaient disponibles sur les clusters Windows en version pré
 
 Les activités .NET personnalisées Azure Data Factory ne sont actuellement pas prises en charge sur les clusters HDInsight Linux. Au lieu de cela, vous devez utiliser l’une des méthodes suivantes pour implémenter les activités personnalisées dans le cadre de votre pipeline ADF.
 
--   Exécutez les activités .NET sur le pool Azure Batch. Consultez la section Utilisation du service lié Azure Batch dans [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](../data-factory/data-factory-use-custom-activities.md/#AzureBatch).
+-   Exécutez les activités .NET sur le pool Azure Batch. Consultez la section Utilisation du service lié Azure Batch dans [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](../data-factory/data-factory-use-custom-activities.md#AzureBatch)
 
 -   Implémentez l’activité comme une activité MapReduce. Pour plus d’informations, consultez [Appeler des programmes MapReduce à partir de Data Factory](../data-factory/data-factory-map-reduce.md).
 
@@ -254,4 +254,4 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 -   [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

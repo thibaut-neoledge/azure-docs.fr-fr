@@ -20,30 +20,33 @@ Le nom du plan App Service à utiliser pour héberger l'application web.
       "type":"string"
     }
 
-### siteLocation
-
-L'emplacement à utiliser pour créer l'application web et le plan d'hébergement. Il doit s'agir d'un des emplacements Azure qui prennent en charge les applications web.
-
-    "siteLocation":{
-      "type":"string"
-    }
-
 ### sku
 
 Le niveau de tarification du plan d'hébergement.
 
-    "sku":{
-      "type":"string",
-      "allowedValues":[
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
+    "sku": {
+      "type": "string",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
       ],
-      "defaultValue":"Free"
+      "defaultValue": "S1",
+      "metadata": {
+        "description": "The pricing tier for the hosting plan."
+      }
     }
 
-Le modèle définit les valeurs autorisées pour ce paramètre (Gratuit, Partagé, De base ou Standard) et affecte une valeur par défaut (Gratuit) si aucune valeur n'est spécifiée.
+Le modèle définit les valeurs autorisées pour ce paramètre et affecte une valeur par défaut (S1) si aucune valeur n’est spécifiée.
 
 ### workerSize
 
@@ -61,4 +64,3 @@ La taille d'instance du plan d'hébergement (petite, moyenne ou grande).
     
 Le modèle définit les valeurs autorisées pour ce paramètre (0, 1 ou 2) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Les valeurs correspondent à une taille petite, moyenne et grande.
 
-<!---HONumber=Oct15_HO3-->

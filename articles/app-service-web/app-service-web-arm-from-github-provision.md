@@ -3,9 +3,9 @@
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui contient un projet issu d'un référentiel GitHub." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Déployer une application Web liée à un référentiel GitHub
 
@@ -69,31 +69,32 @@ Vous spécifiez le nom de l'application Web par le biais du paramètre **siteNam
 L'application Web a également une ressource enfant qui est définie dans la section des **ressources** ci-dessous. Cette ressource enfant définit le contrôle de code source pour le projet déployé avec l'application Web. Dans ce modèle, le contrôle de code source est lié à un référentiel GitHub particulier. Le référentiel GitHub est défini avec le code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Vous pouvez coder en dur l'URL du référentiel lorsque vous souhaitez créer un modèle qui déploie de façon répétée un projet unique tout en nécessitant le nombre minimal de paramètres. Au lieu de coder en dur l'URL du référentiel, vous pouvez ajouter un paramètre pour l'URL du référentiel et utiliser cette valeur pour la propriété **RepoUrl**.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## Commandes pour l’exécution du déploiement
 
@@ -110,4 +111,4 @@ L'application Web a également une ressource enfant qui est définie dans la sec
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

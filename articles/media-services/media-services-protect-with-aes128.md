@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="04/07/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés
@@ -408,7 +408,7 @@ Le code suivant montre comment envoyer une requête au service de distribution d
 		            // This output is specified as AssetCreationOptions.None, which 
 		            // means the output asset is not encrypted. 
 		            task.OutputAssets.AddNew("Output asset",
-		                AssetCreationOptions.None);
+		                AssetCreationOptions.StorageEncrypted);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
@@ -621,4 +621,4 @@ Le code suivant montre comment envoyer une requête au service de distribution d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

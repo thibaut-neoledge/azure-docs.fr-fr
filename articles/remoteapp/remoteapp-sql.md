@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure avec Azure RemoteApp
@@ -50,4 +50,4 @@ Si l’expérience d’utilisation d’une application cliente hébergée dans A
 - L’application cliente hébergée dans Azure RemoteApp est surchargée. En sélectionnant un autre plan de facturation, par exemple, la facturation Premium, vous pouvez améliorer les performances. Une autre astuce consiste à analyser les ressources que votre application utilise : pendant une session active, appuyez sur les touches CTRL, ALT et Fin pour lancer l’écran SAP, sélectionnez Gestionnaire des tâches et observez le taux d’utilisation des ressources correspondant à votre application.
 - SQL Server est surchargé ou n’est pas optimisé. Suivez les instructions SQL pour le dépannage. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

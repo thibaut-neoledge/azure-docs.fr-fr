@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter l’API SharePoint Online à PowerApps Enterprise | Microsoft Azure"
+	pageTitle="Ajouter l’API SharePoint Online à PowerApps Enterprise | Microsoft Azure"
 	description="Créer ou configurer une API SharePoint Online dans l’environnement App Service de votre organisation"
 	services=""
     suite="powerapps"
@@ -14,86 +14,109 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Créer une API SharePoint Online dans PowerApps Enterprise
 
-Ajoutez l’API SharePoint Online à l’environnement de service d’application (locataire) de votre organisation.
+> [AZURE.IMPORTANT] Cette rubrique est archivée et sera bientôt supprimée. Venez voir ce que nous préparons sur le nouveau [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Pour en savoir plus sur PowerApps et pour commencer, accédez à [PowerApps](https://powerapps.microsoft.com).  
+> - Pour en savoir plus sur les connexions disponibles dans PowerApps, accédez à [Connexions disponibles](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-## Créer l’API dans le portail Azure
+<!--Archived
+Add the SharePoint Online API to your organization's (tenant) app service environment. 
 
-1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel. Par exemple, connectez-vous à l’aide *VotreNomUtilisateur*@*VotreSociété*.com. Lorsque vous procédez ainsi, vous êtes automatiquement connecté à l’abonnement de votre société.
+## Create the API in the Azure portal
+
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Dans la barre des tâches, sélectionnez **Parcourir** : ![][14]
+2. Select **Browse** in the task bar:  
+![][14]
 
-3. Dans la liste, vous pouvez faire défiler pour sélectionner PowerApps ou taper *powerapps* : ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. Dans **POWERAPPS**, sélectionnez **GÉRER LES API** : ![Accéder aux API inscrites][1]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][1]
 
-5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API : ![Add API][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Entrez un **Nom** descriptif pour votre API.
+6. Enter a descriptive **name** for your API.  
 	
-7. Dans **SOURCE**, sélectionnez **API DISPONIBLES** pour sélectionner les API prédéfinies, puis sélectionnez **SHAREPOINT ONLINE** : ![sélectionner l’API SharePoint Online][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SharePoint Online**:  
+![select SharePoint Online api][3]
 
-8. Sélectionnez **PARAMÈTRES – CONFIGURER LES PARAMÈTRES REQUIS** : ![configurer les paramètres de l'API SharePoint Online][4]
+8. Select **Settings - Configure required settings**:  
+![configure SharePoint Online API settings][4]
 
-9. Entrez l’*ID CLIENT* et la *CLÉ SECRÈTE DE L’APPLICATION* de votre application SharePoint Online Azure Active Directory (AAD). Si vous n’avez pas d’ID et de clé secrète client, consultez la section « Enregistrer une application AAD pour une utilisation avec PowerApps » dans cette rubrique pour savoir comment les créer.
+9. Enter the *Client Id* and *App Secret* of your SharePoint Online Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Sélectionnez **OK** pour achever la procédure.
+10. Select **OK** to complete the steps.
 
-Quand vous avez terminé, une nouvelle API SharePoint Online est ajoutée à votre environnement App Service.
-
-
-## Enregistrement d’une application AAD pour une utilisation avec l’API SharePoint Online PowerApps
-
-1. Ouvrez le [portail Azure][5].
-
-2. Sélectionnez **PARCOURIR**, puis **ACTIVE DIRECTORY** :
-
-	> [AZURE.NOTE] Active Directory s’ouvre dans le portail Azure Classic.
-
-3. Sélectionnez le nom de client de votre organisation : ![Démarrer Azure Active Directory][6]
-
-4. Sélectionnez l’onglet **Applications**, puis sélectionnez **Ajouter** : ![Applications clientes AAD][7]
-
-5. Dans **AJOUTER UNE APPLICATION** :
-
-	a) Entrez un **nom** pour votre application. b) Pour le type d’application, conservez la valeur **Web**. c) Sélectionnez **Suivant**.
+When finished, a new SharePoint Online API is added to your app service environment.
 
 
-	![Ajouter une application AAD – Informations sur l’application][8]
+## Register an AAD app for use with PowerApps SharePoint Online API
 
-6. Dans **Propriétés de l’application** :
+1. Open the [Azure Portal][5].
 
-	a) Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur \__https://login.windows.net_. b) Entrez un **URI ID d’application** valide pour votre application. c) Sélectionnez **OK**.
+2. Select **Browse** and then select **Active Directory**:  
 
-	![Ajouter une application AAD – Propriétés de l’application][9]
+	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
-7. Une fois l’opération réussie, vous êtes redirigé vers la nouvelle application AAD. Sélectionnez **CONFIGURER** : ![Application AAD Contoso][10]
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][6]
 
-8. Définissez l’**URL DE RÉPONSE** située sous la section _OAUTH 2_ sur l’URL de redirection que vous avez reçue quand vous avez ajouté la nouvelle API SharePoint Online dans le portail Azure (dans cette rubrique). Sélectionnez **AJOUTER UNE APPLICATION** : ![Configurer l’application AAD Contoso][11]
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][7]
 
-9. Dans la fenêtre **AUTORISATIONS POUR D’AUTRES APPLICATIONS**, sélectionnez **OFFICE 365 EXCHANGE ONLINE**, puis sélectionnez **OK** : ![Délégué de l’application Contoso][12]
+5. In **Add application**:  
 
-10. Dans la page Configurer, notez que _OFFICE 365 EXCHANGE ONLINE_ est ajouté à la liste _AUTORISATIONS POUR D’AUTRES APPLICATIONS_.
+	a) Enter a **Name** for your application.  
+	b) Leave the application type as **Web**.  
+	c) Select **Next**.
 
-11. Sélectionnez **AUTORISATIONS DÉLÉGUÉES** pour _OFFICE 365 EXCHANGE ONLINE_, puis sélectionnez les autorisations suivantes :
 
-	- Lire et écrire des éléments dans toutes les collections de sites
-	- Lire et écrire des éléments et des listes dans toutes les collections de sites
+	![Add AAD application - app info][8]
 
-	![Autorisations de délégué d’application Contoso][13]
+6. In **App Properties**:  
 
-Une nouvelle application Azure Active Directory est créée. Vous pouvez utiliser cette application dans la configuration de votre API SharePoint Online dans le portail Azure.
+	a) Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	b) Enter a valid **APP ID URI** for your app.  
+	c) Select **OK**.  
 
-## Résumé et étapes suivantes
-Vous venez de voir comment ajouter l’API SharePoint Online à PowersApps Enterprise. Ensuite, donnez accès à l’API pour les utilisateur afin qu’ils puissent l’ajouter à leurs applications :
+	![Add AAD application - app properties][9]
 
-[Ajouter une connexion et attribuer un accès aux utilisateurs](powerapps-manage-api-connection-user-access.md)
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][10]
+
+8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new SharePont Online API in the Azure Portal (in this topic). Select **Add application**:  
+![Configure Contoso AAD app][11]
+
+9. In the **Permissions to other applications** window, select **Office 365 Exchange Online**, and select **OK**:  
+![Contoso app delegate][12]
+
+10. Back in the configure page, note that _Office 365 Exchange Online_ is added to the _Permission to other applications_ list.
+
+11. Select **Delegated Permissions** for _Office 365 Exchange Online_, and select the following permissions:  
+
+	- Read and write items in all site collections
+	- Read and write items and lists in all site collections
+
+	![Contoso app delegate permissions][13]
+
+A new Azure Active Directory app is created. You can use this app in your SharePoint Online API configuration in the Azure portal. 
+
+## Summary and next steps
+In this topic, you added the SharePoint Online API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-sharepointonline/browse-to-registered-apis.PNG
@@ -112,4 +135,4 @@ Vous venez de voir comment ajouter l’API SharePoint Online à PowersApps Enter
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

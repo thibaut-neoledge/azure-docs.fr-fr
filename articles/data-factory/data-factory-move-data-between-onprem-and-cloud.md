@@ -104,7 +104,12 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 | Noms de domaine | Ports | Description |
 | ------ | --------- | ------------ |
-| **. servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) || *. servicebus.windows.net | 9350 à 9354 | Système Service Bus Relay facultatif via TCP || *. core.windows.net | 443 | HTTPS || *. clouddatahub.net | 443 | HTTPS || Graph.Windows.NET | 443 | HTTPS || Login.Windows.NET | 443 | HTTPS | 
+| *. servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
+| *. servicebus.windows.net | 9350 à 9354 | Système Service Bus Relay facultatif via TCP |
+| *. core.windows.net | 443 | HTTPS |
+| *. clouddatahub.net | 443 | HTTPS |
+| Graph.Windows.NET | 443 | HTTPS |
+| Login.Windows.NET | 443 | HTTPS | 
 
 Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Sinon, vous pouvez configurer en conséquence les domaines et les ports sur l’ordinateur de passerelle.
 
@@ -174,7 +179,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 
 	![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Saisissez **ADFTutorialOnPremDF** dans le champ **Nom**.
 	2. Cliquez sur **RESOURCE GROUP NAME** et sélectionnez **ADFTutorialResourceGroup**. Vous pouvez sélectionner un groupe de ressources existant ou en créer un. Pour créer un groupe de ressources :
 		1. Cliquez sur **Créer un groupe de ressources**.
@@ -259,16 +264,16 @@ Dans cette étape, vous allez créer deux services liés, **AzureStorageLinkedSe
 3.	Dans l’**éditeur JSON**, procédez comme suit : 
 	1. Pour **gatewayName**, spécifiez **adftutorialgateway**.	
 	2. Si vous utilisez l’authentification Windows, procédez comme suit :
-		1. Pour **connectionString** : 
+		1. Pour **connectionString** : 
 			1. Définissez le paramètre **Sécurité intégrée** sur **true**.
 			2. Spécifiez le **nom du serveur** et le **nom de la base de données**. 
 			2. Supprimez **ID utilisateur** et **Mot de passe**. 
-		3. Spécifiez le nom d’utilisateur et le mot de passe pour les propriétés **userName** et **password**.
+		3. Spécifiez le nom d’utilisateur et le mot de passe pour les propriétés **userName** et **password**.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
 
@@ -475,11 +480,11 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
 	En spécifiant la période active pour un pipeline, vous définissez la durée pendant laquelle les tranches de données seront traitées, selon les propriétés de **disponibilité** qui ont été définies pour chaque table Azure Data Factory.
 	
@@ -631,7 +636,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Exemple de commande et de sortie** :
+	**Exemple de commande et de sortie** :
 
 
 		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
@@ -686,4 +691,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

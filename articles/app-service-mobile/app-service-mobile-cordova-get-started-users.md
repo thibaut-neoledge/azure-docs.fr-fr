@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Ajout de l’authentification à Apache Cordova à l’aide de Mobile Apps | Azure App Service"
+	pageTitle="Ajout de l’authentification à Apache Cordova à l’aide de Mobile Apps | Azure App Service"
 	description="Découvrez comment utiliser Mobile Apps dans Azure App Service pour authentifier les utilisateurs de votre application Apache Cordova via divers fournisseurs d’identité, notamment Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
-# Ajout de l’authentification à votre application Apache Cordova
+# Ajout de l’authentification à votre application Apache Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
@@ -32,17 +32,15 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ Dans Visual Studio, ouvrez le projet créé durant le didacticiel [Prise en main des applications mobiles], puis exécutez votre application dans l’**Émulateur Google Android** et vérifiez qu’un problème de connexion inattendue est indiqué après le démarrage de l’application.
-
-    Cela se produit car l’application tente d’accéder au serveur principal en tant qu’utilisateur non authentifié. Le serveur principal redirige l’utilisateur vers une page d’authentification à l’aide d’OAuth. Toutefois, l’application n’approuve pas le point de terminaison OAuth.
+À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio, ouvrez le projet créé durant le didacticiel [Prise en main des applications mobiles], puis exécutez votre application dans l’**Émulateur Google Android** et vérifiez qu’un problème de connexion inattendue est indiqué après le démarrage de l’application.
 
 Ensuite, vous allez mettre à jour l’application pour authentifier les utilisateurs avant de demander des ressources à partir du serveur principal d’applications mobiles.
 
-##<a name="add-authentication"></a>Ajout de l’authentification à l’application
+##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
 1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier `www/index.html` pour modification.
 
-2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête. Vous devez ajouter l’hôte OAuth à la liste des ressources autorisées.
+2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête. Vous devez ajouter l’hôte OAuth à la liste des ressources autorisées.
 
     | Fournisseur | Nom du fournisseur du Kit de développement logiciel. | Hôte OAuth |
     | :--------------------- | :---------------- | :-------------------------- |
@@ -52,16 +50,16 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
     | Microsoft | microsoftaccount | https://login.live.com |
     | Twitter | twitter | https://api.twitter.com |
 
-    Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :
+    Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Vous devez remplacer `https://login.windows.net` par l’hôte OAuth du tableau ci-dessus. Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
+    Vous devez remplacer `https://login.windows.net` par l’hôte OAuth du tableau ci-dessus. Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
 
-    Notez que certains fournisseurs d’authentification ne requièrent aucune modification Content-Security-Policy avec des appareils mobiles appropriés. Par exemple, aucune modification de l’approche Content-Security-Policy n’est nécessaire lorsque vous recourez à l’authentification Google sur un appareil Android.
+    Notez que certains fournisseurs d’authentification ne requièrent aucune modification Content-Security-Policy avec des appareils mobiles appropriés. Par exemple, aucune modification de l’approche Content-Security-Policy n’est nécessaire lorsque vous recourez à l’authentification Google sur un appareil Android.
 
-3. Ouvrez le fichier `www/js/index.js` pour modification, recherchez la méthode `onDeviceReady()` et, sous le code de création du client, ajoutez le code suivant :
+3. Ouvrez le fichier `www/js/index.js` pour modification, recherchez la méthode `onDeviceReady()` et, sous le code de création du client, ajoutez le code suivant :
 
         // Login to the service
         client.login('SDK_Provider_Name')
@@ -87,9 +85,9 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
     La méthode login() lance l'authentification auprès du fournisseur. La méthode login() est une méthode asynchrone qui renvoie une promesse JavaScript. Le reste de l’initialisation est placé au sein de la réponse de promesse, de manière à ce qu’aucune exécution n’intervienne avant la fin de la méthode login().
 
-4. Dans le code que vous venez d'ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
+4. Dans le code que vous venez d’ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
 
-4. Exécutez votre projet. Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
+4. Exécutez votre projet. Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
 
 ##<a name="next-steps"></a>Étapes suivantes
 
@@ -98,8 +96,8 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
 Découvrez comment utiliser les Kits de développement logiciel.
 
-* [Kit de développement logiciel (SDK) Apache Cordova]
-* [Kit de développement logiciel du serveur ASP.NET]
+* [Kit de développement logiciel d’Apache Cordova]
+* [Kit de développement logiciel du serveur ASP.NET]
 * [Kit de développement logiciel du serveur Node.js]
 
 <!-- URLs. -->
@@ -108,8 +106,8 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [documentation Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
-[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
-[Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Kit de développement logiciel d’Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

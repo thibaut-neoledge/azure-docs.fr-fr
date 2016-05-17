@@ -275,4 +275,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
@@ -23,7 +23,7 @@
 
 La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
- ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 Ce didacticiel explique comment utiliser la page **Catalogue de sauvegarde** pour restaurer l’appareil à partir d’un jeu de sauvegarde.
 
@@ -51,17 +51,17 @@ Avant de lancer une opération de restauration, prenez connaissance des élémen
 
 La page **Catalogue de sauvegarde** comprend une zone de requête qui vous permet d’affiner la sélection des ensembles de sauvegarde. Vous pouvez filtrer les jeux de sauvegarde récupérés selon les paramètres suivants :
 
-- **Appareil** : appareil sur lequel le jeu de sauvegarde a été créé.
-- **Stratégie de sauvegarde** ou **volume** : stratégie de sauvegarde ou volume associé à ce jeu de sauvegarde.
-- **De** et **À** : plage de dates et d’heures de création du jeu de sauvegarde.
+- **Appareil** : appareil sur lequel le jeu de sauvegarde a été créé.
+- **Stratégie de sauvegarde** ou **volume** : stratégie de sauvegarde ou volume associé à ce jeu de sauvegarde.
+- **De** et **À** : plage de dates et d’heures de création du jeu de sauvegarde.
 
 Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur la base des attributs suivants :
 
 - **Nom** : nom de la stratégie de sauvegarde ou du volume associé à ce jeu de sauvegarde.
-- **Taille** : taille réelle du jeu de sauvegarde.
-- **Créé le** : date et heure auxquelles les sauvegardes ont été créées. 
-- **Type** : les jeux de sauvegarde peuvent être des instantanés locaux ou des instantanés cloud. Un instantané local est une sauvegarde de toutes les données de volume stockées localement sur l’appareil, tandis qu’un instantané cloud correspond à la sauvegarde des données de volume résidant dans le cloud. Les instantanés locaux offrent un accès plus rapide, alors que les instantanés cloud sont choisis pour la résilience des données.
-- **Initié par** : les sauvegardes peuvent être lancées automatiquement suivant une planification ou manuellement par un utilisateur. (Vous pouvez utiliser une stratégie de sauvegarde pour planifier des sauvegardes. Vous pouvez également utiliser l’option **Effectuer une sauvegarde** pour effectuer une sauvegarde interactive.)
+- **Taille** : taille réelle du jeu de sauvegarde.
+- **Créé le** : date et heure auxquelles les sauvegardes ont été créées. 
+- **Type** : les jeux de sauvegarde peuvent être des instantanés locaux ou des instantanés cloud. Un instantané local est une sauvegarde de toutes les données de volume stockées localement sur l’appareil, tandis qu’un instantané cloud correspond à la sauvegarde des données de volume résidant dans le cloud. Les instantanés locaux offrent un accès plus rapide, alors que les instantanés cloud sont choisis pour la résilience des données.
+- **Initié par** : les sauvegardes peuvent être lancées automatiquement suivant une planification ou manuellement par un utilisateur. (Vous pouvez utiliser une stratégie de sauvegarde pour planifier des sauvegardes. Vous pouvez également utiliser l’option **Effectuer une sauvegarde** pour effectuer une sauvegarde interactive.)
 
 ## Comment restaurer votre volume StorSimple à partir d’une sauvegarde
 
@@ -73,7 +73,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
 
-    ![Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Sélectionnez un jeu de sauvegarde comme suit :
   1. Sélectionnez l’appareil approprié.
@@ -115,4 +115,4 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

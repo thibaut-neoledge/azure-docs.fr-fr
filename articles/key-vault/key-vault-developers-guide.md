@@ -12,24 +12,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/29/2016"
    ms.author="bruceper" />
 
 # Guide du développeur de coffre de clés Azure
-
-> [AZURE.VIDEO azure-key-vault-developer-quick-start]
-
-Le coffre de clés permet d’accéder en toute sécurité à des informations sensibles de vos applications, par exemple :
+Le coffre de clés permet d’accéder en toute sécurité à des informations sensibles de vos applications, par exemple :
 
 - Les clés et secrets sont protégés sans que vous deviez écrire du code, et vous pouvez facilement les utiliser dans vos applications.
 - Vous pouvez faire en sorte que vos clients possèdent et gèrent leurs propres clés, afin que vous puissiez vous concentrer sur la fourniture des principales fonctionnalités du logiciel. Ainsi, vos applications ne vous exposent à aucune responsabilité en relation avec les clés et secrets de vos clients.
 - Votre application peut utiliser des clés pour la signature et le chiffrement, tandis que la gestion des clés s’effectue à l’extérieur de l’application, de sorte que la solution convient pour une application distribuée géographiquement.
 
-Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-whatis.md).
+Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-whatis.md).
+
+## Vidéos
+Cette vidéo vous montre comment créer votre propre coffre de clés et comment l'utiliser à partir de l'exemple d'application « Hello Key Vault ».
+
+Liens vers les ressources mentionnées dans la vidéo :
+- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Exemple de code de coffre de clés Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+
+Pour en savoir plus, vous pouvez consulter le [blog](http://aka.ms/kvblog) et le [forum](http://aka.ms/kvforum) consacrés aux coffres de clés.
+
+
+
+> [AZURE.VIDEO azure-key-vault-developer-quick-start]
+
+
 
 ## Création et gestion des coffres de clés
 
-Avant d’utiliser Azure Key Vault dans votre code, vous pouvez créer et gérer des coffres via REST, des modèles Resource Manager, PowerShell ou CLI, comme décrit dans les articles suivants :
+Avant d’utiliser Azure Key Vault dans votre code, vous pouvez créer et gérer des coffres via REST, des modèles Resource Manager, PowerShell ou CLI, comme décrit dans les articles suivants :
 
 - [Créer et gérer les coffres de clés avec REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Créer et gérer les coffres de clés avec PowerShell](key-vault-get-started.md)
@@ -42,7 +54,7 @@ Avant d’utiliser Azure Key Vault dans votre code, vous pouvez créer et gérer
 
 Le système de gestion de coffre de clés pour les programmeurs se compose de plusieurs interfaces, avec REST comme base, comme expliqué dans [Référence de l’API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx).
 
-Vous pouvez, sous réserve d’autorisation, exécuter les opérations suivantes :
+Vous pouvez, sous réserve d’autorisation, exécuter les opérations suivantes :
 
 - Gérer les clés de chiffrement à l'aide d'opérations [Créer](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importer](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Mettre à jour](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Supprimer](https://msdn.microsoft.com/library/azure/dn903611.aspx) entre autres
 
@@ -50,7 +62,7 @@ Vous pouvez, sous réserve d’autorisation, exécuter les opérations suivantes
 
 - Utiliser des clés de chiffrement avec les opérations [Signe](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Vérifier](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) et [Chiffrer](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Déchiffrer](https://msdn.microsoft.com/library/azure/dn878097.aspx)
 
-Les kits de développement logiciel (SDL) suivants sont disponibles pour une utilisation avec le coffre de clés :
+Les kits de développement logiciel (SDL) suivants sont disponibles pour une utilisation avec le coffre de clés :
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
@@ -58,18 +70,20 @@ Les kits de développement logiciel (SDL) suivants sont disponibles pour une uti
 |[Package du Kit de développement logiciel (SDK) .NET](https://azure.microsoft.com/documentation/api/)|[Package du Kit de développement logiciel (SDK) Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 
-Pour obtenir des exemples complets d’utilisation du coffre de clés avec vos applications, voir :
+Pour obtenir des exemples complets d’utilisation du coffre de clés avec vos applications, voir :
 
 - Exemple d’application .NET *HelloKeyVault* et un exemple de service web Azure. [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
-- Didacticiel pour vous aider à comprendre comment utiliser Azure Key Vault à partir d’une application web dans Azure. [Utilisation d'Azure Key Vault à partir d'une application web](key-vault-use-from-web-application.md)
+- Didacticiel pour vous aider à comprendre comment utiliser Azure Key Vault à partir d’une application web dans Azure. [Utilisation d'Azure Key Vault à partir d'une application web](key-vault-use-from-web-application.md)
 
 ## Procédures
 
-Les articles et scénarios suivants fournissent des conseils spécifiques sur certaines tâches :
+Les articles et scénarios suivants fournissent des conseils spécifiques sur l’utilisation d’Azure Key Vault :
 
-- [Génération et transfert de clés HSM protégées pour coffre de clés](key-vault-hsm-protected-keys.md)
-- [Passage de valeurs sécurisées (par exemple, des mots de passe) lors du déploiement](../resource-manager-keyvault-parameter.md).
-- Pour obtenir des conseils spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+- [Génération et transfert de clés protégées par HSM pour Azure Key Vault](key-vault-hsm-protected-keys.md) : ces informations vous aideront à planifier, générer, puis transférer vos propres clés protégées par le module de sécurité matériel (HSM) utilisées avec Azure Key Vault.
+- [Transmission de valeurs sécurisées (par exemple des mots de passe) lors du déploiement](../resource-manager-keyvault-parameter.md) - Lorsque vous devez passer une valeur sécurisée (par exemple un mot de passe) en tant que paramètre au cours du déploiement, vous pouvez stocker cette valeur en tant que clé secrète dans un coffre de clés Azure et faire référence à la valeur dans d'autres modèles Resource Manager.
+- [Utilisation de Key Vault pour la gestion extensible de clés avec SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) : le connecteur SQL Server pour Azure Key Vault permet à SQL Server et à SQL-in-a-VM d'exploiter le service Azure Key Vault comme un fournisseur de gestion extensible de clés (EKM) afin de protéger ses clés de chiffrement pour le lien des applications ; chiffrement transparent des données, chiffrement de sauvegarde et chiffrement au niveau des colonnes.
+
+Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
 
 ## Bibliothèques connexes
 
@@ -77,4 +91,8 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur ce
 
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fournit des fonctionnalités étendues pour Azure Key Vault.
 
-<!---------HONumber=AcomDC_0309_2016-->
+## Autres ressources Key Vault
+- [Blog de Key Vault](http://aka.ms/kvblog)
+- [Forum de Key Vault](http://aka.ms/kvforum)
+
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="05/02/2016" 
 ms.author="adegeo"/>
 
 # Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
@@ -35,7 +35,7 @@ Lors de l'extension de **RoleEntryPoint**, vous devez tenir compte des comportem
 
 Si votre rôle ne démarre pas ou qu’il est recyclé entre les états Initialisation, Occupé et Arrêté, votre code peut lever une exception non gérée dans l'un des événements du cycle de vie chaque fois que le rôle redémarre. Utilisez, dans ce cas, l’événement [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) pour déterminer la cause de l'exception et la gérer correctement. Votre rôle peut également être retourné depuis la méthode [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), ce qui entraîne ainsi son redémarrage. Pour plus d'informations sur les états de déploiement, consultez la rubrique [Problèmes courants qui entraînent le recyclage des rôles](https://msdn.microsoft.com/library/azure/gg465402.aspx).
 
-> [AZURE.NOTE]Si vous utilisez [Azure Tools pour Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) pour développer votre application, les modèles de projet de rôle étendent automatiquement la classe **RoleEntryPoint** pour vous, dans les fichiers WebRole.cs et WorkerRole.cs.
+> [AZURE.NOTE] Si vous utilisez [Azure Tools pour Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) pour développer votre application, les modèles de projet de rôle étendent automatiquement la classe **RoleEntryPoint** pour vous, dans les fichiers WebRole.cs et WorkerRole.cs.
 
 ## Méthode OnStart
 
@@ -63,7 +63,7 @@ public override bool OnStart()
 
 La méthode **OnStop** est appelée lorsqu'une instance de rôle a été mise hors connexion par Azure, avant la fin du processus. Vous pouvez substituer cette méthode pour appeler le code requis qui vous permet d’arrêter correctement votre instance de rôle.
 
-> [AZURE.IMPORTANT]L’exécution du code dans la méthode **OnStop** est limitée dans le temps lorsqu’il est appelé pour des raisons autres qu'un arrêt initié par l'utilisateur. Une fois ce délai écoulé, le processus est terminé ; vous devez donc veiller à ce que le code de la méthode **OnStop** puisse s'exécuter rapidement ou qu’il accepte de ne pas être exécuté jusqu’à la fin. La méthode **OnStop** est appelée une fois l’événement **Stopping** déclenché.
+> [AZURE.IMPORTANT] L’exécution du code dans la méthode **OnStop** est limitée dans le temps lorsqu’il est appelé pour des raisons autres qu'un arrêt initié par l'utilisateur. Une fois ce délai écoulé, le processus est terminé ; vous devez donc veiller à ce que le code de la méthode **OnStop** puisse s'exécuter rapidement ou qu’il accepte de ne pas être exécuté jusqu’à la fin. La méthode **OnStop** est appelée une fois l’événement **Stopping** déclenché.
 
 
 ## Méthode Run
@@ -80,4 +80,4 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 ## Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0504_2016-->

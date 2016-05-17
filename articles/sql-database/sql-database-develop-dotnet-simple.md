@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Connexion à SQL Database à l’aide de .NET (C#)"
+	pageTitle="Se connecter à une base de données SQL à l’aide de .NET (C#) | Microsoft Azure"
 	description="Utilisez l'exemple de code dans cette prise en main pour créer une application moderne avec C# et soutenue par une base de données relationnelle puissante dans le cloud avec la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="tobbox"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
-
 
 <tags
 	ms.service="sql-database"
@@ -14,19 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="04/20/2016"
 	ms.author="tobiast"/>
 
-
-# Utilisation de la base de données SQL à partir de .NET (C#)
-
+# Connexion à SQL Database à l’aide de .NET (C#)
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
 ## Étape 1 : configurer l’environnement de développement
 
-.NET Framework est préinstallé avec Windows. Pour Linux et Mac OS X, vous pouvez télécharger .NET Framework à partir du [projet Mono](http://www.mono-project.com/).
+[Configurer l’environnement de développement pour le développement ADO.NET](https://msdn.microsoft.com/library/mt718321.aspx)
 
 ## Étape 2 : créer une base de données SQL
 
@@ -36,106 +32,9 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Étape 4 : se connecter
+## Étape 4 : Exécuter l’exemple de code
 
-La [classe System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) est utilisée pour la connexion à la base de données SQL.
+* [Preuve de concept sur la connexion à SQL à l’aide d’ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
+* [Se connecter de façon robuste à SQL avec ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-
-```
-using System.Data.SqlClient;
-
-class Sample
-{
-  static void Main()
-  {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	  {
-		  conn.Open();
-	  }
-  }
-}
-```
-
-## Étape 5 : exécuter une requête
-
-Vous pouvez utiliser les classes [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) et [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) pour récupérer un jeu de résultats d'une requête à partir de la base de données SQL. Notez que System.Data.SqlClient prend également en charge la récupération de données dans une classe [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) hors connexion.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-	static void Main()
-	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		{
-			var cmd = conn.CreateCommand();
-			cmd.CommandText = @"
-					SELECT
-						c.CustomerID
-						,c.CompanyName
-						,COUNT(soh.SalesOrderID) AS OrderCount
-					FROM SalesLT.Customer AS c
-					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-					GROUP BY c.CustomerID, c.CompanyName
-					ORDER BY OrderCount DESC;";
-
-			conn.Open();
-
-			using(var reader = cmd.ExecuteReader())
-			{
-				while(reader.Read())
-				{
-					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-				}
-			}					
-		}
-	}
-}
-
-```  
-
-## Étape 6 : insérer une ligne
-
-Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-    static void Main()
-    {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-        {
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = @"
-                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
-                OUTPUT INSERTED.ProductID
-                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
-
-            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
-            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
-            cmd.Parameters.AddWithValue("@Cost", 0);
-            cmd.Parameters.AddWithValue("@Price", 0);
-
-            conn.Open();
-
-            int insertedProductId = (int)cmd.ExecuteScalar();
-
-            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
-        }
-    }
-}
-```
-
-
-## Étapes suivantes
-
-Pour découvrir comment utiliser la logique de nouvelle tentative en gérant les codes d’erreur temporaires pour rendre votre code plus résistant, voir [Exemple de code : Logique C# de reconnexion à SQL Database](sql-database-develop-csharp-retry-windows.md).
-
-Pour plus d’informations sur les codes d’erreur possibles, voir [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md).
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

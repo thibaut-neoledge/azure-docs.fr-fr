@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) #
@@ -31,7 +31,6 @@ Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conten
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
 ## Configuration requise
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../pricing/free-trial) dès aujourd’hui.
@@ -106,6 +105,12 @@ Lorsque vous utilisez Azure Resource Manager, toutes les ressources associées s
 
 Le premier paramètre est le nom de groupe de ressources et le deuxième paramètre est l’emplacement. Pour l’emplacement, utilisez la commande `azure location list` pour savoir comment spécifier un autre emplacement que celui de cet exemple. Si vous avez besoin de plus d’informations, tapez : `azure help location`
 
+## Inscription du fournisseur de ressources Key Vault
+Assurez-vous que le fournisseur de ressources Key Vault est inscrit dans votre abonnement :
+
+`azure provider register Microsoft.KeyVault`
+
+Cette opération ne doit être effectuée qu'une fois par abonnement.
 
 
 ## Création d’un coffre de clés
@@ -187,6 +192,8 @@ Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application 
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
+>[AZURE.NOTE] Si vous exécutez l'invite de commandes Windows, vous devez remplacer les guillemets simples par des guillemets doubles et inclure des guillemets doubles internes. Par exemple : "["decrypt","sign"]".
+
 Si vous souhaitez autoriser cette même application à lire les éléments secrets de votre coffre, exécutez la commande suivante :
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
@@ -256,4 +263,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Accéder aux journaux des applications YARN dans HDInsight sous Windows
@@ -84,4 +84,4 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Guide du développeur Azure IoT Hub
@@ -90,7 +90,7 @@ Chaque IoT Hub dispose d’un registre des identités des appareils servant à 
 
 À un niveau supérieur, le registre des identités des appareils est une collection compatible REST de ressources d’identité des appareils. Les sections suivantes détaillent les propriétés des ressources d’identité des appareils et les opérations que le registre autorise sur les identités.
 
-> [AZURE.NOTE] Consultez l’article [API et Kits SDK IoT Hub][lnk-apis-sdks] pour plus d’informations sur le protocole HTTP et les Kits SDK que vous pouvez utiliser pour interagir avec le registre des identités des appareils.
+> [AZURE.NOTE] Consultez l’article [API et Kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] pour plus d’informations sur le protocole HTTP et les Kits de développement logiciel (SDK) que vous pouvez utiliser pour interagir avec le registre des identités des appareils.
 
 ### Propriétés d’identité des appareils <a id="deviceproperties"></a>
 
@@ -131,7 +131,7 @@ Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel op
 Un registre des identités des appareils IoT Hub :
 
 - ne contient pas de métadonnées de l’application ;
-- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
+- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
 - ne prend pas en charge les requêtes expressives.
 
 Une solution IoT possède généralement une zone de stockage distincte spécifique à la solution qui contient les métadonnées propres à l’application. Dans une solution de développement intelligente, par exemple, la zone de stockage spécifique à la solution doit enregistrer l’espace dans lequel un capteur de température sera déployé.
@@ -145,107 +145,17 @@ Vous pouvez désactiver les appareils en mettant à jour la propriété **status
 - Au cours d’un processus d’orchestration d’approvisionnement. Pour en savoir plus, voir [Conception de votre solution - Approvisionnement des appareils][lnk-guidance-provisioning].
 - Si, pour une raison quelconque, vous pensez qu’un appareil est compromis ou non autorisé.
 
-### Exporter les identités des appareils <a id="importexport"></a>
+### Importer et exporter les identités des appareils <a id="importexport"></a>
 
-Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités.
+Vous pouvez exporter des identités d’appareils en bloc à partir du registre des identités d’un IoT Hub, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub ](#endpoints). Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités :
 
-Vous pouvez exporter des identités d’appareils en bloc à partir du registre des identités d’un hub IoT, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub ](#endpoints).
+- Pour plus d’informations sur l’importation et l’exportation des API, consultez [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
+- Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
 
-Les opérations suivantes sont possibles sur les tâches d’exportation :
+Vous pouvez importer des identités d’appareils en bloc dans le registre des identités d’un IoT Hub, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub ](#endpoints). Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
 
-* Création d’une tâche d’exportation
-* Récupération de l’état d’une tâche en cours d’exécution
-* Annuler une tâche en cours d’exécution
-
-> [AZURE.NOTE] Chaque hub peut avoir une seule tâche en cours d’exécution à un moment donné.
-
-Pour plus d’informations sur l’importation et l’exportation des API, consultez [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
-
-Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity]
-
-### Tâches d’exportation
-
-Toutes les tâches d’exportation possèdent les propriétés suivantes :
-
-| Propriété | Options | Description |
-| -------- | ------- | ----------- |
-| jobId | générée par le système, ignorée lors de la création | |
-| creationTime | générée par le système, ignorée lors de la création | |
-| endOfProcessingTime | générée par le système, ignorée lors de la création | |
-| type | en lecture seule | **ExportDevices** |
-| status | générée par le système, ignorée lors de la création | **Empilé**, **Démarré**, **Terminé**, **Échoué** |
-| progress | générée par le système, ignorée lors de la création | Valeur entière du pourcentage d’achèvement. |
-| outputBlobContainerURI | obligatoire pour toutes les tâches | URI de signature d’accès partagé d’objets blob avec accès en écriture à un conteneur d’objets blob (voir [Création et utilisation d’une signature d’accès partagé avec le service blob][lnk-createuse-sas]). Utilisé pour la sortie de l’état de la tâche et des résultats. |
-| excludeKeysInExport | facultatif | Si des clés **false** sont incluses dans la sortie d’exportation ; dans le cas contraire, les clés sont exportées sous forme de valeur **null**. La valeur par défaut est **false**. |
-| failureReason | générée par le système, ignorée lors de la création | Si l’état est sur **Échec**, une chaîne contenant le motif. |
-
-L’exportation des tâches prend une URl de signature d’accès partagé d’objet blob en tant que paramètre. Ceci revient à accorder l’accès en écriture à un conteneur d’objets blob pour permettre à la tâche d’afficher ses résultats.
-
-La tâche écrit les résultats sur le conteneur d’objets blob spécifié dans un fichier appelé **devices.txt**. Ce fichier contiendra les identités d’appareils sérialisées au format JSON, comme indiqué dans [Propriétés d’identité des appareils](#deviceproperties). La valeur d’authentification est définie sur **null** pour chaque appareil dans le fichier **devices.txt** si le paramètre **excludeKeysInExport** est défini sur **true**.
-
-**Exemple** :
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-```
-
-### Importer les identités des appareils
-
-Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
-
-Vous pouvez importer des identités d’appareils en bloc dans le registre des identités d’un hub IoT, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub ](#endpoints).
-
-Les opérations suivantes sont possibles sur les tâches d’importation :
-
-* Créer une tâche d’importation
-* Récupération de l’état d’une tâche en cours d’exécution
-* Annuler une tâche en cours d’exécution
-
-> [AZURE.NOTE] Chaque hub peut avoir une seule tâche en cours d’exécution à un moment donné.
-
-Pour plus d’informations sur l’importation et l’exportation des API, consultez [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
-
-Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity]
-
-### Tâches d’importation
-
-Toutes les tâches d’importation possèdent les propriétés suivantes :
-
-| Propriété | Options | Description |
-| -------- | ------- | ----------- |
-| jobId | générée par le système, ignorée lors de la création | |
-| creationTime | générée par le système, ignorée lors de la création | |
-| endOfProcessingTime | générée par le système, ignorée lors de la création | |
-| type | en lecture seule | **ImportDevices** |
-| status | générée par le système, ignorée lors de la création | **Empilé**, **Démarré**, **Terminé**, **Échoué** |
-| progress | générée par le système, ignorée lors de la création | Valeur entière du pourcentage d’achèvement. |
-| outputBlobContainerURI | obligatoire pour toutes les tâches | URI de signature d’accès partagé d’objets blob avec accès en écriture à un conteneur d’objets blob (voir [Création et utilisation d’une signature d’accès partagé avec le service blob][lnk-createuse-sas]). Utilisé pour la sortie de l’état de la tâche. |
-| inputBlobContainerURI | required | URI de signature d’accès partagé d’objets blob avec accès en lecture à un conteneur d’objets blob (voir [Création et utilisation d’une signature d’accès partagé avec le service blob][lnk-createuse-sas]). La tâche lit les informations de l’appareil à importer à partir de cet objet blob. |
-| failureReason | générée par le système, ignorée lors de la création | Si l’état est sur **Échec**, une chaîne contenant le motif. |
-
-L’importation des tâches prend deux URl de signature d’accès partagé d’objet blob en tant que paramètres. L’un accorde l’accès en écriture à un conteneur d’objets blob pour permettre à la tâche d’afficher son état. L’autre accorde l’accès en lecture à un conteneur d’objets blob pour permettre à la tâche de lire ses données d’entrée.
-
-La tâche lit les données d’entrée sur le conteneur d’objets blob spécifié dans un fichier appelé **devices.txt**. Ce fichier contiendra les identités d’appareils sérialisées au format JSON, comme indiqué dans [Propriétés d’identité des appareils](#deviceproperties). Vous pouvez remplacer le comportement d’importation par défaut de chaque appareil en ajoutant une propriété **importMode**. Cette propriété peut prendre l’une des valeurs suivantes :
-
-| importMode | Description |
-| -------- | ----------- |
-| **createOrUpdate** | Si un appareil n’existe pas avec l’**id** spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag**. |
-| **create** | Si un appareil n’existe pas avec l’**id** spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, une erreur est consignée dans le fichier journal. |
-| **update** | Si un appareil avec l’**id** spécifié existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag**. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. |
-| **updateIfMatchETag** | Si un appareil avec l’**id** spécifié existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, mais uniquement si la valeur **ETag** correspond. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. <br/>En cas d’incompatibilité de valeur **ETag**, une erreur est consignée dans le fichier journal. |
-| **createOrUpdateIfMatchETag** | Si un appareil n’existe pas avec l’**id** spécifié, ce dernier a été inscrit récemment. <br/>Si un appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, mais uniquement si la valeur **ETag** correspond. <br/>En cas d’incompatibilité de valeur **ETag**, une erreur est consignée dans le fichier journal. |
-| **delete** | Si un appareil avec l’**id** spécifié existe déjà, il est supprimé sans tenir compte de la valeur **ETag**. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. |
-| **deleteIfMatchETag** | Si un appareil avec l’**id** spécifié existe déjà, il est supprimé, mais uniquement si la valeur **ETag** correspond. Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. <br/>En cas d’incompatibilité de valeur ETag, une erreur est consignée dans le fichier journal. |
-
-**Exemple** :
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
-```
+- Pour plus d’informations sur l’importation et l’exportation des API, consultez [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
+- Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
 
 ## Sécurité <a id="security"></a>
 
@@ -253,16 +163,16 @@ Cette section décrit les options de sécurisation d’Azure IoT Hub.
 
 ### Contrôle d’accès <a id="accesscontrol"></a>
 
-Azure IoT Hub utilise l’ensemble d’*autorisations* qui suit pour accorder l’accès à chaque point de terminaison de chaque hub IoT. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
+Azure IoT Hub utilise l’ensemble d’*autorisations* qui suit pour accorder l’accès à chaque point de terminaison de chaque IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
 
-* **RegistryRead**. Accorde l’accès en lecture au registre des identités des appareils. Pour plus d’informations, consultez la rubrique [Registre des identités des appareils](#device-identity-registry).
-* **RegistryReadWrite**. Accorde l’accès en lecture et en écriture au registre des identités des appareils. Pour plus d’informations, consultez [Registre des identités des appareils](#device-identity-registry).
+* **RegistryRead**. Accorde l’accès en lecture au registre des identités des appareils. Pour plus d’informations, consultez la rubrique [Registre d’identité des appareils](#device-identity-registry).
+* **RegistryReadWrite**. Accorde l’accès en lecture et en écriture au registre des identités des appareils. Pour plus d’informations, consultez la rubrique [Registre d’identité des appareils](#device-identity-registry).
 * **ServiceConnect**. Accorde l’accès à la communication de services cloud et à la surveillance des points de terminaison. Par exemple, elle permet aux services cloud principaux de recevoir des messages appareil-à-cloud, d’envoyer des messages cloud-à-appareil et de récupérer les accusés de remise correspondants.
 * **DeviceConnect**. Accorde l’accès aux points de terminaison de communication d’appareils. Par exemple, elle permet d’envoyer des messages appareil-à-cloud et de recevoir des messages cloud-à-appareil. Cette autorisation est utilisée par les appareils.
 
 Vous pouvez accorder les autorisations de différentes manières :
 
-* **Stratégies d’accès partagé au niveau du hub**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
+* **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
 
     - *iothubowner* : stratégie jouissant de toutes les autorisations
     - *service* : stratégie jouissant de l’autorisation **ServiceConnect**
@@ -270,10 +180,10 @@ Vous pouvez accorder les autorisations de différentes manières :
     - *registryRead* : stratégie jouissant de l’autorisation **RegistryRead**
     - *registryReadWrite* : stratégie jouissant des autorisations **RegistryRead** et **RegistryWrite**
 
-* **Informations d’identification de sécurité par appareil**. Chaque hub IoT contient un [registre des identités des appareils](#device-identity-registry). Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
+* **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre d’identité des appareils](#device-identity-registry). Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
 **Exemple**. Dans une solution IoT classique :
-- Le composant de gestion d’appareil utilise la stratégie *registryReadWrite*.
+- Le composant de gestion des appareils utilise la stratégie *registryReadWrite*.
 - Le composant de processeur d’événements utilise la stratégie *service*.
 - Le composant de logique métier des appareils d’exécution utilise la stratégie *service*.
 - Les appareils individuels se connectent à l’aide d’informations d’identification stockées dans le registre des identités du hub IoT.
@@ -302,7 +212,7 @@ Si la sécurité est basée sur des revendications AMQP, la norme indique commen
 
 Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
-* `{policyName}@sas.root.{iothubName}` s’il s’agit de jetons de niveau du hub.
+* `{policyName}@sas.root.{iothubName}` s’il s’agit de jetons de niveau concentrateur.
 * `{deviceId}` s’il s’agit de jetons inclus dans l’étendue d’un appareil.
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme décrit dans l’article sur les [jetons de sécurité IoT Hub][lnk-sas-tokens].
@@ -333,6 +243,7 @@ Il s’agit d’un mécanisme semblable à la [stratégie de publication d’Eve
 ## Messagerie
 
 IoT Hub offre des primitives de message pour communiquer :
+
 - [Cloud-à-appareil](#c2d) : à partir d’un serveur principal d’applications (*service* ou *cloud*).
 - [Appareil-à-cloud](#d2c) : à partir d’un appareil vers un serveur principal d’applications.
 
@@ -348,7 +259,7 @@ Les messages IoT Hub comprennent :
 * Un ensemble de *propriétés de l’application*. Il s’agit d’un dictionnaire de propriétés de chaîne que l’application peut définir et auquel elle peut accéder sans avoir à désérialiser le corps du message. IoT Hub ne modifie jamais ces propriétés.
 * Un corps binaire opaque.
 
-Consultez [API et Kits SDK IoT Hub][lnk-apis-sdks] pour plus d’informations sur la façon dont le message est encodé dans les différents protocoles.
+Consultez [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks] pour plus d’informations sur la façon dont le message est encodé dans les différents protocoles.
 
 Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
@@ -370,7 +281,7 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
 IoT Hub prend en charge les protocoles [AMQP][lnk-amqp], AMQP sur WebSockets, MQTT et HTTP/1 pour les communications côté appareil. Voici une liste des considérations relatives à leur utilisation.
 
-* **Modèle cloud-à-appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cela se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Selon les directives actuelles relatives à l’utilisation de HTTP/1, les appareils doivent interroger IoT Hub toutes les 25 minutes, voire plus. Par ailleurs, AMQP et MQTT prennent en charge la transmission des messages par le serveur à la réception de messages cloud-à-appareil et activent immédiatement la transmission des messages d’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils quasiment jamais connectés, le protocole HTTP/1 fonctionne également.
+* **Modèle Cloud vers appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cela se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Selon les directives actuelles relatives à l’utilisation de HTTP/1, les appareils doivent interroger IoT Hub toutes les 25 minutes, voire plus. Par ailleurs, AMQP et MQTT prennent en charge la transmission des messages par le serveur à la réception de messages cloud-à-appareil et activent immédiatement la transmission des messages d’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils quasiment jamais connectés, le protocole HTTP/1 fonctionne également.
 * **Passerelles de champ**. Lorsque vous utilisez HTTP/1 et MQTT, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Ces protocoles ne sont donc pas la solution optimale lors de l’implémentation de [scénarios de passerelle de champ][lnk-azure-gateway-guidance], car ils nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté à la passerelle de champ.
 * **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTP/1 sont moins encombrantes que les bibliothèques AMQP. Donc, si l’appareil dispose de peu de ressources (par exemple, de moins d’1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
 * **Traversée réseau**. Le standard MQTT écoute sur le port 8883. Cela peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. HTTP et AMQP (sur WebSockets) sont tous les deux disponibles pour utilisation dans ce scénario.
@@ -386,18 +297,20 @@ IoT Hub implémente le protocole MQTT v3.1.1 avec le comportement spécifique 
 
   * **QoS 2 n’est pas pris en charge** : quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
   * **Retain** : si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+  
+Consultez l’article [Prise en charge de MQTT au niveau d’IoT Hub][lnk-mqtt-support] pour plus de détails.
 
 Enfin, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Le principal inconvénient de cette approche est la nécessité d’héberger et de gérer soi-même une passerelle de protocole personnalisé.
 
-### Appareil-à-cloud <a id="d2c"></a>
+### Appareil vers cloud <a id="d2c"></a>
 
-Comme expliqué dans la section [Points de terminaison](#endpoints), les messages appareil-à-cloud sont envoyés via un point de terminaison accessible à l’appareil (**/devices/{deviceId}/messages/events**) et reçus via un point de terminaison accessible au service (**/messages/events**) compatible avec les [hubs d’événements][lnk-event-hubs]. Par conséquent, vous pouvez utiliser l’intégration et les Kits SDK standard Event Hubs pour recevoir des messages appareil-à-cloud.
+Comme expliqué dans la section [Points de terminaison](#endpoints), les messages appareil-à-cloud sont envoyés via un point de terminaison accessible à l’appareil (**/devices/{deviceId}/messages/events**) et reçus via un point de terminaison accessible au service (**/messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Par conséquent, vous pouvez utiliser l’intégration et les Kits SDK standard Event Hubs pour recevoir des messages appareil-à-cloud.
 
-IoT Hub implémente la messagerie appareil-à-cloud de façon très semblable à [Event Hubs][lnk-event-hubs], avec des messages appareil-à-cloud IoT Hub ressemblant davantage aux *événements* Event Hubs qu’aux *messages* [Service Bus][lnk-servicebus].
+IoT Hub implémente la messagerie Appareil vers cloud de façon très semblable à [Event Hubs][lnk-event-hubs], avec des messages Appareil vers cloud d’IoT Hub ressemblant davantage aux *événements* Event Hubs qu’aux *messages* [Service Bus][lnk-servicebus].
 
 Les conséquences sont les suivantes :
 
-* À l’instar des *événements* Event Hubs, les messages appareil-à-cloud sont durables et ils sont conservés dans un IoT Hub jusqu’à 7 jours (consultez [Options de configuration appareil-à-cloud](#d2cconfiguration)).
+* À l’instar des *événements* Event Hubs, les messages Appareil vers cloud sont durables et ils sont conservés dans un IoT Hub jusqu’à 7 jours (consultez [Options de configuration Appareil vers cloud](#d2cconfiguration)).
 * Les messages appareil-à-cloud sont partitionnés en un ensemble fixe de partitions, qui est défini au moment de la création (consultez [Options de configuration appareil-à-cloud](#d2cconfiguration)).
 * Comme pour Event Hubs, les clients lisant des messages appareil-à-cloud doivent gérer des partitions et des points de contrôle. Voir [Event Hubs - Événements de consommation][lnk-event-hubs-consuming-events].
 * De même que pour les événements Event Hubs, les messages appareil-à-cloud ne doivent pas dépasser 256 Ko et peuvent être mis en lots pour optimiser les envois. Les lots doivent représenter 256 Ko de volume et 500 messages maximum.
@@ -411,7 +324,7 @@ Toutefois, il existe quelques différences importantes entre les messages appare
 
 Notez que cela ne signifie pas que vous pouvez remplacer Event Hubs par IoT Hub dans tous les scénarios. Par exemple, dans certains calculs de traitement d’événements, il peut être nécessaire de repartitionner les événements par rapport à une autre propriété ou à un autre champ avant d’analyser les flux de données. Dans ce cas, vous pouvez utiliser un hub d’événements pour dissocier les deux parties du pipeline de traitement de flux. Pour plus d’informations, consultez *Partitions* dans [Vue d’ensemble d’Azure Event Hubs][lnk-eventhub-partitions].
 
-Pour plus d’informations sur la façon d’utiliser la messagerie appareil-à-cloud, reportez-vous à [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks].
+Pour plus d’informations sur la façon d’utiliser la messagerie Appareil vers cloud, reportez-vous à [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks].
 
 > [AZURE.NOTE] Si vous utilisez HTTP pour envoyer des messages appareil-à-cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -421,7 +334,7 @@ Dans de nombreux cas, outre les points de données de télémétrie, les apparei
 
 Pour plus d’informations sur la meilleure façon de traiter ce type de message, consultez [Traitement appareil-à-cloud][lnk-guidance-d2c-processing].
 
-#### Options de configuration appareil-à-cloud <a id="d2cconfiguration"></a>
+#### Options de configuration Appareil vers cloud <a id="d2cconfiguration"></a>
 
 Un hub IoT expose les propriétés suivantes pour vous permettre de contrôler les messages appareil-à-cloud.
 
@@ -452,19 +365,19 @@ La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec 
 }
 ```
 
-### Cloud-à-appareil <a id="c2d"></a>
+### Cloud vers appareil <a id="c2d"></a>
 
 Comme expliqué dans la section [Points de terminaison](#endpoints), vous pouvez envoyer des messages cloud-à-appareil via un point de terminaison accessible au service (**/messages/devicebound**), et un appareil peut recevoir ces messages via un point de terminaison spécifique de l’appareil (**/devices/{deviceId}/messages/devicebound**).
 
 Chaque message cloud-à-appareil cible un seul appareil en définissant la propriété **to** sur **/devices/{deviceId}/messages/devicebound**.
 
-**Important** : Chaque file d’attente d’appareil peut contenir jusqu’à 50 messages cloud-à-appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
+**Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages Cloud vers appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
 
 > [AZURE.NOTE] Quand vous envoyez des messages appareil-à-cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Cycle de vie des messages <a id="message lifecycle"></a>
 
-Pour mettre en œuvre *au moins une fois* la garantie de remise, les messages cloud-à-appareil sont conservés dans les files d’attente par appareil et les appareils doivent explicitement reconnaître leur *achèvement* pour qu’IoT Hub puisse les supprimer de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
+Pour mettre en œuvre *au moins une fois* la garantie de remise, les messages Cloud vers appareil sont conservés dans les files d’attente par appareil et les appareils doivent explicitement reconnaître leur *achèvement* pour qu’IoT Hub puisse les supprimer de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
 
 L’illustration suivante présente le graphique d’état du cycle de vie d’un message cloud-à-appareil.
 
@@ -473,18 +386,19 @@ L’illustration suivante présente le graphique d’état du cycle de vie d’u
 Quand le service envoie un message, celui-ci est considéré comme *en file d’attente*. Quand un appareil doit *recevoir* un message, IoT Hub *verrouille* le message (défini à l’état **Invisible**) pour autoriser d’autres threads sur le même appareil à commencer à recevoir d’autres messages. Quand un thread d’appareil a fini de traiter un message, il notifie IoT Hub en *terminant* le message.
 
 Un appareil peut également :
+
 - *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (lettre morte) ;
 - *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued** (En file attente).
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai de visibilité (ou de verrouillage)* dont la valeur par défaut est d’une minute. Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété *Nombre maximal de diffusions* sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
 
-Pour un didacticiel relatif aux messages cloud-à-appareil, consultez [Prise en main des messages cloud-à-appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité cloud-à-appareil entre les API et le Kit SDK, consultez [API et Kits SDK IoT Hub][lnk-apis-sdks].
+Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité Cloud vers appareil entre les API et le kit de développement logiciel, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-apis-sdks].
 
 > [AZURE.NOTE] Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Cela peut se produire dans de nombreux scénarios différents. Par exemple : le contenu du message a été conservé sur l’espace de stockage local, une opération a été exécutée avec succès ou le message transporte des informations temporaires dont la perte n’aurait aucune répercussion sur le fonctionnement de l’application. Parfois, pour les tâches à long terme, vous pouvez envoyer le message cloud-à-appareil après avoir maintenu la description de la tâche sur le stockage local, puis notifier le système principal d’application en envoyant un ou plusieurs messages appareil-à-cloud, à différentes étapes de progression de la tâche.
 
 #### Durée de vie <a id="ttl"></a>
 
-Chaque message cloud-à-appareil est doté d’un délai d’expiration. Il peut être défini explicitement par le service (propriété **ExpiryTimeUtc**) ou il est défini par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration cloud-à- appareil](#c2dconfiguration).
+Chaque message cloud-à-appareil est doté d’un délai d’expiration. Il peut être défini explicitement par le service (propriété **ExpiryTimeUtc**) ou il est défini par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration Cloud vers appareil](#c2dconfiguration).
 
 > [AZURE.NOTE] Un moyen courant de tirer parti de l’expiration du message consiste à définir des valeurs de durée de vie courtes pour éviter l’envoi de messages à des appareils déconnectés. Vous obtenez le même résultat qu’avec la gestion de l’état de connexion de l’appareil, tout en étant beaucoup plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec.
 
@@ -513,14 +427,14 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | Propriété | Description |
 | -------- | ----------- |
 | EnqueuedTimeUtc | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
-| OriginalMessageId | **MessageId** du message cloud-à-appareil auquel appartiennent ces informations de commentaires. |
+| OriginalMessageId | **MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
 | StatusCode | Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = succès <br/> 1 = message expiré <br/> 2 = nombre maximal de remises dépassé <br/> 3 = message rejeté |
 | Description | Valeurs de chaîne pour **StatusCode**. |
-| DeviceId | **DeviceId** de l’appareil cible du message cloud-à-appareil auquel appartient ce commentaire. |
-| DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message cloud-à-appareil auquel appartient ce commentaire. |
+| DeviceId | **DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
+| DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 
 
-**Important**. Le service doit spécifier un **MessageId** pour le message cloud-à-appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
+**Important**. Le service doit spécifier un **MessageId** pour le message Cloud vers appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
 
 **Exemple**. Voici un exemple de corps de message de commentaires.
 
@@ -541,7 +455,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 ]
 ```
 
-#### Options de configuration cloud-à-appareil <a id="c2dconfiguration"></a>
+#### Options de configuration Cloud vers appareil <a id="c2dconfiguration"></a>
 
 Chaque IoT Hub expose les options de configuration suivantes pour les messages cloud-à-appareil :
 
@@ -552,7 +466,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour les messages 
 | feedback.ttlAsIso8601 | Rétention des messages de commentaires liés au service. | Intervalle ISO\_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Par défaut : 100. |
 
-Pour plus d’informations, consultez [Gérer des hubs IoT][lnk-manage].
+Pour plus d’informations, consultez [Gérer des IoT Hubs][lnk-manage].
 
 ## Quotas et limitation <a id="throttling"></a>
 
@@ -576,20 +490,21 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | Envois cloud-à-appareil | 100/min/unité |
 | Réceptions cloud-à-appareil | 1 000/min/unité |
 
-Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un hub IoT et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
+Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
 
+Le billet de blog [Limitation d’IoT Hub et vous][lnk-throttle-blog] fournit une présentation détaillée du comportement de limitation d’IoT Hub.
 
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 
-**Important** : Les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement d’appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils sont prises en charge via les [tâches d’importation/exportation](#importexport).
+**Important** : les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils sont prises en charge via les [tâches d’importation/exportation](#importexport).
 
 ## Étapes suivantes
 
 Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub, suivez les liens ci-après pour en savoir plus :
 
-- [Prise en main des hubs IoT (didacticiel).][lnk-get-started]
+- [Prise en main de concentrateurs IoT Hubs (didacticiel).][lnk-get-started]
 - [Compatibilité des plateformes de système d’exploitation et du matériel][lnk-compatibility]
 - [Centre de développement Azure IoT][lnk-iotdev]
 - [Conception de votre solution][lnk-guidance]
@@ -602,8 +517,8 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-compatibility]: iot-hub-tested-configurations.md
+[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -639,5 +554,7 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
+[lnk-mqtt-support]: iot-hub-mqtt-support.md
+[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

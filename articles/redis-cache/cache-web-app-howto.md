@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/28/2016" 
+	ms.topic="hero-article" 
+	ms.date="05/05/2016" 
 	ms.author="sdanie"/>
 
 # Création d’une application web avec le Cache Redis
@@ -24,7 +24,7 @@ Vous apprendrez ce qui suit :
 
 -	comment créer une application web ASP.NET MVC 5 dans Visual Studio ;
 -	comment accéder aux données à partir d’une base de données à l’aide d’Entity Framework ;
--	comment améliorer l’ensemble des données et réduire la charge de la base de données en stockant et en récupérant des données à l’aide du Cache Redis Azure ;
+-	comment améliorer le débit des données et réduire la charge de la base de données en stockant et en récupérant des données à l’aide du Cache Redis Azure ;
 -	comment utiliser un ensemble trié Redis pour récupérer les 5 meilleures équipes ;
 -	comment approvisionner des ressources Azure pour l’application à l’aide d’un modèle ARM ;
 -	comment publier l’application sur Azure avec Visual Studio.
@@ -229,9 +229,9 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
 ### Configurer les vues
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Shared** et double-cliquez sur **_Layout.cshtml**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Shared** et double-cliquez sur **\_Layout.cshtml**.
 
-    ![_Layout.cshtml][cache-layout-cshtml]
+    ![\_Layout.cshtml][cache-layout-cshtml]
 
 2. Modifiez le contenu de l’élément `title` et remplacez `My ASP.NET Application` par `Contoso Team Stats`, comme indiqué dans l’exemple suivant.
 
@@ -838,4 +838,4 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

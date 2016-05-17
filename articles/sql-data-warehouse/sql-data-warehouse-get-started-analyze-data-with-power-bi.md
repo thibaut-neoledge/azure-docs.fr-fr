@@ -35,7 +35,7 @@ Pour ouvrir Power BI et vous connecter à votre base de données AdventureWorksD
 
     ![Recherche de votre base de données][1]
 
-3. Cliquez sur le bouton Open in Power BI.
+3. Cliquez sur le bouton Open in Power BI.
 
     ![Bouton Power BI][2]
 
@@ -73,7 +73,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 
     ![Barre Power BI][9]
 
-3. Cette étape crée un graphique en courbes qui indique le montant des ventes par date de commande. Pour créer ce dernier, accédez à la vue développée d’AggregateSales. Cliquez sur SalesAmount et OrderDate. Dans la colonne Visualisations, cliquez sur l’icône de graphique en courbes ; il s’agit de la première icône de la deuxième ligne sous Visualisations.
+3. Cette étape crée un graphique en courbes qui indique le montant des ventes par date de commande. Pour créer ce dernier, accédez à la vue développée d’AggregateSales. Cliquez sur SalesAmount et OrderDate. Dans la colonne Visualisations, cliquez sur l’icône de graphique en courbes ; il s’agit de la première icône de la deuxième ligne sous Visualisations.
 
 	![Sélection de graphique en courbes Power BI][10]
 
@@ -110,4 +110,4 @@ Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez 
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

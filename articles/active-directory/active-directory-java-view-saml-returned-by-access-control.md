@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm" />
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
@@ -180,20 +180,20 @@ Modifiez le fichier **index.jsp** de manière à utiliser le code suivant.
 ## Exécution de l'application
 
 1. Exécutez votre application dans l'émulateur de l'ordinateur ou déployez-la dans Azure en suivant la procédure décrite à la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse][].
-2. Lancez un navigateur et ouvrez votre application Web. Une fois connecté à votre application, vous verrez les données SAML ainsi que l'assertion de sécurité fournie par le fournisseur d'identité.
+2. Lancez un navigateur et ouvrez votre application Web. Une fois connecté à votre application, vous verrez les données SAML ainsi que l'assertion de sécurité fournie par le fournisseur d'identité.
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][].
+Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][].
 
 [Prerequisites]: #pre
 [Modify the JSP file to display SAML]: #modify_jsp
 [Add the JspWriter library to your build path and deployment assembly]: #add_library
 [Run the application]: #run_application
 [Next steps]: #next_steps
-[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

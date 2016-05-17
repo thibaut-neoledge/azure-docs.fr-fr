@@ -64,7 +64,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 |**China Telecom Global** | Pris en charge | Non pris en charge | Hong Kong |
 |**Cologix** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin, Londres |
-| **Comcast** | Pris en charge | Non pris en charge | Silicon Valley, Washington DC |
+| **Comcast** | Pris en charge | Pris en charge | Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Pris en charge | Pris en charge | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** | Pris en charge | Pris en charge | Amsterdam |
@@ -89,7 +89,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Pris en charge | Pris en charge | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
@@ -157,4 +157,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="runbook, modèle de runbook, automatisation des runbooks, runbook azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier Runbook graphique
@@ -60,7 +60,7 @@ Le contrôle Bibliothèque à gauche de l’éditeur vous permet de sélectionne
 
 Avant publier le Runbook pour le rendre disponible en production, nous voulons le tester pour s’assurer qu'il fonctionne correctement. Lorsque vous testez un Runbook, vous exécutez sa version **Brouillon** et affichez sa sortie de manière interactive.
 
-1.	Cliquez sur **Volet de test** pour ouvrir le panneau Test.<br> ![Volet de test](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
+1.	Cliquez sur **Panneau de test** pour ouvrir le panneau Test.<br> ![Volet de test](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
 2.	Cliquez sur **Démarrer** pour démarrer le test. Ce doit être la seule option activée.
 3.	Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît dans le volet. L’état initial de la tâche est *Mis en file d’attente* pour indiquer que la tâche attend qu’un Runbook Worker du cloud devienne disponible. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  
 4.	Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans notre cas, nous devrions voir *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
@@ -130,7 +130,7 @@ Nous allons maintenant ajouter une activité **Start-AzureRmVM** pour démarrer 
 1. Dans le contrôle Bibliothèque, tapez **Start-AzureRm** dans la zone de recherche.
 2. Ajoutez **Start-AzureRmVM** au canevas, puis faites-le glisser sous **Se connecter à Azure**.
 3. Pointez sur **Se connecter à Azure** jusqu’à ce qu’un cercle apparaisse au bas de la forme. Cliquez sur le cercle, faites glisser la flèche vers **Start-AzureRmVM**. 
-4.	Sélectionnez **Start-AzureRmVM**. Cliquez sur **Paramètres**, puis sur **Jeu de paramètres** afin d’afficher les jeux pour **Start-AzureRmVM**. Sélectionnez le jeu de paramètres **ResourceGroupNameParameterSetName**. Notez que des points d’exclamation apparaissent en regard des paramètres **Name** et **ResourceName**. Ils indiquent que ces paramètres sont obligatoires. Notez également que les deux attendent des valeurs de chaîne.
+4.	Sélectionnez **Start-AzureRmVM**. Cliquez sur **Paramètres**, puis sur **Jeu de paramètres** afin d’afficher les jeux pour **Start-AzureRmVM**. Sélectionnez le jeu de paramètres **ResourceGroupNameParameterSetName**. Notez que des points d’exclamation apparaissent en regard des paramètres **ResourceGroupName** et **Name**. Ils indiquent que ces paramètres sont obligatoires. Notez également que les deux attendent des valeurs de chaîne.
 5.	Sélectionnez **Name**. Sélectionnez **Expression PowerShell** pour le champ **Source de données** et tapez entre guillemets doubles le nom de la machine virtuelle que nous allons démarrer avec ce Runbook. Cliquez sur **OK**.<br>![Valeur du paramètre Name Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	Sélectionnez **ResourceGroupName**. Utilisez **Expression PowerShell** pour le champ **Source de données** et tapez le nom du groupe de ressources entre guillemets doubles. Cliquez sur **OK**.<br> ![Paramètres Start-AzureRmVM](media/automation-first-runbook-graphical/startazurermvm-params.png)
 8.	Cliquez sur le volet de test afin de tester le Runbook.
@@ -206,7 +206,7 @@ Nous allons maintenant modifier le Runbook afin qu’il tente de démarrer la ma
 ## Étapes suivantes
 
 -	Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
--	Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
--	Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
+-	Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
+-	Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->
