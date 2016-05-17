@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="nom du principal du service, setspn, authentification azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte"/>
 
 # Authentifier des Runbooks avec un compte d’identification Azure
@@ -34,24 +34,24 @@ Nous allons vous montrer comment créer un compte Automation à partir du portai
 ## Créer un compte Automation à partir du portail Azure
 Dans cette section, vous allez suivre une procédure qui vous permettra de créer un compte Azure Automation et un principal du service à partir du portail Azure.
 
->[AZURE.NOTE] L’utilisateur qui exécute ces étapes *doit* être membre du rôle Administrateurs d’abonnement.
+>[AZURE.NOTE] L’utilisateur qui exécute ces étapes *doit* être membre du rôle Administrateurs des abonnements.
 
 1. Connectez-vous au portail Azure en tant qu’administrateur de service pour l’abonnement Azure que vous souhaitez gérer.
 2. Sélectionnez **Comptes Automation**.
 3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br>![Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
-5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
+5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
 6. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Oui**, puis cliquez sur le bouton **Créer**.  
 
     ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] Si vous choisissez de ne pas créer le compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affichera dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé et attribué au rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement. Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources ARM.
+    >[AZURE.NOTE] Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé avec le rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement. Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources ARM.
 
     ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
-    >[AZURE.NOTE] Si vous recevez un message d’erreur de refus de l’autorisation après avoir cliqué sur le bouton **Créer**, c’est parce que votre compte n’est pas un membre du rôle des administrateurs de l’abonnement.
+    >[AZURE.NOTE] Si vous recevez un message d’erreur de refus de l’autorisation après avoir cliqué sur le bouton **Créer**, c’est parce que votre compte n’est pas membre du rôle Administrateurs des abonnements.
 
-7. Quand Azure crée le compte Automation, vous pouvez en suivre la progression sous l’onglet **Notifications** du menu.
+7. Pour suivre la progression de la création du compte Automation, accédez à l’onglet **Notifications** du menu.
 
 Une fois la procédure terminée, le compte Automation est créé avec une ressource de certificat nommée **AzureRunAsCertificate** valable un an, complétée par une ressource de connexion nommée **AzureRunAsConnection**.
 
@@ -60,7 +60,7 @@ La procédure suivante permet de mettre à jour un compte Automation existant et
 
 Avant de continuer, vérifiez que :
 
-1. Vous avez téléchargé et installé le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297).
+1. Vous avez téléchargé et installé le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297).
 2. Vous avez créé un compte Automation. Ce compte sera référencé en tant que valeur des paramètres –AutomationAccountName et –ApplicationDisplayName dans le script ci-dessous.
 3. Vous avez installé la [boîte à outils de création Azure Automation](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)
 
@@ -70,9 +70,9 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 
 Le script PowerShell configurera les éléments suivants :
 
-* Une application Azure AD authentifiée avec un certificat auto-signé, la création d’un compte de principal du service pour cette application dans Azure AD et l’affectation du rôle de contributeur (que vous pouvez remplacer par un rôle de propriétaire ou par tout autre rôle) pour ce compte dans votre abonnement actuel. Pour plus d’informations, veuillez consulter l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).  
+* Une application Azure AD authentifiée avec un certificat auto-signé, la création d’un compte de principal du service pour cette application dans Azure AD et l’affectation du rôle de contributeur (que vous pouvez remplacer par un rôle de propriétaire ou par tout autre rôle) pour ce compte dans votre abonnement actuel. Pour plus d’informations, consultez l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).  
 * Une ressource de certificat Automation dans le compte Automation spécifié nommée **AzureRunAsCertificate**, qui contient le certificat utilisé dans le principal du service.
-* Une ressource de connexion Automation dans le compte Automation spécifié nommée **AzureRunAsConnection**, qui contient l’ID d’application, l’ID de locataire, l’ID d’abonnement et le thumbprint du certificat.  
+* Une ressource de connexion Automation dans le compte Automation spécifié nommée **AzureRunAsConnection**, qui contient l’ID d’application, l’ID de locataire, l’ID d’abonnement et le Thumbprint du certificat.  
 
 
 ### Exécution du script PowerShell
@@ -155,8 +155,8 @@ Le script PowerShell configurera les éléments suivants :
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
-2. Sur votre ordinateur, démarrez **Windows PowerShell** à partir de l’écran **Démarrer** avec des droits élevés.
-3. À partir de l’interface de ligne de commande PowerShell avec élévation de privilèges, accédez au dossier contenant le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* et *-CertPlainPassword*.<br>
+2. Sur votre ordinateur, démarrez **Windows PowerShell** depuis l’écran **Démarrer** avec des droits élevés.
+3. À partir de l’interface de ligne de commande PowerShell avec élévation de privilèges, accédez au dossier contenant le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* et *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
@@ -166,7 +166,7 @@ Le script PowerShell configurera les éléments suivants :
     ```   
 <br>
 
-    >[AZURE.NOTE] Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous *devez* vous connecter avec un compte associé à un administrateur de service dans l’abonnement. <br>
+    >[AZURE.NOTE] Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous *devez* vous connecter avec un compte doté du rôle Administrateur de service dans l’abonnement. <br>
 4. Une fois le script terminé, passez à la section suivante pour tester et vérifier la nouvelle configuration des informations d’identification.
 
 ### Vérifier l’authentification
@@ -175,8 +175,8 @@ Nous allons ensuite effectuer un test rapide afin de vérifier que vous êtes en
 1. Dans le portail Azure, ouvrez le compte Automation que vous avez créé.  
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
 3. Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook** dans le panneau **Ajouter un Runbook**.
-4. Nommez le Runbook *Test-SecPrin-Runbook* et sélectionnez PowerShell comme **Type de Runbook**. Cliquez sur **Créer** pour créer le Runbook.
-5. Dans le panneau **Modifier le Runbook PowerShell**, collez le code suivant dans le canevas :<br>
+4. Nommez le Runbook *Test-SecPrin-Runbook* et sélectionnez PowerShell comme **type de Runbook**. Cliquez sur **Créer** pour créer le Runbook.
+5. Dans le panneau **Modifier le Runbook PowerShell**, collez le code suivant dans le canevas :<br>
 
     ```
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
@@ -200,4 +200,4 @@ Le code ci-dessus vous permet de vérifier si le nouveau compte est correctement
 - Pour plus d’informations sur les principaux de service, voir [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
 - Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Prise en main de la gestion des appareils Azure IoT Hub (version préliminaire)
+# Prise en main de la gestion des appareils Azure IoT Hub à l’aide de C# (version préliminaire)
+
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introduction
 Pour vous familiariser avec la gestion des appareils Azure IoT Hub, vous devez créer un service Azure IoT Hub, configurer des appareils dans IoT Hub et démarrer plusieurs appareils simulés. Ce didacticiel vous familiarise avec les étapes suivantes.
@@ -51,7 +53,9 @@ Vous devez créer un service IoT Hub compatible avec la gestion des appareils po
   -   Sélectionnez une **tarification et un niveau de mise à l’échelle**. Ce didacticiel ne nécessite pas un niveau spécifique.
   -   Dans **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure].
   -   Cochez la case permettant d’**activer la gestion des appareils**.
-  -   Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre service IoT Hub. La gestion des appareils IoT Hub est disponible uniquement dans les États-Unis de l’Est, l’Europe du Nord et l’Asie de l’Est.
+  -   Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre service IoT Hub. La gestion des appareils IoT Hub est disponible uniquement dans les États-Unis de l’Est, l’Europe du Nord et l’Asie de l’Est pour la version préliminaire publique. Elle sera par la suite disponible dans toutes les régions.
+
+    > [AZURE.NOTE]  Les exemples ne fonctionneront pas si vous n’activez pas la case permettant d’**activer la gestion des appareils**.
 
 4.  Une fois que vous avez choisi les options de configuration de votre service IoT Hub, cliquez sur **Créer**. La création du service IoT Hub par Azure peut prendre plusieurs minutes. Pour vérifier l’état d’avancement de l’opération, vous pouvez consulter le **tableau d’accueil** ou le panneau **Notifications**.
 
@@ -79,19 +83,19 @@ Pour générer les exemples et configurer les appareils dans votre service IoT H
 
 2.  Clonez le référentiel github. **Veillez à cloner ce référentiel dans un répertoire qui ne contient pas d’espaces.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
 3.  À partir du dossier racine dans lequel vous avez cloné le référentiel **azure-iot-sdks**, accédez au dossier **\\azure-iot-sdks\\csharp\\service\\samples** et exécutez la commande, en remplaçant la valeur d’espace réservé par votre chaîne de connexion dans la section précédente :
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 Ce script effectue les opérations suivantes :
 
-1.  Exécute **cmake** pour créer une solution Visual Studio 2015 associée à l’appareil simulé. Ce fichier projet se nomme **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Les fichiers source se trouvent dans le dossier **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Exécute **cmake** pour créer une solution Visual Studio 2015 associée à l’appareil simulé. Ce fichier projet se nomme **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Les fichiers source se trouvent dans le dossier ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Génère le projet d’appareil simulé **iotdm\_simple\_sample.vcxproj**.
 
@@ -148,4 +152,4 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

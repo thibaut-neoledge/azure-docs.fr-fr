@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
@@ -76,8 +76,7 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
 2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Vous devez à présent créer un [compte de stockage](../storage/storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous. (Pour reprendre Highlander, il peut n’y avoir qu’un seul « accessstorage ».) ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. 
-![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. ![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire.
 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
 
@@ -109,5 +108,6 @@ Vous pouvez désormais utiliser Access sur n’importe lequel de vos appareils. 
 Maintenant que vous maîtrisez la création d’une collection, essayez de créer une [collection utilisant Office 365](remoteapp-tutorial-o365anywhere.md). Vous pouvez également créer une [collection hybride ](remoteapp-create-hybrid-deployment.md)ayant accès à votre réseau local.
 
 <!--Image references-->
+ 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

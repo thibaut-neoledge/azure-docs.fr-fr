@@ -20,17 +20,17 @@
 
 # Gestion des conteneurs avec Docker Swarm
 
-Docker Swarm fournit un environnement pour le déploiement des charges de travail en conteneur sur un ensemble groupé d’hôtes Docker. Docker Swarm utilise l'API Docker native, et le flux de travail pour la gestion des conteneurs sur un Docker Swarm est presque identique à ce qu'elle serait sur un hôte de conteneur individuel. Ce document fournit des exemples simples de déploiement de charges de travail en conteneur, dans une instance de Azure Container Service de Docker Swarm. Pour des informations détaillées sur Docker Swarm, consultez [Docker Swarm sur Docker.com](https://docs.docker.com/swarm/).
+Docker Swarm fournit un environnement pour le déploiement de charges de travail en conteneur sur un ensemble groupé d’hôtes Docker. Docker Swarm utilise l’API Docker native. Le flux de travail pour la gestion des conteneurs sur un Docker Swarm est presque identique à ce qu’elle serait sur un hôte de conteneur individuel. Ce document fournit des exemples simples de déploiement de charges de travail en conteneur dans une instance Azure Container Service de Docker Swarm. Pour des informations détaillées sur Docker Swarm, consultez [Docker Swarm sur Docker.com](https://docs.docker.com/swarm/).
 
 Conditions préalables pour les exercices de ce document :
 
-[Créez un cluster Swarm sur Azure Container Service](./container-service-deployment.md)
+[Création d’un cluster Swarm dans Azure Container Service](./container-service-deployment.md)
 
-[Connexion avec le cluster Swarm sur Azure Container Service](./container-service-connect.md)
+[Connexion avec le cluster Swarm dans Azure Container Service](./container-service-connect.md)
 
 ## Déploiement d’un nouveau conteneur
 
-Pour créer un nouveau conteneur dans le Docker Swarm, utilisez la commande `docker run`. Cet exemple crée un conteneur à partir de l’image `yeasy/simple-web`.
+Pour créer un nouveau conteneur dans le Docker Swarm, utilisez la commande `docker run`. Cet exemple crée un conteneur à partir de l’image `yeasy/simple-web` :
 
 
 ```bash
@@ -39,7 +39,7 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Une fois le conteneur créé, utilisez `docker ps` pour renvoyer des informations sur le conteneur. Notez qu’ici l’agent Swarm, qui héberge le conteneur, est répertorié.
+Une fois le conteneur créé, utilisez `docker ps` pour renvoyer des informations sur le conteneur. Ici, l’agent Swarm qui héberge le conteneur est répertorié :
 
 
 ```bash
@@ -49,14 +49,14 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-L'application en cours d'exécution dans ce conteneur est maintenant accessible via le nom DNS public de l'équilibreur de charge de l'agent Swarm. Vous trouverez ces informations dans le portail Azure.
+Vous pouvez maintenant accéder à l’application en cours d’exécution dans ce conteneur via le nom DNS public de l’équilibreur de charge de l’agent Swarm. Ces informations sont disponibles dans le portail Azure.
 
 
-![](media/real-visit.jpg)
+![Résultats réels des visites](media/real-visit.jpg)
 
 ## Déploiement de plusieurs conteneurs
 
-Plusieurs conteneurs étant lancés sur le cluster Docker Swarm, la commande `docker ps` peut être utilisée pour afficher l’hôte sur lequel les conteneurs sont exécutés. Dans cet exemple, trois conteneurs sont répartis uniformément entre les trois agents Swarm.
+Plusieurs conteneurs étant lancés sur le cluster Docker Swarm, vous pouvez utiliser la commande `docker ps` pour afficher l’hôte sur lequel les conteneurs sont exécutés. Dans cet exemple, trois conteneurs sont répartis uniformément entre les trois agents Swarm :
 
 
 ```bash
@@ -70,9 +70,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Déploiement de conteneurs avec Docker Compose
 
-Docker Compose peut servir à l'automatisation du déploiement et de la configuration de plusieurs conteneurs. Pour cela, assurez-vous qu'un tunnel SSH a été créé, et que la variable DOCKER\_HOST a été définie.
+Vous pouvez utiliser Docker Compose pour automatiser le déploiement et la configuration de plusieurs conteneurs. Pour cela, assurez-vous qu’un tunnel Secure Shell (SSH) a été créé et que la variable DOCKER\_HOST a été définie.
 
-Créez un fichier docker-compose.yml sur votre système local. Vous trouverez un exemple [ici](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Créez un fichier docker-compose.yml sur votre système local. Pour ce faire, utilisez cet [exemple](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 ```bash
 web:
@@ -88,7 +88,7 @@ rest:
 
 ```
 
-Exécutez `docker-compose up -d` pour démarrer les déploiements de conteneur.
+Exécutez `docker-compose up -d` pour démarrer les déploiements de conteneur :
 
 
 ```bash
@@ -105,7 +105,7 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Enfin, la liste des conteneurs en cours d'exécution peut être renvoyée, afin de refléter ceux déployés avec Docker Compose.
+Enfin, la liste des conteneurs en cours d’exécution est retournée. Cette liste répertorie les conteneurs qui ont été déployés à l’aide de Docker Compose :
 
 
 ```bash
@@ -115,8 +115,8 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
-## Étapes suivantes :
+## Étapes suivantes
 
-[En savoir plus sur Docker Swarm](https://docs.docker.com/swarm/).
+[Approfondissez vos connaissances sur Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

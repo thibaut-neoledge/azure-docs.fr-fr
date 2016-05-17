@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
 	ms.author="glenga"/>
 
 #Créer une application Xamarin.Forms
@@ -63,7 +63,7 @@ Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous 
 
 ##Télécharger et exécuter la solution Xamarin.Forms
 
-Plusieurs options s’offrent à vous. Vous pouvez télécharger la solution sur un Mac et l’ouvrir dans Xamarin Studio, ou bien télécharger la solution sur un ordinateur Windows et l’ouvrir dans Visual Studio à l’aide d’un ordinateur Mac connecté au réseau pour la création de l’application iOS. De nouveau, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) pour obtenir des instructions.
+Plusieurs options s’offrent à vous. Vous pouvez télécharger la solution sur un Mac et l’ouvrir dans Xamarin Studio, ou bien télécharger la solution sur un ordinateur Windows et l’ouvrir dans Visual Studio à l’aide d’un ordinateur Mac connecté au réseau pour la création de l’application iOS. Consultez [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) si vous avez besoin d’instructions plus détaillées sur les scénarios de configuration de Xamarin.
 
 Commençons :
 
@@ -77,6 +77,7 @@ Commençons :
 	![][9]
 
 	![][8]
+
 
 ##(Facultatif) Exécuter le projet iOS
 
@@ -93,13 +94,15 @@ Cette section s’applique à l’exécution du projet iOS Xamarin pour les appa
 3. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet iOS.
 4. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans l’émulateur iPhone.
 
+	>[AZURE.NOTE] Si vous avez des problèmes de génération, exécutez le gestionnaire de package NuGet et mettez à jour vers la dernière version des packages de support Xamarin. Il arrive que les projets de démarrage rapide soient ralentis par la mise à jour vers la dernière version.
+
 Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, puis cliquez sur le bouton **+**.
 
 ![][10]
 
 Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d’application mobile et les données sont affichées dans la liste.
 
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 ##(Facultatif) Exécuter le projet Android
@@ -112,10 +115,13 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 2. Dans le menu **Exécuter**, cliquez sur **Démarrer le débogage** pour générer le projet et démarrer l’application dans l’émulateur Android.
 
 ####Dans Visual Studio
-1. Cliquez avec le bouton droit sur le projet Android, puis cliquez sur **Définir comme projet de démarrage**.
+1. Cliquez avec le bouton droit sur le projet Android (Droid), puis cliquez sur **Définir comme projet de démarrage**.
 4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**.
 5. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet Android.
 6. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans l’émulateur Android.
+
+	>[AZURE.NOTE] Si vous avez des problèmes de génération, exécutez le gestionnaire de package NuGet et mettez à jour vers la dernière version des packages de support Xamarin. Il arrive que les projets de démarrage rapide soient ralentis par la mise à jour vers la dernière version.
+
 
 Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, puis cliquez sur le bouton **+**.
 
@@ -138,6 +144,9 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**.
 5. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet Windows que vous avez choisi.
 6. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans un émulateur Windows.
+
+	>[AZURE.NOTE] Si vous avez des problèmes de génération, exécutez le gestionnaire de package NuGet et mettez à jour vers la dernière version des packages de support Xamarin. Il arrive que les projets de démarrage rapide soient ralentis par la mise à jour vers la dernière version.
+
 
 Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, puis cliquez sur le bouton **+**.
 
@@ -175,4 +184,4 @@ Vous trouverez le code qui vous permet d’accéder à votre serveur principal d
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

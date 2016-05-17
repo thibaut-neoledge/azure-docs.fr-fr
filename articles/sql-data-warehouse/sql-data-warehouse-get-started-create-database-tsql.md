@@ -76,4 +76,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [Tarification de SQL Data Warehouse ]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Téléchargements Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

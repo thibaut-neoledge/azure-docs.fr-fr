@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # Créer votre première fonction Azure
@@ -29,7 +29,7 @@ Cette rubrique vous montre comment utiliser le démarrage rapide d’Azure Funct
 
 La vidéo suivante montre comment effectuer les étapes de base de ce didacticiel.
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Créer une fonction à l’aide du démarrage rapide
 
@@ -64,4 +64,4 @@ Ce démarrage rapide montre l’exécution très simple d’une fonction HTTP de
 
 [AZURE.INCLUDE [Remarque relative à la prise en main](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

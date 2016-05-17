@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/14/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 
@@ -131,15 +131,17 @@ L'option **Manage Keys** sert à copier une clé d'accès de stockage à utilise
 3. Pour copier une clé d’accès de stockage, sélectionnez le texte de la clé. Cliquez ensuite avec le bouton droit, puis cliquez sur **Copier**.
 
 ### Régénération des clés d'accès de stockage
-Vous devez modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
+Nous vous recommandons de modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
 
-> [AZURE.WARNING] La régénération des clés d’accès a une incidence sur les machines virtuelles, les services de médias et toutes les applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
-
-**Machines virtuelles** : si votre compte de stockage contient des machines virtuelles en cours d'exécution, vous devez redéployer toutes les machines virtuelles après avoir régénéré les clés d'accès. Pour éviter le redéploiement, arrêtez les machines virtuelles avant de régénérer les clés d'accès.
+> [AZURE.WARNING] La régénération des clés d’accès peut affecter les services dans Azure, ainsi que vos applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
 
 **Media Services** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d’accès avec ces services après avoir régénéré les clés.
 
-**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer. Pour ce faire :
+**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer.
+
+**Explorateurs de stockage** : si vous utilisez des [applications d’explorateur de stockage](storage-explorers.md), vous devrez probablement mettre à jour la clé de stockage utilisée par ces applications.
+
+Voici le processus de rotation de vos clés d’accès de stockage :
 
 1. Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage.
 
@@ -173,4 +175,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

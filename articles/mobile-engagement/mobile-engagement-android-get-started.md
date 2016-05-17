@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Prise en main d’Azure Mobile Engagement pour les applications Android
@@ -128,15 +128,18 @@ Android Studio crée l’application de démonstration à laquelle nous intégre
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-Accédez à **MainActivity.java** et ajoutez le code suivant pour remplacer la classe de base **MainActivity** par **EngagementActivity** :
+Accédez à **MainActivity.java** et ajoutez le code suivant pour remplacer la classe de base **MainActivity** par **EngagementActivity** :
 
 	public class MainActivity extends EngagementActivity {
+
+> [AZURE.NOTE] Si vous n’utilisez pas la classe de base *Activity*, consultez l’article relatif aux [fonctionnalités de rapports avancées d’Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) pour savoir comment hériter de classes différentes.
+
 
 Vous devez commenter (exclure) la ligne suivante pour ce simple exemple de scénario :
 
     // setSupportActionBar(toolbar);
 
-Si vous souhaitez conserver cette ligne, vous devez consulter le scénario « Rapport de base » sur la page relative à l’[intégration avancée d’Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting).
+Si vous souhaitez conserver cette ligne, vous devez consulter l’article relatif aux [fonctionnalités de rapports avancées d’Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connexion d’application avec l’analyse en temps réel
 
@@ -162,6 +165,10 @@ Mobile Engagement vous permet d’interagir et d’ATTEINDRE vos utilisateurs �
 
 [AZURE.INCLUDE [Envoyer des notifications à partir du portail](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## Autres ressources
+
+Accédez au [SDK Android](mobile-engagement-android-sdk-overview.md) pour obtenir des informations détaillées sur l’intégration du kit de développement logiciel.
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -175,4 +182,4 @@ Mobile Engagement vous permet d’interagir et d’ATTEINDRE vos utilisateurs �
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main du stockage de tables Azure à l’aide de .NET | Microsoft Azure"
-	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL de Microsoft. Commencez par des opérations simples de stockage de tables, notamment la création et la suppression de tables, ainsi que l’insertion, la mise à jour, la suppression et l’interrogation des données."
+	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

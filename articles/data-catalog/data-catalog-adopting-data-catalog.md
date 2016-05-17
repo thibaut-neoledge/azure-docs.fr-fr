@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Adoption d’Azure Data Catalog | Microsoft Azure"
-   description="Cet article présente une approche et un processus destiné aux organisations qui envisagent d’adopter Azure Data Catalog, y compris la définition de la vision du projet, l’identification des principaux cas d’utilisation métier au sein de l’organisation et le choix d’un projet pilote."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Adoption d’Azure Data Catalog | Microsoft Azure"
+	description="Cet article présente une approche et un processus destiné aux organisations qui envisagent d’adopter Azure Data Catalog, y compris la définition de la vision du projet, l’identification des principaux cas d’utilisation métier au sein de l’organisation et le choix d’un projet pilote."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="04/06/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="05/09/2016"
+	ms.author="spelluru"/>
 
 # Adoption d’Azure Data Catalog
 Cet article va vous aider dans la prise en main de l’adoption d’**Azure Data Catalog** dans votre organisation. Pour mener à bien l’adoption d’**Azure Data Catalog**, vous pouvez vous concentrer sur trois éléments clés : définition de votre vision du projet, identification des principaux cas d’utilisation métier au sein de votre organisation et choix d’un projet pilote.
@@ -34,7 +34,7 @@ Un plan d’adoption d’**Azure Data Catalog** décrit comment les avantages li
 Un plan d’adoption vous permet de communiquer les éléments essentiels pour que les utilisateurs réussissent et atteignent leurs objectifs. Un plan standard explique en quoi Data Catalog va faciliter la vie des utilisateurs et comprend les parties suivantes :
 
 -	**Énoncé de vision** : cela vous aide à présenter en quelques lignes le plan d’adoption aux utilisateurs et parties prenantes. Il s’agit là de votre argumentaire éclair.
--	**Équipe pilote et influenceurs** : tirer des enseignements d’une équipe pilote et d’influenceurs vous aidera à affiner la façon dont vous allez présenter Data Catalog aux équipes et aux utilisateurs. Les influenceurs peuvent accompagner les autres utilisateurs. Cela vous permet également de déterminer les freins à l’adoption ainsi que ses facteurs de réussite.
+-	**Équipe pilote et influenceurs ** : tirer des enseignements d’une équipe pilote et d’influenceurs vous aidera à affiner la façon dont vous allez présenter Data Catalog aux équipes et aux utilisateurs. Les influenceurs peuvent accompagner les autres utilisateurs. Cela vous permet également de déterminer les freins à l’adoption ainsi que ses facteurs de réussite.
 -	**Plan de communications et tendance** : cela aide les utilisateurs à comprendre dans quelle mesure Data Catalog peut les aider et peut faciliter son adoption naturelle au sein des équipes, puis dans toute l’organisation.
 -	**Plan de formation** : une formation complète amène généralement à la réussite de l’adoption et à des résultats performants.
 
@@ -47,7 +47,7 @@ Voici quelques conseils pour vous aider à définir votre vision du projet :
 
 -	**Identifiez le pilote de déploiement principal** : réfléchissez aux besoins de gestion de source de données spécifiques de l’entreprise qui peuvent être remplis par Data Catalog. Cela vous permet également d’indiquer les avantages principaux liés à l’utilisation de Data Catalog. Il se peut, par exemple que tous les nouveaux utilisateurs doivent prendre connaissance de sources de données communes et apprendre à les utiliser, ou que seule une poignée de responsables doive comprendre complètement les sources de données importantes et complexes. **Azure Data Catalog** peut aider à faciliter la découverte et la compréhension de ces sources de données afin que ces points faibles bien connus puissent être traités directement et au début de l’adoption du service.
 
--	**Soyez clair et précis** : une présentation claire de la vision du projet permettra de mettre tout le monde d’accord sur la valeur apportée par Data Catalog à l’organisation et sur la façon dont la vision du projet facilite les objectifs de l’organisation.
+-	**Soyez clair et précis ** : une présentation claire de la vision du projet permettra de mettre tout le monde d’accord sur la valeur apportée par Data Catalog à l’organisation et sur la façon dont la vision du projet facilite les objectifs de l’organisation.
 
 -	**Motivez l’utilisation de Data Catalog** : votre vision du projet et votre plan de communication doivent inciter les utilisateurs à reconnaître que Data Catalog peut leur permettre de trouver des sources de données et de s’y connecter pour exploiter davantage les données.
 
@@ -172,4 +172,4 @@ Cet article concernait la prise en main d’**Azure Data Catalog** dans votre or
 -	[Annoter des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Métadonnées en crowdsourcing](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->
