@@ -1523,7 +1523,7 @@ Les changements de version suivants ont eu lieu entre HDInsight 2.x (HDP1.x) et
 
 
 ### Pilotes
-Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n’est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de Microsoft. Pour plus d’informations, consultez la page [Connexion d’Excel à HDInsight avec le pilote ODBC Hive de Microsoft](hdinsight-connect-excel-hive-odbc-driver.md).
+Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n’est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de Microsoft. Pour plus d’informations, consultez la page [Connexion d’Excel à HDInsight avec le pilote ODBC Hive de Microsoft](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Résolution des bogues
