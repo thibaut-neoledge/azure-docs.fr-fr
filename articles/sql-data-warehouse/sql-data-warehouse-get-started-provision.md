@@ -32,7 +32,7 @@ Dans ce didacticiel, vous utiliserez le portail Azure pour créer un entrepôt d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur **+ Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
+2. Cliquez sur **Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
 
     ![Créer](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 

@@ -261,11 +261,12 @@ Où :
 
 - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement du fichier de clé d’inscription  
 - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
-- - **/EncryptionEnabled** : paramètre facultatif, utilisé lorsque vous répliquez des machines virtuelles Hyper-V dans des clouds VMM sur Azure. Spécifiez si vous souhaitez chiffrer les machines virtuelles dans Azure (chiffrement au repos). Vérifiez que le nom du fichier porte l’extension **.pfx**. Par défaut, le chiffrement est désactivé
+- **/EncryptionEnabled** : paramètre facultatif, utilisé lorsque vous répliquez des machines virtuelles Hyper-V dans des clouds VMM sur Azure. Spécifiez si vous souhaitez chiffrer les machines virtuelles dans Azure (chiffrement au repos). Vérifiez que le nom du fichier porte l’extension **.pfx**. Par défaut, le chiffrement est désactivé
 - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
 - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
 - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
 - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe à utiliser pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
+
 
 
 ### Installation de l’agent Azure Recovery Services sur des hôtes Hyper-V

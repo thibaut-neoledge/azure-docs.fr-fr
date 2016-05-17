@@ -22,9 +22,11 @@ Pour créer un espace de noms :
 
 2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**. 
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
@@ -42,11 +44,14 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 ###Pour obtenir les informations de gestion du portail
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée : ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée :
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Cliquez sur **Informations de connexion**. ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Cliquez sur **Informations de connexion**.
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAP et le nom de clé.
 
