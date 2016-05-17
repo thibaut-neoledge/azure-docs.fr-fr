@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Création de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure Classic" 
+	pageTitle="Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure Classic" 
 	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure Classic." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/03/2016" 
+ 	ms.date="05/05/2016" 
 	ms.author="juliako"/>
 
 
-#Création de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure Classic
+#Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure Classic
 
 > [AZURE.SELECTOR]
 - [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
->[AZURE.NOTE]Pour plus d’informations sur les concepts relatifs aux canaux prenant en charge l’encodage en temps réel, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Pour obtenir des informations conceptuelles sur les canaux prenant en charge l’encodage dynamique, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Scénario courant de diffusion dynamique en continu
 
@@ -109,7 +109,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 2.	Sélectionnez la page CANAUX.
 3.	Sélectionnez Ajouter+ pour ajouter un canal.
 
-Choisissez les types d’encodage **Standard**. Ce type spécifie que vous souhaitez créer un canal qui est activé pour l’encodage en temps réel. Cela signifie que le flux entrant à débit binaire unique est envoyé au canal et encodé en un flux à débit binaire multiple à l’aide des paramètres d’encodeur dynamique spécifiés. Pour plus d’informations, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+Choisissez les types d’encodage **Standard**. Ce type spécifie que vous souhaitez créer un canal qui est activé pour l’encodage en temps réel. Cela signifie que le flux entrant à débit binaire unique est envoyé au canal et encodé en un flux à débit binaire multiple à l’aide des paramètres d’encodeur dynamique spécifiés. Pour plus d’informations, consultez l’article [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard0][standard0]
 
@@ -119,7 +119,7 @@ Pour le type d’encodage **Standard**, les options de protocole de réception v
 - RTMP à débit binaire unique
 - RTP (MPEG-TS) : flux de transport MPEG-2 via RTP.
 
-Pour obtenir une explication détaillée de chaque protocole, consultez [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+Pour une explication détaillée de chaque protocole, consultez l’article [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard1][standard1]
 
@@ -127,7 +127,7 @@ Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du c
 
 Dans la page **Configuration publicitaire**, vous pouvez spécifier la source pour les signaux des marqueurs de publicité. Lors de l’utilisation du portail, vous pouvez sélectionner uniquement API, qui indique que l’encodeur dynamique dans le canal doit écouter une API de marqueur de publicité asynchrone. Lorsque vous utilisez le portail, vous ne pouvez sélectionner qu’une API.
 
-Pour plus d’informations, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations, consultez l’article [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard2][standard2]
 
@@ -148,7 +148,7 @@ Une fois que vous avez créé le canal, vous pouvez sélectionner l’onglet **E
 
 ![standard5][standard5]
 
-Pour plus d’informations, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations, consultez l’article [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Obtenir les URL de réception
@@ -276,4 +276,4 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

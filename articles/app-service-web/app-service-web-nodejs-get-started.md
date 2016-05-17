@@ -26,14 +26,14 @@ Ce didacticiel explique comment créer une application [Node.js](http://nodejs.o
 ## Configuration requise
 
 - Node.js. Vous trouverez les fichiers binaires d’installation [ici](https://nodejs.org/).
-- Yoeman. Vous trouverez des instructions d’installation [ici](http://yeoman.io/).
+- Yeoman. Vous trouverez des instructions d’installation [ici](http://yeoman.io/).
 - Git. Vous trouverez les fichiers binaires d’installation [ici](http://www.git-scm.com/downloads).
 - Interface de ligne de commande Azure Vous trouverez des instructions d’installation [ici](../xplat-cli-install.md).
 - Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Création et déploiement d’une application Node.js simple
 
-1. Ouvrez le terminal de ligne de commande de votre choix et installez le [générateur Express pour Yoeman](https://github.com/petecoop/generator-express).
+1. Ouvrez le terminal de ligne de commande de votre choix et installez le [générateur Express pour Yeoman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 
@@ -203,4 +203,4 @@ Pour activer Node-Inspector, procédez comme suit :
 - [Centre de développement Node.js](/develop/nodejs/)
 - [Prise en main des applications web dans Azure App Service.](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

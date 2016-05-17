@@ -13,112 +13,57 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-
-# Création d’enregistrements DNS à l’aide de l’interface de ligne de commande
+# Création de jeux d’enregistrements et d’enregistrements DNS à l’aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
 - [Portail Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Interface de ligne de commande Azure](dns-getstarted-create-recordset-cli.md)
 
-Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre les enregistrements DNS et les jeux d’enregistrements.
 
+Cet article vous guide dans la création de jeux d’enregistrements et d’enregistrements à l’aide de la CLI. Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre la notion d’enregistrements et de jeux d’enregistrements DNS.
 
-## Compréhension des jeux d’enregistrements et des enregistrements.
-Chaque enregistrement DNS a un nom et un type.
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-Le nom _complet_ inclut le nom de la zone, contrairement au nom _relatif_. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
+## Création d’un jeu d’enregistrements et d’un enregistrement
 
->[AZURE.NOTE] Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs.
+Dans cette section, nous allons vous montrer comment créer un jeu d’enregistrements et des enregistrements. Dans cet exemple, vous allez créer un jeu d’enregistrements avec le nom relatif *www* dans la zone DNS *contoso.com*. Le nom complet des enregistrements sera *www.contoso.com*. Le type d’enregistrement est *A* et la durée de vie est de 60 secondes. À la fin de cette étape, vous aurez créé un jeu d’enregistrements vide.
 
-Il existe différents types d’enregistrement, selon les données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui associe un nom à une adresse IPv4. Un autre type est un enregistrement « MX », qui associe un nom à un serveur de messagerie.
+Pour créer un jeu d'enregistrements à l'apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d'enregistrement « "@" » (guillemets compris). Il s'agit d'une convention DNS courante.
 
-Azure DNS prend en charge tous les types d’enregistrement DNS courants : A, AAAA, CNAME, MX, NS, SOA, SRV et TXT. (Notez que les [enregistrements SPF doivent être créés à l’aide du type d’enregistrement TXT](http://tools.ietf.org/html/rfc7208#section-3.1).)
+### 1\. Création d’un jeu d'enregistrements
 
-Vous devez parfois créer plusieurs enregistrements DNS avec un nom et un type donnés. Par exemple, supposons que le site web www.contoso.com est hébergé sur des adresses IP différentes. Cela requiert deux enregistrements A, un pour chaque adresse IP :
-
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
-
-Il s’agit d’un exemple de jeu d’enregistrements. Un jeu d’enregistrements est une collection d’enregistrements DNS dans une zone ayant le même nom et le même type. La plupart des jeux d’enregistrements contiennent un enregistrement unique, mais les exemples comme celui ci-dessus dans lequel un jeu d’enregistrements contient plusieurs enregistrements sont relativement courants. Les enregistrements de type SOA et CNAME constituent une exception, les normes DNS n’autorisant pas plusieurs enregistrements avec le même nom pour ces types.
-
-La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistrement est mis en cache par les clients avant d’être réinterrogé. Dans l’exemple ci-dessus, la durée de vie est de 3 600 secondes ou 1 heure. La durée de vie est spécifiée pour le jeu d’enregistrements, pas pour chaque enregistrement. La même valeur est donc utilisée pour tous les enregistrements au sein de ce jeu d’enregistrements.
-
->[AZURE.NOTE] Azure DNS gère les enregistrements DNS à l’aide de jeux d’enregistrements.
-
-
-
-## Création de jeux d’enregistrements et d’enregistrements 
-
-Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistrements et des enregistrements. Nous allons utiliser le type d'enregistrement DNS « A », pour d'autres types d'enregistrements, consultez [Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)
-
-
-### Étape 1
-
-Création d’un jeu d'enregistrements :
-
-	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+Pour créer un jeu d’enregistrements, utilisez `azure network dns record-set create`. Spécifiez le groupe de la ressource, le nom de la zone, le nom relatif du jeu d’enregistrements, le type d’enregistrement et la durée de vie (TTL). Si le paramètre --ttl n’est pas défini, la valeur par défaut est 4 (en secondes). À la fin de cette étape, vous obtiendrez un jeu d’enregistrements « www » vide.
+	
+*Utilisation : network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-Le jeu d’enregistrements ayant le nom relatif « www » dans la zone DNS « contoso.com », le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes.
+### 2\. Ajout d’enregistrements
 
->[AZURE.NOTE] Pour créer un jeu d'enregistrements à l'apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d'enregistrement « "@" » (guillemets compris). Il s'agit d'une convention DNS courante.
+Pour pouvoir utiliser le jeu d’enregistrements*www* que vous venez de créer, vous devez y ajouter des enregistrements. Les enregistrements sont ajoutés aux jeux d’enregistrements à l’aide de la commande `azure network dns record-set add-record`.
 
-Le jeu d'enregistrements est vide et vous devez ajouter des enregistrements pour pouvoir utiliser le jeu d'enregistrements « www » que vous venez de créer.<BR>
+Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type *A*, vous ne pourrez spécifier que les enregistrements avec le paramètre `-a <IPv4 address>`.
 
-### Étape 2
+Ajoutez les enregistrements IPv4 *A* au jeu d’enregistrements *www* à l’aide de la commande suivante :
 
-Ajoutez les enregistrements IPv4 A au jeu d’enregistrements « www » à l'aide de la commande suivante :
-
-	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+*Utilisation : network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
-	
 
-Les modifications sont terminées. Vous pouvez récupérer le jeu d’enregistrements à partir d’Azure DNS à l’aide de « azure network dns-record-set show »
+## Autres exemples de types d’enregistrements
 
+Les exemples suivants montrent comment créer un jeu d’enregistrements de chaque type d’enregistrement, chacun contenant un seul enregistrement.
 
-	azure network dns record-set show myresourcegroup "contoso.com" www A
-	
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "www"
-	data:    Id                              : /subscriptions/########################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
-	data:    Location                        : global
-	data:    TTL                             : 300
-	data:    A records:
-	data:        IPv4 address                : 134.170.185.46
-	data:
-	info:    network dns record-set show command OK
-
-
-Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroger le nouveau jeu d’enregistrements.
-
->[AZURE.NOTE] Comme lors de la création de la zone, si vous n’avez pas encore délégué le domaine aux serveurs de noms Azure DNS, vous devez spécifier l’adresse du serveur de noms de votre zone explicitement.
-
-
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
-
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
-
-	Name:    www.contoso.com
-	Addresses:  134.170.185.46
-    	        
-
-
+[AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
 ## Étapes suivantes
-[Gestion des zones DNS](dns-operations-dnszones-cli.md)
 
-[Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)<BR>
+Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Manage DNS records and record sets using CLI](dns-operations-recordsets-portal.md) (Gestion des enregistrements et jeux d’enregistrements à l’aide de l’interface de ligne de commande).
 
-[Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
- 
+Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

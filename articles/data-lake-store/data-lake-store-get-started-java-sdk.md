@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/10/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide de Java
@@ -35,7 +35,17 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) Java Azure Data La
 * IntelliJ ou un autre environnement de développement Java approprié. Ceci étape est facultatif mais recommandé. Les instructions ci-dessous utilisent IntelliJ.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
-* Créer une application Azure Active Directory (AAD) et récupérer son **ID client** et l’**URI de réponse** et la **Clé**. Pour plus d’informations sur les applications AAD et des instructions sur la façon d’obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md). L’URI de réponse et la Clé seront également disponibles sur le portail une fois l’application créée et la clé générée.
+* **Créez une application Azure Active Directory**. Il existe deux modes d’authentification à l’aide d’Azure Active Directory : **interactif** et **non interactif**. Les conditions préalables requises varient selon le mode d’authentification.
+	* **Pour l’authentification interactive** - Dans Azure Active Directory, vous devez créer une **application cliente native**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client** et l’**URI de redirection** associés à l’application.
+		- Définir des autorisations déléguées
+
+	* **Pour l’authentification non interactive** (utilisée dans cet article) - Dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client**, la **clé secrète client** et l’**URI de redirection** associés à l’application.
+		- Définir des autorisations déléguées
+		- Attribuez l’application Azure Active Directory à un rôle. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources. 
+
+	Pour obtenir des instructions sur la récupération de ces valeurs, la définition des autorisations et l’attribution de rôles, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../resource-group-create-service-principal-portal.md).
 
 ## Comment s’authentifier à l’aide d’Azure Active Directory ?
 
@@ -45,13 +55,13 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 
 ## Création d’une application Java
 
-1. Ouvrez IntelliJ et créez un nouveau projet Java à l’aide du modèle **Application de ligne de commande**.
+1. Ouvrez IntelliJ et créez un nouveau projet Java à l’aide du modèle **Application de ligne de commande**. Terminez l’Assistant pour créer le projet.
 
 2. Cliquez avec le bouton droit sur le projet sur le côté gauche de l’écran et cliquez sur **Ajouter la prise en charge Framework**. Choisissez **Maven** et cliquez sur **OK**.
 
 3. Ouvrez le fichier **« pom.xml »** nouvellement créé et ajoutez l’extrait de texte suivant entre la balise **</version>** et la balise **</project>** :
 
-    REMARQUE : cette étape est temporaire jusqu’à ce que le Kit de développement logiciel (SDK) Azure Data Lake Store soit disponible dans Maven. Cet article sera mis à jour une fois le Kit de développement logiciel (SDK) disponible dans Maven. Toutes les futures mises à jour ce Kit de développement logiciel (SDK) seront disponibles via Maven.
+    >[AZURE.NOTE] Cette étape est temporaire jusqu’à ce que le Kit de développement logiciel (SDK) Azure Data Lake Store soit disponible dans Maven. Cet article sera mis à jour une fois le Kit de développement logiciel (SDK) disponible dans Maven. Toutes les futures mises à jour ce Kit de développement logiciel (SDK) seront disponibles via Maven.
 
         <repositories>
         	<repository>
@@ -88,9 +98,9 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
     	</dependencies>
 
 
-4. Accédez à **Fichier**, puis **Paramètres**, puis **Build**, **Exécution**, **Déploiement**. Sélectionnez **Outils de génération**, **Maven**, **Importation**. Cochez l’option **Importer les projets Maven automatiquement**.
+4. Accédez à **Fichier**, puis **Paramètres**, puis **Build, Execution, and Deployment** (Génération, exécution et déploiement). Développez **Outils de génération**, **Maven**, puis **Importation**. Cochez la case **Importer les projets Maven automatiquement**. Cliquez sur **Appliquer**, puis sur **OK**.
 
-5. Ouvrez **Main.java** et remplacez le bloc de code existant par le code suivant. Renseignez également les valeurs des paramètres inclus dans l’extrait de code, tels que **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** et **SUBSCRIPTION-ID**.
+5. Dans le volet de gauche, accédez à **src**, **principal**, **java**, **<nom du package>**, puis ouvrez **Main.java** et remplacez le bloc de code existant par le code suivant. Renseignez également les valeurs des paramètres inclus dans l’extrait de code, tels que **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** et **SUBSCRIPTION-ID**.
 
     Ce code déroule le processus de création d’un compte Data Lake Store, de création de fichiers dans le magasin, de concaténation de fichiers, de téléchargement d’un fichier et enfin de suppression du compte.
 
@@ -293,4 +303,4 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

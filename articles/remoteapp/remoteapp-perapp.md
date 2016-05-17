@@ -36,7 +36,7 @@ Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonct
   - En mode application, l’affectation des utilisateurs dans la collection ne peut pas être gérée via le portail Azure. Elle ne peut être gérée qu’au moyen des applets de commande PowerShell.
 
 3. Les utilisateurs ne voient que les applications qui ont été directement publiées à leur attention. Un utilisateur a toutefois la possibilité de lancer les autres applications disponibles sur l’image en y accédant directement depuis le système d’exploitation.
-  - Cette fonctionnalité ne garantit pas un verrouillage sécurisé des applications, mais ne fait que restreindre la visibilité dans le flux d’applications.
+  - Cette fonctionnalité ne garantit pas un verrouillage sécurisé des applications ; elle ne fait que restreindre la visibilité dans le flux d’applications.
   - Si vous souhaitez isoler les utilisateurs de certaines applications, vous devez utiliser des collections distinctes.
 
 ## Comment obtenir les applets de commande PowerShell pour Azure RemoteApp
@@ -88,7 +88,7 @@ Exécutez l’applet de commande suivante :
 
 		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-L’utilisateur voit à présent l’application dans le client Azure RemoteApp et sera en mesure de s’y connecter.
+L’utilisateur voit à présent l’application dans le client Azure RemoteApp et sera en mesure de s’y connecter.
 
 ## Comment supprimer une application d’un utilisateur
 
@@ -102,4 +102,4 @@ Nous vous remercions de nous faire part de vos commentaires et suggestions conce
 ## Vous n’avez pas eu l’occasion de tester la fonctionnalité en version préliminaire ?
 Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enquête](http://www.instant.ly/s/AY83p) pour demander l’accès à la fonctionnalité.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

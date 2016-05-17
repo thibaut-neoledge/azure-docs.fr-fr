@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # Forum Aux Questions (FAQ) relatives à IoT Suite
@@ -51,6 +51,8 @@ Deux. Vous pouvez créer uniquement deux API Bing Maps gratuites dans un abonnem
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### Puis-je créer une solution préconfigurée si je dispose de Microsoft Azure pour DreamSpark ?
+Pour le moment, il est impossible de créer une solution préconfigurée avec un compte [Microsoft Azure pour DreamSpark][lnk-dreamspark]. Vous pouvez toutefois créer en quelques minutes un [compte d’évaluation Azure gratuit][lnk-30daytrial], que vous pourrez utiliser pour créer une solution préconfigurée.
 
 ### Comment supprimer un client AAS ?
 
@@ -61,6 +63,8 @@ Consultez billet de blog de Eric Golpe [Procédure pas à pas de la suppression 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

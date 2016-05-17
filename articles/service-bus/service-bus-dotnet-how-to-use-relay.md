@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Cet article montre comment utiliser le service Service Bus Relay. Les exemples s
 
 ## Présentation de Service Bus Relay
 
-Le [service Service Bus *Relay*](service-bus-relay-overview.md) vous permet de créer des applications hybrides qui s’exécutent à la fois dans un centre de données Azure et dans votre propre environnement d’entreprise local. Service Bus Relay facilite ce processus en offrant la possibilité d'exposer les services WCF (Windows Communication Foundation) qui résident dans un réseau d'entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d'entreprise.
+Le [service Service Bus *Relay*](service-bus-relay-overview.md) vous permet de créer des applications hybrides qui s’exécutent à la fois dans un centre de données Azure et dans votre propre environnement d’entreprise local. Service Bus Relay facilite ce processus en offrant la possibilité d’exposer les services WCF (Windows Communication Foundation) qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise.
 
 ![Concepts de relais](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -35,7 +35,7 @@ Cet article montre comment utiliser Service Bus Relay pour créer un service Web
 
 ## Création d'un espace de noms de service
 
-Avant d'utiliser Service Bus Relay dans Azure, vous devez créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+Avant d’utiliser Service Bus Relay dans Azure, vous devez créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms de service :
 
@@ -75,9 +75,7 @@ Afin d'exécuter des opérations de gestion, comme la création d'une connexion 
 
 ## Obtention du package NuGet Service Bus
 
-Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) constitue le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus.
-
-Pour installer le package NuGet dans votre application, procédez comme suit :
+Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) constitue le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. Pour installer le package NuGet dans votre application, procédez comme suit :
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 2.  Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Install** pour terminer l’installation, puis fermez la boîte de dialogue suivante.
@@ -265,8 +263,8 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
 
 Maintenant que vous avez appris les principes de base du service Service Bus Relay, consultez ces liens pour en savoir plus.
 
+- [Aperçu de la messagerie par relais Service Bus](service-bus-relay-overview.md)
 - [Présentation de l’architecture d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 - Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
 
   [portail Azure Classic]: http://manage.windowsazure.com
@@ -274,4 +272,4 @@ Maintenant que vous avez appris les principes de base du service Service Bus Rel
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [vue d’ensemble des exemples Service Bus]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

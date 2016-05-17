@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/06/2016"
     ms.author="sethm"/>
 
 # Utilisation des rubriques et abonnements Service Bus
@@ -28,13 +28,11 @@ Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus. L
 
 ## Configuration de l'application pour l'utilisation de Service Bus
 
-Lorsque vous créez une application qui fait appel à Service Bus, vous devez ajouter une référence à l'assembly Service Bus et inclure les espaces de noms correspondants.
+Lorsque vous créez une application qui fait appel à Service Bus, vous devez ajouter une référence à l'assembly Service Bus et inclure les espaces de noms correspondants. Le plus simple consiste à télécharger le package NuGet approprié.
 
 ## Obtention du package NuGet Service Bus
 
-Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) constitue le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express.
-
-Pour installer le package NuGet dans votre application, procédez comme suit :
+Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) est le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus nécessaires. Pour installer le package NuGet dans votre application, procédez comme suit :
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 2.  Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Install** pour terminer l’installation, puis fermez la boîte de dialogue suivante.
@@ -47,14 +45,14 @@ Vous êtes maintenant en mesure d’écrire du code pour Service Bus.
 
 Service Bus utilise une chaîne de connexion pour stocker les points de terminaison et les informations d’identification. Vous pouvez placer votre chaîne de connexion dans un fichier de configuration, au lieu de la coder en dur :
 
-- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers .csdef et .cscfg).
+- Quand vous utilisez les services Azure, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers .csdef et .cscfg).
 - Quand vous utilisez les sites Web Azure ou Microsoft Azure Virtual Machines, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration .NET (par exemple, le fichier Web.config).
 
 Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisant la méthode `CloudConfigurationManager.GetSetting`, comme indiqué plus loin dans cet article.
 
-### Configuration de votre chaîne de connexion lors de l'utilisation des services cloud
+### Configuration de votre chaîne de connexion
 
-Le mécanisme de configuration de service est propre aux projets Azure Cloud Services et vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué dans l’exemple qui suit :
+Le mécanisme de configuration de service vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué dans l’exemple qui suit :
 
 ```
 <ServiceDefinition name="Azure1">
@@ -98,16 +96,16 @@ Quand vous utilisez sites web ou Machines virtuelles, il est recommandé d’uti
 </configuration>
 ```
 
-Utilisez le nom et les valeurs de clé SAP que vous avez récupérés sur le [portail Azure Classic][], comme décrit dans la section précédente.
+Utilisez le nom et les valeurs de clé SAP que vous avez récupérés sur le [Portail Azure Classic][], comme décrit dans la section précédente.
 
 ## Création d’une rubrique
 
 Vous pouvez effectuer des opérations de gestion sur les rubriques et les abonnements Service Bus en utilisant la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Cette classe fournit des méthodes pour créer, énumérer et supprimer des rubriques.
 
-Dans l’exemple suivant, un objet `NamespaceManager` est construit à l’aide de la classe Azure `CloudConfigurationManager` avec une chaîne de connexion constituée de l’adresse de base d’un espace de noms Service Bus et des informations d’identification SAP appropriées assorties d’autorisations pour les gérer. Cette chaîne de connexion se présente comme suit.
+Dans l’exemple suivant, un objet `NamespaceManager` est construit à l’aide de la classe Azure `CloudConfigurationManager` avec une chaîne de connexion constituée de l’adresse de base d’un espace de noms Service Bus et des informations d’identification SAP appropriées assorties d’autorisations pour les gérer. Cette chaîne de connexion se présente comme suit.
 
 ```
-Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 Utilisez l’exemple suivant en reprenant les paramètres de configuration de la section précédente.
@@ -126,7 +124,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Les surcharges de la méthode [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) vous permettent de paramétrer les propriétés de la rubrique, par exemple, pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » (TTL) soit appliquée aux messages envoyés à la rubrique. Ces paramètres sont appliqués à l'aide de la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L’exemple suivant montre comment créer une rubrique nommée **TestTopic** d’une taille maximale de 5 Go et un message TTL par défaut d’une minute.
+Les surcharges de la méthode [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) vous permettent de paramétrer les propriétés de la rubrique, par exemple, pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » (TTL) soit appliquée aux messages envoyés à la rubrique. Ces paramètres sont appliqués à l'aide de la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L’exemple suivant montre comment créer une rubrique nommée **TestTopic** d’une taille maximale de 5 Go et un message TTL par défaut d’une minute.
 
 ```
 // Configure Topic Settings.
@@ -151,7 +149,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ## Création d'un abonnement
 
-Vous pouvez également créer des abonnements à des rubriques à l’aide de la classe [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
+Vous pouvez également créer des abonnements de rubrique à l’aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
 
 ### Création d'un abonnement avec le filtre par défaut (MatchAll)
 
@@ -240,7 +238,7 @@ Les rubriques Service Bus prennent en charge une [taille de message maximale de 
 
 ## Réception des messages d’un abonnement
 
-Le moyen recommandé pour recevoir les messages d’un abonnement consiste à utiliser un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Les objets [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) peuvent fonctionner dans deux modes différents : [*ReceiveAndDelete* et *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
+Le moyen recommandé pour recevoir les messages d’un abonnement consiste à utiliser un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Les objets [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) peuvent fonctionner dans deux modes différents : [*ReceiveAndDelete* et *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique. En d’autres termes, lorsque Service Bus reçoit une demande de lecture pour un message figurant dans un abonnement, il marque le message comme consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
@@ -283,7 +281,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel du moment de l’appel de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute. Le client attend donc jusqu’à une minute avant que le renouvellement automatique ne se termine, et effectue un nouvel appel pour rechercher les messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
+Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel du moment de l’appel de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute. Le client attend donc jusqu’à une minute avant que le renouvellement automatique ne se termine, et effectue un nouvel appel pour rechercher les messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
 
 ## Gestion des blocages d’application et des messages illisibles
 
@@ -313,18 +311,20 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 Maintenant que vous avez appris les principes de base des rubriques et des abonnements Service Bus, consultez ces liens pour en savoir plus :
 
 -   [Files d’attente, rubriques et abonnements][].
+-   [Exemple de filtres de rubrique][]
 -   Référence d'API pour [SqlFilter][].
--   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages vers et depuis une file d’attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
--   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la [présentation](service-bus-samples.md).
+-   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages vers et depuis une file d’attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
+-   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la [présentation](service-bus-samples.md).
 
   [Portail Azure Classic]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
+  [Exemple de filtres de rubrique]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Didacticiel .NET sur la messagerie répartie Service Bus]: service-bus-brokered-tutorial-dotnet.md
+  [Didacticiel .NET sur la messagerie répartie Service Bus]: service-bus-brokered-tutorial-dotnet.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

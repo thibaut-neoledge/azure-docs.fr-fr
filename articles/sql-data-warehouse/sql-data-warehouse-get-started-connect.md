@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Se connecter à SQL Data Warehouse avec Visual Studio
@@ -53,7 +53,7 @@ Pour optimiser les performances, utilisez Visual Studio 2015 avec la [dernière 
 
     ![Ajouter SQL Server][3]
 
-1. Renseignez les champs dans la fenêtre Se connecter au serveur.
+4. Renseignez les champs dans la fenêtre Se connecter au serveur.
 
     ![Se connecter au serveur][4]
 
@@ -63,10 +63,11 @@ Pour optimiser les performances, utilisez Visual Studio 2015 avec la [dernière 
     - **Nom de la base de données**. Entrez le nom de la base de données pour la base de données SQL DW.
     - Cliquez sur **Connecter**.
 
-1. Pour voir plus d’informations, développez votre serveur SQL Azure. Vous pouvez afficher les bases de données associées au serveur. Développez AdventureWorksDW pour voir les tables de votre exemple de base de données.
+5. Pour voir plus d’informations, développez votre serveur SQL Azure. Vous pouvez afficher les bases de données associées au serveur. Développez AdventureWorksDW pour voir les tables de votre exemple de base de données.
 
     ![Explorer AdventureWorksDW][5]
 
+> [AZURE.NOTE] La saisie du nom de la base de données SQL Data Warehouse dans le champ **Nom de la base de données** au moment de la connexion (étape 4) est importante pour que l’arbre d’objets fonctionne correctement. La connexion à la base de données par défaut, **master**, en laissant cette option vide peut ne pas fonctionner si certaines bases de données sur votre serveur logique sont suspendues. Cette limitation sera résolue à l’avenir, mais en attendant, la connexion à la base de données SQL Data Warehouse permet d’assurer le fonctionnement correct de l’Explorateur d’objets, comme indiqué ci-dessus.
 
 ## Étape 3 : Exécuter un exemple de requête
 
@@ -88,7 +89,7 @@ Maintenant qu’une connexion à votre base de données a été établie, passon
 
     ![Exécuter une requête][7]
 
-1. Passez en revue les résultats de la requête. Dans cet exemple, la table FactInternetSales a 60 398 lignes.
+5. Passez en revue les résultats de la requête. Dans cet exemple, la table FactInternetSales a 60 398 lignes.
 
     ![Résultats de la requête][8]
 
@@ -110,4 +111,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

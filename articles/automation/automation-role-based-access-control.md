@@ -5,21 +5,22 @@
    documentationCenter=""
    authors="SnehaGunda"
    manager="stevenka"
-   editor="tysonn" />
+   editor="tysonn"
+   keywords="rbac automation, contrôle d’accès en fonction du rôle, azure rbac" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/11/2016"
-   ms.author="sngun"/>
+   ms.date="05/10/2016"
+   ms.author="magoedte;sngun"/>
 
 # Contrôle d’accès en fonction du rôle dans Azure Automation
 
 ## Contrôle d’accès en fonction du rôle
 
-Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Avec [RBAC](../active-directory/role-based-access-control-configure.md), vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail. L’accès en fonction du rôle peut être accordé aux utilisateurs à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
+Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Avec [RBAC](../active-directory/role-based-access-control-configure.md), vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail. L’accès en fonction du rôle peut être accordé aux utilisateurs à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
 
 ## RBAC dans les comptes Automation
 
@@ -37,9 +38,9 @@ Dans cet article, nous allons vous guider dans la configuration de RBAC dans Az
 
 ## Configurer RBAC pour votre compte Automation à l’aide du portail Azure
 
-1.	Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation à partir du panneau Comptes Automation.  
+1.	Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis le panneau Comptes Automation.  
 
-2.	Cliquez sur le contrôle **Accès** dans l’angle supérieur droit. Cette opération ouvre le panneau **Utilisateurs** où vous pouvez ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et afficher les rôles existants qui peuvent être configurés pour le compte Automation.
+2.	Cliquez sur le contrôle **Accès** dans l’angle supérieur droit afin d’ouvrir le panneau **Utilisateurs**. Celui-ci vous permet d’ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et d’afficher les rôles existants qui peuvent être configurés pour le compte Automation.
 
     ![Bouton Accéder](media/automation-role-based-access-control/automation-01-access-button.png)
 
@@ -47,29 +48,29 @@ Dans cet article, nous allons vous guider dans la configuration de RBAC dans Az
 
 ### Ajouter un nouvel utilisateur et affecter un rôle
 
-1.	Dans le panneau Utilisateurs, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès** où vous pouvez ajouter un utilisateur, un groupe ou une application, et lui affecter un rôle.  
+1.	Dans le panneau Utilisateurs, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès**. Celui-ci vous permet d’ajouter un utilisateur, un groupe ou une application et de lui affecter un rôle.  
 
     ![Ajouter un utilisateur](media/automation-role-based-access-control/automation-02-add-user.png)
 
-2.	Dans la liste des rôles disponibles, sélectionnez un rôle. Nous allons choisir le rôle **Lecteur**, mais vous pouvez choisir l’un des rôles intégrés disponibles pris en charge par un compte Automation ou un rôle personnalisé que vous avez peut-être défini.
+2.	Dans la liste des rôles disponibles, sélectionnez un rôle. Dans le cadre de notre exemple, nous choisirons le rôle **Lecteur**, mais vous pouvez choisir l’un des rôles intégrés disponibles pris en charge par un compte Automation ou un rôle personnalisé que vous avez défini.
 
     ![Sélectionner un rôle](media/automation-role-based-access-control/automation-03-select-role.png)
 
-3.	Cliquez sur **Ajouter des utilisateurs** pour ouvrir le panneau **Ajouter des utilisateurs**. Si vous avez ajouté des utilisateurs, des groupes ou des applications pour gérer votre abonnement, ces utilisateurs sont répertoriés, et vous pouvez les sélectionner pour ajouter un accès. Si aucun utilisateur n’est répertorié ou si l’utilisateur que vous souhaitez ajouter n’est pas répertorié, cliquez sur **Inviter** pour ouvrir le panneau **Convier un invité** dans lequel vous pouvez inviter un utilisateur à l’aide d’une adresse de messagerie de compte Microsoft valide comme Outlook.com, OneDrive ou des identifiants Xbox Live. Une fois que vous avez entré l’adresse de messagerie de l’utilisateur, cliquez successivement sur **Sélectionner** pour ajouter l’utilisateur et sur **OK**.
+3.	Cliquez sur **Ajouter des utilisateurs** pour ouvrir le panneau **Ajouter des utilisateurs**. Si vous avez ajouté des utilisateurs, des groupes ou des applications pour gérer votre abonnement, ces utilisateurs sont répertoriés, et vous pouvez les sélectionner pour ajouter un accès. Si aucun utilisateur n’est répertorié ou si l’utilisateur que vous souhaitez ajouter n’est pas répertorié, cliquez sur **Inviter** pour ouvrir le panneau **Convier un invité**. Celui-ci vous permet d’inviter un utilisateur disposant d’une adresse de messagerie de compte Microsoft valide comme Outlook.com, OneDrive ou des identifiants Xbox Live. Une fois que vous avez entré l’adresse de messagerie de l’utilisateur, cliquez sur **Sélectionner** pour ajouter l’utilisateur, puis sur **OK**.
 
     ![Ajouter des utilisateurs](media/automation-role-based-access-control/automation-04-add-users.png)
  
-À présent, vous devez voir l’utilisateur ajouté au panneau **Utilisateurs** avec le rôle **Lecteur** qui lui est affecté.
+L’utilisateur devrait maintenant apparaître dans le panneau **Utilisateurs** avec le rôle **Lecteur**.
 
 ![Répertorier les utilisateurs](media/automation-role-based-access-control/automation-05-list-users.png)
 
-Vous pouvez également affecter un rôle à l’utilisateur à partir du panneau **Rôles**. À partir du panneau Utilisateurs, cliquez sur **Rôles** pour ouvrir le panneau **Rôles**. Dans ce panneau, vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes affectés à ce rôle.
+Vous pouvez également affecter un rôle à l’utilisateur depuis le panneau **Rôles**. Dans le panneau Utilisateurs, cliquez sur **Rôles** pour ouvrir le panneau **Rôles**. Dans ce panneau, vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes affectés à ce rôle.
 
 ![Affecter un rôle à partir du panneau Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
 >[AZURE.NOTE] Le contrôle d’accès en fonction du rôle ne peut être défini qu’au niveau du compte Automation et pas au niveau d’une ressource située au-dessous de ce compte.
 
-Vous pouvez affecter plusieurs rôles à un utilisateur, à un groupe ou à une application. Par exemple, si nous ajoutons les rôles **Opérateur Automation** et **Lecteur** pour l’utilisateur, il pourra alors afficher toutes les ressources Automation et exécuter des tâches de Runbook. Vous pouvez développer la liste déroulante pour afficher la liste des rôles affectés à l’utilisateur.
+Vous pouvez affecter plusieurs rôles à un utilisateur, à un groupe ou à une application. Par exemple, si nous ajoutons les rôles **Opérateur Automation** et **Lecteur** pour l’utilisateur, il pourra alors afficher toutes les ressources Automation et exécuter les tâches de Runbook. Vous pouvez développer la liste déroulante pour afficher la liste des rôles affectés à l’utilisateur.
 
 ![Afficher plusieurs rôles](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)
  
@@ -113,30 +114,30 @@ Cet utilisateur ne peut pas non plus accéder aux Webhooks associés à un Runbo
 
 L’accès en fonction du rôle peut également être configuré pour un compte Automation à l’aide des [applets de commande Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) ci-dessous.
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) répertorie tous les rôles qui sont disponibles dans RBAC d’Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de tous les utilisateurs dotés d’un rôle spécifique. **Exemple :** ![Obtenir la définition de rôle](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) répertorie tous les rôles qui sont disponibles dans l’outil RBAC d’Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de tous les utilisateurs dotés d’un rôle spécifique. **Exemple :** ![Obtenir la définition de rôle](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) répertorie les affectations de rôle RBAC d’Azure dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès d’un utilisateur spécifique ou de groupes dont l’utilisateur est membre. **Exemple **: utilisez la commande suivante pour dresser la liste de tous les utilisateurs et de leurs rôles dans un compte Automation.
+• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) répertorie les affectations de rôle RBAC d’Azure dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès d’un utilisateur spécifique ou de groupes dont l’utilisateur est membre. **Exemple :** utilisez la commande suivante pour dresser la liste de tous les utilisateurs et de leurs rôles dans un compte Automation.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
 
 ![Obtenir l’affectation de rôle](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
-• Utilisez [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) pour octroyer un accès à des utilisateurs, des groupes et des applications avec une étendue particulière. **Exemple **: utilisez la commande suivante pour créer un rôle « Opérateur Automation » pour un utilisateur au niveau du compte Automation.
+• Utilisez [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) pour octroyer un accès à des utilisateurs, des groupes et des applications au niveau d’une étendue particulière. **Exemple :** utilisez la commande suivante pour créer un rôle « Opérateur Automation » pour un utilisateur au niveau du compte Automation.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Nouvelle affectation de rôle](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• Utilisez [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) pour supprimer l’accès de l’utilisateur, du groupe ou de l’application spécifié au niveau d’une étendue particulière. **Exemple **: utilisez la commande suivante pour créer un rôle « Opérateur Automation » pour un utilisateur au niveau du compte Automation.
+• Utilisez [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) pour supprimer l’accès de l’utilisateur, du groupe ou de l’application spécifiés au niveau d’une étendue particulière. **Exemple :** utilisez la commande suivante pour créer un rôle « Opérateur Automation » pour un utilisateur au niveau du compte Automation.
 
     Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Dans les applets de commande indiquées ci-dessus, remplacez le nom de connexion, l’ID d’abonnement, le nom du groupe de ressources et le nom du compte Automation par les détails de votre compte. À l’invite, choisissez **yes** pour poursuivre la suppression des affectations de rôle.
+Dans les applets de commande indiquées ci-dessus, remplacez le nom de connexion, l’ID d’abonnement, le nom du groupe de ressources et le nom du compte Automation par les détails de votre compte. À l’invite, choisissez **yes** pour poursuivre la suppression de l’affectation de rôle.
 
 
 ## Étapes suivantes
--  Pour plus d’informations sur les différentes façons de configurer RBAC pour Azure Automation, reportez-vous à l’article [Gérer RBAC à l’aide d’Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
-- Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md).
+-  Pour plus d’informations sur les différentes façons de configurer RBAC pour Azure Automation, reportez-vous à l’article [Gestion du Contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+- Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 - Pour en savoir plus sur les différents types de Runbook, consultez l’article [Types de Runbook Azure Automation](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

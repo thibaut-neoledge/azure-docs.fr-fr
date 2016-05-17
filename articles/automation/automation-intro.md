@@ -4,20 +4,19 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
-	editor=""/>
-
+	manager="jwhit"
+	editor=""
+	keywords="présentation d’automatisation, azure automation, exemples d’applications d’azure automation"/>
 <tags
 	ms.service="automation"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/23/2016"
+	ms.date="05/10/2016"
 	ms.author="magoedte;bwren"/>
 
 # Vue d’ensemble d’Azure Automation
-
 
 Microsoft Azure Automation permet aux utilisateurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs, qui sont communément exécutées dans un environnement cloud et d’entreprise. Il fait gagner du temps, accroît la fiabilité des tâches d'administration récurrentes et planifie même leur exécution automatique à intervalles réguliers. Vous pouvez automatiser les processus à l'aide de Runbooks ou automatiser la gestion de configuration avec la Configuration de l'état souhaité (DSC, Desired State Configuration). Cet article propose une brève présentation d’Azure Automation et apporte des réponses à certaines questions courantes. Vous pouvez vous référer à d'autres articles de cette bibliothèque pour des informations plus détaillées sur les différentes rubriques.
 
@@ -67,7 +66,7 @@ Vous pouvez obtenir des [modules PowerShell](automation-runbook-gallery.md#modul
 
 ## Exemples d'applications pratiques d'Azure Automation 
 
-Voici quelques exemples des types de scénarios que vous pouvez automatiser avec Azure Automation.
+Voici quelques exemples des types de scénarios d’automatisation que permet Azure Automation.
 
 * Créer et copier des machines virtuelles dans différents abonnements Azure. 
 * Programmer des copies de fichiers d'une machine locale vers un conteneur Azure Blob Storage. 
@@ -101,4 +100,4 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 **Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

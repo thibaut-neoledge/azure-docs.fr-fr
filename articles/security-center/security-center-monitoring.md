@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
@@ -98,51 +98,47 @@ Dans l’exemple ci-dessus, une machine virtuelle est associée à une recommand
 Ce panneau comporte les détails de la sécurité pour la machine virtuelle. L’action recommandée et le niveau de gravité de chaque recommandation sont affichés en bas du panneau.
 
 ###Surveillance des réseaux virtuels
-Les réseaux virtuels surveillés par le Centre de sécurité apparaissent dans la section d’état de la prévention du panneau Réseaux. Lorsque vous cliquez sur **Réseaux** dans la mosaïque **Intégrité des ressources**, le panneau **Réseaux** s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
+Lorsque vous cliquez sur **Réseaux** dans la mosaïque **Intégrité des ressources**, le panneau **Réseaux** s’ouvre et affiche des informations détaillées, comme le montre l’illustration ci-dessous :
 
 ![Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
-
-Le panneau comprend deux sections :
-- Recommandations pour la mise en réseau
-- Mise en réseau
-
-Dans chaque section, vous pouvez sélectionner une option pour en savoir plus sur la recommandation. Les sections ci-dessous apportent plus de détails sur ces sujets.
 
 ####Recommandations pour la mise en réseau
 
 En haut du panneau se trouve un récapitulatif des problèmes et au bas du panneau, la liste des réseaux surveillés. Ces informations sont similaires à celles qui figurent dans le panneau Intégrité des ressources.
 
-![Point de terminaison](./media/security-center-monitoring/security-center-monitoring-fig10-new.png)
+![Panneau Mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
 
 La section de répartition des états du réseau répertorie les problèmes de sécurité potentiels et propose des recommandations pour leur résolution. Voici des exemples de problèmes potentiels :
 
-- [ACL sur les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) désactivée ;
-- [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) désactivés ;
-- affichage de sous-réseaux intègres et accès dans NSG non restreint.
+- Non-activation des groupes de sécurité réseau (NSG)
+- Non-activation des groupes de sécurité réseau sur les machines virtuelles
+- Restriction de l’accès externe via le point de terminaison externe public
+- Intégrité des sous-réseaux
 
 Lorsque vous cliquez sur l’une de ces recommandations, un nouveau panneau incluant plus de détails concernant la recommandation s’ouvre, comme illustré dans l’exemple ci-dessous.
 
-![Limiter le point de terminaison](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
+![Limiter le point de terminaison](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-Dans cet exemple, le panneau **Restreindre l’accès via le point de terminaison externe public** dispose d’une liste de groupes de sécurité réseau (NSG) qui font partie de cette alerte, ainsi que le sous-réseau et le réseau auxquels ce groupe de sécurité réseau est associé, l’état actuel de cette recommandation et son niveau de gravité. Si vous cliquez sur le groupe de sécurité réseau, un autre panneau s’ouvre, comme indiqué ci-dessous.
+Dans cet exemple, le panneau **Configure Missing Network Security Groups for Subnets** (Configurer les groupes de sécurité réseau manquants pour les sous-réseaux) contient une liste de sous-réseaux et de machines virtuelles sur lesquels la protection des groupe de sécurité réseau fait défaut. Un autre panneau s’ouvre lorsque vous cliquez sur le sous-réseau auquel vous souhaitez appliquer le groupe de sécurité réseau.
 
-Ce panneau comporte des informations sur les groupes de sécurité réseau ainsi que leur emplacement, en plus de contenir la liste des règles de trafic entrant qui sont actuellement activées. La partie inférieure de ce panneau indique la machine virtuelle qui est associée à ce groupe de sécurité réseau. Si vous souhaitez activer les règles de trafic entrant pour bloquer un port non souhaité qui est actuellement ouvert, ou modifier la source de la règle de trafic entrant actuelle, cliquez sur le bouton **Modifier la règle de trafic entrant** en haut du panneau.
+Dans le panneau **Choisir un groupe de sécurité réseau**, vous devez sélectionner le groupe de sécurité réseau le mieux adapté à votre sous-réseau, mais vous pouvez également créer un nouveau groupe de sécurité réseau.
 
 ####Section Mise en réseau
 
-La section **Mise en réseau** contient un affichage hiérarchique des groupes de ressources, du sous-réseau et de l’interface réseau associés à votre machine virtuelle, comme indiqué ci-dessous.
+La section **Mise en réseau** contient une vue hiérarchique des ressources, comme indiqué ci-dessous :
 
-![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
+![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
-Cette section différencie les [machines virtuelles basées sur Resource Manager des machines virtuelles classiques](../resource-manager-deployment-model.md). Cela vous aide à déterminer rapidement si les fonctionnalités réseau Azure Service Management ou Azure Resource Management sont disponibles pour la machine virtuelle. Si vous décidez d'accéder aux propriétés d'une carte d'interface réseau à partir de cet emplacement, vous devrez développer le sous-réseau et cliquer sur le nom de la machine virtuelle. Si vous effectuez cette action pour une machine virtuelle basée sur Resource Manager, un nouveau panneau semblable à ce qui suit s’affiche.
+Ce tableau est trié (machines virtuelles et sous-réseaux) par niveau de gravité, comme indiqué ci-dessous :
+- Rouge (en haut) : priorité élevée ; doivent être traités immédiatement 
+- Orange : priorité moyenne ; doivent être traités dès que possible
+- Vert (le dernier) : état d’intégrité
 
-![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
+Dans cette hiérarchie, le premier niveau se décompose comme suit : [Réseaux virtuels](../virtual-network/virtual-networks-overview.md), [Passerelles de réseau virtuel](../vpn-gateway/vpn-gateway-site-to-site-create.md) et [Réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Le deuxième niveau comprend des sous-réseaux et le troisième niveau regroupe les machines virtuelles appartenant à ces sous-réseaux. La colonne de droite présente l’état actuel du groupe de sécurité réseau (NSG) pour ces ressources. L’exemple suivant illustre le résultat de la sélection de la machine virtuelle VM-CL-W1 :
 
-Ce panneau comporte un résumé de la carte d'interface réseau et les recommandations actuelles pour celle-ci. Si la machine virtuelle que vous avez sélectionnée est une machine virtuelle classique, un nouveau panneau incluant des options différentes s’affiche, comme indiqué ci-dessous.
+![Arborescence réseau](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
-![ACL](./media/security-center-monitoring/security-center-monitoring-fig14-new.png)
-
-Dans ce panneau, vous pouvez apporter des modifications aux ports publics et privés et créer une liste ACL pour la présente machine virtuelle.
+La partie inférieure de ce panneau regroupe les recommandations pour cette machine virtuelle, comme décrit ci-dessus. Vous pouvez cliquer sur une recommandation pour en savoir plus, ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
 ###Surveillance des ressources SQL
 Lorsque vous cliquez sur l’option **SQL** de la mosaïque **Intégrité des ressources**, le panneau SQL s’ouvre et affiche des recommandations relatives aux problèmes, par exemple la désactivation de la fonction d’audit ou du chiffrement transparent des données. Il contient également des recommandations pour l’état général de la base de données.
@@ -185,8 +181,8 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) – Découvrez comment configurer des paramètres de sécurité dans le Centre de sécurité Azure
 - [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
-- [Surveillance des solutions de partenaires avec le Centre de sécurité Azure](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) -- Découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

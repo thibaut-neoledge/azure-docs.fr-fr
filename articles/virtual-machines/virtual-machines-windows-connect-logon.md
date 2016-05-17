@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connexion à une machine virtuelle Windows Server | Microsoft Azure"
-	description="Découvrez comment vous connecter à une machine virtuelle Windows Server à l'aide du portail Azure et du modèle de déploiement Resource Manager."
+	description="Découvrez comment vous connecter à une machine virtuelle Windows à l’aide du portail Azure et du modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Connexion à une machine virtuelle Azure exécutant Windows Server 
+# Connexion à une machine virtuelle Azure exécutant Windows 
 
 
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP). Tout d’abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -43,4 +43,4 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->
