@@ -77,11 +77,11 @@ Un grand nombre d'algorithmes d'apprentissage automatique utilisent la linéarit
 
 ![Frontière de classe non linéaire][1]
 
-***Limite de classe non linéaire**** : utiliser un algorithme de classification linéaire entraînerait une faible précision*
+***Limite de classe non linéaire**** : *utiliser un algorithme de classification linéaire entraînerait une faible précision*
 
 ![Données avec une tendance non linéaire][2]
 
-***Données avec une tendance non linéaire**** : une méthode de régression linéaire entraînerait plus d’erreurs*
+***Données avec une tendance non linéaire**** : *une méthode de régression linéaire entraînerait plus d’erreurs*
 
 Malgré leurs limitations, les algorithmes linéaires sont très populaires comme première ligne d'attaque. Ils ont tendance à être des algorithmes simples et à apprentissage rapide.
 
@@ -156,7 +156,7 @@ En dépit du terme « régression », la régression logique est en fait un pu
 
 ![Régression logique pour les données à deux classes avec une seule caractéristique][4]
 
-***Une régression logique pour les données à deux classes avec une seule fonctionnalité*** * : la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
+***Une régression logique pour les données à deux classes avec une seule fonctionnalité*** : *la limite de classe est le point auquel la courbe logistique est aussi proche des deux classes*
 
 ### Arbres, forêts et jungles
 
