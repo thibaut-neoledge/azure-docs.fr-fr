@@ -95,9 +95,10 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Définissez un point d’arrêt dans index.jsp :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537]
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
+        ![][ic551537]
 
-    Un point d’arrêt est défini si une icône de point d’arrêt s’affiche dans la barre bleue à gauche du code Java.
+        Un point d’arrêt est défini si une icône de point d’arrêt s’affiche dans la barre bleue à gauche du code Java.
 1. Démarrez l’application dans l’émulateur de calcul en cliquant sur le bouton **Exécuter dans l’émulateur Azure** dans la barre d’outils Azure.
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Émulateur Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.

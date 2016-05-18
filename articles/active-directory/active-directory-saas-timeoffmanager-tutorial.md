@@ -81,7 +81,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par exemple, "https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par exemple, "*https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurer l’URL de l’application")
 
