@@ -77,11 +77,11 @@ Un grand nombre d'algorithmes d'apprentissage automatique utilisent la linéarit
 
 ![Frontière de classe non linéaire][1]
 
-***Limite de classe non linéaire**** : *utiliser un algorithme de classification linéaire entraînerait une faible précision*
+***Limite de classe non linéaire*** : *utiliser un algorithme de classification linéaire entraînerait une faible précision*
 
 ![Données avec une tendance non linéaire][2]
 
-***Données avec une tendance non linéaire**** : *une méthode de régression linéaire entraînerait plus d’erreurs*
+***Données avec une tendance non linéaire*** : *une méthode de régression linéaire entraînerait plus d’erreurs*
 
 Malgré leurs limitations, les algorithmes linéaires sont très populaires comme première ligne d'attaque. Ils ont tendance à être des algorithmes simples et à apprentissage rapide.
 
