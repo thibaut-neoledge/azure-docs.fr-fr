@@ -209,7 +209,7 @@ Avoir un objectif très spécifique peut être bénéfique. La collection Azure�
 
 ![Détection des anomalies reposant sur le PCA][8]
 
-***Détection des anomalies reposant sur le PCA*** * : la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
+***Détection des anomalies reposant sur le PCA***  : la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
 
 ![Jeu de données regroupé à l'aide de K-moyennes][9]
 
@@ -237,4 +237,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
