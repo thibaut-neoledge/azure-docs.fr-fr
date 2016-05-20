@@ -281,4 +281,4 @@ Pour en savoir plus sur les fonctionnalités de Visual Studio conçues pour faci
 
 Dans cet article, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Dans l’article suivant de la série dédiée à la prise en main d’API Apps, vous allez découvrir l’[authentification d’App Service API Apps](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!------HONumber=AcomDC_0413_2016-->
