@@ -292,7 +292,7 @@ Exemples :
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Les caractères génériques ne peuvent pas actuellement être utilisés entre guillemets. Message =`"*This text*"` considérera le symbole (*) comme un caractère littéral (*).
+>[AZURE.NOTE] Les caractères génériques ne peuvent pas actuellement être utilisés entre guillemets. Message =`"*This text*"` considérera le symbole (\*) comme un caractère littéral (\*).
 
 ## Commandes
 
