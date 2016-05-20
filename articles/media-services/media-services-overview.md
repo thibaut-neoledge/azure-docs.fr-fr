@@ -236,4 +236,4 @@ Pour plus d’informations, consultez le [contrat SLA Microsoft Azure](https://
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!------HONumber=AcomDC_0511_2016-->
