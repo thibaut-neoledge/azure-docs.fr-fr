@@ -121,7 +121,10 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 
 ## En savoir plus
 
-[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>
+[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>
+[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

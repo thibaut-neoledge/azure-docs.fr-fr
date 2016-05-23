@@ -157,7 +157,20 @@ Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virt
 
 | **Actions** ||
 | ------- | ------ |
-| ** /read | Lire les ressources de tous les types || Microsoft.DevTestLab/labs/createEnvironment/action | Créer un environnement lab || Microsoft.DevTestLab/labs/formulas/delete | Suppression de formules || Microsoft.DevTestLab/labs/formulas/write | Ajouter ou modifier des formules || Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Évaluer les stratégies de laboratoire || Microsoft.Compute/virtualMachines/start/action | Démarrer les machines virtuelles || Microsoft.Compute/virtualMachines/restart/action | Redémarrer les machines virtuelles || Microsoft.Compute/virtualMachines/deallocate/action | Libérer des machines virtuelles || Microsoft.Storage/storageAccounts/listKeys/action | Liste des clés de compte de stockage || Microsoft.Network/virtualNetworks/subnets/join/action | Joindre un réseau virtuel || Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joindre un pool d’adresses principales d’équilibreur de charge || Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joindre une règle NAT entrante d’équilibreur de charge || Microsoft.Network/publicIPAddresses/join/action | Joindre une adresse IP publique || Microsoft.Network/networkInterfaces/join/action | Joindre une machine virtuelle à une interface réseau || Microsoft.Network/networkInterfaces/write | Écrire des interfaces réseau |
+| * /read | Lire les ressources de tous les types |
+| Microsoft.DevTestLab/labs/createEnvironment/action | Créer un environnement lab |
+| Microsoft.DevTestLab/labs/formulas/delete | Suppression de formules |
+| Microsoft.DevTestLab/labs/formulas/write | Ajouter ou modifier des formules |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Évaluer les stratégies de laboratoire |
+| Microsoft.Compute/virtualMachines/start/action | Démarrer les machines virtuelles |
+| Microsoft.Compute/virtualMachines/restart/action | Redémarrer les machines virtuelles |
+| Microsoft.Compute/virtualMachines/deallocate/action | Libérer des machines virtuelles |
+| Microsoft.Storage/storageAccounts/listKeys/action | Liste des clés de compte de stockage |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Joindre un réseau virtuel |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joindre un pool d’adresses principales d’équilibreur de charge |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joindre une règle NAT entrante d’équilibreur de charge |
+| Microsoft.Network/publicIPAddresses/join/action | Joindre une adresse IP publique || Microsoft.Network/networkInterfaces/join/action | Joindre une machine virtuelle à une interface réseau |
+| Microsoft.Network/networkInterfaces/write | Écrire des interfaces réseau |
 
 ### Collaborateur de compte de base de données de document
 Gérer les comptes DocumentDB

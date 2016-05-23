@@ -32,9 +32,9 @@ Apache Oozie est un système de workflow/coordination qui gère les tâches Hado
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 	
 	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -64,7 +64,7 @@ Le flux de travail que vous allez implémenter en suivant les instructions de ce
 
 ##Création du répertoire de travail
 
-Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise ****wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
+Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -114,7 +114,7 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
 
 2. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis sélectionnez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
 
-3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans ****wasb:///tutorials/useoozie/useooziewf.hql** :
+3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans **wasb:///tutorials/useoozie/useooziewf.hql** :
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -187,7 +187,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 	- **RunSqoopExport** : cette action exporte les données créées à partir du script Hive vers la base de données SQL à l’aide de Sqoop. Elle n’est exécutée que si l’action **RunHiveScript** a abouti.
 
-		> [AZURE.NOTE] Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
+		> [AZURE.NOTE] Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] \(pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] \(pour la version 2.1 de HDInsight).
 
 	Notez que le flux de travail a plusieurs entrées telles que `${jobTracker}`, qui seront remplacées par les valeurs que vous utiliserez dans la définition de travail, plus loin dans ce document.
 
@@ -195,7 +195,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 2. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
-3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans ****wasb:///tutorials/useoozie/workflow.xml** :
+3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans **wasb:///tutorials/useoozie/workflow.xml** :
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -286,7 +286,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Enregistrez la valeur ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
+	Enregistrez la valeur **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
 
 2. Utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal du cluster. Il sera utilisé comme adresse du JobTracker pour le cluster. Nous nous en servirons dans le fichier de configuration dans un moment :
 
@@ -363,7 +363,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		  </property>
 		</configuration>
 
-	* Remplacez toutes les instances de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
+	* Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
 
 	> [AZURE.WARNING] Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
 
@@ -394,7 +394,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La partie ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
+	La partie **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
 
 2. Pour créer une variable d’environnement pour l’URL de manière à ne pas être obligé de la taper pour chaque commande :
 
@@ -481,7 +481,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations sur la façon de procéder, consultez [Utiliser SSH Tunneling pour accéder à l’interface web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Internet](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est ****https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
+2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est **https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie**, puis **Liens rapides**, et enfin **Interface utilisateur web Oozie**.
 
@@ -646,7 +646,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 ###Launcher ERROR (Sqoop) (Erreur du lanceur, Sqoop)
 
-**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunSqoopExport. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
+**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunSqoopExport. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 

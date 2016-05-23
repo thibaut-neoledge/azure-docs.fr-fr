@@ -75,7 +75,7 @@ Voici un script Azure PowerShell permettant d’obtenir des informations de suiv
 
 	$response.metrics.'yarn.queueMetrics'
 
-Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
+Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"

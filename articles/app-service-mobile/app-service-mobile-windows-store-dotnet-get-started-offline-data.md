@@ -249,7 +249,7 @@ Nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `Mobile
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]\(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 * [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]
 

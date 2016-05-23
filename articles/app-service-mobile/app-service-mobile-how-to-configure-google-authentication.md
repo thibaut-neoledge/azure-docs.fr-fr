@@ -34,7 +34,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 4. Dans la barre de navigation à gauche, cliquez sur **Informations d’identification** > **Écran de consentement OAuth**, puis sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit** et cliquez sur **Enregistrer**.
 
-5. Dans l’onglet **Informations d’identification**, cliquez sur ** Créer vos informations d’identification** > **ID client OAuth**, puis sélectionnez **Application Web**.
+5. Dans l’onglet **Informations d’identification**, cliquez sur **Créer vos informations d’identification** > **ID client OAuth**, puis sélectionnez **Application Web**.
 
 6. Collez l’**URL** App Service que vous avez copiée précédemment dans **Origines JavaScript autorisées**, puis collez l’URI de redirection dans **URI de redirection autorisée**. L’URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/google/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assurez-vous d'utiliser le schéma HTTPS. Cliquez ensuite sur **Créer**.
 

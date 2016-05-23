@@ -233,7 +233,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress

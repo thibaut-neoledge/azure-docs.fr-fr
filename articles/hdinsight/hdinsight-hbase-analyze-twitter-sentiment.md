@@ -367,7 +367,7 @@ Vous devez créer une application pour recevoir des tweets, calculer le résulta
             }
         }
 
-6. Définissez les constantes dans le code précédent, notamment **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** et DICTIONARYFILENAME. DICTIONARYFILENAME est le nom du fichier et l'emplacement de direction.tsv. Le fichier peut être téléchargé depuis ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si vous souhaitez modifier le nom de la table HBase, vous devez également modifier le nom de la table dans l'application Web.
+6. Définissez les constantes dans le code précédent, notamment **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** et DICTIONARYFILENAME. DICTIONARYFILENAME est le nom du fichier et l'emplacement de direction.tsv. Le fichier peut être téléchargé depuis **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si vous souhaitez modifier le nom de la table HBase, vous devez également modifier le nom de la table dans l'application Web.
 
 7. Ouvrez le fichier **Program.cs** et remplacez le code par le suivant :
 
@@ -463,7 +463,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 	- Catégorie de modèle : **Visual C#/Web**
 	- Modèle : **Application Web ASP.NET**
 	- Nom : **TweetSentimentWeb**
-	- Emplacement : **C:\\Tutorials** 
+	- Emplacement : **C:\Tutorials** 
 4. Cliquez sur **OK**.
 5. Dans **Sélectionner un modèle**, cliquez sur **MVC**. 
 6. Dans **Microsoft Azure**, cliquez sur **Gérer les abonnements**.

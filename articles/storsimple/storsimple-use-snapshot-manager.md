@@ -490,7 +490,8 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | V | Ouvre le menu **Affichage**. |
 | W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**.|
 | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**. | H | Ouvre l’aide en ligne.|
+| L | Ouvre la page **Exporter la liste**. 
+| H | Ouvre l’aide en ligne.|
  
 #### Touches de raccourci du nœud Catalogue de sauvegarde
 

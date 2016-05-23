@@ -357,7 +357,7 @@ Chaque personne pour laquelle un certificat client a été émis doit suivre les
 * Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails
 * Veillez à ce que l'option Afficher indique Tous
 * Sélectionnez le champ nommé Empreinte numérique dans la liste
-* Copiez la valeur de l’empreinte numérique ** Supprimez les caractères Unicode non visibles devant le premier chiffre ** Supprimez tous les espaces
+* Copiez la valeur de l’empreinte numérique **Supprimez les caractères Unicode non visibles devant le premier chiffre** Supprimez tous les espaces
 
 ## Configuration des clients autorisés dans le fichier de configuration de service
 
