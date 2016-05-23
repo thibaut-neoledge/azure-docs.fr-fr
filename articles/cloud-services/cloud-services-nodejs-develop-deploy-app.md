@@ -178,7 +178,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js].
 <!-- URL List -->
 
 [Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[utiliser une application web légère] : ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
+[utiliser une application web légère]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md"
 [Azure Powershell]: ../powershell-install-configure.md
 [Kit de développement logiciel (SDK) Azure pour .NET 2.7]: http://www.microsoft.com/fr-FR/download/details.aspx?id=48178
 [Connectez PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
@@ -197,5 +197,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+
 
 <!---HONumber=AcomDC_0511_2016-->
