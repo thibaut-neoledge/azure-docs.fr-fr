@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuration des informations d’authentification nommées
@@ -33,7 +33,7 @@ Visual Studio utilise votre ID d’abonnement et les données du certificat comm
 
 Vous pouvez modifier les informations d’abonnement à partir de la boîte de dialogue **Modifier l’abonnement/Nouvel abonnement**, comme expliqué plus loin dans cette rubrique.
 
-Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Création et téléchargement d’un certificat de gestion](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le portail de gestion.
+Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Vue d’ensemble des certificats pour Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] Les informations d’identification dont Visual Studio a besoin pour gérer vos services cloud ne sont pas les mêmes que celles nécessaires pour authentifier une demande effectuée auprès des services de stockage Azure.
 
@@ -53,15 +53,15 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
 1. Choisissez le bouton **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
 
-    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le portail de gestion.
+    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Pour charger le certificat vers le portail de gestion Azure :
+1. Pour télécharger le certificat sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
 
     1. Cliquez sur le lien du portail Azure.
 
-         Le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885) s’ouvre.
+         Le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) s’ouvre.
 
-    1. Connectez-vous au portail de gestion Azure en utilisant votre compte Microsoft, puis sélectionnez le bouton **Services cloud**.
+    1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), puis cliquez sur le bouton **Cloud Services**.
 
     1. Sélectionnez le service cloud qui vous intéresse.
 
@@ -71,4 +71,4 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
     1. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

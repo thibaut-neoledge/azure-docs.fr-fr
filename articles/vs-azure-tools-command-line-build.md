@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Génération en ligne de commande pour Azure
@@ -60,6 +60,6 @@ Si vous souhaitez utiliser un autre répertoire pour les fichiers de configurati
 
 ## Déploiement
 
-Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
+Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

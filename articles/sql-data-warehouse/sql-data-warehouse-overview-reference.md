@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Rubriques de référence pour SQL Data Warehouse | Microsoft Azure"
-   description="Liens vers du contenu de référence pour SQL Data Warehouse."
+   pageTitle="Rubriques de référence pour SQL Data Warehouse | Microsoft Azure"
+   description="Liens vers du contenu de référence pour SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="barbkess;sonyama"/>
 
-# Rubriques de référence pour SQL Data Warehouse
+# Rubriques de référence pour SQL Data Warehouse
 
-Ces articles comportent des informations de référence associées à SQL Data Warehouse.
+Ces articles comportent des informations de référence associées à SQL Data Warehouse.
 
 - [Éléments de langage Transact-SQL][]
 - [Instructions Transact-SQL][]
 - [Vues système Transact-SQL][]
-- [Applets de commande PowerShell][]
+- [Applets de commande PowerShell][]
 
 
 
@@ -37,9 +37,9 @@ Pour obtenir des informations sur le développement, consultez la [vue d’ensem
 [Éléments de langage Transact-SQL]: sql-data-warehouse-reference-tsql-language-elements.md
 [Instructions Transact-SQL]: sql-data-warehouse-reference-tsql-statements.md
 [Vues système Transact-SQL]: sql-data-warehouse-reference-tsql-system-views.md
-[Applets de commande PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[Applets de commande PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

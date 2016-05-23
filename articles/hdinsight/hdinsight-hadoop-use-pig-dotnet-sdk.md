@@ -36,18 +36,6 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux.
 * Visual Studio 2012, 2013 ou 2015.
 
-## Recherche de votre ID d'abonnement
-
-Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
-
-1. Visitez le [portail Azure][preview-portal].
-
-2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
-
-3. Dans les informations présentées sur le panneau __Abonnements__, recherchez l'abonnement que vous souhaitez utiliser et notez la valeur dans la colonne **ID d'abonnement**.
-
-Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
-
 ## Création de l'application
 
 Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
@@ -79,22 +67,10 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 5. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package Nuget**, puis sélectionnez **Console du gestionnaire de package**.
 6. Exécutez la commande suivante dans la console pour installer les packages du Kit de développement logiciel (SDK) .NET.
 
-        Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 7. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir. Remplacez le code existant par ce qui suit.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Security;
-        using System.Threading;
-        using Microsoft.Azure;
-        using Microsoft.Azure.Common.Authentication;
-        using Microsoft.Azure.Common.Authentication.Factories;
-        using Microsoft.Azure.Common.Authentication.Models;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
@@ -103,32 +79,16 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
         {
             class Program
             {
-                private static HDInsightManagementClient _hdiManagementClient;
                 private static HDInsightJobManagementClient _hdiJobManagementClient;
-
-                private static Guid SubscriptionId = new Guid("<Your Subscription ID>");
-                private const string ResourceGroupName = "<Your Resource Group Name>";
 
                 private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
                 private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
 
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
-                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
-                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
-
                 static void Main(string[] args)
                 {
                     System.Console.WriteLine("The application is running ...");
-
-                    var tokenCreds = GetTokenCloudCredentials();
-                    var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-
-                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-
-                    _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
@@ -139,41 +99,17 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
                     System.Console.ReadLine();
                 }
 
-                public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-                {
-                    var authFactory = new AuthenticationFactory();
-
-                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-                    if (username != null && password != null)
-                        account.Id = username;
-
-                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-
-                    var accessToken =
-                        authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                            .AccessToken;
-
-                    return new TokenCloudCredentials(accessToken);
-                }
-
-                public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-                {
-                    return new TokenCloudCredentials(subId.ToString(), creds.Token);
-                }
-
-
                 private static void SubmitPigJob()
                 {
                     var parameters = new PigJobSubmissionParameters
                     {
                         Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
-                            LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-                            FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-                            GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-                            FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-                            RESULT = order FREQUENCIES by COUNT desc;
-                            DUMP RESULT;"
+                                    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+                                    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+                                    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+                                    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+                                    RESULT = order FREQUENCIES by COUNT desc;
+                                    DUMP RESULT;"
                     };
 
                     System.Console.WriteLine("Submitting the Pig job to the cluster...");
@@ -207,4 +143,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -60,7 +60,7 @@ Vous pouvez choisir les colonnes que vous souhaitez consulter. Développez un é
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour réorganiser rapidement les résultats disponibles dans le navigateur Web. Sachez toutefois que pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri ne vous permet donc pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour cela, vous devez utiliser l’opérateur [top](app-insights-analytics-queries.md#top-operator) ou [sort](app-insights-analytics-queries.md#sort-operator).
+> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour réorganiser rapidement les résultats disponibles dans le navigateur Web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri ne vous permet donc pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour cela, vous devez utiliser l’opérateur [top](app-insights-analytics-queries.md#top-operator) ou [sort](app-insights-analytics-queries.md#sort-operator).
 
 Il est cependant recommandé d’utiliser les opérateurs [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) ou [summarize](app-insights-analytics-queries.md#summarize-operator) pour éviter le téléchargement de tables volumineuses à partir du serveur. Quoi qu’il en soit, le nombre de lignes par requête est automatiquement limité à 10 000.
 
@@ -101,6 +101,7 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

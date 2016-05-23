@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/04/2016"
+	ms.date="05/10/2016"
 	ms.author="raymondl;garye"/>
 
 #Activation de la journalisation pour les services Web de Machine Learning  
@@ -44,4 +44,4 @@ Ce document fournit des informations sur la fonctionnalité de journalisation de
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

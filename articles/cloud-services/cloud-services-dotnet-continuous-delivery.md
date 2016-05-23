@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Remise continue pour Cloud Services dans Azure
@@ -44,7 +44,7 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
 1.  Si Visual Studio est installé sur le serveur de builds, localisez puis choisissez **Visual Studio Command Prompt** dans le dossier **Visual Studio Tools** sous Windows.
 
-    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework\\*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
+    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework\*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,9 +56,9 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
     Cette option peut être abrégée en /t:Publish. L'option /t:Publish de MSBuild ne doit pas être confondue avec les commandes Publish disponibles dans Visual Studio lorsque le Kit de développement logiciel (SDK) Azure est installé. L'option /t:Publish ne génère que les packages Azure. Elle ne déploie pas les packages comme les commandes Publish de Visual Studio.
 
-    Vous pouvez aussi spécifier le nom du projet comme paramètre MSBuild. S'il n'est pas spécifié, le répertoire actif est utilisé. Pour plus d'informations sur les options de ligne de commande MSBuild, consultez la page [Référence de la ligne de commande MSBuild][1].
+    Vous pouvez aussi spécifier le nom du projet comme paramètre MSBuild. S'il n'est pas spécifié, le répertoire actif est utilisé. Pour plus d’informations sur les options de ligne de commande MSBuild, consultez la page [Référence de la ligne de commande MSBuild](1).
 
-4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
+4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *ProjectDir*\\bin\*Configuration*\\app.publish\\. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -89,7 +89,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 3.	Choisissez l’onglet **Paramètres de la source** et vérifiez que votre dossier de projet figure dans la colonne **Dossier du contrôle de code source** et que le statut est **Actif**.
 
-4.  Choisissez l'onglet **Valeurs par défaut des builds**, et sous Contrôleur de build, vérifiez le nom du serveur de builds. De même, choisissez l'option **Copier la sortie de la génération dans le dossier de dépôt suivant** et spécifiez l'emplacement souhaité.
+4.  Choisissez l'onglet **Valeurs par défaut des builds**, et sous Contrôleur de build, vérifiez le nom du serveur de builds. De même, choisissez l'option **Copier la sortie de la génération dans le dossier de dépôt suivant ** et spécifiez l'emplacement souhaité.
 
 5.  Choisissez l’onglet **Processus**. Sous l’onglet Processus, choisissez le modèle par défaut, sous **Build**, choisissez le projet s’il n’est pas déjà sélectionné et développez la section **Avancé** dans la section **Build** de la grille.
 
@@ -105,7 +105,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 Cette section décrit la création d'un script Windows PowerShell qui publie le résultat du package de l'application cloud dans Azure à l'aide de paramètres facultatifs. Ce script peut être appelé après l'étape de compilation dans votre automatisation de build personnalisée. Il peut également être appelé depuis les activités de workflow du modèle de processus dans Visual Studio TFS Team Build.
 
-1.  Installez les [applets de commande Azure PowerShell][] \(v0.6.1 ou version ultérieure). Pendant la phase de configuration des applets de commande, choisissez l’installation comme composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
+1.  Installez les [applets de commande Azure PowerShell][] (v0.6.1 ou version ultérieure). Pendant la phase de configuration des applets de commande, choisissez l’installation comme composant logiciel enfichable. Cette installation, officiellement prise en charge, remplace l’ancienne version proposée via CodePlex, même si les versions étaient numérotées 2.x.x.
 
 2.  Démarrez Azure PowerShell dans le menu ou la page Démarrer. Si vous démarrez de cette façon, les cmdlets Azure PowerShell sont chargées.
 
@@ -123,17 +123,17 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
     Ceci affiche les informations sur votre abonnement. Vérifiez que tout est correct.
 
-4.  Enregistrez le modèle de script fourni à la fin de cet article dans votre dossier de scripts sous c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Enregistrez le modèle de script fourni à la fin de cet article dans votre dossier de scripts sous c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Vérifiez la section des paramètres de ce script. Ajoutez des valeurs ou modifiez les valeurs par défaut. Ces valeurs peuvent de toute manière être ignorées en indiquant des paramètres explicites.
 
 6.  Assurez-vous que les comptes valides de service cloud et de stockage créés dans votre abonnement peuvent être utilisés par le script de publication. Le compte de stockage (stockage d'objets blob) est utilisé pour télécharger et stocker de façon temporaire le package de déploiement et le fichier de configuration pendant la création du déploiement.
 
-    -   Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
+    -   Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
+    -   Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
@@ -145,7 +145,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d'adresses IP virtuelles peut se faire via le portail de gestion Azure ou à l'aide de la cmdlet Move-Deployment.
+    Cette opération est normalement suivie d'un test de vérification et d'un échange d'adresses IP virtuelles. Cet échange d’adresses IP virtuelles peut se faire via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) ou à l’aide de la cmdlet Move-Deployment.
 
     **Exemple de scénario 2 :** déploiement continu d’un service de test dédié dans l’environnement de production
 
@@ -169,7 +169,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d’informations, consultez l’article suivant : [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l’aide du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour plus d’informations, consultez l’article suivant : [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Mise à niveau du déploiement et suppression du déploiement -> Nouveau déploiement**
 
@@ -573,4 +573,4 @@ Pour activer le débogage à distance quand vous utilisez la remise continue, co
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

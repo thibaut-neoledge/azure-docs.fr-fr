@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Publication d’un service cloud à l’aide des outils Azure
 
 Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre application Microsoft Azure directement depuis Visual Studio. Visual Studio prend en charge la publication intégrée dans l'environnement intermédiaire ou l'environnement de production d'un service cloud.
 
-Avant de pouvoir publier une application Azure, vous devez disposer d'un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+Avant de pouvoir publier une application Azure, vous devez disposer d'un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] Lorsque vous publiez, vous pouvez sélectionner l'environnement de déploiement pour votre service cloud. Vous devez également sélectionner un compte de stockage permettant de stocker le package de l'application pour le déploiement. Après le déploiement, le package de l’application est supprimé du compte de stockage.
 
@@ -35,7 +35,7 @@ Utilisez les procédures suivantes pour publier votre application Azure et mettr
 
 Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des tâches suivantes :
 
-- Créer un package de services : vous pouvez utiliser ce package et le fichier de configuration de service pour publier votre application dans un environnement de déploiement à partir du [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Créer un package de services : vous pouvez utiliser ce package et le fichier de configuration de service pour publier votre application dans un environnement de déploiement à partir du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 - Publier votre projet Azure à partir de Visual Studio : pour publier votre application directement dans Azure, vous utilisez l'Assistant Publication. Pour plus d’informations, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
@@ -55,13 +55,13 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
 
   1. Pour créer le package, choisissez le lien **Package**.
 
-      L’Explorateur de fichiers indique l'emplacement du package nouvellement créé. Vous pouvez copier cet emplacement afin de l'utiliser à partir du portail de gestion Azure.
+      L’Explorateur de fichiers indique l'emplacement du package nouvellement créé. Vous pouvez copier cet emplacement afin de l’utiliser à partir du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. Pour publier ce package dans un environnement de déploiement, vous devez utiliser cet emplacement comme emplacement du package lorsque vous créez un service cloud et déployez ce package dans un environnement avec le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. Pour publier ce package dans un environnement de déploiement, vous devez utiliser cet emplacement comme emplacement du package lorsque vous créez un service cloud et déployez ce package dans un environnement avec le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facultatif) Pour annuler le processus de déploiement, dans le menu contextuel de cette ligne dans le journal d'activité, choisissez **Annuler et supprimer**. Cela arrête le processus de déploiement et supprime l'environnement de déploiement d'Azure.
 
-    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le portail de gestion Azure.
+    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l'environnement de déploiement dans le nœud **Services cloud** de l'Explorateur de serveurs. À partir de là, vous pouvez voir l'état de chaque instance de rôle. Consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). L'illustration suivante montre les instances de rôle toujours à l'état d'initialisation :
 
@@ -121,7 +121,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
 1. Web Deploy utilise par défaut un certificat non fiable et auto-signé, ce qui n'est pas recommandé pour télécharger des données sensibles. Si vous devez sécuriser ce processus pour des données sensibles, vous pouvez ajouter un certificat SSL à utiliser pour les connexions Web Deploy. Ce certificat doit être un certificat approuvé, que vous obtenez auprès d'une autorité de certification (CA).
 
-    Afin de sécuriser Web Deploy pour chaque machine virtuelle et chacun de vos rôles web, vous devez télécharger le certificat de confiance que vous souhaitez utiliser pour le déploiement web vers le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Cela permet de s'assurer que le certificat est ajouté à la machine virtuelle créée pour le rôle web lorsque vous publiez votre application.
+    Afin de sécuriser Web Deploy pour chaque machine virtuelle et chacun de vos rôles web, vous devez télécharger le certificat de confiance que vous souhaitez utiliser pour le déploiement web vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Cela permet de s'assurer que le certificat est ajouté à la machine virtuelle créée pour le rôle web lorsque vous publiez votre application.
 
 1. Pour ajouter un certificat SSL approuvé à IIS afin d'utiliser des connexions à distance, procédez comme suit :
 
@@ -129,7 +129,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
       Votre navigateur vous invitera à télécharger un fichier RDP.
 
-  1. Pour ajouter un certificat SSL, ouvrez le service de gestion dans le Gestionnaire des services IIS. Dans le Gestionnaire des services IIS, activez SSL en ouvrant le lien **Liaisons** dans le volet **Action**. La boîte de dialogue **Ajouter la liaison de Site** s'affiche. Choisissez **Ajouter**, puis sélectionnez HTTPS dans la liste déroulante **Type**. Dans la liste **Certificat SSL**, sélectionnez le certificat SSL signé par une autorité de certification et que vous avez téléchargé sur le portail de gestion Azure. Pour plus d'informations, consultez [Configurer des paramètres de connexion pour le service de gestion](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Pour ajouter un certificat SSL, ouvrez le service de gestion dans le Gestionnaire des services IIS. Dans le Gestionnaire des services IIS, activez SSL en ouvrant le lien **Liaisons** dans le volet **Action**. La boîte de dialogue **Ajouter la liaison de Site** s'affiche. Choisissez **Ajouter**, puis sélectionnez HTTPS dans la liste déroulante **Type**. Dans la liste **Certificat SSL**, sélectionnez le certificat SSL signé par une autorité de certification et que vous avez téléchargé sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour plus d'informations, consultez [Configurer des paramètres de connexion pour le service de gestion](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] Si vous ajoutez un certificat SSL approuvé, le triangle d'avertissement jaune n'apparaît plus dans l’**Assistant Publication**.
 
@@ -173,4 +173,4 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

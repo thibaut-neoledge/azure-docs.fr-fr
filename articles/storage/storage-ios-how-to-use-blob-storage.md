@@ -1,6 +1,6 @@
 <properties
     pageTitle="Utilisation du stockage d’objets blob Azure à partir d’iOS | Microsoft Azure"
-    description="Découvrez comment utiliser le stockage d’objets blob Azure pour télécharger, charger, répertorier et supprimer le contenu d’objets blob. Exemples écrits en Objective-C."
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # Utilisation du stockage d’objets blob à partir d’iOS
@@ -111,7 +111,7 @@ L’exemple suivant montre comment utiliser l’interface de ligne de commande 
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1).
+Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 ##Opérations asynchrones
 > [AZURE.NOTE] Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
@@ -355,4 +355,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 
 Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

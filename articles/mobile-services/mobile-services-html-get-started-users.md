@@ -103,11 +103,13 @@ Ensuite, vous allez mettre à jour l'application pour autoriser l'authentificati
 
     Cela crée un ensemble de fonctions pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter*, *google* ou *aad*.
 
-	>[AZURE.IMPORTANT]Dans une application PhoneGap, vous devez également ajouter les plug-ins suivants au projet : <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]Dans une application PhoneGap, vous devez également ajouter les plug-ins suivants au projet :
+	><ul><li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	> <li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Revenez au navigateur où votre application s'exécute, puis actualisez la page.
 
-	   Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
 	>[AZURE.NOTE]Quand vous utilisez Internet Explorer, vous pouvez recevoir cette erreur après la connexion : <code>window opener inaccessible. Il peut être dans une zone Internet Explorer différente</code>. Cela survient lorsque la fenêtre contextuelle s'exécute dans une zone de sécurité différente (Internet) de localhost (Intranet). Cela affecte les applications uniquement lors du développement sur localhost. Pour contourner ce problème, ouvrez l'onglet **Sécurité** dans les **Options Internet**, cliquez sur **Intranet local**, puis sur **Sites** et désactivez **Détecter automatiquement le réseau Intranet**. N'oubliez pas d'activer à nouveau ce paramètre lorsque vous avez fini de tester
 
@@ -135,4 +137,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0511_2016-->

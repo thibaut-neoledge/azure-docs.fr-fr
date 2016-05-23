@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Configurer une passerelle VPN dans le portail Azure Classic | Microsoft Azure"
+   pageTitle="Configurer une passerelle VPN dans le portail Azure Classic | Microsoft Azure"
    description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage de passerelle VPN, de statique à dynamique ou de dynamique à statique."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc" />
 
 # Configurer une passerelle VPN pour le modèle de déploiement classique
@@ -65,11 +65,11 @@ Si vous disposez déjà d’une passerelle VPN et que vous souhaitez modifier le
 ![Passerelle non créée](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-Cliquez ensuite sur **Créer une passerelle** en bas de la page. Vous pouvez sélectionner *Routage statique* ou *Routage dynamique*. Le type de routage que vous sélectionnez dépend de plusieurs facteurs. Par exemple, ce que votre périphérique VPN prend en charge et si vous devez prendre en charge des connexions de point à site. Pour vérifier le type de routage requis, voir la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md). Si vous souhaitez changer de type de routage de la passerelle VPN une fois celle-ci créée, il vous faudra la supprimer et en recréer une nouvelle. Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **Oui**.
+Cliquez ensuite sur **Créer une passerelle** en bas de la page. Vous pouvez sélectionner *Routage statique* ou *Routage dynamique*. Le type de routage que vous sélectionnez dépend de plusieurs facteurs. Par exemple, ce que votre périphérique VPN prend en charge et si vous devez prendre en charge des connexions de point à site. Pour vérifier le type de routage requis, voir la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md). Si vous souhaitez changer de type de routage de la passerelle VPN une fois celle-ci créée, il vous faudra la supprimer et en recréer une nouvelle. Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **Oui**.
 
 ![Type de routage VPN de passerelle](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
-Lorsque la passerelle est en cours de création, notez que le graphique de la passerelle sur la page devient jaune et indique *Créer une passerelle*. La création de la passerelle peut durer jusqu’à 25 minutes. Vous devrez attendre que la passerelle soit créée avant de pouvoir utiliser d’autres paramètres de configuration.
+Lorsque la passerelle est en cours de création, notez que le graphique de la passerelle sur la page devient jaune et indique *Créer une passerelle*. La création de la passerelle peut durer jusqu’à 25 minutes. Vous devrez attendre que la passerelle soit créée avant de pouvoir utiliser d’autres paramètres de configuration.
 
 ![Création de passerelle](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
 
@@ -79,7 +79,7 @@ Lorsque l’état de la passerelle passe en *Connexion en cours*, vous pouvez co
 
 ## Collecter des informations pour la configuration de votre périphérique VPN
 
-Une fois la passerelle créée, collectez les informations de configuration de votre périphérique VPN. Ces informations se trouvent sur la page **Tableau de bord** de votre réseau virtuel :
+Une fois la passerelle créée, collectez les informations de configuration de votre périphérique VPN. Ces informations se trouvent sur la page **Tableau de bord** de votre réseau virtuel :
 
 1. **Adresse IP de la passerelle -** l’adresse IP se trouve sur la page **Tableau de bord**. Vous ne pourrez le découvrir qu’après avoir créé votre passerelle.
 
@@ -90,11 +90,11 @@ Une fois la passerelle créée, collectez les informations de configuration de v
 
 ## Configuration de votre périphérique VPN
 
-A l’issue de ces étapes, vous ou votre administrateur réseau devrez configurer le périphérique VPN pour créer la connexion. Pour plus d’informations sur les périphériques VPN, voir la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
+A l’issue de ces étapes, vous ou votre administrateur réseau devrez configurer le périphérique VPN pour créer la connexion. Pour plus d’informations sur les périphériques VPN, voir la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
 
 Une fois le périphérique VPN configuré, vous pouvez afficher vos informations de connexion mises à jour sur la page Tableau de bord de votre réseau virtuel.
 
-Vous pouvez également tester votre connexion en exécutant l’une des commandes suivantes :
+Vous pouvez également tester votre connexion en exécutant l’une des commandes suivantes :
 
 | | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
 |----------------------|-----------------------|-----------------------|-----------------|------------------------------------------|
@@ -130,7 +130,7 @@ Pour ajouter ou modifier les plages d’un réseau local, suivez la procédure c
 
 Vous pouvez afficher votre passerelle et le trafic de la passerelle depuis la page **Tableau de bord** de votre réseau virtuel.
 
-Sur la page **Tableau de bord**, vous pouvez afficher les informations suivantes :
+Sur la page **Tableau de bord**, vous pouvez afficher les informations suivantes :
 
 - La quantité de données qui transitent par votre passerelle (données entrantes et sortantes).
 
@@ -147,7 +147,7 @@ Sur la page **Tableau de bord**, vous pouvez afficher les informations suivantes
 
 Si vous avez besoin de modifier un type de routage VPN de passerelle, vous supprimerez la passerelle existante et vous la recréerez ensuite avec le nouveau type de routage. Vous n’avez pas besoin de supprimer le réseau virtuel entier pour modifier le type de routage de passerelle.
 
-Avant de modifier le type VPN de votre passerelle, vérifiez que votre périphérique VPN prend en charge le type de routage que vous voulez utiliser. Pour télécharger de nouveaux exemples de configuration de routage et vérifier les spécifications de périphérique VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
+Avant de modifier le type VPN de votre passerelle, vérifiez que votre périphérique VPN prend en charge le type de routage que vous voulez utiliser. Pour télécharger de nouveaux exemples de configuration de routage et vérifier les spécifications de périphérique VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
 
 >[AZURE.IMPORTANT] Lorsque vous supprimez une passerelle VPN de réseau virtuel, l’adresse IP virtuelle attribuée à la passerelle est de nouveau disponible. Lorsque vous recréez la passerelle, une nouvelle adresse VIP lui est attribuée.
 
@@ -162,12 +162,10 @@ Avant de modifier le type VPN de votre passerelle, vérifiez que votre périphé
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les connexions entre locaux de réseau virtuel, voir l’article [À propos des connexions sécurisées entre locaux pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
-
 Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Voir [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Si vous souhaitez configurer une connexion VPN de point à site, voir l’article [Configuration d’une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

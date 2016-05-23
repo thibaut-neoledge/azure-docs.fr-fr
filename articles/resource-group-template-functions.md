@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
@@ -228,15 +228,15 @@ L’exemple suivant montre comment combiner deux tableaux.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(chaîne\_à\_remplir, longueur\_totale, caractère\_de\_remplissage)**
+**padLeft(valeur\_à\_remplir, longueur\_totale, caractère\_de\_remplissage)**
 
 Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la gauche jusqu’à ce que la longueur totale spécifiée ait été atteinte.
   
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| chaîne\_à\_remplir | Oui | Chaîne à aligner à droite.
+| valeur\_à\_remplir | Oui | Chaîne ou entier à aligner à droite.
 | longueur\_totale | Oui | Nombre total de caractères de la chaîne renvoyée.
-| caractère\_de\_remplissage | Oui | Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte.
+| caractère\_de\_remplissage | Non | Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace.
 
 L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à ce que la chaîne atteigne 10 caractères. Si la valeur de paramètre d’origine comporte plus de 10 caractères, aucun caractère n’est ajouté.
 
@@ -278,7 +278,7 @@ Retourne un tableau de chaînes qui contient les sous-chaînes de la chaîne d'e
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| chaîne\_entrée | Oui | La chaîne à fractionner.
+| chaîne\_entrée | Oui | Chaîne à fractionner.
 | delimiter | Oui | Le séparateur à utiliser. Peut être une chaîne unique ou un tableau de chaînes.
 
 L'exemple suivant fractionne la chaîne d'entrée en la séparant par une virgule.
@@ -299,15 +299,31 @@ Convertit la valeur spécifiée en chaîne.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| valueToConvert | Oui | Valeur à convertir en chaîne. Le type de valeur peut uniquement être une valeur booléenne, une chaîne ou un entier.
+| valueToConvert | Oui | Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux.
 
-L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en chaîne.
+L’exemple ci-après convertit les valeurs de paramètre fournies par l’utilisateur en chaîne.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -397,14 +413,14 @@ L’exemple suivant supprime les espaces à partir de la valeur de paramètre in
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Effectue un hachage 64 bits des chaînes de caractères fournies pour créer une chaîne unique. Cette fonction est utile lorsque vous avez besoin créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
+Crée une chaîne unique basée sur les valeurs fournies en tant que paramètres. Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString | Oui | La chaîne de base utilisée dans la fonction de hachage pour créer une chaîne unique.
-| paramètres supplémentaires le cas échéant | Non | Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d'unicité.
+| paramètres supplémentaires le cas échéant | Non | Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité.
 
-La valeur renvoyée n'est pas une chaîne entièrement aléatoire, mais plutôt le résultat d'une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d'affectation de noms à la valeur pour créer un nom plus convivial.
+La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom plus facile à reconnaître.
 
 Les exemples suivants montrent comment utiliser uniqueString pour créer une valeur unique pour différents niveaux couramment utilisés.
 
@@ -439,7 +455,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez **http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est **http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez ****http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est ****http://contoso.com/resources/**.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
@@ -671,15 +687,6 @@ Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, 
 		}
 	}
 
-Si vous voulez maintenant spécifier directement la version d’API dans votre modèle, vous pouvez utiliser la fonction [providers](#providers) et récupérer une des valeurs, comme la version la plus récente, comme indiqué ci-dessous.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 L’exemple ci-après référence un compte de stockage figurant dans un autre groupe de ressources.
 
     "outputs": {
@@ -717,7 +724,7 @@ L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
+**resourceId ([ID\_abonnement], [nom\_groupe\_ressource], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
 
@@ -725,6 +732,7 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
       
 | Paramètre | Requis | Description
 | :---------------: | :------: | :----------
+| subscriptionId | Non | ID d’abonnement facultatif. La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous récupérez une ressource se trouvant dans un autre abonnement.
 | nom\_groupe\_ressources | Non | Nom de groupe de ressources facultatif. La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous récupérez une ressource se trouvant dans un autre groupe de ressources.
 | type\_ressource | Oui | Type de ressource, y compris l'espace de noms du fournisseur de ressources.
 | nom\_ressource1 | Oui | Nom de la ressource.
@@ -733,7 +741,7 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 L'exemple suivant montre comment récupérer les ID de ressources pour un site web et une base de données. Le site web se trouve dans un groupe de ressources nommé **myWebsitesGroup** et la base de données se trouve dans le groupe de ressources actuel pour ce modèle.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. Le compte de stockage ou le réseau virtuel peut être utilisé sur plusieurs groupes de ressources. Par conséquent, vous ne voulez pas les supprimer lors de la suppression d'un seul groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :
 
@@ -807,4 +815,4 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

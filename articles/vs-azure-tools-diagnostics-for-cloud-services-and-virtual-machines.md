@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure
@@ -43,7 +43,7 @@ Il existe des différences notables entre la façon dont la chaîne de connexion
 
 - Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics.<RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
 
-- La chaîne de connexion dans le fichier .cscfg est également utilisée par le portail Azure pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse**. La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
+- La chaîne de connexion dans le fichier .cscfg est également utilisée par le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse**. La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
 
 ## Migration de projets vers le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures
 
@@ -357,4 +357,4 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

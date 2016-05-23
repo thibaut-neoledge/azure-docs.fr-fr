@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuration de votre projet Azure à l'aide de plusieurs configurations de service
@@ -91,7 +91,7 @@ Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserve
 
 Dans la page **Certificats**, vous pouvez associer des certificats à votre rôle. Les certificats que vous ajoutez peuvent être utilisés pour configurer vos points de terminaison HTTPS dans la page de propriétés **Points de terminaison**.
 
-La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Pour associer un certificat à votre rôle, donnez un nom au certificat. Ce nom permet de faire référence au certificat lorsque vous configurez un point de terminaison HTTPS dans la page de propriétés **Points de terminaison**. Ensuite, spécifiez si le magasin de certificats est **Machine locale** ou **Utilisateur actuel** et le nom du magasin. Enfin, entrez l'empreinte du certificat. Si le certificat est dans Utilisateur actuel\\Mon magasin, vous pouvez entrer l'empreinte du certificat en sélectionnant le certificat à partir d'une liste. S'il se trouve à un autre emplacement, entrez la valeur de l'empreinte numérique à la main.
 
@@ -110,4 +110,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 |Développement|Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent.|
 |Web|Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web.|
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

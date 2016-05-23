@@ -57,6 +57,7 @@ Vous pouvez activer n’importe quelle requête Hive pour Tez en faisant précé
 
 Pour les clusters HDInsight basés sur Windows, Tez doit être activé lors de l'approvisionnement. Voici un exemple de script PowerShell Azure pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -100,7 +101,7 @@ Considérations relatives au partitionnement :
 
 - **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
-Pour créer une table de partition, utilisez la clause *Partitioned By* :
+Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
     CREATE TABLE lineitem_part
     	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -152,7 +153,7 @@ Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker 
 - création d’index toutes les 10 000 lignes, ce qui permet d’ignorer des lignes ;
 - baisse significative de l’exécution du démarrage.
 
-Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
+Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
 
     CREATE TABLE lineitem_orc_part
     	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
@@ -220,4 +221,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

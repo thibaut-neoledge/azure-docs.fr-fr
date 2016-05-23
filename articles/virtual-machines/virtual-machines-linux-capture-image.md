@@ -71,7 +71,7 @@ Une fois que la machine virtuelle est configurée et en cours d’exécution, vo
 
 7. Arrêtez l’ordinateur virtuel que vous avez déjà annulé à l’aide de la commande suivante :
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Généralisez la machine virtuelle en exécutant la commande suivante :
 
@@ -197,4 +197,4 @@ Pour obtenir d’autres options de commande supplémentaires, exécutez `azure h
 
 Pour gérer vos machines virtuelles à l’aide de l’interface de ligne de commande, consultez les tâches décrites dans [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

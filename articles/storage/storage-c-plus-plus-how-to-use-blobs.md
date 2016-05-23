@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Utilisation du stockage d'objets blob (C++) | Microsoft Azure"
-    description="Découvrez comment utiliser le service de stockage d’objets blob dans Azure. Les exemples sont écrits en C++."
+    pageTitle="Utilisation du stockage d'objets blob (C++) | Microsoft Azure"
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # Utilisation du stockage d'objets blob à partir de C++  
@@ -23,7 +23,7 @@
 ## Vue d'ensemble
 Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob.
 
->[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -33,26 +33,26 @@ Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent 
 
 Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour C++ et créer un compte Azure Storage dans votre abonnement Azure.
 
-Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
+Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
--	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
+-	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
+-	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
 
 		Install-Package wastorage
 
 ## Configuration de votre application pour accéder au stockage d'objets blob  
-Ajoutez l'instruction include suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob :
+Ajoutez l'instruction include suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob :
 
 	#include "was/storage_account.h"
 	#include "was/blob.h"
 
 ## Configuration d'une chaîne de connexion de stockage Azure
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l’exécution d’une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès de stockage, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](https://portal.azure.com). Pour plus d'informations sur les comptes et les clés d'accès de stockage, consultez la page [À propos des comptes Azure Storage](storage-create-storage-account.md). Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l’exécution d’une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès de stockage, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](https://portal.azure.com). Pour plus d'informations sur les comptes et les clés d'accès de stockage, consultez la page [À propos des comptes Azure Storage](storage-create-storage-account.md). Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage Microsoft Azure](storage-use-emulator.md) installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). L'émulateur de stockage est un utilitaire qui simule sur votre ordinateur de développement local les objets blob, les files d'attente et les services de Table disponibles dans Azure. L’exemple suivant vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion vers votre émulateur de stockage local :
+Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage Microsoft Azure](storage-use-emulator.md) installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). L'émulateur de stockage est un utilitaire qui simule sur votre ordinateur de développement local les objets blob, les files d'attente et les services de Table disponibles dans Azure. L’exemple suivant vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion vers votre émulateur de stockage local :
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -67,7 +67,7 @@ Vous pouvez utiliser la classe **cloud\_storage\_account** pour représenter vos
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Ensuite, récupérez une référence pointant vers une classe **cloud\_blob\_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **cloud\_blob\_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
+Ensuite, récupérez une référence pointant vers une classe **cloud\_blob\_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **cloud\_blob\_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -76,7 +76,7 @@ Ensuite, récupérez une référence pointant vers une classe **cloud\_blob\_cli
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Cet exemple montre comment créer un conteneur, si celui-ci n’existe pas encore :
+Cet exemple montre comment créer un conteneur, si celui-ci n’existe pas encore :
 
 	try
 	{
@@ -97,7 +97,7 @@ Cet exemple montre comment créer un conteneur, si celui-ci n’existe pas encor
 		std::wcout << U("Error: ") << e.what() << std::endl;
 	}  
 
-Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous voulez que les fichiers (objets blob) du conteneur soient publics, vous pouvez configurer le conteneur en utilisant le code suivant :
+Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous voulez que les fichiers (objets blob) du conteneur soient publics, vous pouvez configurer le conteneur en utilisant le code suivant :
 
 	// Make the blob container publicly accessible.
 	azure::storage::blob_container_permissions permissions;
@@ -140,7 +140,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 Vous pouvez également utiliser la méthode **upload\_from\_file** pour télécharger un fichier vers un objet blob de blocs.
 
 ## Création d’une liste d’objets blob dans un conteneur
-Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **List\_blobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder à l’ensemble complet des propriétés et méthodes d’un **list\_blob\_item** renvoyé, vous devez appeler la méthode **list\_blob\_item.as\_blob** afin d’obtenir un objet **cloud\_blob** ou la méthode **list\_blob.as\_directory** afin d’obtenir un objet cloud\_blob\_directory. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **my-sample-container**:
+Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **List\_blobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder à l’ensemble complet des propriétés et méthodes d’un **list\_blob\_item** renvoyé, vous devez appeler la méthode **list\_blob\_item.as\_blob** afin d’obtenir un objet **cloud\_blob** ou la méthode **list\_blob.as\_directory** afin d’obtenir un objet cloud\_blob\_directory. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **my-sample-container** :
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -234,8 +234,8 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 -	[Utilisation du service de stockage de files d'attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Utilisation du stockage de tables à partir de C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
--	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
+-	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

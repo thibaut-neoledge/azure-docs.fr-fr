@@ -24,11 +24,11 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Vous pouvez choisir les types d’images suivants.
 
-    - **Images publiques** : images de machines virtuelles des systèmes d’exploitation et des logiciels serveurs, tels que Windows Server et SQL Server.
+    - **Images publiques** : images de machines virtuelles des systèmes d’exploitation et des logiciels serveurs, tels que Windows Server et SQL Server.
 
-    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
+    - **Images MSDN** : images de machines virtuelles des logiciels disponibles pour les abonnés MSDN, tels que Visual Studio et Microsoft Dynamics.
 
-    - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
+    - **Images privées** : images de machines virtuelles spécialisées et généralisées que vous avez créées.
 
     Pour en savoir plus sur les machines virtuelles spécialisées et généralisées, consultez [Image de machine virtuelle](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Pour plus d’informations sur l’utilisation d’une machine virtuelle comme modèle pour créer rapidement de nouvelles machines virtuelles préconfigurées, consultez [Capture d’une machine virtuelle Windows à utiliser comme modèle](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
@@ -44,7 +44,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     >[AZURE.NOTE] Si vous choisissez des tailles importantes pour vos machines virtuelles, des frais supplémentaires peuvent s’appliquer. Pour plus d’informations, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](./storage/storage-introduction/).
+1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/storage-introduction/).
 
 1. Si vous voulez spécifier un réseau virtuel (ce qui est facultatif), sélectionnez-le dans les listes déroulantes Réseau virtuel et Sous-réseau.
 
@@ -157,4 +157,3 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 ## Étapes suivantes
 
 Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
-

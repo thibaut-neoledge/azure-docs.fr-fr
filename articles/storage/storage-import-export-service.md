@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="renash"/>
 
 
@@ -34,7 +34,7 @@ Cet article offre une vue d’ensemble du service Import/Export et explique comm
 
 ## Présentation du service Import/Export ##
 
-Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
+Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
 
 - Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
 - Une tâche d'exportation vise à transférer des données stockées sous forme d'objets blob dans votre compte de stockage sur des disques durs qui vous sont ensuite expédiés.
@@ -102,7 +102,7 @@ L'outil Azure Import/Export génère un fichier *journal de lecteur* lors de la 
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'importation une fois mon colis envoyé**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
 
 7. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Classic, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 
@@ -195,6 +195,7 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
+	- Sharkoon QuickPort XT HC
 
 > [AZURE.NOTE] Si le convertisseur dont vous disposez n’est pas répertorié ci-dessus, vous pouvez tenter de l’utiliser pour préparer le lecteur avec l’outil Azure Import/Export et voir s’il fonctionne avant d’en acheter un qui soit pris en charge.
 
@@ -231,7 +232,7 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 - Non. Tous les lecteurs doivent être préparés avec BitLocker.
 
 **Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
-- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d'informations, consultez la section[ Aperçu de l'utilisation du lecteur pour une tâche d'exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
+- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d’informations, consultez la section [Aperçu de l’utilisation du lecteur pour une tâche d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
 
 ### Expédition
 
@@ -239,7 +240,7 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 - Pour les régions situées aux États-Unis et en Europe, seul [Federal Express](http://www.fedex.com/us/oadr/) (FedEx) est pris en charge. Tous les colis sont renvoyés via FedEx Ground ou FedEx International Economy.
 
-- Pour l’Est de l’Asie-Pacifique, le Sud-Est de l’Asie-Pacifique, l’Est de l’Australie, le Sud-Est de l’Australie et l’Ouest du Japon, seul [DHL](http://www.dhl.com/) est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
+- Pour l’Est de l’Asie-Pacifique, le Sud-Est de l’Asie-Pacifique, l’Est de l’Australie, le Sud-Est de l’Australie, l’Ouest du Japon, l’Est du Japon et le centre de l’Inde, seul [DHL](http://www.dhl.com/) est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Vous devez fournir votre numéro de suivi au service Azure Import/Export ; à défaut, votre tâche n’est pas traitée.
 
@@ -265,6 +266,8 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 	- Est de l’Australie
 	- Sud-est de l’Australie
 	- Ouest du Japon
+	- Est du Japon
+	- Inde centrale
 
 - L'adresse d'expédition qui vous sera communiquée sera située dans la région de votre compte de stockage. Par exemple, si vous habitez aux États-Unis et que votre compte de stockage est situé dans le centre de données Europe de l’Ouest, vous recevrez une adresse d’expédition située en Europe pour l’envoi de vos lecteurs.
 
@@ -280,9 +283,9 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 - Incluez uniquement vos disques durs. N’incluez pas d’accessoires tels que des câbles d’alimentation ou USB.
 
-**Pourquoi l’état de ma tâche sur le portail Classic indique-t-il *En cours d’expédition* alors que le site du transporteur indique que mon package est livré ?**
+**Pourquoi l’état de ma tâche sur le portail Classic indique-t-il *En cours d’expédition* alors que le site du transporteur indique que mon colis est livré ?**
 
-- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation alors que son traitement n’a pas démarré, l’état de votre tâche indiquera *En cours d’expédition*.
+- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation, mais qu’il n’a pas encore été traité, l’état de votre tâche indiquera *En cours d’expédition*.
 
 ## Voir aussi
 
@@ -293,4 +296,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

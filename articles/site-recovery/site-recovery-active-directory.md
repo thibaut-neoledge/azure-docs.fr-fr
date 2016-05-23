@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Protéger Active Directory et DNS avec Azure Site Recovery | Microsoft Azure" 
-	description="Cet article décrit comment implémenter une solution de récupération d'urgence pour Active Directory à l'aide d'Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="prateek9us" 
-	manager="abhiag" 
+	pageTitle="Protéger Active Directory et DNS avec Azure Site Recovery | Microsoft Azure"
+	description="Cet article décrit comment implémenter une solution de récupération d'urgence pour Active Directory à l'aide d'Azure Site Recovery."
+	services="site-recovery"
+	documentationCenter=""
+	authors="prateek9us"
+	manager="abhiag"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
+<tags
+	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.workload="storage-backup-recovery"
+	ms.date="05/10/2016"
 	ms.author="pratshar"/>
 
 # Protéger Active Directory et DNS avec Azure Site Recovery
@@ -36,7 +36,7 @@ Si vous avez un petit nombre d'applications et un seul contrôleur de domaine, e
 
 Si vous avez un grand nombre d’applications et plus d’un contrôleur de domaine dans l’environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer également un contrôleur de domaine supplémentaire sur le site cible (Azure ou un centre de données local secondaire).
 
->[AZURE.NOTE]Même si vous implémentez Option-2 pour effectuer un test de basculement, vous devez toujours répliquer le contrôleur de domaine à l'aide de Site Recovery. Pour plus d’informations, consultez la rubrique [Considérations en matière de test de basculement](#considerations-for-test-failover).
+>[AZURE.NOTE] Même si vous implémentez Option-2 pour effectuer un test de basculement, vous devez toujours répliquer le contrôleur de domaine à l'aide de Site Recovery. Pour plus d’informations, consultez la rubrique [Considérations en matière de test de basculement](#considerations-for-test-failover).
 
 
 Les sections ci-dessous expliquent comment activer la protection d’un contrôleur de domaine dans Site Recovery et comment configurer un contrôleur de domaine dans Azure.
@@ -45,7 +45,7 @@ Les sections ci-dessous expliquent comment activer la protection d’un contrôl
 ## Composants requis
 
 - Un déploiement local d’Active Directory et du serveur DNS.
-- Un coffre Azure Site Recovery Services dans un abonnement Microsoft Azure. 
+- Un coffre Azure Site Recovery Services dans un abonnement Microsoft Azure.
 - Si vous répliquez vers Azure, exécutez l’outil d’évaluation de la disponibilité des machines virtuelles Azure sur des machines virtuelles, afin de vérifier qu’elles sont compatibles avec les machines virtuelles Azure et Azure Site Recovery Services
 
 
@@ -62,7 +62,7 @@ Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramèt
 
 ![Paramètres réseau de la machine virtuelle](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
-## Protéger Active Directory avec la réplication Active Directory 
+## Protéger Active Directory avec la réplication Active Directory
 
 ### Protection de site à site
 
@@ -70,10 +70,10 @@ Créez un contrôleur de domaine sur le site secondaire et spécifiez le même n
 
 ###Protection de site vers Azure
 
-Suivez les instructions pour [créer un contrôleur de domaine dans un réseau virtuel Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). Lorsque vous attribuez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine qui est utilisé sur le site principal.
+Suivez les instructions pour [créer un contrôleur de domaine dans un réseau virtuel Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Lorsque vous attribuez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine qui est utilisé sur le site principal.
 
-[Reconfigurez ensuite le serveur DNS pour le réseau virtuel](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) afin de l’utiliser dans Azure.
-  
+[Reconfigurez ensuite le serveur DNS pour le réseau virtuel](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) afin de l’utiliser dans Azure.
+
 ![Réseau Azure](./media/site-recovery-active-directory/azure-network.png)
 
 ## Considérations en matière de test de basculement
@@ -84,16 +84,16 @@ La plupart des applications requièrent également la présence d'un contrôleur
 
 1. Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery.
 2. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
-3. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible**, dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp) 
+3. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible**, dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE]L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si ce n'est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
+>[AZURE.NOTE] L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si ce n'est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
 
-4. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé. 
+4. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé.
 5. Exécutez un test de basculement pour le plan de récupération de l’application.
-6. Une fois le test terminé, marquez le test de basculement de la tâche de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery. 
+6. Une fois le test terminé, marquez le test de basculement de la tâche de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
 
 ### DNS et contrôleur de domaine sur différentes machines
- 
+
 Si DNS figure sur une machine virtuelle différente de celle du contrôleur de domaine, vous devez créer une machine virtuelle DNS pour le test de basculement. Si le DNS et le contrôleur de domaine figurent sur la même machine virtuelle, vous pouvez ignorer cette section.
 
 Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises. Par exemple, si votre domaine Active Directory est contoso.com, vous pouvez créer une zone DNS portant le nom contoso.com. Les entrées correspondant à Active Directory doivent être mises à jour dans le système DNS, comme suit :
@@ -111,9 +111,9 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 3. Ajoutez une zone sur le serveur DNS, autorisez les mises à jour non sécurisées et ajoutez une entrée pour ce dernier dans le service DNS :
 
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
+	    dnscmd /zoneadd contoso.com  /Primary
+	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
+	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
 	    dnscmd /config contoso.com /allowupdate 1
 
 
@@ -121,4 +121,4 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 Pour en savoir plus sur la protection des charges de travail d’entreprise avec Azure Site Recovery, consultez la rubrique [Quelles charges de travail puis-je protéger ?](../site-recovery/site-recovery-workload.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

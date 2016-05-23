@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Détachement d'un disque d'une machine virtuelle Windows | Microsoft Azure"
+	pageTitle="Détachement d'un disque d'une machine virtuelle Windows | Microsoft Azure"
 	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure créée à l'aide du modèle de déploiement classique."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/09/2016"
 	ms.author="cynthn"/>
 
 
 
-# Comment détacher un disque d’une machine virtuelle Windows
+# Comment détacher un disque d’une machine virtuelle Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
@@ -30,6 +30,6 @@
 
 [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md)
 
-[Comment attacher un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md)
+[Comment attacher un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio
@@ -30,7 +30,7 @@ Utilisez les procédures suivantes pour configurer ces services et votre applica
 
 ## Création d'un service cloud
 
-Pour publier un service cloud dans Azure, vous devez d'abord créer un service cloud, qui exécute vos rôles dans l'environnement Azure. Vous pouvez créer un service cloud dans le Portail de gestion Azure, comme décrit à la section **Pour créer un service cloud à l’aide du portail de gestion Azure**, plus loin dans cette rubrique. Vous pouvez également créer un service cloud dans Visual Studio en utilisant l’Assistant Publication.
+Pour publier un service cloud dans Azure, vous devez d'abord créer un service cloud, qui exécute vos rôles dans l'environnement Azure. Vous pouvez créer un service cloud dans le [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), comme décrit à la section **Pour créer un service cloud à l’aide du portail Azure Classic**, plus loin dans cette rubrique. Vous pouvez également créer un service cloud dans Visual Studio en utilisant l’Assistant Publication.
 
 ### Pour créer un service cloud à l’aide de Visual Studio
 
@@ -48,9 +48,9 @@ Pour publier un service cloud dans Azure, vous devez d'abord créer un service c
 
 1. Notez le nom de votre service cloud. Le nom constitue une partie de l'URL de votre service et doit par conséquent être unique d’un point de vue global. Le nom ne respecte pas la casse.
 
-### Pour créer un service cloud à l’aide du portail de gestion Azure
+### Pour créer un service cloud à l’aide du portail Azure Classic
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkId=253103) sur le site web Microsoft.
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=253103) sur le site web Microsoft.
 
 1. (facultatif) Pour afficher la liste des services cloud que vous avez déjà créés, cliquez sur le lien Services cloud sur le côté gauche de la page.
 
@@ -66,7 +66,7 @@ Pour publier un service cloud dans Azure, vous devez d'abord créer un service c
 
 ## Créer un compte de stockage
 
-Un compte de stockage fournit l'accès aux services Blob, File d'attente et Table. Vous pouvez créer un compte de stockage en utilisant Visual Studio ou le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
+Un compte de stockage fournit l'accès aux services Blob, File d'attente et Table. Vous pouvez créer un compte de stockage en utilisant Visual Studio ou le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=253103).
 
 ### Pour créer un compte de stockage à l’aide de Visual Studio
 
@@ -82,9 +82,9 @@ Un compte de stockage fournit l'accès aux services Blob, File d'attente et Tabl
 
 1. Lorsque vous avez terminé, sélectionnez **Créer**. Le nouveau compte de stockage s’affiche dans la liste **Stockage** de l’**Explorateur de serveurs**.
 
-### Pour créer un compte de stockage à l’aide du portail de gestion Azure
+### Pour créer un compte de stockage à l’aide du portail Azure Classic
 
-1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkId=253103) sur le site web Microsoft.
+1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=253103) sur le site web Microsoft.
 
 1. (facultatif) Pour afficher vos comptes de stockage, sélectionnez le lien **Stockage** dans le panneau sur le côté gauche de la page.
 
@@ -124,15 +124,15 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 1. Dans la liste **Abonnement** sélectionnez votre abonnement. Si la liste d’abonnements n’inclut pas celui que vous souhaitez, sélectionnez le lien **Télécharger les paramètres de publication**.
 
-1. Dans la liste **Nom du compte**, sélectionnez le nom de votre compte de stockage. Les outils Azure récupèrent automatiquement les informations d'identification du compte de stockage à l’aide du fichier .publishsettings. Pour spécifier manuellement les informations d’identification de votre compte de stockage, sélectionnez l’option **Informations d’identification entrées manuellement**, puis poursuivez cette procédure. Vous pouvez obtenir le nom et la clé primaire de votre compte de stockage dans le [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Si vous ne souhaitez pas spécifier manuellement les paramètres de votre compte de stockage, sélectionnez le bouton **OK** pour fermer la boîte de dialogue.
+1. Dans la liste **Nom du compte**, sélectionnez le nom de votre compte de stockage. Les outils Azure récupèrent automatiquement les informations d'identification du compte de stockage à l’aide du fichier .publishsettings. Pour spécifier manuellement les informations d’identification de votre compte de stockage, sélectionnez l’option **Informations d’identification entrées manuellement**, puis poursuivez cette procédure. Vous pouvez obtenir le nom et la clé primaire de votre compte de stockage dans le [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885). Si vous ne souhaitez pas spécifier manuellement les paramètres de votre compte de stockage, sélectionnez le bouton **OK** pour fermer la boîte de dialogue.
 
 1. Sélectionnez le lien **Entrer les informations d’identification du compte de stockage**.
 
 1. Dans le champ **Nom du compte**, entrez le nom de votre compte de stockage.
 
-    >[AZURE.NOTE] Connectez-vous au portail de gestion, puis sélectionnez le bouton **Stockage**. Le portail affiche la liste des comptes de stockage. Si vous sélectionnez un compte, une page associée s'ouvre. Vous pouvez copier le nom du compte de stockage à partir de cette page. Si vous utilisez une version précédente du portail de gestion, le nom de votre compte de stockage s’affiche dans l’affichage **Comptes de stockage** du portail de gestion. Pour copier ce nom, mettez-le en surbrillance dans la fenêtre **Propriétés** de cet affichage, puis appuyez sur les touches Ctrl+C. Pour coller le nom dans Visual Studio, sélectionnez la zone de texte **Nom du compte**, puis appuyez sur les touches Ctrl+V.
+    >[AZURE.NOTE] Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), puis sélectionnez le bouton **Stockage**. Le portail affiche la liste des comptes de stockage. Si vous sélectionnez un compte, une page associée s'ouvre. Vous pouvez copier le nom du compte de stockage à partir de cette page. Si vous utilisez une version précédente du portail classique, le nom de votre compte de stockage s’affiche dans l’affichage **Comptes de stockage**. Pour copier ce nom, mettez-le en surbrillance dans la fenêtre **Propriétés** de cet affichage, puis appuyez sur les touches Ctrl+C. Pour coller le nom dans Visual Studio, sélectionnez la zone de texte **Nom du compte**, puis appuyez sur les touches Ctrl+V.
 
-1. Dans la zone **Clé du compte**, entrez votre clé primaire, ou copiez-collez-la à partir du [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé à partir du portail de gestion :
+1. Dans la zone **Clé du compte**, entrez votre clé primaire, ou copiez-collez-la à partir du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé :
 
     1. En bas de la page du compte de stockage approprié, sélectionnez le bouton **Gérer les clés**.
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 Pour en savoir plus sur la publication d’applications entre Visual Studio et Azure, consultez la page [Publication d’un service cloud en utilisant les outils Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

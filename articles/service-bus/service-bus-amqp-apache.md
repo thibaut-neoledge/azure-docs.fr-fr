@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Comment installer Apache Qpid Proton-C sur une machine virtuelle Linux | Microsoft Azure"
-   description="Comment créer une machine virtuelle CentOS Linux à l'aide de machines virtuelles Azure et comment générer et installer la bibliothèque Apache Qpid Proton-C."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Comment installer Apache Qpid Proton-C sur une machine virtuelle Linux | Microsoft Azure"
+    description="Comment créer une machine virtuelle CentOS Linux à l'aide de machines virtuelles Azure et comment générer et installer la bibliothèque Apache Qpid Proton-C."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure
 
@@ -116,4 +116,4 @@ Prêt à en savoir plus ? Consultez le lien suivant :
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

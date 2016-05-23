@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation du stockage de tables à partir de Python | Microsoft Azure"
-	description="Découvrez comment utiliser le service de Table de Python pour créer, supprimer, insérer et interroger une table."
+	pageTitle="Utilisation du stockage de tables à partir de Python | Microsoft Azure"
+	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/29/2016"
 	ms.author="emgerner"/>
 
 
@@ -31,11 +31,11 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d'une table
 
-L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TargetService**. Ajoutez ce code vers le début de tout fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
+L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TargetService**. Ajoutez ce code vers le début de tout fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
 	from azure.storage.table import TableService, Entity
 
-Le code suivant crée un objet **TableService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
+Le code suivant crée un objet **TableService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -86,7 +86,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 	batch.insert_entity(task11)
 	table_service.commit_batch('tasktable', batch)
 
-Les lots peuvent également être utilisés avec la syntaxe du gestionnaire de contexte :
+Les lots peuvent également être utilisés avec la syntaxe du gestionnaire de contexte :
 
 	task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -144,10 +144,10 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 - [Centre de développement Python](/develop/python/)
 - [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
 - [Blog de l'équipe Azure Storage]
-- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
+- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
 
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
-[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
+[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

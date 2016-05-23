@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Accès à des clouds privés Azure avec Visual Studio
@@ -23,7 +23,7 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 ## Pour accéder à un cloud privé Azure dans Visual Studio
 
-1. Dans le portail de gestion du cloud privé, téléchargez votre fichier de paramètres de publication, ou contactez votre administrateur pour obtenir un fichier de paramètres de publication. Sur la version publique d'Azure, le lien de téléchargement est [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (Le fichier que vous téléchargez doit avoir une extension .publishsettings.)
+1. Dans le [portail classique Azure](http://go.microsoft.com/fwlink/?LinkID=213885) du cloud privé, téléchargez votre fichier de paramètres de publication, ou contactez votre administrateur pour obtenir un fichier de paramètres de publication. Sur la version publique d'Azure, le lien de téléchargement est [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (Le fichier que vous téléchargez doit avoir une extension .publishsettings.)
 
 1. Dans l’**Explorateur de serveurs** dans Visual Studio, sélectionnez le nœud **Azure** et, dans le menu contextuel, sélectionnez la commande **Gérer les abonnements**.
 
@@ -33,7 +33,7 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
     ![Importation de certificats Azure](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
-1. Dans la boîte de dialogue **Importer des abonnements Microsoft Azure**, accédez au dossier où vous enregistré le fichier de paramètres de publication, sélectionnez le fichier, puis sélectionnez le bouton **Importer**. Cette opération importe les certificats du fichier de paramètres de publication dans Visual Studio. Vous devez maintenant être en mesure d'interagir avec vos ressources de cloud privé.
+1. Dans la boîte de dialogue **Importer des abonnements Microsoft Azure**, accédez au dossier où vous avez enregistré le fichier de paramètres de publication, sélectionnez le fichier, puis sélectionnez le bouton **Importer**. Cette opération importe les certificats du fichier de paramètres de publication dans Visual Studio. Vous devez maintenant être en mesure d'interagir avec vos ressources de cloud privé.
 
     ![Importation de paramètres de publication](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
@@ -43,4 +43,4 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 [Téléchargement et importation des paramètres de publication et des informations d'abonnement] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

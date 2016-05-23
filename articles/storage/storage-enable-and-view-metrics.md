@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/09/2016" 
 	ms.author="robinsh"/>
 
 # Activation des métriques Azure Storage et affichage des données associées
@@ -204,4 +204,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

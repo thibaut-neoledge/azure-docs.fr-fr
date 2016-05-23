@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016"
+ ms.date="05/11/2016"
  ms.author="casoper"/>
 
 # Comment gérer l'expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)
@@ -50,4 +50,4 @@ Par exemple, pour mettre en cache du contenu pendant une heure, ajoutez les él�
 
 [Comment gérer l’expiration des contenus d’objets blob dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

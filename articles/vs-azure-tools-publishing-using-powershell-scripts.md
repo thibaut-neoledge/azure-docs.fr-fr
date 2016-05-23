@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test
@@ -149,7 +149,7 @@ Lorsque vous créez une machine virtuelle, le fichier de configuration JSON ress
 
 Vous pouvez modifier la configuration JSON pour changer ce qui se passe lorsque vous exécutez les scripts de publication. Les sections `cloudService` et `virtualMachine` sont obligatoires, mais vous pouvez supprimer la section `databases` si vous n’en avez pas besoin. Les propriétés qui sont vides dans le fichier de configuration par défaut généré par Visual Studio sont facultatives ; celles qui ont des valeurs dans le fichier de configuration par défaut sont obligatoires.
 
-Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le portail de gestion Azure. Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](./app-service-web/web-sites-staged-publishing.md).
+Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](./app-service-web/web-sites-staged-publishing.md).
 
 ## Exécution de scripts de publication
 
@@ -322,7 +322,7 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 |Find-AzureVM|Obtient la machine virtuelle Azure spécifiée.|
 |Format-DevTestMessageWithTime|Indique la date et l’heure avant un message. Cette fonction est conçue pour les messages écrits dans les flux Error et Verbose.|
 |Get-AzureSQLDatabaseConnectionString|Assemble une chaîne de connexion pour se connecter à une base de données SQL Azure.|
-|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest *(non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
+|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest* (non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
 |Get-MSDeployCmd|Renvoie une commande pour exécuter l’outil MsDeploy.exe.|
 |New-AzureVMEnvironment|Recherche ou crée une machine virtuelle dans l’abonnement qui correspond aux valeurs dans le fichier de configuration JSON.|
 |Publish-WebPackage|Utilise MsDeploy.exe et un fichier. zip de package de publication web pour déployer des ressources sur un site web. Cette fonction ne génère aucune sortie. Si l’appel de MSDeploy.exe échoue, la fonction lève une exception. Pour obtenir une sortie plus détaillée, utilisez l’option **-Verbose**.|
@@ -351,4 +351,4 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

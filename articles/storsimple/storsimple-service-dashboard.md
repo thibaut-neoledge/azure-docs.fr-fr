@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Tableau de bord du service StorSimple Manager | Microsoft Azure"
    description="Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour surveiller l’état de votre solution StorSimple."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos" />
 
 # Utilisation du tableau de bord du service StorSimple Manager
@@ -25,7 +25,7 @@ La page de tableau de bord du service StorSimple Manager fournit un résumé de 
 
 Le tableau de bord du service StorSimple Manager affiche les informations suivantes :
 
-- Dans la zone du **graphique**, vous pouvez voir les graphiques de mesures pour vos périphériques. Vous pouvez afficher le stockage principal utilisé sur tous les périphériques, ainsi que le stockage de cloud utilisé par les périphériques sur une période donnée. Utilisez les commandes dans le coin supérieur droit du graphique pour définir l’échelle de temps : 1 semaine, 1 mois, 3 mois ou 1 an.
+- Dans la zone du **graphique**, vous pouvez voir les graphiques de mesures pour vos périphériques. Vous pouvez afficher le stockage principal (attaché localement et hiérarchisé) utilisé sur tous les périphériques, ainsi que le stockage de cloud utilisé par les périphériques sur une période donnée. Utilisez les commandes dans le coin supérieur droit du graphique pour définir l’échelle de temps : 1 semaine, 1 mois, 3 mois ou 1 an.
 
 - L’**aperçu de l'utilisation** montre le stockage principal alloué et utilisé par toutes les unités par rapport au stockage total disponible sur tous les périphériques. **Approvisionné** fait référence à la quantité de stockage préparée et allouée à l'utilisation, tandis qu’**Utilisé** fait référence à l'utilisation des volumes, tel qu'affiché par les initiateurs connectés aux périphériques.
 
@@ -76,4 +76,4 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

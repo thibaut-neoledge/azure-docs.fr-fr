@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig avec PowerShell
@@ -30,7 +30,9 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumett
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a id="powershell"></a>Exécution de tâches Pig avec PowerShell
@@ -177,4 +179,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

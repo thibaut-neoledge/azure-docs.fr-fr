@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
 # Gestion des services cloud
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portail Azure](cloud-services-how-to-manage-portal.md)
+- [Portail Azure Classic](cloud-services-how-to-manage.md)
+
 
 Dans la zone **Cloud Services** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
@@ -42,15 +43,13 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 4. Mettez **éventuellement** à jour l'étiquette de déploiement et le compte de stockage.
 
-5. Si la mise à jour change le nombre de rôles ou la taille d'un des rôles, activez la case à cocher **Autoriser la mise à jour si la taille de rôle ou le nombre de rôles change** afin de permettre à la mise à jour de continuer.
-
-	>[AZURE.WARNING] Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
-
-6. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Modifier même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
+5. Si l’un des rôles de service ne comporte qu’une seule instance, sélectionnez **Déployer même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
 
 	Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour.
 
-8. Cliquez sur **OK** pour démarrer la mise à jour du service.
+6. Cochez la case **Démarrer le déploiement** pour appliquer la mise à jour après le téléchargement du package.
+
+7. Cliquez sur **OK** pour démarrer la mise à jour du service.
 
 
 
@@ -114,4 +113,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

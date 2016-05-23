@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/09/2016"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -284,4 +284,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

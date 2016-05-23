@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestion de bases de données dans Azure SQL Data Warehouse
@@ -115,7 +115,7 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Image references-->
 
 <!--Article references-->
-[Options de redondance de stockage Microsoft Azure]: storage-redundancy.md#read-access-geo-redundant-storage
+[Options de redondance de stockage Microsoft Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Créer un entrepôt de données SQL (portail Azure)]: sql-data-warehouse-get-started-provision.md
 [Créer une base de données (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -29,13 +29,14 @@ Si vous devez déployer un très grand nombre de machines virtuelles Linux simil
 
 ## Avant de commencer
 
-Cet article suppose que vous disposez des composants requis suivants avant de commencer la procédure :
+Cet article suppose que vous disposez de :
 
-1. Vous disposez d’une machine virtuelle Azure exécutant Linux et créée à l’aide du modèle de déploiement classique ou du modèle de déploiement Resource Manager. Vous avez configuré le système d’exploitation et les disques de données associés, et effectué d’autres procédures de personnalisation, telles que l’installation des applications requises. Nous allons utiliser cette machine virtuelle pour créer la copie. Si vous avez besoin d’aide pour créer la machine virtuelle source, consultez l’article [Créer une machine virtuelle Linux dans Azure](virtual-machines-linux-quick-create-cli.md). 
+1. Une **machine virtuelle Azure exécutant Linux**, dans le modèle de déploiement Classic ou Resource Manager, avec le système d’exploitation configuré, les disques de données attachés et les applications requises installées. Si vous avez besoin d’aide pour créer cette machine virtuelle, voir [Créer une machine virtuelle Linux dans Azure](virtual-machines-linux-quick-create-cli.md). 
 
-1. Vous avez téléchargé et installé l’interface de ligne de commande Azure sur votre machine et vous êtes connecté à votre abonnement Azure. Pour plus d’informations, consultez l’article [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md).
+1. L’**interface de ligne de commande Azure** installée sur votre machine et connectée à votre abonnement Azure. Pour plus d’informations, voir [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
 
-1. Vous disposez d’un groupe de ressources, mais aussi d’un compte de stockage et d’un conteneur d’objets blob créés dans ce groupe de ressources pour y copier les disques durs virtuels. Consultez l’article [Utilisation de l’interface de ligne de commande Microsoft Azure avec Microsoft Azure Storage](../storage/storage-azure-cli.md) pour en savoir plus sur la création de comptes de stockage et de conteneurs d’objets blob à l’aide de l’interface de ligne de commande Azure.
+1. Un **groupe de ressources** avec un **compte de stockage** et un **conteneur d’objets blob** créés dans ce groupe pour y copier les disques durs virtuels. Pour plus d’informations, voir [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../storage/storage-azure-cli.md).
+
 
 
 > [AZURE.NOTE] Des étapes similaires s’appliquent pour une machine virtuelle créée en utilisant l’un des deux modèles de déploiement comme image source. Nous détaillerons les différences de procédure le cas échéant.
@@ -46,15 +47,15 @@ Cet article suppose que vous disposez des composants requis suivants avant de co
 
 1. Commencez par libérer les disques durs virtuels utilisés par la machine virtuelle source en effectuant l’une des deux procédures suivantes :
 
-	- Pour **_copier_** votre machine virtuelle source, vous devez l’**arrêter**, puis la **désallouer**. Dans le portail, cliquez sur **Parcourir** > **Machines virtuelles** ou **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Arrêter**. Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, vous pouvez également utiliser la commande de l’interface de ligne de commande Azure `azure vm stop <yourResourceGroup> <yourVmName>` suivie de `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notez que l’*État* de la machine virtuelle dans le portail passe de **En cours d’exécution** à **Arrêté (désalloué)**.
+	- Pour **_copier_** votre machine virtuelle source, vous devez l’**arrêter**, puis la **libérer**. Dans le portail, cliquez sur **Parcourir** > **Machines virtuelles** ou **Machines virtuelles (classiques)** > *votre machine virtuelle* > **Arrêter**. Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, vous pouvez également utiliser la commande de l’interface de ligne de commande Azure `azure vm stop <yourResourceGroup> <yourVmName>` suivie de `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notez que l’*État* de la machine virtuelle dans le portail passe de la valeur **En cours d’exécution** à la valeur **Arrêté (désalloué)**.
 	
-	- Pour **_migrer_** votre machine virtuelle source, **supprimez-la** et utilisez le disque dur virtuel désormais disponible. **Accédez** à votre machine virtuelle sur le [portail](https://portal.azure.com) et cliquez sur **Supprimer**.
+	- Si vous souhaitez **_effectuer la migration_** de votre machine virtuelle source, **supprimez** cette machine et utilisez le disque dur virtuel désormais disponible. **Accédez** à votre machine virtuelle sur le [portail](https://portal.azure.com), puis cliquez sur **Supprimer**.
 	
-1. Recherchez la clé d’accès du compte de stockage qui contient votre disque dur virtuel source. Pour plus d’informations sur les clés d’accès, consultez l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+1. Recherchez la clé d’accès du compte de stockage qui contient votre disque dur virtuel source. Pour plus d’informations sur les clés d’accès, voir [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
-	- Si votre machine virtuelle source a été créée à l’aide du modèle de déploiement classique, cliquez sur **Parcourir** > **Comptes de stockage (classiques)** > *votre compte de stockage* > **Tous les paramètres** > **Clés** et copiez la clé portant le nom **CLÉ D’ACCÈS PRIMAIRE**. Dans l’interface de ligne de commande Azure, vous pouvez également activer le mode classique en utilisant la commande `azure config mode asm`, puis utilisez la commande `azure storage account keys list <yourSourceStorageAccountName>`.
+	- Si votre machine virtuelle source a été créée à l’aide du modèle de déploiement Classic, cliquez sur **Parcourir** > **Comptes de stockage (classiques)** > *votre compte de stockage* > **Tous les paramètres** > **Clés** et copiez la clé portant le nom **CLÉ D’ACCÈS PRIMAIRE**. Dans l’interface de ligne de commande Azure, vous pouvez également activer le mode Classic en utilisant la commande `azure config mode asm`, puis utiliser la commande `azure storage account keys list <yourSourceStorageAccountName>`.
 
-	- Pour une machine virtuelle créée à l’aide du modèle de déploiement Resource Manager, cliquez sur **Parcourir** > **Comptes de stockage** > *votre compte de stockage* > **Tous les paramètres** > **Clés d’accès** et copiez la clé portant le nom **key1**. Dans l’interface de ligne de commande Azure, vous pouvez également vérifier que le mode Resource Manager est activé à l’aide de la commande `azure config mode arm`, puis utilisez la commande `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
+	- Pour une machine virtuelle créée à l’aide du modèle de déploiement Resource Manager, cliquez sur **Parcourir** > **Comptes de stockage** > *votre compte de stockage* > **Tous les paramètres** > **Clés d’accès** et copiez la clé portant le nom **key1**. Dans l’interface de ligne de commande Azure, vous pouvez également vérifier que le mode Resource Manager est activé à l’aide de la commande `azure config mode arm`, puis utiliser la commande `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
 
 1. Copiez les fichiers du disque dur virtuel à l’aide des [commandes de l’interface de ligne de commande Azure pour le stockage](../storage/storage-azure-cli.md), comme décrit dans les étapes suivantes. Si vous préférez passer par l’interface utilisateur pour obtenir les mêmes résultats, vous pouvez utiliser l’[Explorateur de stockage Microsoft Azure](http://storageexplorer.com/). </br>
 	1. Configurez la chaîne de connexion pour le compte de stockage de destination. Cette chaîne de connexion contient la clé d’accès pour ce compte de stockage.
@@ -95,7 +96,7 @@ Commencez par configurer un réseau virtuel et une carte réseau pour votre nouv
 	$azure network nic create <yourResourceGroup> <yourNicName> -k <yourSubnetName> -m <yourVnetName> -p <yourIpName> -l <yourLocation>
 
 
-Vous pouvez maintenant créer la nouvelle machine virtuelle à l’aide des disques durs virtuels copiés. Pour ce faire, utilisez la commande suivante. </br>
+Vous pouvez maintenant créer la machine virtuelle à l’aide des disques durs virtuels copiés. Pour ce faire, utilisez la commande suivante. </br>
 
 	$azure vm create -g <yourResourceGroup> -n <yourVmName> -f <yourNicName> -d <UriOfYourOsDisk> -x <UriOfYourDataDisk> -e <DataDiskSizeGB> -Y -l <yourLocation> -y Linux -z "Standard_A1" -o <DestinationStorageAccountName> -R <DestinationStorageAccountBlobContainer>
 
@@ -118,13 +119,13 @@ Si la commande a été exécutée avec succès, vous obtiendrez une sortie simil
 	+ Creating VM "redhatcopy"
 	info:    vm create command OK
 
-La machine virtuelle que vous venez de créer devrait apparaître sur le [portail Azure](https://portal.azure.com) sous **Parcourir** > **Machines virtuelles**.
+La machine virtuelle que vous venez de créer devrait apparaître dans le [Portail Azure](https://portal.azure.com) sous **Parcourir** > **Machines virtuelles**.
 
-Connectez-vous à votre nouvelle machine virtuelle à l’aide du client SSH de votre choix, puis utilisez les informations d’identification de votre machine virtuelle d’origine, par ex. `ssh OldAdminUser@<IPaddressOfYourNewVM>`. Pour plus d’informations sur la connexion SSH à votre machine virtuelle Linux, consultez l’article [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md).
+Connectez-vous à votre nouvelle machine virtuelle à l’aide du client SSH de votre choix, puis utilisez les informations d’identification de compte de votre machine virtuelle d’origine, par exemple `ssh OldAdminUser@<IPaddressOfYourNewVM>`. Pour plus d’informations sur la connexion SSH à votre machine virtuelle Linux, voir [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Étapes suivantes
 
-Pour savoir comment utiliser l’interface de ligne de commande Azure pour gérer votre nouvelle machine virtuelle, consultez l’article [Commandes de l’interface de ligne de commande Azure pour Azure Resource Manager](azure-cli-arm-commands.md).
+Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure pour gérer votre nouvelle machine virtuelle, voir [Commandes de l’interface de ligne de commande Azure en mode Azure Resource Manager](azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

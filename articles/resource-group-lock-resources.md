@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/25/2016" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
 
-En tant qu’administrateur, vous pouvez envisager de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer de manière accidentelle des ressources critiques. Si les ressources sont verrouillées, les utilisateurs autorisés peuvent toujours lire et modifier ces ressources, mais ils ne peuvent pas les supprimer.
+En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer de manière accidentelle des ressources critiques. Si les ressources sont verrouillées, les utilisateurs autorisés peuvent toujours lire et modifier ces ressources, mais ils ne peuvent pas les supprimer.
 
-Les verrous diffèrent de l'utilisation du contrôle d'accès basé sur les rôles pour autoriser les utilisateurs à effectuer certaines actions. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md). Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles, et vous appliquez généralement les verrous pour une durée limitée uniquement.
+Contrairement au contrôle d’accès en fonction du rôle, les verrous de gestion vous permettent d’appliquer une restriction à tous les utilisateurs et à tous les rôles. Pour en savoir plus sur la définition des autorisations concernant les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
 Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou.
 
 ## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
-Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l’accès utilisateur** peuvent effectuer ces actions. Pour plus d’informations sur l’affectation du contrôle d’accès, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l’accès utilisateur** peuvent effectuer ces actions.
 
 ## Création d’un verrou dans un modèle
 
-L’exemple ci-dessous représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou est créé en concaténant le nom de la ressource et **/Microsoft.Authorization/**, suivi du nom du verrou, en l’occurrence **myLock**.
+L’exemple ci-dessous représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/Microsoft.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
 
 Le type fourni est spécifique au type de ressource. Pour le stockage, ce type est « Microsoft.Storage/storageaccounts/providers/locks ».
 
@@ -90,4 +90,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher"/>
 
 # Déployer un conteneur ASP.NET sur un hôte Docker distant
@@ -51,11 +51,11 @@ La procédure suivante vous guidera dans la création d'une application ASP.NET 
 1.  Redémarrez Visual Studio.
 
 ## 5\. Configurer le point de terminaison de l'hôte Azure Docker
-Avant de déployer votre application à partir de Visual Studio vers Azure, ajoutez à votre machine virtuelle hôte Docker le point de terminaison 80 pour pouvoir ultérieurement afficher votre application dans le navigateur. Cela est possible avec le portail Azure Classic ou avec Windows PowerShell :
+Avant de déployer votre application à partir de Visual Studio vers Azure, ajoutez à votre machine virtuelle hôte Docker le point de terminaison 80 pour pouvoir ultérieurement afficher votre application dans le navigateur. Cela est possible avec le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) ou avec Windows PowerShell :
 
-- **Utilisation du portail Azure Classic pour configurer le point de terminaison de l'hôte Azure Docker**
+- **Utilisation du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) pour configurer le point de terminaison de l’hôte Azure Docker**
 
-    1.  Accédez au [portail Azure Classic](https://manage.windowsazure.com/). 
+    1.  Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
     1.  Appuyez sur **MACHINES VIRTUELLES**.
     
@@ -77,13 +77,13 @@ Avant de déployer votre application à partir de Visual Studio vers Azure, ajou
         ```
 
 ## 6\. Générer et exécuter l'application
-Lors du déploiement sur les hôtes distants, la fonctionnalité de mappage de volume utilisée pour le développement Modifier et actualiser ne fonctionnera pas. Par conséquent, vous devrez utiliser la *configuration de lancement* lors de la génération de votre application afin d'éviter la configuration de mappage de volume. Suivez ces instructions pour exécuter votre application.
+Lors du déploiement sur les hôtes distants, la fonctionnalité de mappage de volume utilisée pour le développement Modifier et actualiser ne fonctionnera pas. Par conséquent, vous devrez utiliser la *configuration de lancement* lors de la génération de votre application afin d’éviter la configuration de mappage de volume. Suivez ces instructions pour exécuter votre application.
 
-1.  Dans la barre d'outils Visual Studio, sélectionnez la configuration **Lancement**
+1.  Dans la barre d’outils Visual Studio, sélectionnez la configuration **Lancement**
 
 1.  Modifiez la cible de lancement en spécifiant **Docker**.
 
-1.  Cliquez sur l’icône **Docker** pour générer et exécuter l'application.
+1.  Cliquez sur l’icône **Docker** pour générer et exécuter l’application.
 
 ![Lancez l’application][2]
 
@@ -96,4 +96,4 @@ Vous devriez obtenir un résultat semblable à ce qui suit.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

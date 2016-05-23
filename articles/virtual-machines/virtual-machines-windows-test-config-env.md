@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Environnement de test de la configuration de base
@@ -289,7 +289,7 @@ Ensuite, vérifiez que vous pouvez accéder au web et aux ressources de partage 
 2.	Dans **Propriétés de CLIENT1**, cliquez sur **Activée** en regard de **Configuration de sécurité renforcée d’Internet Explorer**.
 3.	Dans **Configuration de sécurité renforcée d’Internet Explorer**, cliquez sur **Désactivée** pour **Administrateurs** et **Utilisateurs**, puis cliquez sur **OK**.
 4.	Dans l’écran d’accueil, cliquez sur **Internet Explorer**, puis cliquez sur **OK**.
-5.	Dans la barre d’adresses, tapez **http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1.
+5.	Dans la barre d’adresses, tapez ****http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1.
 6.	Dans la barre des tâches, cliquez sur l’icône de l’Explorateur de fichiers.
 7.	Dans la barre d’adresse, **\\\app1\\Files**, puis appuyez sur Entrée.
 8.	Vous devez voir une fenêtre de dossier avec le contenu du dossier partagé Files.
@@ -302,9 +302,10 @@ Ceci est votre configuration finale.
 
 Votre configuration de base dans Azure est maintenant prête pour le développement et le test d’applications ou pour d’autres environnements de test.
 
-## Étape suivante
+## Étapes suivantes
 
-- Ajoutez une nouvelle machine virtuelle en utilisant le [portail Azure](virtual-machines-windows-hero-tutorial.md) ou créez l’[environnement test de cloud hybride simulé](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+- Ajoutez une machine virtuelle à l’aide du [portail Azure](virtual-machines-windows-hero-tutorial.md).
+- Concevez la [simulation d’environnement de test de cloud hybride](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Réduction des coûts des machines virtuelles de l’environnement de test dans Azure
@@ -334,4 +335,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

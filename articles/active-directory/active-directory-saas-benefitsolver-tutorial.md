@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/02/2016" 
+    ms.date="04/26/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
@@ -37,7 +37,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
 
 ###Pour activer l’intégration d’applications pour Benefitsolver, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, sur la page d’intégration d’application **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configurer l’authentification unique")
 
@@ -82,9 +82,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurer les paramètres d’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, tapez **http://azure.benefitsolver.com**.
-	2.  Dans la zone de texte **URL de réponse**, tapez **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
-
+    1.  Dans la zone de texte **URL d’authentification**, tapez ****http://azure.benefitsolver.com**.
+2.  Dans la zone de texte **URL de réponse**, tapez ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Cliquez sur **Next**.
 
@@ -96,7 +95,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     >[AZURE.NOTE] L’équipe de support technique Benefitsolver doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configurer l’authentification unique")
 
@@ -134,7 +133,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Benefitsolver, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Affecter des utilisateurs**.
 
@@ -146,4 +145,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

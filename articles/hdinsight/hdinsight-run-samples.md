@@ -32,7 +32,7 @@ Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les t�
 
 Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d'informations sur ces ressources, consultez :
 
-- [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Présentation d'Azure HDInsight][hdinsight-introduction]
 
@@ -41,7 +41,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables** :
+**Conditions préalables** :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
@@ -51,11 +51,11 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java 
 
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Pour connaître la procédure de développement d'un programme Java MapReduce, consultez - [Développement de programmes Java MapReduce pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+Pour connaître la procédure de développement d'un programme Java MapReduce, consultez - [Développement de programmes Java MapReduce pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
  
 **Pour envoyer une tâche MapReduce de comptage de mots**
 
@@ -1000,4 +1000,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

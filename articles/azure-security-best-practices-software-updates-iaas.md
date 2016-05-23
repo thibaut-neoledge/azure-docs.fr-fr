@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="05/11/2016"
    ms.author="yurid"/>
 
 #Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS
 
-Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques dans l’environnement IaaS Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles. Le diagramme ci-dessous devrait vous y aider :
+Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques dans l’environnement IaaS Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles. Le diagramme ci-dessous devrait vous y aider :
 
 ![Modèles et responsabilités de cloud](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
@@ -33,7 +33,7 @@ Ces mêmes principes s’appliquent dans un scénario hybride où votre entrepri
 
 ## Évaluation initiale
 
-Même si votre entreprise utilise déjà un système de gestion des mises à jour et si des stratégies de mise à jour logicielle sont déjà en place, il est important de revoir les évaluations de stratégie précédentes fréquemment et de les mettre à jour en fonction des exigences actuelles. Cela signifie que vous devez connaître l’état actuel des ressources de votre entreprise. Pour obtenir des informations relatives à cet état, vous devez connaître :
+Même si votre entreprise utilise déjà un système de gestion des mises à jour et si des stratégies de mise à jour logicielle sont déjà en place, il est important de revoir les évaluations de stratégie précédentes fréquemment et de les mettre à jour en fonction des exigences actuelles. Cela signifie que vous devez connaître l’état actuel des ressources de votre entreprise. Pour obtenir des informations relatives à cet état, vous devez connaître :
 
 -   les ordinateurs physiques et virtuels dans votre entreprise,
 
@@ -63,7 +63,7 @@ Les lignes de base fournissent les références permettant de détecter et de co
 
 Après avoir effectué l’audit initial de votre entreprise, vous devez utiliser les informations obtenues de l’audit pour définir une ligne de base opérationnelle pour les composants de l’informatique au sein de votre environnement de production. Un certain nombre de lignes de base peut être requis, en fonction des différents types de matériels et logiciels déployés en production.
 
-Par exemple, certains serveurs nécessitent une mise à jour logicielle pour éviter le blocage lorsqu’ils entament le processus d’arrêt lors de l’exécution de Windows Server 2012. Une ligne de base pour ces serveurs doit inclure cette mise à jour logicielle.
+Par exemple, certains serveurs nécessitent une mise à jour logicielle pour éviter le blocage lorsqu’ils entament le processus d’arrêt lors de l’exécution de Windows Server 2012. Une ligne de base pour ces serveurs doit inclure cette mise à jour logicielle.
 
 Dans les grandes organisations, il est souvent utile de diviser les ordinateurs de votre entreprise en catégories d’actifs et de garder chacune des catégories au niveau d’une ligne de base en utilisant les mêmes versions de logiciels et de mises à jour logicielles. Vous pouvez utiliser les catégories d’actifs en établissant une priorité pour la distribution de mise à jour de logiciel.
 
@@ -81,11 +81,11 @@ Toutefois, il existe certaines considérations générales et des meilleures pra
 
 ### Configuration de l’environnement
 
-Prenez en compte les pratiques suivantes lors de la planification de la configuration d’environnement de gestion de mise à jour logicielle :
+Prenez en compte les pratiques suivantes lors de la planification de la configuration d’environnement de gestion de mise à jour logicielle :
 
--   **Créer des regroupements de mises à jour logicielles de production en fonction de critères stables** : en général, l’utilisation de critères stables pour créer des regroupements de votre inventaire de mise à jour et de distribution de logiciels vous permet de simplifier tous les stades du processus de gestion des mises à jour logicielles. Les critères stables peuvent inclure la version du système d’exploitation client installé et du niveau du service pack, le rôle système ou l’organisation cible.
+-   **Créer des regroupements de mises à jour logicielles de production en fonction de critères stables** : en général, l’utilisation de critères stables pour créer des regroupements de votre inventaire de mise à jour et de distribution de logiciels vous permet de simplifier tous les stades du processus de gestion des mises à jour logicielles. Les critères stables peuvent inclure la version du système d’exploitation client installé et du niveau du service pack, le rôle système ou l’organisation cible.
 
--   **Créer des regroupements de préproduction qui incluent les ordinateurs de référence** : le regroupement de préproduction doit inclure les configurations représentatives des versions de système d’exploitation, la ligne de logiciel d’organisation et d’autres logiciels s’exécutant dans votre entreprise.
+-   **Créer des regroupements de préproduction qui incluent les ordinateurs de référence** : le regroupement de préproduction doit inclure les configurations représentatives des versions de système d’exploitation, la ligne de logiciel d’organisation et d’autres logiciels s’exécutant dans votre entreprise.
 
 Vous devez également prendre en compte l’emplacement dans lequel le serveur de mise à jour sera situé, s’il sera placé dans l’infrastructure IaaS Azure dans le cloud ou s’il sera sur site. Il s’agit d’une décision importante, car vous devez évaluer le volume de trafic entre des ressources locales et l’infrastructure Azure. Lisez la section [Connecter un réseau local à un réseau virtuel Microsoft Azure](https://technet.microsoft.com/library/Dn786406.aspx) pour plus d’informations sur la façon de connecter votre infrastructure locale à Azure.
 
@@ -95,7 +95,7 @@ Les options de conception qui déterminent l’emplacement du serveur de mise à
 
 Les mises à jour régulières sont importantes, non seulement pour la plateforme de gestion des mises à jour logicielles, mais également pour les serveurs qui doivent être mis à jour. Pour les organisations ayant mis en place un [processus de gestion du changement](https://technet.microsoft.com/library/cc543216.aspx) le service informatique devra justifier les raisons pour lesquelles le serveur doit être mis à jour, les temps d’arrêt estimés et l’impact possible. Pour vous assurer que vous disposez d’une configuration de restauration en cas d’échec de la mise à jour, assurez-vous d’effectuer régulièrement une sauvegarde système.
 
-Certaines options de sauvegarde d’IaaS d’Azure incluent :
+Certaines options de sauvegarde d’IaaS d’Azure incluent :
 
 -   [Protection de la charge de travail IaaS Azure à l’aide de Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
@@ -105,18 +105,18 @@ Certaines options de sauvegarde d’IaaS d’Azure incluent :
 
 Vous devez exécuter périodiquement des rapports pour contrôler le nombre de mises à jour installées ou manquantes, avec un statut incomplet, pour chaque mise à jour logicielle autorisée. De même, les rapports de mises à jour logicielles non autorisées encore peuvent faciliter des décisions de déploiement.
 
-Vous pouvez également envisager les tâches qui suivent :
+Vous pouvez également envisager les tâches qui suivent :
 
--   effectuer un audit des mises à jour de sécurité applicables et installées sur l’ensemble des ordinateurs de votre société ;
+-   effectuer un audit des mises à jour de sécurité applicables et installées sur l’ensemble des ordinateurs de votre société ;
 
 -   autoriser et déployer les mises à jour sur les ordinateurs appropriés,
 
 -   assurer le suivi de l’inventaire et mettre à jour l’état d’installation et de progression pour tous les ordinateurs de votre société.
 
-Outre les considérations générales expliquées dans cet article, vous devez prendre en compte les meilleures pratiques correspondant à chacun des produits, par exemple : si vous disposez d’une machine virtuelle SQL Server Azure, assurez-vous que vous suivez les mises à jour de recommandation dudit produit.
+Outre les considérations générales expliquées dans cet article, vous devez prendre en compte les meilleures pratiques correspondant à chacun des produits, par exemple : si vous disposez d’une machine virtuelle SQL Server Azure, assurez-vous que vous suivez les mises à jour de recommandation dudit produit.
 
 ## Étapes suivantes
 
 Utilisez les directives décrites dans cet article pour déterminer les meilleures options de mises à jour logicielles de machines virtuelles au sein d’IaaS Azure. Il existe de nombreuses similitudes entre les pratiques recommandées de mise à jour de logiciel dans un centre de données traditionnel et Azure IaaS, et il est par conséquent recommandé d’évaluer vos stratégies de mise à jour logicielle en cours pour inclure des machines virtuelles Azure et les meilleures pratiques figurant dans cet article dans votre processus de mise à jour logicielle globale.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

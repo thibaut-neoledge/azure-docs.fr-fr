@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Dépannage du fonctionnement d’une base de données dans la base de données SQL Azure."
-	description="Étapes rapides pour la résolution des problèmes de base de données."
+	pageTitle="Évaluation et amélioration des performances d’une base de données dans une base de données SQL Azure"
+	description="Décrit comment évaluer et améliorer les performances d’une base de données"
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="05/04/2016"
 	ms.author="v-shysun"/>
 
-# Dépannage des performances de base de données à l’aide de la base de données SQL Azure
+# Évaluation et amélioration des performances d’une base de données dans une base de données SQL Azure
 Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’une seule base de données ou augmenter le nombre d’eDTU d’un pool de base de données élastique à tout moment pour améliorer les performances, mais il se peut que vous vouliez identifier des opportunités pour améliorer et optimiser d’abord des performances de requêtes. Des index manquants et des requêtes incorrectement optimisées sont souvent à l’origine de performances de base de données limitées.
 
 ## Étapes servant à évaluer et à adapter les performances de base de données
 1.	Dans le [portail Azure](https://portal.azure.com), cliquez sur **Bases de données SQL**, sélectionnez la base de données, puis utilisez le graphique d’analyse pour rechercher des ressources proches de leur maximum. Consommation de DTU est affichée par défaut. Cliquez sur **Modifier** pour modifier l’intervalle de temps et les valeurs affichées.
-2.	Utilisez [Analyse des performances des requêtes](sql-database-query-performance.md) pour évaluer les requêtes à l’aide de DTU, puis utilisez [Conseiller d’indexation](sql-database-index-advisor.md) pour recommander et créer des index.
+2.	Utilisez [Query Performance Insight](sql-database-query-performance.md) pour évaluer les requêtes à l’aide de DTU, puis utilisez [SQL Database Advisor](sql-database-index-advisor.md) pour consulter les recommandations pour la création et la suppression d’index, le paramétrage des requêtes et la résolution des problèmes de schéma.
 3.	Vous pouvez utiliser des vues de gestion dynamique (DMV), des événements étendus (Xevents) et le magasin de requêtes dans SSMS pour obtenir des paramètres de performances en temps réel. Consultez la [rubrique de conseils de performance](sql-database-performance-guidance.md) pour découvrir l’analyse détaillée et des conseils de réglage.
 
 ## Opérations servant à améliorer les performances de base de données avec davantage de ressources
@@ -30,4 +30,4 @@ Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’u
 
 En cas de persistance des problèmes de performance, contactez l’assistance pour ouvrir un numéro d’assistance.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

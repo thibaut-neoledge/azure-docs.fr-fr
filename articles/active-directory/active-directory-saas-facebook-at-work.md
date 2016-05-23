@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="04/26/2016"
 	ms.author="asmalser"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à Facebook at Work
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer Facebook at Work avec Azure Active Directory (Azure AD).<br>L’intégration de Facebook at Work avec Azure AD vous offre les avantages suivants :
+L’objectif de ce didacticiel est de vous montrer comment intégrer Facebook dans Azure AD (Azure Active Directory).
+
+L’intégration de Facebook dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Facebook at Work. 
 - Vous pouvez configurer automatiquement les comptes des utilisateurs auxquels l’accès à Facebook at Work a été accordé.
@@ -47,15 +49,23 @@ Pour configurer l’intégration de Facebook at Work avec Azure AD, vous devez 
 
 **Pour ajouter Facebook at Work à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+
+	![Active Directory][1]
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut. <br><br>![Applications][2]<br>
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
-4. Cliquez sur **Ajouter** en bas de la page. <br><br>![Applications][3]<br>
+	![Applications][2]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**. <br><br>![Applications][4]<br>
+4. Cliquez sur **Ajouter** en bas de la page.
+	
+	![Applications][3]
+
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+
+	![Applications][4]
 
 6. Dans la zone de recherche, entrez **Facebook at Work**.
 
@@ -68,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 **Pour configurer l’authentification unique Azure AD avec Facebook at Work, procédez comme suit :**
 
-1.	Après avoir ajouté Facebook at Work dans le portail de gestion Azure, cliquez sur **Configurer l’authentification unique**.
+1.	Après avoir ajouté Facebook at Work dans le portail Azure Classic, cliquez sur **Configurer l’authentification unique**.
 
 2.	Dans l’écran **Configurer l’URL de l’application**, entrez l’URL à l’emplacement où les utilisateurs se connecteront à votre application Facebook at Work. Voici l’URL de votre locataire Facebook at Work (exemple : https://example.facebook.com/). Une fois que vous avez terminé, cliquez sur **Suivant**.
 
@@ -76,25 +86,25 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 4. Suivez les instructions à l’adresse suivante pour configurer Facebook at Work pour utiliser Azure AD comme fournisseur d’identité : [https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers)
 
-5.	Une fois que vous avez terminé, revenez aux fenêtres de navigateur affichant le portail de gestion Azure, cochez la case pour confirmer que vous avez terminé la procédure, puis cliquez sur **Suivant** et **Terminer**.
+5.	Une fois que vous avez terminé, revenez aux fenêtres de navigateur affichant le portail Azure Classic, cochez la case pour confirmer que vous avez terminé la procédure, puis cliquez sur **Suivant** et **Terminé**.
 
 
 ## Approvisionnement automatique des utilisateurs à Facebook at Work
 
 Azure AD prend en charge la possibilité de synchroniser automatiquement les informations de compte des utilisateurs affectés à Facebook at Work. La synchronisation automatique permet à Facebook at Work d’obtenir les données nécessaires pour autoriser l’accès des utilisateurs, avant leur première tentative de connexion. Elle annule également l’approvisionnement des utilisateurs à Facebook at Work lorsque l’accès a été révoqué dans Azure AD.
 
-L’approvisionnement automatique peut être configuré en cliquant sur **Configurer l’approvisionnement de compte** dans la fenêtre du portail de gestion Azure.
+Vous pouvez configurer l’approvisionnement automatique en cliquant sur **Configurer l’approvisionnement de comptes** dans la fenêtre du portail Azure Classic.
 
 Pour plus d’informations sur la façon de configurer l’approvisionnement automatique, consultez [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 
 ## Affectation d’utilisateurs à Facebook at Work
 
-Pour que les utilisateurs AAD approvisionnés puissent voir Facebook at Work sur leur volet d’accès, l’accès doit leur avoir été affecté à l’intérieur du portail de gestion Azure.
+Pour que les utilisateurs AAD approvisionnés puissent voir Facebook at Work sur leur volet d’accès, l’accès doit leur avoir été affecté à l’intérieur du portail Azure Classic.
 
 **Pour affecter des utilisateurs à Facebook at Work :**
 
-1.	Sur la page de démarrage de Facebook at Work dans le portail de gestion Azure, cliquez sur **Affecter des comptes**.
+1.	Sur la page de démarrage de Facebook at Work dans le portail Azure Classic, cliquez sur **Affecter des comptes**.
 
 2.	Dans le menu **Afficher**, sélectionnez si vous souhaitez affecter un utilisateur ou un groupe à Facebook at Work et cliquez sur la coche.
 
@@ -114,4 +124,4 @@ Pour que les utilisateurs AAD approvisionnés puissent voir Facebook at Work sur
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

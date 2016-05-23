@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git
@@ -59,7 +59,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 ## 3 : Connexion du projet à Azure
 
-1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
+1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
 
 	![][9]
 
@@ -152,7 +152,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][29]
 
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
 
 	![][30]
 
@@ -182,7 +182,7 @@ Une fois que vous êtes prêt, vous pouvez promouvoir l’environnement intermé
 
 ![][35]
 
-## 6 : Déploiement à partir d'une branche en cours d'utilisation
+## 7 : Déploiement à partir d’une branche en cours d’utilisation
 
 Lorsque vous utilisez Git, vous apportez généralement des modifications à une branche en cours d'utilisation et les intégrez dans une branche principale lorsque votre déploiement est terminé. Pendant la phase de déploiement d'un projet, vous pouvez générer et déployer la branche en cours d'utilisation dans Azure.
 
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
