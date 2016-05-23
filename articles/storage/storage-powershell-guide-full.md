@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation d’Azure PowerShell avec Azure Storage | Microsoft Azure"
-	description="Découvrez comment utiliser les applets de commande Azure PowerShell pour Azure Storage afin de créer et gérer des comptes de stockage, d’utiliser des objets blob, des tables, des files d’attente et des fichiers ; de configurer et d’interroger Storage Analytics et de créer des signatures d’accès partagé."
+	description="Découvrez comment utiliser les applets de commande Azure PowerShell pour Azure Storage afin de créer et gérer des comptes de stockage, d’utiliser des objets blob, des tables, des files d’attente et des fichiers ; de configurer et d’interroger Storage Analytics et de créer des signatures d’accès partagé."
 	services="storage"
 	documentationCenter="na"
 	authors="robinsh" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
@@ -21,25 +21,25 @@
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
 
-Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
+Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
 
 Ce guide part du principe que vous avez une certaine expérience en tant qu’utilisateur d’[Azure Storage](https://azure.microsoft.com/documentation/services/storage/) et de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Ce guide contient un certain nombre de scripts qui illustrent l'utilisation de PowerShell avec Azure Storage. Vous devez mettre à jour les variables du script en fonction de votre configuration avant d'exécuter chaque script.
 
 La première section de ce guide fournit un aperçu rapide d'Azure Storage et de PowerShell. Pour obtenir des informations et des instructions détaillées, commencez par [Conditions préalables à l’utilisation d’Azure PowerShell avec Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
 
-## Prise en main d'Azure Storage et de PowerShell en 5 minutes
+## Prise en main d'Azure Storage et de PowerShell en 5 minutes
 
-Cette section vous indique comment accéder à Azure Storage via PowerShell en 5 minutes.
+Cette section vous indique comment accéder à Azure Storage via PowerShell en 5 minutes.
 
-**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
+**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
 Pour plus d’informations sur les abonnements Azure, consultez la section [Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-**Une fois le compte et l’abonnement à Microsoft Azure créés :**
+**Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
 1.	Téléchargez et installez [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-2.	Démarrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE) : sur votre ordinateur local, accédez au menu **Démarrer**. Tapez **outils d’administration** et cliquez pour exécuter ce composant. Dans la fenêtre **Outils d'administration**, cliquez avec le bouton droit sur **Windows PowerShell ISE**, puis cliquez sur **Exécuter en tant qu'administrateur**.
+2.	Démarrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE) : sur votre ordinateur local, accédez au menu **Démarrer**. Tapez **outils d’administration** et cliquez pour exécuter ce composant. Dans la fenêtre **Outils d'administration**, cliquez avec le bouton droit sur **Windows PowerShell ISE**, puis cliquez sur **Exécuter en tant qu'administrateur**.
 3.	Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script.
 4.	Maintenant, voici un script simple qui affiche les commandes PowerShell de base pour accéder à Azure Storage. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local. Ensuite, le script définit l'abonnement Azure par défaut et crée un nouveau compte de stockage dans Azure. Ensuite, le script crée un nouveau conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
 5.	Dans la section de code suivante, sélectionnez le script entre les remarques **#begin** et **#end**. Appuyez sur Ctrl+C pour le copier dans le Presse-papiers.
@@ -95,13 +95,13 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
     	$blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
     	#end
 
-5.	Dans **Windows PowerShell ISE**, appuyez sur Ctrl+V pour copier le script. Cliquez sur **Fichier** > **Enregistrer**. Dans la boîte de dialogue **Enregistrer sous**, tapez le nom du fichier script, par exemple « monscriptdestockage». Cliquez sur **Enregistrer**.
+5.	Dans **Windows PowerShell ISE**, appuyez sur Ctrl+V pour copier le script. Cliquez sur **Fichier** > **Enregistrer**. Dans la boîte de dialogue **Enregistrer sous**, tapez le nom du fichier script, par exemple « monscriptdestockage». Cliquez sur **Enregistrer**.
 
 6.	Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration. Vous devez mettre à jour la variable **$SubscriptionName** en utilisant votre propre abonnement. Vous pouvez conserver les autres variables comme spécifié dans le script ou bien les modifier comme vous le souhaitez.
 
-	- **$SubscriptionName :** vous devez mettre à jour cette variable avec le nom de votre propre abonnement. Suivez l’une des trois méthodes suivantes pour rechercher le nom de votre abonnement :
+	- **$SubscriptionName :** vous devez mettre à jour cette variable avec le nom de votre propre abonnement. Suivez l’une des trois méthodes suivantes pour rechercher le nom de votre abonnement :
 
-		a. Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script. Copiez le script suivant dans le nouveau fichier de script, puis cliquez sur **Déboguer** > **Exécuter**. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local puis affiche tous les abonnements qui sont connectés à la session PowerShell locale. Notez le nom de l'abonnement que vous voulez utiliser dans ce didacticiel :
+		a. Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script. Copiez le script suivant dans le nouveau fichier de script, puis cliquez sur **Déboguer** > **Exécuter**. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local puis affiche tous les abonnements qui sont connectés à la session PowerShell locale. Notez le nom de l'abonnement que vous voulez utiliser dans ce didacticiel :
 		
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
@@ -114,68 +114,68 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 		
 		![Portail Azure Classic][Image1]
 
-	- **$StorageAccountName**: utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+	- **$StorageAccountName** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
 
-	- **$Location**: utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
+	- **$Location** : utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
 
-	- **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
+	- **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
 
-	- **$ImageToUpload**: entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
+	- **$ImageToUpload** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
 
-	- **$DestinationFolder**: entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\\DownloadImages ».
+	- **$DestinationFolder** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\\DownloadImages ».
 
-7.	Après la mise à jour des variables de script dans le fichier « mystoragescript.ps1 », cliquez sur **Fichier** > **Enregistrer**. Cliquez ensuite sur **Déboguer** > **Exécuter** ou appuyez sur **F5** pour exécuter le script.
+7.	Après la mise à jour des variables de script dans le fichier « mystoragescript.ps1 », cliquez sur **Fichier** > **Enregistrer**. Cliquez ensuite sur **Déboguer** > **Exécuter** ou appuyez sur **F5** pour exécuter le script.
 
-Après l’exécution du script, vous devez avoir un dossier local de destination qui inclut le fichier image téléchargé. La capture d’écran suivante présente un exemple de cette opération :
+Après l’exécution du script, vous devez avoir un dossier local de destination qui inclut le fichier image téléchargé. La capture d’écran suivante présente un exemple de cette opération :
 
 ![Téléchargement d'objets blob][Image3]
 
 
-> [AZURE.NOTE] La section Prise en main d'Azure Storage et de PowerShell en 5 minutes fournit une brève introduction sur l'utilisation d'Azure PowerShell avec Azure Storage. Pour plus d'informations et d'instructions, nous vous recommandons de lire les sections suivantes :
+> [AZURE.NOTE] La section Prise en main d'Azure Storage et de PowerShell en 5 minutes fournit une brève introduction sur l'utilisation d'Azure PowerShell avec Azure Storage. Pour plus d'informations et d'instructions, nous vous recommandons de lire les sections suivantes :
 
 ## Conditions préalables à l'utilisation d'Azure PowerShell avec Azure Storage
 Vous avez besoin d’un abonnement Azure et d’un compte pour exécuter les applets de commande PowerShell présentées dans ce guide, comme expliqué plus haut.
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
 
-Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell Azure, depuis la console Windows PowerShell standard ou depuis la console Windows PowerShell ISE. Par exemple, pour ouvrir une **console Azure PowerShell**, allez dans le menu Démarrer, tapez Microsoft Azure PowerShell, puis cliquez avec le bouton droit et cliquez sur Exécuter en tant qu’administrateur. Pour ouvrir **Windows PowerShell ISE**, allez dans le menu Démarrer, tapez « outils d’administration », puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
+Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell Azure, depuis la console Windows PowerShell standard ou depuis la console Windows PowerShell ISE. Par exemple, pour ouvrir une **console Azure PowerShell**, allez dans le menu Démarrer, tapez Microsoft Azure PowerShell, puis cliquez avec le bouton droit et cliquez sur Exécuter en tant qu’administrateur. Pour ouvrir **Windows PowerShell ISE**, allez dans le menu Démarrer, tapez « outils d’administration », puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
 
 ## Gestion de comptes de stockage dans Azure
 
 ### Création d'un abonnement Azure par défaut
-Pour gérer Azure Storage avec Azure PowerShell, vous devez authentifier votre environnement client avec Azure via l'authentification Azure Active Directory ou l'authentification basée sur les certificats. Pour plus de détails, consultez le didacticiel [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Ce guide utilise l'authentification Azure Active Directory :
+Pour gérer Azure Storage avec Azure PowerShell, vous devez authentifier votre environnement client avec Azure via l'authentification Azure Active Directory ou l'authentification basée sur les certificats. Pour plus de détails, consultez le didacticiel [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Ce guide utilise l'authentification Azure Active Directory :
 
-1.	Dans la console Azure PowerShell ou dans Windows PowerShell ISE, tapez la commande suivante pour ajouter votre Azure compte à l'environnement PowerShell local :
+1.	Dans la console Azure PowerShell ou dans Windows PowerShell ISE, tapez la commande suivante pour ajouter votre Azure compte à l'environnement PowerShell local :
 
     `Add-AzureAccount`
 
-2.	Dans la fenêtre « Connectez-vous à Microsoft Azure », tapez l'adresse électronique et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
+2.	Dans la fenêtre « Connectez-vous à Microsoft Azure », tapez l'adresse électronique et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
 
-3.	Ensuite, exécutez la commande suivante pour voir les comptes Azure dans votre environnement PowerShell local et vérifiez que votre compte est répertorié :
+3.	Ensuite, exécutez la commande suivante pour voir les comptes Azure dans votre environnement PowerShell local et vérifiez que votre compte est répertorié :
 
 	`Get-AzureAccount`
 
-4.	Ensuite, exécutez l'applet de commande suivante pour voir tous les abonnements qui sont connectés à la session PowerShell locale et vérifiez que votre abonnement est répertorié :
+4.	Ensuite, exécutez l'applet de commande suivante pour voir tous les abonnements qui sont connectés à la session PowerShell locale et vérifiez que votre abonnement est répertorié :
 
 	`Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
 
-5.	Pour définir un abonnement Azure par défaut, exécutez l'applet de commande Select-AzureSubscription :
+5.	Pour définir un abonnement Azure par défaut, exécutez l'applet de commande Select-AzureSubscription :
 
 	    $SubscriptionName = 'Your subscription Name'
     	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
 
-6.	Vérifiez le nom de l'abonnement par défaut en exécutant l'applet de commande Get-AzureSubscription :
+6.	Vérifiez le nom de l'abonnement par défaut en exécutant l'applet de commande Get-AzureSubscription :
 
 	`Get-AzureSubscription -Default`
 
-7.	Pour installer toutes les applets de commande PowerShell pour Azure Storage, exécutez :
+7.	Pour installer toutes les applets de commande PowerShell pour Azure Storage, exécutez :
 
 	`Get-Command -Module Azure -Noun *Storage*`
 
 ### Création d'un compte de stockage Azure
 Pour utiliser Azure Storage, vous avez besoin d’un compte de stockage. Vous pouvez créer un nouveau compte de stockage Azure après avoir configuré votre ordinateur pour qu’il se connecte à votre abonnement.
 
-1.	Exécutez l'applet de commande Get-AzureLocation pour rechercher tous les emplacements de centre de données disponibles :
+1.	Exécutez l'applet de commande Get-AzureLocation pour rechercher tous les emplacements de centre de données disponibles :
 
     `Get-AzureLocation | format-Table -Property Name, AvailableServices, StorageAccountTypes`
 
@@ -201,32 +201,32 @@ Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vou
 	    Get-AzureSubscription –Current
 
 ### Affichage de la liste de tous les comptes de stockage Azure dans un abonnement
-Chaque abonnement Azure peut comporter jusqu'à 100 comptes de stockage. Pour connaître les dernières informations sur les limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+Chaque abonnement Azure peut comporter jusqu'à 100 comptes de stockage. Pour connaître les dernières informations sur les limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
-Exécutez l'applet de commande suivante pour rechercher le nom et l'état des comptes de stockage dans l'abonnement actuel :
+Exécutez l'applet de commande suivante pour rechercher le nom et l'état des comptes de stockage dans l'abonnement actuel :
 
     Get-AzureStorageAccount | Format-Table -Property StorageAccountName, Location, AccountType, StorageAccountStatus
 
 ### Création d'un contexte de stockage Azure
-Le contexte de stockage Azure est un objet dans PowerShell qui permet d'encapsuler les informations d'identification de stockage. L'utilisation d'un contexte de stockage pendant l'exécution d'une applet de commande suivante vous permet d'authentifier votre demande sans spécifier explicitement le compte de stockage ou sa clé d'accès. Vous pouvez créer un contexte de stockage de plusieurs façons, par exemple à l'aide du nom du compte et de la clé d'accès, du jeton de signature d'accès partagé (SAS), de la chaîne de connexion ou de façon anonyme. Pour plus d’informations, consultez la page [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx).
+Le contexte de stockage Azure est un objet dans PowerShell qui permet d'encapsuler les informations d'identification de stockage. L'utilisation d'un contexte de stockage pendant l'exécution d'une applet de commande suivante vous permet d'authentifier votre demande sans spécifier explicitement le compte de stockage ou sa clé d'accès. Vous pouvez créer un contexte de stockage de plusieurs façons, par exemple à l'aide du nom du compte et de la clé d'accès, du jeton de signature d'accès partagé (SAS), de la chaîne de connexion ou de façon anonyme. Pour plus d’informations, consultez la page [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx).
 
-Utilisez l'une des trois méthodes suivantes pour créer un contexte de stockage :
+Utilisez l'une des trois méthodes suivantes pour créer un contexte de stockage :
 
-- Exécutez l’applet de commande [Get-AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) pour connaître la clé d’accès de stockage principale pour votre compte de stockage Azure. Ensuite, appelez l’applet de commande [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) pour créer un contexte de stockage :
+- Exécutez l’applet de commande [Get-AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) pour connaître la clé d’accès de stockage principale pour votre compte de stockage Azure. Ensuite, appelez l’applet de commande [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) pour créer un contexte de stockage :
 
     	$StorageAccountName = "yourstorageaccount"
     	$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
     	$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
 
-- Générez un jeton de signature d'accès partagé pour un conteneur de stockage Azure et utilisez-le pour créer un contexte de stockage :
+- Générez un jeton de signature d'accès partagé pour un conteneur de stockage Azure et utilisez-le pour créer un contexte de stockage :
 
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	Pour plus d’informations, consultez les pages [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+	Pour plus d’informations, consultez les pages [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
-- Dans certains cas, vous pouvez spécifier les points de terminaison de service lorsque vous créez un nouveau contexte de stockage. Cela peut être nécessaire lorsque vous avez enregistré un nom de domaine personnalisé pour votre compte de stockage avec le service BLOB ou que vous souhaitez utiliser une signature d'accès partagé pour l'accès aux ressources de stockage. Définissez les points de terminaison de service dans une chaîne de connexion et utilisez-la pour créer un nouveau contexte de stockage comme indiqué ci-dessous :
+- Dans certains cas, vous pouvez spécifier les points de terminaison de service lorsque vous créez un nouveau contexte de stockage. Cela peut être nécessaire lorsque vous avez enregistré un nom de domaine personnalisé pour votre compte de stockage avec le service BLOB ou que vous souhaitez utiliser une signature d'accès partagé pour l'accès aux ressources de stockage. Définissez les points de terminaison de service dans une chaîne de connexion et utilisez-la pour créer un nouveau contexte de stockage comme indiqué ci-dessous :
 
     	$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
     	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
@@ -236,22 +236,22 @@ Pour plus d’informations sur la configuration d’une chaîne de connexion de 
 Maintenant, vous avez configuré votre ordinateur et découvert comment gérer les abonnements et les comptes de stockage à l'aide d'Azure PowerShell. Allez à la section suivante pour découvrir comment gérer les objets blob Azure et les instantanés d'objet blob.
 
 ## Gestion des objets blob Azure
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main de Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts du service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main de Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts du service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Création d'un conteneur
-Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l'aide de l'applet de commande New-AzureStorageContainer :
+Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l'aide de l'applet de commande New-AzureStorageContainer :
 
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
 ### Chargement d'un objet blob dans un conteneur
 Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Pour plus d’informations, consultez la section [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Pour charger des objets blob dans un conteneur, vous pouvez utiliser l’applet de commande [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Par défaut, cette commande charge les fichiers locaux vers un objet blob de blocs. Pour spécifier le type d'objet blob, vous pouvez utiliser le paramètre -BlobType.
 
-L’exemple suivant exécute l’applet de commande [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) pour obtenir tous les fichiers du dossier spécifié, puis les transmet à l’applet de commande suivante à l’aide de l’opérateur de pipeline. L’applet de commande [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) charge les fichiers locaux dans votre conteneur :
+L’exemple suivant exécute l’applet de commande [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) pour obtenir tous les fichiers du dossier spécifié, puis les transmet à l’applet de commande suivante à l’aide de l’opérateur de pipeline. L’applet de commande [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) charge les fichiers locaux dans votre conteneur :
 
     Get-ChildItem –Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
@@ -373,9 +373,9 @@ Vous pouvez copier l'instantané d'un objet blob pour restaurer l'instantané. P
 Vous avez appris à gérer les objets blob Azure et les instantanés d'objet blob avec Azure PowerShell. Allez à la section suivante pour découvrir comment gérer les tables, les files d'attente et les fichiers.
 
 ## Gestion des tables et des entités de table Azure
-Le service de stockage de tables Azure est un magasin de données NoSQL que vous pouvez utiliser pour stocker et interroger de grands ensembles de données non relationnelles structurées. Les principaux composants du service sont les tables, les entités et les propriétés. une table est une collection d’entités. Une entité est un ensemble de propriétés. Chaque entité peut comprendre jusqu'à 252 propriétés, qui sont toutes des paires nom-valeur. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de tables Azure. Pour plus d’informations, consultez les sections [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) et [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
+Le service de stockage de tables Azure est un magasin de données NoSQL que vous pouvez utiliser pour stocker et interroger de grands ensembles de données non relationnelles structurées. Les principaux composants du service sont les tables, les entités et les propriétés. une table est une collection d’entités. Une entité est un ensemble de propriétés. Chaque entité peut comprendre jusqu'à 252 propriétés, qui sont toutes des paires nom-valeur. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de tables Azure. Pour plus d’informations, consultez les sections [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) et [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
 
-Dans les sous-sections suivantes, vous allez apprendrez à gérer le service de stockage de tables Azure à l'aide d'Azure PowerShell. Les scénarios abordés sont les suivants : **création**, **suppression** et **récupération** de **tables** et **ajout**, **interrogation** et **suppression des entités d’une table**.
+Dans les sous-sections suivantes, vous allez apprendrez à gérer le service de stockage de tables Azure à l'aide d'Azure PowerShell. Les scénarios abordés sont les suivants : **création**, **suppression** et **récupération** de **tables** et **ajout**, **interrogation** et **suppression des entités d’une table**.
 
 ### Création d'une table
 Toutes les tables doivent se trouver dans un compte de stockage Azure. L'exemple suivant montre comment créer une table dans Azure Storage. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il utilise l’applet de commande [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) pour créer une table dans Azure Storage.
@@ -406,15 +406,15 @@ Vous pouvez supprimer une table d’un compte de stockage à l’aide de l’app
     Remove-AzureStorageTable –Name $tabName –Context $Ctx
 
 ### Gestion des entités de table
-Actuellement, Azure PowerShell ne fournit aucune applet de commande pour gérer directement les entités de table. Pour effectuer des opérations sur des entités de table, vous pouvez utiliser les classes fournies dans la [bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+Actuellement, Azure PowerShell ne fournit aucune applet de commande pour gérer directement les entités de table. Pour effectuer des opérations sur des entités de table, vous pouvez utiliser les classes fournies dans la [bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
 
 #### Ajout d'entités de table
-Pour ajouter une entité à une table, commencez par créer un objet qui définit les propriétés de l'entité. Une entité peut comprendre jusqu’à 255 propriétés, notamment 3 propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
+Pour ajouter une entité à une table, commencez par créer un objet qui définit les propriétés de l'entité. Une entité peut comprendre jusqu’à 255 propriétés, notamment 3 propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
 
--	**PartitionKey**: détermine la partition dans laquelle l’entité est stockée
--	**RowKey**: identifie de façon unique l’entité dans la partition
+-	**PartitionKey** : détermine la partition dans laquelle l’entité est stockée
+-	**RowKey** : identifie de façon unique l’entité dans la partition
 
-Vous pouvez définir au maximum 252 propriétés personnalisées par entité. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Vous pouvez définir au maximum 252 propriétés personnalisées par entité. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 L'exemple suivant montre comment ajouter des entités à une table. L'exemple montre comment récupérer la table des employés et comment y ajouter plusieurs entités. Il établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il récupère la table à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Si la table n’existe pas, il utilise l’applet de commande [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) pour créer une table dans Azure Storage. Ensuite, l'exemple définit une fonction Add-Entity personnalisée pour ajouter des entités à la table en spécifiant la partition et la clé de ligne de chaque entité. La fonction Add-Entity appelle l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) pour créer un objet d’entité. Plus tard, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) sur cet objet d’entité pour l’ajouter à une table.
 
@@ -458,7 +458,7 @@ L'exemple suivant montre comment ajouter des entités à une table. L'exemple mo
     Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 
 #### Interrogation d'entités de table
-Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx). L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table Employees créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). L’appel de l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe Microsoft.WindowsAzure.Storage.Table.TableQuery crée un objet de requête. L'exemple recherche les entités ayant une colonne ID dont la valeur est 1, comme spécifié dans un filtre de chaîne. Pour plus d’informations, consultez [Interrogation de tables et d’entités](http://msdn.microsoft.com/library/azure/dd894031.aspx). Lorsque vous exécutez cette requête, il retourne toutes les entités qui correspondent aux critères du filtre.
+Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx). L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table Employees créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). L’appel de l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) dans la classe Microsoft.WindowsAzure.Storage.Table.TableQuery crée un objet de requête. L'exemple recherche les entités ayant une colonne ID dont la valeur est 1, comme spécifié dans un filtre de chaîne. Pour plus d’informations, consultez [Interrogation de tables et d’entités](http://msdn.microsoft.com/library/azure/dd894031.aspx). Lorsque vous exécutez cette requête, il retourne toutes les entités qui correspondent aux critères du filtre.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -490,7 +490,7 @@ Pour interroger une table, utilisez la classe [Microsoft.WindowsAzure.Storage.Ta
     $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties[“ID”].Int32Value}} -AutoSize
 
 #### Suppression d'entités de table
-Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table « Employees » créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Si la table existe, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) pour récupérer une entité en fonction de sa partition et de ses valeurs de clé de ligne. Il transmet ensuite l’entité à la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) en vue de sa suppression.
+Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. L'exemple suivant suppose que vous avez déjà exécuté le script donné dans la section Ajout d'entités de table de ce guide. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il tente de récupérer la table « Employees » créée précédemment à l’aide de l’applet de commande [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Si la table existe, l’exemple appelle la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) pour récupérer une entité en fonction de sa partition et de ses valeurs de clé de ligne. Il transmet ensuite l’entité à la méthode [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) en vue de sa suppression.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -514,12 +514,12 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
     }
 
 ## Gestion des files d'attente et des messages de file d'attente Azure
-Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de files d'attente Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md).
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de files d'attente Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md).
 
 Cette section vous présente la gestion du service de stockage de files d'attente Azure à l'aide d'Azure PowerShell. Les scénarios traités incluent l’**insertion** et la **suppression** de messages de file d’attente, ainsi que la **création**, la **suppression** et la **récupération des files d’attente**.
 
 ### Création d’une file d’attente
-L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806382.aspx) pour créer une file d’attente appelée « queuename ».
+L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806382.aspx) pour créer une file d’attente appelée « queuename ».
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -549,7 +549,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, exécut
 #### Insertion d'un message dans une file d'attente
 Pour insérer un message dans une file d’attente existante, créez d’abord une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Appelez ensuite la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
-L'exemple suivant montre comment ajouter un message à une file d'attente. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il récupère la file d’attente spécifique à l’aide de l’applet de commande [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Si la file d’attente n’existe pas, l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) est utilisée pour créer une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Ensuite, l’exemple appelle la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) sur cet objet de message pour l’ajouter à une file d’attente. Voici le code qui récupère une file d’attente et insère le message « MessageInfo» :
+L'exemple suivant montre comment ajouter un message à une file d'attente. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il récupère la file d’attente spécifique à l’aide de l’applet de commande [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Si la file d’attente n’existe pas, l’applet de commande [New-Object](http://technet.microsoft.com/library/hh849885.aspx) est utilisée pour créer une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Ensuite, l’exemple appelle la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) sur cet objet de message pour l’ajouter à une file d’attente. Voici le code qui récupère une file d’attente et insère le message « MessageInfo» :
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -590,7 +590,7 @@ Votre code enlève un message d'une file d'attente en deux étapes. Quand vous a
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Gestion des partages de fichiers et des fichiers Azure
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
+Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
 
 Pour plus d’informations sur le stockage de fichiers Azure, consultez les sections [Prise en main du stockage de fichiers Azure sous Windows](storage-dotnet-how-to-use-files.md) et [API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
@@ -602,20 +602,20 @@ Pour savoir comment activer et afficher les données de mesure de stockage à l�
 Pour savoir comment activer et récupérer des données de journalisation du stockage à l’aide de PowerShell, consultez [Comment activer Storage Logging avec PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) et [Recherche des données de journal Storage Logging](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Pour plus d’informations sur l’utilisation de Storage Metrics et de la journalisation du stockage pour résoudre les problèmes de stockage, consultez la page [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Gestion de la signature d'accès partagé et de la stratégie d'accès stockée
-Les signatures d'accès partagé constituent une partie importante du modèle de sécurité pour toute application utilisant Azure Storage. Elles sont utiles pour fournir des autorisations d’accès limitées à votre compte de stockage aux clients qui ne doivent pas avoir la clé du compte. Par défaut, seul le propriétaire du compte de stockage peut accéder aux objets blob, aux tables et aux files d’attente dans ce compte. Si votre service ou application doit mettre ces ressources à disposition d'autres clients sans partager votre clé d'accès, vous disposez de trois options :
+Les signatures d'accès partagé constituent une partie importante du modèle de sécurité pour toute application utilisant Azure Storage. Elles sont utiles pour fournir des autorisations d’accès limitées à votre compte de stockage aux clients qui ne doivent pas avoir la clé du compte. Par défaut, seul le propriétaire du compte de stockage peut accéder aux objets blob, aux tables et aux files d’attente dans ce compte. Si votre service ou application doit mettre ces ressources à disposition d'autres clients sans partager votre clé d'accès, vous disposez de trois options :
 
 - Définir les autorisations d'un conteneur afin de permettre un accès en lecture anonyme au conteneur et à ses objets blob. Cela n’est pas autorisé pour les tables ou les files d'attente.
 - Utiliser une signature d'accès partagé qui accorde des droits d'accès restreints aux conteneurs, objets blob, files d'attente et tables pour un intervalle de temps spécifique.
 - Utiliser une stratégie d'accès stockée pour obtenir un niveau de contrôle supplémentaire sur les signatures d'accès partagé pour un conteneur ou ses objets blob, une file d'attente ou une table. La stratégie d'accès stockée vous permet de modifier l'heure de début, l'heure d'expiration ou les autorisations d'une signature, ou de la révoquer après sa publication.
 
-Une signature d’accès partagé peut prendre deux formes :
+Une signature d’accès partagé peut prendre deux formes :
 
-- **SAP ad hoc**: quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
-- **SAP avec stratégie d’accès stockée**: une stratégie d’accès stockée est définie sur un conteneur de ressource, un conteneur d’objets blob, une table ou une file d’attente. Vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
+- **SAP ad hoc** : quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
+- **SAP avec stratégie d’accès stockée** : une stratégie d’accès stockée est définie sur un conteneur de ressource, un conteneur d’objets blob, une table ou une file d’attente. Vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
 
-Pour plus d'informations, consultez les sections [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+Pour plus d'informations, consultez les sections [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
-Dans les sections suivantes, vous allez découvrir comment créer un jeton de signature d'accès partagé et une stratégie d'accès stockée pour les tables Azure. PowerShell Azure fournit aussi des applets de commande semblables pour les conteneurs, les objets blob et les files d'attente. Pour exécuter les scripts de cette section, vous devez télécharger [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou ultérieure.
+Dans les sections suivantes, vous allez découvrir comment créer un jeton de signature d'accès partagé et une stratégie d'accès stockée pour les tables Azure. PowerShell Azure fournit aussi des applets de commande semblables pour les conteneurs, les objets blob et les files d'attente. Pour exécuter les scripts de cette section, vous devez télécharger [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou ultérieure.
 
 ### Création d'un jeton de signature d'accès partagé basé sur une stratégie
 Utilisez l'applet de commande New-AzureStorageTableStoredAccessPolicy pour créer une stratégie d'accès stockée. Ensuite, appelez l’applet de commande [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) pour créer un jeton de signature d’accès partagé basé sur une stratégie pour une table Azure Storage.
@@ -625,23 +625,23 @@ Utilisez l'applet de commande New-AzureStorageTableStoredAccessPolicy pour crée
     New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 
 ### Création d'un jeton de signature d'accès partagé ad hoc (non révocable)
-Utilisez l’applet de commande [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) pour créer un jeton de signature d’accès partagé ad hoc (non révocable) pour une table Azure Storage :
+Utilisez l’applet de commande [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) pour créer un jeton de signature d’accès partagé ad hoc (non révocable) pour une table Azure Storage :
 
     New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
 
 ### Création d'une stratégie d'accès stockée
-Utilisez l'applet de commande New-AzureStorageTableStoredAccessPolicy pour créer une stratégie d'accès stockée pour une table Azure Storage :
+Utilisez l'applet de commande New-AzureStorageTableStoredAccessPolicy pour créer une stratégie d'accès stockée pour une table Azure Storage :
 
     $policy = "policy1"
     New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
 
 ### Mise à jour d'une stratégie d'accès stockée
-Utilisez l'applet de commande Set-AzureStorageTableStoredAccessPolicy pour mettre à jour une stratégie d'accès stockée existante pour une table Azure Storage :
+Utilisez l'applet de commande Set-AzureStorageTableStoredAccessPolicy pour mettre à jour une stratégie d'accès stockée existante pour une table Azure Storage :
 
     Set-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Permission "rd" -NoExpiryTime -NoStartTime -Context $Ctx
 
 ### Suppression d'une stratégie d'accès stockée
-Utilisez l'applet de commande Remove-AzureStorageTableStoredAccessPolicy pour supprimer une stratégie d'accès stockée sur une table Azure Storage :
+Utilisez l'applet de commande Remove-AzureStorageTableStoredAccessPolicy pour supprimer une stratégie d'accès stockée sur une table Azure Storage :
 
     Remove-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Context $Ctx
 
@@ -649,41 +649,45 @@ Utilisez l'applet de commande Remove-AzureStorageTableStoredAccessPolicy pour su
 ## Utilisation d'Azure Storage pour le gouvernement des États-Unis et Azure en Chine
 Un environnement Azure est un déploiement indépendant de Microsoft Azure, par exemple [Azure Government pour le gouvernement des États-Unis](https://azure.microsoft.com/features/gov/), [AzureCloud pour Azure global](https://portal.azure.com) et [AzureChinaCloud pour Azure exploité par 21Vianet en Chine](http://www.windowsazure.cn/). Vous pouvez déployer de nouveaux environnements Azure pour le gouvernement des États-Unis et Azure en Chine.
 
-Pour utiliser Azure Storage avec AzureChinaCloud, vous devez créer un contexte de stockage associé à AzureChinaCloud. Suivez ces étapes pour commencer :
+Pour utiliser Azure Storage avec AzureChinaCloud, vous devez créer un contexte de stockage associé à AzureChinaCloud. Suivez ces étapes pour commencer :
 
-1.	Exécutez l’applet de commande [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) pour voir les environnements Azure disponibles :
+1.	Exécutez l’applet de commande [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) pour voir les environnements Azure disponibles :
 
     `Get-AzureEnvironment`
 
-2.	Ajoutez un compte Azure Chine à Windows PowerShell :
+2.	Ajoutez un compte Azure Chine à Windows PowerShell :
 
     `Add-AzureAccount –Environment AzureChinaCloud`
 
-3.	Créez un contexte de stockage pour un compte AzureChinaCloud :
+3.	Créez un contexte de stockage pour un compte AzureChinaCloud :
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](https://azure.microsoft.com/features/gov/), vous devez définir un nouvel environnement, puis créer un contexte de stockage avec cet environnement :
+Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](https://azure.microsoft.com/features/gov/), vous devez définir un nouvel environnement, puis créer un contexte de stockage avec cet environnement :
 
-1. Appelez l’applet de commande [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) pour créer un environnement Azure pour votre centre de données privé.
+1.	Exécutez l’applet de commande [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) pour voir les environnements Azure disponibles :
 
-    	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
+    `Get-AzureEnvironment`
 
-2. Exécutez l’applet de commande [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) pour créer un contexte de stockage pour ce nouvel environnement, comme illustré ci-dessous.
+2.	Ajoutez un compte Azure pour le gouvernement américain à Windows PowerShell :
 
-	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
+    `Add-AzureAccount –Environment AzureUSGovernment`
 
-Pour plus d’informations, consultez :
+3.	Créez un contexte de stockage pour un compte Azure pour le gouvernement américain :
+
+    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
+
+Pour plus d'informations, consultez les pages suivantes :
 
 - [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide.md).
 - [Vue d'ensemble des différences lors de la création d'une application sur le service Chine](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## Étapes suivantes
-Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShell. Pour en savoir plus, consultez les articles et ressources suivants :
+Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShell. Pour en savoir plus, consultez les articles et ressources suivants :
 
 - [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Applets de commande Azure Storage PowerShell](http://msdn.microsoft.com/library/azure/dn806401.aspx)
-- [Référence Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+- [Référence Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
 [Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
 [Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png
@@ -730,4 +734,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

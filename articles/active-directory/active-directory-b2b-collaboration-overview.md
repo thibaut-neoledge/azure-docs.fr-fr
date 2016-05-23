@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
 # Collaboration B2B Azure Active Directory
@@ -47,9 +47,9 @@ Les invitations envoyées aux adresses électroniques grand public (par exemple,
 Pour plus d’informations sur le fonctionnement de la collaboration B2B, regardez [cette vidéo](http://aka.ms/aadshowb2b).
 
 ## Étapes suivantes
-Consultez les autres articles sur Azure B2B Collaboration.
+Consultez les autres articles sur la collaboration B2B d’Azure AD.
 
-- [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Fonctionnement](active-directory-b2b-how-it-works.md)
 - [Procédure pas à pas](active-directory-b2b-detailed-walkthrough.md)
 - [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
@@ -58,4 +58,4 @@ Consultez les autres articles sur Azure B2B Collaboration.
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

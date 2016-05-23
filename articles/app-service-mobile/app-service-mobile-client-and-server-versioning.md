@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # Contrôle de version client et serveur dans Mobile Apps et Mobile Services
@@ -79,7 +79,7 @@ Remarque : les SDK clients Mobile Services n'envoient *pas* de valeur d'en-têt
 
 | Plateforme de serveur | Version | En-têtes de versions acceptés |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ** Aucun en-tête de version ** | 
+| .NET | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **** Aucun en-tête de version** | 
 | Node.js | (prochainement) | **Aucun en-tête de version** |
 
 <!-- TODO: add Node npm version -->
@@ -113,7 +113,7 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 | Plateforme de serveur | Foundation | En-têtes de versions acceptés |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps Version 1.0-beta1 (or ultérieure)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Comportement des serveurs principaux Mobile Apps
 
@@ -138,4 +138,4 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

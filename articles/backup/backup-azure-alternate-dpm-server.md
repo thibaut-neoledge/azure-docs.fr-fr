@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde
@@ -32,7 +32,7 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 
     ![Informations d'identification d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    >[AZURE.NOTE]Seuls les serveurs DPM associés au même coffre d’inscription peuvent récupérer des données entre eux.
+    >[AZURE.NOTE] Seuls les serveurs DPM associés au même coffre d’inscription peuvent récupérer des données entre eux.
 
     Une fois le serveur DPM externe ajouté, vous pouvez parcourir les données du serveur DPM externe et du serveur DPM local à partir de l’onglet **Récupération**.
 
@@ -73,7 +73,7 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 
     ![Résumé des options de la récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    >[AZURE.NOTE]La tâche de récupération peut être surveillée dans l’onglet **Analyse** du serveur DPM.
+    >[AZURE.NOTE] La tâche de récupération peut être surveillée dans l’onglet **Analyse** du serveur DPM.
 
     ![Surveillance de la récupération](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
@@ -103,4 +103,4 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 ## Étapes suivantes :
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -24,9 +24,9 @@ Dans le cadre de cet article, nous utiliserons le modèle d’application SaaS c
 
 <i>Les nouvelles applications web basées dans le cloud déploient une base de données SQL pour chaque utilisateur final. L’éditeur de logiciels indépendant (ISV) a de nombreux clients et utilise donc de nombreuses bases de données, appelées bases de données client. Comme les bases de données client ont généralement des modèles d’activité non prévisibles, l’ISV utilise un pool élastique afin de pouvoir prévoir à long terme les coûts des bases de données. Le pool élastique simplifie également la gestion des performances lors des pics d’activité de l’utilisateur. Outre les bases de données client, l’application utilise plusieurs bases de données pour gérer les profils utilisateur et la sécurité, recueillir des modèles d’utilisation, etc. La disponibilité des locataires individuels n’affecte pas la disponibilité de l’application dans son ensemble. Toutefois, la disponibilité et les performances des bases de données de gestion sont essentielles au bon fonctionnement de l’application. Ainsi, si les bases de données de gestion sont hors connexion, l’ensemble de l’application le sera également.</i>
 
-Nous allons à présent aborder plusieurs scénarios et proposer une stratégie de récupération d’urgence pour chaque situation.
+Nous allons à présent aborder les stratégies de récupération d’urgence applicables à des scénarios allant des applications de start-ups soucieuses des coûts aux applications présentant des exigences de disponibilité strictes.
 
-## Scénario 1
+## Scénario 1 Start-up soucieuse des coûts
 
 <i>Je suis une jeune entreprise qui fait très attention à ses coûts. Je souhaite simplifier le déploiement et la gestion de l’application et avoir un contrat SLA limité pour chacun de mes clients. Mais je souhaite être sûre que l’application dans son ensemble ne sera jamais hors connexion.</i>
 
@@ -61,7 +61,7 @@ Si la panne est temporaire, il est possible que la région primaire soit restaur
 
 L’**avantage** majeur de cette stratégie est le faible coût de redondance des couches de données. Les sauvegardes sont automatiquement effectuées par le service de base de données SQL avec aucune réécriture de l’application et sans coût supplémentaire. Des frais s’appliquent uniquement lorsque les bases de données sont restaurées. L’**inconvénient** est que la récupération complète de toutes les bases de données client prend beaucoup de temps. Cela dépend du nombre total de restaurations que vous lancez dans la région de récupération d’urgence et de la taille globale des bases de données client. Même si vous donnez la priorité à la restauration de certains clients, vous devrez tout de même composer avec toutes les autres restaurations lancées dans la même région car le service limitera la bande passante pour minimiser l’impact global sur les bases de données des clients existants. En outre, la récupération des bases de données client ne peut pas démarrer tant que le nouveau pool élastique n’a pas été créé dans la région de récupération d’urgence.
 
-## Scénario 2
+## Scénario 2 Application arrivée à maturité avec un service sur plusieurs niveaux 
 
 <i>Je propose une application SaaS mature avec des offres de service sur plusieurs niveaux et des contrats SLA différents pour les clients utilisant une version d’évaluation gratuite et ceux utilisant une version payante. Pour les clients utilisant une version d’évaluation, je dois réduire les coûts autant que possible. Les interruptions de service sont acceptables pour les clients utilisant une version d’évaluation, mais je souhaite les éviter au maximum. Pour les clients utilisant une version payante, les interruptions de service ne sont pas acceptables (risque de perte du client). Je veux donc m’assurer que les clients qui utilisent une version payante puissent accéder à leurs données à tout moment.</i>
 
@@ -102,7 +102,7 @@ Lorsque la région primaire est restaurée par Azure *après* que vous ayez rest
 
 L’**avantage** majeur de cette stratégie est qu’elle fournit le contrat SLA le plus élevé pour les clients utilisant une version payante. Elle garantit également le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé. L’**inconvénient** est que cette configuration augmente le coût total des bases de données client en ajoutant le coût du pool de récupération d’urgence secondaire pour les clients utilisant une version payante. De plus, si le pool secondaire est de taille différente, les clients qui utilisent une version payante constateront une baisse des performances après le basculement, jusqu’à la fin du processus de mise à niveau du pool dans la région de récupération d’urgence.
 
-## Scénario 3
+## Scénario 3 Application dispersée géographiquement avec un service sur plusieurs niveaux
 
 <i>Je propose une application SaaS mature avec des offres de service sur plusieurs niveaux. Je souhaite offrir un contrat SLA très agressif à mes clients qui utilisent la version payante et réduire l’impact d’une éventuelle panne car je sais que même une brève interruption de service peut rendre mes clients mécontents. Il est essentiel que les clients utilisant la version payante puissent accéder à leurs données à tout moment. Les versions d’évaluation sont gratuites et n’incluent aucun contrat SLA. </i>
 
@@ -146,20 +146,22 @@ Après la récupération de la région A, vous devez décider si vous souhaitez 
 - Supprimez le pool de récupération d’urgence (14). 
 
 Cette stratégie a plusieurs **avantages** :
+
 - Elle offre le contrat SLA le plus agressif pour les clients utilisant la version payante de l’application, car elle protège au moins 50 % des bases de données client en cas de panne. 
 - Elle garantit le déblocage des nouvelles bases de données en version d’évaluation dès que le pool de récupération d’urgence des bases de données en version d’évaluation est créé lors de la récupération. 
 - Elle permet une utilisation plus efficace de la capacité du pool car 50 % des bases de données secondaires des pools 1 et 2 sont systématiquement moins actives que les bases de données primaires.
 
 Il y a tout de même des **inconvénients** :
+
 - Les opérations CRUD exécutées sur les bases de données de gestion ont une latence plus faible pour les utilisateurs finaux connectés à la région A que pour ceux connectés à la région B, car elles sont exécutées au niveau des bases de données de gestion primaires.
 - Cette stratégie requiert une conception plus complexe des bases de données de gestion. Par exemple, chaque enregistrement de locataire devra disposer d’une balise d’emplacement qui devra être modifiée pendant le basculement et la restauration.  
 - Les clients qui utilisent la version payante de l’application peuvent constater une baisse des performances jusqu’à la fin du processus de mise à niveau du pool dans la région B. 
 
 ## Résumé
 
-Cet article aborde les différentes stratégies de récupération d’urgence pour la couche de base de données utilisée par une application SaaS à architecture mutualisée. Le choix de la stratégie doit être basé sur les besoins de l’application, tels que le modèle commercial, le contrat SLA que vous souhaitez offrir à vos clients, les contraintes budgétaires, etc. Nous vous détaillons les avantages et les inconvénients de chaque stratégie afin de vous aider à prendre une décision éclairée. De plus, votre propre application inclura probablement d’autres composants Azure. Vous devez vérifier les recommandations associées à ces composants en termes de continuité des activités et orchestrer la récupération de la couche de base de données avec les autres composants de l’application. Pour en savoir plus sur la gestion de la récupération des applications de base de données dans Azure, consultez l’article [Conception de solutions cloud pour la récupération d’urgence](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Cet article aborde les différentes stratégies de récupération d’urgence pour la couche de base de données utilisée par une application SaaS à architecture mutualisée. La stratégie choisie doit être basée sur les besoins de l’application, tels que le modèle commercial, le contrat SLA que vous souhaitez offrir à vos clients, les contraintes budgétaires, etc. Nous vous détaillons les avantages et les inconvénients de chaque stratégie afin de vous aider à prendre une décision éclairée. De plus, votre propre application inclura probablement d’autres composants Azure. Vous devez donc vérifier les recommandations associées en termes de continuité des activités et orchestrer la récupération de la couche de base de données avec ces composants. Pour en savoir plus sur la gestion de la récupération des applications de base de données dans Azure, consultez l’article [Conception de solutions cloud pour la récupération d’urgence](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour mettre en œuvre chaque scénario décrit dans cet article :
+Les étapes individuelles requises pour chaque scénario impliquent des opérations sur un grand nombre de bases de données. Vous pouvez utiliser les tâches élastiques de la base de données SQL Azure pour gérer ces opérations à grande échelle. Pour plus d’informations, reportez-vous à l’article [Gestion des bases de données cloud avec montée en charge](./sql-database-elastic-jobs-overview.md). Les pages suivantes contiennent des informations sur les opérations spécifiques requises pour mettre en œuvre chaque scénario décrit dans cet article :
 
 - [Ajouter une base de données secondaire](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Basculer une base de données vers une base de données secondaire](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -167,4 +169,4 @@ Les pages suivantes contiennent des informations sur les opérations spécifique
 - [Déplacer une base de données](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copier une base de données](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

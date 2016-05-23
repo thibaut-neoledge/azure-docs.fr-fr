@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
@@ -78,7 +78,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
+2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -118,7 +118,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
         }
 
 
-4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
+4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -156,4 +156,4 @@ Vous avez terminé ce didacticiel.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

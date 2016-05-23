@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Comment installer silencieusement le connecteur du Proxy d'application Azure AD
@@ -125,24 +125,13 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
 
 
 
-## Et ensuite ?
-Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
+## Voir aussi
 
-
+- [Activation du proxy d’application Azure AD](active-directory-application-proxy-enable.md)
 - [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
 - [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
-- [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
+- [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
 
+Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 
-### En savoir plus sur le Proxy d’application
-- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
-- [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
-- [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Ressources supplémentaires
-- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-- [Identité Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio
@@ -55,17 +55,17 @@ Pour migrer et publier une application web vers Azure à partir de Visual Studio
 
 Si vous avez une chaîne de connexion pour votre application web qui utilise une base de données SQL Server sur site, vous devez modifier cette chaîne de connexion pour qu’elle utilise une instance de base de données SQL hébergée par Azure à la place.
 
->[AZURE.IMPORTANT] Votre abonnement vous permet d’utiliser la base de données SQL. Si vous accédez à votre abonnement depuis le Portail de gestion Azure, vous pouvez déterminer quels services vos abonnements fournissent. Les instructions suivantes s'appliquent au portail de gestion commerciale. Si vous utilisez le portail de gestion d'aperçu, passez à la procédure suivante.|
+>[AZURE.IMPORTANT] Votre abonnement vous permet d’utiliser la base de données SQL. Si vous accédez à votre abonnement depuis le [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), vous pouvez déterminer quels services vos abonnements fournissent. Les instructions suivantes s’appliquent au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Si vous utilisez le [portail Azure](http://portal.microsoft.com), passez à la procédure suivante.|
 
 ### Utiliser une instance de base de données SQL dans votre rôle web pour votre chaîne de connexion
 
-1. Pour créer une instance de base de données SQL dans le Portail de gestion Azure, suivez les étapes décrites dans l’article suivant : [Créer un serveur de base de données SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. Pour créer une instance de base de données SQL dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), suivez les étapes décrites dans l’article suivant : [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109) (Créer un serveur de base de données SQL).
 
     >[AZURE.NOTE] Quand vous configurez les règles de pare-feu pour votre instance de base de données SQL, vous devez cocher la case **Autoriser l’accès d’autres services Azure à ce serveur**.
 
 1. Pour créer une instance de base de données SQL à utiliser pour votre chaîne de connexion, suivez les étapes décrites dans la section suivante de cet article : [Créer une base de données SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-1. Pour copier la chaîne de connexion ADO.NET à utiliser pour votre chaîne de connexion, effectuez les opérations suivantes dans le portail de gestion pour Azure.
+1. Pour copier la chaîne de connexion ADO.NET à utiliser pour votre chaîne de connexion, effectuez les opérations suivantes dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
   1. Choisissez le bouton **Base de données**, puis ouvrez le nœud pour l’abonnement que vous avez utilisé pour créer votre instance de base de données SQL.
 
@@ -99,9 +99,9 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. Enregistrez le fichier que vous avez modifié et republiez votre application.
 
-### Pour utiliser une instance de base de données SQL à l’aide du Portail de gestion Azure
+### Pour utiliser une instance de base de données SQL à l’aide du Portail Azure Classic
 
-1. Dans le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885), choisissez le nœud Base de données SQL.
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), choisissez le nœud Base de données SQL.
 
   - Si l'instance de base de données SQL que vous souhaitez utiliser s'affiche, ouvrez-la.
 
@@ -135,7 +135,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. (Facultatif) Pour annuler le processus de déploiement, ouvrez le menu contextuel de cette ligne dans le journal des activités, puis choisissez **Annuler et supprimer**. Cela arrête le processus de déploiement et supprime l'environnement de déploiement d'Azure.
 
-    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le portail de gestion Azure.
+    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l’environnement de déploiement dans le nœud **Calcul Azure** de **Cloud Explorer** ou de l’**Explorateur de serveurs**. À partir de là, vous pouvez consulter l'état de chaque instance de rôle.
 
@@ -168,7 +168,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. Pour créer une base de données SQL Azure qui peut être utilisée pour une application web ASP.NET Dynamic Entities, vous devez suivre les étapes de la procédure **Utilisation d’une base de données SQL Azure pour votre application** plus haut dans cette rubrique.
 
-1. Ajoutez les tables et les champs dont vous avez besoin pour cette base de données à partir du Portail de gestion Azure.
+1. Ajoutez les tables et les champs dont vous avez besoin pour cette base de données à partir du [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. La chaîne de connexion pour ce type d'application a le format suivant dans le fichier web.config :
 
@@ -208,4 +208,4 @@ Pour publier une application web sur Azure, l’application doit utiliser un des
 ## Étapes suivantes
 Pour plus d’informations sur la publication, consultez [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consultez également [Configuration des informations d’authentification nommées](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

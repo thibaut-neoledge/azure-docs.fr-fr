@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn | Microsoft Azure"
-	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et crée un écouteur de groupe de disponibilité AlwaysOn dans Azure utilisant un équilibrage de charge interne (ILB)."
+	pageTitle="Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et crée un écouteur de groupe de disponibilité Always On dans Azure utilisant un équilibreur de charge interne (ILB)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
-# Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure
+# Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
 
 > [AZURE.SELECTOR]
 - [Écouteur interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
@@ -24,9 +24,9 @@
 
 ## Vue d'ensemble
 
-Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn à l'aide d'un **équilibrage de charge interne (ILB)**.
+Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité Always On à l’aide d’un **équilibreur de charge interne (ILB)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Pour configurer un écouteur ILB pour un groupe de disponibilité Always On dans un modèle Resource Manager, voir [Configurer un équilibreur de charge interne pour un groupe de disponibilité Always On dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
@@ -36,7 +36,7 @@ Notez les instructions suivantes concernant l'écouteur du groupe de disponibili
 
 - L'écouteur du groupe de disponibilité est pris en charge sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
 
-- Un seul écouteur du groupe de disponibilité interne est pris en charge par service cloud, car l'écouteur est configuré sur l'équilibreur de charge interne, et il n’y a qu’un seul équilibreur de charge interne par service cloud. Toutefois, il est possible de créer plusieurs écouteurs externes. Pour plus d’informations, voir [Configuration d’un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- Un seul écouteur du groupe de disponibilité interne est pris en charge par service cloud, car l'écouteur est configuré sur l'équilibreur de charge interne, et il n’y a qu’un seul équilibreur de charge interne par service cloud. Toutefois, il est possible de créer plusieurs écouteurs externes. Pour plus d’informations, voir [Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 - La création d’un écouteur interne dans un service cloud dans lequel vous avez également un écouteur externe n'est pas prise en charge avec l'adresse IP virtuelle publique du service de cloud.
 
@@ -138,4 +138,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

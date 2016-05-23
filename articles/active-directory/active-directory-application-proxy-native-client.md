@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Activation d'applications clientes natives de manière à ce qu'elles interagissent avec des applications proxy
 
 > [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
-Le proxy d'application Azure Active Directory est largement utilisé pour publier des applications de navigateur telles que SharePoint, Outlook Web Access et des applications métier personnalisées. Il peut également être utilisé pour publier des applications back-end HTTP consommées à l'aide de clients natifs. Pour cela, la prise en charge de jetons générés par Azure AD qui sont envoyés dans des en-têtes d'autorisation HTTP standard est nécessaire.
+Le proxy d'application Azure Active Directory est largement utilisé pour publier des applications de navigateur telles que SharePoint, Outlook Web Access et des applications métier personnalisées. Il peut également être utilisé pour publier des applications clientes natives, qui diffèrent des applications web, car celles-ci sont installées sur un appareil. Pour cela, la prise en charge de jetons générés par Azure AD qui sont envoyés dans des en-têtes d'autorisation HTTP standard est nécessaire.
 
 ![Relation entre les utilisateurs finaux, Azure Active Directory et les applications publiées](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
@@ -35,11 +35,11 @@ Publiez votre application proxy comme vous le feriez pour toute autre applicatio
 Configurez votre application native comme suit :
 
 1. Connectez-vous à la version classique du portail Azure.
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
+2. Cliquez sur l’icône d’Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
 3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre annuaire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien ou bien cliquez sur le bouton **Ajouter** dans la barre de commandes.
 4. Sur la page **Que voulez-vous faire**, cliquez sur le lien vers **Ajouter une application développée par mon organisation**.
-5. Sur la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et choisissez **Application cliente native**, qui représente une application installée sur un périphérique tel qu'un téléphone ou un ordinateur. Une fois l'opération terminée, cliquez sur la flèche dans le coin inférieur droit de la page.
-6. Sur la page des **propriétés de l'application**, indiquez l'**URI de redirection**, puis cliquez sur la case à cocher dans le coin inférieur droit de la page.
+5. Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **Application cliente native**. Cliquez sur l’icône en forme de flèche pour continuer.
+6. Sur la page **Informations de l’application**, fournissez l’**URI de redirection** pour l’application cliente native, puis cliquez sur la coche pour terminer.
 
 Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application.
 
@@ -80,23 +80,13 @@ Les variables doivent être remplacées comme suit :
 Pour plus d’informations sur le flux d’application native, consultez [Application native vers API Web](active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 
-## Et ensuite ?
-Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
+## Voir aussi
 
 - [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
-- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 - [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
+- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
+- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 
+Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 
-### En savoir plus sur le Proxy d’application
-- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
-- [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
-- [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Ressources supplémentaires
-- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-- [Identité Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

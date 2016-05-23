@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Data Catalog | Microsoft Azure"
-   description="Cet article présente les raccourcis clavier pour Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Azure Data Catalog | Microsoft Azure"
+	description="Cet article présente les raccourcis clavier pour Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Raccourcis clavier pour Azure Data Catalog
 
@@ -92,4 +92,4 @@
 |Activer/désactiver le menu **Ouvrir dans** | ALT + O
 |Explorer le conteneur, si la ressource est un conteneur | ALT + L
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

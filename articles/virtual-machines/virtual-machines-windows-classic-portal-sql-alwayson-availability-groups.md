@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuration de groupes de disponibilité AlwaysOn (GUI) | Microsoft Azure"
-	description="Création d'un groupe de disponibilité AlwaysOn avec les machines virtuelles Azure. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
+	pageTitle="Configurer des groupes de disponibilité Always On (GUI) | Microsoft Azure"
+	description="Créez un groupe de disponibilité Always On avec Azure Virtual Machines. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
-# Configuration de groupes de disponibilité AlwaysOn dans Azure VM (GUI)
+# Configurer des groupes de disponibilité Always On dans Azure VM (GUI)
 
 > [AZURE.SELECTOR]
 - [Portail](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
@@ -27,11 +27,11 @@
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Ce didacticiel de bout en bout vous montre comment implémenter un groupe de disponibilité en utilisant SQL Server AlwaysOn sur des machines virtuelles Azure.
+Ce didacticiel de bout en bout vous indique comment implémenter des groupes de disponibilité en utilisant SQL Server Always On sur des machines virtuelles Azure.
 
->[AZURE.NOTE] Dans le portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Cela configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure Classic](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Pour utiliser PowerShell, consultez le didacticiel du même scénario : [Configurer les groupes de disponibilité AlwaysOn dans Azure avec PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
+>[AZURE.NOTE] Dans le Portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité Always On avec un Écouteur. Elle configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité Always On. Pour plus d’informations, voir [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Offre Always On SQL Server dans la galerie du Portail Microsoft Azure Classic). Pour utiliser PowerShell, voir le didacticiel du même scénario : [Configurer les groupes de disponibilité Always On dans Azure avec PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
 
-À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
+À la fin du didacticiel, votre solution SQL Server Always On dans Azure comprendra les éléments suivants :
 
 - un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
 
@@ -55,9 +55,9 @@ Ce didacticiel part des principes suivants :
 
 - Vous savez déjà comment approvisionner une machine virtuelle SQL Server classique de la galerie de machines virtuelles avec l’interface graphique utilisateur.
 
-- Vous avez déjà une connaissance approfondie des groupes de disponibilité AlwaysOn. Pour plus d'informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Vous disposez déjà d’une connaissance approfondie des groupes de disponibilité Always On. Pour plus d’informations, voir [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si l'utilisation des groupes de disponibilité AlwaysOn avec SharePoint vous intéresse, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si l’utilisation des groupes de disponibilité Always On avec SharePoint vous intéresse, voir également [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 ## Création du réseau virtuel et du serveur de contrôleur de domaine
 
@@ -359,7 +359,7 @@ Suivez les étapes ci-dessous pour accomplir les tâches de configuration compl�
 
 ## Préparer les instances de SQL Server pour le groupe de disponibilité
 
-Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
+Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
 
 - Ajouter une connexion pour **NT AUTHORITY\\System** avec les autorisations nécessaires pour l’instance SQL Server par défaut
 
@@ -367,11 +367,11 @@ Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1
 
 - Ouvrir le pare-feu pour l'accès à distance de SQL Server
 
-- Activer la fonctionnalité de groupes de disponibilité AlwaysOn
+- Activer la fonctionnalité de groupes de disponibilité Always On
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
-Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
+Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
 
 1. Si vous ne vous êtes pas déconnecté de la session Bureau à distance pour la machine virtuelle, faites-le maintenant.
 
@@ -413,13 +413,13 @@ Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les
 
 1. Dans la page **Nom**, spécifiez un nom pour la règle, par exemple **SQL Server (règle de programme)** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
 
-1. Ensuite, activez la fonctionnalité **Groupes de disponibilité AlwaysOn**. À partir de l’écran d’**accueil**, lancez le **Gestionnaire de configuration SQL Server**.
+1. Ensuite, activez la fonctionnalité **Groupes de disponibilité Always On**. À partir de l’écran d’**accueil**, lancez le **Gestionnaire de configuration SQL Server**.
 
 1. Dans l’arborescence du navigateur, cliquez sur **Services SQL Server**, cliquez avec le bouton droit sur **SQL Server (MSSQLSERVER)**, puis cliquez sur **Propriétés**.
 
-1. Cliquez sur l’onglet **Haute disponibilité AlwaysOn**, sélectionnez **Activer les groupes de disponibilité AlwaysOn**, comme illustré ci-dessous, puis cliquez sur **Appliquer**. Cliquez sur **OK** dans la boîte de dialogue contextuelle mais ne fermez pas encore la fenêtre Propriétés. Redémarrez le service SQL Server après avoir modifié le compte de service.
+1. Cliquez sur l’onglet **Haute disponibilité Always On**, sélectionnez **Activer les groupes de disponibilité Always On** comme illustré ci-dessous, puis cliquez sur **Appliquer**. Cliquez sur **OK** dans la boîte de dialogue contextuelle mais ne fermez pas encore la fenêtre Propriétés. Redémarrez le service SQL Server après avoir modifié le compte de service.
 
-	![Activation des groupes à haute disponibilité AlwaysOn](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
+	![Activer des groupes de disponibilité Always On](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
 1. Ensuite, modifiez le compte de service SQL Server. Cliquez sur l’onglet **Ouverture de session**, puis tapez **CORP\\SQLSvc1** (pour **ContosoSQL1**) ou **CORP\\SQLSvc2** (pour **ContosoSQL2**) dans **Nom de compte**, tapez et confirmez le mot de passe, puis cliquez sur **OK**.
 
@@ -435,7 +435,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 - Sauvegarde complète et sauvegarde du journal des transactions de la base de données
 
-- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
+- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
 
 - Création du groupe de disponibilité (**AG1**) avec validation synchrone, basculement automatique et réplicas secondaires lisibles
 
@@ -491,7 +491,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 ### Création du groupe de disponibilité :
 
-1. Retournez à la session Bureau à distance de **ContosoSQL1**. Dans l’**Explorateur d’objets** dans SSMS, cliquez sur **Haute disponibilité AlwaysOn**, puis sur **Assistant Nouveau groupe de disponibilité**, comme illustré ci-dessous.
+1. Retournez à la session Bureau à distance de **ContosoSQL1**. Dans l’**Explorateur d’objets** dans SSMS, cliquez avec le bouton droit sur **Haute disponibilité Always On**, puis sur **Assistant Nouveau groupe de disponibilité**, comme illustré ci-dessous.
 
 	![Lancer l'Assistant Nouveau groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
@@ -519,7 +519,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
 
-1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Pour configurer l’écouteur après avoir terminé ce didacticiel, consultez [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Pour configurer l’écouteur après avoir terminé ce didacticiel, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 	![Assistant Nouveau groupe de disponibilité, validation](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 
@@ -527,11 +527,11 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, résultats](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
-1. Dans l’**Explorateur d’objets**, développez **Haute disponibilité AlwaysOn**, puis **Groupes de disponibilité**. Vous devez maintenant voir le nouveau groupe de disponibilité dans ce conteneur. Cliquez avec le bouton droit sur **AG1 (principal)**, puis cliquez sur **Afficher le tableau de bord**.
+1. Dans l’**Explorateur d’objets**, développez **Haute disponibilité Always On**, puis **Groupes de disponibilité**. Vous devez maintenant voir le nouveau groupe de disponibilité dans ce conteneur. Cliquez avec le bouton droit sur **AG1 (principal)**, puis cliquez sur **Afficher le tableau de bord**.
 
 	![Afficher le tableau de bord de groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. Votre **tableau de bord AlwaysOn** doit ressembler à celui illustré ci-dessous. Vous pouvez voir les réplicas, le mode de basculement de chaque réplica et l'état de synchronisation.
+1. Votre **tableau de bord Always On** doit ressembler à celui illustré ci-dessous. Vous pouvez voir les réplicas, le mode de basculement de chaque réplica et l'état de synchronisation.
 
 	![Tableau de bord de groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -541,11 +541,11 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
->[AZURE.WARNING] N'essayez pas de basculer le groupe de disponibilité à partir du Gestionnaire du Cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement WSFC avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
+>[AZURE.WARNING] N'essayez pas de basculer le groupe de disponibilité à partir du Gestionnaire du Cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord Always On** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement WSFC avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Étapes suivantes
-Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configuration d’un écouteur pour les groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Vous avez correctement implémenté SQL Server Always On en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

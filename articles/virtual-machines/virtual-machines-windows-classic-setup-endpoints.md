@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Comment configurer des points de terminaison sur une machine virtuelle classique dans Azure
@@ -36,6 +36,6 @@ Quand vous créez une machine virtuelle Windows dans le portail Azure Classic, l
 
 * Pour gérer une liste de contrôle d’accès sur un point de terminaison à l’aide d’une applet de commande Azure PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez également utiliser Azure PowerShell pour [créer un équilibrage de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez utiliser Azure PowerShell pour [créer des groupes de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-ps.md) afin de contrôler le trafic vers la machine virtuelle.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

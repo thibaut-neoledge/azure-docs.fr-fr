@@ -21,7 +21,7 @@
 
 Cette rubrique contient des informations sur l'insertion de différents types de publicité du côté client.
 
-Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicités dans les vidéos en flux live, consultez la page [Normes de sous-titrage codé et d’insertion de publicités prises en charge](media-services-manage-channels-overview.md#cc_and_ads).
+Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicités dans les vidéos en flux live, consultez la page [Normes de sous-titrage codé et d’insertion de publicités prises en charge](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 >[AZURE.NOTE] Actuellement, Azure Media Player ne prend pas en charge les publicités.
 
@@ -813,4 +813,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

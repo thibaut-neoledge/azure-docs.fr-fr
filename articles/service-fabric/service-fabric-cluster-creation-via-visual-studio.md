@@ -51,7 +51,7 @@ Chaque cluster Service Fabric dispose d’un nom. Lors de la création d’un cl
 Par défaut, le nom du cluster est généré automatiquement et rendu unique en associant un suffixe aléatoire à un préfixe « cluster ». Cela permet d’utiliser très facilement le modèle comme un élément d’un système d’**intégration continue** (CI). Si vous souhaitez utiliser un nom spécifique (qui a un sens pour vous) pour votre cluster, définissez la valeur de la variable `clusterName` dans le fichier de modèle Resource Manager (`ServiceFabricCluster.json`) avec le nom de votre choix. Il s’agit de la première variable définie dans ce fichier.
 
 ## Facultatif : ajout de ports d’application publics
-Vous pouvez également souhaiter modifier les ports d’application publics pour le cluster avant de le déployer. Par défaut, le modèle ouvre seulement deux ports TCP publics (80 et 8081). Si vous avez besoin d’autres ports pour vos applications, modifiez la définition de l’équilibreur de charge Azure dans le modèle. La définition est stockée dans le fichier modèle principal (`SecureFabricCluster.json`). Ouvrez ce fichier et recherchez `loadBalancedAppPort`. Vous remarquerez que chaque port est associé à trois artefacts :
+Vous pouvez également souhaiter modifier les ports d’application publics pour le cluster avant de le déployer. Par défaut, le modèle ouvre seulement deux ports TCP publics (80 et 8081). Si vous avez besoin d’autres ports pour vos applications, modifiez la définition de l’équilibreur de charge Azure dans le modèle. La définition est stockée dans le fichier modèle principal (`ServiceFabricCluster.json`). Ouvrez ce fichier et recherchez `loadBalancedAppPort`. Vous remarquerez que chaque port est associé à trois artefacts :
 
 1. Une variable de modèle qui définit la valeur du port TCP pour le port :
 
@@ -126,4 +126,4 @@ Si des erreurs se produisent, accédez au [portail Azure](https://portal.azure.c
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

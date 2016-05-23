@@ -87,7 +87,7 @@ Cet article contient des liens vers des rubriques expliquant comment configurer 
 
 ##Concepts
 
-Pour connaître les concepts liés à la diffusion de votre contenu à la demande, consultez la rubrique [Concepts Media Services](media-services-concepts.md) (players.md).
+Pour connaître les concepts liés à la diffusion de votre contenu à la demande, consultez la rubrique [Concepts Media Services](media-services-concepts.md).
 
 ##Parcours d’apprentissage de Media Services
 
@@ -101,4 +101,4 @@ Pour connaître les concepts liés à la diffusion de votre contenu à la demand
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

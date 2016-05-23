@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Création de batteries de serveurs SharePoint
@@ -42,7 +42,7 @@ La batterie de serveurs SharePoint à haute disponibilité se compose de neuf ma
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-Vous pouvez utiliser cette configuration de batterie pour tester des charges de clients plus élevées, la haute disponibilité du site SharePoint externe et SQL Server AlwaysOn pour une batterie SharePoint. Vous pouvez également l'utiliser pour le développement d'applications SharePoint dans un environnement à haute disponibilité.
+Vous pouvez utiliser cette configuration de batterie de serveurs pour tester des charges de clients plus élevées, la haute disponibilité du site SharePoint externe et SQL Server Always On pour une batterie de serveurs SharePoint. Vous pouvez également l'utiliser pour le développement d'applications SharePoint dans un environnement à haute disponibilité.
 
 Pour créer la batterie de serveurs SharePoint à haute disponibilité (neuf serveurs) :
 
@@ -53,17 +53,18 @@ Pour créer la batterie de serveurs SharePoint à haute disponibilité (neuf ser
 
 > [AZURE.NOTE] Vous ne pouvez pas créer la **batterie de serveurs SharePoint 2013 non hautement disponible** ou la **batterie de serveurs SharePoint 2013 hautement disponible** avec un essai gratuit d’Azure.
 
+Le portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence Web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
+
 ## Gestion des batteries de serveurs SharePoint
 
 Vous pouvez gérer les serveurs de ces batteries par le biais de connexions Bureau à distance. Pour plus d'informations, consultez [Connexion à la machine virtuelle](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes sites, des applications SharePoint, ainsi que d'autres fonctionnalités. Pour plus d'informations, consultez la page [Configurer SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] Le portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence Web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
+> [AZURE.NOTE] Vous pouvez utiliser l’[image de la version d’évaluation de SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/) pour créer une machine virtuelle exécutant SharePoint Server 2016.
 
 ## Étapes suivantes
 
-- Déployez une [batterie de serveurs SharePoint 2013 intranet](virtual-machines-windows-sp-intranet-overview.md) en tant que charge de travail de production dans les services d’infrastructure Azure.
 - Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

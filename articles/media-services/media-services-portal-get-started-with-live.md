@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Ce didacticiel vous guide dans les étapes de mise en place d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local. Pour une vue d’ensemble plus détaillée de l’utilisation des canaux et des composants associés, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+Ce didacticiel vous guide dans les étapes de mise en place d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local. Pour une vue d’ensemble plus détaillée de l’utilisation des canaux et des composants associés, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
 
 Dans ce didacticiel, le portail Azure Classic permet d’effectuer les tâches suivantes :
 
@@ -88,7 +88,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](media-services-manage-channels-overview.md).
+Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Configurer un encodeur dynamique et recevoir un flux dynamique
 
@@ -212,4 +212,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

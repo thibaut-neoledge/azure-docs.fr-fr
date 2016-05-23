@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="danielsollondon"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar"    
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="05/04/2016"
 	ms.author="jroth"/>
 
 # Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
@@ -33,9 +33,9 @@ Il est important de comprendre le processus complet d'utilisation du stockage Pr
 
 - Identification de la configuration requise pour utiliser le stockage Premium.
 - Exemples de déploiement de SQL Server sur IaaS vers un stockage Premium pour les nouveaux déploiements.
-- Exemples de migration de déploiements existants, à la fois de serveurs autonomes et de déploiements à l'aide de groupes de disponibilité AlwaysOn.
+- Exemples de migration de déploiements existants, à la fois de serveurs autonomes et de déploiements à l’aide de groupes de disponibilité SQL Always On.
 - Approches de migration possibles.
-- Exemple complet montrant les étapes Azure, Windows et SQL Server pour la migration d'une implémentation AlwaysOn existante.
+- Exemple complet présentant les étapes Azure, Windows et SQL Server pour la migration d’une implémentation Always On existante.
 
 Pour plus de détails sur l'utilisation de SQL Server dans les machines virtuelles Azure, consultez la rubrique [SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) de la bibliothèque.
 
@@ -51,7 +51,7 @@ Pour utiliser le stockage Premium, vous devrez utiliser des machines virtuelles 
 
 ### Services cloud
 
-Vous pouvez uniquement utiliser des machines virtuelles DS* avec un stockage Premium si elles ont été créées dans un nouveau service cloud. Si vous utilisez SQL Server AlwaysOn dans Azure, l'écouteur AlwaysOn fera référence à l'adresse ID de l'équilibreur de charge interne (ILB) ou équilibreur de charge externe (ELB) Azure associée à un service cloud. Cet article explique comment effectuer la migration tout en conservant la disponibilité dans ce scénario.
+Vous pouvez uniquement utiliser des machines virtuelles DS* avec un stockage Premium si elles ont été créées dans un nouveau service cloud. Si vous utilisez SQL Server Always On dans Azure, l’écouteur Always On fera référence à l’adresse IP de l’équilibreur de charge interne (ILB) ou de l’équilibreur de charge externe (ELB) Azure associée à un service cloud. Cet article explique comment effectuer la migration tout en conservant la disponibilité dans ce scénario.
 
 > [AZURE.NOTE] Une série DS* doit être la première machine virtuelle déployée sur le nouveau service cloud.
 
@@ -118,7 +118,7 @@ Si vous n'avez pas de script d'origine disponible pour afficher les disques durs
 
 Pour chaque disque, procédez comme suit :
 
-1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
+1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
 
     Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 
@@ -346,11 +346,11 @@ Ici, vous créez la machine virtuelle à partir de votre image et connectez deux
 
     $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
-## Déploiements existants qui n’utilisent pas les groupes de disponibilité AlwaysOn
+## Déploiements existants qui n’utilisent pas les groupes de disponibilité Always On
 
 > [AZURE.NOTE] Pour les déploiements existants, consultez tout d'abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
 
-Il existe différents points à prendre en compte concernant les déploiements SQL Server qui utilisent ou non les groupes de disponibilité AlwaysOn. Si vous n'utilisez pas AlwaysOn et que vous disposez d'un serveur SQL Server autonome, vous pouvez effectuer une mise à niveau vers un stockage Premium à l'aide d'un nouveau service cloud et d'un compte de stockage. Examinez les options suivantes :
+Il existe différents points à prendre en compte concernant les déploiements SQL Server qui utilisent ou non les groupes de disponibilité Always On. Si vous n’utilisez pas Always On et que vous disposez d’un serveur SQL Server autonome, vous pouvez effectuer une mise à niveau vers Premium Storage à l’aide d’un nouveau service cloud et d’un compte de stockage. Examinez les options suivantes :
 
 - **Créez une nouvelle machine virtuelle SQL Server**. Vous pouvez créer une nouvelle machine virtuelle SQL qui utilise un compte de stockage Premium comme décrit dans les nouveaux déploiements. Ensuite, sauvegardez et restaurez votre configuration SQL Server et vos bases de données utilisateur. L'application devra être mise à jour pour référencer la nouvelle configuration SQL Server si elle accessible de façon interne ou externe. Vous devez copier tous les objets 'out of db' comme si vous effectuiez une migration SQL Server de type Side by Side (SxS). Cela inclut des objets tels que les connexions, les certificats et les serveurs liés.
 - **Migrez une machine virtuelle SQL Server existante**. Cette opération exige la déconnexion de la machine virtuelle SQL Server, puis son transfert vers un nouveau service cloud, y compris la copie de tous ses disques durs virtuels connectés au compte de stockage Premium. Lorsque la machine virtuelle est mise en ligne, l'application référencera le nom d'hôte du serveur comme avant. N'oubliez pas que la taille du disque existant affectera les performances. Par exemple, un disque de 400 Go correspond à un disque P20. Si vous savez que vous n'avez pas besoin de telles performances, vous pouvez recréer la machine virtuelle comme une machine virtuelle de série DS et connecter des disques durs virtuels de stockage Premium offrant la taille ou les performances requises. Vous pouvez ensuite déconnecter puis reconnecter les fichiers de la base de données SQL.
@@ -359,41 +359,41 @@ Il existe différents points à prendre en compte concernant les déploiements S
 
 Si votre serveur SQL Server est accessible en externe, l'adresse IP virtuelle du service cloud changera. Vous devez également mettre à jour les points de terminaison, les ACL et les paramètres DNS.
 
-## Déploiements existants qui utilisent les groupes de disponibilité AlwaysOn
+## Déploiements existants qui utilisent les groupes de disponibilité Always On
 
 > [AZURE.NOTE] Pour les déploiements existants, consultez tout d'abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
 
-Dans cette section, nous commencerons par examiner comment AlwaysOn interagit avec le réseau Azure. Nous décomposerons ensuite les migrations en deux scénarios : les migrations où une interruption de service est tolérée, et celles où vous devez limiter au maximum les temps d'arrêt.
+Dans cette section, nous commencerons par examiner la façon dont Always On interagit avec la mise en réseau Azure. Nous décomposerons ensuite les migrations en deux scénarios : les migrations où une interruption de service est tolérée, et celles où vous devez limiter au maximum les temps d'arrêt.
 
-Les groupes locaux de disponibilité SQL Server AlwaysOn utilisent un écouteur local qui inscrit un nom DNS virtuel ainsi qu'une adresse IP partagée entre un ou plusieurs serveurs SQL. Lorsque les clients se connectent, ils sont dirigés via l'IP de l'écouteur vers le serveur SQL principal. À cet instant, il s'agit du serveur qui possède la ressource IP AlwaysOn.
+Les groupes locaux de disponibilité Always On SQL Server utilisent un écouteur local qui inscrit un nom DNS virtuel ainsi qu’une adresse IP partagée entre un ou plusieurs serveurs SQL. Lorsque les clients se connectent, ils sont dirigés via l'IP de l'écouteur vers le serveur SQL principal. À ce stade, il s’agit du serveur qui possède la ressource IP Always On.
 
-![DeploymentsUseAlwaysOn][6]
+![DeploymentsUseAlways On][6]
 
-Dans Microsoft Azure, vous ne pouvez attribuer qu'une seule adresse IP à une carte réseau sur la machine virtuelle ; par conséquent, pour atteindre la même couche d'abstraction qu'en local, Azure utilise l'adresse IP attribuée aux équilibreurs de charge internes/externes (ILB/ELB). La ressource IP partagée entre les serveurs est définie sur la même adresse IP que l'ILB/ELB. Il est publié dans le DNS, et le trafic client est transmis via l'ILB/ELB au réplica SQL Server principal. L'ILB/ELB sait identifier le serveur SQL principal puisqu'il utilise des sondes pour détecter la ressource IP AlwaysOn. Dans l'exemple précédent, il teste chaque nœud comportant un point de terminaison référencé par l'ELB/ILB, et celui qui répond est le serveur SQL principal.
+Dans Microsoft Azure, vous ne pouvez attribuer qu'une seule adresse IP à une carte réseau sur la machine virtuelle ; par conséquent, pour atteindre la même couche d'abstraction qu'en local, Azure utilise l'adresse IP attribuée aux équilibreurs de charge internes/externes (ILB/ELB). La ressource IP partagée entre les serveurs est définie sur la même adresse IP que l'ILB/ELB. Il est publié dans le DNS, et le trafic client est transmis via l'ILB/ELB au réplica SQL Server principal. L’ILB/ELB sait identifier le serveur SQL principal, puisqu’il utilise des sondes pour détecter la ressource IP Always On. Dans l'exemple précédent, il teste chaque nœud comportant un point de terminaison référencé par l'ELB/ILB, et celui qui répond est le serveur SQL principal.
 
 > [AZURE.NOTE] L'ILB et l'ELB sont affectés à un service cloud Azure particulier et par conséquent, toute migration de cloud dans Azure impliquera probablement le changement de l'adresse IP de l'équilibreur de charge.
 
-### Migration de déploiements AlwaysOn autorisant des temps d'arrêt
+### Migration de déploiements Always On autorisant des temps d’arrêt
 
-Il existe deux stratégies de migration de déploiements AlwaysOn qui autorisent des temps d'arrêt :
+Il existe deux stratégies de migration de déploiements Always On qui autorisent des temps d’arrêt :
 
-1. **Ajouter plusieurs réplicas secondaires à un cluster AlwaysOn existant**
-1. **Migrer vers un nouveau cluster AlwaysOn**
+1. **Ajouter plusieurs réplicas secondaires à un cluster Always On existant**
+1. **Effectuer la migration vers un nouveau cluster Always On**
 
-#### 1\. Ajout de plusieurs réplicas secondaires à un cluster AlwaysOn existant
+#### 1\. Ajouter plusieurs réplicas secondaires à un cluster Always On existant
 
-Une stratégie consiste à ajouter plusieurs serveurs secondaires au groupe de disponibilité AlwaysOn. Vous devez ajouter ces réplicas à un nouveau service cloud et mettre à jour l'écouteur avec la nouvelle adresse IP de l'équilibreur de charge.
+Une stratégie consiste à ajouter plusieurs serveurs secondaires au groupe de disponibilité Always On. Vous devez ajouter ces réplicas à un nouveau service cloud et mettre à jour l'écouteur avec la nouvelle adresse IP de l'équilibreur de charge.
 
 ##### Points d’arrêt :
 
 - Validation de cluster.
-- Test des basculements AlwaysOn de nouveaux réplicas secondaires.
+- Test des basculements Always On de nouveaux réplicas secondaires.
 
 Si vous utilisez des pools de stockage Windows au sein de la machine virtuelle pour augmenter le débit d'E/S, ces pools seront mis hors ligne pendant une validation complète de cluster. Le test de validation est requis lorsque vous ajoutez des nœuds au cluster. Le temps nécessaire à l'exécution du test peut varier ; vous devez donc tester le cluster dans votre environnement de test représentatif pour obtenir une durée approximative de la durée de cette opération.
 
-Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel et un test CHAOS sur les nœuds récemment ajoutés pour vérifier que AlwaysOn High Availability fonctionne comme prévu.
+Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel et un test CHAOS sur les nœuds récemment ajoutés pour vérifier que la haute disponibilité Always On fonctionne comme prévu.
 
-![DeploymentUseAlwaysOn2][7]
+![DeploymentUseAlways On2][7]
 
 > [AZURE.NOTE] Vous devez arrêter toutes les instances SQL Server qui utilisent les pools de stockage avant le lancement de la validation.
 ##### Étapes de haut niveau
@@ -409,15 +409,15 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Ajoutez de nouveaux nœuds de cluster et effectuez la validation complète.
 1. Une fois la validation réussie, démarrez tous les services SQL Server.
 1. Sauvegardez les journaux des transactions et restaurez les bases de données utilisateur.
-1. Ajoutez de nouveaux nœuds au groupe de disponibilité AlwaysOn et définissez la réplication sur **synchrone**.
-1. Ajoutez la ressource d'adresse IP de l'ILB/ELB du nouveau service cloud via PowerShell pour AlwaysOn en fonction de l'exemple multi-sites de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource **adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+1. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
+1. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource **adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Basculement vers un des nouveaux nœuds.
 1. Configurez les nouveaux nœuds en tant que partenaires de basculement automatique puis testez les basculements.
 1. Supprimez les nœuds d'origine du groupe de disponibilité.
 
 ##### Avantages
 
-- Les nouveaux serveurs SQL peuvent être testés (SQL Server et application) avant d'être ajoutés à AlwaysOn.
+- Les nouveaux serveurs SQL peuvent être testés (SQL Server et application) avant d’être ajoutés à Always On.
 - Vous pouvez modifier la taille de la machine virtuelle et personnaliser le stockage exactement selon vos besoins. Mais il serait préférable de conserver tous les chemins vers les fichiers SQL.
 - Vous pouvez contrôler le démarrage du transfert des sauvegardes de base de données pour les réplicas secondaires. Cela diffère de l'utilisation de l'applet de commande Azure **Start-AzureStorageBlobCopy** pour copier des disques durs virtuels car il s'agit d'une copie asynchrone.
 
@@ -427,33 +427,33 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 - Le transfert des données SQL peut prendre du temps lors de la configuration des réplicas secondaires.
 - Pendant la migration, les nouvelles machines sont exécutées en parallèle, ce qui entraîne un coût supplémentaire.
 
-#### 2\. Migrer vers un nouveau cluster AlwaysOn
+#### 2\. Effectuer la migration vers un nouveau cluster Always On
 
-Une autre stratégie consiste à créer un tout nouveau cluster AlwaysOn avec de nouveaux nœuds dans le nouveau service cloud en incitant les clients à l'utiliser.
+Une autre stratégie consiste à créer un tout nouveau cluster Always On avec de nouveaux nœuds dans le nouveau service cloud en incitant les clients à l’utiliser.
 
 ##### Points d’arrêt
 
-Un temps d'arrêt se produit lorsque vous transférez applications et des utilisateurs vers le nouvel écouteur AlwaysOn. Ce temps d'arrêt dépend des éléments suivants :
+Un temps d’arrêt se produit lorsque vous transférez des applications et des utilisateurs vers le nouvel écouteur Always On. Ce temps d'arrêt dépend des éléments suivants :
 
 - Le temps nécessaire pour restaurer les sauvegardes du journal des transactions final aux bases de données sur les nouveaux serveurs.
-- Le temps nécessaire pour mettre à jour les applications clientes afin d'utiliser le nouvel écouteur AlwaysOn.
+- Le temps nécessaire pour mettre à jour les applications clientes afin d’utiliser le nouvel écouteur Always On.
 
 ##### Avantages
 
 - Vous pouvez tester l'environnement de production réel, SQL Server, et les modifications apportées à la build du système d'exploitation.
 - Vous avez la possibilité de personnaliser le stockage et de réduire la taille de la machine virtuelle. Cela pourrait entraîner une réduction des coûts.
 - Vous pouvez mettre à jour votre build ou version SQL Server pendant ce processus. Vous pouvez également mettre à niveau le système d'exploitation.
-- Le cluster AlwaysOn précédent peut servir de cible de restauration solide.
+- Le cluster Always On précédent peut servir de cible de restauration solide.
 
 ##### Inconvénients
 
-- Vous devez modifier le nom DNS de l'écouteur si vous souhaitez exécuter les deux clusters AlwaysOn simultanément. Cela ajoute une surcharge administrative lors de la migration car les chaînes de l'application cliente doivent refléter le nouveau nom de l'écouteur.
+- Vous devez modifier le nom DNS de l’écouteur si vous souhaitez exécuter les deux clusters Always On simultanément. Cela ajoute une surcharge administrative lors de la migration car les chaînes de l'application cliente doivent refléter le nouveau nom de l'écouteur.
 - Vous devez mettre en œuvre un mécanisme de synchronisation entre les deux environnements afin de les garder aussi proches que possible et réduire ainsi les exigences de synchronisation finale avant la migration.
 - Pendant la migration, le nouvel environnement est exécuté, ce qui entraîne un coût supplémentaire.
 
-### Migration de déploiements AlwaysOn avec un temps d’arrêt minimal
+### Migration de déploiements Always On avec un temps d’arrêt minimal
 
-Il existe deux stratégies pour migrer des déploiements AlwaysOn avec un temps d'arrêt minimal :
+Il existe deux stratégies pour effectuer la migration de déploiements Always On avec un temps d’arrêt minimal :
 
 1. **Utiliser un service secondaire existant : site unique**
 1. **Utiliser des réplicas secondaires existants : multi-sites**
@@ -466,9 +466,9 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 
 - Un temps d'arrêt se produit lorsque vous mettez à jour le nœud final avec le point de terminaison à équilibrage de charge.
 - La reconnexion de votre client peut être retardée en fonction de votre configuration client/DNS.
-- Un temps d'arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe AlwaysOn Cluster afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d'adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+- Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d'adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE] Lorsque vous souhaitez que le nœud ajouté joue le rôle de partenaire de basculement AlwaysOn, vous devez ajouter un point de terminaison Azure avec une référence au jeu d'équilibrage de charge. Lorsque vous exécutez la commande **Add-AzureEndpoint** pour cette opération, les connexions actuelles restent ouvertes, mais les nouvelles connexions à l'écouteur ne pourront pas être établies tant que l'équilibreur de charge n'a pas été mis à jour. Dans ce test, l'opération dure de 90 à 120 secondes (à vérifier).
+> [AZURE.NOTE] Lorsque vous souhaitez que le nœud ajouté joue le rôle de partenaire de basculement Always On, vous devez ajouter un point de terminaison Azure avec une référence au jeu d’équilibrage de la charge. Lorsque vous exécutez la commande **Add-AzureEndpoint** pour cette opération, les connexions actuelles restent ouvertes, mais les nouvelles connexions à l'écouteur ne pourront pas être établies tant que l'équilibreur de charge n'a pas été mis à jour. Dans ce test, l'opération dure de 90 à 120 secondes (à vérifier).
 
 ##### Avantages
 
@@ -497,7 +497,7 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, l'[a
 - Créez un service cloud et redéployez la machine virtuelle SQL2 dans ce service cloud. Créez la machine virtuelle à l'aide du disque dur virtuel d'origine du système d'exploitation copié et connectez les disques durs virtuels copiés.
 - Configurez l'ILB/ELB et ajoutez des points de terminaison.
 - Mettez à jour l'écouteur en procédant comme suit :
-	- Mettez hors ligne le groupe AlwaysOn et mettez à jour l'écouteur AlwaysOn avec la nouvelle adresse IP de l'ILB/ELB.
+	- Mettez hors ligne le groupe Always On et mettez à jour l’écouteur Always On avec la nouvelle adresse IP de l’ILB/ELB.
 	- Ou ajoutez la ressource d'adresse IP de l'ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 - Vérifiez la configuration/propagation DNS vers les clients.
 - Migrez la machine virtuelle SQL1 et suivez les étapes 2 à 4.
@@ -506,13 +506,13 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, l'[a
 
 #### 2\. Utilisation de réplicas secondaires existants : multi-sites
 
-Si vous avez des nœuds dans plusieurs centres de données (DC) Azure ou si vous évoluez dans un environnement hybride, vous pouvez utiliser une configuration AlwaysOn dans cet environnement pour réduire les temps d'arrêt.
+Si vous disposez de nœuds dans plusieurs centres de données Azure ou que vous évoluez dans un environnement hybride, vous pouvez utiliser une configuration Always On dans cet environnement pour réduire les temps d’arrêt.
 
-L'approche consiste à définir la synchronisation AlwaysOn sur synchrone pour le centre de données local ou le centre de données Azure secondaire, puis à basculer sur ce serveur SQL. Copiez les disques durs virtuels vers un compte de stockage Premium, puis redéployez la machine dans un nouveau service cloud. Mettez à jour l'écouteur, puis restaurez-le.
+L’approche consiste à définir la synchronisation Always On sur Synchrone pour le centre de données Azure local ou secondaire, puis à basculer sur ce serveur SQL. Copiez les disques durs virtuels vers un compte de stockage Premium, puis redéployez la machine dans un nouveau service cloud. Mettez à jour l'écouteur, puis restaurez-le.
 
 ##### Points d’arrêt
 
-Le temps d'arrêt inclut le délai de basculement vers l'autre centre de données et inversement. Il dépend de votre configuration client/DNS et la reconnexion du client peut être retardée. Prenons l'exemple suivant d'une configuration AlwaysOn hybride :
+Le temps d'arrêt inclut le délai de basculement vers l'autre centre de données et inversement. Il dépend de votre configuration client/DNS et la reconnexion du client peut être retardée. Considérons l’exemple ci-après d’une configuration Always On hybride :
 
 ![MultiSite1][9]
 
@@ -543,15 +543,15 @@ Ce scénario suppose que vous avez documenté votre installation et savez commen
 - Créez un compte de stockage Premium et copiez les disques durs virtuels à partir du compte de stockage Standard.
 - Créez un nouveau service cloud et créez la machine virtuelle SQL2 avec ses disques de stockage Premium connectés.
 - Configurez l'ILB/ELB et ajoutez des points de terminaison.
-- Mettez à jour l'écouteur AlwaysOn avec la nouvelle adresse IP de l'ILB/ELB puis testez le basculement.
+- Mettez à jour l’écouteur Always On avec la nouvelle adresse IP de l’ILB/ELB, puis testez le basculement.
 - Vérifiez la configuration DNS.
 - Définissez l'AFP sur SQL2, migrez SQL1 puis suivez les étapes 2 à 5.
 - Testez les basculements.
 - Repositionnez l'AFP sur SQL1 et SQL2
 
-## Annexe : migration d'un cluster AlwaysOn multi-sites vers un stockage Premium
+## Annexe : migration d’un cluster Always On multisite vers Premium Storage
 
-Le reste de cette rubrique fournit un exemple détaillé de la conversion d'un cluster AlwaysOn multi-sites vers un stockage Premium. L'exemple décrit également la conversion de l'écouteur d'un équilibreur de charge externe (ELB) à un équilibrage de charge interne (ILB).
+Le reste de cette rubrique fournit un exemple détaillé de la conversion d’un cluster Always On multisite vers un stockage Premium. L'exemple décrit également la conversion de l'écouteur d'un équilibreur de charge externe (ELB) à un équilibrage de charge interne (ILB).
 
 ### Environment
 
@@ -609,9 +609,9 @@ Cet exemple décrit la conversion d'un ELB en ILB. L'ELB étant disponible avant
     New-AzureService $destcloudsvc -Location $location
 
 #### Étape 2 : augmenter le niveau des échecs autorisés sur les ressources <Optional>
-Sur certaines ressources appartenant à votre groupe de disponibilité AlwaysOn, il existe des limites concernant le nombre d'erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
+Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
 
-Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le gestionnaire de cluster de basculement, puis accédez aux propriétés du groupe de ressources AlwaysOn :
+Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le Gestionnaire du cluster de basculement, puis accédez aux propriétés du groupe de ressources Always On :
 
 ![Appendix3][13]
 
@@ -623,16 +623,16 @@ Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est
 
 #### Étape 4 : configuration DNS
 
-La mise en place d'une transition optimale dépend de l'utilisation et de la configuration DNS. Lorsque AlwaysOn est installé, il crée un groupe de ressources de cluster Windows ; si vous ouvrez le gestionnaire de cluster de basculement, vous verrez qu'au minimum il comporte trois ressources, et les deux auxquelles ce document fait référence sont :
+La mise en place d'une transition optimale dépend de l'utilisation et de la configuration DNS. Lorsque la fonctionnalité Always On est installée, elle crée un groupe de ressources de cluster Windows ; si vous ouvrez le Gestionnaire du cluster de basculement, vous verrez qu’il comporte au moins trois ressources, et les deux auxquelles ce document fait référence sont :
 
-- Nom de réseau virtuel (VNN) – il s'agit du nom DNS utilisé par le client pour se connecter aux serveurs SQL via AlwaysOn.
+- Nom de réseau virtuel (VNN) : il s’agit du nom DNS utilisé par le client pour se connecter aux serveurs SQL par le biais d’Always On.
 - Ressource d'adresse IP – il s'agit de l'adresse IP associée au VNN ; vous pouvez en utiliser plusieurs, et dans une configuration multi-sites, vous aurez une adresse IP par site/sous-réseau.
 
-Lors de la connexion à SQL Sevrer, le pilote du client SQL Server extraira les enregistrements DNS associés à l'écouteur et tentera de vous connecter à chaque adresse IP AlwaysOn associée ; nous abordons ci-dessous certains facteurs pouvant influencer cette opération.
+Lors de la connexion à SQL Server, le pilote du client SQL Server extraira les enregistrements DNS associés à l’écouteur et tentera de vous connecter à chaque adresse IP Always On associée ; nous abordons ci-dessous certains facteurs pouvant influencer cette opération.
 
-Le nombre d'enregistrements DNS simultanés associés au nom de l'écouteur dépend non seulement du nombre d'adresses IP associées, mais également du paramètre 'RegisterAllIpProviders' de clustering de basculement pour la ressource VNN AlwaysOn.
+Le nombre d’enregistrements DNS simultanés associés au nom de l’écouteur dépend non seulement du nombre d’adresses IP associées, mais également du paramètre « RegisterAllIpProviders » de clustering de basculement pour la ressource VNN Always On.
 
-Lorsque vous déployez AlwaysOn dans Azure, différentes étapes permettent de créer l'écouteur et les adresses IP, et vous devez définir manuellement le paramètre 'RegisterAllIpProviders' sur 1, contrairement à un déploiement AlwaysOn local où il est défini sur 1.
+Lorsque vous déployez Always On dans Azure, différentes étapes permettent de créer l’écouteur et les adresses IP, et vous devez définir manuellement le paramètre « RegisterAllIpProviders » sur 1, contrairement à un déploiement Always On local, où il est déjà défini sur 1.
 
 Si 'RegisterAllIpProviders' est défini sur 0, vous ne verrez qu'un seul enregistrement DNS dans le DNS associé à l'écouteur :
 
@@ -651,11 +651,11 @@ Le code ci-dessous videra les paramètres VNN et les définira pour vous ; note
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-Dans une étape de migration ultérieure, vous devrez mettre à jour l'écouteur AlwaysOn avec une adresse IP mise à jour faisant référence à un équilibrage de charge, ce qui impliquera la suppression et l'ajout d'une ressource d'adresse IP. Après la mise à jour de l'adresse IP, vous devez vérifier que la nouvelle adresse IP a été mise à jour dans la zone DNS et que les clients ont mis à jour leur cache DNS local.
+Dans une étape de migration ultérieure, vous devrez mettre à jour l’écouteur Always On avec une adresse IP mise à jour faisant référence à un équilibreur de charge, ce qui impliquera la suppression et l’ajout d’une ressource d’adresse IP. Après la mise à jour de l'adresse IP, vous devez vérifier que la nouvelle adresse IP a été mise à jour dans la zone DNS et que les clients ont mis à jour leur cache DNS local.
 
 Si vous, clients, résidez dans un segment de réseau différent et référencez un autre serveur DNS, vous devez tenir compte de ce se passe au niveau du transfert de la zone DNS pendant la migration, car le délai de reconnexion de l'application sera contraint par au moins l'heure de transfert de la zone de toutes les nouvelles adresses IP pour l'écouteur. Si vous êtes pressé par le temps, vous devez étudier et forcer le test d'un transfert de zone incrémentiel avec vos équipes Windows, et également consigner l'enregistrement de l'hôte DNS en choisissant une durée de vie TTL (Time To Live) inférieure pour permettre aux clients de se mettre à jour. Pour plus d'informations, consultez les rubriques [transferts de zone incrémentiels](https://technet.microsoft.com/library/cc958973.aspx) et [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
-Par défaut, la durée de vie TTL d'un enregistrement DNS qui est associée à l'écouteur AlwaysOn dans Azure est de 1 200 secondes. Vous pouvez réduire ce paramètre si vous êtes pressé par le temps pendant votre migration afin de permettre aux clients de mettre à jour leurs DNS avec l'adresse IP mise à jour pour l'écouteur. Vous pouvez afficher et modifier la configuration en vidant la configuration du VNN :
+Par défaut, la durée de vie (TTL) d’un enregistrement DNS associé à l’écouteur Always On dans Azure est de 1 200 secondes. Vous pouvez réduire ce paramètre si vous êtes pressé par le temps pendant votre migration afin de permettre aux clients de mettre à jour leurs DNS avec l'adresse IP mise à jour pour l'écouteur. Vous pouvez afficher et modifier la configuration en vidant la configuration du VNN :
 
     $AGName = "myProductionAG"
     $ListenerName = "Mylistener"
@@ -669,7 +669,7 @@ Veuillez noter que la diminution de la valeur 'HostRecordTTL' augmente le trafic
 
 ##### Paramètres de l’application cliente
 
-Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE' ; il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l'écouteur AlwaysOn en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d'un basculement.
+Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé « MULTISUBNETFAILOVER = TRUE » ; il est recommandé d’appliquer ce dernier, car il accélère la connexion au groupe de disponibilité SQL Always On pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
 
 Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
@@ -685,7 +685,7 @@ Pour plus d'informations sur la gestion et la configuration du quorum de cluster
 #### Étape 6 : extraction des points de terminaison et des ACL existants
     #GET Endpoint info
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
-    #GET ACL Rules for Each EP, this example is for the AlwaysOn Endpoint
+    #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
 Enregistrez ces éléments dans un fichier texte.
@@ -878,7 +878,7 @@ Le code ci-dessous utilise également l'option ajoutée ici pour importer la mac
 
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
-####Étape 14 : mise à jour d'AlwaysOn
+####Étape 14 : mise à jour d’Always On
     #Code to be executed on a Cluster Node
     $ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
     $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service
@@ -906,9 +906,9 @@ Supprimez maintenant l'ancienne adresse IP du service cloud.
 
 #### Étape 15 : vérification de la mise à jour DNS
 
-Vous devriez maintenant vérifier les serveurs DNS sur les réseaux du client SQL Server et vous assurer que le clustering a ajouté l'enregistrement hôte supplémentaire pour l'adresse IP ajoutée. Si ces serveurs DNS n'ont pas été mis à jour, essayez de forcer un transfert de la zone DNS et vérifiez que les clients sur le sous-réseau peuvent résoudre les deux adresses IP AlwaysOn, ce qui évite d'attendre la réplication DNS automatique.
+Vous devriez maintenant vérifier les serveurs DNS sur les réseaux du client SQL Server et vous assurer que le clustering a ajouté l'enregistrement hôte supplémentaire pour l'adresse IP ajoutée. Si ces serveurs DNS n’ont pas été mis à jour, essayez de forcer un transfert de la zone DNS et vérifiez que les clients sur le sous-réseau peuvent résoudre les deux adresses IP Always On, ce qui évite d’attendre la réplication DNS automatique.
 
-#### Étape 16 : reconfiguration d'AlwaysOn
+#### Étape 16 : reconfiguration d’Always On
 
 À ce stade, attendez que le nœud secondaire qui a été migré soit totalement resynchronisé avec le nœud local puis basculez vers un nœud de réplication synchrone pour en faire l'AFP.
 
@@ -1091,14 +1091,14 @@ Pour plus d'informations sur les objets BLOB individuels : #Check individual bl
 
 #### Étape 23 : test du basculement
 
-Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud AlwaysOn local, le placer en mode de réplication synchrone et attendre qu'il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
+Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
 
 Vous devez tester les basculements entre tous les nœuds de test et effectuer des tests CHAOS pour vous assurer que les basculements se sont déroulés comme prévu et en temps opportun.
 
 #### Étape 24 : réinitialisation des paramètres du quorum de cluster / TTL DNS / Partenaires de basculement / Paramètres de synchronisation
 ##### Ajout de ressource d'adresse IP sur le même sous-réseau
 
-Si vous avez seulement 2 serveurs SQL, que vous souhaitez les migrer vers un nouveau service cloud mais en les conservant sur le même sous-réseau, vous pouvez éviter de mettre hors ligne l'écouteur pour supprimer l'adresse IP AlwaysOn d'origine afin d'ajouter la nouvelle adresse IP. Si vous migrez les machines virtuelles vers un autre sous-réseau, inutile d'effectuer cette opération car un autre réseau de cluster référencera ce sous-réseau.
+Si vous disposez seulement de 2 serveurs SQL et que vous souhaitez en effectuer la migration vers un nouveau service cloud tout en les conservant sur le même sous-réseau, vous pouvez éviter de mettre hors ligne l’écouteur pour supprimer l’adresse IP Always On d’origine afin d’ajouter la nouvelle adresse IP. Si vous migrez les machines virtuelles vers un autre sous-réseau, inutile d'effectuer cette opération car un autre réseau de cluster référencera ce sous-réseau.
 
 Une fois que vous avez sélectionné le serveur secondaire migré et ajouté la nouvelle ressource d'adresse IP pour le nouveau service cloud avant d'effectuer le basculement du serveur principal, vous devez suivre ces étapes dans le gestionnaire de basculement du cluster :
 
@@ -1148,4 +1148,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

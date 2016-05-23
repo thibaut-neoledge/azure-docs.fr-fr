@@ -13,63 +13,63 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/04/2016"
+	ms.date="05/10/2016"
 	ms.author="curtand"/>
 
 
 # Qu’est-ce qu’une inscription libre-service à Azure ?
 
-Cette rubrique vous explique le processus d'inscription libre-service (parfois appelée inscription virale) et vous indique comment prendre en charge un nom de domaine DNS.
+Cette rubrique vous explique le processus d‘inscription libre-service et vous indique comment prendre en charge un nom de domaine DNS.
 
 ## Pourquoi utiliser l’inscription libre-service ?
 
 - Permettre aux clients de bénéficier très rapidement de services dont ils ont besoin.
-- Créer des offres (virales) envoyées par e-mail pour un service.
+- Créer des offres envoyées par e-mail pour un service.
 - Créer des flux d’inscription par e-mail permettant aux utilisateurs de créer très rapidement des identités à l'aide de leurs alias de messagerie professionnelle, faciles à mémoriser.
-- Les locataires Azure non gérés peuvent évoluer et devenir par la suite des locataires gérés qui peuvent être réutilisés pour d'autres services.
+- Les répertoires Azure non gérés peuvent être transformés en répertoires gérés ultérieurement et être réutilisés pour d‘autres services.
 
 ## Termes et définitions
 
-+ **Inscription libre-service** : méthode via laquelle un utilisateur s'abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory (AD) en fonction de son domaine de messagerie.
-+ **Locataire Azure non géré** : répertoire dans lequel cette identité est créée. Un locataire non géré est un répertoire qui ne possède aucun administrateur général.
++ **Inscription libre-service** : méthode via laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory (Azure AD) en fonction de son domaine de messagerie.
++ **Répertoire Azure non géré** : répertoire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
 + **Utilisateur vérifié par e-mail** : type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## Expérience utilisateur
 
 Par exemple, un utilisateur ayant pour adresse e-mail Dan@BellowsCollege.com reçoit les fichiers sensibles par e-mail. Les fichiers ont été protégés par Azure Rights Management (Azure RMS). Mais la société de Dan, Bellows College, n’est pas abonnée à Azure RMS, et elle n’a pas déployé Active Directory RMS. Dans ce cas, Dan peut souscrire un abonnement gratuit à RMS, destiné aux particuliers, pour pouvoir lire les fichiers protégés.
 
-Si Dan est le premier utilisateur disposant d’une adresse e-mail BellowsCollege.com pour s'abonner à cette offre libre-service, un locataire non géré sera créé pour BellowsCollege.com dans Azure AD. Si d'autres utilisateurs du domaine BellowsCollege.com s’abonnent à cette offre ou à une offre libre-service similaire, ils posséderont également des comptes d’utilisateurs vérifiés par e-mail créés dans le même locataire non géré d’Azure.
+Si Dan est le premier utilisateur disposant d’une adresse e-mail BellowsCollege.com pour s‘abonner à cette offre libre-service, un répertoire non géré sera créé pour BellowsCollege.com dans Azure AD. Si d‘autres utilisateurs du domaine BellowsCollege.com s’abonnent à cette offre ou à une offre libre-service similaire, ils posséderont également des comptes d’utilisateurs vérifiés par e-mail, créés dans le même répertoire non géré d’Azure.
 
 ## Expérience administrateur
 
-Un administrateur qui possède le nom de domaine DNS d'un locataire Azure non géré peut prendre en charge ou fusionner le locataire après avoir prouvé qu’il en est le propriétaire. Les sections suivantes vous expliquent plus en détail l'expérience administrateur, mais en voici un résumé :
+Un administrateur qui possède le nom de domaine DNS d‘un répertoire Azure non géré peut prendre en charge ou fusionner le répertoire après avoir prouvé qu’il en est le propriétaire. Les sections suivantes vous expliquent plus en détail l'expérience administrateur, mais en voici un résumé :
 
-- Lorsque vous prenez en charge un locataire Azure non géré, vous devenez tout simplement l'administrateur général du locataire non géré. On appelle parfois cela une prise en charge interne.
-- Lorsque vous fusionnez un locataire Azure non géré, vous ajoutez le nom de domaine DNS du locataire non géré à votre locataire Azure géré. Un mappage des utilisateurs jusqu’aux ressources est de ce fait créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. On appelle parfois cela une prise en charge externe.
+- Lorsque vous prenez en charge un répertoire Azure non géré, vous devenez tout simplement l‘administrateur général du répertoire non géré. On appelle parfois cela une prise en charge interne.
+- Lorsque vous fusionnez un répertoire Azure non géré, vous ajoutez le nom de domaine DNS du répertoire non géré à votre répertoire Azure géré. Un mappage des utilisateurs jusqu’aux ressources est de ce fait créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. On appelle parfois cela une prise en charge externe.
 
 ## Que permet de créer Azure Active Directory ?
 
-#### Locataire
+#### Répertoire
 
-- Un locataire Azure Active Directory est créé pour le domaine (un par domaine).
-- Le répertoire du locataire Azure AD ne possède aucun administrateur général.
+- Un répertoire Azure Active Directory est créé pour le domaine (un répertoire par domaine).
+- Le répertoire du répertoire Azure AD ne possède aucun administrateur général.
 
 #### Utilisateurs
 
-- Chaque fois qu’un utilisateur s'abonne, un objet utilisateur est créé dans le locataire Azure AD.
-- Chaque objet utilisateur est considéré comme viral.
+- Chaque fois qu’un utilisateur s‘abonne, un objet utilisateur est créé dans le répertoire Azure AD.
+- Chaque objet utilisateur est considéré comme externe.
 - Chaque utilisateur a accès au service auquel il s’est abonné.
 
-### Comment puis-je revendiquer un locataire Azure AD libre-service pour un domaine qui m’appartient ?
+### Comment puis-je revendiquer un répertoire Azure AD libre-service pour un domaine qui m’appartient ?
 
-Vous pouvez revendiquer un locataire Azure AD libre-service en effectuant la validation de domaine. La validation de domaine prouve que le domaine vous appartient, en créant des enregistrements DNS.
+Vous pouvez revendiquer un répertoire Azure AD libre-service en effectuant la validation de domaine. La validation de domaine prouve que le domaine vous appartient, en créant des enregistrements DNS.
 
-Il existe deux façons de réaliser une prise en charge DNS d'un locataire Azure AD :
+Il existe deux façons de réaliser une prise en charge DNS d‘un répertoire Azure AD :
 
-- prise en charge interne (l’administrateur découvre un locataire Azure non géré et souhaite le convertir en locataire géré)
-- prise en charge externe (l’administrateur essaie d'ajouter un nouveau domaine à son locataire Azure géré)
+- prise en charge interne (l’administrateur découvre un répertoire Azure non géré et souhaite le convertir en répertoire géré)
+- prise en charge externe (l’administrateur essaie d‘ajouter un nouveau domaine à son répertoire Azure géré)
 
-Vous voudrez peut-être valider le fait qu’un domaine vous appartient lorsque vous prendrez en charge un locataire non géré après qu’un utilisateur ait réalisé une inscription libre-service ou lorsque vous ajouterez un nouveau domaine à un locataire géré existant. Par exemple, vous possédez un domaine nommé contoso.com et vous souhaitez ajouter un nouveau domaine nommé contoso.co.uk ou contoso.uk.
+Vous voudrez peut-être valider le fait qu’un domaine vous appartient lorsque vous prendrez en charge un répertoire non géré après qu’un utilisateur ait réalisé une inscription libre-service ou lorsque vous ajouterez un nouveau domaine à un répertoire géré existant. Par exemple, vous possédez un domaine nommé contoso.com et vous souhaitez ajouter un nouveau domaine nommé contoso.co.uk ou contoso.uk.
 
 ## Qu’est-ce que la prise en charge d’un domaine ?  
 
@@ -77,42 +77,42 @@ Cette section vous explique comment valider le fait qu’un domaine vous apparti
 
 ### Qu’est-ce que la validation de domaine et pourquoi est-elle utilisée ?
 
-Pour réaliser des opérations sur un locataire, Azure AD requiert que vous validiez le fait que le domaine DNS vous appartient. La validation du domaine vous permet d’obtenir le locataire et de convertir le locataire libre-service en locataire géré ou de fusionner le locataire libre-service avec un locataire géré existant.
+Pour réaliser des opérations sur un répertoire, Azure AD requiert que vous validiez le fait que le domaine DNS vous appartient. La validation du domaine vous permet d’obtenir le répertoire et de convertir le répertoire libre-service en répertoire géré ou de fusionner le répertoire libre-service avec un répertoire géré existant.
 
 ## Exemples de validation de domaine
 
-Il existe deux façons de réaliser une prise en charge DNS d'un locataire :
+Il existe deux façons de réaliser une prise en charge DNS d‘un répertoire :
 
-+ prise en charge interne (par exemple, un administrateur découvre un locataire libre-service, non géré, et souhaite le convertir en locataire géré)
-+ prise en charge externe (par exemple, un administrateur essaie d'ajouter un nouveau domaine à un locataire géré)
++ prise en charge interne (par exemple, un administrateur découvre un répertoire libre-service, non géré, et souhaite le convertir en répertoire géré)
++ prise en charge externe (par exemple, un administrateur essaie d‘ajouter un nouveau domaine à un répertoire géré)
 
-### Prise en charge interne : convertir un locataire libre-service non géré en locataire géré
+### Prise en charge interne : convertir un répertoire libre-service non géré en répertoire géré
 
-Lorsque vous effectuez une prise en charge interne, le locataire non géré est converti en locataire géré. Vous devez effectuer la validation du nom de domaine DNS, lorsque vous créez un enregistrement MX ou un enregistrement TXT dans la zone DNS. Cette action :
+Lorsque vous effectuez une prise en charge interne, le répertoire non géré est converti en répertoire géré. Vous devez effectuer la validation du nom de domaine DNS, lorsque vous créez un enregistrement MX ou un enregistrement TXT dans la zone DNS. Cette action :
 
 + Valide le fait que le domaine vous appartient
-+ Permet de bénéficier d’un locataire géré
-+ Vous désigne administrateur général du locataire
++ Convertit le répertoire en répertoire géré
++ Vous désigne administrateur général du répertoire
 
-Supposons qu'un administrateur informatique de Bellows College découvre que les utilisateurs de l'école se sont abonnés aux offres libre-service. En tant que propriétaire enregistré du nom DNS BellowsCollege.com, l'administrateur informatique peut valider le fait que le nom DNS lui appartient dans Azure, puis prendre en charge le locataire non géré. Le locataire devient alors un locataire géré et l'administrateur informatique est désigné administrateur général du répertoire BellowsCollege.com.
+Supposons qu'un administrateur informatique de Bellows College découvre que les utilisateurs de l'école se sont abonnés aux offres libre-service. En tant que propriétaire enregistré du nom DNS BellowsCollege.com, l‘administrateur informatique peut valider le fait que le nom DNS lui appartient dans Azure, puis prendre en charge le répertoire non géré. Le répertoire devient alors un répertoire géré et l‘administrateur informatique est désigné administrateur général du répertoire BellowsCollege.com.
 
-### Prise en charge externe : fusionner un locataire libre-service avec un locataire géré existant
+### Prise en charge externe : fusionner un répertoire libre-service avec un répertoire géré existant
 
-Lors d’une prise en charge externe, vous disposez déjà d'un locataire géré et vous souhaitez que tous les utilisateurs et groupes d'un locataire non géré rejoignent ce locataire géré, plutôt que de posséder deux locataires différents.
+Lors d’une prise en charge externe, vous disposez déjà d‘un répertoire géré et vous souhaitez que tous les utilisateurs et groupes d‘un répertoire non géré rejoignent ce répertoire géré, plutôt que de posséder deux répertoires différents.
 
-En tant qu'administrateur d'un locataire géré, vous ajoutez un domaine qui possède un locataire non géré qui lui est associé.
+En tant qu‘administrateur d‘un répertoire géré, vous ajoutez un domaine qui possède un répertoire non géré qui lui est associé.
 
-Supposons par exemple que vous êtes un administrateur informatique et que vous disposez déjà d'un locataire géré pour Contoso.com, un nom de domaine qui a été créé pour votre société. Vous découvrez que les utilisateurs de votre société ont réalisé une inscription libre-service à une offre à l'aide du nom de domaine de messagerie user@contoso.co.uk, qui est un autre nom de domaine appartenant à votre société. Ces utilisateurs possèdent actuellement des comptes dans un locataire non géré pour contoso.co.uk.
+Supposons par exemple que vous êtes un administrateur informatique et que vous disposez déjà d‘un répertoire géré pour Contoso.com, un nom de domaine qui a été créé pour votre société. Vous découvrez que les utilisateurs de votre société ont réalisé une inscription libre-service à une offre à l'aide du nom de domaine de messagerie user@contoso.co.uk, qui est un autre nom de domaine appartenant à votre société. Ces utilisateurs possèdent actuellement des comptes dans un répertoire non géré pour contoso.co.uk.
 
-Vous ne souhaitez pas gérer deux locataires différents, alors vous fusionnez le locataire non géré pour contoso.co.uk avec votre locataire informatique géré existant pour contoso.com.
+Vous ne souhaitez pas gérer deux répertoires différents, alors vous fusionnez le répertoire non géré pour contoso.co.uk avec votre répertoire informatique géré existant pour contoso.com.
 
-La prise en charge externe suit le même processus de validation DNS que la prise en charge interne. La seule différence étant que les utilisateurs et services sont remappés vers le locataire informatique géré.
+La prise en charge externe suit le même processus de validation DNS que la prise en charge interne. La seule différence étant que les utilisateurs et services sont remappés vers le répertoire informatique géré.
 
 #### Quel est l'impact de l'exécution d'une prise en charge externe ?
 
 Lors d’une prise en charge externe, un mappage des utilisateurs jusqu’aux ressources est créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. De nombreuses applications, y compris RMS pour les particuliers, gèrent le mappage des utilisateurs jusqu’aux ressources, et les utilisateurs peuvent continuer à accéder à ces services sans la moindre modification. Si une application ne gère pas efficacement le mappage des utilisateurs jusqu’aux ressources, la prise en charge externe peut être explicitement interrompue pour que les utilisateurs ne vivent pas une mauvaise expérience.
 
-#### Prise en charge du locataire par le service
+#### Prise en charge du répertoire par le service
 
 Les services qui assurent actuellement la prise en charge :
 
@@ -134,9 +134,9 @@ Certaines options vous permettent d’effectuer une validation de domaine (et de
 
 1.  Portail de gestion Azure
 
-	Une prise en charge est déclenchée lors de l’ajout d’un domaine. Si un locataire existe déjà pour le domaine, vous avez la possibilité d’effectuer une prise en charge externe.
+	Une prise en charge est déclenchée lors de l’ajout d’un domaine. Si un répertoire existe déjà pour le domaine, vous avez la possibilité d’effectuer une prise en charge externe.
 
-	Connectez-vous au portail de gestion Azure à l’aide de vos informations d’identification. Accédez à votre locataire existant, puis à **Ajouter un domaine**.
+	Connectez-vous au portail de gestion Azure à l’aide de vos informations d’identification. Accédez à votre répertoire existant, puis à **Ajouter un domaine**.
 
 2.  Office 365
 
@@ -195,7 +195,7 @@ Un test réalisé avec succès vous renvoie à l'invite sans erreur.
 
 Les administrateurs peuvent désormais effectuer deux vérifications libre-service. Ils peuvent vérifier :
 
-- Si les utilisateurs peuvent rejoindre le locataire par e-mail.
+- Si les utilisateurs peuvent rejoindre le répertoire par e-mail.
 - Si les utilisateurs peuvent s’abonner eux-mêmes aux applications et services.
 
 
@@ -203,7 +203,7 @@ Les administrateurs peuvent désormais effectuer deux vérifications libre-servi
 
 Un administrateur peut configurer ces fonctionnalités à l'aide des paramètres Set-MsolCompanySettings de cet applet de commande Azure AD :
 
-+ **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un locataire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le locataire.
++ **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un répertoire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le répertoire.
 + **AllowAdHocSubscriptions** vérifie la capacité des utilisateurs à réaliser une inscription libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service.
 
 
@@ -213,7 +213,7 @@ Ces deux paramètres peuvent être utilisés conjointement pour définir une vé
 
 	Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 
-L'organigramme suivant décrit les différentes combinaisons de paramètres et les conditions qui en résultent pour le locataire et l’inscription libre-service.
+L‘organigramme suivant décrit les différentes combinaisons de paramètres et les conditions qui en résultent pour le répertoire et l’inscription libre-service.
 
 ![][1]
 
@@ -232,4 +232,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

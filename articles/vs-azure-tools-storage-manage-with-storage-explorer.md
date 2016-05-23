@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)
@@ -42,8 +42,8 @@ Pour afficher vos ressources de stockage Azure dans l’Explorateur de stockage,
 ### Attacher un stockage externe
 
 1. Obtenez le nom du compte et la clé du compte de stockage que vous souhaitez attacher.
-	1.	Dans le portail Azure en version préliminaire, choisissez le compte de stockage que vous souhaitez attacher.
-	1.	Dans la section **Gérer** du volet **Paramètres** du portail Azure en version préliminaire, choisissez le bouton **Clés**.
+	1.	Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), choisissez le compte de stockage que vous souhaitez attacher.
+	1.	Dans la section **Gérer** du volet **Paramètres**, choisissez le bouton **Clés**.
 	1.	Copiez les valeurs **Nom du compte de stockage** et **Clé d’accès primaire**.
 
 		![][2]
@@ -182,4 +182,4 @@ En savoir plus sur les fonctionnalités dans les services Azure Storage en lisan
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

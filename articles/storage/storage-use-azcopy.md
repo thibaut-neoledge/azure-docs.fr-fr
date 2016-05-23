@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/06/2016"
 	ms.author="micurd"/>
 
 # Transfert de données avec l'utilitaire de ligne de commande AzCopy
@@ -477,7 +477,7 @@ Remarque : si vous spécifiez un chemin relatif suivant l'option `/V`, tel que 
 
 ### Spécification du nombre d’opérations simultanées pour démarrer
 
-L'option `/NC` spécifie le nombre d'opérations de copie simultanées. Par défaut, AzCopy démarre des opérations simultanées à huit fois le nombre de processeurs Core que vous avez. Si vous exécutez AzCopy sur un réseau à bande passante étroite, vous pouvez spécifier un nombre inférieur pour cette option afin d’éviter l’échec causé par la compétition de ressources.
+L'option `/NC` spécifie le nombre d'opérations de copie simultanées. Par défaut, AzCopy lance un certain nombre d’opérations simultanées pour augmenter la vitesse de transfert des données. Pour les opérations sur les tables, le nombre d’opérations simultanées est égal au nombre de processeurs dont vous disposez. Pour les opérations sur les objets blob et les fichiers, le nombre d’opérations simultanées est égal à 8 fois le nombre de processeurs dont vous disposez. Si vous exécutez AzCopy sur un réseau à bande passante étroite, vous pouvez spécifier un nombre inférieur pour /NC afin d’éviter l’échec causé par la compétition de ressources.
 
 ### Exécutez AzCopy sur l’émulateur de stockage Azure
 
@@ -583,7 +583,7 @@ AzCopy établit toujours la propriété Content-MD5 pour un objet blob ou fichie
 
 Indique si le transfert de captures instantanées est activé ou non. Cette option est valide uniquement lorsque la source est un objet blob.
 
-Les captures instantanées d’objets blob transférées sont renommées selon ce format : [blob-name](snapshot-time)[extension].
+Les captures instantanées d’objets blob transférées sont renommées de cette façon : nom\_d’objet\_Blob (durée de capture instantanée).extension
 
 Par défaut, les captures instantanées ne sont pas copiées.
 
@@ -595,7 +595,7 @@ Stocke les messages de statut détaillés dans un fichier journal.
 
 Par défaut, le fichier journal détaillé est nommé dans `%LocalAppData%\Microsoft\Azure\AzCopy`. Si vous spécifiez un emplacement de fichier existant pour cette option, le journal détaillé est ajouté à ce fichier.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /Z:[journal-file-folder]
 
@@ -613,7 +613,7 @@ Le fichier journal est supprimé lorsque l’opération est achevée avec succè
 
 Remarque : reprendre une opération à partir d’un fichier journal créé par une version précédente d’AzCopy n’est pas pris en charge.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /@:"parameter-file"
 
@@ -625,7 +625,7 @@ Les fichiers réponse peuvent inclure des lignes de commentaires qui commencent 
 
 Vous pouvez spécifier plusieurs fichiers réponse. Toutefois, AzCopy ne prend pas en charge les fichiers réponse imbriqués.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /Y
 
@@ -643,7 +643,7 @@ Le comportement de cette option est également déterminé par l’emplacement d
 
 AzCopy nécessite les autorisations de listing et de lecture sur cet emplacement source quand cette option est utilisée.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /MT
 
@@ -686,7 +686,7 @@ Les attributs disponibles incluent :
 - O = Fichiers hors ligne
 - I = Fichiers non indexés
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /XA:[RASHCNETOI]
 
@@ -705,7 +705,7 @@ Les attributs disponibles incluent :
 - O = Fichiers hors ligne
 - I = Fichiers non indexés
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /Delimiter:"délimiteur"
 
@@ -725,19 +725,19 @@ AzCopy lance par défaut un certain nombre d’opérations simultanées pour aug
 
 Le nombre maximal d’opérations simultanées est égal à 512.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /SourceType:"Blob" | "Table"
 
 Spécifie que la ressource `source` est un objet blob disponible dans l’environnement de développement local, exécuté sur l’émulateur de stockage.
 
-**S’applique à :** Objets blob, Tables
+**S’applique à :** objets blob, tables
 
 ### /DestType:"Blob" | "Table"
 
 Spécifie que la ressource `destination` est un objet blob disponible dans l’environnement de développement local, exécuté sur l’émulateur de stockage.
 
-**S’applique à :** Objets blob, Tables
+**S’applique à :** objets blob, tables
 
 ### /PKRS:"key1#key2#key3#..."
 
@@ -753,7 +753,7 @@ Chaque opération exporte une des trois plages de clés de partition (voir ci-de
 
   [bb, dernière-clé-de-partition]
 
-**S’applique à :** Tables
+**S’applique à :** tables
 
 ### /SplitSize:"file-size"
 
@@ -763,7 +763,7 @@ Si cette option n’est pas spécifiée, AzCopy exporte les données de la table
 
 Si les données de la table sont exportées dans un objet blob et si la taille du fichier exporté atteint la limite de 200 Go pour la taille de l’objet blob, AzCopy fractionne le fichier exporté, même si cette option n’est pas spécifiée.
 
-**S’applique à :** Tables
+**S’applique à :** tables
 
 ### /EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
@@ -775,7 +775,7 @@ Spécifie le comportement pour l’importation des données d’une table.
 
 - InsertOrReplace - Remplace une entité existante ou insère une nouvelle entité si elle n’existe pas dans la table.
 
-**S’applique à :** Tables
+**S’applique à :** tables
 
 ### /Manifest:"manifest-file"
 
@@ -785,7 +785,7 @@ Cette option est facultative pendant l’exportation ; AzCopy génère un fichi
 
 Cette option est nécessaire pendant l’importation pour localiser les fichiers de données.
 
-**S’applique à :** Tables
+**S’applique à :** tables
 
 ### /SyncCopy
 
@@ -795,7 +795,7 @@ AzCopy utilise par défaut la copie asynchrone du côté serveur. Spécifiez cet
 
 Vous pouvez utiliser cette option pour la copie de fichiers dans le stockage d’objets blob, le stockage de fichiers ou depuis le stockage d’objets blob vers le stockage de fichiers ou vice versa.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /SetContentType:"content-type"
 
@@ -805,7 +805,7 @@ AzCopy définit le type de contenu d’un objet blob ou un fichier sur applicati
 
 Si vous spécifiez cette option sans valeur, AzCopy définit chaque type de contenu d’objet blob ou de fichier en fonction de son extension de fichier.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /PayloadFormat:"JSON" | "CSV"
 
@@ -813,7 +813,7 @@ Spécifie le format du fichier de données de table exporté.
 
 Si cette option n’est pas spécifiée, AzCopy exporte le fichier de données de table au format JSON par défaut.
 
-**S’applique à :** Tables
+**S’applique à :** tables
 
 ## Problèmes connus et les meilleures pratiques
 
@@ -864,4 +864,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, reportez-vous aux ressou
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

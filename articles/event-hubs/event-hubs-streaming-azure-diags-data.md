@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Diffusion des données de diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
@@ -51,7 +51,7 @@ Les diagnostics Azure transmettent toujours par défaut des journaux et des mesu
 
 Dans cet exemple, l’URL Event Hubs est définie sur l’espace de noms complet du hub d’événements (espace de noms ServiceBus + « / » + nom du hub d’événements).
 
-L’URL Event Hubs s’affiche dans le [portail Azure Classic](https://manage.windowsazure.com) dans le tableau de bord Event Hubs.
+L’URL Event Hubs s’affiche dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.
 
 Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant que cette même valeur est utilisée de manière cohérente tout au long du fichier de configuration.
 
@@ -295,4 +295,4 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

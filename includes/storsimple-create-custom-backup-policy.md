@@ -26,7 +26,7 @@
 
     3. Spécifiez la fréquence de sauvegarde en minutes, heures, jours ou semaines.
 
-    4. Sélectionnez une durée de rétention. La durée de rétention dépend de la fréquence de sauvegarde. Par exemple, pour une stratégie quotidienne, vous pouvez spécifier une durée de rétention en semaines, alors que pour une stratégie mensuelle, la durée de rétention est en mois.
+    4. Sélectionnez une durée de rétention. La durée de conservation dépend de la fréquence de sauvegarde.
  
     5. Sélectionnez la date et l’heure de début de la stratégie.
 
@@ -40,4 +40,4 @@
 
     ![Stratégie de sauvegarde personnalisée](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=AcomDC_1203_2015-->
+

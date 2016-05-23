@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Authentification unique avec le proxy d’application | Microsoft Azure"
-	description="Explique comment fournir l’authentification unique à l’aide du proxy d’application Azure AD."
+	description="Explique comment fournir l’authentification unique à l’aide du proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 
@@ -21,7 +21,10 @@
 
 > [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
-L’authentification unique est un élément clé du proxy d’application Azure AD. Elle procure la meilleure expérience utilisateur : un utilisateur se connecte au cloud, toutes les validations de sécurité sont effectuées dans le cloud (pré-authentification), puis, quand la demande est envoyée à l’application locale, le connecteur de proxy d’application emprunte l’identité de l’utilisateur pour que l’application principale considère ce dernier comme un utilisateur normal provenant d’un appareil joint à un domaine.
+L’authentification unique est un élément clé du proxy d’application Azure AD. Elle procure une expérience utilisateur optimale grâce aux étapes suivantes :
+1. L’utilisateur se connecte au cloud.
+2. Toutes les validations de sécurité sont effectuées dans le cloud (pré-authentification)
+3. Quand la demande est envoyée à l’application locale, le connecteur de proxy d’application emprunte l’identité de l’utilisateur pour que l’application principale considère ce dernier comme un utilisateur normal provenant d’un appareil joint à un domaine.
 
 ![Diagramme d’accès de l’utilisateur final au réseau d’entreprise via le proxy d’application](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -34,9 +37,9 @@ Vous pouvez activer l’authentification unique pour vos applications avec l’a
 
 ### Diagramme du réseau
 
-![Diagramme de flux de l’authentification Microsoft AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise I’authentification Windows intégrée.
 
-Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise I’authentification Windows intégrée. Le flux général est le suivant :
+![Diagramme de flux de l’authentification Microsoft AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
 2. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
@@ -49,9 +52,9 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 
 ### Composants requis
 
-1. Assurez-vous que vos applications, comme des applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-2. Créez des noms de principaux du service pour vos applications.
-3. Assurez-vous que le serveur exécutant le connecteur et que le serveur exécutant l’application que vous publiez sont joints au domaine et font partie du même domaine. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
+- Assurez-vous que vos applications, comme des applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+- Créez des noms de principaux du service pour vos applications.
+- Assurez-vous que le serveur exécutant le connecteur et que le serveur exécutant l’application que vous publiez sont joints au domaine et font partie du même domaine. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
 
 
 ### Configuration d’Active Directory
@@ -120,7 +123,7 @@ Grâce à cette fonctionnalité, de nombreuses organisations qui ont des identit
 
 - disposent de plusieurs domaines en interne (joe@us.contoso.com, joe@eu.contoso.com) et d’un domaine unique dans le cloud (joe@contoso.com) ;
 
-- disposent d’un nom de domaine non routable en interne (joe@contoso.usa) et d’un nom de domaine légal dans le cloud ;
+- disposent d’un nom de domaine non routable en interne (joe@contoso.usa) et d’un nom de domaine légal dans le cloud ;
 
 - n’utilisent pas de noms de domaine en interne (joe) ;
 
@@ -131,7 +134,7 @@ Cette configuration convient aussi pour les applications qui n’acceptent pas d
 
 ### Configuration de l’authentification unique pour différentes identités sur le cloud et localement
 
-1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ **Nom d’utilisateur principal** dans les paramètres de synchronisation. Notez que ces paramètres déterminent aussi la façon dont les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités. ![Capture d’écran de l’identification des utilisateurs : liste déroulante Nom d’utilisateur principal](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
+1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ **Nom d’utilisateur principal** dans les paramètres de synchronisation. Notez que ces paramètres déterminent aussi la façon dont les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités. ![Capture d’écran de l’identification des utilisateurs : liste déroulante Nom d’utilisateur principal](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. Dans les paramètres de configuration de l’application à modifier, sélectionnez l’**Identité de connexion déléguée** à utiliser :
   - Nom d’utilisateur principal : joe@contoso.com  
   - Nom d’utilisateur principal alternatif : joed@contoso.local  
@@ -146,28 +149,17 @@ Si une erreur se produit dans le processus d’authentification unique, elle app
 
 
 ## Voir aussi
-Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
-
 
 - [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
-- [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
-- [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
-- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 - [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
+- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
+- [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 
-## En savoir plus sur le Proxy d’application
-- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
-- [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
-- [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Ressources supplémentaires
-- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-- [Identité Azure](fundamentals-identity.md)
+Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

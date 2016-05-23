@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 #Exécution de requêtes Hive avec PowerShell
@@ -31,7 +31,9 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 - **Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux**
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Exécution de requêtes Hive avec Azure PowerShell
 
@@ -186,4 +188,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

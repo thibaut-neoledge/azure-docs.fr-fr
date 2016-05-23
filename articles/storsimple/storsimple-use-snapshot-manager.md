@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Interface utilisateur du gestionnaire d’instantanés StorSimple
 
 ## Vue d'ensemble
 
-Le Gestionnaire d’instantanés StorSimple est doté d’une interface utilisateur graphique intuitive (GUI) que vous pouvez utiliser pour gérer les copies de sauvegarde des groupes de volumes, notamment ceux qui sont stockés localement et dans le cloud. Ce didacticiel offre une présentation de l’interface, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
 ### Description de la console
 
@@ -110,7 +110,7 @@ Le tableau suivant contient une liste alphabétique des actions du Gestionnaire 
 
 - La colonne **Description** explique comment utiliser chaque action présente dans le menu **Action** ou le volet Actions et explique ce qu’elle fait.
 
->[AZURE.NOTE]Le volet **Actions** et les menus **Action** contiennent des options supplémentaires telles qu’**Affichage**, **Nouvelle fenêtre à partir d’ici**, **Actualiser**, **Exporter la liste** et **Aide**. Ces options sont disponibles dans le cadre de la console MMC et ne sont pas spécifiques au gestionnaire d’instantanés StorSimple. La table comprend des descriptions de ces options.
+>[AZURE.NOTE] Le volet **Actions** et les menus **Action** contiennent des options supplémentaires telles qu’**Affichage**, **Nouvelle fenêtre à partir d’ici**, **Actualiser**, **Exporter la liste** et **Aide**. Ces options sont disponibles dans le cadre de la console MMC et ne sont pas spécifiques au gestionnaire d’instantanés StorSimple. La table comprend des descriptions de ces options.
  
 | Action | Navigation | Description |
 |:--------|:------------|:-------------|
@@ -234,7 +234,7 @@ Le tableau suivant décrit les icônes qui apparaissent dans la barre d’outils
  
 ## Volet Étendue
 
-Le volet **Étendue** est le volet gauche de l’interface utilisateur du Gestionnaire d’instantanés StorSimple. Il contient l’arborescence de la console (ou nœud) et est le mécanisme de navigation principal du Gestionnaire d’instantanés StorSimple.
+Le volet **Étendue** est le volet le plus à gauche de l’interface utilisateur StorSimple Snapshot Manager. Il contient l’arborescence de la console (ou nœud) et est le mécanisme de navigation principal du Gestionnaire d’instantanés StorSimple.
  
 ### Structure du volet Étendue
 
@@ -307,7 +307,7 @@ Les stratégies de sauvegarde sont des planifications de tâches liées à des i
 
 - Pour afficher la liste des stratégies de sauvegarde, cliquez sur **Stratégies de sauvegarde** dans le volet **Étendue**. La liste des stratégies de sauvegarde ainsi que des informations sur chaque stratégie s’affichent dans le volet **Résultats**.
 
->[AZURE.NOTE]Vous pouvez conserver un maximum de 64 sauvegardes.
+>[AZURE.NOTE] Vous pouvez conserver un maximum de 64 sauvegardes.
 
 
 ### Nœud Catalogue de sauvegarde
@@ -490,7 +490,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | V | Ouvre le menu **Affichage**. |
 | W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**.|
 | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**.
+| L | Ouvre la page **Exporter la liste**. 
 | H | Ouvre l’aide en ligne.|
  
 #### Touches de raccourci du nœud Catalogue de sauvegarde
@@ -516,4 +516,4 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

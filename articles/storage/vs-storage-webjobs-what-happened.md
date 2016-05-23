@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ? | Microsoft Azure"
+	pageTitle="Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ? | Microsoft Azure"
 	description="Décrit ce qui s’est produit dans un projet de tâche web une fois que vous vous connectez à un compte de stockage à l’aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ?
+# Qu’est-il arrivé à mon projet de tâche web (service connecté Azure Storage de Visual Studio) ?
 
 ## Références ajoutées
 
-Le package NuGet Azure Storage a été ajouté ou mis à jour dans votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
+Le package NuGet Azure Storage a été ajouté ou mis à jour dans votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -36,4 +36,4 @@ Dans le fichier App.config de votre projet, les entrées **AzureWebJobsStorage**
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

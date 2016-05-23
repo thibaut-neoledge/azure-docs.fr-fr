@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde (Mise à jour 2)
@@ -33,19 +33,19 @@ La page **Stratégies de sauvegarde** vous permet de gérer les stratégies de s
 
 Sur la page **Stratégies de sauvegarde**, vous pouvez filtrer les stratégies existantes de sauvegarde à l’aide de l’un ou de plusieurs des champs suivants :
 
-- **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
+- **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
 
    - stratégies planifiées, qui sont explicitement créées par l’utilisateur ;
    - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom *NomVolume*\_Default, où *NomVolume* désigne le nom du volume StorSimple configuré par l'utilisateur dans le portail Azure Classic. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
    - stratégies importées, qui ont été créées dans le gestionnaire d’instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
 
-- **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
+- **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
 
-- **Dernière sauvegarde réussie** : la date et l’heure de la dernière sauvegarde réussie associée à cette stratégie.
+- **Dernière sauvegarde réussie** : la date et l’heure de la dernière sauvegarde réussie associée à cette stratégie.
 
-- **Prochaine sauvegarde** : la date et l’heure de la prochaine sauvegarde planifiée qui sera lancée par cette stratégie.
+- **Prochaine sauvegarde** : la date et l’heure de la prochaine sauvegarde planifiée qui sera lancée par cette stratégie.
 
-- **Planifications** : le nombre de planifications associées à la stratégie de sauvegarde.
+- **Planifications** : le nombre de planifications associées à la stratégie de sauvegarde.
 
 Les opérations fréquentes pouvant être effectuées à partir de cette page sont les suivantes :
 
@@ -96,4 +96,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

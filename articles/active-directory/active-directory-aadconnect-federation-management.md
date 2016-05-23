@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion AD FS et personnalisation avec Azure AD Connect | Microsoft Azure"
+	pageTitle="Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect | Microsoft Azure"
 	description="Gestion AD FS à l’aide d’Azure AD Connect et personnalisation de l’expérience de connexion de l’utilisateur à AD FS à l’aide d’Azure AD Connect et Powershell."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# Gestion AD FS et personnalisation avec Azure AD Connect
+# Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect
 
 Cet article présente les différentes tâches associées à AD FS qui peuvent être effectuées à l’aide d’Azure AD Connect, ainsi que les autres tâches AD FS courantes qui peuvent être nécessaires pour configurer entièrement une batterie de serveurs AD FS.
 
-## Gestion AD FS
+## Gestion AD FS.
 
 Azure AD Connect intègre différentes tâches associées à AD FS qui peuvent être effectuées à l’aide de l’Assistant Azure AD Connect avec une intervention minime de l’utilisateur. Une fois que vous avez terminé l’installation d’Azure AD Connect à l’aide de l’Assistant, vous pouvez à nouveau exécuter l’Assistant pour effectuer des tâches supplémentaires.
 
@@ -28,7 +28,7 @@ Azure AD Connect intègre différentes tâches associées à AD FS qui peuvent �
 
 Azure AD Connect peut vérifier l’intégrité des services AD FS et Azure AD actuels et prendre des mesures appropriées pour réparer l’approbation. Suivez les étapes ci-dessous pour réparer l’approbation des services Azure AD et AD FS.
 
-Sélectionnez **Réparer l’approbation des services Azure AD et ADFS** dans la liste des tâches disponibles.
+Sélectionnez **Réparer la confiance AAD et ADFS** dans la liste des tâches disponibles.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -84,9 +84,9 @@ Cliquez sur Suivant et parcourez la page Configurer finale. Une fois qu’Azure 
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Ajout d’un nouveau serveur WAP AD FS
+### Ajout d’un nouveau serveur proxy d’application web AD FS
 
-> [AZURE.NOTE] Azure AD Connect exige le fichier de certificat PFX pour ajouter un serveur WAP. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
+> [AZURE.NOTE] Azure AD Connect exige que le fichier de certificat PFX ajoute un serveur proxy d’application web. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
 
 Sélectionnez **Déployer le proxy d’application web** dans la liste des tâches disponibles.
 
@@ -102,7 +102,7 @@ La page **Spécifiez le certificat SSL** s’affiche ensuite. Vous devez y fourn
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-Sur la page suivante, ajoutez le serveur à ajouter en tant que WAP. Étant donné que le serveur WAP peut être joint ou non au domaine, l’Assistant vous demande les informations d’identification administratives du serveur en cours d’ajout.
+Sur la page suivante, ajoutez le serveur à ajouter en tant que proxy d’application web. Étant donné que le serveur proxy d’application web peut être joint ou non au domaine, l’Assistant vous demande les informations d’identification administratives du serveur en cours d’ajout.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ Sur la page suivante, l’Assistant présente une liste de domaines Azure AD ave
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-Après avoir choisi le domaine, l’Assistant présente des informations utiles concernant les autres actions qui seront effectuées par l’Assistant et l’impact de la configuration. Dans certains cas, si vous sélectionnez un domaine qui n’est pas encore vérifié dans Azure AD, l’Assistant vous fournit des informations pour vous aider à vérifier le domaine. Consultez la page [Ajouter et vérifier un nom de domaine personnalisé dans Azure Active Directory](active-directory-add-domain-add-verify-general.md) pour plus d’informations sur la façon de vérifier votre domaine.
+Après avoir choisi le domaine, l’Assistant présente des informations utiles concernant les autres actions qui seront effectuées par l’Assistant et l’impact de la configuration. Dans certains cas, si vous sélectionnez un domaine qui n’est pas encore vérifié dans Azure AD, l’Assistant vous fournit des informations pour vous aider à vérifier le domaine. Consultez la page [Ajout de votre nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md) pour plus d’informations sur la façon de vérifier votre domaine.
 
 Cliquez sur Suivant. La page **Prêt à configurer** affiche la liste des actions qui seront effectuées par Azure AD Connect. Cliquez sur Installer pour terminer la configuration.
 
@@ -191,7 +191,10 @@ Par ailleurs, en utilisant « add » et pas « issue », vous évitez d’ajoute
 
 Cette règle définit simplement un indicateur temporaire « idflag », qui est défini sur « useguid » si aucun ms-ds-concistencyguid n’est renseigné pour l’utilisateur. Il y a une logique à cela : ADFS n’autorise pas les revendications vides. Par conséquent, lorsque vous avez ajouté des revendications http://contoso.com/ws/2016/02/identity/claims/objectguid et http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid dans la règle 1, vous obtenez une revendication msdsconsistencyguid UNIQUEMENT si la valeur est renseignée pour l’utilisateur. Dans le cas où elle n’est pas renseignée, ADFS comprend que la valeur sera vide et dépose à cet emplacement la revendication ObjectGuid qui est appliquée à tous les objets. Ainsi, la revendication ObjectGuid est toujours présente après l’exécution de la règle 1.
 
-**Règle 3 : Émettre ms-ds-consistencyguid en tant qu’ID non modifiable si présent** c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+**Règle 3 : Émettre ms-ds-consistencyguid comme ID non modifiable s’il est présent**
+
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Il s’agit d’un contrôle EXIST implicite. Si la valeur de la revendication existe, alors émettez-la en tant qu’ID non modifiable. Notez que j’émets la revendication nameidentifier. Vous devez la remplacer par un type de revendication approprié pour l’ID non modifiable dans votre environnement.
 
@@ -205,4 +208,35 @@ Dans cette règle, vous contrôlez simplement l’indicateur temporaire « idfla
 
 > [AZURE.NOTE] L’ordre de ces règles est important.
 
-<!---HONumber=AcomDC_0427_2016-->
+#### SSO avec un nom de sous-domaine UPN
+
+Vous pouvez ajouter plusieurs domaines pour une fédération avec Azure AD Connect ([Ajouter un nouveau domaine fédéré](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). La revendication UPN doit être modifiée pour que l’ID de l’émetteur corresponde au domaine racine et non au sous-domaine, car le domaine racine fédéré comprend également l’enfant.
+
+Par défaut, la règle de revendication pour l’ID de l’émetteur est définie telle quelle :
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Revendication de l’ID de l’émetteur par défaut](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+La règle par défaut prend simplement le suffixe UPN et l’utilise dans la revendication de l’ID de l’émetteur. Par exemple, John est un utilisateur de sub.contoso.com et contoso.com est fédéré avec Azure AD. John entre john@sub.contoso.com comme nom d’utilisateur lors de la connexion à Azure AD. La règle de revendication de l’ID de l’émetteur par défaut dans AD FS le traite alors de la manière suivante :
+
+c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**Valeur de la revendication :** http://sub.contoso.com/adfs/services/trust/
+
+Pour disposer uniquement du domaine racine dans la valeur de revendication de l’émetteur, modifiez la règle de revendication de la manière suivante :
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Étapes suivantes
+
+En savoir plus sur les [options d’authentification de l’utilisateur](active-directory-aadconnect-user-signin.md)
+
+<!---HONumber=AcomDC_0511_2016-->
