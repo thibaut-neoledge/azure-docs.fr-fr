@@ -95,7 +95,7 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Définissez un point d’arrêt dans index.jsp :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :  
         ![][ic551537]
 
         Un point d’arrêt est défini si une icône de point d’arrêt s’affiche dans la barre bleue à gauche du code Java.
