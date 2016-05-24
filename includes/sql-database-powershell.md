@@ -1,17 +1,17 @@
 
-## Start your PowerShell session
+## Démarrer votre session PowerShell
 
-First you need to have [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 or later) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
-
-
->[AZURE.NOTE] Many new features of SQL Database are only supported using the [Azure Resource Manager (ARM) deployment model](../articles/resource-group-overview.md) so examples use ARM based [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but using the ARM based cmdlets are recommended. 
+Tout d’abord, [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (version 1.0 ou ultérieure) doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
 
 
-Run the [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+>[AZURE.NOTE] Parmi les nouvelles fonctionnalités de la Base de données SQL, plusieurs sont uniquement prises en charge avec le [modèle de déploiement Azure Resource Manager](../articles/resource-group-overview.md). Les exemples cités utilisent donc des [applets de commande PowerShell de base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) pour Resource Manager. Les [applets de commande de base de données SQL Azure (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) du modèle de déploiement existant sont prises en charge à des fins de compatibilité descendante. Cependant, nous vous recommandons l’utilisation d’applets de commande Resource Manager.
+
+
+Exécutez l’applet de commande [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) pour faire apparaître un écran de connexion dans lequel vous pourrez entrer vos informations d’identification. Utilisez les informations d’identification dont vous disposez pour vous connecter au portail Azure.
 
 	Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
+Si vous avez plusieurs abonnements, utilisez l’applet de commande [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) pour sélectionner l’abonnement que votre session PowerShell doit utiliser. Pour savoir quel abonnement la session PowerShell en cours utilise, exécutez [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). Pour voir tous vos abonnements, exécutez [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 

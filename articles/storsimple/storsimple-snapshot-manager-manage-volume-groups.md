@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
@@ -23,7 +23,7 @@ Vous pouvez utiliser le nœud **Groupes de volumes** du volet **Étendue** pour 
 
 Les groupes de volumes sont des pools de volumes associés utilisés pour vérifier que les sauvegardes sont cohérentes au niveau applicatif. Pour plus d’informations, consultez les sections [Volumes et groupes de volumes](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) et [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 > * Tous les volumes d’un groupe de volumes doivent provenir d’un fournisseur de services cloud unique.
 > 
@@ -54,7 +54,7 @@ Application | La colonne **Applications** indique le nombre d’enregistreurs V
 Volumes sélectionnés | La colonne **Volumes sélectionnés** indique le nombre de volumes du groupe de volumes. Une valeur nulle (0) indique qu’aucune application n’est associée aux volumes du groupe de volumes.
 Volumes importés | La colonne **Volumes importés** représente le nombre de volumes importés. Lorsqu’elle est définie sur **Vrai**, cette colonne indique qu’un groupe de volumes a été importé du portail Azure Classic, et n’a pas été créé dans le Gestionnaire d’instantanés StorSimple.
  
->[AZURE.NOTE]Les groupes de volumes du Gestionnaire d’instantanés StorSimple s’affichent également sur l’onglet **Stratégies de sauvegarde** du portail Azure Classic.
+>[AZURE.NOTE] Les groupes de volumes du Gestionnaire d’instantanés StorSimple s’affichent également sur l’onglet **Stratégies de sauvegarde** du portail Azure Classic.
  
 ## Créer un groupe de volumes
 
@@ -78,11 +78,11 @@ Exécutez la procédure suivante pour créer un groupe de volumes.
 
     2. Dans la zone **Applications**, sélectionnez les applications associées aux volumes que vous ajouterez au groupe de volumes.
 
-        La zone **Applications** répertorie uniquement les applications qui utilisent des volumes Azure StorSimple et pour lesquelles sont paramétrés des enregistreurs VSS. Un enregistreur VSS est activé uniquement si l’ensemble des volumes auxquels il a accès sont des volumes Azure StorSimple. Si la zone Applications est vide, aucune application utilisant des volumes Azure StorSimple et présentant des enregistreurs VSS pris en charge n’est installée. (Actuellement, Azure StorSimple prend en charge Microsoft Exchange et SQL Server.) Pour plus d’informations sur les enregistreurs VSS, consultez la page [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+        La zone **Applications** répertorie uniquement les applications qui utilisent des volumes StorSimple et pour lesquelles des enregistreurs VSS sont activés. Un enregistreur VSS est activé uniquement si l’ensemble des volumes auxquels il a accès sont des volumes StorSimple. Si la zone Applications est vide, aucune application utilisant des volumes Azure StorSimple et présentant des enregistreurs VSS pris en charge n’est installée. (Actuellement, Azure StorSimple prend en charge Microsoft Exchange et SQL Server.) Pour plus d’informations sur les enregistreurs VSS, consultez la page [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
         Si vous sélectionnez une application, l’ensemble des volumes associés sont automatiquement sélectionnés. Inversement, si vous sélectionnez des volumes associés à une application spécifique, l’application est automatiquement sélectionnée dans la zone **Applications**.
 
-    3. Dans la zone **Volumes**, sélectionnez les volumes StorSimple à ajouter au groupe de volumes.
+    3. Dans la zone **Volumes**, sélectionnez les volumes StorSimple à ajouter au groupe de volumes.
 
       - Vous pouvez inclure des volumes à une ou plusieurs partitions. (Les volumes à plusieurs partitions peuvent être des disques dynamiques ou des disques de base avec plusieurs partitions.) Un volume contenant plusieurs partitions est traité comme une unité unique. Par conséquent, si vous ajoutez uniquement une des partitions au groupe de volumes, l’ensemble des autres partitions sont automatiquement ajoutées au même moment. Un volume à plusieurs partitions ajouté à un groupe de volumes continue à être considéré comme une unité unique.
 
@@ -130,7 +130,7 @@ Exécutez la procédure suivante pour modifier un groupe de volumes.
 
 Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
->[AZURE.WARNING]Le cas échéant, vous supprimez également l’ensemble des sauvegardes associées au groupe de volumes.
+>[AZURE.WARNING] Le cas échéant, vous supprimez également l’ensemble des sauvegardes associées au groupe de volumes.
 
 #### Pour supprimer un groupe de volumes
 
@@ -147,4 +147,4 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

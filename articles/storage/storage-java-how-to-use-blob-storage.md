@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Java | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage d’objets blob Azure pour télécharger, charger, répertorier et supprimer le contenu d’objets blob. Les exemples sont écrits en Java."
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -70,7 +70,7 @@ Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence d
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Utilisez l'objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur à utiliser. Si le conteneur n'existe pas, vous pouvez le créer en utilisant la méthode **createIfNotExists** ; sinon, le conteneur existant est renvoyé. Par défaut, le nouveau conteneur est privé. Vous devez donc indiquer votre clé d’accès au stockage (comme précédemment) pour télécharger des objets blob depuis ce conteneur.
+Utilisez l'objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur à utiliser. Si le conteneur n'existe pas, vous pouvez le créer en utilisant la méthode **createIfNotExists** ; sinon, le conteneur existant est renvoyé. Par défaut, le nouveau conteneur est privé. Vous devez donc indiquer votre clé d’accès au stockage (comme précédemment) pour télécharger des objets blob depuis ce conteneur.
 
 	try
     {
@@ -269,4 +269,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

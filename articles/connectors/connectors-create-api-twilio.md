@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="05/10/2016"
 ms.author="mandia"/>
 
 # Prendre en main l’API Twilio
@@ -247,4 +247,4 @@ Envoyez un message à un numéro de téléphone portable. ```POST: /Messages.jso
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

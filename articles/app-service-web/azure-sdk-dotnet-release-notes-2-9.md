@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/29/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 
@@ -44,7 +43,7 @@ Les mises à jour incluent les éléments suivants :
 
 	L'outil étant fréquemment mis à jour, cliquez [ici](http://aka.ms/datalaketool) pour obtenir les mises à jour.
 
-- **Explorateur de serveurs** vous permet désormais de tout afficher et de créer des entités de métadonnées U-SQL. Pour plus d’informations, consultez [ce]() blog.
+- **Explorateur de serveurs** vous permet désormais de tout afficher et de créer des entités de métadonnées U-SQL. Pour plus d’informations, consultez [ce](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 
 ##Outils HDInsight 
@@ -60,4 +59,4 @@ Cette version ajoute la prise en charge de [KeyVault](../resource-manager-keyvau
 
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

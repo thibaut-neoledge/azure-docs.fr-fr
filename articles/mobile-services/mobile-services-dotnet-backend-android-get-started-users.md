@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/11/2016"
 	ms.author="ricksal"/>
 
 # Ajouter une authentification à votre application Mobile Services Android
@@ -29,7 +29,7 @@
 
 Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
 
 
 ## Configuration requise
@@ -48,7 +48,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d’activer 
 
 3. Ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
 
-4. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+4. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -83,9 +83,9 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

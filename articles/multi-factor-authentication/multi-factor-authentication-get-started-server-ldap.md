@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Authentification LDAP et serveur Azure Multi-Factor Authentication 
@@ -63,4 +63,4 @@ Pour configurer le client LDAP, suivez ces indications :
 - Configurez le délai d'expiration LDAP sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur auprès du répertoire LDAP, effectuez l'authentification de second facteur, recevez leur réponse et répondez à la demande d'accès LDAP. 
 - Si vous utilisez LDAPS, l’appliance ou le serveur qui effectue les requêtes LDAP doit approuver le certificat SSL installé sur le serveur Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

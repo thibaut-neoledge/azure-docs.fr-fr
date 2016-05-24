@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Authentification Windows et serveur Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ La section Authentification Windows permet à l'administrateur d’activer et de
 10. Sélectionnez Sous-réseau si vous souhaitez spécifier une plage d'adresses IP à l'aide de la notation de sous-réseau. Entrez l'adresse IP de début du sous-réseau et choisissez le masque de réseau approprié dans la liste déroulante. 
 11. Cliquez sur le bouton OK.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

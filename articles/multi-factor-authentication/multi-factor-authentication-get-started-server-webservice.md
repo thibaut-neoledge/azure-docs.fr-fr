@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Mise en route du service Web de l’application mobile du serveur MFA
@@ -90,4 +90,4 @@ Maintenant que le service Web de l’application mobile est installé, vous deve
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

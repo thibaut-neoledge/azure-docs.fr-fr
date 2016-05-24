@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/13/2016"
    ms.author="sonyama;barbkess"/>
 
 # Se connecter à SQL Data Warehouse avec Visual Studio
@@ -22,27 +22,26 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Cette procédure pas à pas vous explique comment vous connecter à une base de données Azure SQL Data Warehouse en quelques minutes en utilisant SQL Server Data Tools (SSDT) dans Visual Studio. Une fois que vous serez connecté, vous exécuterez une requête simple.
+Cette procédure pas à pas vous explique comment vous connecter à un SQL Data Warehouse en quelques minutes en utilisant l’extension SQL Server Data Tools (SSDT) dans Visual Studio. Une fois que vous serez connecté, vous exécuterez une requête simple.
 
 ## Configuration requise
 
-+ Exemple de base de données AdventureWorksDW dans SQL Data Warehouse. Pour créer cet élément, consultez la page [Créer une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
-+ SQL Server Data Tools pour Visual Studio Pour obtenir des instructions et options d’installation, consultez [Installation de Visual Studio et/ou SSDT](sql-data-warehouse-install-visual-studio.md).
++ Exemple de données AdventureWorksDW dans SQL Data Warehouse. Pour créer cet élément, consultez la page [Créer un entrepôt de données SQL][].
++ SQL Server Data Tools pour Visual Studio Pour obtenir des instructions et des options d’installation, consultez [Installation de Visual Studio et/ou SSDT][].
 
 ## Étape 1 : Obtenir le nom complet de votre serveur SQL Azure
 
-Votre base de données est associée à un serveur SQL Azure. Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (**servername**.database.windows.net*).
+Votre SQL Data Warehouse est associé à un serveur SQL Azure. Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (**servername**.database.windows.net*).
 
 Pour obtenir le nom complet du serveur
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accédez au [portail Azure][].
 2. Cliquez sur **Bases de données SQL**, puis sur la base de données à laquelle vous souhaitez vous connecter. Cet exemple utilise l’exemple de base de données AdventureWorksDW.
 3. Recherchez le nom complet du serveur.
 
     ![Nom complet du serveur][1]
 
-## Étape 2 : Se connecter à la base de données SQL
-Pour optimiser les performances, utilisez Visual Studio 2015 avec la [dernière mise à jour de SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+## Étape 2 : Connectez-vous à votre SQL Data Warehouse .
 
 1. Ouvrir Visual Studio 2013 ou 2015
 2. Ouvrez l’Explorateur d’objets SQL Server. Pour ce faire, sélectionnez **Affichage** > **Explorateur d’objets SQL Server**.
@@ -57,17 +56,14 @@ Pour optimiser les performances, utilisez Visual Studio 2015 avec la [dernière 
 
     ![Se connecter au serveur][4]
 
-    - **Nom du serveur**. Saisissez le *nom du serveur* précédemment identifié.
-    - **Authentification**. Sélectionnez Authentification SQL Server.
-    - **Nom d’utilisateur** et **Mot de passe**. Entrez le nom d’utilisateur et le mot de passe du serveur SQL Azure.
-    - **Nom de la base de données**. Entrez le nom de la base de données pour la base de données SQL DW.
+    - **Nom du serveur**. Saisissez le **nom du serveur** précédemment identifié.
+    - **Authentification**. Sélectionnez **Authentification SQL Server** ou **Authentification intégrée Active Directory**.
+    - **Nom d’utilisateur** et **Mot de passe**. Entrez un nom d’utilisateur et mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
     - Cliquez sur **Connecter**.
 
 5. Pour voir plus d’informations, développez votre serveur SQL Azure. Vous pouvez afficher les bases de données associées au serveur. Développez AdventureWorksDW pour voir les tables de votre exemple de base de données.
 
     ![Explorer AdventureWorksDW][5]
-
-> [AZURE.NOTE] La saisie du nom de la base de données SQL Data Warehouse dans le champ **Nom de la base de données** au moment de la connexion (étape 4) est importante pour que l’arbre d’objets fonctionne correctement. La connexion à la base de données par défaut, **master**, en laissant cette option vide peut ne pas fonctionner si certaines bases de données sur votre serveur logique sont suspendues. Cette limitation sera résolue à l’avenir, mais en attendant, la connexion à la base de données SQL Data Warehouse permet d’assurer le fonctionnement correct de l’Explorateur d’objets, comme indiqué ci-dessus.
 
 ## Étape 3 : Exécuter un exemple de requête
 
@@ -97,8 +93,16 @@ Maintenant qu’une connexion à votre base de données a été établie, passon
 
 Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [visualiser les données avec Power BI][].
 
+Pour configurer votre environnement pour l’authentification Windows, voir [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory][].
+
+<!--Arcticles-->
+[Créer un entrepôt de données SQL]: sql-data-warehouse-get-started-provision.md
+[Installation de Visual Studio et/ou SSDT]: sql-data-warehouse-install-visual-studio.md
+[Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
 [visualiser les données avec Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
+<!--Other-->
+[portail Azure]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -111,4 +115,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

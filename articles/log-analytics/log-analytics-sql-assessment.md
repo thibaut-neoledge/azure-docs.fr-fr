@@ -51,7 +51,7 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 
 Le tableau suivant présente les méthodes de collecte de données pour les agents, indique si Operations Manager (SCOM) est requis, et précise la fréquence à laquelle les données sont collectées par un agent.
 
-| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l'agent SCOM envoyées via un groupe d'administration | fréquence de collecte |
+| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 |---|---|---|---|---|---|---|
 |Windows|![Oui](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![Oui](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![Non](./media/log-analytics-sql-assessment/oms-bullet-red.png)|	![Non](./media/log-analytics-sql-assessment/oms-bullet-red.png)|![Oui](./media/log-analytics-sql-assessment/oms-bullet-green.png)|	7 jours|
 
@@ -81,26 +81,26 @@ Utilisez les informations suivantes pour définir le compte d'identification Ope
 6. Modifiez puis exécutez l’exemple T-SQL suivant sur chaque instance de SQL Server afin d’accorder les autorisations minimales requises pour que le compte d’identification puisse effectuer l’évaluation de SQL. Toutefois, vous n’avez pas besoin de faire cela si un compte d’identification fait déjà partie du rôle de serveur sysadmin sur les instances de SQL Server.
 
 ```
----
-    -- Replace <UserName> with the actual user name being used as Run As Account.
-    USE master
-
-    -- Create login for the user, comment this line if login is already created.
-    CREATE LOGIN [<UserName>] FROM WINDOWS
-
-    -- Grant permissions to user.
-    GRANT VIEW SERVER STATE TO [<UserName>]
-    GRANT VIEW ANY DEFINITION TO [<UserName>]
-    GRANT VIEW ANY DATABASE TO [<UserName>]
-
-    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
-    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
-    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+	---
+	    -- Replace <UserName> with the actual user name being used as Run As Account.
+	    USE master
+	
+	    -- Create login for the user, comment this line if login is already created.
+	    CREATE LOGIN [<UserName>] FROM WINDOWS
+	
+	    -- Grant permissions to user.
+	    GRANT VIEW SERVER STATE TO [<UserName>]
+	    GRANT VIEW ANY DEFINITION TO [<UserName>]
+	    GRANT VIEW ANY DATABASE TO [<UserName>]
+	
+	    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+	    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+	    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
-#### To configure the SQL Run As account using Windows PowerShell
+#### Configuration du compte d’identification SQL à l’aide de Windows Powershell
 
-Open a PowerShell window and run the following script after you’ve updated it with your information:
+Ouvrez une fenêtre PowerShell et exécutez le script suivant après l’avoir mis à jour avec vos informations :
 
 ```
 
@@ -112,70 +112,70 @@ Open a PowerShell window and run the following script after you’ve updated it 
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## Understanding how recommendations are prioritized
+## Hiérarchisation des recommandations
 
-Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the ten most important recommendations are shown.
+Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les dix recommandations les plus importantes sont affichées.
 
-### How weights are calculated
+### Calcul des pondérations
 
-Weightings are aggregate values based on three key factors:
+Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
 
-- The *probability* that an issue identified will cause problems. A higher probability equates to a larger overall score for the recommendation.
+- La *probabilité* qu'une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
 
-- The *impact* of the issue on your organization if it does cause a problem. A higher impact equates to a larger overall score for the recommendation.
+- L'*impact* de l'anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
 
-- The *effort* required to implement the recommendation. A higher effort equates to a smaller overall score for the recommendation.
+- L'*effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
 
-The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Security and Compliance focus area has a score of 5%, implementing that recommendation will increase your overall Security and Compliance score by 5%.
+La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l'implémentation de cette recommandation augmentera votre score global de sécurité et conformité de 5 %.
 
-### Focus areas
+### Domaines
 
-**Security and Compliance** - This focus area shows recommendations for potential security threats and breaches, corporate policies, and technical, legal and regulatory compliance requirements.
+**Sécurité et conformité** : ce domaine présente les recommandations relatives aux menaces de sécurité potentielles et violations de stratégies d’entreprise, ainsi qu’aux exigences techniques, juridiques et réglementaires.
 
-**Availability and Business Continuity** - This focus area shows recommendations for service availability, resiliency of your infrastructure, and business protection.
+**Disponibilité et continuité opérationnelle** : ce domaine présente les recommandations relatives à la disponibilité du service, la résilience de votre infrastructure et la protection de votre activité.
 
-**Performance and Scalability** - This focus area shows recommendations to help your organization's IT infrastructure grow, ensure that your IT environment meets current performance requirements, and is able to respond to changing infrastructure needs.
+**Performances et évolutivité** : ce domaine présente les recommandations pour aider votre organisation à développer son infrastructure informatique, s’assurer que votre environnement informatique répond aux besoins de performances actuels et est en mesure de répondre à l’évolution des besoins d’infrastructure.
 
-**Upgrade, Migration and Deployment** - This focus area shows recommendations to help you upgrade, migrate, and deploy SQL Server to your existing infrastructure.
+**Mise à niveau, migration et déploiement** : ce domaine présente les recommandations pour vous aider à mettre à niveau, migrer et déployer SQL Server dans votre infrastructure existante.
 
-**Operations and Monitoring** - This focus area shows recommendations to help streamline your IT operations, implement preventative maintenance, and maximize performance.
+**Opérations et surveillance** : ce domaine présente des recommandations relatives à la rationalisation de vos opérations informatiques, la mise en place une maintenance préventive et l’optimisation des performances.
 
-**Change and Configuration Management** - This focus area shows recommendations to help protect day-to-day operations, ensure that changes don't negatively affect your infrastructure, establish change control procedures, and to track and audit system configurations.
+**Gestion des modifications et configuration** : ce domaine présente des recommandations pour vous aider à protéger vos opérations quotidiennes, vous assurer que les modifications n’affectent pas votre infrastructure, établir des procédures de contrôle des modifications, et effectuer le suivi et l’audit des configurations système.
 
-### Should you aim to score 100% in every focus area?
+### Faut-il viser un score de 100 % dans chaque domaine ?
 
-Not necessarily. The recommendations are based on the knowledge and experiences gained by Microsoft engineers across thousands of customer visits. However, no two server infrastructures are the same, and specific recommendations may be more or less relevant to you. For example, some security recommendations might be less relevant if your virtual machines are not exposed to the Internet. Some availability recommendations may be less relevant for services that provide low priority ad hoc data collection and reporting. Issues that are important to a mature business may be less important to a start-up. You may want to identify which focus areas are your priorities and then look at how your scores change over time.
+Pas nécessairement. Les recommandations sont basées sur les connaissances et l'expérience que les ingénieurs de Microsoft ont acquises au contact de milliers de visiteurs. Toutefois, chaque infrastructure de serveur étant différente, certaines recommandations peuvent être plus ou moins adaptées à votre système. Par exemple, il se peut que certaines recommandations de sécurité soient moins appropriées si vos ordinateurs virtuels ne sont pas connectés à Internet. Certaines recommandations de disponibilité peuvent être moins pertinentes pour les services qui fournissent des rapports et des données ad hoc de faible priorité. Les problèmes importants pour une entreprise bien établie peuvent l'être moins pour une start-up. Nous vous conseillons donc d'identifier tout d'abord vos domaines prioritaires, puis d'observer l'évolution de vos résultats au fil du temps.
 
-Every recommendation includes guidance about why it is important. You should use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
+Chaque recommandation inclut une justification de son importance. Servez-vous de cette explication pour évaluer si la mise en œuvre de la recommandation est importante pour vous, en fonction de la nature de vos services informatiques et des besoins de votre organisation.
 
-## Use assessment focus area recommendations
+## Utilisation des recommandations des domaines d'évaluation
 
-Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the SQL Assessment tile on the Overview page in OMS.
+Avant de pouvoir utiliser une solution d’évaluation dans OMS, vous devez avoir installé cette solution. Pour plus d’informations sur l’installation des solutions, consultez la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la vignette Évaluation SQL de la page Vue d’ensemble d’OMS.
 
-View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
+Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
-### To view recommendations for a focus area and take corrective action
+### Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 
-1. On the **Overview** page, click the **SQL Assessment** tile.
-2. On the **SQL Assessment** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![image of SQL Assessment recommendations](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+1. Sur la page **Vue d’ensemble**, cliquez sur la vignette **Évaluation SQL**.
+2. Sur la page **Évaluation SQL**, passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations y afférentes.
+3. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît. 
+![image des recommandations d'évaluation de SQL](./media/log-analytics-sql-assessment/sql-assess-focus.png)
+4. Vous pouvez effectuer les actions correctives suggérées dans **Mesures conseillées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
 
-## Ignore recommendations
+## Ignorer les recommandations
 
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier texte qu’OMS utilisera pour empêcher les recommandations d'apparaître dans les résultats de votre évaluation.
 
-### To identify recommendations that you will ignore
+### Pour identifier les recommandations que vous ignorerez
 
-1.	Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
+1.	Connectez-vous à votre espace de travail et ouvrez Recherche de journal. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
 
     ```
     Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
-    Here's a screen shot showing the Log Search query:
-    ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+    Voici une capture d’écran montrant la requête Recherche de journal :
+     ![recommandations ayant échoué](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 
 2.	Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
@@ -186,7 +186,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 2.	Collez ou saisissez chaque valeur RecommendationId de chaque recommandation qu’OMS doit ignorer sur une ligne distincte, puis enregistrez et fermez le fichier.
 3.	Placez le fichier dans le dossier suivant sur chaque ordinateur sur lequel OMS doit ignorer les recommandations.
     - Sur les ordinateurs avec Microsoft Monitoring Agent (connectés directement ou via Operations Manager) : *lecteur\_système*:\\Program Files\\Microsoft Monitoring Agent\\Agent
-    - Sur le serveur d'administration Operations Manager : *lecteur\_système*:\\Program Files\\Microsoft System Center 2012 R2\\Operations Manager\\Server
+    - Sur le serveur d’administration Operations Manager : *lecteur\_système*:\\Program Files\\Microsoft System Center 2012 R2\\Operations Manager\\Server
 
 ### Pour vérifier que les recommandations sont ignorées
 
@@ -241,6 +241,6 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Étapes suivantes
 
-- [Recherche des journaux](log-analytics-log-searches.md) pour afficher les données d'évaluation de SQL détaillées et des recommandations.
+- [Recherche des journaux](log-analytics-log-searches.md) pour afficher les données d’évaluation de SQL détaillées et des recommandations.
 
 <!---HONumber=AcomDC_0504_2016-->

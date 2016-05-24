@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/16/2016"
  ms.author="araguila"/>
 
 # Procédure pas à pas de la solution préconfigurée de maintenance prédictive
@@ -126,4 +126,4 @@ Le billet de blog TechNet intitulé [IoT Suite - Under The Hood - Predictive Mai
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

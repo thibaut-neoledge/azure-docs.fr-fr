@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/09/2016"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -183,9 +183,9 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
-- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
+- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
 - Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d'un tarif réduit.
-- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
+- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
 
 [AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
@@ -284,4 +284,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

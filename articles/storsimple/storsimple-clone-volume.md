@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour cloner un volume
@@ -41,23 +41,22 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 3. Cliquez sur **Cloner** pour commencer le clonage du volume sélectionné.
 
-4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement**:
+4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
 
   1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre. Si vous choisissez un volume associé à d’autres fournisseurs de service cloud (autres qu’Azure), la liste déroulante pour l’appareil cible affiche uniquement des appareils physiques. Vous ne pouvez pas cloner un volume associé à d’autres fournisseurs de services cloud sur un appareil virtuel.
 
-        >  [AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
-
-  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
   3. Cliquez sur l'icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png) pour passer à la page suivante.
 
-5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume**:
+5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
 
   1. Spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante.
   2. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-clone-volume/HCS_CheckIcon.png)pour terminer l’opération.
 
 6. Un travail de clonage sera lancé et vous serez averti lorsque le clone sera créé avec succès. Cliquez sur **Afficher le travail** pour surveiller le travail de clonage sur la page **Travaux**.
 
-7. Une fois le travail de clonage terminé :
+7. Une fois le travail de clonage terminé :
 
   1. Accédez à la page **Appareils**, puis sélectionnez l’onglet **Conteneurs de volumes**.
   2. Sélectionnez le conteneur de volume associé au volume source que vous avez cloné. Dans la liste des volumes, vous devez voir le clone qui vient d’être créé.
@@ -70,9 +69,9 @@ Ce clone est désormais un volume normal et toute opération possible sur un vol
 
 ## Clones temporaires et permanents
 
-Vous pouvez cloner un volume spécifique à partir d’un jeu de sauvegarde. Un clone créé de cette manière est un clone *temporaire*. Le clone temporaire aura des références au volume d’origine et utilisera ce volume pour lire lors de l’écriture locale. Cela peut entraîner des performances lentes, en particulier si le volume cloné est important.
+Les clones temporaires et permanents sont créés uniquement lorsque vous effectuez un clonage sur un autre appareil. Vous pouvez cloner un volume spécifique à partir d’un jeu de sauvegarde sur un autre appareil. Un clone créé de cette manière est un clone *temporaire*. Le clone temporaire aura des références au volume d’origine et utilisera ce volume pour lire lors de l’écriture locale.
 
-Si vous prenez un instantané de cloud d’un clone temporaire, le clone qui en résulte devient *permanent*. Le clone permanent est indépendant et n’a pas de références au volume d’origine à partir duquel il a été cloné. Pour améliorer les performances, nous vous recommandons de créer des clones permanents.
+Si vous prenez un instantané de cloud d’un clone temporaire, le clone qui en résulte devient *permanent*. Le clone permanent est indépendant et n’a pas de références au volume d’origine à partir duquel il a été cloné.
 
 ## Scénarios pour les clones temporaires et permanents
 
@@ -88,7 +87,7 @@ Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de cl
 
 ### Test dans l’environnement de production avec un clone permanent
 
-Vous devez vérifier un bogue de test dans l’environnement de production. Vous créez un clone du volume dans l’environnement de production. Pour améliorer les performances, vous devez prendre un instantané de cloud de ce clone. Le volume cloné est désormais indépendant, ce qui entraîne de meilleures performances. Dans ce scénario, un clone permanent est utilisé.
+Vous devez vérifier un bogue de test dans l’environnement de production. Vous créez un clone du volume dans l’environnement de production en prenant un instantané cloud de ce clone. Le volume cloné est alors indépendant. Dans ce scénario, un clone permanent est utilisé.
 
 ## Étapes suivantes
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
@@ -97,4 +96,4 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

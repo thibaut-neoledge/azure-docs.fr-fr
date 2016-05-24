@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Comment documenter des sources de données | Microsoft Azure"
-   description="Article de procédure expliquant comment documenter les ressources de données dans Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Comment documenter des sources de données | Microsoft Azure"
+	description="Article de procédure expliquant comment documenter les ressources de données dans Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="04/07/2016"
+	ms.author="spelluru"/>
 
 # Documentation de sources de données
 
 ## Introduction
 
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, *comprendre* et utiliser des sources de données, et permet aux organisations de mieux exploiter leurs données.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, *comprendre* et utiliser des sources de données, et permet aux organisations de mieux exploiter leurs données.
 
 Lorsqu’une source de données est inscrite dans **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. **Azure Data Catalog** permet également aux utilisateurs de fournir leur propre documentation complète pour décrire l’utilisation et les scénarios courants de la source de données.
 
@@ -48,4 +48,4 @@ Le niveau de documentation peut aller d’une simple description des caractéris
 
 La documentation des sources de données avec **Azure Data Catalog** peut créer une narration sur vos ressources de données avec le degré de détail dont vous avez besoin. À l’aide de liens, vous pouvez référencer du contenu stocké dans un référentiel de contenu existant qui rassemble vos documents et vos ressources de données existants. Une fois que vos utilisateurs accèdent aux ressources de données appropriées, ils peuvent bénéficier d’un ensemble de documentation complet.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

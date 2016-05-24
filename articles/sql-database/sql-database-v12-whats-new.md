@@ -114,7 +114,6 @@ La version 12 (V12) offre des valeurs sensiblement améliorées pour les object
 | Fonctionnalité de continuité des activités | Version antérieure | Version 12 (V12) |
 | :-- | :-- | :-- |
 | Géo-restauration | • RPO < 24 heures.<br/>• ERT < 12 heures. | • RPO < 1 heure.<br/>• ERT < 12 heures. |
-| Géo-réplication standard | • RPO < 30 minutes.<br/>• ERT < 2 heures. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
 | Géo-réplication active | • RPO < 5 minutes.<br/>• ERT < 1 heure. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
 
 
@@ -167,4 +166,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

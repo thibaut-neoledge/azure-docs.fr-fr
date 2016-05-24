@@ -55,8 +55,8 @@ Maintenant que vous avez terminé ce didacticiel sur la base de données SQL et 
 - Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, voir [Migration d’une base de données vers la base de données SQL Azure](sql-database-cloud-migrate.md) pour plus d’informations.
 
 
-## Ressources supplémentaires
+## En savoir plus
 
-[Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
+[Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

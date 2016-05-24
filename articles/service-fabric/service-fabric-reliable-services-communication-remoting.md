@@ -66,7 +66,7 @@ L’appel de méthodes sur un service à l’aide de la pile de communication à
 
 ```csharp
 
-IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
+IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.GetHelloWorld();
 
@@ -82,4 +82,4 @@ L'infrastructure de communication à distance propage les exceptions levées au 
 
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

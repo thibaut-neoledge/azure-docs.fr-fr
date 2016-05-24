@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles ARM
@@ -30,7 +30,7 @@ Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resourc
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) et/ou [Interface de ligne de commande Azure](../xplat-cli-install.md).
+- Azure PowerShell et/ou interface de ligne de commande Azure
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -93,7 +93,7 @@ La procédure suivante crée un cluster HDInsight sous Linux.
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
         # Create cluster and the dependent storage accounge
-        $parameters = @{clusterName="$hdinsightClusterName";clusterStorageAccountName="$defaultStorageAccountName"}
+        $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
             -Name $armDeploymentName `
@@ -106,7 +106,7 @@ La procédure suivante crée un cluster HDInsight sous Linux.
 
 	Le script PowerShell configure uniquement le nom du cluster. Le nom du compte de stockage est codé en dur dans le modèle. Vous devrez entrer le mot de passe utilisateur du cluster (le nom d’utilisateur par défaut est *admin*) et le mot de passe utilisateur SSH (le nom d’utilisateur SSH par défaut est *sshuser*).
 	
-Pour plus d’informations, consultez la rubrique [Déployer avec PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Déploiement avec l’interface de ligne de commande Azure
 
@@ -123,22 +123,22 @@ Vous devrez entrer le nom du cluster, le mot de passe utilisateur du cluster (le
 
 ## Déploiement avec l’API REST
 
-Consultez [Déployer avec l’API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
+Consultez [Déploiement avec l’API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Déployer avec Visual Studio
 
 Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le déployer vers Azure via l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet et ces ressources sont automatiquement ajoutées au modèle de gestionnaire de ressources. Le projet fournit également un script PowerShell pour déployer le modèle.
 
-Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/virtual-machines-windows-csharp-template.md).
+- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](../solution-dev-test-environments.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](../resource-group-authoring-templates.md).
-- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](../resource-group-template-functions.md).
+- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions des modèles](../resource-group-template-functions.md).
 
 ##Annexe A : Modèle ARM
 
@@ -276,7 +276,7 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
             "roles": [
                 {
                 "name": "headnode",
-                "targetInstanceCount": "1",
+                "targetInstanceCount": "2",
                 "hardwareProfile": {
                     "vmSize": "Large"
                 },
@@ -313,4 +313,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
     }
     }
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

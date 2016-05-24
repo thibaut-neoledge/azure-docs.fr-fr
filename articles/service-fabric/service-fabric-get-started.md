@@ -3,7 +3,7 @@
    description="Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois l’installation terminée, vous serez prêt à créer des applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/18/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Préparer votre environnement de développement
  Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre ordinateur de développement, vous devez installer le runtime, le kit de développement logiciel et les outils. Vous devez également activer l’exécution des scripts Windows PowerShell inclus dans le Kit de développement logiciel (SDK).
@@ -64,4 +64,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Lien WebPI du Kit de développement logiciel principal"
 [powershell5-download]: https://www.microsoft.com/fr-FR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

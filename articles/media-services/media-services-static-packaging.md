@@ -23,7 +23,7 @@
 
 ## Vue d’ensemble
 
-Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager. Pour plus d'informations, voir [Encodage versus Empaquetage](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager.
 
 Media Services prend en charge l'empaquetage dynamique et statique. Lorsque vous utilisez l'empaquetage statique, vous devez créer une copie de votre contenu dans chaque format requis par vos clients. Avec l'empaquetage dynamique, il vous suffit de créer un élément multimédia contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à débit adaptatif. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de streaming à la demande s'assure que vos utilisateurs reçoivent le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
 
@@ -1447,4 +1447,4 @@ Veillez à mettre à jour le code suivant pour pointer vers le dossier où se tr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

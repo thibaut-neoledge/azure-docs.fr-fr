@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Exemples de développement Data Catalog | Microsoft Azure"
-   description="Cet article offre une vue d’ensemble des exemples de développement disponibles pour l’API REST Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	pageTitle="Exemples de développement Data Catalog | Microsoft Azure"
+	description="Cet article offre une vue d’ensemble des exemples de développement disponibles pour l’API REST Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager=""
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/30/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/30/2016"
+	ms.author="spelluru"/>
 
 
 # Exemples de développement Data Catalog
@@ -34,4 +34,4 @@ Voici les exemples disponibles sur GitHub :
 
   Exemple qui montre comment utiliser l’API REST Data Catalog pour extraire des ressources d’Azure Data Catalog et les sérialiser dans un fichier. Il montre aussi comment sélectionner un ensemble de ressources sérialisées au format JSON et les placer dans le catalogue. Cet exemple prend en charge l’exportation d’un sous-ensemble du catalogue à l’aide d’une requête de recherche.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Didacticiel sur la messagerie par relais Service Bus | Microsoft Azure"
-   description="Créer une application et un service client Service Bus à l’aide de la messagerie Service Bus relayée."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Didacticiel sur la messagerie par relais Service Bus | Microsoft Azure"
+    description="Créer une application et un service client Service Bus à l’aide de la messagerie Service Bus relayée."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/17/2016"
+    ms.author="sethm" />
 
 # Didacticiel sur la messagerie par relais Service Bus
 
@@ -29,15 +29,19 @@ Toutes les rubriques de cette section supposent que vous utilisez Visual Studio 
 
 ## Inscrivez-vous pour obtenir un compte
 
-La première étape consiste à créer l’espace de noms de service Service Bus et obtenir une clé de signature d’accès partagé (SAP). Un espace de noms de service fournit une limite d’application pour chaque application exposée via Service Bus. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+La première étape consiste à créer l’espace de noms de service Service Bus et obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
-1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
+1. Pour créer un espace de noms, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Entrez un nom pour votre espace de noms, acceptez les valeurs par défaut pour toutes les autres valeurs, puis cliquez sur la coche OK.
 
 	>[AZURE.NOTE] Vous n’avez pas à utiliser le même espace de noms pour les applications client et le service.
 
+	![][4]
+
 1. Dans la fenêtre principale du portail, cliquez sur le nom d'espace de noms que vous avez créé à l'étape précédente.
 
-2. Cliquez sur **Configurer** pour afficher les stratégies d'accès partagé par défaut pour votre espace de noms.
+2. Cliquez sur l’onglet **Configurer** pour afficher les stratégies d’accès partagé par défaut et les clés pour votre espace de noms.
+
+	![][1]
 
 3. Notez la clé primaire de la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
@@ -49,29 +53,34 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 
 1. Ouvrez Visual Studio en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu **Démarrer**, puis sur **Exécuter en tant qu’administrateur**.
 
-1. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans les **autres langages**). Cliquez sur le modèle **Application Console** et nommez-le **EchoService**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
+2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans les **autres langages**). Cliquez sur le modèle **Application Console** et nommez-le **EchoService**. Cliquez sur **OK** pour créer le projet.
 
-1. Ajoutez une référence à `System.ServiceModel.dll` au projet : dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Références** du dossier projet, puis cliquez sur **Ajouter une référence**. Sélectionnez l’onglet **.NET**dans la boîte de dialogue **Ajouter une référence** et faites défiler la fenêtre jusqu’à l’élément **System.ServiceMode**. Sélectionnez-le, puis cliquez sur **OK**.
+	![][2]
 
-1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur.
+3. Installez le package NuGet Service Bus. Ce package ajoute automatiquement des références aux bibliothèques Service Bus, ainsi qu’au WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui vous permet d’accéder par programme aux fonctionnalités WCF de base. Service Bus utilise la plupart des objets et attributs de WCF pour définir des contrats de service.
 
-1. Ajoutez une instruction `using` pour l’espace de noms System.ServiceModel.
+	Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
+
+	![][3]
+
+3. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur, si celui-ci n’est pas déjà ouvert.
+
+4. Ajoutez les instructions using suivantes au début du fichier :
 
 	```
 	using System.ServiceModel;
+	using Microsoft.ServiceBus;
 	```
-
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui vous permet d’accéder par programme aux fonctionnalités WCF de base. Service Bus utilise la plupart des objets et attributs de WCF pour définir des contrats de service.
 
 1. Changez le nom de l’espace de noms du nom par défaut **EchoService** en **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT] Ce didacticiel utilise l'espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l'espace de noms du contrat géré type utilisé dans le fichier de configuration à l'étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
+	>[AZURE.IMPORTANT] Ce didacticiel utilise l’espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l’espace de noms du contrat géré type utilisé dans le fichier de configuration à l’étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
 
-1. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de ****http://samples.microsoft.com/ServiceModel/Relay/**. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
+1. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de **http://samples.microsoft.com/ServiceModel/Relay/**. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	}
 	```
@@ -85,22 +94,15 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 	string Echo(string text);
 	```
 
-1. Hors contrat, déclarez un canal qui hérite à la fois de `IEchoChannel` et de l’interface `IClientChannel`, comme indiqué ici :
+1. Directement après la définition de l’interface `IEchoContract`, déclarez un canal qui hérite à la fois de `IEchoChannel` et de l’interface `IClientChannel`, comme indiqué ici :
 
 	```
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-    publicinterface IEchoContract
-    {
-        [OperationContract]
-        String Echo(string text);
-    }
-
-    publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+    public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
 	Un canal est l’objet WCF par le biais duquel l’hôte et le client se transmettent des informations. Par la suite , vous allez écrire du code par rapport au canal pour reprendre les informations entre les deux applications.
 
-1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur F6 pour confirmer si votre travail est correct jusqu'à présent.
+1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur **Ctrl+Maj+B** pour confirmer si votre travail est correct jusqu’à présent.
 
 ### Exemple
 
@@ -134,7 +136,7 @@ Maintenant que l’interface est créée, vous pouvez implémenter l’interface
 
 ## Implémenter le contrat WCF pour utiliser Service Bus
 
-La création d’un service Service Bus nécessite la création au préalable du contrat défini à l’aide d’une interface. Pour plus d’informations sur la création de l’interface, consultez l’étape précédente. L'étape suivante consiste à implémenter l'interface. Cela implique la création d’une classe nommée `EchoService` qui met en œuvre l’interface `IEchoContract` définie par l’utilisateur. Une fois l’interface implémentée, vous configurez l’interface à l’aide d’un fichier de configuration App.config. Le fichier de configuration contient les informations nécessaires à l'application, notamment le nom du service, le nom du contrat et le type de protocole utilisé pour communiquer avec Service Bus. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure. Pour obtenir une description plus générale de la manière d’implémenter un contrat de service, consultez la rubrique concernant la [implémentation de contrats de Service](https://msdn.microsoft.com/library/ms733764.aspx) dans la documentation de Windows Communication Foundation (WCF).
+La création d’un Service Bus Relay nécessite la création au préalable du contrat défini à l’aide d’une interface. Pour plus d’informations sur la création de l’interface, consultez l’étape précédente. L'étape suivante consiste à implémenter l'interface. Cela implique la création d’une classe nommée `EchoService` qui met en œuvre l’interface `IEchoContract` définie par l’utilisateur. Une fois l’interface implémentée, vous configurez l’interface à l’aide d’un fichier de configuration App.config. Le fichier de configuration contient les informations nécessaires à l'application, notamment le nom du service, le nom du contrat et le type de protocole utilisé pour communiquer avec Service Bus. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure. Pour obtenir une description plus générale de la manière d’implémenter un contrat de service, voir [Implémentation de contrats de service](https://msdn.microsoft.com/library/ms733764.aspx) dans la documentation WCF.
 
 1. Créez une classe nommée `EchoService` directement après la définition de l’interface `IEchoContract`. La classe `EchoService` implémente l’interface `IEchoContract`. 
 
@@ -146,9 +148,10 @@ La création d’un service Service Bus nécessite la création au préalable du
 	
 	Comme pour d'autres implémentations d'interface, vous pouvez implémenter la définition dans un autre fichier. Toutefois, pour ce didacticiel, l’implémentation se situe dans le même fichier que la définition d’interface et la méthode `Main`.
 
-1. Appliquez l’attribut [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) qui indique le nom du service et l’espace de noms.
+1. Appliquez l’attribut [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à l’interface `IEchoContract`. L’attribut spécifie le nom du service ainsi que son espace de noms. Ensuite, la classe `EchoService` apparaît comme suit :
 
-	```[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	```
+	[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class EchoService : IEchoContract
 	{
 	}
@@ -170,24 +173,9 @@ La création d’un service Service Bus nécessite la création au préalable du
 
 1. Le fichier de configuration est très similaire à un fichier de configuration WCF. Il contient le nom du service, le point de terminaison (c’est-à-dire l’emplacement que Service Bus expose aux clients et aux ordinateurs hôtes afin qu’ils communiquent entre eux) et la liaison (type de protocole utilisé pour communiquer). La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à la liaison [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), qui ne fait pas partie de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) est l’une des liaisons définies par Service Bus.
 
-1. Dans l’**Explorateur de solutions**, cliquez sur le fichier App.config, qui contient actuellement les éléments XML suivants :
+1. Dans l’**Explorateur de solutions**, double-cliquez sur le fichier App.config pour l’ouvrir dans l’éditeur de Visual Studio.
 
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	</configuration>
-	```
-
-1. Ajoutez un élément XML `<system.serviceModel>` au fichier App.config. Il s'agit d'un élément WCF qui définit un ou plusieurs services. Ici, il sert à définir le nom du service et le point de terminaison.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-  
-	  </system.serviceModel>
-	</configuration>
-	```
+2. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
 
 1. Dans les balises `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications Service Bus dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
  
@@ -205,28 +193,17 @@ La création d’un service Service Bus nécessite la création au préalable du
 1. Dans l’élément `<services>`, ajoutez un élément `<service>` pour définir le nom du service.
 
 	```
-	<servicename="Microsoft.ServiceBus.Samples.EchoService">
+	<service name="Microsoft.ServiceBus.Samples.EchoService">
 	</service>
 	```
 
 1. Dans l’élément `<service>`, définissez l’emplacement du contrat de point de terminaison, ainsi que le type de liaison de ce dernier.
 
 	```
-	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
+	<endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
 	```
 
 	Le point de terminaison définit l’emplacement où le client recherchera l’application hôte. Plus tard, le didacticiel utilise cette étape pour créer une URI qui expose entièrement l'hôte via Service Bus. La liaison déclare que nous utilisons TCP comme protocole pour communiquer avec Service Bus.
-
-
-1. Directement après l’élément `<services>`, ajoutez l’extension de liaison suivante :
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer que votre travail est correct.
 
@@ -260,7 +237,8 @@ L’exemple suivant montre le format de case du fichier App.config associé à l
     </services>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -273,8 +251,6 @@ Cette étape explique comment exécuter un service Service Bus de base.
 
 ### Pour créer les informations d’identification de Service Bus
 
-1. Installez le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-
 1. Dans `Main()`, créez deux variables dans lesquelles stocker l’espace de noms et la clé SAS qui sont lues à partir de la fenêtre de console.
 
 	```
@@ -284,7 +260,7 @@ Cette étape explique comment exécuter un service Service Bus de base.
 	string sasKey = Console.ReadLine();
 	```
 
-	La clé SAS sera utilisée ultérieurement pour accéder à votre projet Service Bus. L'espace de noms est transmis en tant que paramètre à `CreateServiceUri` pour créer une URI de service.
+	La clé SAS sera utilisée ultérieurement pour accéder à votre projet Service Bus. L’espace de noms est transmis en tant que paramètre à `CreateServiceUri` pour créer une URI de service.
 
 4. À l’aide d’un objet [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx), déclarez que vous utiliserez une clé SAS en tant que type d’informations d’identification. Ajoutez le code suivant directement après le code ajouté à l’étape précédente.
 
@@ -372,7 +348,7 @@ Cette étape explique comment exécuter un service Service Bus de base.
 	host.Close();
 	```
 
-1. Appuyez sur F6 pour générer le projet.
+1. Appuyez sur **Ctrl+Maj+B** pour générer le projet.
 
 ### Exemple
 
@@ -461,13 +437,13 @@ L’étape suivante consiste à créer une application client Service Bus de bas
 	2. Dans la boîte de dialogue **Ajouter un nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), sélectionnez le modèle **Application de console** et nommez-le **EchoClient**.
 	3. Cliquez sur **OK**. <br />
 
-1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs dans le projet **EchoClient** pour l’ouvrir dans l’éditeur.
+1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs dans le projet **EchoClient** pour l’ouvrir dans l’éditeur, si celui-ci n’est pas déjà ouvert.
 
 1. Remplacez le nom par défaut de l'espace de noms `EchoClient` par `Microsoft.ServiceBus.Samples`.
 
-1. Ajoutez une référence à System.ServiceModel.dll au projet :
-	1. Cliquez avec le bouton droit sur **Références** sous le projet **EchoClient** dans l’explorateur de solution. Cliquez ensuite sur **Ajouter une référence**.
-	2. Étant donné que vous avez déjà ajouté une référence à cet assemblage dans la première étape de ce didacticiel, il est désormais répertorié dans l’onglet **Récent**. Cliquez sur **Récent**, puis sélectionnez **System.ServiceModel.dll** dans la liste. Cliquez ensuite sur **OK**. Si vous ne voyez pas **System.ServiceModel.dll** dans l’onglet **Récent**, cliquez sur l’onglet **Parcourir** et accédez à **C:\\Windows\\Microsoft.NET\\Framework\\v3.0\\Windows Communication Foundation**. Depuis cet endroit, sélectionnez ensuite l’assemblage. <br />
+1. Installez le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **EchoClient**, puis cliquez sur **Gérer les packages NuGet**. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
+
+	![][3]
 
 1. Ajoutez une instruction `using` pour l’espace de noms [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) dans le fichier Program.cs.
 
@@ -475,22 +451,20 @@ L’étape suivante consiste à créer une application client Service Bus de bas
 	using System.ServiceModel;
 	```
 
-1. Installez le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-
 1. Ajoutez la définition de contrat de service à l’espace de noms, comme illustré dans l’exemple suivant. Notez que cette définition est identique à celle qui est utilisée dans le projet **Service**. Vous devez ajouter ce code en haut de l’espace de noms `Microsoft.ServiceBus.Samples`.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	    [OperationContract]
 	    string Echo(string text);
 	}
 
-	publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+	public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
-1. Appuyez sur F6 pour générer le client.
+1. Appuyez sur **Ctrl+Maj+B** pour générer le client.
 
 ### Exemple
 
@@ -527,29 +501,9 @@ namespace Microsoft.ServiceBus.Samples
 
 Dans cette étape, vous allez créer une application cliente de base qui accède au service que vous avez créé précédemment dans ce didacticiel. Ce fichier App.config définit le contrat, la liaison et le nom du point de terminaison. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
-1. Dans l’Explorateur de solutions, double-cliquez sur **App.config**, pour ouvrir le fichier qui contient actuellement les éléments XML suivants :
+1. Dans l’Explorateur de solutions, dans le projet **EchoClient**, double-cliquez sur **App.config** pour ouvrir le fichier dans l’éditeur de Visual Studio.
 
-	```
-	<?xmlversion="1.0"?>
-	<configuration>
-	  <startup>
-	    <supportedRuntimeversion="v4.0"sku=".NETFramework,Version=v4.0"/>
-	  </startup>
-	</configuration>
-	```
-
-1. Ajoutez un élément XML au fichier App.config pour `system.serviceModel` .
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-	
-	  </system.serviceModel>
-	</configuration>
-	```
-	
-	Cet élément déclare que votre application utilise des points de terminaison de type WCF. Comme indiqué précédemment, la plus grande partie de la configuration d’une application Service Bus est identique à une application WCF ; la principale différence est l’emplacement vers lequel pointe le fichier de configuration.
+2. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
 
 1. Dans l’élément system.serviceModel, ajoutez un élément `<client>`.
 
@@ -568,22 +522,12 @@ Dans cette étape, vous allez créer une application cliente de base qui accède
 1. Dans l ’élément `client`, définissez le nom, le contrat et le type de liaison du point de terminaison.
 
 	```
-	<endpointname="RelayEndpoint"
+	<endpoint name="RelayEndpoint"
 					contract="Microsoft.ServiceBus.Samples.IEchoContract"
 					binding="netTcpRelayBinding"/>
 	```
 
 	Cette étape définit le nom du point de terminaison, le contrat défini dans le service et le fait que l’application cliente utilise TCP pour communiquer avec Service Bus. Le nom de point de terminaison est utilisé dans l’étape suivante pour associer cette configuration de point de terminaison à l’URI de service.
-
-1. Directement après l’élément <client>, ajoutez l’extension de liaison suivante.
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. Cliquez sur **fichier**, puis **Tout enregistrer**.
 
@@ -602,7 +546,8 @@ Le code suivant montre le fichier App.config correspondant au client Echo.
     </client>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -625,7 +570,7 @@ Toutefois, une des principales différences réside dans le fait que l’applica
 
 ### Pour implémenter une application cliente
 
-1. Définissez le mode connectivité sur **AutoDetect**. Ajoutez le code suivant à la méthode `Main()` de l’application client.
+1. Définissez le mode connectivité sur **AutoDetect**. Ajoutez le code suivant à la méthode `Main()` de l’application **EchoClient**.
 
 	```
 	ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
@@ -702,31 +647,41 @@ Toutefois, une des principales différences réside dans le fait que l’applica
 	channelFactory.Close();
 	```
 
-## Pour exécuter l’application cliente.
+## Pour exécuter les applications
 
-1. Appuyez sur F6 pour générer la solution. Cette opération génère le projet client et le projet de service que vous avez créés à l’étape précédente de ce didacticiel et la création d’un fichier exécutable pour chacun.
+1. Appuyez sur **Ctrl+Maj+B** pour générer la solution. Ceci génère le projet client et le projet de service que vous avez créés aux étapes précédentes.
 
-1. Avant d’exécuter l’application cliente, assurez-vous que l’application de service est en cours d’exécution.
+2. Avant d’exécuter l’application cliente, assurez-vous que l’application de service est en cours d’exécution. Dans l’Explorateur de solutions dans Visual Studio, cliquez sur la solution **EchoService**, puis sur **Propriétés**.
 
-	Vous devez maintenant avoir un fichier exécutable pour l’application de service Echo nommé EchoService.exe situé sous le dossier du projet de service client à \\bin\\Debug\\EchoService.exe.exe (pour la configuration debug) ou.\\bin\\Release\\EchoService.exe (pour la configuration de version). Double-cliquez sur ce fichier pour démarrer l’application de service.
+3. Dans la boîte de dialogue Propriétés de la solution, cliquez sur **Projet de démarrage**, puis sur le bouton **Plusieurs projets de démarrage**. Assurez-vous que **EchoService** apparaît en premier dans la liste.
 
-1. Une fenêtre de console s’ouvre et vous invite à accéder à l’espace de noms. Dans cette fenêtre de console, saisissez l’espace de noms et appuyez sur Entrée.
+4. Réglez le champ **Action** sur **Démarrer** pour les projets **EchoService** et **EchoClient**.
 
-1. Ensuite, vous êtes invité à fournir votre clé SAS. Entrez la clé SAS et appuyez sur ENTRÉE.
+	![][5]
+
+5. Cliquez sur **Dépendances du projet**. Dans le champ **Projets**, sélectionnez **EchoClient**. Dans le champ **Dépend de**, assurez-vous que l’option **EchoService** est activée.
+
+	![][6]
+
+6. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés**.
+
+7. Appuyez sur **F5** pour exécuter les deux projets.
+
+8. Les deux fenêtres de console s’ouvrent et vous invitent à renseigner le nom de l’espace de noms. Le service doit d’abord s’exécuter. Dans la fenêtre de console **EchoService**, entrez l’espace de noms, puis appuyez sur **Entrée**.
+
+9. Ensuite, vous êtes invité à fournir votre clé SAS. Entrez la clé SAS et appuyez sur ENTRÉE.
 
 	Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
 
 	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
-	L’application de service démarre et imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
+	L’application de service imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
-1. Exécutez l’application cliente. Vous devez maintenant avoir un fichier exécutable pour l’application cliente Echo nommé EchoClient.exe situé sous le répertoire du projet client à \\bin\\Debug\\EchoClient.exe (pour la configuration debug) ou.\\bin\\Release\\EchoClient.exe (pour la configuration de version). Double-cliquez sur ce fichier pour démarrer l’application cliente.
+10. Dans la fenêtre de console **EchoClient**, entrez les mêmes informations que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’espace de noms de service et la clé SAP pour l’application cliente
 
-1. Une fenêtre de console s’ouvre et vous demande les mêmes informations que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’application cliente pour l’espace de noms de service, le nom d’émetteur et le secret de l’émetteur.
-
-1. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
+11. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
 
 	`Enter text to echo (or [Enter] to exit):`
 
@@ -738,7 +693,7 @@ Toutefois, une des principales différences réside dans le fait que l’applica
 
 	`Server echoed: My sample text`
 
-1. Vous pouvez continuer d’envoyer des messages texte du client au service de cette manière. Une fois que vous avez terminé, appuyez sur Entrée dans les fenêtres du client et de la console de service pour arrêter les des deux applications.
+12. Vous pouvez continuer d’envoyer des messages texte du client au service de cette manière. Une fois que vous avez terminé, appuyez sur Entrée dans les fenêtres du client et de la console de service pour arrêter les des deux applications.
 
 ## Exemple
 
@@ -809,8 +764,6 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-Assurez-vous que le service est en cours d’exécution avant de démarrer le client.
-
 ## Étapes suivantes
 
 Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités « relais ». Pour obtenir un didacticiel similaire utilisant la [messagerie répartie](service-bus-messaging-overview.md#Brokered-messaging) Service Bus, consultez le [Didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md).
@@ -823,4 +776,11 @@ Pour en savoir plus sur Service Bus, consultez les rubriques qui suivent.
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+[1]: ./media/service-bus-relay-tutorial/service-bus-policies.png
+[2]: ./media/service-bus-relay-tutorial/create-console-app.png
+[3]: ./media/service-bus-relay-tutorial/install-nuget.png
+[4]: ./media/service-bus-relay-tutorial/create-ns.png
+[5]: ./media/service-bus-relay-tutorial/set-projects.png
+[6]: ./media/service-bus-relay-tutorial/set-depend.png
+
+<!---HONumber=AcomDC_0518_2016-->

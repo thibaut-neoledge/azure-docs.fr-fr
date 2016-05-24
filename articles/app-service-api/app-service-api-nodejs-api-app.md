@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org) simple et la déployer vers une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous pouvez utiliser n’importe quel système d’exploitation capable d’exécuter Node.js. Vous suivrez toutes les étapes en utilisant les outils de ligne de commande tels que cmd.exe ou bash.
+Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org) simple et la déployer vers une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) à l’aide de [Git](http://git-scm.com). Vous pouvez utiliser n’importe quel système d’exploitation capable d’exécuter Node.js. Vous suivrez toutes les étapes en utilisant les outils de ligne de commande tels que cmd.exe ou bash.
 
 ## Composants requis
 
@@ -41,9 +41,9 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
 
 ## Structurer le code Node.js en fonction des métadonnées Swagger
 
-[Swagger](http://swagger.io/) est un format de fichier JSON pour métadonnées qui décrit une API RESTful. Azure App Service [intègre la prise en charge des métadonnées Swagger](app-service-api-metadata.md). Dans cette partie du didacticiel, vous structurez le code du serveur pour un exemple d’API basé sur un fichier de métadonnées Swagger.
+[Swagger](http://swagger.io/) est un format de fichier JSON pour métadonnées qui décrit une API RESTful. Azure App Service [intègre la prise en charge des métadonnées Swagger](app-service-api-metadata.md). Ce didacticiel modélise un workflow de développement d’API qui crée d’abord les métadonnées Swagger, puis les utilise pour structurer le code serveur pour l’API. Dans cette partie du didacticiel, vous apprendrez à générer automatiquement des modèles du code serveur Node.js basés sur un fichier de métadonnées Swagger.
 
->[AZURE.NOTE] Si vous ne souhaitez pas savoir comment structurer un fichier Swagger, vous pouvez vous contenter de suivre les étapes du didacticiel concernant le déploiement d’un exemple de code vers une application API. Passez directement à la section [Créer une application API dans Azure](#createapiapp).
+>[AZURE.NOTE] Si vous ne souhaitez pas suivre les étapes de génération de modèles automatique, vous pouvez déployer uniquement l’exemple de code dans une nouvelle application API en accédant directement à la section [Créer une application API dans Azure](#createapiapp).
 
 1. Exécutez les commandes suivantes pour installer les modules NPM **yo** et **generator-swaggerize** globalement.
 
@@ -88,9 +88,9 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
 
 1. Copiez le dossier **lib** du dossier **Démarrer** vers le dossier **ContactList** créé par la génération de modèles automatique. 
 
-1. Remplacez le code dans le fichier **handlers/contacts.js** par le code ci-dessous.
+1. Remplacez le code dans le fichier **handlers/contacts.js** par le code suivant.
 
-	Ce code utilise les données JSON stockées dans le fichier **lib/contacts.json** fourni par **lib/contactRepository.js**. Le nouveau code contacts.js ci-dessous répondra aux requêtes HTTP pour obtenir tous les contacts et les renvoyer en tant que charge utile JSON.
+	Ce code utilise les données JSON stockées dans le fichier **lib/contacts.json** fourni par **lib/contactRepository.js**. Le nouveau code contacts.js répondra aux requêtes HTTP pour obtenir tous les contacts et les renvoyer en tant que charge utile JSON.
 
         'use strict';
         
@@ -102,7 +102,7 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
             }
         };
 
-1. Remplacez le code dans le fichier **handlers/contacts/{id}.js** par le code ci-dessous.
+1. Remplacez le code dans le fichier **handlers/contacts/{id}.js** par le code suivant.
 
         'use strict';
 
@@ -114,7 +114,7 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
             }    
         };
 
-1. Remplacez le code dans le fichier **server.js** par le code ci-dessous.
+1. Remplacez le code dans le fichier **server.js** par le code suivant.
 
 	Les modifications apportées au fichier server.js sont indiquées à l’aide de commentaires pour que vous puissiez voir les modifications apportées.
 
@@ -155,11 +155,11 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
 
         node server.js
 
-1. Quand vous accédez à ****http://localhost:8000/contacts**, vous pouvez voir la sortie JSON de la liste de contacts (ou vous êtes invité à la télécharger, en fonction de votre navigateur).
+1. Quand vous accédez à **http://localhost:8000/contacts**, vous verrez la sortie JSON de la liste de contacts (ou vous êtes invité à la télécharger, en fonction de votre navigateur).
 
     ![Appel d’API de tous les contacts](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Quand vous accédez à ****http://localhost:8000/contacts/2**, vous pouvez voir le contact représenté par cette valeur d’ID.
+1. Quand vous accédez à **http://localhost:8000/contacts/2**, vous pouvez voir le contact représenté par cette valeur d’ID.
 
     ![Appel d’API de contact spécifique](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -171,7 +171,7 @@ Ce didacticiel vous explique comment créer une API [Node.js](http://nodejs.org)
 
     ![Interface utilisateur Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a>Créer une application API dans le Portail Azure
+## <a id="createapiapp"></a>Créer une application API dans le Portail Azure
 
 Dans cette section, nous allons examiner le processus de création d’une application API vide dans Azure. Ensuite, nous raccorderons l’application à un dépôt Git pour pouvoir activer la remise continue des modifications de code.
 
@@ -185,11 +185,11 @@ Dans cette section, nous allons examiner le processus de création d’une appli
 
 	Si vous entrez un nom qu’une autre personne a déjà utilisé, un point d’exclamation rouge s’affiche à droite au lieu d’une coche verte, et vous devez entrer un autre nom.
 
-	Azure utilise ce nom comme préfixe de l’URL de votre API. L’URL complète se compose de ce nom, suivi de *. azurewebsites.net*. Par exemple, si le nom est `NodejsAPIApp`, l’URL est `nodejsapiapp.azurewebsites.net`.
+	Azure utilise ce nom comme préfixe de l’URL de votre API. L’URL complète se compose de ce nom, suivi de *.azurewebsites.net*. Par exemple, si le nom est `NodejsAPIApp`, l’URL est `nodejsapiapp.azurewebsites.net`.
 
 6. Dans la liste déroulante **Groupe de ressources**, cliquez sur **Nouveau**, puis dans **Nouveau nom du groupe de ressources** entrez « NodejsAPIAppGroup » ou un autre nom si vous préférez.
 
-	Un [groupe de ressources](../azure-portal/resource-group-portal.md) est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
+	Un [groupe de ressources](../azure-portal/resource-group-portal.md) est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
 4. Cliquez sur **Plan/emplacement App Service**, puis cliquez sur **Créer**.
 
@@ -201,7 +201,7 @@ Dans cette section, nous allons examiner le processus de création d’une appli
 
 5. Dans la liste déroulante **Emplacement**, sélectionnez le lieu le plus proche de vous.
 
-	Ce paramètre indique le centre de données Azure dans lequel votre application sera exécutée. Pour les besoins de ce didacticiel, vous pouvez sélectionner n’importe quelle région : la différence ne sera pas sensible. Toutefois, pour une application de production, votre serveur doit être le plus proche possible des clients qui y accèdent, afin de minimiser la [latence](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	Ce paramètre indique le centre de données Azure dans lequel votre application sera exécutée. Pour les besoins de ce didacticiel, vous pouvez sélectionner n’importe quelle région : la différence ne sera pas sensible. Toutefois, pour une application de production, votre serveur doit être aussi proche que possible des clients qui y accèdent, afin de minimiser la [latence](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Cliquez sur **Niveau tarifaire > Afficher tout > F1 Gratuit**.
 
@@ -215,7 +215,7 @@ Dans cette section, nous allons examiner le processus de création d’une appli
 
 ## Configurer votre nouvelle application API pour le déploiement Git
 
-Dans cette section du didacticiel, vous allez créer des informations d’identification que vous utiliserez pour le déploiement et un référentiel Git pour l’application API dans Azure App Service. Vous allez déployer votre code vers l’application API, en envoyant des validations vers ce référentiel dans Azure App Service.
+Dans cette section du didacticiel, vous allez créer des informations d’identification que vous utiliserez pour le déploiement et un référentiel Git pour l’application API dans Azure App Service. Vous déployez votre code vers l’application API en envoyant des validations vers ce référentiel dans Azure App Service.
 
 1. Une fois votre application API créée, cliquez sur **App Services > {votre application API}** à partir de la page d’accueil du portail. 
 
@@ -237,17 +237,17 @@ Dans cette section du didacticiel, vous allez créer des informations d’identi
 
     ![Créer le dépôt Git](media/app-service-api-nodejs-api-app/create-git-repo.png)
 
-1. Une fois votre dépôt Git créé, le panneau change et montre vos déploiements actifs. Comme il s’agit d’un nouveau référentiel, vous n’avez aucun déploiement actif dans la liste.
+1. Une fois votre référentiel Git créé, le panneau change et montre vos déploiements actifs. Comme il s’agit d’un nouveau référentiel, vous n’avez aucun déploiement actif dans la liste.
 
     ![Aucun déploiement actif](media/app-service-api-nodejs-api-app/no-active-deployments.png)
 
-1. Copiez l’URL du référentiel Git. Pour cela, accédez au panneau de votre nouvelle application API et examinez la section **Bases**. Vous verrez **URL de clonage Git** dans la section **Bases**. Lorsque vous pointerez sur cette URL, vous verrez une icône à droite qui copiera l’URL dans le Presse-papiers. Cliquez sur cette icône pour copier l’URL.
+1. Copiez l’URL du référentiel Git. Pour cela, accédez au panneau de votre nouvelle application API et examinez la section **Bases**. Vous remarquerez **URL de clonage Git** dans la section **Bases**. Lorsque vous pointerez sur cette URL, vous verrez une icône à droite qui copiera l’URL dans le Presse-papiers. Cliquez sur cette icône pour copier l’URL.
 
     ![Obtenir l’URL Git à partir du portail](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
     **Remarque** : Vous aurez besoin de l’URL de clonage Git à l’étape suivante. Enregistrez-la quelque part pour le moment.
 
-Maintenant que vous avez une nouvelle application API et un dépôt Git associé, vous pouvez pousser du code dans ce dépôt et utiliser les fonctionnalités de déploiement continu d’Azure pour déployer automatiquement vos modifications.
+À présent que vous disposez d’une application API dont la sauvegarde est assurée par un référentiel Git, vous pouvez pousser du code dans ce référentiel afin de déployer le code vers l’application API.
 
 ## Déployer votre code API vers Azure
 
@@ -273,7 +273,7 @@ Les fonctionnalités intégrées de livraison continue d’Azure App Service vou
 
     **Remarque** : remplacez la chaîne « YOUR\_GIT\_CLONE\_URL\_HERE » par votre propre URL de clone Git, que vous avez copiée précédemment.
 
-1. Exécutez les deux commandes ci-dessous pour créer une validation contenant l’ensemble de votre code.
+1. Exécutez les commandes suivantes pour créer une validation contenant l’ensemble de votre code.
 
         git add .
         git commit -m "initial revision"
@@ -316,6 +316,6 @@ Maintenant que vous avez activé la livraison en continu, vous pouvez apporter d
 
 ## Étapes suivantes
 
-À ce stade, vous avez créé et déployé votre première application API à l’aide de Node.js. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
+À ce stade, vous avez créé et déployé votre première application API à l’aide de Node.js. Le didacticiel suivant montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
-	description="Découvrez comment utiliser le service blob Azure pour charger, répertorier, télécharger et supprimer des objets blob. Les exemples de code sont écrits en PHP."
+	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	documentationCenter="php"
 	services="storage"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du stockage d’objets blob à partir de PHP
@@ -40,9 +40,9 @@ Dans ce guide, vous allez utiliser des fonctionnalités de service qui peuvent �
 
 ## Configuration de votre application pour accéder au service blob
 
-Pour utiliser des API de service blob Azure, vous devez procéder comme suit :
+Pour utiliser des API de service blob Azure, vous devez procéder comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once] ; et
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once] ; et
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -57,22 +57,22 @@ Dans les exemples ci-dessous, l’instruction `require_once` s’affiche toujour
 
 ## Configuration d’une connexion de stockage Azure
 
-Pour instancier un client de service blob Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service Blob est le suivant :
+Pour instancier un client de service blob Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service Blob est le suivant :
 
-Pour accéder à un service en ligne :
+Pour accéder à un service en ligne :
 
 	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-Pour accéder à l’émulateur de stockage :
+Pour accéder à l’émulateur de stockage :
 
 	UseDevelopmentStorage=true
 
 
-Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
+Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
 
-* lui transmettre directement la chaîne de connexion ; ou
-* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
-	* Par défaut, il prend en charge une source externe : les variables d’environnement.
+* lui transmettre directement la chaîne de connexion ; ou
+* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
+	* Par défaut, il prend en charge une source externe : les variables d’environnement.
 	* Vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
@@ -306,4 +306,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

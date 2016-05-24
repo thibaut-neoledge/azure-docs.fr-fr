@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/10/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Prise en main d’Azure Mobile Engagement pour les applications Android
@@ -165,7 +165,7 @@ Mobile Engagement vous permet d’interagir et d’ATTEINDRE vos utilisateurs �
 
 [AZURE.INCLUDE [Envoyer des notifications à partir du portail](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## Autres ressources
+## Étapes suivantes
 
 Accédez au [SDK Android](mobile-engagement-android-sdk-overview.md) pour obtenir des informations détaillées sur l’intégration du kit de développement logiciel.
 
@@ -182,4 +182,4 @@ Accédez au [SDK Android](mobile-engagement-android-sdk-overview.md) pour obteni
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

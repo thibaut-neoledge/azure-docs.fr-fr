@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 
@@ -31,7 +31,7 @@ Pour générer une application acceptant l’inscription et la connexion des con
 
 Vous pouvez accéder au panneau de fonctionnalités B2C à partir du portail Azure ou Azure Classic.
 
-### 1. Accès via le portail Azure
+### 1\. Accès via le portail Azure
 
 Si le panneau de fonctionnalités B2C est épinglé sur votre Tableau d'accueil, vous pouvez le voir dès que vous vous connectez au [portail Azure](https://portal.azure.com/) en tant qu'administrateur général du client B2C.
 
@@ -39,10 +39,10 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir** puis **
 
 Vous pouvez également y accéder directement en naviguant vers l’URL [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) où **{tenant}** est remplacé par le nom utilisé au moment de la création du client (par exemple, contosob2c). Vous pouvez marquer ce lien à l’aide d’un signet afin de vous y référer ultérieurement.
 
-> [AZURE.IMPORTANT]
+    > [AZURE.IMPORTANT]
 Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.
 
-### 2. Accès via le portail Azure Classic
+### 2\. Accès via le portail Azure Classic
 
 Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour vous inscrire à Azure.) Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C. Sous l’onglet **Démarrage rapide** (le premier à s’ouvrir), cliquez sur **Gestion des paramètres B2C** sous **Administrer**. Cela a pour effet d’ouvrir le panneau de fonctionnalités B2C dans une nouvelle fenêtre ou un nouvel onglet du navigateur.
 
@@ -60,7 +60,7 @@ Le lien **Gestion des paramètres B2C** figure également sous l’onglet **Con
 
 5. Si vous écrivez une application mobile, positionnez le commutateur **Inclure un client natif** sur **Oui**. Notez la valeur par défaut **URI de redirection** créée automatiquement pour vous.
 6. Cliquez sur **Créer** pour inscrire votre application.
-7. Cliquez sur l’application que vous venez de créer, puis notez l’**ID d’application** global unique à utiliser ultérieurement dans votre code.
+7. Cliquez sur l’application que vous venez de créer, puis notez l’**ID du client d’application** global unique à utiliser ultérieurement dans votre code.
 
 ## Générer une application de démarrage rapide
 
@@ -68,4 +68,4 @@ Le lien **Gestion des paramètres B2C** figure également sous l’onglet **Con
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

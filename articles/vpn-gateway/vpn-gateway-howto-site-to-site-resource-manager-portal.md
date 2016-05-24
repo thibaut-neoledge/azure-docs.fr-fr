@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN de site à site à l’aide du Portail Azure et d’Azure Resource Manager
@@ -25,19 +25,23 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager et du portail Azure.
+Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager et du portail Azure. Dans les étapes suivantes, vous créez un réseau virtuel et ajoutez un sous-réseau de passerelle, une passerelle, un site local et une connexion. En outre, vous devez également configurer votre périphérique VPN.
+
 
 
 **À propos des modèles de déploiement Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+## Diagramme de connexions
+
+![De site à site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
+
 **Modèles de déploiement et outils pour les connexions de site à site**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
-
+Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md). Si vous cherchez un autre type de configuration de connexion, consultez l’article [Topologies de connexion à la passerelle VPN Azure](vpn-gateway-topology.md).
 
 ## Avant de commencer
 
@@ -49,18 +53,10 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 	
 - Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
-## À propos de cette configuration
-
-
-![De site à site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-Dans les étapes suivantes, vous créez un réseau virtuel et ajoutez un sous-réseau de passerelle, une passerelle, un site local et une connexion. En outre, vous devez également configurer votre périphérique VPN.
-
-Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utiliser les valeurs suivantes :
-
-
-
 ### <a name="values"></a>Exemples de valeurs de configuration pour cet exercice
+
+
+Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utiliser les exemples de valeurs de configuration suivantes :
 
 - Nom du réseau virtuel : TestVNet1
 - Espace d’adressage :10.11.0.0/16 et 10.12.0.0/16
@@ -83,9 +79,9 @@ Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utili
 
 ## 1\. Créez un réseau virtuel 
 
-Si vous avez déjà créé un réseau virtuel, vérifiez que les paramètres sont compatibles avec votre conception de passerelle VPN. Faites particulièrement attention à tous les sous-réseaux qui peuvent se chevaucher avec d’autres réseaux. Vous pouvez ensuite passer à l’étape [Spécifier un serveur DNS](#dns).
+Si vous avez déjà créé un réseau virtuel, vérifiez que les paramètres sont compatibles avec votre conception de passerelle VPN. Faites particulièrement attention à tous les sous-réseaux qui peuvent se chevaucher avec d’autres réseaux. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement. Si vous avez vérifié la configuration appropriée de votre réseau virtuel, vous pouvez commencer à suivre les étapes de la section [Spécifier un serveur DNS](#dns).
 
-Si vous créez un réseau virtuel dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lors de la création de votre réseau virtuel.
+### Pour créer un réseau virtuel
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
@@ -99,6 +95,8 @@ Vous pouvez ajouter des sous-réseaux et des espaces d’adressage supplémentai
 
 Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous spécifiez votre serveur DNS.
 
+### Pour spécifier un serveur DNS
+
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. Créer un sous-réseau de passerelle
@@ -109,11 +107,17 @@ Le préfixe de sous-réseau de passerelle pour certaines configurations requiert
 
 Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre sous-réseau de passerelle.
 
+### Pour créer un sous-réseau de passerelle
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Créer une passerelle de réseau virtuel
 
 Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre passerelle.
+
+### Pour créer une passerelle de réseau virtuel
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -122,6 +126,8 @@ Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous 
 La *passerelle de réseau local* fait généralement référence à votre emplacement local. Vous donnez à cette passerelle de réseau local un nom qui sera utilisé par Azure pour la référencer.
 
 Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre site local.
+
+### Pour créer une passerelle de réseau local
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -135,10 +141,14 @@ Créez ensuite la connexion VPN de site à site entre votre passerelle de résea
 
 Avant de commencer cette section, vérifiez que la création de votre passerelle de réseau virtuel et des passerelles de réseau local est terminée. Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre connexion.
 
+### Pour créer la connexion VPN
+
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
 ## 9\. Vérifier la connexion VPN
+
+Vous pouvez vérifier votre connexion VPN dans le portail ou à l’aide de PowerShell.
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
@@ -146,6 +156,6 @@ Avant de commencer cette section, vérifiez que la création de votre passerelle
 
 - Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
 
-- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuration du protocole BGP).
+- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

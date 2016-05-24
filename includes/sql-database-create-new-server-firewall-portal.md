@@ -30,7 +30,10 @@ Exécutez les étapes suivantes dans le portail Azure pour créer une règle de 
 
  	![nouveau pare-feu de serveur](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
-5. Cliquez sur **Ajouter une adresse IP cliente** pour qu’Azure crée une règle pour votre adresse IP cliente.
+
+ 	> [AZURE.IMPORTANT] Si vous ne voyez pas l’option **Pare-feu** dans le panneau, revenez en arrière et assurez-vous que le panneau en question correspond au serveur logique de la base de données SQL et non à la base de données SQL.
+
+5. Cliquez sur **Ajouter une adresse IP cliente** pour qu’Azure crée une règle pour votre adresse IP cliente.
 
       ![nouveau pare-feu de serveur](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 

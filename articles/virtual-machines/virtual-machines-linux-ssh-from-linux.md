@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Utilisation de SSH avec Linux et Mac sur Azure
@@ -38,7 +38,7 @@ Voici les scénarios de déploiement et les types de fichiers que vous utilisez 
 
 ## Création de clés à utiliser avec SSH
 
-Azure nécessite des fichiers de clé au format **ssh-rsa** 2 048 bits ou les fichiers .pem équivalents, en fonction de votre scénario. Si vous avez déjà ces fichiers, transmettez le fichier de clé publique lors de la création de votre machine virtuelle Azure.
+Si vous avez déjà des clés SSH, transmettez le fichier de clé publique lors de la création de votre machine virtuelle Azure.
 
 Si vous avez besoin de créer les fichiers :
 
@@ -47,17 +47,14 @@ Si vous avez besoin de créer les fichiers :
 	- Pour Mac, consultez le [site web sur la sécurité des produits Apple](https://support.apple.com/HT201222) et choisissez les mises à jour appropriées si nécessaire.
 	- Pour les distributions Linux basées sur Debian comme Ubuntu, Debian, Mint, et ainsi de suite :
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- Pour les distributions Linux basées sur RPM comme CentOS et Oracle Linux :
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- Pour SLES et OpenSUSE
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. Utilisez **ssh-keygen** pour créer des fichiers de clés publiques et privées RSA 2048 bits, et à moins d'avoir un emplacement spécifique ou des noms spécifiques pour les fichiers, acceptez l'emplacement par défaut et le nom `~/.ssh/id_rsa`. La commande de base est la suivante :
@@ -72,9 +69,7 @@ Si vous avez besoin de créer les fichiers :
 
 	Si vous souhaitez créer un fichier .pem à partir d'un autre fichier de clé privée, modifiez l'argument `-key`.
 
-> [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sous Linux ou Mac, tapez : <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
-
-Pour convertir votre fichier .pem en un fichier de certificat DER X509 codé.
+> [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour convertir votre fichier .pem en fichier de certificat codé DER X509 sur Linux ou Mac, entrez : <br /> openssl x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Utiliser des clés SSH que vous avez déjà
 
@@ -86,7 +81,7 @@ Une fois que vous avez créé les fichiers nécessaires, il existe de nombreuses
 
 ### Exemple : Création d'une machine virtuelle avec le fichier id\_rsa.pub
 
-L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa.pub`) à la commande `azure vm create`. (Les autres arguments ont été précédemment créés).
+L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa.pub`) à la commande `azure vm create`. (Les autres arguments, comme le groupe de ressources et le compte de stockage, ont déjà été créés.) Cet exemple utilise la méthode de déploiement de Resource Manager. Vérifiez que votre interface de ligne de commande Azure est adaptée avec `azure config mode arm` :
 
 	azure vm create \
 	--nic-name testnic \
@@ -94,7 +89,7 @@ L'utilisation la plus courante concerne la création impérative d'une machine v
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -133,23 +128,23 @@ L'exemple suivant montre comment utiliser le format **ssh-rsa** avec un modèle 
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### Exemple : Création d'une machine virtuelle avec un fichier .pem
 
-Vous pouvez ensuite utiliser le fichier .pem du portail classique ou avec le mode de déploiement classique et `azure vm create`, comme dans l'exemple suivant :
+Vous pouvez ensuite utiliser le fichier .pem avec le portail Classic ou le mode de déploiement classique (`azure config mode asm`) et `azure vm create`, comme dans l’exemple suivant :
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-fr-FR-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-fr-FR-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-fr-FR-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-fr-FR-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -256,37 +251,39 @@ Si vous n'avez pas utilisé le port par défaut SSH 22 lorsque vous avez créé 
 
 ### Exemple : résultat d'une session SSH à l'aide de clés .pem et d'un déploiement classique
 
-Si vous avez créé une machine virtuelle à l'aide d'un fichier .pem créé à partir de votre fichier `~/.ssh/id_rsa`, vous pouvez utiliser directement ssh dans cette machine virtuelle. Notez que dans ce cas, la négociation du certificat utilisera votre clé privée à `~/.ssh/id_rsa`. (Le processus de création de machines virtuelles calcule la clé publique à partir de la .pem et place le formulaire ssh-rsa de la clé publique dans `~/.ssh/authorized_users`.) La connexion devrait ressembler à l'exemple suivant :
+Si vous avez créé une machine virtuelle à l'aide d'un fichier .pem créé à partir de votre fichier `~/.ssh/id_rsa`, vous pouvez utiliser directement ssh dans cette machine virtuelle. Notez que dans ce cas, la négociation du certificat utilisera votre clé privée à `~/.ssh/id_rsa`. (Le processus de création de machines virtuelles calcule la clé publique à partir de la .pem et place le formulaire ssh-rsa de la clé publique dans `~/.ssh/authorized_users`.) La connexion devrait ressembler à l'exemple suivant :
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## Si vous avez des problèmes de connexion
 
@@ -296,4 +293,4 @@ Vous pouvez lire les suggestions de la rubrique [Dépannage SSH connexions](virt
  
 Maintenant que vous êtes connecté à votre machine virtuelle, veillez à mettre à jour la distribution que vous avez choisie avant de continuer à l'utiliser.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

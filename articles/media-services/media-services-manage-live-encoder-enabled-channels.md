@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services" 
+	pageTitle="Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples." 
 	description="Cette rubrique décrit comment configurer un canal qui reçoit un flux dynamique à débit binaire unique à partir d’un encodeur local, puis effectue un encodage en temps réel en flux à débit binaire adaptatif avec Media Services. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
-#Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
+#Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
 ##Vue d'ensemble
 
@@ -27,11 +27,11 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
-- **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+- **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
 
-- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
+- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
->[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage **standard**). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage **standard**). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, voir [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
 >
 >Assurez-vous d’examiner la section [Considérations](media-services-manage-live-encoder-enabled-channels.md#Considerations).
 
@@ -87,7 +87,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 >[AZURE.NOTE] Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived à Microsoft.com si vous avez besoin d'exécuter un canal pour de longues périodes. N'oubliez pas qu'il existe un impact sur la facturation pour l'encodage en temps réel et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation horaires. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). 
 	
 	Cette étape peut également être effectuée après la création du canal.
 
@@ -116,9 +116,6 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 >[AZURE.NOTE]Il est très important de ne pas oublier d'arrêter un canal d'encodage en temps réel. N'oubliez pas qu'il existe un impact sur la facturation horaire pour l'encodage en temps réel et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
 
-La section [Tâches de diffusion en continu dynamique](media-services-manage-channels-overview.md#tasks) offre des liens vers des rubriques expliquant comment effectuer les tâches décrites ci-dessus.
-
-
 ##<a id="channel"></a>Configurations de l’entrée (réception) du canal
 
 ###<a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
@@ -128,8 +125,6 @@ Si le **Type d’encodeur** est défini sur **Standard**, les options valides so
 - **RTP** (MPEG-TS) : flux de transport MPEG-2 via RTP.  
 - **RTMP** à débit binaire unique
 - **MP4 fragmenté** (Smooth Streaming) à débit binaire unique
-
-Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
 ####RTP (MPEG-TS) : flux de transport MPEG-2 via RTP.  
 
@@ -195,23 +190,23 @@ Considérations :
 - Le flux audio doit avoir un débit binaire moyen inférieur à 1 Mbits/s.
 - Voici les codecs pris en charge :
 
-	- Vidéo MPEG-4 AVC/H.264  
-	
-		- Profil Baseline, Main, High (8 bits 4:2:0)
-		- Profil High 10 (10 bits 4:2:0)
-		- Profil High 422 (10 bits 4:2:2)
+- Vidéo MPEG-4 AVC/H.264
 
-	- Audio MPEG-2 AAC-LC
+- Profil Baseline, Main, High (8 bits 4:2:0)
+- Profil High 10 (10 bits 4:2:0)
+- Profil High 422 (10 bits 4:2:2)
 
-		- Mono, stéréo, Surround (5.1, 7.1)
-		- Fréquence d'échantillonnage 44,1 kHz
-		- Format ADTS style MPEG-2
-	
+- Audio MPEG-2 AAC-LC
+
+- Mono, stéréo, Surround (5.1, 7.1)
+- Fréquence d'échantillonnage 44,1 kHz
+- Format ADTS style MPEG-2
+
 - Les encodeurs recommandés sont les suivants :
 
-	- Telestream Wirecast
-	- Flash Media Live Encoder
-	- Tricaster
+- Telestream Wirecast
+- Flash Media Live Encoder
+- Tricaster
 
 ####MP4 fragmenté (Smooth Streaming) à débit binaire unique
 
@@ -225,11 +220,11 @@ Identique au flux [RTMP à débit binaire unique](media-services-manage-live-enc
 
 ####Autres considérations
 
-- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
+- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 - La résolution maximale pour le flux vidéo entrant est définie sur 1920x1080. Si le flux vidéo est entrelacé, elle est définie au plus sur 60 champs par seconde. S’il est progressif, elle est définie sur 30 images/seconde.
 
 
-###URL (points de terminaison) de réception 
+###URL (points de terminaison) de réception
 
 Un canal fournit un point de terminaison d’entrée (URL de réception) que vous spécifiez dans l’encodeur dynamique pour que ce dernier puisse envoyer les flux vers vos canaux.
 
@@ -244,7 +239,7 @@ Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo s
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
 
-##Aperçu du canal 
+##Aperçu du canal
 
 ###URL d’aperçu
 
@@ -264,7 +259,7 @@ Vous pouvez définir les adresses IP autorisées à se connecter au point de te
 
 Cette section décrit comment les paramètres de l’encodeur dynamique dans le canal peuvent être ajustés, lorsque le paramètre **Type d’encodage** d’un canal est défini sur **Standard**.
 
->[AZURE.NOTE]Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n'existe aucune limitation en cas d'encodage en temps réel avec des [encodages locaux en temps réel](media-services-manage-channels-overview.md) car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
+>[AZURE.NOTE]Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n’existe aucune limitation en cas d’encodage en temps réel avec des [encodages locaux en temps réel](media-services-live-streaming-with-onprem-encoders.md) car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 
 ###Source de marqueur de publicité
 
@@ -370,7 +365,7 @@ S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null.
 
-**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
+**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
 
 - Résolution maximale de 1920 x 1080
 - Taille maximale de 3 Mo.
@@ -431,17 +426,17 @@ Arrêté|Arrêté|Non
 ##<a id="Considerations"></a>Considérations
 
 - Quand un canal de type de codage **Standard** subit une perte de flux de source d'entrée/contribution, il compense cette perte en remplaçant l'audio ou la vidéo source par une ardoise d'erreur et un silence. Le canal continue d’émettre une ardoise jusqu’à la reprise du flux d’entrée/de contribution. Nous vous recommandons de ne pas laisser un canal direct dans cet état pendant plus de 2 heures. Au-delà de ce point, ni le comportement du canal au moment de la reconnexion de l’entrée ni son comportement en réponse à une commande de réinitialisation ne sont garantis. Vous devez alors arrêter le canal, le supprimer et en créer un autre.
-- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
-- Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme. 
+- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
+- Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme.
 - Un canal peut être arrêté uniquement lorsqu’il est en cours d’exécution et que tous les programmes du canal ont été arrêtés.
 - Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Il s’agit d’un quota conditionnel sur tous les nouveaux comptes. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
 - Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 - Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-- Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n'existe aucune limitation en cas d'encodage en temps réel avec des [encodages locaux en temps réel](media-services-manage-channels-overview.md) car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
+- Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n’existe aucune limitation en cas d’encodage en temps réel avec des [encodages locaux en temps réel](media-services-live-streaming-with-onprem-encoders.md) car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 - La valeur d'encodage prédéfinie utilise la notion de « fréquence d’images max » de 30 i/s. Par conséquent, si l'entrée est 60 i/s/59,97i, les images d’entrée sont réduites/désentrelacées à 30/29,97 i/s. Si l'entrée est 50 i/s/50i, les images d’entrée sont réduites/désentrelacées à 25 i/s. Si l'entrée est 25 i/s, la sortie reste à 25 i/s.
-- N'oubliez pas d'ARRÊTER VOS CANAUX lorsque vous avez terminé. Dans le cas contraire, la facturation continue. 
+- N'oubliez pas d'ARRÊTER VOS CANAUX lorsque vous avez terminé. Dans le cas contraire, la facturation continue.
 
 ##Problèmes connus
 
@@ -450,7 +445,7 @@ Arrêté|Arrêté|Non
 - Les images d'ardoise doivent être conformes aux restrictions décrites [ici](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si vous essayez de créer un canal à partir d’une ardoise par défaut d’une résolution supérieure à 1920 x 1080, la requête se termine par une erreur.
 - Une fois encore... n'oubliez pas d'ARRÊTER VOS CANAUX lorsque vous avez terminé la diffusion en continu. Dans le cas contraire, la facturation continue.
 
-###Création de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire adaptatif 
+###Création de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire adaptatif
 
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
@@ -478,6 +473,5 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
- 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

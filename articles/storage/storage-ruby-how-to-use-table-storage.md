@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation du stockage de tables Azure à partir de Ruby | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage de tables Azure dans Azure. Les exemples de code sont écrits à l’aide de l’API Ruby."
+	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/10/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -101,7 +101,7 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 * **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 * **insert\_or\_replace\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
+L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
 
 	entity = { "content" => "test entity with updated content",
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -130,7 +130,7 @@ Pour interroger une entité dans une table, utilisez la méthode **get\_entity()
 
 ## Interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
+Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -164,4 +164,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

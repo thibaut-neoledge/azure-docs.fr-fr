@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/16/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Créer votre première fabrique de données Azure à l’aide de Microsoft Visual Studio
@@ -238,8 +238,8 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-04-01T00:00:00Z",
+		        "end": "2016-04-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -339,6 +339,11 @@ Si vous recevez le message d’erreur : « **Cet abonnement n’est pas enregist
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
+Vous pouvez également utiliser l’application Surveillance et gestion pour surveiller vos pipelines de données. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion](data-factory-monitor-manage-app.md).
+
+> [AZURE.IMPORTANT] Le fichier d’entrée sera supprimé lorsque la tranche est traitée avec succès. Par conséquent, si vous souhaitez réexécuter la tranche ou refaire le didacticiel, chargez le fichier d’entrée (input.log) dans le dossier inputdata du conteneur adfgetstarted.
+ 
+
 ## Utiliser l’Explorateur de serveurs pour passer en revue la fabrique des données
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
@@ -376,7 +381,7 @@ Examinez la définition JSON suivante pour un service lié Azure Storage. Spéc
 ### Ajouter un fichier de configuration
 Ajoutez un fichier de configuration pour chaque environnement en effectuant les opérations suivantes :
 
-1. Avec le bouton droit de la souris, cliquez sur le projet Data Factory dans votre solution Visual Studio, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
+1. Cliquez avec le bouton droit de la souris sur le projet Data Factory dans votre solution Visual Studio, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 2. Sélectionnez **Config** dans la liste des modèles installés sur la gauche, choisissez **Fichier de configuration**, entrez un **nom** pour ce fichier, puis cliquez sur **Ajouter**.
 
 	![Ajouter un fichier de configuration](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -462,4 +467,4 @@ Au cours du déploiement, les valeurs du fichier de configuration sont utilisée
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

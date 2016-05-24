@@ -3,7 +3,7 @@
    description="Configurer un cluster de Service Fabric local et déployer une application existante vers ce dernier, puis mettre à niveau cette application."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/12/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
 Le kit de développement logiciel Fabric Service comprend un environnement de développement local complet que vous pouvez utiliser pour rapidement maîtriser le déploiement et la gestion des applications sur un cluster local. Dans cet article, vous allez créer un cluster local, déployer une application existante, puis mettre à niveau cette application vers une nouvelle version, le tout à partir de Windows PowerShell.
@@ -190,4 +190,4 @@ La nouvelle version de l’application compte désormais uniquement les mots com
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

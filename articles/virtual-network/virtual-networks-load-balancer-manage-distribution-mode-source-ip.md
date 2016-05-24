@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Gérer : mode de distribution d’équilibrage de charge (affinité d’IP source)"
+   pageTitle="Gérer : mode de distribution d’équilibrage de charge (affinité d’IP source)"
    description="Fonctionnalités de gestion pour le mode de distribution d'équilibrage de charge Azure"
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    />
@@ -15,13 +15,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/07/2015"
-   ms.author="telmos"
+   ms.author="jdial"
    />
 
-# Gérer un réseau virtuel : mode de distribution d’équilibrage de charge (affinité d’IP source)
+# Gérer un réseau virtuel : mode de distribution d’équilibrage de charge (affinité d’IP source)
 L’**affinité d’IP source** (également appelée **affinité de session** ou **affinité d’IP du client**), l’un des modes de distribution d’équilibrage de charge Azure, lie les connexions entre un client unique et un serveur unique hébergé sur Azure, au lieu de répartir dynamiquement chaque connexion client entre différents serveurs hébergés sur Azure (comportement d’équilibrage de charge par défaut).
 
-Avec l'affinité d'IP source, l'équilibrage de charge Azure peut être configuré pour utiliser une combinaison à 2 tuples (IP Source, IP de destination) ou une combinaison à 3 tuples (IP source IP, IP de destination, protocole) pour mapper le trafic au pool de serveurs disponibles hébergés sur Azure. Quand vous utilisez l'affinité d'IP source, les connexions initiées depuis le même ordinateur client sont gérées par un seul point de terminaison DIP (un seul serveur hébergé sur Azure).
+Avec l'affinité d'IP source, l'équilibrage de charge Azure peut être configuré pour utiliser une combinaison à 2 tuples (IP Source, IP de destination) ou une combinaison à 3 tuples (IP source IP, IP de destination, protocole) pour mapper le trafic au pool de serveurs disponibles hébergés sur Azure. Quand vous utilisez l'affinité d'IP source, les connexions initiées depuis le même ordinateur client sont gérées par un seul point de terminaison DIP (un seul serveur hébergé sur Azure).
 
 ## Origine du service
 
@@ -29,7 +29,7 @@ L’affinité d’IP source permet de résoudre une ancienne [incompatibilité e
 
 ## Implémentation
 
-L'affinité d'IP source peut être configurée pour les éléments suivants :
+L'affinité d'IP source peut être configurée pour les éléments suivants :
 
 * [Points de terminaison sur une machine virtuelle](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
 * [Jeux de points de terminaison soumis à l’équilibrage de charge](../load-balancer/load-balancer-overview.md)
@@ -40,13 +40,13 @@ L'affinité d'IP source peut être configurée pour les éléments suivants :
 1. Cluster de passerelle des services Bureau à distance utilisant un seul service cloud
 2. Téléchargement de médias (c'est-à-dire, UDP pour les données, TCP pour le contrôle)
   * Le client initie une session TCP à l'adresse IP publique soumise à l'équilibrage de charge et hébergée sur Azure.
-  * La demande du client est dirigée vers une adresse DIP par l'équilibrage de charge ; ce canal reste actif pour surveiller l'intégrité de la connexion.
+  * La demande du client est dirigée vers une adresse DIP par l'équilibrage de charge ; ce canal reste actif pour surveiller l'intégrité de la connexion.
   * Le client initie une session UDP à la même adresse IP publique soumise à l'équilibrage de charge et hébergée sur Azure.
   * L'équilibrage de charge Azure dirige la demande vers le même point de terminaison DIP que la connexion TCP.
   * Le client télécharge le média avec un débit UDP plus élevé tout en conservant le canal de contrôle sur TCP pour des raisons de fiabilité.
 
 ## Mises en garde
-* Si le jeu d'équilibrage de la charge est modifié (c'est-à-dire, si une machine virtuelle est ajoutée ou supprimée), la distribution du canal client est recalculée ; les nouvelles connexions à partir des clients existants peuvent être gérées par un autre serveur que celui utilisé à l'origine.
+* Si le jeu d'équilibrage de la charge est modifié (c'est-à-dire, si une machine virtuelle est ajoutée ou supprimée), la distribution du canal client est recalculée ; les nouvelles connexions à partir des clients existants peuvent être gérées par un autre serveur que celui utilisé à l'origine.
 * L'utilisation de l'affinité d'IP source peut occasionner une distribution inégale du trafic entre les serveurs hébergés sur Azure.
 * Les clients qui acheminent leur trafic via un proxy peuvent être considérés vus comme un client unique par l'équilibrage de charge Azure.
 
@@ -59,7 +59,7 @@ Pour optimiser les résultats, téléchargez la [dernière version d’Azure Pow
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
 
-LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut (équilibrage de charge à 5 tuples).
+LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut (équilibrage de charge à 5 tuples).
 
 ### Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
     PS C:\> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
@@ -82,7 +82,7 @@ LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équ
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Si l'élément LoadBalancerDistribution n'est pas présent, l'équilibrage de charge Azure utilise l'algorithme par défaut à 5 tuples.
+Si l'élément LoadBalancerDistribution n'est pas présent, l'équilibrage de charge Azure utilise l'algorithme par défaut à 5 tuples.
 
 ### Définir le mode de distribution sur un jeu de points de terminaison d'équilibrage de charge
 
@@ -98,7 +98,7 @@ Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET pou
 
 Les paramètres de point de terminaison des services cloud sont définis dans .csdef. Pour mettre à jour le mode de distribution d'équilibrage de charge pour un déploiement de services cloud, une mise à niveau du déploiement s'impose.
 
-Voici un exemple de modifications apportées aux paramètres de point de terminaison dans .csdef :
+Voici un exemple de modifications apportées aux paramètres de point de terminaison dans .csdef :
 
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
       <Endpoints>
@@ -148,7 +148,7 @@ Les développeurs peuvent configurer la distribution d'équilibrage de charge à
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 2 tuples, sourceIPProtocol pour une affinité à 3 tuples ou none (aucune affinité, c'est-à-dire, 5 tuples)
+La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 2 tuples, sourceIPProtocol pour une affinité à 3 tuples ou none (aucune affinité, c'est-à-dire, 5 tuples)
 
 #### Réponse
 
@@ -160,4 +160,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

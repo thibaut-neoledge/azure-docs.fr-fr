@@ -8,13 +8,11 @@ Machines virtuelles par [abonnement](../articles/billing-buy-sign-up-azure-subsc
 Lectures API Resource Manager|15 000 par heure|15 000 par heure
 Écritures API Resource Manager|1 200 par heure|1 200 par heure
 Taille de la demande d’API Resource Manager|4 194 304 octets|4 194 304 octets
-[Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
-[Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
+[Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement|Non applicable<sup>3</sup>|Non applicable<sup>3</sup>
+[Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement|Non applicable<sup>3</sup>|Non applicable<sup>3</sup>
 
 <sup>1</sup>Les limites par défaut varient selon le type de catégorie d'offre, comme Version d'évaluation gratuite, Paiement à l'utilisation, etc.
 
 <sup>2</sup>Contactez le support pour augmenter la limite.
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
-
-<!---HONumber=AcomDC_0420_2016-->

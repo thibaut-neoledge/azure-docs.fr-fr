@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="05/05/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight pour base de données SQL Azure
@@ -46,9 +46,9 @@ Query Performance Insight est simple d’utilisation :
 
 - Passez en revue la liste des requêtes consommant le plus de ressources. 
 - Sélectionnez une requête pour en afficher les détails.
-- Ouvrez [Performance Advisor](sql-database-index-advisor.md), puis vérifiez si des recommandations sont disponibles.
+- Ouvrez [SQL Database Advisor](sql-database-index-advisor.md), puis regardez si des recommandations sont disponibles.
 - Zoomez pour obtenir des informations détaillées.
-- 
+
     ![tableau de bord des performances](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] Quelques heures de données doivent être capturées par Query Store pour que la base de données SQL fournisse des informations sur les performances des requêtes. Si la base de données n’a aucune activité ou que Query Store est resté inactif pendant une certaine période, les graphiques seront vides lors de l’affichage de cette période. Vous pouvez activer Query Store à tout moment s’il n’est pas en cours d’exécution.
@@ -59,20 +59,21 @@ Query Performance Insight est simple d’utilisation :
 
 Dans le [portail](http://portal.azure.com), procédez comme suit :
 
-1. Accédez à une base de données SQL et cliquez sur **Tous les paramètres** > **Performances** > **Requêtes**. 
+1. Accédez à une base de données SQL et cliquez sur **Tous les paramètres** > **Performances** > **Requêtes**. 
 
     ![Query Performance Insight][1]
 
     La vue des principales requêtes s’ouvre, affichant une liste des requêtes consommant le plus d’UC.
 
-1. Cliquez sur le graphique pour plus d’informations.<br>La première ligne affiche le pourcentage de DTU global de la base de données, tandis que les barres affichent le pourcentage d’UC consommé par les requêtes sélectionnées pendant l’intervalle sélectionné (par exemple, si **Semaine dernière** est sélectionné, chaque barre représente 1 jour).
+1. Cliquez sur le graphique pour plus d’informations.<br>La première ligne affiche le pourcentage de DTU global de la base de données, tandis que les barres affichent le pourcentage d’UC consommé par les requêtes sélectionnées pendant l’intervalle sélectionné (par exemple, si **Semaine dernière** est sélectionné, chaque barre représente 1 jour).
 
     ![principales requêtes][2]
 
     Le tableau du bas contient des informations agrégées concernant les requêtes visibles.
 
-    -	Temps processeur moyen par requête pendant l’intervalle observable. 
-    -	Durée totale par requête.
+    -	ID de requête – identificateur unique de la requête dans la base de données. 
+    -	UC par requête pendant l’intervalle observable (dépend de la fonction d’agrégation).
+    -	Durée par requête (dépend de la fonction d’agrégation).
     -	Nombre total d’exécutions pour une requête particulière.
 
 
@@ -124,9 +125,9 @@ Il existe deux types de stratégies de rétention :
 
 La stratégie de capture peut avoir les valeurs suivantes :
 
-- **Tout** : toutes les requêtes sont capturées. Il s'agit de l'option par défaut.
-- **Auto** : les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante sont ignorées. Les seuils concernant le nombre d’exécutions, et la durée de compilation et d’exécution, sont déterminés en interne.
-- **Aucun** : le magasin de requêtes capture de nouvelles requêtes.
+- **Tout** : toutes les requêtes sont capturées. Il s'agit de l'option par défaut.
+- **Auto** : les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante sont ignorées. Les seuils concernant le nombre d’exécutions, et la durée de compilation et d’exécution, sont déterminés en interne.
+- **Aucun** : le magasin de requêtes capture de nouvelles requêtes.
 	
 Nous vous recommandons de définir toutes les stratégies sur Auto, et de définir la stratégie de suppression des anciennes requêtes sur 30 jours :
 
@@ -151,14 +152,14 @@ Supprimez le contenu du magasin de requêtes. Cette action entraînera la suppre
 
 ## Résumé
 
-Query Performance Insight vous permet de comprendre l’impact de votre charge de travail de requêtes et la relation de celle-ci avec la consommation des ressources de base de données. Cette fonctionnalité vous permettra d’en savoir plus sur les requêtes les plus gourmandes et d’identifier facilement les requêtes à corriger avant qu’elles ne deviennent un problème. Cliquez sur **Query Performance Insight** dans une base de données pour afficher les requêtes qui consomment le plus de ressources (UC).
+Query Performance Insight vous permet de comprendre l’impact de votre charge de travail de requêtes et la relation de celle-ci avec la consommation des ressources de base de données. Cette fonctionnalité vous permettra d’en savoir plus sur les requêtes les plus gourmandes et d’identifier facilement les requêtes à corriger avant qu’elles ne deviennent un problème.
 
 
 
 
 ## Étapes suivantes
 
-Pour obtenir d’autres recommandations concernant l’amélioration des performances de votre base de données SQL, cliquez sur [Performance Advisor](sql-database-index-advisor.md) dans le panneau **Query Performance Insight**.
+Pour obtenir d’autres recommandations concernant l’amélioration des performances de votre base de données SQL, cliquez sur [SQL Database Advisor](sql-database-index-advisor.md) dans le panneau **Query Performance Insight**.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -168,4 +169,4 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

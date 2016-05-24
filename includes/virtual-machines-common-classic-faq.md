@@ -13,6 +13,13 @@ Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtue
 
 Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
+## Pourquoi les groupes d’affinités sont-ils déconseillés ?
+
+Les groupes d’affinités désignent un concept hérité initialement prévu pour améliorer les performances du réseau de machines virtuelles dans les toutes premières conceptions de réseau Azure, mais aussi pour prendre en charge la version initiale des réseaux virtuels qui étaient limités à un petit ensemble de ressources matérielles dans une région. Le réseau Azure actuel au sein d’une région est conçu de manière à ne plus nécessiter de groupes d’affinités. Les réseaux virtuels sont également présents à l’échelle régionale, de sorte qu’aucun groupe d’affinités n’est requis lors de l’utilisation d’un réseau virtuel. En raison de ces améliorations, il n’est plus recommandé aux clients d’utiliser les groupes d’affinités, car ces derniers peuvent se révéler contraignants dans certains cas. L’utilisation de groupes d’affinités associe inutilement vos machines virtuelles à un matériel spécifique qui limite le choix de la taille des machines virtuelles à votre disposition. Elle peut également entraîner des erreurs liées à la capacité lors de l’ajout de machines virtuelles si le matériel associé au groupe d’affinités se trouve saturé.
+
+Les fonctionnalités des groupes d’affinités sont déjà déconseillées dans le modèle de déploiement Azure Resource Manager et sur le portail. Nous déconseillons la prise en charge de la création de groupes d’affinités ainsi que la prise en charge de la création de ressources de stockage épinglées à un groupe d’affinités, à partir du portail Classic. Il est inutile de modifier les services cloud existants qui utilisent un groupe d’affinités. Les nouveaux services cloud ne doivent pas utiliser de groupes d’affinités, sauf recommandation contraire de la part d’un professionnel du support Azure.
+
+
 ## Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
 
 Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
@@ -137,5 +144,3 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 [Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
-
-<!---HONumber=AcomDC_0413_2016-->

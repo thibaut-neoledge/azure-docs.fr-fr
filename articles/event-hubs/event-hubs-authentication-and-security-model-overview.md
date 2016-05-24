@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| Microsoft Azure"
-   description="Présentation du modèle de sécurité et de l'authentification Event Hubs."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| Microsoft Azure"
+    description="Présentation du modèle de sécurité et de l'authentification Event Hubs."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/03/2016"
+    ms.author="sethm;clemensv" />
 
 # Présentation du modèle de sécurité et de l'authentification Event Hubs
 
@@ -25,13 +25,13 @@ Le modèle de sécurité Event Hubs remplit les conditions suivantes :
 
 ## Authentification des appareils
 
-Le modèle de sécurité du hub d'événements est basé sur une combinaison de jetons de [signature d'accès partagé (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) et d'éditeurs d'événements. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
+Le modèle de sécurité du hub d’événements est basé sur une combinaison de jetons de [signature d’accès partagé (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) et d’*éditeurs d’événements.* Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
 
-En règle générale, un hub d'événements utilise un seul éditeur par appareil. Tous les messages qui sont envoyés à un éditeur d'un hub d'événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d'accès précis et une limitation.
+En règle générale, un hub d'événements utilise un seul éditeur par appareil. Tous les messages qui sont envoyés à un éditeur d'un hub d'événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d’accès précis et une limitation.
 
 Un jeton unique, qui est téléchargé sur l'appareil, est affecté à chaque appareil. Les jetons sont produits de façon à ce que chaque jeton unique donne accès à un éditeur unique différent. Un appareil qui possède un jeton ne peut envoyer qu'à un seul éditeur, mais pas un autre éditeur. Si plusieurs appareils partagent le même jeton, alors ils partagent un éditeur.
 
-Bien que cela soit déconseillé, il est possible d'équiper les appareils de jetons qui donnent un accès direct à un hub d'événements. N'importe quel appareil qui contient ce jeton peut envoyer des messages directement dans ce hub d'événements. Un appareil de ce type ne sera pas soumis à la limitation. En outre, il est impossible d'empêcher l'appareil d'effectuer des envois à ce hub d'événements.
+Bien que cela soit déconseillé, il est possible d'équiper les appareils de jetons qui donnent un accès direct à un hub d'événements. N’importe quel appareil qui contient ce jeton peut envoyer des messages directement dans ce hub d’événements. Un appareil de ce type ne sera pas soumis à la limitation. En outre, il est impossible d'empêcher l'appareil d'effectuer des envois à ce hub d'événements.
 
 Tous les jetons sont signés avec une clé SAS. En règle générale, tous les jetons sont signés avec la même clé. Les appareils ne sont pas conscients de la clé. Cela empêche les appareils de fabriquer des jetons.
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event hub with a SAS rule that allows sending to that Event hub
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -145,13 +145,13 @@ ACS prend en charge plusieurs façons de créer des identités de service, des p
 
 Pour plus d'informations sur les hubs d'événements, consultez les rubriques suivantes :
 
-- [Vue d’ensemble des hubs d’événements].
+- [Vue d’ensemble des concentrateurs d’événements]
 - Un [exemple d'application complet qui utilise des hubs d’événements].
 - Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
 
-[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
+[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

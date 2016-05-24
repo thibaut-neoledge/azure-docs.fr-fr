@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/12/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide de Java
@@ -29,7 +29,14 @@
 
 Apprenez à utiliser le Kit de développement logiciel (SDK) Java Azure Data Lake Store pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Configuration requise
+## Kit de développement logiciel (SDK) Java Azure Data Lake Store
+
+Les liens suivants permettent d’accéder à l’emplacement de téléchargement du Kit de développement logiciel (SDK) Java pour le Data Lake Store et de la référence du Kit de développement logiciel (SDK) Java. Pour ce didacticiel, il est inutile de télécharger le Kit de développement logiciel (SDK) ou de suivre le document de référence. Ces liens sont uniquement fournis à titre informatif.
+
+* Le code source du Kit de développement logiciel (SDK) Java pour le Data Lake Store est disponible sur [GitHub](https://github.com/Azure/azure-sdk-for-java).
+* La référence du Kit de développement logiciel (SDK) Java pour le Data Lake Store est disponible à l’adresse [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
+
+## Composants requis
 
 * Kit de développement Java (JDK) 8 (avec Java version 1.8).
 * IntelliJ ou un autre environnement de développement Java approprié. Ceci étape est facultatif mais recommandé. Les instructions ci-dessous utilisent IntelliJ.
@@ -303,4 +310,4 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

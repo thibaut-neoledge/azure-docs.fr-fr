@@ -35,8 +35,9 @@ HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
 
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - [cURL][curl] est facultatif. Pour l’installer, consultez [Versions et téléchargements de cURL][curl-download].
 
@@ -173,4 +174,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

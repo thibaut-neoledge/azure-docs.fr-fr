@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Création d’un compte de base de données NoSQL - version d’évaluation gratuite | Microsoft Azure"
-	description="Apprenez à créer des comptes de base de données à l’aide du créateur de base de données en ligne pour Azure DocumentDB, service de base de données de documents NoSQL géré pour JSON. Essayez gratuitement dès aujourd’hui."
-	keywords="Essai gratuit, créateur de base de données en ligne, créer une base de données, création base de données, documentdb, azure, Microsoft azure"
+	pageTitle="Création d’un compte DocumentDB | Microsoft Azure"
+	description="Créer une base de données NoSQL avec Microsoft Azure DocumentDB. Suivez ces instructions pour créer un compte DocumentDB, puis pour créer votre base de données NoSQL ultrarapide et de portée internationale." 
+	keywords="créer une base de données"
 	services="documentdb"
 	documentationCenter=""
 	authors="mimig1"
@@ -14,16 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="05/16/2016"
 	ms.author="mimig"/>
 
-# Création d’un compte de base de données DocumentDB à l’aide du portail Azure
+# Création d’un compte DocumentDB à l’aide du portail Azure
 
 > [AZURE.SELECTOR]
 - [Portail Azure](documentdb-create-account.md)
 - [Interface de ligne de commande Azure et ARM](documentdb-automation-resource-manager-cli.md)
 
-Pour utiliser Microsoft Azure DocumentDB, vous devez créer un compte de base de données DocumentDB à l’aide du portail Azure, des modèles Azure Resource Manager ou de l’interface de ligne de commande Azure (CLI). Cet article décrit la procédure de création d’un compte de base de données à l’aide du portail Azure. Pour créer un compte à l’aide d’Azure Resource Manager et de l’interface de ligne de commande Azure, consultez l’article [Automatisation de la création de compte de base de données DocumentDB](documentdb-automation-resource-manager-cli.md).
+Pour créer une base de données avec Microsoft Azure DocumentDB, vous devez :
+
+- Avoir un compte Azure. Si vous n’en avez pas, vous pouvez obtenir un [compte Azure gratuit](https://azure.microsoft.com/free) 
+- Création d’un compte DocumentDB.  
+
+Vous pouvez créer un compte DocumentDB avec le portail Azure, à l’aide de modèles Azure Resource Manager ou de l’interface de ligne de commande Azure (CLI). Cet article décrit la procédure de création d’un compte de base de données à l’aide du portail Azure. Pour créer un compte à l’aide d’Azure Resource Manager et de l’interface de ligne de commande Azure, consultez l’article [Automatisation de la création de compte de base de données DocumentDB](documentdb-automation-resource-manager-cli.md).
 
 Vous débutez avec DocumentDB ? Regardez [cette vidéo](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de quatre minutes réalisée par Scott Hanselman pour voir comment effectuer les tâches les plus courantes dans le portail en ligne.
 
@@ -33,8 +38,8 @@ Vous débutez avec DocumentDB ? Regardez [cette vidéo](https://azure.microsoft
 
 Maintenant que vous disposez d’un compte DocumentDB, l’étape suivante consiste à créer une base de données DocumentDB. Pour créer une base de données, utilisez au choix :
 
-- les exemples C# .NET du projet [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) dans le référentiel [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) sur GitHub ;
 - le portail Azure, tel que décrit dans la rubrique [Création d’une base de données DocumentDB avec le portail Azure](documentdb-create-database.md) ;
+- les exemples C# .NET du projet [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) dans le référentiel [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) sur GitHub ;
 - les didacticiels complets : [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) ou [Python](documentdb-python-application.md) ;
 - les [kits de développement logiciel (SDK) de DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript.
 
@@ -48,4 +53,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 -	[Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modèle de ressource et concepts de DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

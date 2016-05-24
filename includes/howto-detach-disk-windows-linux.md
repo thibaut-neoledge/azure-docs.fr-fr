@@ -4,7 +4,7 @@ Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à 
 
 Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.
 
-> [AZURE.NOTE] Il n’est pas possible de détacher un disque de système d’exploitation, sauf si vous supprimez également la machine virtuelle.
+> [AZURE.NOTE] Pour détacher un disque de système d’exploitation, vous devez tout d’abord supprimer la machine virtuelle.
 
 
 ## Recherche du disque
@@ -32,5 +32,3 @@ Si vous ne connaissez pas le nom du disque ou souhaitez le vérifier avant de le
 	![Détails concernant le disque à détacher](./media/howto-detach-disk-windows-linux/DetachDiskDetails.png)
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
-
-<!---HONumber=AcomDC_0211_2016-->

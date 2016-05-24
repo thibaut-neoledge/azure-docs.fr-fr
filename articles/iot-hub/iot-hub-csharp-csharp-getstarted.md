@@ -130,7 +130,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
         using Microsoft.ServiceBus.Messaging;
         using System.Threading;
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans la section *Créer un IoT Hub* :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans la section *Créer un IoT Hub* :
 
         static string connectionString = "{iothub connection string}";
         static string iotHubD2cEndpoint = "messages/events";
@@ -197,7 +197,7 @@ Dans cette section, vous allez créer une application console Windows qui simule
         using Newtonsoft.Json;
 
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs des espaces réservés par le nom d’hôte IoT Hub figurant dans la section *Créer un IoT Hub* et par la clé d’appareil figurant dans la section *Créer une identité d’appareil* :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs des espaces réservés par le nom d’hôte IoT Hub figurant dans la section *Créer un IoT Hub* et par la clé d’appareil figurant dans la section *Créer une identité d’appareil* :
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub hostname}";

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
-# Azure AD et applications : un guide pour les développeurs
-
-## Vue d’ensemble
+# Azure AD et applications : développement des applications métier
 
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory et s’adresse particulièrement aux administrateurs généraux de systèmes Active Directory/Office 365.
+
+## Vue d'ensemble
 
 La création d’applications intégrées à Azure AD permet aux utilisateurs de votre organisation de bénéficier de l’authentification unique avec Office 365. En disposant de l’application dans Azure AD, vous pouvez contrôler la stratégie d’authentification définie pour celle-ci. Pour en savoir plus sur l’accès conditionnel et la façon de protéger les applications avec l’authentification multifacteur, consultez le document suivant : [Configuration des règles d’accès](active-directory-conditional-access-azuread-connected-apps.md).
 
@@ -32,12 +32,12 @@ En inscrivant une application, tout utilisateur peut effectuer les opérations s
 
 - Obtenir pour son application une identité reconnue par Azure AD.
 - Obtenir un ou plusieurs secrets/clés que l’application peut utiliser pour s’authentifier auprès d’Active Directory.
-- Personnaliser l’application avec un nom, un logo, etc., dans le portail Azure.
-- Tirer parti des fonctionnalités d’autorisation Azure AD pour son application.
-  - Contrôle d’accès en fonction du rôle (RBAC) pour les applications
+- Personnaliser l’application avec un nom personnalisé, un logo, etc., dans le portail Azure.
+- Tirer parti des fonctionnalités d’autorisation Azure AD pour son application, notamment :
+  - Contrôle d’accès en fonction du rôle
   - Azure Active Directory en tant que serveur d’autorisation oAuth (sécuriser une API exposée par l’application)
 
-- Déclarer les autorisations requises nécessaires au bon fonctionnement de l’application. À savoir :
+- Déclarer les autorisations requises nécessaires au bon fonctionnement de l’application, notamment :
 	  - Autorisations de l’application (administrateurs généraux uniquement). Par exemple :
 	    - Appartenance au rôle dans une autre application Azure AD ou appartenance au rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
 	  - Autorisations déléguées (tout utilisateur). Par exemple :
@@ -53,11 +53,9 @@ Voici les opérations que vous devez effectuer en tant qu’administrateur gén�
 - Configurer l’application pour qu’elle demande l’affectation de l’utilisateur et affecter des utilisateurs
 - Supprimer l’expérience de consentement d’utilisateur par défaut
 
-## Configuration des règles d’accès
+## Configurer des règles d’accès
 
-Comme nous l’avons mentionné plus haut, consultez l’article suivant pour en savoir plus sur la configuration des règles d’accès pour n’importe quelle application.
-
-[Configuration des règles d’accès](active-directory-conditional-access-azuread-connected-apps.md)
+Configurer des règles d’accès par application de vos applications SaaS. Cela peut comprendre l’exigence d’un MFA, ou l’autorisation d’accès aux utilisateurs uniquement sur les réseaux approuvés. Pour plus d’informations à ce sujet, voir [Configuration des règles d’accès](active-directory-conditional-access-azuread-connected-apps.md).
 
 ## Configurer l’application pour qu’elle demande l’affectation de l’utilisateur et affecter des utilisateurs
 
@@ -69,16 +67,19 @@ Si vous êtes abonné à Azure AD Premium ou Enterprise Mobility Suite (EMS), no
 
 [Affectation d’utilisateurs à une application](active-directory-applications-guiding-developers-assigning-users.md) et [Affectation de groupes à une application](active-directory-applications-guiding-developers-assigning-groups.md)
 
-## Suppression du consentement de l’utilisateur
+## Supprimer le consentement de l’utilisateur
 
-Par défaut, l’utilisateur doit consentir à l’autorisation nécessaire pour la connexion. L’expérience de la demande d’un consentement à l’octroi d’autorisations à une application peut être déconcertante pour les utilisateurs qui ne sont pas familiarisés avec la prise de décision de ce type.
+Par défaut, chaque utilisateur doit se soumettre à une expérience de consentement pour se connecter. L’expérience de la demande d’un consentement à l’octroi d’autorisations à une application peut être déconcertante pour les utilisateurs qui ne sont pas familiarisés avec la prise de décision de ce type.
 
-Pour les applications de confiance, vous pouvez donner votre consentement à l’application pour le compte de tous les utilisateurs de votre organisation.
+Pour les applications de confiance, vous pouvez simplifier l’expérience utilisateur en accordant le consentement à l’application au nom de votre organisation.
 
 Pour en savoir plus sur le consentement de l’utilisateur et sur l’expérience du consentement dans Azure, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 ##Articles connexes
 
+- [Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md)
+- [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+- [Gestion de l’accès aux applications](active-directory-managing-access-to-apps.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

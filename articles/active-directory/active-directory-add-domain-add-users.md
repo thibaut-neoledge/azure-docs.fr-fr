@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Affecter des utilisateurs à un domaine personnalisé
@@ -56,10 +56,10 @@ Vous pouvez également utiliser [Microsoft PowerShell](https://msdn.microsoft.co
 
 ## Étapes suivantes
 
-- [Utilisation de noms de domaine personnalisés pour simplifier l’expérience de connexion pour vos utilisateurs](active-directory-add-domain.md)
-- [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
-- [Ajouter et vérifier un nom de domaine personnalisé dans Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Modifier le bureau d’enregistrement DNS pour votre nom de domaine personnalisé](active-directory-add-domain-change-registrar.md)
-- [Supprimer un domaine personnalisé dans Azure Active Directory](active-directory-add-domain-delete-domain.md)
+-   [Utilisation de noms de domaine personnalisés pour simplifier l’expérience de connexion pour vos utilisateurs](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
+
+-   [En savoir plus sur les concepts de gestion de domaine dans Azure AD](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

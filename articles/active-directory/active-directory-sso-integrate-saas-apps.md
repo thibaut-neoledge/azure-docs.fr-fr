@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="04/26/2016"
     ms.author="curtand"/>
 
 # Intégrer l’authentification unique Azure Active Directory aux applications SaaS  
@@ -47,7 +47,7 @@ Configurer l’authentification unique pour une application que votre organisati
 
 ### Mappage de comptes d’utilisateurs
 
-L’identité d'un utilisateur comporte généralement un identificateur unique qui peut être une adresse de messagerie ou un nom universel (UPN). Vous devrez lier (mapper) l’identité d'application de chaque utilisateur à son identité Azure AD correspondante. Il existe deux façons de procéder selon les exigences d'authentification de votre application.
+L’identité d’un utilisateur comporte généralement un identificateur unique qui peut être une adresse de messagerie ou un nom d’utilisateur principal. Vous devrez lier (mapper) l’identité d'application de chaque utilisateur à son identité Azure AD correspondante. Il existe deux façons de procéder selon les exigences d'authentification de votre application.
 
 Pour plus d'informations sur le mappage d'identités d'application sur des identités Azure AD, consultez [Personnalisation des revendications émises dans le jeton SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) et [Personnalisation des mappages d'attributs pour l'approvisionnement](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -72,4 +72,4 @@ Vous trouverez des informations beaucoup plus détaillées sur tous ces problèm
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

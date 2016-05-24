@@ -3,7 +3,7 @@
    description="Création d'un ticket de support dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="sonyam;barbkess;sonyama"/>
 
 # Création d'un ticket de support pour SQL Data Warehouse
  Cet article démontre comment créer un ticket de support pour SQL Data Warehouse.
@@ -84,4 +84,4 @@ En outre, vous pouvez contacter la communauté SQL Data Warehouse à l'aide de l
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

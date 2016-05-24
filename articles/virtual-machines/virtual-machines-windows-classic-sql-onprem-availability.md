@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Extension de groupes de disponibilité AlwaysOn locaux à Azure | Microsoft Azure"
-	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité AlwaysOn dans Azure."
+	pageTitle="Étendre des groupes de disponibilité Always On locaux à Azure | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité Always On dans Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
-# Étendre des groupes de disponibilité AlwaysOn locaux à Azure
+# Étendre des groupes de disponibilité Always On locaux à Azure
 
-Les groupes de disponibilité AlwaysOn fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
+Les groupes de disponibilité Always On fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
 
 Pour étendre les groupes de disponibilité locaux à Microsoft Azure, vous pouvez approvisionner une ou plusieurs machines virtuelles Azure avec SQL Server et les ajouter en tant que réplicas à vos groupes de disponibilité locaux.
 
@@ -27,7 +27,7 @@ Ce didacticiel part du principe que vous disposez des éléments suivants :
 
 - Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, consultez la page [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
+- Un groupe de disponibilité Always On local existant. Pour plus d’informations sur les groupes de disponibilité, voir [Groupes de disponibilité Always On](https://msdn.microsoft.com/library/hh510230.aspx).
 
 - Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d’informations sur la création de ce réseau virtuel, consultez la page [Configurer un VPN de site à site en utilisant le portail Azure Classic](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
@@ -35,9 +35,9 @@ Ce didacticiel part du principe que vous disposez des éléments suivants :
 
 ## assistant Add Azure Replica
 
-Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre solution de groupe de disponibilité AlwaysOn de manière à inclure des réplicas Azure.
+Cette section vous indique comment utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre solution de groupe de disponibilité Always On de manière à inclure des réplicas Azure.
 
-1. Dans SQL Server Management Studio, développez **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** > **[Nom de votre groupe de disponibilité]**.
+1. Dans SQL Server Management Studio, développez **Haute disponibilité Always On** > **Groupes de disponibilité** > **[Nom de votre groupe de disponibilité]**.
 
 1. Cliquez avec le bouton droit sur **Réplicas de disponibilité**, puis sélectionnez **Ajouter un réplica**.
 
@@ -81,7 +81,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 
 1. Cliquez sur **Next**.
 
-1. Sélectionnez la méthode de synchronisation de données à utiliser sur la page **Sélectionner la synchronisation de données initiale** et cliquez sur **Suivant**. Pour la plupart des scénarios, sélectionnez **Synchronisation complète des données**. Pour plus d’informations sur les méthodes de synchronisation de données, voir [Page Sélectionner la synchronisation de données initiale (Assistants Groupes de disponibilité AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
+1. Sélectionnez la méthode de synchronisation de données à utiliser sur la page **Sélectionner la synchronisation de données initiale** et cliquez sur **Suivant**. Pour la plupart des scénarios, sélectionnez **Synchronisation complète des données**. Pour plus d’informations sur les méthodes de synchronisation de données, voir [Page Sélectionner la synchronisation de données initiale (assistants de groupe de disponibilité AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
 
 1. Passez en revue les résultats sur la page **Validation**. Corrigez les problèmes et réexécutez la validation si nécessaire. Cliquez sur **Next**.
 
@@ -95,12 +95,12 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 
 ## Créer un écouteur de groupe de disponibilité
 
-Après avoir créé le groupe de disponibilité, vous devez créer un écouteur pour que les clients puissent se connecter aux réplicas. Les écouteurs dirigent les connexions entrantes vers le réplica principal ou un réplica secondaire en lecture seule. Pour plus d’informations sur les écouteurs, voir [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Après avoir créé le groupe de disponibilité, vous devez créer un écouteur pour que les clients puissent se connecter aux réplicas. Les écouteurs dirigent les connexions entrantes vers le réplica principal ou un réplica secondaire en lecture seule. Pour plus d’informations sur les écouteurs, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 ## Étapes suivantes
 
-En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité AlwaysOn dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
+En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité Always On dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

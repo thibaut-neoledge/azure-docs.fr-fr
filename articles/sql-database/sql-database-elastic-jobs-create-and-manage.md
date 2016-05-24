@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création et gestion de tâches de bases de données élastiques | Micosoft Azure"
+	pageTitle="Créer et gérer des bases de données SQL Azure avec montée en charge | Microsoft Azure"
 	description="Passez en revue la création et la gestion d'une tâche de base de données élastique."
 	services="sql-database"
 	documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/25/2016"
 	ms.author="ddove; sidneyh"/>
 
-# Créer et gérer des tâches de bases de données SQL élastiques avec le portail (version préliminaire)
+# Créer et gérer des bases de données SQL Azure avec montée en charge (version préliminaire)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
-Les **tâches de bases de données élastiques** simplifient la gestion des groupes de bases de données en exécutant des opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte de données de télémétrie du locataire (client). Tâches de bases de données élastiques est actuellement disponible via le portail Azure et les applets de commande PowerShell. Le portail Azure propose toutefois une fonctionnalité réduite, qui se limite à une exécution sur toutes les bases de données d’un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Pour accéder à des fonctionnalités supplémentaires et à l'exécution des scripts sur un groupe de bases de données, notamment une collection personnalisée ou un ensemble de partitions (créé à l'aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-introduction.md)), consultez la rubrique [Création et gestion de tâches à l'aide de PowerShell](sql-database-elastic-jobs-powershell.md). Pour en savoir plus sur les tâches, consultez la rubrique [Vue d'ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
+Les **tâches de bases de données élastiques** simplifient la gestion des groupes de bases de données en exécutant des opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte de données de télémétrie du locataire (client). Tâches de bases de données élastiques est actuellement disponible via le portail Azure et les applets de commande PowerShell. Le portail Azure propose toutefois une fonctionnalité réduite, qui se limite à une exécution sur toutes les bases de données d’un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Pour accéder à des fonctionnalités supplémentaires et à l'exécution des scripts sur un groupe de bases de données, notamment une collection personnalisée ou un ensemble de partitions (créé à l'aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-introduction.md)), consultez la rubrique [Création et gestion des travaux à l'aide de PowerShell](sql-database-elastic-jobs-powershell.md). Pour en savoir plus sur les tâches, consultez la rubrique [Vue d'ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
 
 ## Composants requis
 
@@ -115,4 +115,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

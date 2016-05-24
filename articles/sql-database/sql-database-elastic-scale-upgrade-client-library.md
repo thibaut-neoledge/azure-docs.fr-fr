@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh" />
 
-# Mettre à niveau vers la dernière version de la bibliothèque cliente des bases de données élastiques
+# Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 
-Les nouvelles versions de la [bibliothèque cliente des bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) et l'interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
+Les nouvelles versions de la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via NuGet et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
+
+**Pour la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Régénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées existantes du gestionnaire des cartes de partitions stockées dans vos bases de données SQL Azure pour prendre en charge les nouvelles fonctionnalités.
 
@@ -39,7 +41,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 
 **3. Mettez à niveau votre service de fractionnement/fusion.** Si vous utilisez l’outil de fractionnement/fusion de la mise à l’échelle élastique pour réorganiser les données partitionnées, [téléchargez et déployez la dernière version de l’outil](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Vous trouverez plus d’informations sur les étapes de mise à niveau du service [ici](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Mettez à niveau vos bases de données du gestionnaire des mappages de partitions**. Mettez à niveau les métadonnées de prise en charge de vos cartes de partitions dans Azure SQL Database. Vous pouvez effectuer cette opération avec PowerShell ou C#. Ces deux options sont expliquées ci-dessous.
+**4. Mettez à niveau vos bases de données du Gestionnaire de cartes de partitions**. Mettez à niveau les métadonnées de prise en charge de vos cartes de partitions dans Azure SQL Database. Vous pouvez effectuer cette opération avec PowerShell ou C#. Ces deux options sont expliquées ci-dessous.
 
 ***Option 1 : mise à niveau des métadonnées à l’aide de PowerShell***
 
@@ -74,20 +76,7 @@ Ces méthodes de mise à niveau des métadonnées peuvent être appliquées plus
 
 ## Historique des versions du client des bases de données élastiques 
 
-**Version 1.0 – avril 2015**
-
-* Disponibilité générale de la version
-* Prise en charge supplémentaire pour les types Datetime en tant que clés de partitionnement
-
-**Version 0.8 – mars 2015**
-
-* Ajout de la prise en charge d’Async pour le routage dépendant des données avec les nouvelles méthodes ShardMap.OpenConnectionForKeyAsync 
-* Ajout de la propriété KeyType publique à ShardMap 
-* Amélioration de la prise en charge des scénarios de récupération d’urgence et de restauration des bases de données pour les partitions 
-
-**Version 0.7 – octobre 2014**
-
-Version préliminaire initiale
+Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -97,4 +86,4 @@ Version préliminaire initiale
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

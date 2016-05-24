@@ -2,9 +2,9 @@
 	pageTitle="Comment configurer l'authentification Azure Active Directory pour votre application App Services"
 	description="Découvrez comment configurer l'authentification Azure Active Directory pour votre application App Services."
 	authors="mattchenderson"
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # Configurer votre application App Service pour utiliser la connexion Azure Active Directory
@@ -21,9 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Cette rubrique montre comment configurer Azure App Services pour utiliser Azure Active Directory comme fournisseur d'authentification.
-
-> [AZURE.NOTE] Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/autorisation d'App Service. Elle remplace la passerelle App Service pour la plupart des applications. Si vous utilisez la passerelle, consultez la [méthode alternative]. Les différences qui s'appliquent à l'utilisation de la passerelle sont signalées dans des notes tout au long de cette section.
-
 
 ## <a name="express"></a>Configuration d'Azure Active Directory à l'aide de la configuration rapide
 
@@ -68,11 +65,6 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 
     ![][3]
 
-
-	> [AZURE.NOTE]
-	Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification/autorisation d'App Service, votre URL de réponse utilise à la place l'URL de la passerelle avec le chemin d’accès _/signin-aad_.
-
-
 9. Cliquez sur **Save**. Copiez ensuite l’**ID client** pour l’application. Vous configurerez l’application pour utiliser cet ID plus tard.
 
 10. Dans la barre de commandes située en bas, cliquez sur **Afficher les points de terminaison**, puis copiez l'URL du **document de métadonnées de fédération** et téléchargez ce document ou ouvrez-le dans un navigateur.
@@ -80,10 +72,6 @@ Vous pouvez également choisir de fournir des paramètres de configuration manue
 11. L'élément racine **EntityDescriptor**, doit contenir un attribut **entityID** au format `https://sts.windows.net/` suivi d’un GUID propre à votre client (appelé « ID client »). Copiez cette valeur qui servira d'**URL de l'émetteur**. Vous configurerez l’application pour utiliser cet ID plus tard.
 
 ### <a name="secrets"> </a>Ajout d'informations Azure Active Directory à votre application
-
-> [AZURE.NOTE]
-Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis choisissez **Azure Active Directory**. Collez le ClientID et ajoutez l'ID client à la liste des **locataires autorisés**. Cliquez sur **Save**.
-
 
 13. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
 
@@ -113,7 +101,7 @@ Azure Active Directory permet également d’inscrire les clients natifs, ce qui
 
 4. Dans l'Assistant Ajout d'application, entrez un **Nom** pour votre application et cliquez sur le type **Application cliente native**. Ensuite, cliquez pour continuer.
 
-5. Dans la zone **URI de redirection**, entrez le point de terminaison _/.auth/login/done_ de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_.
+5. Dans la zone **URI de redirection**, entrez le point de terminaison _/.auth/login/done_ de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_. Si vous créez une application Windows, utilisez plutôt le [SID de package](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) en tant qu’URI.
 
 6. Une fois l’application native ajoutée, cliquez sur l’onglet **Configurer**. Recherchez l’**ID client** et notez-en la valeur.
 
@@ -140,7 +128,6 @@ Vous avez maintenant configuré une application cliente native qui peut accéder
 
 [portail Azure]: https://portal.azure.com/
 [portail Azure Classic]: https://manage.windowsazure.com/
-[ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[méthode alternative]: #advanced
+[alternative method]: #advanced
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

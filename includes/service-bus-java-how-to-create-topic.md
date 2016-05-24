@@ -12,9 +12,9 @@ Les rubriques et les abonnements Service Bus vous permettent de mettre votre inf
 
 ## Création d'un espace de noms de service
 
-Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azure, vous devez d’abord créer un espace de noms de service. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
+Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azure, vous devez d’abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-Pour créer un espace de noms de service :
+Pour créer un espace de noms :
 
 1.  Connectez-vous au [portail Azure Classic][].
 
@@ -56,5 +56,3 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
-
-<!---HONumber=AcomDC_1203_2015-->

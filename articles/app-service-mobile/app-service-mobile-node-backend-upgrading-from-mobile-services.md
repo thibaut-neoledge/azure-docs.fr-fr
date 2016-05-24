@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 
@@ -38,7 +38,7 @@ La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile A
 
 - Les améliorations des performances sont significatives par rapport au Kit de développement logiciel (SDK) Mobile Services.
 
-- Vous pouvez désormais héberger un site web avec votre serveur principal mobile. De même, il est facile d’ajouter le Kit de développement logiciel (SDK) Azure Mobile à n’importe quelle application expressv4 existante.
+- Vous pouvez désormais héberger un site web avec votre serveur principal mobile. De même, il est facile d’ajouter le Kit de développement logiciel (SDK) Azure Mobile à n’importe quelle application v4 existante.
 
 - Conçu pour le développement multiplateforme et local, le Kit de développement logiciel (SDK) Mobile Apps peut être développé et exécuté localement sur les plateformes Windows, Linux et OSX. Il est désormais facile d’utiliser des techniques de développement Node courantes comme l’exécution de tests [Mocha](https://mochajs.org/) avant le déploiement.
 
@@ -52,7 +52,7 @@ Contrairement au Kit de développement logiciel (SDK) .NET Mobile Apps, la mise 
 
 Les Kits de développement logiciel (SDK) clients Mobile Services ne sont **pas** compatibles avec le nouveau Kit de développement logiciel (SDK) serveur Mobile Apps. Afin d’assurer la continuité du service pour votre application, vous ne devez pas publier des modifications apportées à un site en train de desservir des clients publiés. Vous devez plutôt créer une application mobile qui sert de doublon. Vous pouvez placer cette application sur le même plan App Service pour éviter d’encourir des frais supplémentaires.
 
-Vous avez alors deux versions de l’application : l’une qui reste la même et délivre les applications publiées et l’autre que vous pouvez mettre à niveau et cibler avec une nouvelle version du client. Vous pouvez déplacer et tester votre code à votre rythme, mais vous devez vous assurer que tous les correctifs de bogues que vous apportez sont appliqués aux deux versions. Une fois que le nombre souhaité d’applications clientes ont effectué la mise à jour vers la dernière version, vous supprimez l’application originale qui a migré si vous le souhaitez. Cela n’entraîne aucun frais supplémentaire si l’application est hébergée sur le même plan App Service que votre application Mobile App.
+Vous avez alors deux versions de l’application : l’une qui reste la même et délivre les applications publiées et l’autre que vous pouvez mettre à niveau et cibler avec une nouvelle version du client. Vous pouvez déplacer et tester votre code à votre rythme, mais vous devez vous assurer que tous les correctifs de bogues que vous apportez sont appliqués aux deux versions. Une fois que le nombre souhaité d’applications clientes ont effectué la mise à jour vers la dernière version, vous supprimez l’application originale qui a migré si vous le souhaitez. Cela n’entraîne aucun frais supplémentaire si l’application est hébergée sur le même plan App Service que votre application Mobile App.
 
 Le processus de mise à niveau est le suivant :
 
@@ -191,7 +191,7 @@ Le Kit de développement logiciel (SDK) Azure Notification Hubs ayant bénéfici
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
-        // see https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
+        // see https://azure.microsoft.com/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
         logger.silly('Running TodoItem.insert');
 
         // This push uses a template mechanism, so we need a template/
@@ -271,7 +271,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
+[tarification App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 [portail Azure]: https://portal.azure.com/
@@ -288,4 +288,4 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->
