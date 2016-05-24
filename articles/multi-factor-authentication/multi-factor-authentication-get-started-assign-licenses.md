@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Attribution d’une licence Azure MFA, Azure AD Premium ou Enterprise Mobility aux utilisateurs
@@ -33,4 +33,4 @@ Si vous avez acheté des licences Azure MFA, Azure AD Premium ou Enterprise Mobi
 7. **Cliquez** sur la coche pour enregistrer les modifications. ![Attribuer des licences](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. Vous devriez voir un message indiquant le nombre de licences qui ont été attribuées et le nombre d’échecs, le cas échéant. Cliquez sur **OK**. ![Attribuer des licences](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

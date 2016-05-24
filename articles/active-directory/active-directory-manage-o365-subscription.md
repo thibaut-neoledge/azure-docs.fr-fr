@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
+   ms.date="05/16/2016"
    ms.author="curtand"/>
 
 #Gestion du répertoire de l’abonnement Office 365 dans Azure
@@ -71,4 +71,4 @@ Supposons maintenant que John Doe doit se connecter au portail Azure Classic et 
 ##Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

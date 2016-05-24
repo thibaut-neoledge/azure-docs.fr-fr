@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
 
 
@@ -143,15 +143,20 @@ Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
 
 Si vous n’étiez pas connecté à Azure au moment de l’ajout d’Application Insights à cette application, connectez-vous maintenant. Sélectionnez **Configurer Application Insights**. Cela vous permet de continuer à voir les données de télémétrie de votre application en temps réel après l’avoir déployée. Les données de télémétrie apparaissent dans le portail Application Insights.
 
-### Métriques : données regroupées
+### Live Stream
 
-Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
+Pour obtenir un aperçu rapide de vos données de télémétrie lorsque vous effectuez une opération de débogage ou suite à un déploiement, utilisez Live Stream.
 
-![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-asp-net/12-first-perf.png)
+![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-asp-net/45.png)
 
-Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
-* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-web-track-usage.md)
+Live Stream est conçu pour vérifier le fonctionnement correct d’une application immédiatement après son déploiement.
+
+Il affiche seulement les données des quelques minutes précédentes, sans les conserver.
+
+Live Stream nécessite la version 2.1.0-beta1 ou une version ultérieure du Kit de développement logiciel (SDK).
+
+
 
 ### Rechercher : événements individuels
 
@@ -162,6 +167,23 @@ Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événement
 [En savoir plus sur la recherche](app-insights-diagnostic-search.md)
 
 * *Aucun événement associé ?* Configurez les [exceptions de serveur](app-insights-asp-net-exceptions.md) et les [dépendances](app-insights-asp-net-dependencies.md).
+
+
+### Métriques : données regroupées
+
+Recherchez des données agrégées dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
+
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-asp-net/12-first-perf.png)
+
+Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
+
+* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-web-track-usage.md)
+
+### Analytics : un puissant langage de requête
+
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant, utile pour comprendre les performances et l’utilisation, ainsi que pour mener à bien des diagnostics.
+
+![Exemple d’Analytics](./media/app-insights-asp-net/025.png)
 
 
 ## Pas de données ?
@@ -179,19 +201,8 @@ Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événement
 
 À présent, déployez votre application et regardez les données s'accumuler.
 
-### Live Stream
+Utilisez [Live Stream](#live-stream) pour surveiller les premières minutes d’un déploiement ou d’un redéploiement, vous indiquant si votre application fonctionne correctement. Lorsque vous remplacez une version antérieure, notamment, vous souhaitez savoir si les performances se sont améliorées. En cas de problème, vous pourriez souhaiter revenir à l'ancienne version.
 
-Les premières minutes d’un déploiement vous indiquent si votre application fonctionne correctement. Lorsque vous remplacez une version antérieure, notamment, vous souhaitez savoir si les performances se sont améliorées. En cas de problème, vous pourriez souhaiter revenir à l'ancienne version.
-
-Live Stream fournit une vue immédiate d'un ensemble de métriques de performances clés. Il est conçu pour être consulté pendant un redéploiement ou une reconfiguration.
-
-![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-asp-net/45.png)
-
-Contrairement à d'autres graphiques de métriques, Live Stream affiche seulement les données des quelques minutes précédentes et ne conserve pas de données. Le pipeline d'agrégation est minime et l'affichage est actualisé toutes les secondes.
-
-Live Stream nécessite la version 2.1.0-beta1 ou une version ultérieure du Kit de développement logiciel (SDK).
-
-*Live Stream est bloqué sur la page de configuration ? - Actualisez votre navigateur (F5).*
 
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
 
@@ -246,4 +257,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

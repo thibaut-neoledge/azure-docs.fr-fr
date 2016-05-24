@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="05/16/2016"
 	ms.author="jroth" />
 
 # Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure
@@ -76,11 +76,13 @@ Dans le panneau **De base**, fournissez les informations suivantes :
 * Utilisez un **mot de passe** fort.
 * Si vous avez plusieurs abonnements, vérifiez que l’abonnement est correct pour la machine virtuelle que vous allez générer.
 * Dans la zone **Groupe de ressources**, saisissez un nom pour le groupe de ressources. Sinon, pour utiliser un groupe de ressources existant, cliquez sur **Sélectionner un élément existant**. Un groupe de ressources est une collection de ressources liées dans Azure (machines virtuelles, comptes de stockage, réseaux virtuels, etc.).
->[AZURE.NOTE] L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois votre test terminé, vous pouvez supprimer le groupe de ressources dans son ensemble. Cela supprime toutes les ressources associées à ce groupe de ressources, y compris la machine virtuelle SQL. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+	
+	>[AZURE.NOTE] L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois votre test terminé, vous pouvez supprimer le groupe de ressources dans son ensemble. Cela supprime toutes les ressources associées à ce groupe de ressources, y compris la machine virtuelle SQL. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+
 * Sélectionnez un **emplacement** pour ce déploiement.
 * Cliquez sur **OK** pour enregistrer les paramètres.
 
-	![Panneau SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
+	![Panneau SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## 2\. Choisir la taille de machine virtuelle
 Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Cela a pour effet d’afficher les tailles de machines recommandées. Les tailles sont basées sur le modèle que vous avez sélectionné. Le coût mensuel lié à l’exécution de la machine virtuelle est également estimé.
@@ -247,4 +249,4 @@ Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL
 
 Pour obtenir une vue d’ensemble de SQL Server sur Azure Virtual Machines, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure est la plate-forme la mieux adaptée à SQL Server 2016).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

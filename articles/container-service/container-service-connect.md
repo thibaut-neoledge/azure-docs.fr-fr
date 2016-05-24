@@ -41,7 +41,7 @@ Ouvrez maintenant un interpréteur de commandes et exécutez la commande suivant
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### Tunnel DC/OS
+## Tunnel DC/OS
 
 Pour ouvrir un tunnel vers les points de terminaison liés au cluster DC/OS, exécutez une commande semblable à l’exemple suivant :
 
@@ -59,7 +59,7 @@ Vous pouvez accéder maintenant les points de terminaison associés à DC/OS :
 
 De la même façon, les API REST correspondant à chaque application sont accessibles par ce tunnel.
 
-### Tunnel Swarm
+## Tunnel Swarm
 
 Pour ouvrir un tunnel vers le point de terminaison Swarm, exécutez une commande ressemblant à celle qui suit :
 
@@ -117,4 +117,4 @@ Déployer et gérer des conteneurs avec DC/OS ou Swarm.
 
 [Utilisation d’Azure Container Service et de DC/OS](./container-service-mesos-marathon-rest.md) [Utilisation d’Azure Container Service et de Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

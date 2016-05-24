@@ -5,7 +5,7 @@
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags
@@ -14,45 +14,23 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="05/09/2016"
     ms.author="sstein"/>
 
 # Créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell 
 
-**Base de données unique**
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-get-started.md)
-- [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
+- [C#](sql-database-get-started-csharp.md)
 
 
-Découvrez comment créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell
+
+Découvrez comment créer une base de données SQL avec des applets de commande PowerShell. (Pour la création de bases de données élastiques, consultez [Créer un pool de base de données élastique avec PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
-Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Pour plus de détails, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-
-- Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-
-
-## Configurer vos informations d'identification et sélectionner votre abonnement
-
-Maintenant que vous exécutez le module Azure Resource Manager, vous avez accès à toutes les applets de commande nécessaires pour créer une base de données SQL.
-
-Vous devez d’abord établir l’accès à votre compte Azure. Exécutez donc l’applet de commande suivante et vous verrez un écran de connexion pour entrer vos informations d’identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
-
-	Add-AzureRmAccount
-
-Après vous être connecté, vous voyez des informations sur l’écran, notamment l’ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
-
-
-### Sélectionner votre abonnement Azure
-
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez le copier à partir de l’étape précédente ou, si vous avez plusieurs abonnements, exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées, affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Après avoir exécuté **Select-AzureRmSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureRMSubscription** et vérifier que l’abonnement à utiliser indique **IsCurrent: True**.
+[AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
 ## Configuration de la base de données : Créer un groupe de ressources, un serveur et une règle de pare-feu
 
@@ -142,4 +120,4 @@ Une fois que vous avez créé une base de données SQL et effectué les tâches 
 
 - [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->
