@@ -1,11 +1,11 @@
 <properties
    pageTitle="Création d'une application et d'un principal du service AD dans le portail | Microsoft Azure"
-   description="Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
+   description="Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,22 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # Création de l'application Active Directory et du principal du service à l'aide du portail
 
 ## Vue d'ensemble
-Lorsqu’un processus automatisé ou une application doit accéder à des ressources ou les modifier, vous pouvez utiliser le portail Azure Classic pour créer une application Active Directory. Lorsque vous créez une application Active Directory par le biais du portail Azure Classic, celui-ci crée l’application et un principal du service. Vous pouvez exécuter l’application sous sa propre identité ou sous l’identité de l’utilisateur connecté à votre application. Ces deux méthodes d’authentification des applications désignent ce que l’on appelle des méthodes interactives (connexion de l’utilisateur) et non interactives (l’application fournit ses propres informations d’identification). En mode non interactif, vous devez attribuer au principal du service un rôle associé à l’autorisation appropriée.
+Lorsqu’un processus automatisé ou une application doit accéder à des ressources ou les modifier, vous pouvez utiliser le portail Azure Classic pour créer une application Active Directory. Vous pouvez exécuter l’application sous sa propre identité ou sous l’identité de l’utilisateur connecté à votre application. Ces deux méthodes d’authentification des applications désignent ce que l’on appelle des méthodes interactives (connexion de l’utilisateur) et non interactives (l’application fournit ses propres informations d’identification). En mode non interactif, vous devez attribuer un rôle associé à l’autorisation appropriée pour l’identité de l’application. Si votre application s’exécute sans assistance, comme c’est le cas pour les processus principaux, vous devez utiliser une authentification non interactive.
 
-Cette rubrique montre comment créer une application et un principal du service à l’aide du portail Azure Classic. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory. Cette possibilité sera ajoutée au portail Azure dans une version ultérieure. Vous pouvez utiliser le portail pour assigner l’application à un rôle. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de PowerShell ou de l’interface de ligne de commande avec le principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+Cette rubrique montre comment créer une application à l’aide du portail Azure Classic. Actuellement, vous devez utiliser le portail Azure Classic pour créer une application Active Directory. Vous pouvez utiliser le portail pour assigner l’application à un rôle.
+
+Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de PowerShell ou de l’interface de ligne de commande avec le principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
-1. Azure Active Directory (AAD) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
-2. Principal du service : une instance d’application dans un annuaire.
-3. Application Active Directory : un enregistrement d’annuaire dans AAD qui identifie une application à AAD. 
+1. Azure Active Directory (AAD) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
+2. Application Active Directory : enregistrement de répertoire dans Active Directory, qui identifie une application. 
+3. Principal du service : instance de l’application à laquelle vous pouvez appliquer des rôles de contrôle d’accès.
 
-Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](active-directory/active-directory-authentication-scenarios.md).
+Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
 ## Créer une application
@@ -39,11 +41,15 @@ Pour les applications interactives et non interactives, vous devez créer et con
 
 2. Sélectionnez **Active Directory** dans le volet gauche.
 
-     ![sélectionner Active Directory][1]
-
-3. Sélectionnez l’annuaire que vous souhaitez utiliser pour la création de la nouvelle application.
+     ![sélectionner Active Directory][1]
+     
+3. Sélectionnez l’annuaire que vous souhaitez utiliser pour la création de la nouvelle application. Pour les ressources de votre abonnement, vous pouvez uniquement attribuer l’accès aux principaux de service dans le même répertoire que votre abonnement. En règle générale, vous souhaitez créer l’application dans le répertoire où se trouve votre abonnement.
 
      ![choisir l’annuaire][2]
+     
+    Pour trouver le répertoire de votre abonnement, sélectionnez **Paramètres**, puis recherchez le nom du répertoire.
+   
+     ![rechercher le répertoire par défaut](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. Pour afficher les applications dans votre annuaire, cliquez sur **Applications**.
 
@@ -65,7 +71,7 @@ Pour les applications interactives et non interactives, vous devez créer et con
 
      ![nommer l’application][9]
 
-7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquer l’URI vers un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application. Le caractère unique ou l’existence du point de terminaison n’est pas validé. Si vous avez sélectionné **Application cliente native** comme type d’application, vous devez renseigner la valeur de l’**URI de redirection**. Cliquez sur **Terminé** pour créer votre application AAD.
+7. Renseignez les propriétés de votre application. Pour **URL de connexion**, indiquer l’URI vers un site web qui décrit votre application. L’existence du site web n’est pas validée. Pour **URI ID d’application**, indiquez l’URI qui identifie votre application. Le caractère unique ou l’existence du point de terminaison n’est pas validé. Si vous avez sélectionné **Application cliente native** comme type d’application, vous devez renseigner la valeur de l’**URI de redirection**. Cliquez sur **Terminé** pour créer votre application AAD.
 
      ![propriétés de l’application][4]
 
@@ -77,15 +83,15 @@ Lorsque vous accédez à votre application par le biais d’un programme, vous a
   
    ![ID de client][5]
 
-Dans certains cas, vous devez transmettre l'ID de client avec votre demande d'authentification. Pour les applications Web et les applications API, vous pouvez récupérer l’ID de client en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en récupérant l’ID comme indiqué ci-dessous.
+Dans certains cas, vous devez transmettre l'ID de client avec votre demande d'authentification. Pour les applications Web et les applications API, vous pouvez récupérer l’ID de locataire en sélectionnant **Afficher les points de terminaison** au bas de l’écran et en récupérant l’ID comme indiqué ci-dessous.
 
    ![ID client](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 Les points de terminaison ne sont pas disponibles pour les applications clientes natives. Au lieu de cela, vous pouvez récupérer l’ID de client par le biais de PowerShell :
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
-Ou d’Azure CLI :
+Ou d’Azure CLI :
 
     azure account show --json
 
@@ -109,7 +115,7 @@ Si votre application est appelée à s’exécuter avec ses propres informations
 
      ![clé enregistrée][8]
 
-Votre application est maintenant prête et le principal du service est créé sur votre client. Lorsque vous vous connectez en tant que principal du service, veillez à utiliser :
+Votre application est maintenant prête et le principal du service est créé sur votre client. Lorsque vous vous connectez en tant que principal du service, veillez à utiliser :
 
 * **ID CLIENT** comme nom d’utilisateur.
 * **CLÉ** comme mot de passe.
@@ -118,9 +124,9 @@ Votre application est maintenant prête et le principal du service est créé su
 
 Si votre application accède aux ressources pour le compte d’un utilisateur connecté, vous devez accorder à votre application l’autorisation déléguée d’accéder aux autres applications. Pour cela, vous devez vous rendre dans la section **Autorisations pour d’autres applications** de l’onglet **Configurer**. Par défaut, une autorisation déléguée est déjà activée pour Azure Active Directory. Ne modifiez pas cette autorisation déléguée.
 
-1. Sélectionnez **Ajouter l’application**.
+1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez l’**API de gestion des services Microsoft Azure**.
+2. Dans la liste, sélectionnez l’**API de gestion des services Azure**.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -132,13 +138,13 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 ## Configurer une application mutualisée
 
-Si les utilisateurs d’autres annuaires Azure Active Directory peuvent donner leur consentement à l’application et se connecter, vous devez activer une architecture mutualisée. Sous l’onglet **Configurer**, définissez **Application mutualisée** sur **Oui**.
+Si les utilisateurs d’autres annuaires Azure Active Directory peuvent donner leur consentement à l’application et se connecter, vous devez activer une architecture mutualisée. Dans l’onglet **Configurer**, définissez **Application mutualisée** sur **Oui**.
 
 ![architecture mutualisée](./media/resource-group-create-service-principal-portal/multi-tenant.png)
 
 ## Affecter l’application à un rôle
 
-Si votre application n’est pas exécutée sous l’identité d’un utilisateur connecté, vous devez affecter l’application à un rôle pour lui accorder l’autorisation d’effectuer des actions. Pour affecter l’application à un rôle, passez du portail Azure Classic au [portail Azure](https://portal.azure.com). Vous devez décider quel rôle ajouter à l’application et avec quelle étendue. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md). Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
+Si votre application n’est pas exécutée sous l’identité d’un utilisateur connecté, vous devez affecter l’application à un rôle pour lui accorder l’autorisation d’effectuer des actions. Pour affecter l’application à un rôle, passez du portail Azure Classic au [portail Azure](https://portal.azure.com). Vous devez décider quel rôle ajouter à l’application et avec quelle étendue. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md). Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
 1. Dans le portail, accédez au niveau d’étendue que vous souhaitez affecter à l’application. Dans le cadre de cette rubrique, accédez à un groupe de ressources, puis dans le panneau du groupe de ressources, sélectionnez l’icône **Accès**.
 
@@ -208,7 +214,7 @@ Pour vous connecter pour le compte de l’utilisateur, utilisez la méthode suiv
         return token;
     }
 
-Vous pouvez utiliser le code suivant pour transmettre le jeton dans l’en-tête de demande :
+Vous pouvez utiliser le code suivant pour transmettre le jeton dans l’en-tête de demande :
 
     string token = GetAcessToken();
     request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
@@ -217,9 +223,9 @@ Vous pouvez utiliser le code suivant pour transmettre le jeton dans l’en-tête
 ## Étapes suivantes
 
 - Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).  
-- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Pour en savoir plus sur l’utilisation d’Azure PowerShell ou de l’interface de ligne de commande Azure pour utiliser les applications et les principaux du service Active Directory, notamment l’utilisation d’un certificat pour l’authentification, consultez la rubrique [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md).
-- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Pour en savoir plus sur l’utilisation d’Azure PowerShell ou de l’interface de ligne de commande Azure pour utiliser les applications et les principaux du service Active Directory, notamment l’utilisation d’un certificat pour l’authentification, consultez la rubrique [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
@@ -237,4 +243,4 @@ Vous pouvez utiliser le code suivant pour transmettre le jeton dans l’en-tête
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

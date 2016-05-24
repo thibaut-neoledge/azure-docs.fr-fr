@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/02/2016"
    ms.author="bwren;sngun" />
 
 # Gestion des données Azure Automation
@@ -84,4 +84,4 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

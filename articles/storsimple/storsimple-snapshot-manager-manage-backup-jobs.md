@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
@@ -40,7 +40,7 @@ Pour afficher les tâches de sauvegarde planifiées, procédez comme suit.
 
     - **Dernière exécution** : date et heure de l’instantané planifié le plus récent
 
-    >[AZURE.NOTE]Pour les instantanés ponctuels, les informations des colonnes **Exécution suivante** et **Dernière exécution** sont identiques.
+    >[AZURE.NOTE] Pour les instantanés ponctuels, les informations des colonnes **Exécution suivante** et **Dernière exécution** sont identiques.
  
     ![Tâches de sauvegarde planifiées](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
@@ -96,11 +96,11 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
     
     - **Écoulé** : intervalle de temps écoulé depuis le début de la sauvegarde.
 
-    - **Débit moyen (Mo)** : volume médian de données fournies, exprimé en mégaoctets (Mo).
+    - **Débit moyen (Mo/s)** : rapport entre le nombre total d’octets de données traités et la durée totale de traitement (Mo).
 
-    - **Octets traités (Mo)** : volume de données du groupe de volumes qui ont été traitées (en Mo).
+    - **Octets traités (Mo)** : nombre total d’octets de données traités (en Mo).
 
-    - **Octets écrits (Mo)** : volume de données qui ont été écrites dans la sauvegarde (en Mo).
+    - **Octets écrits (Mo)** : nombre total d’octets de données écrits (en Mo). Cela inclut les données et les métadonnées : la valeur de ce paramètre est donc généralement supérieure à la valeur du paramètre Octets traités.
 
     ![Tâches en cours d’exécution](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
@@ -130,4 +130,4 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde
 
 ## Vue d'ensemble
 
-La principale fonction du Gestionnaire d’instantanés StorSimple consiste à permettre la création de copies de sauvegarde des volumes StorSimple Azure cohérentes au niveau applicatif sous la forme d’instantanés. Les instantanés sont ensuite répertoriés dans un fichier XML appelé *catalogue de sauvegarde*. Le catalogue de sauvegarde organise les instantanés par groupe de volumes, puis par instantané local ou instantané cloud.
+La principale fonction de StorSimple Snapshot Manager consiste à permettre la création de copies de sauvegarde des volumes StorSimple cohérentes au niveau applicatif sous la forme d’instantanés. Les instantanés sont ensuite répertoriés dans un fichier XML appelé *catalogue de sauvegarde*. Le catalogue de sauvegarde organise les instantanés par groupe de volumes, puis par instantané local ou instantané cloud.
+
+Ce didacticiel explique comment utiliser le nœud **Catalogue de sauvegarde** pour effectuer les tâches suivantes :
+
+- Restaurer un volume 
+- Cloner un volume ou un groupe de volumes 
+- Supprimer une sauvegarde 
+- Récupérer un fichier
+- Restaurer la base de données du Gestionnaire d’instantanés StorSimple
 
 Vous pouvez afficher le catalogue de sauvegarde en développant le nœud **Catalogue de sauvegarde** dans le volet **Étendue**, puis en développant le groupe de volumes.
 
@@ -33,7 +41,7 @@ Vous pouvez afficher le catalogue de sauvegarde en développant le nœud **Catal
 
     - **Propriétaire** : propriétaire du contenu.
 
-    - **Disponible** : indique si l’instantané est actuellement disponible. La valeur True indique que l’instantané est disponible et peut être restauré ; la valeur False indique que l’instantané n’est plus disponible.
+    - **Disponible** : indique si l’instantané est actuellement disponible. La valeur **True** indique que l’instantané est disponible et peut être restauré ; la valeur **False** indique que l’instantané n’est plus disponible.
 
     - **Importé** : indique si la sauvegarde a été importée. La valeur **True** indique que la sauvegarde a été importée à partir du service StorSimple Manager au moment où l’appareil a été configuré dans le Gestionnaire d’instantanés StorSimple ; la valeur **False** indique qu’elle n’a pas été importée, mais qu’elle a été créée par le Gestionnaire d’instantanés StorSimple. (Vous pouvez facilement identifier un groupe de volumes importé, car un suffixe identifiant l’appareil à partir duquel le groupe de volumes a été importé est ajouté.)
 
@@ -49,13 +57,6 @@ Vous pouvez afficher le catalogue de sauvegarde en développant le nœud **Catal
 
     - **Disponible** : indique si l’instantané est actuellement disponible. La valeur **True** indique que l’instantané est disponible et peut être restauré ; la valeur **False** indique que l’instantané n’est plus disponible.
 
-Ce didacticiel explique comment utiliser le nœud **Catalogue de sauvegarde** pour effectuer les tâches suivantes :
-
-- Restaurer un volume 
-- Cloner un volume ou un groupe de volumes 
-- Supprimer une sauvegarde 
-- Récupérer un fichier
-- Restaurer la base de données du Gestionnaire d’instantanés StorSimple
 
 ## Restaurer un volume
 
@@ -69,7 +70,7 @@ Le Gestionnaire d’instantanés StorSimple affiche le message suivant pendant l
 
 ![Message Instantané automatique](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT]Vous ne pouvez pas supprimer un volume qui fait partie d’un groupe de volumes. L’option de suppression n’est pas disponible.<br>
+>[AZURE.IMPORTANT] Vous ne pouvez pas supprimer un volume qui fait partie d’un groupe de volumes. L’option de suppression n’est pas disponible.<br>
 
 #### Pour restaurer un volume
 
@@ -117,7 +118,7 @@ Pour dupliquer (cloner) un volume ou un groupe de volumes, procédez comme suit.
 
 Pour supprimer un instantané du catalogue de sauvegarde, procédez comme suit.
 
->[AZURE.NOTE]La suppression d’un instantané entraîne la suppression des données sauvegardées associées à l’instantané. Cependant, le processus de nettoyage des données du cloud peut prendre un certain temps.<br>
+>[AZURE.NOTE] La suppression d’un instantané entraîne la suppression des données sauvegardées associées à l’instantané. Cependant, le processus de nettoyage des données du cloud peut prendre un certain temps.<br>
  
 #### Pour supprimer une sauvegarde
 
@@ -183,7 +184,7 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
 2. Sur l’ordinateur hôte, accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE]ProgramData est un dossier masqué.
+    >[AZURE.NOTE] ProgramData est un dossier masqué.
  
 3. Recherchez le fichier XML de catalogue, copiez le fichier et stockez la copie dans un emplacement sûr ou dans le cloud. Si l’hôte subit une défaillance, vous pouvez utiliser ce fichier de sauvegarde pour récupérer les stratégies de sauvegarde créées dans le Gestionnaire d’instantanés StorSimple.
 
@@ -208,4 +209,4 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 - En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - En savoir plus sur [les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -74,6 +74,7 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 - Les utilisateurs externes ne peuvent pas donner leur consentement aux applications mutualisées dans des répertoires en dehors de leur répertoire de base
 - Pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI
 - Les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
+- En ce qui concerne Azure AD PowerShell, les utilisateurs externes sont connectés à leur annuaire de base et ne peuvent pas gérer les annuaires dans lesquels ils sont utilisateurs externes
 
 
 ## Étapes suivantes
@@ -83,4 +84,4 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

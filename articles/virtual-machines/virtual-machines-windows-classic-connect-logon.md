@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connexion à une machine virtuelle | Microsoft Azure"
+	pageTitle="Ouvrir une session sur une machine virtuelle Azure Classic | Microsoft Azure"
 	description="Utilisez le portail Azure Classic pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 
@@ -57,4 +57,4 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

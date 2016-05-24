@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="cynthn"/>
 
 # Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure
@@ -31,7 +31,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 ## <a id="initializeinWS"></a>Procédure d’initialisation d’un nouveau disque de données dans Windows Server
 
-1. Connectez-vous à la machine virtuelle. Pour plus d’informations, consultez [Comment se connecter n à une machine virtuelle Azure exécutant Windows Server](virtual-machines-windows-connect-logon.md).
+1. Connectez-vous à la machine virtuelle. Pour plus d’informations, voir [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md).
 
 2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
@@ -55,4 +55,4 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

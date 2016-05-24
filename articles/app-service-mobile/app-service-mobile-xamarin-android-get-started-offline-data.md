@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
     ms.author="wesmc"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile Xamarin Android
@@ -123,7 +123,7 @@ Dans cette section, vous allez modifier l’application cliente pour simuler un 
 
 5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
-   Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
+   	Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
 
 6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l’aide d’une requête GET au format `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez modifier l’application cliente pour simuler un 
 
 Dans cette section, vous allez reconnecter l'application au backend mobile, ce qui simule le retour de l'application à un état en ligne. Quand vous effectuez le mouvement d'actualisation, les données sont synchronisées avec votre backend mobile.
 
-1. Ouvrez `ToDoActivity.cs`. Corrigez le paramètre `applicationURL` de manière à ce qu'il pointe vers les URL correctes.
+1. Ouvrez `ToDoActivity.cs`. Corrigez le paramètre `applicationURL` de manière à ce qu’il pointe vers l’URL correcte.
 
 2. Régénérez et exécutez l'application. Après son lancement, l’application tente une synchronisation avec le backend Azure Mobile App. Vérifiez qu’aucune boîte de dialogue d’exception n’est créée.
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]\(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- ##Summary
 
@@ -170,4 +170,4 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

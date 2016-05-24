@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conversion de bases de données existantes pour utiliser les outils de base de données élastique"
+   pageTitle="Migrer des bases de données existantes pour la montée en charge | Microsoft Azure"
    description="Conversion de bases de données partitionnées pour utiliser les outils de base de données élastique en créant un gestionnaire de cartes de partitions"
    services="sql-database"
    documentationCenter=""
@@ -13,31 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# Conversion de bases de données existantes pour utiliser les outils de base de données élastique
+# Migration de bases de données existantes pour une mise à l’échelle
 
-Si vous disposez déjà d’une solution partitionnée mise à l’échelle, vous pouvez tirer parti des outils de base de données élastique, comme [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fractionnement et de fusion](sql-database-elastic-scale-overview-split-and-merge.md), en utilisant les techniques décrites ici.
+Gérez facilement vos bases de données partitionnées et montées en charge existantes à l’aide des outils de base de données Base de données SQL Azure (comme la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)). Vous devez d’abord convertir un ensemble existant de bases de données pour utiliser le [Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 
-Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), ou les scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
+## Vue d'ensemble
+Pour migrer une base de données partitionnée existante :
 
-Notez que vous devez créer les bases de données avant d’exécuter les applets de commande Add-Shard et New-ShardMapManager. Les applets de commande ne créent pas les bases de données pour vous.
-
-Il se compose de quatre étapes :
-
-1. Préparer la base de données pour le gestionnaire de cartes de partitions.
+1. Préparez la [base de données pour le Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 2. Créer la carte de partitions.
 3. Préparer les partitions individuelles.  
-2. Ajouter les mappages à la carte de partitions.
+2. Ajoutez les mappages à la carte de partitions.
 
-Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de bases de données élastiques, consultez la rubrique [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
+Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
 
-## Préparation de la base de données du gestionnaire de cartes de partitions
-Vous pouvez utiliser une base de données nouvelle ou existante en tant que gestionnaire de cartes de partitions.
+Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de base de données élastique, consultez [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
+
+## Préparer la base de données pour le Gestionnaire de cartes de partitions
+
+Le Gestionnaire de cartes de partitions est une base de données spéciale qui contient les données permettant de gérer les bases de données avec montée en charge. Vous pouvez utiliser une base de données existante ou en créer une. Une base de données agissant en tant que Gestionnaire de cartes de partitions ne peut pas être identique à une partition. Le script PowerShell ne crée pas la base de données à votre place.
 
 ## Étape 1 : créer un gestionnaire de cartes de partitions
-Notez qu’une base de données agissant en tant que gestionnaire de cartes de partitions ne doit pas être la même base de données qu’une partition.
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -59,31 +58,32 @@ Après la création, vous pouvez récupérer le gestionnaire de cartes de partit
 	-SqlDatabaseName '<smm_db_name>' 
 
   
-## Étape 2 : créer une carte de partitions
+## Étape 2 : Création de la carte de partitions
 
-Vous pouvez créer l’un des modèles suivants :
+Vous devez sélectionner le type de carte de partitions à créer. Votre choix dépend de l’architecture de la base de données :
 
-1. Client unique par base de données 
+1. Client unique par base de données (Pour rechercher des termes spécifiques, consultez le [glossaire](sql-database-elastic-scale-glossary.md).) 
 2. Plusieurs clients par base de données (deux types) :
-	3. Mappage de plage
-	4. Mappage de liste
+	3. Mappage de liste
+	4. Mappage de plage
  
 
-Si vous utilisez un modèle de base de données à un seul client, utilisez le mappage de liste. Le modèle à un seul client attribue une base de données par client. Il s’agit d’un modèle efficace pour les développeurs SaaS, car il simplifie la gestion.
+Pour un modèle de client unique, créez une carte de partitions de **mappage de liste**. Le modèle à un seul client attribue une base de données par client. Il s’agit d’un modèle efficace pour les développeurs SaaS, car il simplifie la gestion.
 
 ![Mappage de liste][1]
 
-En revanche, le modèle de base de données mutualisée affecte plusieurs clients à une base de données (et vous pouvez distribuer des groupes de clients sur plusieurs bases de données). Il s’agit d’un modèle viable quand la quantité de données par client est supposée être faible. Dans ce modèle, nous attribuons une plage de clients à une base de données à l’aide du *mappage de plage*.
+Le modèle mutualisé affecte plusieurs clients à une seule base de données (et vous pouvez distribuer des groupes de clients sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, nous attribuons une plage de clients à une base de données à l’aide du **mappage de plage**.
  
 
 ![Mappage de plage][2]
 
-Vous pouvez également implémenter un modèle de base de données mutualisée à l’aide d’un mappage de liste pour affecter plusieurs clients à une base de données unique. Par exemple, DB1 est utilisée pour stocker les informations d’id client 1 et 5 et DB2 stocke les données pour les clients 7 et 10.
+Vous pouvez également implémenter un modèle de base de données mutualisée à l’aide d’un *mappage de liste* pour affecter plusieurs clients à une base de données unique. Par exemple, DB1 est utilisée pour stocker les informations d’id client 1 et 5 et DB2 stocke les données pour les clients 7 et 10.
 
 ![Plusieurs clients sur une base de données unique][3]
 
+**Selon votre choix, procédez de l’une des manières suivantes :**
 
-## Étape 2, option 1 : créer une carte de partitions pour un mappage de liste
+### Option 1 : Créer une carte de partitions pour un mappage de liste
 Créez une carte de partitions à l’aide de l’objet ShardMapManager.
 
 	# $ShardMapManager is the shard map manager object. 
@@ -92,7 +92,7 @@ Créez une carte de partitions à l’aide de l’objet ShardMapManager.
 	-ShardMapManager $ShardMapManager 
  
  
-## Étape 2, option 2 : créer une carte de partitions pour un mappage de plage
+### Option 2 : Créer une carte de partitions pour un mappage de plage
 
 Notez que pour utiliser ce modèle de mappage, les valeurs d’id client doivent être des plages continues. De plus, il est raisonnable d’avoir un écart dans les plages en ignorant simplement la plage pendant la création de bases de données.
 
@@ -103,7 +103,7 @@ Notez que pour utiliser ce modèle de mappage, les valeurs d’id client doivent
 	-RangeShardMapName 'RangeShardMap' 
 	-ShardMapManager $ShardMapManager 
 
-## Étape 2, l’option 3 : mappages de liste sur une base de données unique
+### Option 3 : Mappages de liste sur une base de données unique
 La configuration de ce modèle nécessite également la création d’un mappage de liste comme indiqué à l’étape 2, option 1.
 
 ## Étape 3 : préparer les partitions individuelles
@@ -117,11 +117,11 @@ Ajoutez chaque partition (base de données) dans le gestionnaire de cartes de pa
 	# The $ShardMap is the shard map created in step 2.
  
 
-## Étape 4 : ajouter des mappages
+## Étape 4 : Ajouter des mappages
 
 L’ajout de mappages varie selon le type de carte de partitions que vous avez créé. Si vous avez créé un mappage de liste, vous ajoutez des mappages de liste. Si vous avez créé un mappage de plage, vous ajoutez des mappages de plage.
 
-### Étape 4, option 1 : mapper les données pour un mappage de liste
+### Option 1 : Mapper les données pour un mappage de liste
 
 Mappez les données en ajoutant un mappage de liste pour chaque client.
 
@@ -133,7 +133,7 @@ Mappez les données en ajoutant un mappage de liste pour chaque client.
 	-SqlServerName '<shard_server_name>' 
 	-SqlDatabaseName '<shard_database_name>' 
 
-### Étape 4, option 2 : mapper les données pour un mappage de plage
+### Option 2 : Mapper les données pour un mappage de plage
 
 Ajoutez les mappages de plage pour la plage d’id client – associations de base de données :
 
@@ -169,9 +169,9 @@ Une fois que vous avez terminé l’installation, vous pouvez commencer à utili
 
 Obtenez les scripts PowerShell à partir de [scripts d’outils de base de données élastique Azure SQL DB](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Les outils sont également sur GitHub : [Azure/flexible-db-tools](https://github.com/Azure/elastic-db-tools).
+Les outils sont également disponibles sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez la page [Outil de fractionnement et de fusion](sql-database-elastic-scale-get-started.md).
+Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez [Outil de fractionnement et de fusion](sql-database-elastic-scale-get-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -181,4 +181,4 @@ Utilisez l’outil de fractionnement et de fusion pour déplacer des données, �
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

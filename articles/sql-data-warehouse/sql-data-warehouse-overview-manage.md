@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestion de bases de données dans Azure SQL Data Warehouse
@@ -42,7 +42,7 @@ Le [portail Azure][] est un portail basé sur le Web dans lequel vous pouvez cr�
 Pour la prise en main du portail Azure, consultez la rubrique [Créer un entrepôt de données SQL (portail Azure)][].
 
 ### SQL Server Data Tools dans Visual Studio
-[SQL Server Data Tools][] (SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
+[SQL Server Data Tools][] \(SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
 
 SSDT comprend la solution Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure Classic.
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [Suspension du calcul][], et [Reprise du c
 
 Lorsque vous devez prendre en main une nouvelle technologie, rechercher les conseils et astuces adaptés à vos besoins dès le départ peut vous faire gagner beaucoup de temps. Vous trouverez des meilleures pratiques dans plusieurs de nos rubriques.
 
-Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] (en anglais).
+Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] \(en anglais).
 
 ## Surveillance des requêtes
 
@@ -115,7 +115,7 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Image references-->
 
 <!--Article references-->
-[Options de redondance de stockage Microsoft Azure]: storage-redundancy.md#read-access-geo-redundant-storage
+[Options de redondance de stockage Microsoft Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Créer un entrepôt de données SQL (portail Azure)]: sql-data-warehouse-get-started-provision.md
 [Créer une base de données (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

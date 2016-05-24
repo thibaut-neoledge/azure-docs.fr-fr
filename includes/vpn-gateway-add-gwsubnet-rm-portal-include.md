@@ -1,5 +1,3 @@
-### Pour créer un sous-réseau de passerelle dans le portail Azure
-
 1. Dans le portail, accédez au réseau virtuel auquel vous souhaitez connecter une passerelle. Dans le panneau de votre réseau virtuel, cliquez sur l’icône **Paramètres** en haut du panneau pour développer le panneau. 
 
 2. Dans le panneau **Paramètres**, cliquez sur **Sous-réseaux** pour développer le panneau Sous-réseaux.
@@ -14,4 +12,5 @@
 
 6. Cliquez sur **OK** en bas du panneau pour créer le sous-réseau.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

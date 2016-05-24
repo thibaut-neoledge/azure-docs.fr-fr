@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Configuration requise du système StorSimple | Microsoft Azure" 
-   description="Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carmonm" 
+<properties
+   pageTitle="Configuration requise du système StorSimple | Microsoft Azure"
+   description="Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="03/23/2016"
+   ms.workload="TBD"
+   ms.date="05/10/2016"
    ms.author="alkohli"/>
 
 # Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
@@ -22,24 +22,24 @@
 
 Bienvenue dans Microsoft Azure StorSimple. Cet article décrit les configurations système requises et les meilleures pratiques pour votre appareil StorSimple et pour les clients de stockage accédant à l’appareil. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
-Les conditions requises sont les suivantes :
+Les conditions requises sont les suivantes :
 
-- **Configuration logicielle requise pour les clients de stockage** : décrit les systèmes d’exploitation pris en charge et les conditions supplémentaires requises pour ces systèmes d’exploitation.
-- **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
-- **Conditions requises de haute disponibilité pour StorSimple** : décrit les exigences de haute disponibilité et les meilleures pratiques pour votre ordinateur hôte et votre appareil StorSimple. 
+- **Configuration logicielle requise pour les clients de stockage** : décrit les systèmes d’exploitation pris en charge et les conditions supplémentaires requises pour ces systèmes d’exploitation.
+- **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
+- **Conditions requises de haute disponibilité pour StorSimple** : décrit les exigences de haute disponibilité et les meilleures pratiques pour votre ordinateur hôte et votre appareil StorSimple. 
 
 
-## Configuration logicielle requise pour les clients de stockage 
+## Configuration logicielle requise pour les clients de stockage
 
 La configuration logicielle suivante est requise pour les clients de stockage qui accèdent à votre appareil StorSimple.
 
 | Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume Simple sur disque de base</li><li>Volume simple et mis en miroir sur disque dynamique</li></ul>L’allocation dynamique et les fonctionnalités ODX sous Windows Server 2012 sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple permet de créer des volumes alloués de manière dynamique et complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270), sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1, 5.5 et 6.0 | Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. 
+| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume Simple sur disque de base</li><li>Volume simple et mis en miroir sur disque dynamique</li></ul>L’allocation dynamique et les fonctionnalités ODX sous Windows Server 2012 sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple permet de créer des volumes alloués de manière dynamique et complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270), sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components).|
+| VMWare ESX | 5\.5 et 6.0 | Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple.
 | Linux RHEL/CentOS | 5 et 6 | Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5 et 6. |
 | Linux | SUSE Linux 11 | |
- > [AZURE.NOTE] IBM AIX n’est actuellement pas pris en charge avec StorSimple.
+ > [AZURE.NOTE] IBM AIX n’est actuellement pas pris en charge avec StorSimple.
 
 ## Configuration logicielle requise pour les composants facultatifs
 
@@ -47,15 +47,15 @@ La configuration logicielle requise suivante concerne les composants StorSimple 
 
 | Composant | Plateforme hôte | Conditions/remarques supplémentaires |
 | --------------------------- | ---------------- | ------------- |
-| StorSimple Snapshot Manager | Windows Server 2008 R2 SP1, 2012, 2012R2 | L’utilisation du Gestionnaire d’instantanés StorSimple sur Windows Server est requise pour la sauvegarde/restauration des disques dynamiques en miroir et pour les sauvegardes cohérentes avec les applications.<br> Le Gestionnaire d’instantanés StorSimple est pris en charge uniquement sous Windows Server 2008 R2 SP1 (64 bits), Windows 2012 R2 et Windows Server 2012<ul><li>Si vous utilisez Windows Server 2012, vous devez installer .NET 3.5-4.5 avant d’installer le Gestionnaire d’instantanés StorSimple.</li><li>Si vous utilisez Windows Server 2008 R2 SP1, vous devez installer Windows Management Framework 3.0 avant d’installer le Gestionnaire d’instantanés StorSimple.</li></ul> |
-| StorSimple Adapter for SharePoint | Windows Server 2008 R2 SP1, 2012, 2012R2 |<ul><li>L’adaptateur StorSimple pour SharePoint est uniquement pris en charge sur SharePoint 2010 et SharePoint 2013.</li><li>RBS requiert SQL Server Enterprise Edition, version 2008 R2 ou 2012.</li></ul>|
- 
+| StorSimple Snapshot Manager | Windows Server 2008 R2 SP1, 2012, 2012R2 | L’utilisation du Gestionnaire d’instantanés StorSimple sur Windows Server est requise pour la sauvegarde/restauration des disques dynamiques en miroir et pour les sauvegardes cohérentes avec les applications.<br> Le Gestionnaire d’instantanés StorSimple est pris en charge uniquement sous Windows Server 2008 R2 SP1 (64 bits), Windows 2012 R2 et Windows Server 2012<ul><li>Si vous utilisez Windows Server 2012, vous devez installer .NET 3.5-4.5 avant d’installer le Gestionnaire d’instantanés StorSimple.</li><li>Si vous utilisez Windows Server 2008 R2 SP1, vous devez installer Windows Management Framework 3.0 avant d’installer le Gestionnaire d’instantanés StorSimple.</li></ul> |
+| StorSimple Adapter for SharePoint | Windows Server 2008 R2 SP1, 2012, 2012R2 |<ul><li>L’adaptateur StorSimple pour SharePoint est uniquement pris en charge sur SharePoint 2010 et SharePoint 2013.</li><li>RBS requiert SQL Server Enterprise Edition, version 2008 R2 ou 2012.</li></ul>|
+
 ## Configuration réseau requise pour votre appareil StorSimple
 
 Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, cloud et de gestion. Le tableau suivant répertorie les ports devant être ouverts dans votre pare-feu. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au delà du déploiement : par exemple, sortant vers Internet.
 
 | Numéro de port <sup>1,2</sup> | Entrant ou sortant | Étendue de ports | Requis | Remarques |
-|------------------------|-----------|------------|----------|-------| 
+|------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>| Sortie | WAN | Non |<ul><li>Le port de sortie est utilisé pour accéder à Internet pour récupérer les mises à jour.</li><li>L’utilisateur peut configurer le proxy web sortant.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li></ul> |
 |TCP 443 (HTTPS)<sup>3</sup>| Sortie | WAN | Oui |<ul><li>Le port de sortie est utilisé pour accéder aux données dans le cloud.</li><li>L’utilisateur peut configurer le proxy web sortant.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li></ul>|
 |UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. |
@@ -73,7 +73,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 > [AZURE.IMPORTANT] Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
 
-### Modèles d’URL pour règles de pare-feu 
+### Modèles d’URL pour règles de pare-feu
 
 Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil StorSimple et le service StorSimple Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire.
 
@@ -100,34 +100,34 @@ Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de résea
 
 Les algorithmes de routage sont différents selon la version logicielle s’exécutant sur votre appareil StorSimple.
 
-**Versions antérieures à Update 1**
+**Versions antérieures à Update 1**
 
-Cela comprend les versions logicielles antérieures à Update 1 telles que la version mise à la disponibilité générale, 0.1, 0.2 ou 0.3. L'ordre basé sur les métriques de routage est le suivant :
+Cela comprend les versions logicielles antérieures à Update 1 telles que la version mise à la disponibilité générale, 0.1, 0.2 ou 0.3. L'ordre basé sur les métriques de routage est le suivant :
 
    *Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
 
 
-**Versions comprises entre Update 1 et Update 2**
+**Versions comprises entre Update 1 et Update 2**
 
-Cela comprend les versions logicielles telles que 1, 1.1 ou 1.2. L'ordre basé sur les métriques de routage est défini comme suit :
+Cela comprend les versions logicielles telles que 1, 1.1 ou 1.2. L'ordre basé sur les métriques de routage est défini comme suit :
 
    *DATA 0 > Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
 
-   Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
+   Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
 
 
-**Versions ultérieures à Update 2**
+**Versions ultérieures à Update 2**
 
-Update 2 présente plusieurs améliorations en matière de réseau et les métriques de routage ont changé. Le comportement peut être expliqué comme suit.
+Update 2 présente plusieurs améliorations en matière de réseau et les métriques de routage ont changé. Le comportement peut être expliqué comme suit.
 
 - Un ensemble de valeurs prédéterminées ont été attribuées aux interfaces réseau. 	
-		
+
 - Examinez la table d'exemple ci-dessous et les valeurs attribuées aux différentes interfaces réseau lorsqu'elles sont activées ou désactivées pour le cloud, mais avec une passerelle configurée. Notez que les valeurs attribuées ici ne sont fournies qu’à titre d’exemple.
 
-		
+
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
+	| Data 0 | 1 | - | 
 	| Data 1 | 2 | 20 |
 	| Data 2 | 3 | 30 |
 	| Data 3 | 4 | 40 |
@@ -135,41 +135,40 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métri
 	| Data 5 | 6 | 60 |
 
 
-- L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
-	 
-	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
+- L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
+
+	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
 	Cela peut s’expliquer par l’exemple suivant.
 
-	Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
+	Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
 
 	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
-	
+
 	*où les nombres entre parenthèses indiquent les métriques de routage respectives.*
-	
+
 	En cas d’échec de Data 0, le trafic cloud sera acheminé via Data 5. Étant donné qu'une passerelle est configurée sur tous les autres réseaux, si Data 0 et Data 5 échouaient, le trafic cloud serait acheminé via Data 1.
- 
-
-- En cas d'échec d’une interface réseau activée pour le cloud, 3 tentatives de connexion à l’interface sont effectuées à une intervalle de 30 secondes. Si toutes les tentatives échouent, le trafic est acheminé vers l’interface activée pour le cloud disponible suivante selon la table de routage. Si toutes les interfaces activées pour le cloud échouent, l’appareil basculera vers l’autre contrôleur (pas de redémarrage dans ce cas).
-	
-- En cas d’échec de l’adresse IP virtuelle pour une interface réseau compatible iSCSI, 3 tentatives seront effectuées à une intervalle de 2 secondes. Ce comportement est le même que dans les versions précédentes. Si toutes les interfaces réseau iSCSI échouent, un basculement de contrôleur se produit (accompagné d'un redémarrage).
 
 
-- Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez la page [alerte aide-mémoire](storsimple-manage-alerts.md).
-	
+- En cas d'échec d’une interface réseau activée pour le cloud, 3 tentatives de connexion à l’interface sont effectuées à une intervalle de 30 secondes. Si toutes les tentatives échouent, le trafic est acheminé vers l’interface activée pour le cloud disponible suivante selon la table de routage. Si toutes les interfaces activées pour le cloud échouent, l’appareil basculera vers l’autre contrôleur (pas de redémarrage dans ce cas).
+
+- En cas d’échec de l’adresse IP virtuelle pour une interface réseau compatible iSCSI, 3 tentatives seront effectuées à une intervalle de 2 secondes. Ce comportement est le même que dans les versions précédentes. Si toutes les interfaces réseau iSCSI échouent, un basculement de contrôleur se produit (accompagné d'un redémarrage).
+
+
+- Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez la page [alerte aide-mémoire](storsimple-manage-alerts.md).
+
 - En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-	Prenez l'exemple suivant :
-	un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
-		
+	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+
 	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 
 
 ### Meilleures pratiques de mise en réseau
 
-Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances optimales pour votre solution StorSimple, veuillez respecter les meilleures pratiques suivantes :
+Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances optimales pour votre solution StorSimple, veuillez respecter les meilleures pratiques suivantes :
 
-- Assurez-vous que votre appareil StorSimple a une bande passante dédiée de 40 Mbits/s (ou plus) disponible à tout moment. Cette bande passante ne doit pas être partagée (ou l’allocation doit être garantie par le biais de l’utilisation de stratégies QoS) avec d’autres applications.
+- Assurez-vous que votre appareil StorSimple a une bande passante dédiée de 40 Mbits/s (ou plus) disponible à tout moment. Cette bande passante ne doit pas être partagée (ou l’allocation doit être garantie par le biais de l’utilisation de stratégies QoS) avec d’autres applications.
 
 - Vérifiez que la connectivité réseau à Internet est disponible en permanence. Les connexions Internet sporadiques ou non fiables aux appareils, y compris aucune connectivité Internet quelle qu’elle soit, se traduisent par l’absence de prise en charge de la configuration.
 
@@ -195,7 +194,7 @@ Les appareils StorSimple incluent des modules d’alimentation et de refroidisse
 - Connectez vos modules PCM à différentes sources d’alimentation pour assurer la disponibilité en cas de panne d’une source d’alimentation.
 - Si un module PCM tombe en panne, demandez immédiatement son remplacement.
 - Ne retirez un module PCM en panne que si vous disposez d’un module de rechange et êtes prêt à l’installer.
-- Ne supprimez pas les deux modules PCM en même temps. Le module PCM inclut le module de batterie de secours. La suppression des deux modules PCM entraîne un arrêt sans protection de la batterie ; dans ce cas, l’état de l’appareil ne sera pas sauvegardé. Pour plus d’informations sur la batterie, consultez [Entretien du module de batterie de secours](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Ne supprimez pas les deux modules PCM en même temps. Le module PCM inclut le module de batterie de secours. La suppression des deux modules PCM entraîne un arrêt sans protection de la batterie ; dans ce cas, l’état de l’appareil ne sera pas sauvegardé. Pour plus d’informations sur la batterie, consultez [Entretien du module de batterie de secours](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Modules de contrôleur
 
@@ -217,7 +216,7 @@ Les appareils StorSimple incluent des modules de contrôleur redondants et écha
 
 #### Interfaces réseau
 
-Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre interfaces réseau 1 Gigabit et deux interfaces réseau 10 Gigabit Ethernet.
+Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre interfaces réseau 1 Gigabit et deux interfaces réseau 10 Gigabit Ethernet.
 
 - Assurez-vous que les connexions réseau aux deux modules de contrôleur sont identiques, et que les interfaces réseau auxquelles les interfaces des modules de contrôleur sont connectées ont une configuration réseau identique.
 
@@ -231,7 +230,7 @@ Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre i
 
 - Si possible, utilisez MPIO sur les serveurs pour vous assurer qu’ils peuvent tolérer une panne de liaison, de réseau ou d’interface.
 
-Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### Disques SSD et disques durs
 
@@ -277,8 +276,8 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 
 - [En savoir plus sur les limites du système StorSimple](storsimple-limits.md).
 - [Découvrez comment déployer votre solution StorSimple](storsimple-deployment-walkthrough-u2.md).
- 
+
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

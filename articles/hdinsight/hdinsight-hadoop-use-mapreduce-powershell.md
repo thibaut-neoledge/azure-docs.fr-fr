@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
@@ -29,7 +29,9 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 - **Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux**
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##<a id="powershell"></a>Exécution d’une tâche MapReduce avec Azure PowerShell
 
@@ -182,4 +184,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

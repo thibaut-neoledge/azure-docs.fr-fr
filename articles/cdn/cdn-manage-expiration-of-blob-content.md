@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016"
+ ms.date="05/11/2016"
  ms.author="casoper"/>
 
 
@@ -96,4 +96,4 @@ Si vous le souhaitez, vous pouvez utiliser un outil comme **wget** ou Fiddler po
 
 [Comment gérer l’expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

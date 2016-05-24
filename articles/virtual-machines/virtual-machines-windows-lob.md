@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
@@ -52,7 +52,7 @@ La configuration de référence représentative pour une application métier à 
 Elle est constituée de :
 
 - une application métier spécialement conçue pour l’Intranet avec deux serveurs aux niveaux Web et base de données ;
-- une configuration SQL Server AlwaysOn avec deux machines virtuelles exécutant SQL Server et un ordinateur de nœud majoritaire dans un cluster.
+- une configuration SQL Server Always On avec deux machines virtuelles exécutant SQL Server et un ordinateur de nœud majoritaire dans un cluster ;
 - Services de domaine Active Directory dans le réseau virtuel avec deux contrôleurs de domaine répliqués.
 
 Pour obtenir une vue d’ensemble des applications métier, consultez le [Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664).
@@ -75,9 +75,9 @@ Pour déployer cette configuration, procédez comme suit :
 
 	Déployer les machines virtuelles du serveur Web et y ajouter votre application métier. Pour les étapes de configuration détaillées, consultez [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-- Phase 5 : configurer un groupe à haute disponibilité SQL Server AlwaysOn
+- Phase 5 : configurer un groupe de disponibilité SQL Server Always On
 
-	Préparez les bases de données de l’application, créez un groupe à haute disponibilité SQL Server AlwaysOn, puis ajoutez-y les bases de données de l’application. Pour les étapes de configuration détaillées, consultez [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
+	Préparez les bases de données de l’application, créez un groupe de disponibilité SQL Server Always On, puis ajoutez-y les bases de données de l’application. Pour les étapes de configuration détaillées, consultez [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Une fois la configuration effectuée, vous pouvez étendre cette application métier en ajoutant des serveurs Web ou des machines virtuelles exécutant des serveurs SQL vers le cluster.
 
@@ -85,4 +85,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 - Découvrez un [aperçu](virtual-machines-windows-lob-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

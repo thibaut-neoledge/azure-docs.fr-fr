@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Commencez par exécuter l’Assistant Activer la base de données pour Stretch
@@ -44,7 +44,7 @@ Sélectionnez les tables que vous souhaitez activer pour Stretch.
 |**Nom**|Spécifie le nom de la colonne dans la table.|
 |(sans titre)|Un symbole dans cette colonne indique généralement que vous ne pouvez pas activer la table sélectionnée pour Stretch en raison d’un problème de blocage. C’est peut-être dû au fait que la table utilise un type de données non pris en charge. Placez le pointeur de la souris sur le symbole pour afficher plus d’informations dans une info-bulle. Pour plus d’informations, consultez les [limitations de la surface d’exposition et les problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Étendu**|Indique si la table est déjà activée.|
-|**Migrer**|Dans RC3, vous pouvez migrer une table entière (**Entire Table**), ou vous pouvez spécifier un prédicat de filtre basé sur la date dans l'assistant. Si vous souhaitez utiliser un autre prédicat de filtre pour sélectionner les lignes à migrer, exécutez l'instruction ALTER TABLE afin de spécifier le prédicat de filtre après avoir quitté l'Assistant. Pour plus d’informations sur le prédicat de filtre, consultez [Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)](sql-server-stretch-database-predicate-function.md). Pour plus d’informations sur l'application du prédicat, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrer**|Vous pouvez migrer une table entière (**Entire Table**), ou vous pouvez spécifier un prédicat de filtre basé sur la date dans l’Assistant. Si vous souhaitez utiliser un autre prédicat de filtre pour sélectionner les lignes à migrer, exécutez l'instruction ALTER TABLE afin de spécifier le prédicat de filtre après avoir quitté l'Assistant. Pour plus d’informations sur le prédicat de filtre, consultez [Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)](sql-server-stretch-database-predicate-function.md). Pour plus d’informations sur l'application du prédicat, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Lignes**|Spécifie le nombre de lignes dans la table.|
 |**Taille (Ko)**|Spécifie la taille de la table en Ko.|
 
@@ -163,4 +163,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

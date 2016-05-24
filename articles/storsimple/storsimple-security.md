@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="Carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="05/03/2016"
    ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
@@ -70,7 +70,7 @@ Les mots de passe sont un aspect important de la sécurité informatique et sont
 
 Windows PowerShell pour StorSimple est une interface de ligne de commande que vous pouvez utiliser pour gérer l’appareil StorSimple. Windows PowerShell pour StorSimple dispose de fonctionnalités qui vous permettent d’inscrire votre appareil, de configurer l’interface réseau sur votre appareil, d’installer certains types de mises à jour, de résoudre les problèmes de votre appareil en accédant à la session de support et de modifier l’état de l’appareil. Vous pouvez accéder à Windows PowerShell pour StorSimple en vous connectant à la console série sur l’appareil ou à l’aide de l’accès distant Windows PowerShell.
 
-L’accès distant PowerShell peut être effectué via HTTPS ou HTTP. Si la gestion à distance via HTTPS est activée, vous devez télécharger le certificat de gestion à distance à partir du périphérique et l’installer sur le client distant. Pour plus d'informations sur la communication à distance PowerShell, consultez la page [Connexion à distance à votre appareil StorSimple](storsimple-remote-connect).
+L’accès distant PowerShell peut être effectué via HTTPS ou HTTP. Si la gestion à distance via HTTPS est activée, vous devez télécharger le certificat de gestion à distance à partir du périphérique et l’installer sur le client distant. Pour plus d'informations sur la communication à distance PowerShell, consultez la page [Connexion à distance à votre appareil StorSimple](storsimple-remote-connect.md).
 
 Après avoir utilisé Windows PowerShell pour StorSimple pour vous connecter à l’appareil, vous devez fournir le mot de passe Administrateur de ce dernier pour vous y connecter.
 
@@ -269,4 +269,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

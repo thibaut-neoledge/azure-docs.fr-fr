@@ -29,7 +29,12 @@ Les sources de données actuellement disponibles dans Log Analytics sont répert
 
 | Source de données | Type d'événement | Description |
 |:--|:--|:--|
-| [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | <Nom\_journal>\_CL | Fichiers texte sur des agents Windows ou Linux contenant des informations de journalisation. | | [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) | Événement | Événements collectés à partir du journal d’événements sur des ordinateurs Windows. | | [Compteurs de performances Windows](log-analytics-data-sources-performance-counters.md) | Perf | Compteurs de performances collectés à partir d’ordinateurs Windows. | | [Compteurs de performances Linux](log-analytics-data-sources-performance-counters.md) | Perf | Compteurs de performances collectés à partir d’ordinateurs Linux. | | [Journaux IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Journaux Internet Information Services au format W3C. | | Syslog | Syslog | Événements Syslog sur des ordinateurs Windows ou Linux. |
+| [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | \<Nom_journal\>_CL | Fichiers texte sur des agents Windows ou Linux contenant des informations de journalisation. |
+| [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) | Événement | Événements collectés à partir du journal d’événements sur des ordinateurs Windows. |
+| [Compteurs de performances Windows](log-analytics-data-sources-performance-counters.md) | Perf | Compteurs de performances collectés à partir d’ordinateurs Windows. |
+| [Compteurs de performances Linux](log-analytics-data-sources-performance-counters.md) | Perf | Compteurs de performances collectés à partir d’ordinateurs Linux. |
+| [Journaux IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Journaux Internet Information Services au format W3C. |
+| Syslog | Syslog | Événements Syslog sur des ordinateurs Windows ou Linux. |
 
 ## Configuration des sources de données
 

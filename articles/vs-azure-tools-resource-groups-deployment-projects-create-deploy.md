@@ -173,7 +173,13 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 
     ![ajouter une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources et définissez trois propriétés clés. **Propriétés supplémentaires** contient l’emplacement intermédiaire du package de déploiement web qui sera envoyé vers Azure Storage. **Inclure le chemin d’accès au fichier** contient le chemin d’accès à l’emplacement de création du package. **Inclure les cibles** contient la commande que ce déploiement exécutera. La valeur par défaut **Build;Package** permet au déploiement de construire et créer un package de déploiement web (package.zip). Un profil de publication n’est pas nécessaire car le déploiement obtient les informations nécessaires à partir des propriétés pour créer le package.
+    En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources et définissez automatiquement trois propriétés clés.
+    
+    - **Propriétés supplémentaires** contient l’emplacement intermédiaire du package de déploiement web qui sera envoyé vers Azure Storage. 
+    - **Inclure le chemin d’accès au fichier** contient le chemin d’accès à l’emplacement de création du package. **Inclure les cibles** contient la commande que ce déploiement exécutera. 
+    - La valeur par défaut **Build;Package** permet au déploiement de construire et créer un package de déploiement web (package.zip).  
+    
+    Un profil de publication n’est pas nécessaire car le déploiement obtient les informations nécessaires à partir des propriétés pour créer le package.
     
       ![voir une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
@@ -194,6 +200,6 @@ Une fois le déploiement terminé, parcourez le site et notez que l’applicatio
 ## Étapes suivantes
 
 - Pour plus d’informations sur la gestion des ressources via le portail, voir [Utilisation du portail Azure pour gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
-- Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour en savoir plus sur les modèles, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

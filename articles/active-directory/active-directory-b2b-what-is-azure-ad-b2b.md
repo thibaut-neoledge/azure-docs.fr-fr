@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Version préliminaire d’Azure AD B2B Collaboration : intégration simple et sécurisée des partenaires au cloud
@@ -32,7 +32,7 @@ Découvrez [le billet de blog annonçant la publication de la version prélimina
 Pour une comparaison des utilisations possibles d’Azure AD B2B Collaboration, d’Azure AD B2C et de l’application Azure AD mutualisée, voir [Comparaison des fonctionnalités de gestion des identités externes à l’aide d’Azure AD](active-directory-b2b-compare-external-identities.md).
 
 ## Articles connexes
-Consultez les autres articles sur Azure B2B Collaboration :
+Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
 - [Fonctionnement](active-directory-b2b-how-it-works.md)
 - [Procédure pas à pas](active-directory-b2b-detailed-walkthrough.md)
@@ -42,4 +42,4 @@ Consultez les autres articles sur Azure B2B Collaboration :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

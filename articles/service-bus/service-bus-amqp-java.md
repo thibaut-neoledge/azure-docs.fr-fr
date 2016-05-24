@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus et Java avec AMQP 1.0 | Microsoft Azure"
-   description="Utilisation de Service Bus à partir de Java avec AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Service Bus et Java avec AMQP 1.0 | Microsoft Azure"
+    description="Utilisation de Service Bus à partir de Java avec AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # utilisation de Service Bus à partir de Java avec AMQP 1.0
 
@@ -362,24 +362,24 @@ Le tableau suivant montre comment les types de propriétés .NET mappent sur les
 
 | Type de propriété .NET | Type de propriété JMS | Remarques |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mappée sur le type AMQP :<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks mappée sur le type AMQP :<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
+| byte | UnsignedByte | - | 
+| sbyte | Byte | - | 
+| char | Character | - | 
+| short | Short | - | 
+| ushort | UnsignedShort | - | 
+| int | Integer | - | 
+| uint | UnsignedInteger | - | 
+| long | Long | - | 
+| ulong | UnsignedLong | - | 
+| float | Float | - | 
+| double | Double | - | 
+| decimal | BigDecimal | - | 
+| bool | Boolean | - | 
+| Guid | UUID | - | 
+| string | String | - | 
+| DateTime | Date | - | 
+| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mappée sur le type AMQP :<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | 
+| TimeSpan | DescribedType | Timespan.Ticks mappée sur le type AMQP :<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | 
 | Uri | DescribedType | Uri.AbsoluteUri mappée sur le type AMQP :<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### En-têtes standard
@@ -390,31 +390,31 @@ Les tables suivantes montrent comment les en-têtes standard JMS et les proprié
 
 | JMS | .NET Service Bus | Remarques |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | Actuellement non disponible | Service Bus prend uniquement en charge les messages durables ; par exemple, DeliveryMode.PERSISTENT, indépendamment de ce qui est spécifié. |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | Par défaut, JMSMessageID est codé sous forme binaire dans le message AMQP. À la réception du message-id binaire, la bibliothèque cliente .NET est convertie en une représentation de chaîne basée sur les valeurs Unicode des octets. Pour passer à la bibliothèque JMS afin d’utiliser les ID de message de chaîne, ajoutez la chaîne binary-messageid=false aux paramètres de requête de l’URL de connexion JNDI. Par exemple : amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false. |
-| JMSPriority | Actuellement non disponible | Service Bus ne prend pas en charge la priorité de message. |
-| JMSRedelivered | Actuellement non disponible | - |
-| JMSReplyTo | Message. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
+| JMSCorrelationID | Message.CorrelationID | - | 
+| JMSDeliveryMode | Actuellement non disponible | Service Bus prend uniquement en charge les messages durables ; par exemple, DeliveryMode.PERSISTENT, indépendamment de ce qui est spécifié. | 
+| JMSDestination | Message.To | - | 
+| JMSExpiration | Message. TimeToLive | Conversion | 
+| JMSMessageID | Message.MessageID | Par défaut, JMSMessageID est codé sous forme binaire dans le message AMQP. À la réception du message-id binaire, la bibliothèque cliente .NET est convertie en une représentation de chaîne basée sur les valeurs Unicode des octets. Pour passer à la bibliothèque JMS afin d’utiliser les ID de message de chaîne, ajoutez la chaîne binary-messageid=false aux paramètres de requête de l’URL de connexion JNDI. Par exemple : amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false. | 
+| JMSPriority | Actuellement non disponible | Service Bus ne prend pas en charge la priorité de message. | 
+| JMSRedelivered | Actuellement non disponible | - | 
+| JMSReplyTo | Message. ReplyTo | - | 
+| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | 
 | JMSType | Message.Properties[“jms-type”] | - |
 
 #### API .NET Service Bus à JMS
 
 | .NET Service Bus | JMS | Remarques |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | Actuellement non disponible |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | n/a | Actuellement non disponible |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/a | Actuellement non disponible |
-| ScheduledEnqueueTimeUtc | n/a | Actuellement non disponible |
-| SessionId | n/a | Actuellement non disponible |
-| TimeToLive | JMSExpiration | Conversion |
+| ContentType | - | Actuellement non disponible | 
+| CorrelationId | JMSCorrelationID | - | 
+| EnqueuedTimeUtc | JMSTimestamp | Conversion | 
+| Label | n/a | Actuellement non disponible | 
+| MessageId | JMSMessageID | - | 
+| ReplyTo | JMSReplyTo | - | 
+| ReplyToSessionId | n/a | Actuellement non disponible | 
+| ScheduledEnqueueTimeUtc | n/a | Actuellement non disponible | 
+| SessionId | n/a | Actuellement non disponible | 
+| TimeToLive | JMSExpiration | Conversion | 
 | To | JMSDestination | - |
 
 ## Fonctionnalités non prises en charge et restrictions
@@ -446,4 +446,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

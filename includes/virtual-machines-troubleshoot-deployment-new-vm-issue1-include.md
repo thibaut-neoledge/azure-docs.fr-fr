@@ -1,5 +1,5 @@
-## Issue: Custom image; provisioning errors
+## Problème : Image personnalisée ; erreurs de configuration
 
-Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
+Les erreurs de configuration se produisent lorsque vous téléchargez ou capturez une image de machine virtuelle généralisée en tant qu’image de machine virtuelle spécialisée, ou inversement. Une erreur de délai d’attente de configuration survient dans le premier cas, tandis que c’est un échec de configuration dans le second. Pour déployer votre image personnalisée sans erreur, vous devez vous assurer que le type de l’image ne change pas pendant le processus de capture.
 
-The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+Le tableau suivant répertorie les combinaisons possibles d’images généralisées et spécialisés, le type d’erreur que vous pouvez rencontrer et ce qu’il faut faire pour corriger ces erreurs.

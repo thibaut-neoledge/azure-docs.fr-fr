@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure"
-	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java."
+	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -564,4 +564,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

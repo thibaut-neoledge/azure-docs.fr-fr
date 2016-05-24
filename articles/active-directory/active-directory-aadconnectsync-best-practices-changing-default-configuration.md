@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="05/10/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect Sync : meilleures pratiques pour modifier la configuration par défaut
@@ -109,4 +109,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

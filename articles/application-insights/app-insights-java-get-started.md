@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -214,35 +214,38 @@ Exécutez-le en mode débogage sur votre ordinateur de développement, ou publie
 
 ## 6\. Voir votre télémétrie dans Application Insights
 
+
 Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
 Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
 ![Exemples de données](./media/app-insights-java-get-started/5-results.png)
 
+[En savoir plus sur les mesures.][metrics]
 
-Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
+Cliquez sur un des graphiques pour afficher des métriques agrégées plus détaillées.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights part du principe que le format des requêtes HTTP pour les applications MVC est : `VERB controller/action` Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
 
-Et lorsque vous affichez les propriétés d'une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
+### Données d’instance 
+
+Cliquez sur un type de demande spécifique pour afficher les instances individuelles.
+
+Deux types de données s’affichent dans Application Insights : des données agrégées, stockées et affichées sous forme de moyennes, de nombres et de sommes ; et les données d’instance : des rapports individuels des requêtes HTTP, des exceptions, les vues de page ou des événements personnalisés.
+
+Lorsque vous affichez les propriétés d’une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Analytics : un puissant langage de requête
 
-[En savoir plus sur les mesures.][metrics]
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant, utile pour comprendre les performances et l’utilisation, ainsi que pour mener à bien des diagnostics.
 
-#### Calcul du nom de l'adresse intelligente
-
-Application Insights part du principe que le format des demandes HTTP pour les applications MVC est : `VERB controller/action`
-
-
-Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`.
-
-Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
+![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)
 
 
 ## 5\. Installer votre application sur le serveur
@@ -398,4 +401,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

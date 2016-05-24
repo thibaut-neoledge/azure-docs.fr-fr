@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Se connecter et lancer des requêtes avec SQLCM
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [Visual Studio][]
+- [SQLCMD][]
 
 Cette procédure pas à pas vous explique comment vous connecter à une base de données Azure SQL Data Warehouse et l’interroger en quelques minutes en utilisant l’utilitaire sqlcmd.exe. Lors de cette procédure pas à pas, vous allez :
 
@@ -30,13 +30,13 @@ Cette procédure pas à pas vous explique comment vous connecter à une base de 
 
 ## Composants requis
 
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx) : pour télécharger sqlcmd.exe, veuillez consulter les [ Utilitaires de ligne de commande Microsoft 11 pour SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
++ Pour télécharger [sqlcmd.exe][], veuillez consulter les [ Utilitaires de ligne de commande Microsoft 11 pour SQL Server][].
 
 ## Obtenir le nom complet de votre serveur SQL Azure
 
 Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (****servername**.database.windows.net*) contenant la base de données à laquelle vous souhaitez vous connecter.
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accédez au [portail Azure][].
 2. Accédez à la base de données à laquelle vous souhaitez vous connecter.
 3. Recherchez le nom complet du serveur (nous allons l’utiliser dans les étapes à suivre) :
 
@@ -70,17 +70,27 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 3> QUIT
 ```
 
-Pour en savoir plus sur sqlcmd, consultez la [documentation relative à sqlcmd](https://msdn.microsoft.com/library/azure/ms162773.aspx).
+Pour en savoir plus sur sqlcmd, consultez la [documentation relative à sqlcmd][sqlcmd.exe].
 
 
 ## Étapes suivantes
 
 Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [vous connecter avec Power BI][].
 
-[vous connecter avec Power BI]: ./sql-data-warehouse-integrate-power-bi.md
+Pour configurer votre environnement pour l’authentification Windows, voir [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory][].
 
+<!--Articles-->
+[Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[vous connecter avec Power BI]: ./sql-data-warehouse-integrate-power-bi.md
+[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+
+<!--Other-->
+[sqlcmd.exe]: https://msdn.microsoft.com/fr-FR/library/ms162773.aspx
+[ Utilitaires de ligne de commande Microsoft 11 pour SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[portail Azure]: https://portal.azure.com
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

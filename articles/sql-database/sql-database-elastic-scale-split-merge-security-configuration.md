@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configuration de la sécurité de l'infrastructure élastique | Microsoft Azure" 
+    pageTitle="Configuration de la sécurité du fractionnement et de la fusion | Microsoft Azure" 
     description="Définissez les certificats x 409 pour le chiffrement" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/23/2016" 
+    ms.date="04/26/2016" 
     ms.author="torsteng;sidneyh" />
 
 
-# Configuration de la sécurité de la fusion et du fractionnement  
+# Configuration de la sécurité du fractionnement et de la fusion  
 
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
@@ -429,7 +429,7 @@ Procédez comme suit :
 11. Sélectionnez un certificat dans la liste.
 
 ## Exportation du certificat
-Dans l’**Assistant Exportation de certificat** :
+Dans l’**Assistant Exportation de certificat** :
 
 1. Cliquez sur **Next**.
 2. Sélectionnez l’option **Oui**, puis **Exporter la clé privée**.
@@ -487,4 +487,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

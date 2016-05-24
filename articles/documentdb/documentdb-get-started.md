@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/13/2016"
 	ms.author="anhoh"/>
 
 # Didacticiel NoSQL : générer une application de console C# DocumentDB
@@ -47,7 +47,7 @@ Commençons dès maintenant !
 
 Vérifiez que vous disposez des éléments suivants :
 
-- Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
+- Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
 
@@ -594,7 +594,8 @@ Félicitations ! Vous avez terminé ce didacticiel NoSQL et que vous disposez d
 ##<a id="GetSolution"></a> Obtenir la solution complète du didacticiel NoSQL
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
--   [Un compte DocumentDB][documentdb-create-account].
+- Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
+-   Un [compte DocumentDB][documentdb-create-account].
 -   La solution [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponible sur GitHub.
 
 Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio, cliquez avec le bouton droit sur la solution **GetStarted** dans l’Explorateur de solutions, puis cliquez sur **Activer la restauration des packages NuGet**. Ensuite, dans le fichier App.config, mettez à jour les valeurs pour EndpointUrl et AuthorizationKey comme décrit à la section [Se connecter à un compte DocumentDB](#Connect).
@@ -610,4 +611,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

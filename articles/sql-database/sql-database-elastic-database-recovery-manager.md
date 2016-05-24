@@ -3,7 +3,7 @@
 	description="Utiliser la classe RecoveryManager pour résoudre les problèmes des mappages de partition" 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
@@ -129,14 +129,13 @@ Le basculement géographique et la restauration sont des opérations généralem
 4. Détecter des incohérences dans le mappage entre le GSM et LSM. 
 5. Résoudre les différences entre le GSM et le LSM et approuver le LSM. 
 
-Cet exemple effectue les étapes suivantes : 1. Supprimer les partitions du mappage de partition qui reflètent les emplacements des partitions avant l’événement de basculement. 2. Joint des partitions au mappage de partition qui reflètent les nouveaux emplacements des partitions (le paramètre « Configuration.SecondaryServer » est le nouveau nom de serveur, mais le même nom de base de données). 3. Extrait des jetons de récupération en détectant des différences de mappage entre le GSM et le LSM pour chaque partition. 4. Résout les incohérences en approuvant le mappage LSM de chaque partition.
+Cet exemple effectue les étapes suivantes :
+1. Supprimer les partitions du mappage de partition qui reflètent les emplacements des partitions avant l’événement de basculement.
+2. Joint des partitions au mappage de partition qui reflètent les nouveaux emplacements des partitions (le paramètre « Configuration.SecondaryServer » est le nouveau nom de serveur, mais le même nom de base de données).
+3. Extrait des jetons de récupération en détectant des différences de mappage entre le GSM et le LSM pour chaque partition. 
+4. Résout les incohérences en approuvant le mappage LSM de chaque partition. 
 
-	var shards = smm.GetShards(); 
-	foreach (shard s in shards) 
-	{ 
-	 if (s.Location.Server == Configuration.PrimaryServer) 
-		 { 
-		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
 		  rm.DetachShard(s.Location); 
 		
@@ -149,7 +148,7 @@ Cet exemple effectue les étapes suivantes : 1. Supprimer les partitions du map
 			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
-	} 
+	}
 
 
 
@@ -160,4 +159,4 @@ Cet exemple effectue les étapes suivantes : 1. Supprimer les partitions du map
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

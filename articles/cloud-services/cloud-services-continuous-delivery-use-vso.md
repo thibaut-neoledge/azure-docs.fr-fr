@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Diffusion continue sur Azure au moyen de Visual Studio Team Services
@@ -58,7 +58,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 ## 3 : Connexion du projet à Azure
 
-1. Maintenant que vous disposez d’un projet d’équipe Visual Studio Team Services contenant du code source, vous êtes prêt à connecter votre projet d’équipe à Azure. Dans le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
+1. Maintenant que vous disposez d’un projet d’équipe Visual Studio Team Services contenant du code source, vous êtes prêt à connecter votre projet d’équipe à Azure. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
 
 	![][10]
 
@@ -157,7 +157,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 	![][29]
 
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
 
 	![][30]
 
@@ -317,4 +317,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

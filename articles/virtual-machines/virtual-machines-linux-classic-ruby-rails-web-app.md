@@ -14,21 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/06/2016"
 	ms.author="robmcm"/>
 
-
-
-
-
-#Application Web Ruby on Rails sur une machine virtuelle Azure
+# Application Web Ruby on Rails sur une machine virtuelle Azure
 
 Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure à l'aide d'une machine virtuelle Linux.
 
 Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous utilisez une distribution Linux différente, vous devrez peut-être modifier les étapes pour installer Rails.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
 
 ## Création d’une machine virtuelle Azure
 
@@ -70,9 +65,9 @@ Une fois que la machine virtuelle est configurée, vous pouvez obtenir le point 
 
 3. Utilisez la commande suivante pour installer Rails :
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
-	Utilisez les indicateurs --no-rdoc et--no-ri pour ignorer l’installation de la documentation, ce qui est plus rapide.
+	Utilisez les indicateurs --no-rdoc et--no-ri pour ignorer l’installation de la documentation, ce qui est plus rapide. L’exécution de cette commande peut être très longue ; l’ajout de -V permet d’afficher des informations sur la progression de l’installation.
 
 ## Création et exécution d’une application
 
@@ -94,7 +89,6 @@ Le résultat ressemble à ce qui suit.
 	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
 	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
-
 ## Ajout d’un point de terminaison
 
 1. Accédez au [portail Azure Classic][management-portal] et sélectionnez votre machine virtuelle.
@@ -111,13 +105,13 @@ Le résultat ressemble à ce qui suit.
 
 3. Dans la page suivante de la boîte de dialogue, entrez les informations suivantes :
 
-	* **NOM** : HTTP
+	* **NOM** : HTTP
 
-	* **PROTOCOLE** : TCP
+	* **PROTOCOLE** : TCP
 
-	* **PORT PUBLIC** : 80
+	* **PORT PUBLIC** : 80
 
-	* **PORT PRIVÉ** : 3000
+	* **PORT PRIVÉ** : 3000
 
 	Ainsi, un port public 80 est créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
 
@@ -129,8 +123,7 @@ Le résultat ressemble à ce qui suit.
 
 	![page rails par défaut][default-rails-cloud]
 
-
-##<a id="next"></a>Étapes suivantes
+## Étapes suivantes
 
 Dans ce didacticiel, vous avez effectué la plupart des étapes manuellement. Dans un environnement de production, vous écririez votre application sur un ordinateur de développement et la déploieriez sur la machine virtuelle Azure. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques. Pour plus d'informations, consultez http://rubyonrails.org/deploy/.
 
@@ -144,35 +137,23 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 * [Distribution de contenu à bande passante élevée avec le CDN][cdn-howto]
 
-
-
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-
-[cdn-howto]: /develop/ruby/app-services/
-
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-
-[tables]: /develop/ruby/how-to-guides/table-service/
-
+[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
-
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
-
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
 
 [default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-
 [vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-
 [endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

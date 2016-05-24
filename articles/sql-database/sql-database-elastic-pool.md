@@ -22,6 +22,8 @@
 
 Les pools élastiques offrent une solution simple et économique pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et non prévisibles.
 
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis, du Sud du Brésil, de l’Inde de l’Ouest, du Sud de l’Inde et du Nord de la Chine, où ils sont actuellement en version préliminaire. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
+
 ## Fonctionnement
 
 Un modèle d’application SaaS courant est un modèle de base de données avec un seul client : chaque client se voit attribuer une base de données. Les besoins en ressources de chaque client (base de données) en matière de mémoire, d’E/S et de processeur sont imprévisibles. Avec ces pics et creux de demande, comment allouer des ressources ? En règle générale, vous avez deux options : (1) le sur-approvisionnement de ressources en fonction des pics d’utilisation et des coûts trop élevés ou (2) le sous-approvisionnement pour réduire les coûts, au détriment des performances et de la satisfaction client pendant les pics. Grâce aux pools de base de données élastiques, les bases de données obtiennent les ressources de performances dont elles ont besoin, quand elles en ont besoin, dans le cadre d’un mécanisme d’allocation de ressources simple et d’un budget prévisible.
@@ -77,9 +79,9 @@ Les bases de données qui sont d’excellents candidats pour les pools de base d
 
 ## Tâches de base de données élastiques
 
-Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](sql-database-elastic-jobs-overview.md)**. Une tâche de base de données élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données. Pour commencer, consultez [Prise en main des tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md).
+Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](sql-database-elastic-jobs-overview.md)**. Une tâche de base de données élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données. Pour commencer, consultez l’article [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md).
 
-Pour plus d’informations sur les autres outils, consultez le [Parcours d’apprentissage des outils de base de données élastique](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Pour plus d’informations sur les autres outils, consultez le [parcours d’apprentissage des outils de base de données élastique](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Fonctionnalités de continuité des activités pour les bases de données d’un pool
 
@@ -88,18 +90,18 @@ Les bases de données élastiques prennent généralement en charge les mêmes [
 
 ### Restauration dans le temps
 
-La restauration dans le temps utilise les sauvegardes automatiques de base de données pour récupérer une base de données d’un pool à un moment précis dans le temps. Voir [Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur](sql-database-user-error-recovery.md)
+La restauration dans le temps utilise les sauvegardes automatiques de base de données pour récupérer une base de données d’un pool à un moment précis dans le temps. Voir [Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur](sql-database-user-error-recovery.md).
 
 ### Restauration géographique
 
-La restauration géographique constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Voir [Récupérer une base de données SQL Azure en cas de défaillance](sql-database-disaster-recovery.md)
+La restauration géographique constitue l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Voir [Récupérer une base de données SQL Azure en cas de défaillance](sql-database-disaster-recovery.md).
 
 ### Géo-réplication active
 
-Pour les applications qui ont des exigences de récupération plus agressives auxquelles la restauration géographique ne peut pas répondre, configurez la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](sql-database-geo-replication-powershell.md) ou de [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Pour les applications qui ont des exigences de récupération extrêmement strictes auxquelles la restauration géographique ne peut pas répondre, configurez la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](sql-database-geo-replication-powershell.md) ou de [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

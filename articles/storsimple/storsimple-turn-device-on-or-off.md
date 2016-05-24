@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/21/2016"
    ms.author="alkohli" />
 
 # Activation ou désactivation de votre appareil StorSimple 
@@ -28,12 +28,12 @@ Le tableau suivant répertorie les différents scénarios de mise sous tension e
 |Activer un nouvel appareil|[Activer un nouvel appareil](#turn-on-a-new-device)<ul><li>[Nouvel appareil avec boîtier principal uniquement](#new-device-with-primary-enclosure-only)</li><li>[Nouvel appareil avec boîtier EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Activer un appareil après l'arrêt|[Activer un appareil après l'arrêt](#turn-on-a-device-after-shutdown)<ul><li>[Appareil avec boîtier principal uniquement](#device-with-primary-enclosure-only)</li><li>[Appareil avec boîtier EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Activer un appareil après une panne de courant|[Activer un appareil après une panne de courant](#turn-on-a-device-after-a-power-loss)<ul><li>[Appareil avec boîtier principal uniquement](#8100)</li><li>[Appareil avec boîtier EBOD](#8600)</li></ul>|
-|Activer un appareil après la perte de connexion au boîtier principal et à EBOD|[Activer un appareil après la perte de connexion au boîtier principal et EBOD](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Activer un appareil après la perte de connexion au boîtier principal et à EBOD|[Activer un appareil après la perte de connexion au boîtier principal et EBOD](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
 |Arrêter un appareil en cours d'exécution|[Arrêter un appareil en cours d'exécution](#turn-off-a-running-device)<ul><li>[Appareil avec boîtier principal uniquement](#8100a)</li><li>[Appareil avec boîtier EBOD](#8600a)</li></ul>|
 
 ## Activer un nouvel appareil
 
-Les étapes pour activer un appareil Microsoft Azure StorSimple pour la première fois diffèrent selon s'il s'agit d'un appareil de modèle 8100 ou 8600. Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Les étapes détaillées pour les deux modèles sont traitées dans les sections suivantes.
+Les étapes d’activation initiale d’un appareil StorSimple diffèrent selon le modèle de l’appareil (8100 ou 8600). Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Les étapes détaillées pour les deux modèles sont traitées dans les sections suivantes.
 
 - [Nouvel appareil avec boîtier principal uniquement](#new-device-with-primary-enclosure-only)
 
@@ -63,7 +63,7 @@ Lorsque vous configurez cet appareil pour la première fois, commencez par les �
 
 ## Activer un appareil après l'arrêt
 
-Les étapes pour activer un appareil Microsoft Azure StorSimple après qu'il a été arrêté diffèrent selon s'il s'agit d'un appareil de modèle 8100 ou 8600. Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD.
+Les étapes d’activation d’un appareil StorSimple après qu’il a été arrêté diffèrent selon le modèle de l’appareil (8100 ou 8600). Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD.
 
 - [Appareil avec boîtier principal uniquement](#device-with-primary-enclosure-only)
 
@@ -107,7 +107,7 @@ Après un arrêt, utilisez la procédure suivante pour activer un appareil StorS
 
 ## Activer un appareil après une panne de courant
 
-Une panne de courant ou une interruption peut arrêter un appareil Microsoft Azure StorSimple. La panne peut se produire sur l'un des blocs d'alimentation ou les deux. Les étapes de récupération sont différentes selon qu'il s'agit d'un appareil de modèle 8100 ou 8600. Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Cette section décrit la procédure de récupération pour chaque scénario.
+Une panne de courant ou une interruption peut entraîner l’arrêt d’un appareil StorSimple. La panne peut se produire sur l'un des blocs d'alimentation ou les deux. Les étapes de récupération sont différentes selon qu'il s'agit d'un appareil de modèle 8100 ou 8600. Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Cette section décrit la procédure de récupération pour chaque scénario.
 
 - [Appareil avec boîtier principal uniquement](#8100)
 
@@ -177,11 +177,11 @@ Lorsque les deux câbles SCSI (SAS) sont retirés ou que la connexion entre le b
 
 10. Assurez-vous que la connexion du boîtier EBOD avec le boîtier principal est bonne en vérifiant que les témoins lumineux SAS (quatre par contrôleur EBOD) sont tous allumés.
 
->[AZURE.IMPORTANT]Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Dans ce cas, veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.IMPORTANT] Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Dans ce cas, veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Désactiver un appareil en cours d'exécution
 
-Il peut être nécessaire d'arrêter un appareil Microsoft Azure StorSimple en cours d'exécution s'il est déplacé, mis hors service ou contient un composant défectueux qui doit être remplacé. Les étapes sont différentes selon qu'il s'agit d'un appareil Microsoft Azure StorSimple de modèle 8100 ou 8600. Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Cette section décrit les étapes pour arrêter un appareil en cours d'exécution.
+Il peut être nécessaire d’arrêter un appareil StorSimple en cours d’exécution s’il est déplacé, s’il est mis hors service ou s’il contient un composant défectueux qui doit être remplacé. Les étapes diffèrent selon le modèle de l’appareil StorSimple (8100 ou 8600). Le modèle 8100 a un seul boîtier principal, tandis que le modèle 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD. Cette section décrit les étapes pour arrêter un appareil en cours d'exécution.
 
 - [Appareil avec boîtier principal](#8100a)
 
@@ -191,7 +191,7 @@ Il peut être nécessaire d'arrêter un appareil Microsoft Azure StorSimple en c
 
 Il n'existe actuellement aucun moyen d'arrêter un appareil StorSimple en cours d'exécution à partir du portail Azure Classic. La seule façon de l'arrêter est d'utiliser Windows PowerShell pour StorSimple. Pour arrêter l'appareil de manière ordonnée et contrôlée, accédez à Windows PowerShell pour StorSimple et suivez les étapes ci-dessous.
 
->[AZURE.IMPORTANT]N'arrêtez pas un appareil en cours d'exécution à l'aide du bouton d'alimentation situé à l'arrière de l'appareil.
+>[AZURE.IMPORTANT] N'arrêtez pas un appareil en cours d'exécution à l'aide du bouton d'alimentation situé à l'arrière de l'appareil.
 >
 >Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail Azure Classic accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Si le système est sur le point d’être arrêté pour procéder au remplacement d'un composant défaillant, vous verrez s'afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs sous **État du matériel**.
 
@@ -211,7 +211,7 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
     Ceci doit arrêter le contrôleur de secours actif.
 
-    >[AZURE.IMPORTANT]Attendez que le contrôleur s'arrête complètement avant de passer à l'étape suivante.
+    >[AZURE.IMPORTANT] Attendez que le contrôleur s'arrête complètement avant de passer à l'étape suivante.
 
 5. Pour être sûr que l'arrêt est terminé, vérifiez l'arrière de l'appareil. Le témoin lumineux de défaillance du contrôleur doit être rouge fixe.
 
@@ -225,7 +225,7 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 ### Appareil avec boîtier EBOD <a name="8600a">
 
->[AZURE.IMPORTANT]Avant d'arrêter le boîtier principal et le boîtier EBOD, assurez-vous que tous les composants de l'appareil sont intègres. Dans le portail de gestion, accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que tous les composants sont intègres.
+>[AZURE.IMPORTANT] Avant d'arrêter le boîtier principal et le boîtier EBOD, assurez-vous que tous les composants de l'appareil sont intègres. Dans le portail de gestion, accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que tous les composants sont intègres.
 
 #### Pour arrêter un appareil en cours d'exécution avec un boîtier EBOD
 
@@ -235,10 +235,10 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 3. Pour être sûr que le boîtier EBOD s'est arrêté, vérifiez que tous les témoins lumineux à l'arrière du boîtier EBOD sont éteints.
 
->[AZURE.NOTE]Les câbles SAS qui sont utilisés pour connecter le boîtier EBOD au boîtier principal ne doivent pas être retirés tant que le système n'a pas été arrêté.
+>[AZURE.NOTE] Les câbles SAS qui sont utilisés pour connecter le boîtier EBOD au boîtier principal ne doivent pas être retirés tant que le système n'a pas été arrêté.
 
 ## Étapes suivantes
 
 [Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

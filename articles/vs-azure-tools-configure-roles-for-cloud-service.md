@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurer les rôles pour un service cloud Azure avec Visual Studio | Microsoft Azure"
-   description="Découvrez comment installer et configurer des rôles pour les services cloud Azure à l’aide de Visual Studio."
+   pageTitle="Configurer les rôles pour un service cloud Azure avec Visual Studio | Microsoft Azure"
+   description="Découvrez comment installer et configurer des rôles pour les services cloud Azure à l’aide de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
-# Configuration des rôles pour un service cloud Azure avec Visual Studio
+# Configuration des rôles pour un service cloud Azure avec Visual Studio
 
-Un service cloud Azure peut avoir un ou plusieurs rôles de travail ou rôles web. Pour chaque rôle, vous devez définir le mode de configuration de ce rôle et vous devez également configurer le mode d’exécution de ce rôle. Pour en savoir plus sur les rôles dans les services cloud, regardez la vidéo [Introduction aux services cloud Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). Les informations pour votre service cloud sont stockées dans les fichiers suivants :
+Un service cloud Azure peut avoir un ou plusieurs rôles de travail ou rôles web. Pour chaque rôle, vous devez définir le mode de configuration de ce rôle et vous devez également configurer le mode d’exécution de ce rôle. Pour en savoir plus sur les rôles dans les services cloud, regardez la vidéo [Introduction aux services cloud Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). Les informations pour votre service cloud sont stockées dans les fichiers suivants :
 
 - **ServiceDefinition.csdef**
 
@@ -29,7 +29,7 @@ Un service cloud Azure peut avoir un ou plusieurs rôles de travail ou rôles we
 
 Pour être en mesure de stocker différentes valeurs pour ces paramètres pour définir le mode d’exécution de votre rôle, vous pouvez disposer de plusieurs configurations de service. Vous pouvez utiliser une configuration de service différente pour chaque environnement de déploiement. Par exemple, vous pouvez définir votre chaîne de connexion de compte de stockage pour utiliser l’émulateur de stockage Azure local dans une configuration de service local et créer une autre configuration de service pour utiliser le stockage Azure dans le cloud.
 
-Lorsque vous créez un service cloud Azure dans Visual Studio, deux configurations de service sont créées par défaut. Ces configurations sont ajoutées à votre projet Azure. Les configurations sont nommées :
+Lorsque vous créez un service cloud Azure dans Visual Studio, deux configurations de service sont créées par défaut. Ces configurations sont ajoutées à votre projet Azure. Les configurations sont nommées :
 
 - ServiceConfiguration.Cloud.cscfg
 
@@ -37,7 +37,7 @@ Lorsque vous créez un service cloud Azure dans Visual Studio, deux configuratio
 
 ## Configurer un service cloud Azure
 
-Vous pouvez configurer un service cloud Azure à partir de l’Explorateur de solutions dans Visual Studio, comme le montre l’illustration suivante.
+Vous pouvez configurer un service cloud Azure à partir de l’Explorateur de solutions dans Visual Studio, comme le montre l’illustration suivante.
 
 ![Configurer le service cloud](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
@@ -107,7 +107,7 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
 
 1. Choisissez l’icône **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
 
-1. Pour accéder à la chaîne de connexion dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration. Le code suivant montre un exemple où le stockage d’objets blob est créé et où les données sont téléchargées à l’aide d’une chaîne de connexion `MyConnectionString` depuis le fichier de configuration de service quand un utilisateur choisit **Button1** dans la page Default.aspx dans le rôle web pour un service cloud Azure. Ajoutez les instructions using suivantes à Default.aspx.cs :
+1. Pour accéder à la chaîne de connexion dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration. Le code suivant montre un exemple où le stockage d’objets blob est créé et où les données sont téléchargées à l’aide d’une chaîne de connexion `MyConnectionString` depuis le fichier de configuration de service quand un utilisateur choisit **Button1** dans la page Default.aspx dans le rôle web pour un service cloud Azure. Ajoutez les instructions using suivantes à Default.aspx.cs :
 
     ```
     using Microsoft.WindowsAzure;
@@ -207,9 +207,9 @@ Les paramètres de stockage local s’appliquent à toutes les configurations de
 
 1. Pour enregistrer ces modifications dans les fichiers de configuration de service, choisissez l’icône **Enregistrer** dans la barre d’outils.
 
-1. Pour accéder au stockage local que vous avez ajouté dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration de ressource locale. Utilisez les lignes suivantes de code pour accéder à cette valeur et créer un fichier appelé **MyStorageTest.txt** et écrire une ligne de données de test dans ce fichier. Vous pouvez ajouter ce code dans la méthode `Button_Click` que vous avez utilisée dans les procédures précédentes :
+1. Pour accéder au stockage local que vous avez ajouté dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration de ressource locale. Utilisez les lignes suivantes de code pour accéder à cette valeur et créer un fichier appelé **MyStorageTest.txt** et écrire une ligne de données de test dans ce fichier. Vous pouvez ajouter ce code dans la méthode `Button_Click` que vous avez utilisée dans les procédures précédentes :
 
-1. Vous devez vous assurer que les instructions using suivantes sont ajoutées à Default.aspx.cs :
+1. Vous devez vous assurer que les instructions using suivantes sont ajoutées à Default.aspx.cs :
 
     ```
     using System.IO;
@@ -233,7 +233,7 @@ Les paramètres de stockage local s’appliquent à toutes les configurations de
     }
     ```
 
-1. (Facultatif) Pour consulter ce fichier que vous avez créé quand vous exécutez votre service cloud localement, procédez comme suit :
+1. (Facultatif) Pour consulter ce fichier que vous avez créé quand vous exécutez votre service cloud localement, procédez comme suit :
 
   1. Exécutez le rôle web et cliquez sur **Button1** pour vous assurer que le code `Button1_Click` est appelé.
 
@@ -253,7 +253,7 @@ Les paramètres de stockage local s’appliquent à toutes les configurations de
 
 Vous pouvez collecter les données de diagnostic pour votre service cloud Azure. Ces données sont ajoutées à un compte de stockage. Vous pouvez vouloir des chaînes de connexion différentes pour les différentes configurations de service. Par exemple, vous pouvez vouloir un compte de stockage local pour une configuration de service local qui a pour valeur UseDevelopmentStorage=true. Vous pouvez aussi vouloir définir une configuration de service cloud qui utilise un compte de stockage dans Azure. Pour plus d’informations concernant les diagnostics Azure, consultez Recueillir des données de journaux à l’aide des diagnostics Azure.
 
->[AZURE.NOTE] La configuration de service local est déjà configurée pour utiliser des ressources locales. Si vous utilisez la configuration de service cloud pour publier votre service cloud Azure, la chaîne de connexion que vous spécifiez quand vous publiez est également utilisée pour la chaîne de connexion des diagnostics, à moins que vous ayez spécifié une chaîne de connexion. Si vous créez un package pour votre service cloud à l’aide de Visual Studio, la chaîne de connexion dans la configuration de service n’est pas modifiée.
+>[AZURE.NOTE] La configuration de service local est déjà configurée pour utiliser des ressources locales. Si vous utilisez la configuration de service cloud pour publier votre service cloud Azure, la chaîne de connexion que vous spécifiez quand vous publiez est également utilisée pour la chaîne de connexion des diagnostics, à moins que vous ayez spécifié une chaîne de connexion. Si vous créez un package pour votre service cloud à l’aide de Visual Studio, la chaîne de connexion dans la configuration de service n’est pas modifiée.
 
 ### Pour collecter les diagnostics du service cloud
 
@@ -279,8 +279,8 @@ Vous pouvez collecter les données de diagnostic pour votre service cloud Azure.
 
 1. Choisissez le compte de stockage que vous souhaitez utiliser dans **Nom du compte**.
 
-    Si vous entrez manuellement les informations d’identification du compte de stockage, copiez ou entrez la clé primaire dans **Clé du compte**. Vous pouvez copier cette clé depuis le portail de gestion Azure. Pour copier cette clé, suivez ces étapes depuis la vue **Comptes de stockage** dans le portail de gestion Azure :
-
+    Si vous entrez manuellement les informations d’identification du compte de stockage, copiez ou entrez la clé primaire dans **Clé du compte**. Vous pouvez copier cette clé depuis le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé, suivez ces étapes depuis la vue **Comptes de stockage** dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
+    
   1. Sélectionnez le compte de stockage que vous voulez utiliser pour votre service cloud.
 
   1. Choisissez le bouton **Gérer les clés d’accès** situé en bas de l’écran. La boîte de dialogue **Gérer les clés d’accès** s’affiche.
@@ -309,7 +309,7 @@ Les ressources requises pour chaque machine virtuelle dans Azure affectent le co
 
 ## Gérer les points de terminaison et les certificats pour vos rôles
 
-Pour configurer des points de terminaison réseau, spécifiez le protocole, le numéro de port et les informations de certificat SSL pour le protocole HTTPS. Les versions antérieures à juin 2012 prennent en charge HTTP, HTTPS et TCP. La version de juin 2012 prend en charge ces protocoles et UDP. Vous ne pouvez pas utiliser UDP pour les points de terminaison d’entrée dans l’émulateur de calcul. Utilisez ce protocole uniquement pour les points de terminaison internes.
+Pour configurer des points de terminaison réseau, spécifiez le protocole, le numéro de port et les informations de certificat SSL pour le protocole HTTPS. Les versions antérieures à juin 2012 prennent en charge HTTP, HTTPS et TCP. La version de juin 2012 prend en charge ces protocoles et UDP. Vous ne pouvez pas utiliser UDP pour les points de terminaison d’entrée dans l’émulateur de calcul. Utilisez ce protocole uniquement pour les points de terminaison internes.
 
 Pour améliorer la sécurité de votre service cloud Azure, vous pouvez créer des points de terminaison qui utilisent le protocole HTTPS. Par exemple, si vous avez un service cloud utilisé par des clients pour passer des commandes, vous voulez vous assurer que leurs informations sont sécurisées à l’aide de SSL.
 
@@ -319,7 +319,7 @@ Vous pouvez aussi ajouter des points de terminaison qui peuvent être utilisés 
 
 Si vous ajoutez des points de terminaison HTTPS, vous devez utiliser un certificat SSL. Pour cela, vous pouvez associer des certificats à votre rôle pour toutes les configurations de service et les utiliser pour vos points de terminaison.
 
->[AZURE.IMPORTANT] Ces certificats ne font pas partie d’un package avec votre service. Vous devez télécharger séparément vos certificats sur Azure via le portail de gestion de la plateforme Azure.
+>[AZURE.IMPORTANT] Ces certificats ne font pas partie d’un package avec votre service. Vous devez télécharger séparément vos certificats sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Les certificats de gestion que vous associez à vos configurations de service s’appliquent seulement quand votre service cloud s’exécute dans Azure. Quand votre service cloud s’exécute dans l’environnement de développement local, un certificat standard géré par l’émulateur de calcul Azure est utilisé.
 
@@ -374,6 +374,6 @@ Les certificats de gestion que vous associez à vos configurations de service s�
 1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans les fichiers de configuration de service.
 
 ## Étapes suivantes
-En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
+En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

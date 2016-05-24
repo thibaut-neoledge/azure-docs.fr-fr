@@ -19,7 +19,7 @@
 
     3. Spécifiez la fréquence de sauvegarde en minutes, heures, jours ou semaines.
 
-    4. Dans la liste déroulante, sélectionnez une planification de rétention. La durée de rétention dépend de la fréquence de sauvegarde. Par exemple, pour une stratégie quotidienne, vous pouvez spécifier une durée de rétention en semaines, alors que pour une stratégie mensuelle, la durée de rétention est en mois.
+    4. Dans la liste déroulante, sélectionnez une planification de rétention. La durée de conservation dépend de la fréquence de sauvegarde.
  
     5. Sélectionnez la date et l’heure de début de la stratégie.
 
@@ -29,4 +29,4 @@
 
 8. Vous êtes redirigé vers la page **Stratégies de sauvegarde**. La liste tabulaire qui répertorie les stratégies de sauvegarde sera mise à jour de manière à afficher la stratégie personnalisée.
 
-<!---HONumber=AcomDC_1217_2015-->
+

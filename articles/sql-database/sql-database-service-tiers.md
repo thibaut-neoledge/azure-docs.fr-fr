@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/13/2016"
 	ms.author="carlrab"/>
 
 # Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service
@@ -64,4 +64,4 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 - Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
 - Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre [compte gratuit](https://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

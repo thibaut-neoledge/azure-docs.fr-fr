@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -61,7 +61,7 @@ Si la valeur relative à la taille du fichier n’est pas mise à jour après l�
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-index-content.md)
-- [Portal](media-services-manage-content.md#index)
+- [Portail](media-services-manage-content.md#index)
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez indexer votre contenu à l’aide du portail Azure Classic en suivant les étapes présentées ci-dessous. Toutefois, si vous souhaitez davantage de contrôle sur les fichiers et sur la tâche d’indexation, vous pouvez utiliser le Kit de développement logiciel (SDK) Media Services pour .NET ou les API REST. Pour plus d’informations, consultez la page [Indexation des fichiers multimédias avec Azure Media Indexer](media-services-index-content.md).
 
@@ -79,7 +79,7 @@ Les étapes qui suivent présentent comment utiliser le portail Azure Classic po
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [Portal](media-services-manage-content.md#encode)
+- [Portail](media-services-manage-content.md#encode)
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Media Services propose un encodeur multimédia qui vous permet de spécifier comment vous souhaitez que votre contenu soit encodé (par exemple, le codec à utiliser, le format du fichier, la résolution et le débit).
 
@@ -100,12 +100,14 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Medi
 
 1.  Sélectionnez le fichier que vous souhaitez encoder.
 
-  Si l’encodage est pris en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu. 4. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Media Encoder Standard**. 5. Choisissez une des **configurations d’encodage**.
+  Si l’encodage est pris en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu.
+4. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Media Encoder Standard**.
+5. Choisissez une des **configurations d’encodage**.
 
 ![Process2][process2]
 
 
-La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) explique ce que chaque prédéfinition signifie.
+La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) explique chaque présélection.
 
 5. Ensuite, entrez un nom convivial pour le contenu de sortie ou acceptez le nom par défaut. Cliquez ensuite sur le bouton de vérification pour lancer l’opération d’encodage et suivez la progression en bas du portail.
 6. Appuyez sur OK.
@@ -142,9 +144,9 @@ Consultez également :
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portail](media-services-manage-content.md#publish)
 
-###Vue d’ensemble
+###Vue d'ensemble
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord « publier » votre élément multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
 
@@ -220,4 +222,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

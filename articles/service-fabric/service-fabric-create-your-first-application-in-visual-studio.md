@@ -3,7 +3,7 @@
    description="Créer, déployer et déboguer une application Service Fabric à l’aide de Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Créer votre première application Service Fabric Azure dans Visual Studio
 
@@ -26,7 +26,7 @@ Avant de commencer, assurez-vous que vous avez bien [configuré votre environnem
 
 ## Vidéo de procédure pas à pas
 
-La vidéo suivante vous guide à travers les étapes de ce didacticiel :
+La vidéo suivante vous guide à travers les étapes de ce didacticiel :
 
 >[AZURE.VIDEO creating-your-first-service-fabric-application-in-visual-studio]
 
@@ -52,11 +52,11 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 
 	![Explorateur de solutions après la création de l’application de service avec état][3]
 
-	Le projet d’application ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
+	Le projet d’application ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
 
-	- **Profils de publication** : permet de gérer les préférences d’outils pour différents environnements.
+	- **Profils de publication** : permet de gérer les préférences d’outils pour différents environnements.
 
-	- **Scripts** : contient un script PowerShell de déploiement/mise à niveau de votre application. Ce script est utilisé par Visual Studio en arrière-plan et peut être appelé directement à la ligne de commande.
+	- **Scripts** : contient un script PowerShell de déploiement/mise à niveau de votre application. Ce script est utilisé par Visual Studio en arrière-plan et peut être appelé directement à la ligne de commande.
 
 	- **Définition d’application** : le manifeste de l’application sous *ApplicationPackageRoot* et les fichiers de paramètres d’application associés sous *ApplicationParameters* définissent l’application et vous permettent de la configurer spécifiquement pour un environnement donné.
 
@@ -112,12 +112,12 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
 ### Nettoyage
 
-  Avant de conclure, il est important de se rappeler que le cluster local est très réel. Même après l’arrêt du débogueur et la fermeture de Visual Studio, vos applications continuent de s’exécuter en arrière-plan. Selon la nature de vos applications, cette activité en arrière-plan peut accaparer une quantité significative de ressources de votre ordinateur. Vous disposez de plusieurs options assurer la gestion :
+  Avant de conclure, il est important de se rappeler que le cluster local est très réel. Même après l’arrêt du débogueur et la fermeture de Visual Studio, vos applications continuent de s’exécuter en arrière-plan. Selon la nature de vos applications, cette activité en arrière-plan peut accaparer une quantité significative de ressources de votre ordinateur. Vous disposez de plusieurs options assurer la gestion :
 
   1. Pour supprimer une application individuelle et toutes ses données, utilisez l’action **Supprimer l’application** dans Service Fabric Explorer avec le menu **ACTIONS** ou le menu contextuel dans la vue Liste des applications du volet gauche.
-  
+
     ![Supprimer une application dans Service Fabric Explorer][sfe-delete-application]
-    
+
   2. Après avoir supprimé l’application dans le cluster, vous pouvez choisir de **mettre hors-service le type de l’application**, ce qui supprime le package de celle-ci, notamment son code et sa configuration, dans le magasin d’images du cluster.
   3. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de la barre d’état système.
 
@@ -150,4 +150,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

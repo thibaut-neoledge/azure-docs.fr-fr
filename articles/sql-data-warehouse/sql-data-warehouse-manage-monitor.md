@@ -90,8 +90,8 @@ Enregistrez l'Index d'étape de l’étape la plus longue.
 
 Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
 
@@ -143,8 +143,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Étapes suivantes
-Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
-Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [Vues système][]. Pour obtenir des conseils sur la gestion de SQL Data Warehouse, voir [Vue d’ensemble de la gestion][]. Pour connaître les meilleures pratiques, voir [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 

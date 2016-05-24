@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal) | Microsoft Azure"
+	pageTitle="Créer des rapports sur des bases de données cloud avec montée en charge (partitionnement horizontal) | Microsoft Azure"
 	description="comment utiliser des requêtes entre plusieurs bases de données"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,15 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)
+# Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 
-Les requêtes de bases de données élastiques (en version préliminaire) pour Base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Pour plus d’informations sur la fonctionnalité de requête de base de données flexible, veuillez consulter la [page de vue d’ensemble des fonctionnalités](sql-database-elastic-query-overview.md).
+Vous pouvez créer des rapports tirés de plusieurs bases de données SQL Azure à partir d’un point de connexion unique par le biais d’une [requête élastique](sql-database-elastic-query-overview.md). Les bases de données doivent être partitionnées horizontalement.
 
-Cette rubrique étend l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). A l’issue du processus, vous serez capable de configurer et d’utiliser une base de données SQL Azure pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées.
-## Conditions préalables
+Si vous avez déjà une base de données, consultez [Migrer des bases de données existantes vers des bases de données mises à l’échelle](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+Pour connaître les objets SQL requis dans le cadre d’une requête, consultez [Interroger plusieurs bases de données partitionnées horizontalement](sql-database-elastic-query-horizontal-partitioning.md).
+
+## Configuration requise
 
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
@@ -142,4 +145,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

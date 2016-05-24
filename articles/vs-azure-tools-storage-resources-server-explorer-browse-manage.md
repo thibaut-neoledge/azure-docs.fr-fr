@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
@@ -21,7 +21,7 @@ Si vous avez installé Azure Tools pour Microsoft Visual Studio, vous pouvez aff
 
 Pour afficher l’Explorateur de serveurs dans Visual Studio, choisissez **Affichage**, puis **Explorateur de serveurs** dans la barre de menus. Le nœud Azure Storage affiche tous les comptes de stockage qui existent sous chaque abonnement/certificat Azure auquel vous êtes connecté. Si votre compte de stockage n’apparaît pas, vous pouvez l’ajouter en suivant les instructions fournies [plus loin dans cette rubrique](#add-storage-accounts-by-using-server-explorer).
 
-À partir de la version 2.7 du Kit de développement logiciel (SDK) Azure, vous pouvez également utiliser Cloud Explorer pour afficher et gérer vos ressources Azure. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer).
+À partir de la version 2.7 du Kit de développement logiciel (SDK) Azure, vous pouvez également utiliser Cloud Explorer pour afficher et gérer vos ressources Azure. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md).
 
 
 ## Afficher et gérer les ressources de stockage dans Visual Studio
@@ -40,7 +40,7 @@ Pour afficher les ressources dans un compte de stockage, développez le nœud du
 
 ## Utilisation des ressources d’objets blob
 
-Le nœud Objets blob affiche la liste des conteneurs associés au compte de stockage sélectionné. Les conteneurs d’objets blob contiennent des fichiers d’objets blob, que vous pouvez ranger dans des dossiers et des sous-dossiers. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](..storage/storage-dotnet-how-to-use-blobs/).
+Le nœud Objets blob affiche la liste des conteneurs associés au compte de stockage sélectionné. Les conteneurs d’objets blob contiennent des fichiers d’objets blob, que vous pouvez ranger dans des dossiers et des sous-dossiers. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](./storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Pour créer un conteneur d’objets blob
 
@@ -308,10 +308,10 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 - Dans l’Explorateur de serveurs, ouvrez le menu contextuel du compte, puis choisissez **Supprimer**. Si vous supprimez un compte de stockage, toutes les informations de clé enregistrées pour ce compte seront également supprimées.
 
-    >[AZURE.NOTE] Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le Portail de gestion Azure.
+    >[AZURE.NOTE] Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Étapes suivantes
 
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -110,20 +110,22 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q22. Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure pour sauvegarder des fichiers et des dossiers présents sur le stockage temporaire fourni par la machine virtuelle Azure ?** <br/> A22. Vous pouvez installer l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegarder des fichiers et des dossiers sur le stockage temporaire. Toutefois, notez que les sauvegardes échoueront une fois que les données de stockage temporaire seront effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
 
-**Q23. Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie d’agent Azure Backup avec l’agent Azure Backup ?** <br/> A23. L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si votre chemin d’accès au fichier dépasse la longueur autorisée par l’API Windows, vous pouvez sauvegarder le dossier parent ou le lecteur de disque des fichiers de votre choix.
+**Q23. J’ai installé l’agent Azure Backup pour protéger mes fichiers et dossiers. Puis-je à présent installer SCDPM pour travailler avec l’agent Azure Backup afin de protéger les charges de travail d’applications/de machines virtuelles locales dans Azure ?** <br/> A23. Pour utiliser Azure Backup avec SCDPM, il est recommandé d’installer d’abord SCDPM, puis l’agent Azure Backup. Cela garantit une intégration transparente de l’agent Azure Backup avec SCDPM et permet de protéger des fichiers, des dossiers, des charges de travail d’application et des machines virtuelles dans Azure, directement à partir de la console de gestion de SCDPM. L’installation de SCDPM suivant l’installation de l’agent Azure Backup pour les raisons mentionnées ci-dessus n’est ni recommandée, ni prise en charge.
 
-**Q24. Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie de sauvegarde Azure à l’aide de l’agent Azure Backup ?** <br/> A24. L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dans le cadre de la spécification de fichier.
+**Q24. Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie d’agent Azure Backup avec l’agent Azure Backup ?** <br/> R24. L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par les API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). En cas de sauvegarde de fichiers dont la longueur de chemin d’accès du fichier est supérieure à celui qui est spécifié par l’API Windows, les clients peuvent choisir de sauvegarder le dossier parent ou le lecteur de disque des fichiers de sauvegarde.
 
-**Q25. Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ?** <br/> A25. Oui.
+**Q25. Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie de sauvegarde Azure à l’aide de l’agent Azure Backup ?** <br> R25. L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dans le cadre de la spécification de fichier.
 
-**Q26. Puis-je configurer le service Backup pour envoyer un courrier électronique si une opération de sauvegarde échoue ?** <br/> A26. Oui, le service Backup dispose de plusieurs alertes basées sur l’événement qui peuvent être utilisés avec un script PowerShell. Pour obtenir une description complète, consultez [Notifications d’alerte](backup-azure-manage-vms.md#alert-notifications)
+**Q26. Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ?** <br/> A26. Oui.
+
+**Q27. Puis-je configurer le service Backup pour envoyer un courrier électronique si une opération de sauvegarde échoue ?** <br/> R27. Oui, le service Backup dispose de plusieurs alertes basées sur l’événement qui peuvent être utilisés avec un script PowerShell. Pour obtenir une description complète, consultez [Notifications d’alerte](backup-azure-manage-vms.md#alert-notifications)
 
 
 
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données du système d’exploitation pris en charge est :
 
-|N|	Système d’exploitation |	Taille maximale de la source de données |
+|N° |	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
 |2| Windows 8 ou version ultérieure| 54 400 Go|
@@ -165,7 +167,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q12. Existe-t-il un moyen d’adapter la quantité de bande passante utilisée par le service Backup ?**<br/> R12. Oui, utilisez l’option **Modifier les propriétés** de l’agent Backup pour régler la bande passante. Ajuste la quantité de bande passante et les heures d’utilisation de cette bande passante. Consultez la page [Limitation de bande passante](../backup-configure-vault.md#enable-network-throttling) pour en savoir plus.
 
-**Q13. Ma bande passante Internet est limitée par rapport à la quantité de données que j’ai besoin de sauvegarder. Est-il possible de déplacer des données vers un emplacement spécifique avec un grand canal réseau et de transmettre ces données dans Azure ?** <br/> Q13. Vous pouvez sauvegarder des données dans Azure via le processus de sauvegarde en ligne standard, ou vous pouvez utiliser le service Azure Import/Export pour transférer des données vers le stockage d’objets blob Azure. Il n’existe aucune autre façon de transférer les données de sauvegarde dans le stockage Azure. Pour plus d’informations sur l’utilisation du service Azure Import/Export avec Azure Backup, consultez l’article [Flux de travail de la sauvegarde hors connexion](backup-azure-backup-import-export).
+**Q13. Ma bande passante Internet est limitée par rapport à la quantité de données que j’ai besoin de sauvegarder. Est-il possible de déplacer des données vers un emplacement spécifique avec un grand canal réseau et de transmettre ces données dans Azure ?** <br/> R13. Vous pouvez sauvegarder des données dans Azure via le processus de sauvegarde en ligne standard, ou vous pouvez utiliser le service Azure Import/Export pour transférer des données vers le stockage d’objets blob Azure. Il n’existe aucune autre façon de transférer les données de sauvegarde dans le stockage Azure. Pour plus d’informations sur l’utilisation du service Azure Import/Export avec Azure Backup, consultez l’article [Flux de travail de la sauvegarde hors connexion](backup-azure-backup-import-export).
 
 
 ## Récupérer
@@ -203,5 +205,20 @@ Le tableau suivant explique comment la taille de chaque source de données est d
   ```PS C:\> Net start obengine```
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
+  
+**Q2. Où puis-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?**<br/> R2. Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
-<!---HONumber=AcomDC_0504_2016-->
+- Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde avec la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles (tels que les lecteurs USB) ne sont pas pris en charge.
+- Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup.
+
+**Q3. Existe-t-il des attributs du dossier du cache non pris en charge ?**<br/> R3 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
+
+- Chiffré
+- Dédupliqué
+- Compressé
+- Partiellement alloué
+- Point d’analyse
+
+Le dossier du cache et les métadonnées de disque dur virtuel ne doivent pas avoir les attributs ci-dessus pour que l’agent Azure Backup puisse fonctionner correctement.
+
+<!---HONumber=AcomDC_0518_2016-->

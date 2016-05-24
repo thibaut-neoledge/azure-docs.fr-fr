@@ -38,11 +38,11 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
 	        SharedPreferences prefs = getSharedPreferences(SHAREDPREFFILE, Context.MODE_PRIVATE);
-    	    String userId = prefs.getString(USERIDPREF, "undefined"); 
-	        if (userId == "undefined")
+    	    String userId = prefs.getString(USERIDPREF, null); 
+	        if (userId == null)
 	            return false;
-    	    String token = prefs.getString(TOKENPREF, "undefined"); 
-    	    if (token == "undefined")
+    	    String token = prefs.getString(TOKENPREF, null); 
+    	    if (token == null)
     	        return false;
         	    
     	    MobileServiceUser user = new MobileServiceUser(userId);
@@ -87,4 +87,5 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
 
 6. Générez l'application et testez l'authentification à l'aide d'un compte valide. Exécutez ceci au moins deux fois. À la première exécution, vous devez recevoir une invite vous indiquant de vous connecter et de créer le cache de jeton. Ensuite, chaque exécution tente de charger le cache de jeton à des fins d'authentification et vous n'êtes plus invité à vous connecter.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+

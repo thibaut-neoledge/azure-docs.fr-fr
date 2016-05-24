@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Accès aux machines virtuelles Azure à partir de l’Explorateur de serveurs
@@ -27,7 +27,7 @@ Si vous avez des machines virtuelles hébergées par Azure, vous pouvez y accéd
 
 1. Dans l’Explorateur de serveurs, choisissez une machine virtuelle, puis appuyez sur la touche F4 pour afficher sa fenêtre de propriétés.
 
-    Le tableau suivant indique les propriétés disponibles. Toutes les propriétés sont en lecture seule. Pour les modifier, utilisez le portail de gestion.
+    Le tableau suivant indique les propriétés disponibles. Toutes les propriétés sont en lecture seule. Utilisez le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) pour les modifier.
 
   	|Propriété|Description|
   	|---|---|
@@ -35,12 +35,12 @@ Si vous avez des machines virtuelles hébergées par Azure, vous pouvez y accéd
   	|Environnement|Pour une machine virtuelle, la valeur de cette propriété est toujours Production.|
   	|Nom|Nom de la machine virtuelle.|
   	|Taille|Taille de la machine virtuelle, qui reflète la quantité de mémoire et d’espace disque disponibles. Pour plus d’informations, consultez « Configurer les tailles pour les services cloud ».|
-  	|Statut|Les valeurs incluent : Démarrage en cours, Démarré, En cours d’arrêt, Arrêté et Extraction de l’état. Si Extraction de l’état s’affiche, l’état actuel est inconnu. Les valeurs de cette propriété ne sont pas les mêmes que celles qui sont utilisées dans le portail de gestion.|
-  	|SubscriptionID|ID d’abonnement de votre compte Azure. Vous pouvez obtenir ces informations dans le portail de gestion en affichant les propriétés de l’abonnement.|
+  	|Statut|Les valeurs incluent : Démarrage en cours, Démarré, En cours d’arrêt, Arrêté et Extraction de l’état. Si Extraction de l’état s’affiche, l’état actuel est inconnu. Les valeurs de cette propriété ne sont pas les mêmes que celles qui sont utilisées dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).|
+  	|SubscriptionID|ID d’abonnement de votre compte Azure. Vous pouvez obtenir ces informations dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) en affichant les propriétés de l’abonnement.|
 
 1. Sélectionnez un nœud de point de terminaison, puis ouvrez la fenêtre **Propriétés**.
 
-1. Le tableau suivant décrit les propriétés des points de terminaison disponibles. Toutes ces propriétés sont en lecture seule. Pour ajouter ou modifier les points de terminaison d’une machine virtuelle, utilisez le portail de gestion.
+1. Le tableau suivant décrit les propriétés des points de terminaison disponibles. Toutes ces propriétés sont en lecture seule. Pour ajouter ou modifier les points de terminaison d’une machine virtuelle, utilisez le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
   	|Propriété|Description|
   	|---|---|
@@ -53,4 +53,4 @@ Si vous avez des machines virtuelles hébergées par Azure, vous pouvez y accéd
 
 Pour en savoir plus sur l’utilisation des rôles Azure dans Visual Studio, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

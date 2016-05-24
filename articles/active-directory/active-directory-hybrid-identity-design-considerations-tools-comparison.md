@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Identité hybride : Comparaison des outils d’intégration d’annuaire
@@ -24,7 +24,7 @@ Au fil des années, les outils d’intégration de répertoire ont évolué et s
 
 >[AZURE.NOTE] Azure AD Connect comprend les composants et les fonctionnalités précédemment publiés sous le nom de synchronisation d’annuaires et AAD Sync. Ces outils ne sont plus commercialisés individuellement et toutes les améliorations à venir figureront dans les mises à jour d’Azure AD Connect, afin que vous sachiez toujours où obtenir les dernières fonctionnalités.
 >
->DirSync et Azure AD Sync sont déconseillés. Vous trouverez plus d’informations dans [Mise à niveau de Windows Azure Active Directory Sync (« DirSync ») et d’Azure Active Directory Sync (« Azure AD Sync »)]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync et Azure AD Sync sont déconseillés. Vous trouverez plus d’informations dans [Mise à niveau de Microsoft Azure Active Directory Sync (« DirSync ») et d’Azure Active Directory Sync (« Azure AD Sync »)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
 
 
 Le code suivant s’applique aux tableaux ci-dessous.
@@ -94,4 +94,4 @@ Autorisation de la personnalisation avancée pour les flux d’attributs | ● |
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

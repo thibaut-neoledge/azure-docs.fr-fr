@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # Surveiller et gérer un pool de base de données élastique avec PowerShell 
@@ -31,6 +31,7 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 Vous trouverez les valeurs pour les pools dans la section [Limites relatives aux eDTU et au stockage](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Composants requis
+
 * Azure PowerShell 1.0 ou version ultérieure. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 * Les pools de bases de données élastiques sont uniquement disponibles sur les serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, [utilisez PowerShell pour effectuer une mise à niveau vers la version V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
@@ -101,6 +102,26 @@ Dans ce cas, les mesures d’API sont obtenues sous forme de pourcentage du nomb
 Pour obtenir les mesures :
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## Collecter et surveiller les données d’utilisation des ressources dans plusieurs pools d’un abonnement
+
+Lorsque vous disposez d’un grand nombre de bases de données dans un abonnement, il est fastidieux d’analyser chaque pool élastique séparément. Au lieu de cela, vous pouvez associer les applets de commande PowerShell de la base de données SQL et les requêtes T-SQL pour collecter les données d’utilisation des ressources de plusieurs pools et de leurs bases de données pour la surveillance et l’analyse de l’utilisation des ressources. Un [exemple d’implémentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) d’un ensemble de scripts PowerShell de ce type est disponible dans le référentiel d’exemples SQL Server GitHub, accompagné d’une documentation sur sa fonction et son utilisation.
+
+Pour utiliser cet exemple d’implémentation, suivez les étapes décrites ci-dessous.
+
+
+1. Téléchargez les [scripts et la documentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools).
+2. Modifiez les scripts pour votre environnement. Spécifiez le ou les serveurs qui hébergent les pools élastiques.
+3. Spécifiez une base de données de télémétrie où les métriques collectées doivent être stockées. 
+4. Personnalisez le script pour spécifier la durée de l’exécution des scripts.
+
+D’un point de vue global, le script effectue les opérations suivantes :
+
+*	Il énumère tous les serveurs d’un abonnement Azure donné (ou d’une liste spécifiée de serveurs).
+*	Il exécute une tâche en arrière-plan pour chaque serveur. La tâche s’exécute en boucle à intervalles réguliers et collecte les données de télémétrie pour tous les pools du serveur. Il charge ensuite les données collectées dans la base de données de télémétrie spécifiée.
+*	Il énumère la liste des bases de données de chaque pool pour collecter les données d’utilisation des ressources des bases de données. Il charge ensuite les données collectées dans la base de données de télémétrie.
+
+Les métriques collectées chargées dans la base de données de télémétrie peuvent être analysées pour surveiller l’intégrité des pools élastiques et des bases de données qu’ils contiennent. Le script installe également une fonction table prédéfinie dans la base de données de télémétrie pour faciliter l’agrégation des métriques d’une plage de temps spécifiée. Par exemple, les résultats de la fonction table peuvent servir à afficher les N premiers pools élastiques en termes d’utilisation des eDTU au cours d’une plage de temps donnée. Si vous le souhaitez, vous pouvez utiliser des outils analytiques tels que Excel ou Power BI pour interroger et analyser les données collectées.
 
 ## Exemple : obtenir des mesures de consommation des ressources pour un pool et ses bases de données
 
@@ -187,7 +208,7 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 
 ## Étapes suivantes
 
-- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
-- Consultez l’article [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
+- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
+- Consultez l’article [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

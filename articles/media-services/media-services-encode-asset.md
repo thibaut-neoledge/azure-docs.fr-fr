@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure" 
+	pageTitle="Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure" 
 	description="Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure et les compare." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
  	ms.date="02/25/2016"  
 	ms.author="juliako"/>
 
-#Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
+#Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
 
 ##Vue d’ensemble de l’encodage
 
@@ -26,19 +26,19 @@ Quand vous commencez à utiliser Media Services, il est important de bien compre
 
 Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
 
-Pour tirer parti de l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md), vous devez effectuer les opérations suivantes :
+Pour tirer parti de l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md), vous devez effectuer les opérations suivantes :
 
-- encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
+- encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
 - obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
+Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
 
 - [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 - [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Cet article donne un bref aperçu des encodeurs multimédia à la demande et fournit des liens vers des articles fournissant des informations plus détaillées. Cette rubrique compare également les encodeurs.
 
-Remarque : par défaut, chaque compte Media Services peut avoir une tâche d’encodage active à la fois. Vous pouvez réserver des unités d’encodage qui vous permettent d’exécuter plusieurs tâches d’encodage simultanément, une pour chaque unité réservée d’encodage que vous achetez. Pour plus d’informations, consultez [Mise à l’échelle des unités d’encodage](media-services-portal-encoding-units.md).
+Remarque : par défaut, chaque compte Media Services peut avoir une tâche d’encodage active à la fois. Vous pouvez réserver des unités d’encodage qui vous permettent d’exécuter plusieurs tâches d’encodage simultanément, une pour chaque unité réservée d’encodage que vous achetez. Pour plus d’informations, consultez [Mise à l’échelle des unités d’encodage](media-services-portal-encoding-units.md).
 
 ##Media Encoder Standard
 
@@ -117,9 +117,9 @@ MPEG-2 Transport Streams |Oui|Oui
 MPEG-2 Program Streams |Oui|Oui
 MPEG-4/MP4 |Oui|Oui
 Windows Media/ASF |Oui|Oui
-AVI (8 bits/10 bits non compressé)|Oui|Oui
+AVI (8 bits/10 bits non compressé)|Oui|Oui
 3GPP/3GPP2 |Oui|Non
-Format de fichier de diffusion en continu lisse (PIFF 1.3)|Oui|Non
+Format de fichier de diffusion en continu lisse (PIFF 1.3)|Oui|Non
 [Enregistrement vidéo numérique Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Oui|Non
 Matroska/WebM |Oui|Non
 QuickTime (.mov) |Oui|Non
@@ -128,11 +128,11 @@ QuickTime (.mov) |Oui|Non
 
 Codecs vidéo d’entrée|Media Encoder Standard|Media Encoder Premium Workflow
 ---|---|---
-AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2|Oui
+AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2|Oui
 Avid DNxHD (dans MXF) |Oui|Oui
 DVCPro/DVCProHD (dans MXF) |Oui|Oui
 JPEG2000 |Oui|Oui
-MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422|Oui
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422|Oui
 MPEG-1 |Oui|Oui
 Windows Media Video/VC-1 |Oui|Oui
 Canopus HQ/HQX |Non|Non
@@ -153,13 +153,13 @@ AES (SMPTE 331M et 302M, AES3-2003) |Non|Oui
 Dolby® E |Non|Oui
 Dolby® Digital (AC3) |Non|Oui
 Dolby® Digital Plus (E-AC3) |Non|Oui
-AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui
+AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui
 MPEG Layer 2|Oui|Oui
 MP3 (MPEG-1 Audio Layer 3)|Oui|Oui
 Windows Media Audio|Oui|Oui
 WAV/PCM|Oui|Oui
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Oui|Non
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Oui|Non
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |Oui|Non
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Oui|Non
 
 
@@ -174,17 +174,17 @@ GXF|Non|Oui
 MPEG-4/MP4|Oui|Oui
 MPEG-TS|Oui|Oui
 Windows Media/ASF|Non|Oui
-AVI (8 bits/10 bits non compressé)|Non|Oui
-Format de fichier de diffusion en continu lisse (PIFF 1.3)|Non|Oui
+AVI (8 bits/10 bits non compressé)|Non|Oui
+Format de fichier de diffusion en continu lisse (PIFF 1.3)|Non|Oui
 
 ###Codecs vidéo de sortie
 
 Codecs vidéo de sortie|Media Encoder Standard|Media Encoder Premium Workflow
 ---|---|---
-AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)|Uniquement 8 bits 4:2:0|Oui
+AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)|Uniquement 8 bits 4:2:0|Oui
 Avid DNxHD (dans MXF)|Non|Oui
 DVCPro/DVCProHD (dans MXF)|Non|Oui
-MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Non|Oui
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Non|Oui
 MPEG-1|Non|Oui
 Windows Media Video/VC-1|Non|Oui
 Création de miniatures JPEG|Non|Oui
@@ -196,7 +196,7 @@ Codecs audio de sortie|Media Encoder Standard|Media Encoder Premium Workflow
 AES (SMPTE 331M et 302M, AES3-2003)|Non|Oui
 Dolby® Digital (AC3)|Non|Oui
 Dolby® Digital Plus (E-AC3) jusqu'à 7.1|Non|Oui
-AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui
+AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui
 MPEG Layer 2|Non|Oui
 MP3 (MPEG-1 Audio Layer 3)|Non|Oui
 Windows Media Audio|Non|Oui
@@ -209,7 +209,7 @@ Le tableau suivant répertorie les codes d’erreur susceptibles d’être renvo
 ErrorDetail.Code|Causes possibles de l’erreur
 -----|-----------------------
 Unknown| Erreur inconnue lors de l’exécution de la tâche.
-ErrorDownloadingInputAssetMalformedContent|Catégorie d’erreurs se produisant lors du téléchargement d’éléments multimédias d’entrée : noms de fichier incorrects, fichiers de longueur nulle, formats incorrects, etc.
+ErrorDownloadingInputAssetMalformedContent|Catégorie d’erreurs se produisant lors du téléchargement d’éléments multimédias d’entrée : noms de fichier incorrects, fichiers de longueur nulle, formats incorrects, etc.
 ErrorDownloadingInputAssetServiceFailure|Catégorie d’erreurs regroupant les problèmes côté service, par exemple les erreurs réseau ou de stockage lors du téléchargement.
 ErrorParsingConfiguration|Catégorie d’erreurs se produisant quand la tâche <see cref="MediaTask.PrivateData"/> (configuration) n’est pas valide. Par exemple, la configuration n’est pas une valeur système prédéfinie valide ou contient du code XML non valide.
 ErrorExecutingTaskMalformedContent|Catégorie d’erreurs se produisant pendant l’exécution de la tâche. Des problèmes dans les fichiers multimédias d’entrée provoquent une défaillance.
@@ -242,4 +242,4 @@ Pour obtenir de l’aide de la part de l’équipe **Media Services**, ouvrez un
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

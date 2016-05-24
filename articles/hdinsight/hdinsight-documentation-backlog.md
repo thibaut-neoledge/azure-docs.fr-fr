@@ -32,7 +32,9 @@ Automatisation | Mise à jour de l’article sur l’[utilisation de Sqoop avec 
 Automatisation | Mise à jour de l’article sur l’[analyse des données de capteur à l’aide des clusters Apache Storm](hdinsight-storm-sensor-data-analysis.md) pour utiliser un modèle ARM| 2 | En attente | [@mumian](https://github.com/mumian) | - 
 Stockage | Article décrivant les options de stockage WASB et Data Lake Storeas | 2 | En attente | [@mumian](https://github.com/mumian) | - 
 Performances | Conseils de réglage des performances pour les applications MapReduce | 1 | En attente | [@blackmist](https://github.com/blackmist) | - 
-Performances | Conseils de réglage des performances pour les clusters Spark |1 | En attente | [@nitinme](https://github.com/nitinme) | - Développement | Curl et exemple d’API Rest API sur l’utilisation de Sqoop | 2 | En attente | [@mumian](https://github.com/mumian) | Jon Kennerly | Développement | [authentification non-interactive avec l’application HDInsight .NET](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Terminé](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
+Performances | Conseils de réglage des performances pour les clusters Spark |1 | En attente | [@nitinme](https://github.com/nitinme) | -
+Développement | Curl et exemple d’API Rest API sur l’utilisation de Sqoop | 2 | En attente | [@mumian](https://github.com/mumian) | Jon Kennerly |
+Développement | [authentification non-interactive avec l’application HDInsight .NET](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Terminé](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Comment envoyer des commentaires sur le backlog

@@ -6,7 +6,7 @@
    tags=""
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/24/2016"
+   ms.date="04/19/2016"
    ms.author="tomfitz"/>
 
 # Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager
@@ -22,6 +22,16 @@
 Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Pour plus d’informations sur la résolution de problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources](resource-manager-troubleshoot-deployments-portal.md).
 
 Vous pouvez éviter certaines erreurs en validant votre modèle et vos paramètres avant le déploiement. Pour obtenir des exemples de validation de votre modèle, consultez [Déployer un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+
+## Modèle ou ressource non valide
+
+Si vous recevez une erreur indiquant que le modèle ou une propriété de ressource n’est pas valide, cela signifie peut-être qu’il manque un caractère dans votre modèle. Cette erreur est courante lors de l’utilisation d’expressions de modèle, car l’expression est placée entre guillemets. Par conséquent, le JSON accepte la validation et votre éditeur est susceptible de ne pas détecter l’erreur. Par exemple, l’affectation de nom suivante pour un compte de stockage contient un jeu de crochets, trois fonctions, trois jeux de parenthèses, un jeu de guillemets simples et une propriété :
+
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+
+Si vous ne fournissez pas toutes les syntaxes correspondantes, le modèle produit une valeur très différente de votre intention.
+
+Selon l’emplacement où le caractère manque dans le modèle, vous pouvez recevoir un message d’erreur indiquant que le modèle ou qu’une ressource n’est pas valide. L’erreur peut également indiquer que le processus de déploiement n’a pas été en mesure de traiter l’expression de langage de modèle. Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression.
 
 ## Le nom de la ressource existe déjà
 
@@ -100,13 +110,13 @@ Pour l'API REST, consultez [Obtention d'informations sur un fournisseur de resso
 
 ## Quota dépassé
 
-Vous pouvez rencontrer des problèmes quand un déploiement dépasse un quota qui peut concerner entre autres les groupes de ressources, les abonnements ou les comptes. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle avec plus de cœurs que la quantité autorisée, vous recevez une erreur indiquant que le quota a été dépassé. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](./azure-subscription-service-limits.md).
+Vous pouvez rencontrer des problèmes quand un déploiement dépasse un quota qui peut concerner entre autres les groupes de ressources, les abonnements ou les comptes. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle avec plus de cœurs que la quantité autorisée, vous recevez une erreur indiquant que le quota a été dépassé. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md).
 
 Pour examiner les quotas de cœurs de votre abonnement, vous pouvez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure. L’exemple suivant montre que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
 
     azure vm list-usage
     
-Résultat :
+Résultat :
     
     info:    Executing command vm list-usage
     Location: westus
@@ -115,7 +125,7 @@ Résultat :
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
+Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -125,7 +135,7 @@ Dans PowerShell, vous pouvez également utiliser l’applet de commande **Get-Az
 
     Get-AzureRmVMUsage
     
-Résultat :
+Résultat :
 
     ...
     CurrentValue : 0
@@ -139,16 +149,16 @@ Résultat :
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
+> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
 
 
 ## Échec de l’autorisation
 
 Vous pouvez recevoir une erreur lors du déploiement, car le compte ou le principal du service qui tente de déployer les ressources n’a pas accès à ces actions. Azure Active Directory permet à votre administrateur ou à vous-même de contrôler très précisément quelles identités peuvent accéder à quelles ressources. Par exemple, si votre compte est affecté au rôle de lecteur, il ne peut pas créer de ressources. Dans ce cas, vous devriez voir un message erreur indiquant que l’autorisation a échoué.
 
-Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](./active-directory/role-based-access-control-configure.md).
+Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-En plus du contrôle d’accès en fonction du rôle, vos actions de déploiement peuvent être limitées par des stratégies sur l’abonnement. Par le biais de stratégies, l’administrateur peut appliquer les conventions sur toutes les ressources déployées dans l’abonnement. Par exemple, un administrateur peut exiger qu’une valeur de balise particulière soit fournie pour un type de ressource. Si vous n’avez pas rempli les critères de la stratégie, vous recevez une erreur pendant le déploiement. Pour plus d’informations sur les stratégies, consultez [Utiliser une stratégie pour gérer les ressources et le contrôle d’accès](./resource-manager-policy.md).
+En plus du contrôle d’accès en fonction du rôle, vos actions de déploiement peuvent être limitées par des stratégies sur l’abonnement. Par le biais de stratégies, l’administrateur peut appliquer les conventions sur toutes les ressources déployées dans l’abonnement. Par exemple, un administrateur peut exiger qu’une valeur de balise particulière soit fournie pour un type de ressource. Si vous n’avez pas rempli les critères de la stratégie, vous recevez une erreur pendant le déploiement. Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
 ## Vérifier l’inscription du fournisseur de ressources
 
@@ -184,7 +194,7 @@ Vous êtes invité à confirmer l’inscription et un état est retourné.
 
 ### Interface de ligne de commande Azure
 
-Pour voir si le fournisseur est inscrit pour être utilisé à l'aide de l'interface de ligne de commande Azure, utilisez la commande `azure provider list` (l'exemple de sortie ci-dessous est tronqué).
+Pour voir si le fournisseur est enregistré pour être utilisé à l'aide de l'interface de ligne de commande Azure, utilisez la commande `azure provider list` (l'exemple de sortie ci-dessous est tronqué).
 
     azure provider list
         
@@ -223,7 +233,7 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](./resource-group-audit.md).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources](./resource-manager-troubleshoot-deployments-portal.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

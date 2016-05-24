@@ -1,6 +1,6 @@
 <properties
    pageTitle="Comment enregistrer des recherches et épingler des ressources de données | Microsoft Azure"
-   description="Article de procédure mettant en avant les fonctionnalités d’Azure Data Catalog pour enregistrer des sources de données et épingler des ressources de données en vue d’une réutilisation ultérieure."
+   description="Article de procédure mettant en avant les fonctionnalités d’Azure Data Catalog pour enregistrer des sources de données et épingler des ressources de données en vue d’une réutilisation ultérieure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="03/30/2016"
@@ -22,15 +22,15 @@
 
 Microsoft Azure Data Catalog fournit des fonctionnalités de détection des sources de données. Les utilisateurs peuvent rapidement rechercher et filtrer le catalogue pour rechercher des sources de données et comprendre leur rôle respectif. Cela leur permet de trouver plus facilement les données appropriées au travail en cours.
 
-Mais qu’en est-il lorsque les utilisateurs doivent régulièrement travailler avec les mêmes données ? Qu’en est-il lorsque les utilisateurs contribuent régulièrement aux mêmes sources de données du catalogue ? Dans ces situations, il est inefficace d’émettre à plusieurs reprises les mêmes recherches. C’est là que les recherches enregistrées et les ressources de données épinglées peuvent se révéler utiles.
+Mais qu’en est-il lorsque les utilisateurs doivent régulièrement travailler avec les mêmes données ? Qu’en est-il lorsque les utilisateurs contribuent régulièrement aux mêmes sources de données du catalogue ? Dans ces situations, il est inefficace d’émettre à plusieurs reprises les mêmes recherches. C’est là que les recherches enregistrées et les ressources de données épinglées peuvent se révéler utiles.
 
 ## Recherches enregistrées
 
-Une recherche enregistrée dans Azure Data Catalog est une définition de recherche par utilisateur réutilisable. Une fois qu’un utilisateur a défini une recherche, y compris les termes de la recherche, les balises et d’autres filtres, il peut l’enregistrer pour l’utiliser ultérieurement. La définition de la recherche enregistrée peut ensuite être réexécutée pour renvoyer les ressources de données qui correspondent aux critères de recherche.
+Une recherche enregistrée dans Azure Data Catalog est une définition de recherche par utilisateur réutilisable. Une fois qu’un utilisateur a défini une recherche, y compris les termes de la recherche, les balises et d’autres filtres, il peut l’enregistrer pour l’utiliser ultérieurement. La définition de la recherche enregistrée peut ensuite être réexécutée pour renvoyer les ressources de données qui correspondent aux critères de recherche.
 
 ### Création d’une recherche enregistrée
 
-Pour créer une recherche enregistrée, entrez tout d’abord les critères de recherche à réutiliser. Cliquez ensuite sur le lien « Enregistrer » dans la zone de « recherche actuelle » du portail Azure Data Catalog.
+Pour créer une recherche enregistrée, entrez tout d’abord les critères de recherche à réutiliser. Cliquez ensuite sur le lien « Enregistrer » dans la zone de « recherche actuelle » du portail Azure Data Catalog.
 
  ![Sélectionnez Enregistrer pour enregistrer les paramètres de recherche actuels](./media/data-catalog-how-to-save-pin/01-save-option.png)
 
@@ -40,13 +40,13 @@ Lorsque vous y êtes invité, donnez un nom à la recherche enregistrée. Choisi
 
 ### Gestion des recherches enregistrées
 
-Une fois qu’un utilisateur a enregistré une ou plusieurs recherches, une option « Recherches enregistrées » s’affiche dans le portail Azure Data Catalog, sous la zone de « recherche actuelle ». Il suffit de la développer pour afficher la liste complète des recherches enregistrées.
+Une fois qu’un utilisateur a enregistré une ou plusieurs recherches, une option « Recherches enregistrées » s’affiche dans le portail Azure Data Catalog, sous la zone de « recherche actuelle ». Il suffit de la développer pour afficher la liste complète des recherches enregistrées.
 
  ![Liste des recherches enregistrées](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Sélectionnez une recherche enregistrée dans la liste pour l’exécuter.
 
-Sélectionnez le menu déroulant pour obtenir une liste des options de gestion :
+Sélectionnez le menu déroulant pour obtenir une liste des options de gestion :
 
  ![Options de gestion des recherches enregistrées](./media/data-catalog-how-to-save-pin/04-managing.png)
 
@@ -54,26 +54,26 @@ L’option Renommer invite l’utilisateur à entrer un nouveau nom pour la rech
 
 L’option Supprimer invite l’utilisateur à confirmer l’opération, puis supprime la recherche enregistrée de la liste de l’utilisateur.
 
-L’option Enregistrer en tant que valeur par défaut marque la recherche enregistrée comme recherche par défaut pour l’utilisateur. Si l’utilisateur effectue une recherche « vide » à partir de la page d’accueil Azure Data Catalog, la recherche par défaut de l’utilisateur est exécutée. En outre, la recherche marquée comme valeur par défaut s’affiche en haut de la liste des recherches enregistrées.
+L’option Enregistrer en tant que valeur par défaut marque la recherche enregistrée comme recherche par défaut pour l’utilisateur. Si l’utilisateur effectue une recherche « vide » à partir de la page d’accueil Azure Data Catalog, la recherche par défaut de l’utilisateur est exécutée. En outre, la recherche marquée comme valeur par défaut s’affiche en haut de la liste des recherches enregistrées.
 
 ## Ressources de données épinglées
 
 Les recherches enregistrées permettent aux utilisateurs d’enregistrer et de réutiliser des définitions de recherche. Les ressources de données renvoyées par les recherches peuvent varier au fil du temps, à mesure que le contenu du catalogue évolue. L’épinglage des ressources de données permet aux utilisateurs d’identifier de manière explicite des ressources de données en particulier pour faciliter leur accès, sans avoir besoin d’utiliser une recherche.
 
-Épingler une ressource de données est simple : les utilisateurs cliquent simplement sur l’icône « épingler » de la ressource de données et l’ajoutent ainsi à leur liste. Cette icône s’affiche dans l’angle de la vignette de la ressource, dans l’affichage en mosaïque, ainsi que dans la colonne la plus à gauche de la liste, dans le portail Azure Data Catalog.
+Épingler une ressource de données est simple : les utilisateurs cliquent simplement sur l’icône « épingler » de la ressource de données et l’ajoutent ainsi à leur liste. Cette icône s’affiche dans l’angle de la vignette de la ressource, dans l’affichage en mosaïque, ainsi que dans la colonne la plus à gauche de la liste, dans le portail Azure Data Catalog.
 
 ![Épinglage d’une ressource de données](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Retirer l’épingle d’une ressource de données est simple : les utilisateurs cliquent simplement à nouveau sur l’icône « épingler » pour la retirer.
+Retirer l’épingle d’une ressource de données est simple : les utilisateurs cliquent simplement à nouveau sur l’icône « épingler » pour la retirer.
 
 ![Désépinglage d’une ressource de données](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## « Mes ressources »
-La page d’accueil du portail Azure Data Catalog comprend une section intitulée « Mes ressources » qui affiche les actifs d’intérêt de l’utilisateur actuel. Cette section inclut à la fois les ressources épinglées et les recherches enregistrées.
+## « Mes ressources »
+La page d’accueil du portail Azure Data Catalog comprend une section intitulée « Mes ressources » qui affiche les actifs d’intérêt de l’utilisateur actuel. Cette section inclut à la fois les ressources épinglées et les recherches enregistrées.
 
-![« Mes ressources » dans la page d’accueil](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![« Mes ressources » dans la page d’accueil](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## Résumé
-Azure Data Catalog offre aux utilisateurs des fonctionnalités qui leur permettent de mieux découvrir les sources de données dont ils ont besoin, et ainsi de passer moins de temps à rechercher les données et plus de temps à les utiliser. Des recherches enregistrées et des ressources de données épinglées sont générées d’après ces fonctionnalités de base afin que les utilisateurs puissent identifier facilement les sources de données avec lesquelles ils comptent travailler régulièrement.
+Azure Data Catalog offre aux utilisateurs des fonctionnalités qui leur permettent de mieux découvrir les sources de données dont ils ont besoin, et ainsi de passer moins de temps à rechercher les données et plus de temps à les utiliser. Des recherches enregistrées et des ressources de données épinglées sont générées d’après ces fonctionnalités de base afin que les utilisateurs puissent identifier facilement les sources de données avec lesquelles ils comptent travailler régulièrement.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Création et gestion d'un compte Azure Batch dans le portail Azure
@@ -50,7 +50,7 @@ Le [portail Azure][azure_portal] vous fournit les outils dont vous avez besoin p
 
 	d. **Emplacement** : sélectionnez une région Azure dans laquelle créer le compte Batch. Seules les régions prises en charge par votre abonnement et le groupe de ressources seront affichés en tant qu’option.
 
-    e. **Compte de stockage** (facultatif) : vous pouvez associer (lier) un compte de stockage à votre nouveau compte Batch. La fonctionnalité [Packages des applications](batch-application-packages.md) de Batch utilise le compte de stockage lié pour le stockage et l’extraction des packages d’applications. Consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) pour plus d’informations sur cette fonctionnalité.
+    e. **Compte de stockage** (facultatif) : vous pouvez associer (lier) un compte de stockage **à usage général** à votre nouveau compte Batch. La fonctionnalité [Packages des applications](batch-application-packages.md) de Batch utilise le compte de stockage lié pour le stockage et l’extraction des packages d’applications. Consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) pour plus d’informations sur cette fonctionnalité.
 
      > [AZURE.TIP] La régénération de clés dans un compte de stockage lié exige des considérations spéciales. Consultez [Éléments à prendre en compte pour les comptes Batch](#considerations-for-batch-accounts) ci-dessous pour plus de détails.
 
@@ -84,13 +84,15 @@ Le panneau du compte Batch affiche plusieurs propriétés du compte, et fournit 
 
 * Si vous exécutez plusieurs charges de travail Batch à grande échelle, tenez compte des [limites et quotas du service Batch](batch-quota-limit.md) qui s’appliquent à votre abonnement Azure et à chaque compte Batch. Les quotas actuels sur le compte Batch apparaissent sur le portail dans les propriétés du compte.
 
-* Si vous associez un compte de stockage à votre compte Batch, veillez à régénérer les clés d’accès au compte de stockage. Vous devez régénérer une seule clé de compte de stockage, cliquez sur **Clés de synchronisation** dans le panneau de compte de stockage associé, patientez 5 minutes pour permettre la propagation des clés aux nœuds de calcul dans vos pools, puis régénérez et synchronisez l’autre clé si nécessaire. Si vous régénérez les clés en même temps, les nœuds de calcul ne seront pas en mesure de synchroniser une clé, et ils perdront l’accès au compte de stockage.
+* Si vous associez (liez) un compte de stockage à votre compte Batch, veillez à régénérer les clés d’accès au compte de stockage. Vous devez régénérer une seule clé de compte de stockage, cliquez sur **Clés de synchronisation** dans le panneau de compte de stockage associé, patientez 5 minutes pour permettre la propagation des clés aux nœuds de calcul dans vos pools, puis régénérez et synchronisez l’autre clé si nécessaire. Si vous régénérez les clés en même temps, les nœuds de calcul ne seront pas en mesure de synchroniser une clé, et ils perdront l’accès au compte de stockage.
 
   ![Régénération de clés de compte de stockage][4]
 
+> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Lorsque vous liez un compte Azure Storage à votre compte Batch, liez *uniquement* un compte de stockage à **usage général** .
+
 ## Étapes suivantes
 
-* Consultez les [Aperçu des fonctionnalités Batch](batch-api-basics.md) pour en savoir plus sur les concepts du service Batch. L’article traite des principales ressources Batch, notamment des pools, des nœuds de calcul, des travaux et des tâches et fournit une vue d’ensemble des fonctionnalités du service qui permettent l’exécution de la charge de travail de calcul à grande échelle.
+* Consultez la [Vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md) pour en savoir plus sur les concepts du service Batch. L’article traite des principales ressources Batch, notamment des pools, des nœuds de calcul, des travaux et des tâches et fournit une vue d’ensemble des fonctionnalités du service qui permettent l’exécution de la charge de travail de calcul à grande échelle.
 
 * Apprenez les bases du développement d’une application prenant en charge Batch en utilisant la [bibliothèque cliente .NET Batch](batch-dotnet-get-started.md). L’[article de présentation](batch-dotnet-get-started.md) vous guide dans une application opérationnelle qui utilise le service Batch pour exécuter une charge de travail sur plusieurs nœuds de calcul et inclut l’utilisation d’un stockage Azure pour la mise en attente et la récupération du fichier de charge de travail.
 
@@ -107,4 +109,4 @@ Le panneau du compte Batch affiche plusieurs propriétés du compte, et fournit 
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

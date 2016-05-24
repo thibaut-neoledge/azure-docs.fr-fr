@@ -12,8 +12,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
+
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer
 
@@ -200,7 +201,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 
 1. Téléchargez [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) depuis le Centre de téléchargement de Microsoft et exécutez le programme d'installation.
 2. Lancez Message Analyzer.
-3. Sur la page **Démarrer**, accédez à **Téléchargements**, puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
+3. Dans le menu **Outils**, sélectionnez **Gestionnaire de biens**. Dans la boîte de dialogue **Gestionnaire de biens**, sélectionnez **Téléchargements**, puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
 4. Cliquez sur **Synchroniser tous les éléments affichés** pour installer les ressources Azure Storage. Les ressources disponibles sont les suivantes :
 	- **Règles de couleur Azure Storage :** celles-ci permettent de définir des filtres spéciaux qui utilisent des styles de texte, de couleur et de police pour mettre en surbrillance les messages contenant des informations spécifiques dans une trace.
 	- **Graphiques Azure Storage :** il s’agit de représentations graphiques prédéfinies des données du journal du serveur. Notez que pour utiliser des graphiques Azure Storage à ce stade, vous pouvez uniquement charger le journal du serveur dans la grille d'analyse.
@@ -209,7 +210,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 	- **Dispositions de vue Azure Storage :** il s'agit des dispositions de colonnes et des regroupements prédéfinis dans la grille d'analyse.
 4. Redémarrez Message Analyzer après avoir installé les éléments multimédias.
 
-![Page de démarrage de Message Analyzer](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+![Gestionnaire de biens de l’analyseur de message](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [AZURE.NOTE] Installez toutes les ressources Azure Storage indiquées dans le cadre de ce didacticiel.
 
@@ -276,7 +277,7 @@ Nous allons ensuite regrouper et filtrer les données de journal pour rechercher
 1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Grouper**.
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId**. Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Sur le ruban de la barre d'outils, sélectionnez **Fenêtres d'outil**, puis **Filtre d'affichage**.
-2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
+2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
 
 		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
@@ -339,20 +340,20 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Pour examiner... | Utiliser l'expression de filtre... | L'expression s'applique au journal (client, serveur, réseau, tout) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
-| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Réseau |
+| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) |    **StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| Messages HTTP 403 (interdit) |  HTTP.Response.StatusCode == 403 | Réseau |
-| Messages HTTP 404 (introuvable) | HTTP.Response.StatusCode == 404  | Réseau |
-| 404 (tous)  | *StatusCode == 404 | Tous |
-| Problème d'autorisation de la signature d'accès partagé (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Réseau |
-| Messages HTTP 409 (conflit) | HTTP.Response.StatusCode == 409 | Réseau |
-| 409 (tous) | *StatusCode == 409 | Tous |
-| Valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors  | AzureStorageLog.RequestStatus == "ClientOtherError" | Serveur |
-| Avertissement de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Serveur |
-| Plage horaire dans les journaux serveur et réseau | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Serveur, Réseau |
-| Plage horaire dans les journaux serveur | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Serveur |
+| Augmentation de la valeur PercentTimeoutError (tous) |    *StatusCode == 500 | All | 
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
+| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | 
+| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
+| 404 (all) | *StatusCode == 404 | All | 
+| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | 
+| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | 
+| 409 (all) | *StatusCode == 409 | All | 
+| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | 
+| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | 
+| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | 
+| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes
@@ -365,4 +366,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

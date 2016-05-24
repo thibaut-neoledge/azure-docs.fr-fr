@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Vue d'ensemble des fonctionnalités d'Azure Batch
@@ -38,7 +38,7 @@ Le flux de travail de haut niveau suivant est typique de celui qui est utilisé 
 
 6. Surveillez la progression du travail et récupérez les résultats.
 
-> [AZURE.NOTE] Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers.
+> [AZURE.NOTE] Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers. Le service Batch prend actuellement en charge uniquement le type de compte de stockage **à usage général**, comme décrit à l’étape 5, [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
 Dans les sections qui suivent, vous allez apprendre chacune des ressources mentionnées dans le flux de travail ci-dessus, ainsi que de nombreuses autres fonctionnalités de traitement par lots qui activeront votre scénario de calcul.
 
@@ -130,7 +130,7 @@ Une tâche est une unité de calcul associée à un travail et exécutée sur un
 
 - L’application spécifiée dans la **ligne de commande** de la tâche.
 
-- **Fichiers de ressources** contenant les données à traiter. Ces fichiers sont automatiquement copiés sur le nœud depuis le stockage d’objets blobs dans un compte de stockage Azure. Pour plus d’informations, consultez la section [Fichiers et répertoires](#files) ci-dessous.
+- **Fichiers de ressources** contenant les données à traiter. Ces fichiers sont automatiquement copiés sur le nœud depuis le stockage d’objets blobs dans un compte de stockage Azure **à usage général**. Pour plus d’informations, consultez la section *Tâche de démarrage* et [Fichiers et répertoires](#files) ci-dessous.
 
 - Les **variables d’environnement** sont requises par l’application. Pour plus d’informations, consultez la section [Paramètres d’environnement des tâches](#environment) ci-dessous.
 
@@ -149,6 +149,8 @@ Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœ
 En associant une **tâche de démarrage** avec un pool, vous pouvez configurer l’environnement d’exploitation de ses nœuds en effectuant des actions telles que l’installation de logiciels ou en démarrant des processus en arrière-plan. Elle s’exécute chaque fois qu’un nœud démarre pendant sa durée de présence dans le pool, et notamment lorsque le nœud est ajouté au pool en premier lieu. Le principal avantage de la tâche de démarrage est qu’il contient toutes les informations nécessaires pour configurer les nœuds de calcul et installer les applications nécessaires à l’exécution de la tâche du travail. Par conséquent, pour augmenter le nombre de nœuds dans un pool, il suffit de spécifier un nombre de nœuds cibles. Batch dispose déjà de toutes les informations nécessaires pour configurer les nouveaux nœuds et les préparer à accepter des tâches.
 
 Comme avec n’importe quelle tâche Batch, une **liste de fichiers de ressources** peut être spécifiée dans le [stockage Azure][azure_storage], en plus d’une **ligne de commande** à exécuter. Azure Batch copiera d’abord les fichiers du stockage Azure et exécutera ensuite la ligne de commande. Pour une tâche de démarrage du pool, la liste des fichiers contient généralement un package ou des fichiers d’application, mais elle peut également inclure des données de référence qui seront utilisées par toutes les tâches qui s’exécutent sur les nœuds de calcul. La ligne de commande de la tâche de démarrage peut exécuter un script PowerShell ou effectuer une opération `robocopy`, par exemple, pour copier les fichiers d’application dans le dossier « partagé », puis exécuter un MSI ou `setup.exe`.
+
+> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) doivent spécifier des fichiers de ressources se trouvant *uniquement* dans les comptes de stockage à **usage général**.
 
 Il est généralement préférable pour le service Batch d’attendre que la tâche de démarrage soit terminée avant de considérer que le nœud est prêt à recevoir des tâches, bien que ceci soit configurable.
 
@@ -187,7 +189,7 @@ Pour plus d’informations sur les tâches de préparation de travail et de vali
 
 Une [tâche multi-instance](batch-mpi.md) est une tâche configurée pour s’exécuter simultanément sur plusieurs nœuds de calcul. Avec des tâches multi-instances, vous pouvez activer des scénarios de calcul haute performance, comme MPI (Message Passing Interface), qui requièrent un groupe de nœuds de calcul alloués ensemble pour traiter une seule et même charge de travail.
 
-Pour une présentation détaillée de l’exécution des travaux MPI dans Batch à l’aide de la bibliothèque .NET de Batch, consultez l’article [Utiliser des tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](batch-mpi.md).
+Pour une présentation détaillée de l’exécution des travaux MPI dans Batch à l’aide de la bibliothèque .NET de Batch, consultez l’article [Utiliser des tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](batch-mpi.md).
 
 #### <a name="taskdep"></a>Dépendance entre tâches
 
@@ -268,11 +270,11 @@ Pour plus d’informations sur la mise à l’échelle automatique d’une appli
 
 Vous devez en principe utiliser des certificats lors du chiffrement ou du déchiffrement des informations sensibles pour les tâches, par exemple, la clé d’un [compte de stockage Azure][azure_storage]. Pour prendre en charge ces opérations, il est possible d’installer des certificats sur les nœuds. Les secrets chiffrés sont transmis aux tâches dans les paramètres de ligne de commande ou incorporés dans l’une des ressources et les certificats installés peuvent être utilisés pour les déchiffrer.
 
-Pour ajouter un certificat à un compte Batch, utilisez l’opération [Add certificate][rest_add_cert] (API Batch REST) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] (API Batch .NET) pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque, et notamment les tâches de démarrage et celles du gestionnaire de travaux.
+Pour ajouter un certificat à un compte Batch, utilisez l’opération [Add certificate][rest_add_cert] \(API Batch REST) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] \(API Batch .NET) pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque, et notamment les tâches de démarrage et celles du gestionnaire de travaux.
 
 ## <a name="scheduling"></a>Priorité de la planification
 
-Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte. Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Vous pouvez mettre à jour la priorité d’un travail à l’aide de l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] (API BATCH REST) ou en modifiant la propriété [CloudJob.Priority][net_cloudjob_priority] (API BATCH .NET).
+Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte. Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Vous pouvez mettre à jour la priorité d’un travail à l’aide de l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] \(API BATCH REST) ou en modifiant la propriété [CloudJob.Priority][net_cloudjob_priority] \(API BATCH .NET).
 
 Dans le même compte, les tâches à la priorité plus élevée ont la priorité en termes de planification sur les tâches avec une priorité plus faible. Un travail avec une priorité plus élevée dans un compte n'a pas de priorité de planification sur un autre travail avec une valeur de priorité inférieure dans un autre compte.
 
@@ -282,7 +284,7 @@ La planification de travail entre pools est indépendante. Entre des pools diff�
 
 Chaque tâche qui s’exécute dans un travail Batch a accès aux variables d’environnement définies à la fois par le service Batch (définie par le système, consultez le tableau ci-dessous) et par les variables d’environnement définies par l’utilisateur. Les applications et les scripts exécutés par des tâches sur les nœuds de calcul ont accès à ces variables d’environnement pendant leur exécution sur le nœud.
 
-Les variables d’environnement définies par l’utilisateur lors de l’utilisation de l’opération [Ajouter une tâche à un travail][rest_add_task] (API Batch REST) ou la modification de la propriété [CloudTask.EnvironmentSettings][net_cloudtask_env] (API Batch .NET) lorsque vous ajoutez des tâches à un travail.
+Les variables d’environnement définies par l’utilisateur lors de l’utilisation de l’opération [Ajouter une tâche à un travail][rest_add_task] \(API Batch REST) ou la modification de la propriété [CloudTask.EnvironmentSettings][net_cloudtask_env] \(API Batch .NET) lorsque vous ajoutez des tâches à un travail.
 
 Obtenir des variables d’environnement d’une tâche, les deux systèmes - et définies par l’utilisateur, à l’aide de la [obtenir des informations sur une tâche][rest_get_task_info] opération (API REST de lot) ou en accédant à la [CloudTask.EnvironmentSettings][net_cloudtask_env] propriété (API .NET de lot). Comme indiqué, les processus qui s’exécutent sur un nœud de calcul peuvent également accéder à toutes les variables d’environnement, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%`.
 
@@ -326,7 +328,7 @@ Les échecs de tâche peuvent être classés suivant les catégories suivantes 
 
 Pendant l’exécution, une application peut produire des diagnostics pouvant être utilisés pour résoudre les problèmes. Comme mentionné dans la section [Fichiers et répertoires](#files), le service Batch envoie stdout et stderr aux fichiers `stdout.txt` et `stderr.txt` situés dans le répertoire de tâche sur le nœud de calcul. En utilisant [ComputeNode.GetNodeFile][net_getfile_node] et [CloudTask.GetNodeFile][net_getfile_task] dans l’API Batch .NET, vous pouvez récupérer ces fichiers et d’autres à des fins de dépannage.
 
-Même les débogages étendus peuvent être effectués en se connectant à un nœud de calcul à l’aide du *Bureau à distance*. Vous pouvez [obtenir un fichier de protocole de bureau à distance depuis un nœud][rest_rdp] (API Batch REST) ou d’utiliser la méthode [ComputeNode.GetRDPFile][net_rdp] (API Batch .NET) pour la connexion à distance.
+Même les débogages étendus peuvent être effectués en se connectant à un nœud de calcul à l’aide du *Bureau à distance*. Vous pouvez [obtenir un fichier de protocole de bureau à distance depuis un nœud][rest_rdp] \(API Batch REST) ou d’utiliser la méthode [ComputeNode.GetRDPFile][net_rdp] \(API Batch .NET) pour la connexion à distance.
 
 >[AZURE.NOTE] Pour vous connecter à un nœud via RDP, vous devez d’abord créer un utilisateur sur le nœud. [Ajouter un compte d’utilisateur à un nœud][rest_create_user] dans l’API Batch REST ou l’utilisation de [ComputeNode.CreateComputeNodeUser][net_create_user] dans Batch.NET.
 
@@ -411,4 +413,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
