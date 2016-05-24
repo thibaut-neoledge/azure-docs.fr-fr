@@ -33,7 +33,7 @@ Si vous n’avez pas lu la documentation sur l’[intégration de vos identités
 
 
 ## Installation rapide pour Azure AD Connect
-La **configuration rapide ** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. Lorsque vous utilisez la configuration rapide, Azure AD Connect déploie la synchronisation pour une topologie de forêt unique. La [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) est activée et permet aux utilisateurs d’utiliser leur mot de passe local pour se connecter au cloud. La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée, ce qui facilite vos tâches de maintenance. L’utilisation de la configuration rapide lancera automatiquement une synchronisation une fois l’installation terminée (mais vous pouvez également choisir de ne pas le faire).
+La **configuration rapide** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. Lorsque vous utilisez la configuration rapide, Azure AD Connect déploie la synchronisation pour une topologie de forêt unique. La [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) est activée et permet aux utilisateurs d’utiliser leur mot de passe local pour se connecter au cloud. La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée, ce qui facilite vos tâches de maintenance. L’utilisation de la configuration rapide lancera automatiquement une synchronisation une fois l’installation terminée (mais vous pouvez également choisir de ne pas le faire).
 
 ### Pour installer Azure AD Connect à l'aide de paramètres Express
 

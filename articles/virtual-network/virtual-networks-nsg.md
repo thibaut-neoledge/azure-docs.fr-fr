@@ -40,7 +40,8 @@ Les règles de groupe de sécurité réseau contiennent les propriétés suivant
 |---|---|---|---|
 |**Name**|Nom de la règle|Doit être unique dans la région<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union<br/>doit commencer par une lettre ou un chiffre<br/>doit se terminer par une lettre, un nombre ou un trait de soulignement<br/>peut contenir jusqu’à 80 caractères|Un groupe de sécurité réseau peut contenir plusieurs règles, alors assurez-vous que vous respectez une convention d’affectation de noms qui vous permet d’identifier la fonction de votre règle|
 |**Protocole**|Protocole à faire correspondre pour la règle|TCP, UDP ou *|L’utilisation de * comme protocole inclut ICMP (trafic est-ouest uniquement), ainsi que les protocoles UDP et TCP et peut réduire le nombre de règles dont vous avez besoin<br/>Dans le même temps, l’utilisation de * peut être une approche trop large, alors assurez-vous que vous ne l’utilisez qu’en cas de nécessité|
-|**Plage de ports source**|Plage de ports source à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65635) ou * (pour tous les ports)|Les ports source peuvent être éphémères. Privilégiez l’utilisation de « * » dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule |**Plage de ports de destination**|Plage de ports de destination à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou * (pour tous les ports)|Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule
+|**Plage de ports source**|Plage de ports source à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65635) ou * (pour tous les ports)|Les ports source peuvent être éphémères. Privilégiez l’utilisation de « * » dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule 
+|**Plage de ports de destination**|Plage de ports de destination à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou * (pour tous les ports)|Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule
 |**Préfixe d’adresse source**|Préfixe d’adresse source à faire correspondre à la règle|Une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
 |**Préfixe d’adresse de destination**|Préfixe d’adresse de destination ou balise pour faire correspondre la règle|une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
 |**Direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|Les règles entrantes et sortantes sont traitées séparément, en fonction de la direction|
@@ -249,9 +250,9 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|**|*|3389|TCP|
+|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source *****, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
+>[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source **\***, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
 
 ### Le groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -259,7 +260,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|**|*|3389|TCP|
+|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -267,7 +268,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|**|*|1433|TCP|
+|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Étant donné que certains des groupes de sécurité réseau ci-dessus doivent être associés à des cartes réseau individuelles, vous devez déployer ce scénario en tant que déploiement de gestionnaire de ressources. Notez comment les règles sont combinées au niveau du sous-réseau et de la carte réseau, selon la façon dont ils doivent être appliqués.
 

@@ -40,7 +40,7 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir** puis **
 Vous pouvez également y accéder directement en naviguant vers l’URL [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) où **{tenant}** est remplacé par le nom utilisé au moment de la création du client (par exemple, contosob2c). Vous pouvez marquer ce lien à l’aide d’un signet afin de vous y référer ultérieurement.
 
     > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
+Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.
 
 ### 2\. Accès via le portail Azure Classic
 
