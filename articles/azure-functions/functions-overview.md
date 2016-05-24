@@ -87,4 +87,4 @@ Pour plus d’informations sur la mise à l’échelle de vos fonctions, consult
 + L’article [Mise à l’échelle d’Azure Functions](functions-scale.md) présente les plans de service disponibles pour Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins. 
 + [En savoir plus sur Azure App Service](../app-service/app-service-value-prop-what-is.md) Azure Functions s’appuie sur la plateforme Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

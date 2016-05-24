@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="05/10/2016"
 	ms.author="billmath;andkjell"/>
 
 # Prise en main d’Azure AD Connect à l’aide de paramètres express
@@ -33,7 +33,7 @@ Si vous n’avez pas lu la documentation sur l’[intégration de vos identités
 
 
 ## Installation rapide pour Azure AD Connect
-La **configuration rapide** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. Lorsque vous utilisez la configuration rapide, Azure AD Connect déploie la synchronisation pour une topologie de forêt unique. La [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) est activée et permet aux utilisateurs d’utiliser leur mot de passe local pour se connecter au cloud. La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée, ce qui facilite vos tâches de maintenance. L’utilisation de la configuration rapide lancera automatiquement une synchronisation une fois l’installation terminée (mais vous pouvez également choisir de ne pas le faire).
+La **configuration rapide ** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. Lorsque vous utilisez la configuration rapide, Azure AD Connect déploie la synchronisation pour une topologie de forêt unique. La [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) est activée et permet aux utilisateurs d’utiliser leur mot de passe local pour se connecter au cloud. La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée, ce qui facilite vos tâches de maintenance. L’utilisation de la configuration rapide lancera automatiquement une synchronisation une fois l’installation terminée (mais vous pouvez également choisir de ne pas le faire).
 
 ### Pour installer Azure AD Connect à l'aide de paramètres Express
 
@@ -43,11 +43,12 @@ La **configuration rapide** est l’option par défaut et s’applique à la plu
 4. Sur l'écran Paramètres Express, cliquez sur **Utiliser les paramètres Express**. ![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Sur l’écran Connexion à Azure AD, entrez le nom d’utilisateur et un mot de passe d’administrateur général pour votre instance Azure AD. Cliquez sur **Next**. ![Se connecter à Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si vous recevez une erreur et que vous avez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Sur l’écran Connexion à AD DS, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, c’est-à-dire FABRIKAM\\administrator ou fabrikam.com\\administrator. Cliquez sur **Suivant**. ![Connexion à AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Dans la page Prêt à configurer, vous pouvez éventuellement décocher la case **Démarrer le processus de synchronisation dès que la configuration est terminée**. Vous devez désélectionner cette case si vous souhaitez effectuer une configuration supplémentaire, tel que le [filtrage](active-directory-aadconnectsync-configure-filtering.md). Si vous désélectionnez cette option, l’Assistant configure la synchronisation, mais laisse le planificateur désactivé. Il ne sera pas exécuté jusqu’à ce que vous l’activiez manuellement en exécutant de nouveau l’Assistant d’installation.
+7. Si des domaines UPN inscrits dans Active Directory local sont absents ou non vérifiés, cette page s’affiche. Si tous les domaines UPN de vos services de domaines AD locaux ont été vérifiés, cette page n’apparaît pas. ![Domaines non vérifiés](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) Si vous voyez cette page, passez en revue chaque domaine marqué **Non ajouté** et **Non vérifié**. Assurez-vous que ceux que vous utilisez ont été vérifiés dans Azure AD. Cliquez sur le symbole d’actualisation dès que vous avez vérifié vos domaines. Pour plus d’informations, consultez [Ajouter et vérifier le domaine](active-directory-add-domain.md)
+8. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
+	- Dans la page Prêt à configurer, vous pouvez éventuellement décocher la case **Démarrer le processus de synchronisation dès que la configuration est terminée**. Vous devez décocher cette case si vous souhaitez effectuer une configuration supplémentaire, tel que le [filtrage](active-directory-aadconnectsync-configure-filtering.md). Si vous désélectionnez cette option, l’Assistant configure la synchronisation, mais laisse le planificateur désactivé. Il ne sera pas exécuté jusqu’à ce que vous l’activiez manuellement en exécutant de nouveau l’Assistant d’installation.
 	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case correspondante. Activez cette option si vous envisagez de disposer simultanément de boîtes aux lettres Exchange dans le cloud et en local. ![Azure AD Connect prêt à configurer](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-8. Une fois l’installation terminée, cliquez sur **Quitter**.
-9. Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à Windows avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.
+9. Une fois l’installation terminée, cliquez sur **Quitter**.
+10. Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à Windows avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.
 
 Pour une vidéo sur l’utilisation de l’installation rapide, voir :
 
@@ -58,4 +59,4 @@ Notez que lorsque vous avez Azure AD Connect installé, vous pouvez [vérifier l
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

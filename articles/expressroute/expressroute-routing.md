@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft
 
 Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
 
-- 192.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
-- 192.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
+- 192\.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
+- 192\.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
 
 ### Adresses IP pour homologations publiques Azure et Microsoft
 
@@ -176,4 +176,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

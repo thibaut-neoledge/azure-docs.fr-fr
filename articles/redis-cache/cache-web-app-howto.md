@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Création d’une application web avec le Cache Redis
@@ -688,12 +688,13 @@ Le bouton **Déployer dans Azure** vous permet d’accéder au Portail Azure et 
 1. Dans le panneau **Déploiement personnalisé**, sélectionnez l’abonnement Azure à utiliser, puis sélectionnez un groupe de ressources existant ou créez-en un. Spécifiez ensuite l’emplacement du groupe de ressources.
 2. Dans le panneau **Paramètres**, spécifiez un nom de compte d’administrateur (**ADMINISTRATORLOGIN** -n’utilisez pas **admin**), un mot de passe de connexion administrateur (**ADMINISTRATORLOGINPASSWORD**) et le nom de la base de données (**DATABASENAME**). Les autres paramètres sont configurés pour un plan d’hébergement Free App Service et des options moins coûteuses pour la base de données SQL et le Cache Redis Azure, qui ne sont pas fournis avec un niveau Gratuit.
 3. Modifiez les autres paramètres si nécessaire, ou conservez les valeurs par défaut, puis cliquez sur **OK**.
-4. Une fois les paramètres configurés, cliquez sur **Consulter les termes et conditions**.
+
 
 ![Déploiement sur Azure][cache-deploy-to-azure-step-2]
 
-1. Lisez les termes et conditions dans le panneau **Créer**, puis cliquez sur **Créer**.
-2. Pour commencer l’approvisionnement des ressources, cliquez sur **Créer** dans le panneau **Déploiement personnalisé**.
+1. Cliquez sur **Consulter les termes et conditions**.
+2. Lisez les termes et conditions dans le panneau **Achat**, puis cliquez sur **Acheter**.
+3. Pour commencer l’approvisionnement des ressources, cliquez sur **Créer** dans le panneau **Déploiement personnalisé**.
 
 Pour afficher la progression de votre déploiement, cliquez sur l’icône de notification, puis cliquez sur **Le déploiement a commencé**.
 
@@ -838,4 +839,4 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

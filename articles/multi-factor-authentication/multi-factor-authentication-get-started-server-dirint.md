@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Intégration d'annuaires entre le serveur Azure MFA et Active Directory
@@ -137,4 +137,4 @@ Il est possible de configurer des serveurs MFA supplémentaires en tant que prox
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

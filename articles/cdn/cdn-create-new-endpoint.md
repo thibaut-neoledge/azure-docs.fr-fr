@@ -61,6 +61,8 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 7. Dans **En-tête de l’hôte d’origine**, entrez l’en-tête de l’hôte que le CDN doit envoyer avec chaque requête ou conservez la valeur par défaut.
 
+	> [AZURE.WARNING] Certains types d’origine, tels que Azure Storage et Web Apps, nécessitent l’en-tête de l’hôte pour correspondre au domaine de l’origine. À moins d’avoir une origine nécessitant un en-tête d’hôte différent de son domaine, vous devriez laisser la valeur par défaut.
+
 8. Pour **Protocole** et **Port d’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources à l’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS).
 	
 	> [AZURE.NOTE] Le **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine. Le point de terminaison ne sera disponible pour les clients que sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit le **port d’origine**.
@@ -78,7 +80,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
     ![Point de terminaison CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] Le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement dans le CDN peut prendre du temps. Pour les profils d’<b>Azure CDN fourni par Akamai</b>, la propagation s’effectue généralement dans un délai d’une minute. Pour les profils d’<b>Azure CDN fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
+    > [AZURE.IMPORTANT] Le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement dans le CDN peut prendre du temps. Pour les profils d’<b>Azure CDN fourni par Akamai</b>, la propagation s’effectue généralement dans un délai d’une minute. Pour les profils d’<b>Azure CDN fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
 	>	 
 	> Les utilisateurs qui tentent d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux POP voient s’afficher des codes de réponse HTTP 404. Si plusieurs heures se sont écoulées depuis la création de votre point de terminaison et que vous recevez toujours des réponses 404, consultez [Dépannage des points de terminaison de CDN renvoyant des états 404](cdn-troubleshoot-endpoint.md).
 
@@ -95,4 +97,4 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

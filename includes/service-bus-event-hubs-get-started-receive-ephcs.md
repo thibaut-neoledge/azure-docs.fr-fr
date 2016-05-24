@@ -22,13 +22,15 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 
 5. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution...**.
 
-6. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Vérifiez que le nom du projet (**Récepteur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d'utilisation.
+6. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Vérifiez que le nom du projet (**Récepteur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
     ![][13]
 
 	Cette opération lance le téléchargement, l'installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
 
-7. Cliquez avec le bouton droit sur le projet **Récepteur**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la nouvelle classe **SimpleEventProcessor**, puis cliquez sur **OK** pour créer la classe.
+7. Cliquez avec le bouton droit sur le projet **Récepteur**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la nouvelle classe **SimpleEventProcessor**, puis cliquez sur **Ajouter** pour créer la classe.
+
+	![][15]
 
 8. Ajoutez les instructions ci-après au début du fichier SimpleEventProcessor.cs :
 
@@ -83,13 +85,13 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 
 	Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost**. Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 
-9. Dans la classe **Program**, ajoutez l’instruction `using` suivante en haut du fichier :
+9. Dans la classe **Program**, ajoutez l’instruction `using` suivante en haut du fichier :
 
 	```
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-	Modifiez ensuite la méthode `Main` dans la classe `Program`, comme suit, en remplaçant le nom d’Event Hub et la chaîne de connexion **ReceiveRule**, ainsi que la clé et le compte de stockage que vous avez copiée dans les sections précédentes : Veillez à supprimer le suffixe `EntityPath` de la chaîne de connexion :
+	Remplacez ensuite la méthode `Main` dans la classe `Program` par le code suivant, en remplaçant le nom d’Event Hub et la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment, ainsi que la clé et le compte de stockage que vous avez copiés dans les sections précédentes :
 
     ```
 	static void Main(string[] args)
@@ -129,6 +131,6 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0413_2016-->

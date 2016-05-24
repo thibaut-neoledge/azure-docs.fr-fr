@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor="jwhit"
+    editor=""
 	keywords="azure powershell, didacticiel sur le script powershell, automatisation powershell"/>
 <tags
     ms.service="automation"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte;sngun"/>
 
 # Mon premier Runbook PowerShell
@@ -26,8 +26,8 @@ Ce didacticiel vous guide dans la création d’un [Runbook PowerShell](automati
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
--	abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous <a href="/pricing/free-account/" target="_blank">[inscrire pour un compte gratuit](https://azure.microsoft.com/free/).
--	Un [compte Automation](automation-security-overview.md) pour y stocker le Runbook et s’authentifier auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
+-	abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
+-	Un [compte Automation](automation-security-overview.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 -	Une machine virtuelle Azure. Nous arrêterons et démarrerons cet ordinateur afin qu'il ne soit pas en production.
 
 ## Étape 1 - Création d’un Runbook
@@ -35,12 +35,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
 1.	Dans le portail Azure, ouvrez votre compte Automation. La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
-2.	Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks.
-	![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
+2.	Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks. ![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3.	Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook**.
 4.	Nommez le Runbook *MyFirstRunbook-PowerShell*.
-5.	Dans ce cas précis, nous allons créer un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). Par conséquent, sélectionnez **Powershell** comme **Type de Runbook**.  
-	![Types de Runbook](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
+5.	Dans ce cas précis, nous allons créer un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). Par conséquent, sélectionnez **Powershell ** comme **Type de Runbook**.![Types de Runbook](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6.	Cliquez sur **Créer** pour créer le Runbook et ouvrez l’éditeur textuel.
 
 ## Étape 2 - Ajouter du code au Runbook
@@ -86,22 +84,22 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 3.	Tapez ou copiez-collez le code suivant qui gérera l’authentification avec votre compte d’authentification Automation :
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ``` 
 <br>
 4.	Cliquez sur **Volet de test** afin de tester le Runbook.
-5.	Cliquez sur **Démarrer** pour démarrer le test. Une fois que vous avez terminé, vous devez recevoir une sortie contenant l’ID d’abonnement et d’environnement de votre compte. Cette sortie confirme la validité des informations d’identification.
+5.	Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification. <br> ![Authentifier](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
 
 ## Étape 6 - Ajouter du code pour démarrer une machine virtuelle
 
 À présent que notre Runbook s’authentifie auprès de notre abonnement Azure, nous pouvons gérer les ressources. Nous allons ajouter une commande pour démarrer une machine virtuelle. Vous pouvez choisir n'importe quelle machine virtuelle dans votre abonnement Azure, et pour l'instant, nous allons coder ce nom dans l'applet de commande.
 
-1.	Après *Add-AzureRmAccount*, tapez *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* en fournissant le nom et le nom de groupe de ressources de la machine virtuelle à démarrer.  
+1.	Après *Add-AzureRmAccount*, tapez *Start-AzureRmVM -Name ’VMName’ -ResourceGroupName ’NameofResourceGroup’* en fournissant le nom et le nom de groupe de ressources de la machine virtuelle à démarrer.  
     
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
@@ -121,7 +119,7 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
        [string]$VMName,
        [string]$ResourceGroupName
     )
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
@@ -150,4 +148,4 @@ Les Runbooks PowerShell ont les mêmes cycle de vie, fonctionnalités et mode de
 -	Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 -	Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez le billet [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Prise en charge de script PowerShell natif dans Azure Automation)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

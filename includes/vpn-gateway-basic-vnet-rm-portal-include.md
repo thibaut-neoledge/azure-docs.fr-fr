@@ -1,6 +1,4 @@
-Pour créer un réseau virtuel à l’aide du portail Azure, procédez comme suit. Notez que les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres.
-
-Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
+Pour créer un réseau virtuel à l’aide du portail Azure, procédez comme suit. Notez que les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
 
 1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
 
@@ -19,7 +17,7 @@ Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Pré
 
 5. Vérifiez qu’il s’agit de l’**abonnement** approprié. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
 
-6. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources existant, ou créez un groupe de ressources. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md#resource-groups).
+6. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources existant, ou créez un groupe de ressources en tapant un nom pour ce dernier. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md#resource-groups).
 
 7. Ensuite, sélectionnez les paramètres d’**emplacement** pour votre réseau virtuel. Notez que l’emplacement déterminera où se trouveront les ressources que vous déployez sur ce réseau virtuel. Vous ne pouvez pas le modifier ultérieurement sans avoir à redéployer vos ressources.
 
@@ -31,5 +29,3 @@ Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Pré
 9. Après avoir cliqué sur Créer, vous verrez une vignette apparaître sur votre tableau de bord. Celle-ci indique la progression de votre réseau virtuel. La vignette change lorsque le réseau virtuel est créé.
 
 	![Mosaïque de création du réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
-
-<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Incorporer un rapport Power BI avec un IFrame
@@ -180,6 +180,40 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+Une fois qu’un rapport est incorporé dans votre application, vous pouvez filtrer ce dernier. La section suivante vous montre comment filtrer un rapport à l’aide d’une syntaxe d’URL.
+
+## Filtrer un rapport
+
+Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. Pour ce faire, ajoutez un paramètre de chaîne de requête à l’URL SCRL iFrame avec le filtre spécifié. Vous pouvez **filtrer sur une valeur** et **masquer le volet Filtre**.
+
+
+**Filtrer sur une valeur**
+
+Pour filtrer sur une valeur, vous utilisez la syntaxe de requête **$filter** avec un opérateur **eq** comme suit :
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+Par exemple, vous pouvez filtrer la valeur Store Chain (chaîne de magasin) sur « Lindseys ». La partie Filtre de l’URL ressemblerait à ceci :
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} ne peut pas contenir d’espaces ou de caractères spéciaux. {fieldValue} accepte une seule valeur de catégorie.
+
+**Masquer le volet Filtre**
+
+Pour masquer le **volet Filtre**, ajoutez **filterPaneEnabled** à la chaîne de requête d’état comme suit :
+
+```
+&filterPaneEnabled=false
+```
+
+## Conclusion
 
 Cet article vous a présenté le code nécessaire à l’intégration d’un rapport **Power BI** dans votre application. Pour rapidement commencer l’intégration d’un rapport dans une application, téléchargez ces exemples sur GitHub :
 
@@ -194,4 +228,4 @@ Cet article vous a présenté le code nécessaire à l’intégration d’un rap
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

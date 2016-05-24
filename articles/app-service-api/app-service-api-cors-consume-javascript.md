@@ -72,7 +72,7 @@ Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propri
 
 ## <a id="tutorialstart"></a> Suite du didacticiel dédié à la prise en main de .NET
 
-Si vous suivez la série dédiée à la prise en main de Node.js ou Java pour les applications API, passez à l’article suivant, intitulé [Authentification et autorisation pour API Apps dans Azure App Service](app-service-api-authentication.md).
+Si vous suivez la série dédiée à la mise en route de Node.js ou Java pour les applications API, vous avez terminé la série de mise en route. Passez à la section [Étapes suivantes](#next-steps) pour trouver des suggestions afin d’en savoir plus sur les applications API.
 
 Le reste de cet article, qui s’inscrit dans le prolongement de la série dédiée à la prise en main de .NET, suppose que vous avez correctement exécuté [le premier didacticiel](app-service-api-dotnet-get-started.md).
 
@@ -264,9 +264,16 @@ Les étapes suivantes résument le processus d’activation de la prise en charg
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Utilisation de Gestion des API Azure avec les applications API.
+
+Si vous utilisez Gestion des API Azure avec une application API, configurez CORS dans Gestion des API plutôt que dans l’application API. Pour plus d’informations, consultez les ressources suivantes :
+
+* [Vue d’ensemble de Gestion des API Azure (vidéo : CORS commence à 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [Gestion des API dans les stratégies de domaine](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## Résolution de problèmes
 
-Si vous rencontrez un problème pendant que vous progressez dans ce didacticiel, assurez-vous que vous utilisez la dernière version du kit de développement logiciel Azure pour .NET. Le moyen le plus simple pour ce faire consiste à [télécharger le kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si la version actuelle est installée, le programme d’installation de la plateforme web vous informe qu’aucune installation n’est nécessaire.
+Si vous rencontrez un problème pendant que vous progressez dans ce didacticiel, assurez-vous que vous utilisez la dernière version du kit de développement logiciel Azure pour .NET. Le moyen le plus simple pour ce faire consiste à [télécharger le Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si la version actuelle est installée, le programme d’installation de la plateforme web vous informe qu’aucune installation n’est nécessaire.
 
 Si vous continuez à recevoir des messages d’erreur CORS après avoir défini une URL dans le panneau CORS du portail, vérifiez que vous avez correctement appliqué vos modifications aux endroits appropriés. Par exemple :
 
@@ -279,6 +286,6 @@ Pour en savoir plus sur les fonctionnalités de Visual Studio conçues pour faci
 
 ## Étapes suivantes 
 
-Dans cet article, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Dans l’article suivant de la série dédiée à la prise en main d’API Apps, vous allez découvrir l’[authentification d’App Service API Apps](app-service-api-authentication.md).
+Dans cet article, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Pour en savoir plus sur les applications API, lisez la [présentation de l’authentification dans App Service](../app-service/app-service-authentication-overview.md), puis accédez au didacticiel relatif à l’[authentification utilisateur pour les applications API](app-service-api-dotnet-user-principal-auth.md).
 
-<!------HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

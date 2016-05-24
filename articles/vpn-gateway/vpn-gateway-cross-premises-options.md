@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="À propos des connexions sécurisées entre locaux pour les réseaux virtuels| Microsoft Azure"
+   pageTitle="À propos des connexions sécurisées entre locaux pour les réseaux virtuels| Microsoft Azure"
    description="Découvrez les types de connexions sécurisées entre différents locaux pour les réseaux virtuels, comprenant les connexions site à site, point à site et ExpressRoute."
    services="vpn-gateway"
    documentationCenter="na"
@@ -12,45 +12,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # À propos des connexions sécurisées entre locaux pour les réseaux virtuels
 
-Cet article présente les différentes méthodes de connexion de votre site local à un réseau virtuel Azure. Il s’applique aux modèles de déploiement classique et Resource Manager.
+Cet article présente les différentes méthodes de connexion de votre site local à un réseau virtuel Azure. Il s’applique aux modèles de déploiement classique et Resource Manager. Si vous recherchez des topologies de connexion aux passerelles VPN, consultez l’article [Topologies de connexion à la passerelle VPN Azure](vpn-gateway-topology.md).
 
-Trois options de connexion sont disponibles : site à site, point à site et ExpressRoute. L’option que vous choisirez peut dépendre de la réponse à différentes questions, notamment :
+Trois options de connexion sont disponibles : site à site, point à site et ExpressRoute. L’option que vous choisirez peut dépendre de la réponse à différentes questions, notamment :
 
 
-- Quel est le type de débit requis par votre solution ?
-- Souhaitez-vous communiquer sur l’Internet public par le biais d’un VPN sécurisé ou sur une connexion privée ?
-- Disposez-vous d’une adresse IP publique utilisable ?
-- Envisagez-vous d’utiliser un périphérique VPN ? Si tel est le cas, est-il compatible ?
-- Ne voulez-vous connecter qu’un petit nombre d’ordinateurs, ou souhaitez-vous mettre en place une connexion permanente pour votre site ?
-- Quel est le type de passerelle VPN requis par la solution que vous souhaitez créer ?
+- Quel est le type de débit requis par votre solution ?
+- Souhaitez-vous communiquer sur l’Internet public par le biais d’un VPN sécurisé ou sur une connexion privée ?
+- Disposez-vous d’une adresse IP publique utilisable ?
+- Envisagez-vous d’utiliser un périphérique VPN ? Si tel est le cas, est-il compatible ?
+- Ne voulez-vous connecter qu’un petit nombre d’ordinateurs, ou souhaitez-vous mettre en place une connexion permanente pour votre site ?
+- Quel est le type de passerelle VPN requis par la solution que vous souhaitez créer ?
 
 Le tableau ci-après peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
-
-| - | **Point à site** | **Site à site** | **ExpressRoute** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Services pris en charge par Azure** | Cloud Services et Virtual Machines | Cloud Services et Virtual Machines | [Liste des services](../expressroute/expressroute-faqs.md#supported-services) |
-| **Bandes passantes classiques** | En règle générale < 100 Mbit/s agrégés | En règle générale < 100 Mbit/s agrégés | 50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 2 Gbit/s, 5 Gbit/s, 10 Gbit/s |
-| **Protocoles pris en charge** | Secure Sockets Tunneling Protocol (SSTP) | IPsec | Connexion directe sur des VLAN, les technologies VPN des fournisseurs de services réseau (MPLS, VPLS,...) |
-| **Routage** | Basé sur un itinéraire (dynamique) | Nous prenons en charge le routage basé sur des stratégies (statique) et basé sur un itinéraire (VPN de routage dynamique) | BGP |
-| **Résilience de connexion** | actif / passif | actif / passif | actif / actif |
-| **Cas d’utilisation classique** | Création de prototypes, scénarios de développement / test / labo pour les services cloud et les machines virtuelles | Scénarios de développement / test / labo et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles | Accès à tous les services Azure (liste validée), charges de travail professionnelles et critiques, sauvegarde, Big Data, Azure sous la forme d'un site de récupération d'urgence |
-| **CONTRAT SLA** | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) |
-| **Tarification** | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentation technique** | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FORUM AUX QUESTIONS** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## Connexions site à site
 
 Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion sécurisée entre votre site local et votre réseau virtuel. Pour la création d’une connexion site à site, un périphérique VPN situé sur votre réseau local est configuré de façon à créer une connexion sécurisée avec la passerelle VPN Azure. Une fois la connexion créée, les ressources de votre réseau local et celles qui sont situées dans votre réseau virtuel peuvent communiquer directement et de façon sécurisée. Dans le cas des connexions site à site, vous n’avez pas besoin d’établir une connexion distincte pour chacun des ordinateurs clients de votre réseau local pour leur permettre d’accéder aux ressources du réseau virtuel.
 
-**Utilisez une connexion site à site dans les cas suivants:**
+**Utilisez une connexion site à site dans les cas suivants :**
 
 - Vous souhaitez créer une solution hybride.
 - Vous voulez disposer d’une connexion entre votre emplacement local et votre réseau virtuel qui ne nécessite aucune configuration côté client.
@@ -58,12 +45,14 @@ Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion
 
 **Configuration requise**
 
-- Le périphérique VPN local doit disposer d’une adresse IP IPv4 d’accès à Internet. Il ne peut pas se trouver derrière un processus de traduction d’adresses réseau (NAT).
+- Le périphérique VPN local doit disposer d’une adresse IP IPv4 d’accès à Internet. Il ne peut pas se trouver derrière un processus de traduction d’adresses réseau (NAT).
 - Vous devez disposer d’un périphérique VPN compatible. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). 
-- Le périphérique VPN que vous utilisez doit être compatible avec le type de passerelle requis pour votre solution. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
-- La référence SKU de passerelle aura également une incidence sur le débit agrégé. Pour plus d’informations, voir la section [SKU de passerelle](vpn-gateway-about-vpngateways.md#gateway-skus). 
+- Le périphérique VPN que vous utilisez doit être compatible avec le type de passerelle requis pour votre solution. Voir [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
+- La référence SKU de passerelle aura également une incidence sur le débit agrégé. Pour plus d’informations, voir la section [SKU de passerelle](vpn-gateway-about-vpngateways.md#gwsku). 
 
-Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, à l’aide du portail Azure Classic et du modèle de déploiement classique, consultez l’article [Configurer un réseau virtuel avec une connexion VPN site à site pour le modèle de déploiement classique](vpn-gateway-site-to-site-create.md). Pour plus d’informations sur la configuration d’un réseau privé virtuel site à site avec le modèle de déploiement Resource Manager, consultez l’article [Créer un réseau virtuel avec une connexion VPN site à site pour le modèle de déploiement Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md).
+**Méthodes et modèles de déploiement disponibles pour les connexions S2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 
 ## Connexions de point à site
@@ -72,7 +61,7 @@ Un réseau privé virtuel point à site vous permet également de créer une con
 
 Les configurations point à site et site à site peuvent coexister, mais contrairement aux connexions site à site, les connexions point à site ne sont pas configurables en même temps qu’une connexion ExpressRoute au même réseau virtuel.
 
-**Utilisez une connexion point à site dans les cas suivants:**
+**Utilisez une connexion point à site dans les cas suivants :**
 
 - Vous ne souhaitez configurer qu’un petit nombre de clients pour la connexion à un réseau virtuel.
 
@@ -82,13 +71,15 @@ Les configurations point à site et site à site peuvent coexister, mais contrai
 
 - Vous n’avez pas accès à un périphérique VPN qui présente la configuration minimale requise pour une connexion site à site.
 
-- Vous ne disposez pas d’une adresse IP IPv4 d’accès à Internet pour votre périphérique VPN.
+- Vous ne disposez pas d’une adresse IP IPv4 d’accès à Internet pour votre périphérique VPN.
 
-Pour plus d’informations sur la configuration d’une connexion point à site pour le modèle de déploiement classique, consultez l’article [Configurer une connexion VPN point à site à un réseau virtuel pour le modèle de déploiement classique](vpn-gateway-point-to-site-create.md). Pour plus d’informations sur la configuration d’une connexion point à site pour le modèle de déploiement Resource Manager, consultez l’article [Configurer une connexion VPN point à site à un réseau virtuel pour le modèle de déploiement Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md).
+**Méthodes et modèles de déploiement disponibles pour les connexions P2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Connexions ExpressRoute
 
-Azure ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et une infrastructure locale ou dans un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l’Internet public et offrent de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
+Azure ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et une infrastructure locale ou dans un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l’Internet public et offrent de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 
 Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre l’infrastructure locale et Azure peut également générer des économies substantielles. Grâce à ExpressRoute, vous pouvez établir des connexions à Azure dans un emplacement ExpressRoute (installation d’un fournisseur Exchange) ou vous connecter directement à Azure à partir de votre réseau étendu existant (tel qu’un VPN MPLS) proposé par un fournisseur de services réseau.
 
@@ -97,6 +88,8 @@ Pour plus d’informations sur ExpressRoute, consultez [Présentation technique 
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez le [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) et le [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md).
+- Pour plus d’informations sur la passerelle VPN, voir [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md), la [FAQ](vpn-gateway-vpn-faq.md) de la passerelle VPN, et [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+- Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md), la [FAQ](../expressroute/expressroute-faqs.md), et les [Workflows ExpressRoute](../expressroute/expressroute-workflows.md).
+
+<!---HONumber=AcomDC_0518_2016-->

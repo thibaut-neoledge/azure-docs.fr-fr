@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Vue d'ensemble des fonctionnalités d'Azure Batch
@@ -38,7 +38,7 @@ Le flux de travail de haut niveau suivant est typique de celui qui est utilisé 
 
 6. Surveillez la progression du travail et récupérez les résultats.
 
-> [AZURE.NOTE] Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers.
+> [AZURE.NOTE] Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers. Le service Batch prend actuellement en charge uniquement le type de compte de stockage **à usage général**, comme décrit à l’étape 5, [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
 Dans les sections qui suivent, vous allez apprendre chacune des ressources mentionnées dans le flux de travail ci-dessus, ainsi que de nombreuses autres fonctionnalités de traitement par lots qui activeront votre scénario de calcul.
 
@@ -130,7 +130,7 @@ Une tâche est une unité de calcul associée à un travail et exécutée sur un
 
 - L’application spécifiée dans la **ligne de commande** de la tâche.
 
-- **Fichiers de ressources** contenant les données à traiter. Ces fichiers sont automatiquement copiés sur le nœud depuis le stockage d’objets blobs dans un compte de stockage Azure. Pour plus d’informations, consultez la section [Fichiers et répertoires](#files) ci-dessous.
+- **Fichiers de ressources** contenant les données à traiter. Ces fichiers sont automatiquement copiés sur le nœud depuis le stockage d’objets blobs dans un compte de stockage Azure **à usage général**. Pour plus d’informations, consultez la section *Tâche de démarrage* et [Fichiers et répertoires](#files) ci-dessous.
 
 - Les **variables d’environnement** sont requises par l’application. Pour plus d’informations, consultez la section [Paramètres d’environnement des tâches](#environment) ci-dessous.
 
@@ -149,6 +149,8 @@ Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœ
 En associant une **tâche de démarrage** avec un pool, vous pouvez configurer l’environnement d’exploitation de ses nœuds en effectuant des actions telles que l’installation de logiciels ou en démarrant des processus en arrière-plan. Elle s’exécute chaque fois qu’un nœud démarre pendant sa durée de présence dans le pool, et notamment lorsque le nœud est ajouté au pool en premier lieu. Le principal avantage de la tâche de démarrage est qu’il contient toutes les informations nécessaires pour configurer les nœuds de calcul et installer les applications nécessaires à l’exécution de la tâche du travail. Par conséquent, pour augmenter le nombre de nœuds dans un pool, il suffit de spécifier un nombre de nœuds cibles. Batch dispose déjà de toutes les informations nécessaires pour configurer les nouveaux nœuds et les préparer à accepter des tâches.
 
 Comme avec n’importe quelle tâche Batch, une **liste de fichiers de ressources** peut être spécifiée dans le [stockage Azure][azure_storage], en plus d’une **ligne de commande** à exécuter. Azure Batch copiera d’abord les fichiers du stockage Azure et exécutera ensuite la ligne de commande. Pour une tâche de démarrage du pool, la liste des fichiers contient généralement un package ou des fichiers d’application, mais elle peut également inclure des données de référence qui seront utilisées par toutes les tâches qui s’exécutent sur les nœuds de calcul. La ligne de commande de la tâche de démarrage peut exécuter un script PowerShell ou effectuer une opération `robocopy`, par exemple, pour copier les fichiers d’application dans le dossier « partagé », puis exécuter un MSI ou `setup.exe`.
+
+> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créez un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) doivent spécifier des fichiers de ressources se trouvant *uniquement* dans les comptes de stockage à **usage général**.
 
 Il est généralement préférable pour le service Batch d’attendre que la tâche de démarrage soit terminée avant de considérer que le nœud est prêt à recevoir des tâches, bien que ceci soit configurable.
 
@@ -187,7 +189,7 @@ Pour plus d’informations sur les tâches de préparation de travail et de vali
 
 Une [tâche multi-instance](batch-mpi.md) est une tâche configurée pour s’exécuter simultanément sur plusieurs nœuds de calcul. Avec des tâches multi-instances, vous pouvez activer des scénarios de calcul haute performance, comme MPI (Message Passing Interface), qui requièrent un groupe de nœuds de calcul alloués ensemble pour traiter une seule et même charge de travail.
 
-Pour une présentation détaillée de l’exécution des travaux MPI dans Batch à l’aide de la bibliothèque .NET de Batch, consultez l’article [Utiliser des tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](batch-mpi.md).
+Pour une présentation détaillée de l’exécution des travaux MPI dans Batch à l’aide de la bibliothèque .NET de Batch, consultez l’article [Utiliser des tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](batch-mpi.md).
 
 #### <a name="taskdep"></a>Dépendance entre tâches
 
@@ -236,7 +238,7 @@ Lorsqu’un nœud est supprimé du pool, tous les fichiers stockés dans le nœu
 
 Lorsque vous créez votre solution Azure Batch, une décision de conception doit être prise quant à la procédure et le moment de la création, et la durée sur laquelle les nœuds de calcul de ces pools restent disponibles.
 
-D’un côté, un pool peut être créé pour chaque travail au moment de l’envoi, et ses nœuds peuvent être supprimés dès lors que les tâches cessent de s’exécuter. Ceci permet d’optimiser l’utilisation puisque les nœuds ne sont alloués que lorsque cela est absolument nécessaire et qu’ils s’arrêtent dès qu’ils deviennent inactifs. Cela signifie que le travail doit attendre que les nœuds soient alloués, mais il est important de noter que les tâches seront planifiées sur les nœuds dès qu’elles seront individuellement disponibles, allouées, et que cette tâche de démarrage sera terminée. Batch *n’* attend pas, par exemple, que tous les nœuds d’un pool soient disponibles avant d’affecter des tâches, car cela entraînerait une faible utilisation des nœuds disponibles.
+D’un côté, un pool peut être créé pour chaque travail au moment de l’envoi, et ses nœuds peuvent être supprimés dès lors que les tâches cessent de s’exécuter. Ceci permet d’optimiser l’utilisation puisque les nœuds ne sont alloués que lorsque cela est absolument nécessaire et qu’ils s’arrêtent dès qu’ils deviennent inactifs. Cela signifie que le travail doit attendre que les nœuds soient alloués, mais il est important de noter que les tâches seront planifiées sur les nœuds dès qu’elles seront individuellement disponibles, allouées, et que cette tâche de démarrage sera terminée. Batch *n’*attend pas, par exemple, que tous les nœuds d’un pool soient disponibles avant d’affecter des tâches, car cela entraînerait une faible utilisation des nœuds disponibles.
 
 À l’autre extrémité du spectre, si la priorité absolue consiste à démarrer immédiatement une tâche, un pool eut être créé avant l’heure et ses nœuds seront mis à disposition avant l’envoi de travaux. Dans ce scénario, les tâches du travail peuvent démarrer immédiatement, mais les nœuds peuvent rester inactifs en attendant les tâches à affecter.
 
@@ -411,4 +413,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
