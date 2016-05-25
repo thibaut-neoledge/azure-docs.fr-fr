@@ -169,7 +169,8 @@ Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virt
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joindre un réseau virtuel |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joindre un pool d’adresses principales d’équilibreur de charge |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joindre une règle NAT entrante d’équilibreur de charge |
-| Microsoft.Network/publicIPAddresses/join/action | Joindre une adresse IP publique || Microsoft.Network/networkInterfaces/join/action | Joindre une machine virtuelle à une interface réseau |
+| Microsoft.Network/publicIPAddresses/join/action | Joindre une adresse IP publique |
+| Microsoft.Network/networkInterfaces/join/action | Joindre une machine virtuelle à une interface réseau |
 | Microsoft.Network/networkInterfaces/write | Écrire des interfaces réseau |
 
 ### Collaborateur de compte de base de données de document
@@ -390,7 +391,8 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. | | Microsoft.Authorization/* | Autorisation de lecture |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. |
+| Microsoft.Authorization/* | Autorisation de lecture |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle classique
