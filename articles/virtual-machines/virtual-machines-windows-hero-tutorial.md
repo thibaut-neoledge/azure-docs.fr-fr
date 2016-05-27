@@ -116,4 +116,4 @@ Cliquez simplement sur le bouton **Démarrer** pour redémarrer la machine virtu
 
 * Vous pouvez également [créer une machine virtuelle Windows à l’aide de Powershell](virtual-machines-windows-ps-create.md) ou [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) à l’aide de l’interface de ligne de commande Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!------HONumber=AcomDC_0511_2016-->

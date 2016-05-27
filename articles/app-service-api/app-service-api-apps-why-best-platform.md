@@ -63,4 +63,4 @@ Pour prendre en main API Apps en y déployant un exemple de code, consultez le d
 
 Pour poser des questions sur les applications API, démarrez un fil de discussion dans le [forum API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!------HONumber=AcomDC_0511_2016-->
