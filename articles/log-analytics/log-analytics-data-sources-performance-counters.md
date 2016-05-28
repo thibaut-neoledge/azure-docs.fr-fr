@@ -86,13 +86,13 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Type=Perf | Toutes les données de performances |
 | Type=Perf Computer="MonOrdinateur" | Toutes les données de performances d’un ordinateur particulier |
 | Type=Perf CounterName="Taille de file d’attente du disque actuelle" | Toutes les données de performances d’un compteur particulier |
-| Type=Perf (ObjectName=Processor) CounterName="% du temps processeur" InstanceName=\_Total measure Avg(Average) as AVGCPU by Computer | Utilisation moyenne du processeur entre tous les ordinateurs |
-| Type=Perf (CounterName="% de temps processeur") measure max(Max) by Computer | Utilisation maximale du processeur entre tous les ordinateurs |
-| Type=Perf ObjectName=LogicalDisk CounterName="Taille de file d’attente du disque actuelle" Computer="NomMonOrdinateur" measure Avg(Average) by InstanceName | Taille moyenne de file d’attente du disque actuelle entre toutes les instances d’un ordinateur donné |
-| Type=Perf CounterName="Transferts disque/s" measure percentile95(Average) by Computer | 95e centile de transferts disque/s entre tous les ordinateurs |
-| Type=Perf CounterName="% de temps processeur" InstanceName="\_Total" measure avg(CounterValue) by Computer Interval 1HOUR | Moyenne horaire d’utilisation du processeur entre tous les ordinateurs |
-| Type=Perf Computer="MonOrdinateur" CounterName=%* InstanceName=\_Total measure percentile70(CounterValue) by CounterName Interval 1HOUR | 70e centile horaire de chaque compteur de pourcentage d’un ordinateur particulier |
-| Type=Perf CounterName="% de temps processeur" InstanceName="\_Total" (Computer="MonOrdinateur") measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Moyenne horaire, valeur minimum, valeur maximum et 75e centile d’utilisation du processeur d’un ordinateur particulier |
+| Type=Perf (ObjectName=Processor) CounterName="% du temps processeur" InstanceName=\_Total | measure Avg(Average) as AVGCPU by Computer | Utilisation moyenne du processeur entre tous les ordinateurs |
+| Type=Perf (CounterName="% de temps processeur") | measure max(Max) by Computer &#124; Utilisation maximale du processeur entre tous les ordinateurs |
+| Type=Perf ObjectName=LogicalDisk CounterName="Taille de file d’attente du disque actuelle" Computer="NomMonOrdinateur"  measure Avg(Average) by InstanceName &#124; Taille moyenne de file d’attente du disque actuelle entre toutes les instances d’un ordinateur donné |
+| Type=Perf CounterName="Transferts disque/s" &#124; measure percentile95(Average) by Computer | 95e centile de transferts disque/s entre tous les ordinateurs |
+| Type=Perf CounterName="% de temps processeur" InstanceName="\_Total" &#124; measure avg(CounterValue) by Computer Interval 1HOUR | Moyenne horaire d’utilisation du processeur entre tous les ordinateurs |
+| Type=Perf Computer="MonOrdinateur" CounterName=%* InstanceName=\_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR | 70e centile horaire de chaque compteur de pourcentage d’un ordinateur particulier |
+| Type=Perf CounterName="% de temps processeur" InstanceName="\_Total" (Computer="MonOrdinateur") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Moyenne horaire, valeur minimum, valeur maximum et 75e centile d’utilisation du processeur d’un ordinateur particulier |
 
 ## Affichage des données de performances
 
@@ -110,4 +110,4 @@ Si l’intervalle sélectionné est d’au maximum 6 heures, le graphique affich
 - En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
 - Exporter les données collectées vers [Power BI](log-analytics-powerbi.md) à des fins d’analyse et de visualisation.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
