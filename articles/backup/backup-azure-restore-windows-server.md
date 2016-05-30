@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restaurer des données sur un serveur Windows ou un ordinateur client Windows à partir d’Azure | Microsoft Azure"
+   pageTitle="Restauration de données sur un serveur Windows ou un ordinateur client Windows à partir d’Azure à l’aide du modèle de déploiement Resource Manager | Microsoft Azure"
    description="Découvrez comment restaurer des fichiers à partir d’un serveur/client Windows."
    services="backup"
    documentationCenter=""
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows
+# Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement Resource Manager
+
+> [AZURE.SELECTOR]
+- [Portail Azure](backup-azure-restore-windows-server.md)
+- [Portail classique](backup-azure-restore-windows-server-classic.md)
+
 Cet article présente les étapes requises pour effectuer deux types d’opérations de restauration :
 
 - Restaurer des données sur l’ordinateur à partir duquel les sauvegardes ont été effectuées.
 - Restaurer les données sur n’importe quel autre ordinateur.
 
-Dans les deux cas, les données sont récupérées à partir de l’archivage Azure Backup.
+Dans les deux cas, les données sont récupérées à partir du coffre Azure Recovery Services.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
 ## Récupération des données sur le même ordinateur
 Si vous avez supprimé accidentellement un fichier et que vous voulez le restaurer sur le même ordinateur (à partir duquel la sauvegarde est effectuée), les étapes suivantes vous aident à récupérer les données.
@@ -69,12 +76,12 @@ Les termes ci-après sont utilisés pour cette procédure :
 
 - *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible.
 - *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
-- *Exemple d’archivage* : archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
+- *Exemple d’archivage* : coffre Recovery Services dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
 
 > [AZURE.NOTE] Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
 
 1. Ouvrez le composant logiciel enfichable **Microsoft Azure Backup** sur l’*ordinateur cible*.
-2. Vérifiez que l’*ordinateur cible* et l’*ordinateur source* sont inscrits auprès du même archivage de sauvegarde.
+2. Vérifiez que l’*ordinateur cible* et l’*ordinateur source* sont inscrits auprès du même coffre Recovery Services.
 3. Cliquez sur **Récupérer des données** pour lancer le flux de travail.
 
     ![Récupérer des données](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 
     ![Autre serveur](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Fournissez le fichier d’informations d’identification de coffre qui correspond à l’*exemple d’archivage*. Si le fichier d’informations d’identification de coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’*exemple d’archivage* dans le portail Azure. Une fois que le fichier d’informations d’identification de coffre est fourni, l’archivage de sauvegarde correspondant au fichier d’informations d’identification de coffre s’affiche.
+5. Fournissez le fichier d’informations d’identification de coffre qui correspond à l’*exemple d’archivage*. Si le fichier d’informations d’identification de coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’*exemple d’archivage* dans le portail Azure. Une fois que le fichier d’informations d’identification de coffre est fourni, le coffre Recovery Services correspondant au fichier d’informations d’identification de coffre s’affiche.
 
 6. Sélectionnez l’*ordinateur source* dans la liste des ordinateurs affichés.
 
@@ -108,12 +115,6 @@ Les termes ci-après sont utilisés pour cette procédure :
 11. Une fois l’entrée fournie, cliquez sur **Récupérer** pour déclencher la restauration des fichiers de sauvegarde dans la destination fournie.
 
 ## Étapes suivantes
-- [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
-- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
 
-## En savoir plus
-- [Vue d’ensemble d’Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md)
-- [Sauvegarde des charges de travail Microsoft](backup-azure-dpm-introduction.md)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

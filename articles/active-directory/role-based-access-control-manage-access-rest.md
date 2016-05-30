@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
@@ -36,7 +36,7 @@ Pour répertorier les attributions de rôle, vous devez avoir accès à l’opé
 
 Utilisez la méthode **GET** avec l’URI suivant :
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
@@ -56,8 +56,8 @@ Remplacez *{filter}* par la condition que vous souhaitez appliquer pour filtrer 
 | Condition | *{Filter}* | Replace |
 |-----------|------------|---------|
 | Pour répertorier les affectations de rôle pour la portée spécifiée seulement, sans y inclure les affectations de rôles à des étendues secondaires. | `atScope()` | |
-| Pour répertorier les affectations de rôle pour un utilisateur, un groupe ou une application spécifiques | `principalId%20eq%20'{objectId}'` | Remplacez *{objectId}* par l’objectId Azure AD de l’utilisateur, du groupe ou du service principal. Exemple : `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| Pour répertorier les affectations de rôle pour un utilisateur spécifique, y compris celles affectées à des groupes dont l’utilisateur est membre | `assignedTo('{objectId}')` | Remplacez *{objectId}* par l’objectId Azure AD de l’utilisateur. Exemple : `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| Pour répertorier les affectations de rôle pour un utilisateur, un groupe ou une application spécifiques | `principalId%20eq%20'{objectId}'` | Remplacez *{objectId}* par l’objectId Azure AD de l’utilisateur, du groupe ou du service principal. Par exemple, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Pour répertorier les affectations de rôle pour un utilisateur spécifique, y compris celles affectées à des groupes dont l’utilisateur est membre | `assignedTo('{objectId}')` | Remplacez *{objectId}* par l’objectId Azure AD de l’utilisateur. Par exemple, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -259,7 +259,7 @@ Pour répertorier les rôles, vous devez avoir accès à l’opération `Microso
 
 Utilisez la méthode **GET** avec l’URI suivant :
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
@@ -714,4 +714,4 @@ Code d’état : 200
 
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

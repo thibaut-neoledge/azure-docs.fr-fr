@@ -123,7 +123,7 @@ Vous devez envoyer un ticket de support pour demander une assistance. Pour crée
 
 ### Comment mettre à jour ou modifier mes informations de carte de crédit ?
 
-Pour obtenir des instructions sur l’utilisation d’une autre carte de crédit ou sur l’ajout d’une nouvelle carte de crédit, consultez [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
+Si le numéro de votre carte de crédit reste le même en cas de renouvellement de votre carte de crédit, vous pouvez simplement mettre à jour les détails de la carte de crédit existante, tels que la date d’expiration. Si le numéro de votre carte change ou si vous souhaitez utiliser une autre carte, vous devrez ajouter une nouvelle carte. Vous trouverez des instructions pour mettre à jour ou ajouter une carte de crédit ici : [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
 
 ### Comment connaître à l’avance les temps d’arrêt de service dus à une maintenance planifiée ?
 
@@ -277,4 +277,4 @@ Oui.
 
 Il n’y a actuellement aucun projet d’offre Azure ou SQL Database via SPLA.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

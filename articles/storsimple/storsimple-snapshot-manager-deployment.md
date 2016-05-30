@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/07/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
@@ -23,7 +23,7 @@ Le Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable
 
 Ce didacticiel décrit la configuration requise, ainsi que les procédures d’installation, de suppression et de mise à niveau du Gestionnaire d’instantanés StorSimple.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
 >
@@ -39,7 +39,7 @@ Avant d’installer ou de mettre à niveau le composant logiciel enfichable Gest
 
 Les étapes suivantes fournissent une vue d’ensemble des tâches de configuration requises avant d’installer le Gestionnaire d’instantanés StorSimple. Pour obtenir des informations complètes sur la configuration et l’installation de Microsoft Azure StorSimple, y compris la configuration système requise et des instructions pas à pas, consultez la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT] Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).<br>
  
 ### Avant d’installer le Gestionnaire d’instantanés StorSimple
 
@@ -97,7 +97,7 @@ Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit
 
 3. Dans la fenêtre **Extraire les dossiers compressés**, dans la zone **Sélectionner une destination et extraire les fichiers**, tapez ou recherchez le chemin d’accès où extraire le fichier.
 
-       >[AZURE.IMPORTANT]Vous devez installer le Gestionnaire d’instantanés StorSimple sur le lecteur C:.
+       >[AZURE.IMPORTANT] Vous devez installer le Gestionnaire d’instantanés StorSimple sur le lecteur C:.
  
 4. Cochez la case **Afficher les dossiers extraits une fois l’opération terminée**, puis cliquez sur **Extraire**.
 
@@ -183,7 +183,7 @@ Pour désinstaller le Gestionnaire d’instantanés StorSimple, procédez comme 
 
 4. Le programme d’installation du Gestionnaire d’instantanés StorSimple démarre. Cliquez sur **Modifier l’installation**, puis sur **Désinstaller**.
 
-    >[AZURE.NOTE]Si des processus de la console MMC sont exécutés en arrière-plan, tels que le Gestionnaire d’instantanés StorSimple ou l’outil Gestion des disques, la désinstallation échoue et vous recevez un message vous invitant à fermer toutes les instances de la console MMC avant de désinstaller le programme. Sélectionnez **Fermer automatiquement les applications et tenter de les redémarrer une fois l’installation terminée**, puis cliquez sur **OK**.
+    >[AZURE.NOTE] Si des processus de la console MMC sont exécutés en arrière-plan, tels que le Gestionnaire d’instantanés StorSimple ou l’outil Gestion des disques, la désinstallation échoue et vous recevez un message vous invitant à fermer toutes les instances de la console MMC avant de désinstaller le programme. Sélectionnez **Fermer automatiquement les applications et tenter de les redémarrer une fois l’installation terminée**, puis cliquez sur **OK**.
  
 5. Une fois le processus de désinstallation terminé, le message **Installation/désinstallation réussie** s’affiche. Cliquez sur **Fermer**.
 
@@ -207,7 +207,7 @@ Pour créer et enregistrer une copie de la base de données du Gestionnaire d’
 
 2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE]ProgramData est un dossier masqué.
+    >[AZURE.NOTE] ProgramData est un dossier masqué.
 
 3. Recherchez le fichier XML de catalogue, copiez-le et stockez sa copie dans un emplacement sûr ou dans le cloud.
 
@@ -239,7 +239,7 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étape
 
 2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-     >[AZURE.NOTE]ProgramData est un dossier masqué.
+     >[AZURE.NOTE] ProgramData est un dossier masqué.
 
 3. Supprimez le fichier XML de catalogue et remplacez-le par la version que vous avez enregistrée précédemment.
 
@@ -259,4 +259,4 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étape
 
 - Pour en savoir plus sur l’utilisation du Gestionnaire d’instantanés StorSimple, consultez [Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

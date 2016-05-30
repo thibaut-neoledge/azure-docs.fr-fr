@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/10/2015"
+	ms.date="05/18/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Corriger une erreur de mémoire insuffisante avec les paramètres de mémoire Hive dans Hadoop sous Azure HDInsight
@@ -109,7 +109,7 @@ Comme expliqué dans le billet de blog [Hadoop Yarn memory settings in HDInsight
 
 Comme le suggère le billet de blog, les deux paramètres de mémoire suivants définissent la mémoire de conteneur du tas : **hive.tez.container.size** et **hive.tez.java.opts**. D’après notre expérience, l’exception relative à une mémoire insuffisante ne signifie pas que la taille du conteneur est trop petite. Elle signifie que la taille du tas Java (hive.tez.java.opts) est trop petite. Par conséquent, lorsque vous voyez une erreur de mémoire insuffisante, vous pouvez essayer d’augmenter la valeur de **hive.tez.java.opts**. Si nécessaire, vous pouvez augmenter **hive.tez.container.size**. Le paramètre **java.opts** doit correspondre à environ 80 % de la taille de conteneur (**container.size**).
 
-> [AZURE.NOTE]Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size**.
+> [AZURE.NOTE]  Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size**.
 
 Comme un ordinateur D12 a une mémoire de 28 Go, nous avons décidé d’utiliser une taille de conteneur de 10 Go (10 240 Mo) et d’affecter la valeur 80 % à java.opts. Cette opération a été effectuée sur la console Hive à l’aide du paramètre ci-dessous :
 
@@ -122,4 +122,4 @@ Avec ces paramètres, la requête s’est correctement exécutée en moins de di
 
 L’obtention d’une erreur de mémoire insuffisante ne signifie pas nécessairement que la taille du conteneur est insuffisante. Vous devez plutôt configurer les paramètres de mémoire afin que la taille du tas soit augmentée et qu’elle représente au moins 80 % de la taille de la mémoire du conteneur.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0518_2016-->

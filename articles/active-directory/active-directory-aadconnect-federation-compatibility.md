@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Liste de compatibilité de fédération Azure AD
@@ -215,9 +215,7 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |**Contrats Kerberos pris en charge|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge|
-| Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |**Contrats Kerberos pris en charge| | Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |L’authentification Windows intégrée n’est pas prise en charge| | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucune|
 
 ** NetIQ prend en charge l’authentification Kerberos via la configuration d’un contrat Kerberos. Pour obtenir de l’aide sur cette configuration, contactez NetIQ ou consultez le guide d’installation et de configuration. Pour plus d’informations sur NetIQ Access Manager, voir [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 
@@ -320,4 +318,4 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations, voir [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

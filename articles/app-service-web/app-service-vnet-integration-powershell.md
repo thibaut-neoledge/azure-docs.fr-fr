@@ -22,7 +22,7 @@
 
 Dans Azure App Service, vous pouvez connecter votre application (web, mobile ou API) à un réseau virtuel dans votre abonnement. Cette fonctionnalité est appelée « intégration au réseau virtuel ». Celle-ci ne doit pas être confondue avec la fonctionnalité App Service Environment, qui permet d’exécuter une instance d’Azure App Service dans votre réseau virtuel.
 
-La fonctionnalité d’intégration de réseau virtuel a une interface utilisateur (IU) dans le nouveau portail que vous pouvez utiliser pour intégrer les réseaux virtuels déployés à l’aide du modèle de déploiement classique ou d’Azure Resource Manager. Pour en savoir plus sur la fonctionnalité, consultez l’article suivant : [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet).
+La fonctionnalité d’intégration de réseau virtuel a une interface utilisateur (IU) dans le nouveau portail que vous pouvez utiliser pour intégrer les réseaux virtuels déployés à l’aide du modèle de déploiement classique ou d’Azure Resource Manager. Pour en savoir plus sur la fonctionnalité, consultez l’article suivant : [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md).
 
 Cet article ne couvre pas l’utilisation de l’interface utilisateur, mais explique plutôt comment permettre l’intégration à l’aide de PowerShell. Étant donné que les commandes pour chaque modèle de déploiement sont différentes, cet article contient une section propre à chaque modèle.
 
@@ -725,4 +725,4 @@ Bien que le script indique la suppression, il ne supprime pas le réseau virtuel
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

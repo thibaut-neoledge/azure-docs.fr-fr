@@ -543,7 +543,7 @@ Montre comment l’opérateur `range` peut être utilisé pour créer une petite
 Tente de regrouper des enregistrements similaires. Pour chaque groupe, l’opérateur génère le `Pattern` décrivant le mieux ce groupe et le `Count` d’enregistrements dans ce groupe.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Syntaxe**
 
@@ -844,7 +844,7 @@ Trouver la plus petite valeur de chaque métrique, ainsi que son horodatage et d
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -980,7 +980,7 @@ Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précisio
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1004,7 +1004,7 @@ Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* pre
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 Consultez aussi l’[opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
 
@@ -1052,7 +1052,7 @@ Calculer simultanément plusieurs centiles pour différents noms de requête :
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 Les résultats montrent que pour la requête /Events/Index, 5 % des requêtes reçoivent une réponse en moins de 2,44 s, la moitié en 3,52 s et 5 % en plus de 6,85 s.
 
@@ -1288,17 +1288,7 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire |
-| * | Multiplier |
-| / | Diviser |
-| % | Modulo | 
-|| 
-|`<` |Inférieur à 
-|`<=`|Inférieur ou égal à 
-|`>` |Supérieur à 
-|`>=`|Supérieur ou égal à 
-|`<>`|Non égal à 
-|`!=`|Non égal à
+| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
 
 
 
@@ -1911,7 +1901,7 @@ Convertit une chaîne en majuscules.
 
 Voici le résultat d’une requête sur une exception d’Application Insights. La valeur de `details` est un tableau.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indexing :** tableaux d’index et objets comme dans JavaScript :
 
@@ -1943,7 +1933,7 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath :** pour rechercher tous les chemins dans un objet complexe :
@@ -1953,7 +1943,7 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema :** pour trouver le schéma minimum qui admet toutes les valeurs de l’expression dans la table :
 
@@ -2233,4 +2223,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

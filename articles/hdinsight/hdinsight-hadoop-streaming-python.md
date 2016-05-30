@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/13/2016"
    ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
@@ -32,6 +32,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 * Un cluster Hadoop Linux sur HDInsight
 
 * Un éditeur de texte
+
+    > [AZURE.IMPORTANT] L’éditeur de texte doit utiliser LF comme caractère de fin de ligne. S’il utilise CRLF, des erreurs se produisent pendant l’exécution du travail MapReduce sur des clusters HDInsight basés sur Linux. En cas de doute, utilisez l’étape facultative dans la section [Exécuter MapReduce](#run-mapreduce) pour convertir tout caractère CRLF en caractère LF.
 
 * Pour les clients Windows, PuTTY et PSCP. Ces utilitaires sont disponibles à partir de la <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Page de téléchargement de PuTTY</a>.
 
@@ -154,6 +156,11 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 	> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d’accès à la clé privée, par exemple, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
+2. (Facultatif) Si vous avez employé un éditeur de texte qui utilise CRLF comme caractère de fin de ligne pendant la création des fichiers mapper.py et reducer.py, ou que vous ignorez le caractère de fin de ligne utilisé par votre éditeur, recourez aux commandes suivantes pour convertir en LF les occurrences de CRLF dans les fichiers mapper.py et reducer.py.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. Exécutez la commande suivante pour démarrer la tâche MapReduce :
 
 		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
@@ -205,4 +212,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

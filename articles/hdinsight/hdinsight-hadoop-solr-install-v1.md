@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Installation et utilisation de Solr sur des clusters HDInsight Hadoop
@@ -51,16 +51,18 @@ L’exemple de script utilisé dans cette rubrique crée un cluster Solr Windows
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install-v1/hdi-script-action-solr.png "Utilisation d’une action de script pour personnaliser un cluster")
 	
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom</td>
-		<td>Indiquez un nom pour l'action de script. Par exemple, <b>Installation Solr</b>.</td></tr>
-	<tr><td>URI du script</td>
-		<td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-	<tr><td>Type de nœud</td>
-		<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
-	<tr><td>Paramètres</td>
-		<td>Spécifiez les paramètres, si le script le demande. Le script d’installation de&#160;Solr ne nécessite aucun paramètre. Vous pouvez donc laisser ce champ vide.</td></tr>
-</table>Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster. Après avoir ajouté les scripts, cliquez sur la coche pour démarrer la création du cluster.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom</td>
+			<td>Indiquez un nom pour l'action de script. Par exemple, <b>Installation Solr</b>.</td></tr>
+		<tr><td>URI du script</td>
+			<td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+		<tr><td>Type de nœud</td>
+			<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
+		<tr><td>Paramètres</td>
+			<td>Spécifiez les paramètres, si le script le demande. Le script d’installation de&#160;Solr ne nécessite aucun paramètre. Vous pouvez donc laisser ce champ vide.</td></tr>
+	</table>	
+
+	Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster. Après avoir ajouté les scripts, cliquez sur la coche pour démarrer la création du cluster.
 
 Vous pouvez également utiliser le script pour installer Solr sur HDInsight à l’aide d’Azure PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Vous trouverez des instructions relatives à ces procédures dans la suite de cette rubrique.
 
@@ -196,4 +198,4 @@ Consultez [Personnaliser des clusters HDInsight à l’aide d’une action de sc
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

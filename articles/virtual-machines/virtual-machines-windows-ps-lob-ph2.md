@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -168,8 +168,8 @@ Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin
 1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
 3.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
-	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
-	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
 4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
 5.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
@@ -197,4 +197,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

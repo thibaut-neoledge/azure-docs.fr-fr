@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell
@@ -41,10 +41,6 @@ Pour importer une base de données SQL, vous avez besoin des éléments suivants
 - Un fichier .bacpac (BACPAC) de la base de données à importer. Le fichier BACPAC doit se trouver dans un conteneur d’objets blob de [Compte Azure Storage (classique)](../storage/storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT] Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
-
-
-
 ## Configurer vos informations d'identification et sélectionner votre abonnement
 
 Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
@@ -67,7 +63,7 @@ Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l
 
 Il existe quelques variables pour lesquelles vous devez remplacer les valeurs d'exemple par les valeurs spécifiques de votre compte de stockage et de votre base de données.
 
-Le nom du serveur doit être un serveur existant actuellement dans l'abonnement sélectionné à l'étape précédente. Il s’agit du serveur dans lequel vous souhaitez créer la base de données.
+Le nom du serveur doit être un serveur existant actuellement dans l'abonnement sélectionné à l'étape précédente. Il s’agit du serveur dans lequel vous souhaitez créer la base de données. Notez que l’importation d’une base de données directement dans un pool n’est pas prise en charge ; vous pouvez cependant effectuer l’importation dans une base de données unique, puis déplacer la base de données dans un pool.
 
 Le nom de la base de données est le nom que vous voulez donner à la nouvelle base de données.
 
@@ -153,4 +149,4 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

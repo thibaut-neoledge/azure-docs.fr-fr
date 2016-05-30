@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, voir la section [Étapes suivantes][].
+Cet article décrit l’utilisation des files d’attente Service Bus dans Node.js. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, voir la section [Étapes suivantes][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -145,9 +145,9 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Files d’attente Azure et files d’attente Service Bus][].
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][].
 
-## Réception des messages d’une file d’attente
+## Réception des messages d'une file d'attente
 
 La méthode **receiveQueueMessage** de l'objet **ServiceBusService** permet de recevoir les messages d'une file d'attente. Par défaut, les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture. Cependant, vous pouvez lire et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre facultatif **isPeekLock** sur **true**.
 
@@ -185,7 +185,7 @@ Si l’application subit un incident après le traitement du message, mais avant
 
 ## Étapes suivantes
 
-Pour en savoir plus, voir les articles suivants :
+Pour en savoir plus sur les files d’attente, consultez les ressources suivantes :
 
 -   [Files d’attente, rubriques et abonnements.][]
 -   Dépôt du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
@@ -199,7 +199,7 @@ Pour en savoir plus, voir les articles suivants :
   [Création et déploiement d’une application Node.js sur un site web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Quotas Service Bus]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

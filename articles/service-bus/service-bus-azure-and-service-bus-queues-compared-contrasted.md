@@ -89,7 +89,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 |---|---|---|
 |Garantie de classement|**Non** <br/><br>Pour plus d'informations, consultez la première remarque dans la section "Informations supplémentaires".</br>|**Oui - Méthode Premier entré, premier sorti (FIFO)**<br/><br>(par le biais de l'utilisation de sessions de messagerie)|
 |Garantie de livraison|**Au moins une fois**|**Au moins une fois**<br/><br/>**Une fois au maximum**|
-|Prise en charge des transactions|**Non**|**Oui**<br/><br/>(par le biais de l'utilisation de transactions locales)|
+|Prise en charge des opérations atomiques|**Non**|**Oui**<br/><br/>|
 |Comportement de réception|**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n'est trouvé)|**Blocage avec ou sans délai d'attente**<br/><br/>(offre une interrogation longue ou la ["technique Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>** Non bloquant**<br/><br/>(par le biais d'une API gérée par .NET uniquement)|
 |API style Push|**Non**|**Oui**<br/><br/> API .NET [OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) et **sessions OnMessage**.|
 |Mode de réception|**Aperçu et attribution**|**Aperçu et verrouillage**<br/><br/>**Réception et suppression**|
@@ -178,7 +178,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Taille de file d'attente maximale|**200 To**<br/><br/>(limitée à une capacité de compte de stockage unique)|**1 Go à 80 Go**<br/><br/>(définie lors de la création d'une file d'attente et [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires »)|
-|Taille de message maximale|**64 Ko**<br/><br/>(48 Ko lors de l'utilisation du codage **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d'attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu'à 200 Go en file d'attente pour un seul élément.|**256 Ko**<br/><br/>(y compris l'en-tête et le corps, taille maximale d'en-tête : 64 Ko)|
+|Taille de message maximale|**64 Ko**<br/><br/>(48 Ko lors de l'utilisation du codage **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d'attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu'à 200 Go en file d'attente pour un seul élément.|**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Selon le [niveau de service](service-bus-premium-messaging.md).|
 |Durée de vie maximale des messages|**7 jours**|**Illimitée**|
 |Nombre maximal de files d'attente|**Illimité**|**10 000**<br/><br/>(par espace de noms de service, peut être augmenté)|
 |Nombre maximal de clients simultanés|**Illimité**|**Illimité**<br/><br/>(la limite de 100 connexions simultanées s'applique uniquement à la communication basée sur le protocole TCP)|
@@ -191,7 +191,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Avec les files d'attente Azure, si le contenu du message n'est pas sécurisé pour XML, il doit être encodé au format **Base64**. Si vous encodez le message au format **Base64**, la charge utilisateur peut atteindre 48 Ko, au lieu de 64 Ko.
 
-- Avec les files d'attente Service Bus, chaque message stocké dans une file d'attente est composé de deux parties : un en-tête et un corps. La taille totale du message ne peut pas dépasser 256 Ko.
+- Avec les files d'attente Service Bus, chaque message stocké dans une file d'attente est composé de deux parties : un en-tête et un corps. La taille totale du message ne peut pas dépasser la taille de message maximale prise en charge par le niveau de service.
 
 - Lorsque des clients communiquent avec des files d'attente Service Bus au moyen du protocole TCP, le nombre maximal de connexions simultanées à une file d'attente Service Bus unique est limité à 100. Ce nombre est partagé entre les expéditeurs et les destinataires. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Cette limite n'est pas appliquée aux clients qui se connectent aux files d'attente à l'aide d'une API REST.
 
@@ -204,14 +204,13 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Protocole de gestion|**REST sur HTTP/HTTPS**|**REST sur HTTPS**|
-|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**|
-|API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
+|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**| |API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
 |C++ natif|**Oui**|**Non**|
 |API Java|**Oui**|**Oui**|
 |API PHP|**Oui**|**Oui**|
 |API Node.js|**Oui**|**Oui**|
 |Prise en charge des métadonnées arbitraires|**Oui**|**Non**|
-|Règles d'affectation des noms aux files d'attente|**Jusqu'à 63 caractères**<br/><br/>(les lettres dans un nom de file d'attente doivent être en minuscules)|**Jusqu'à 260 caractères**<br/><br/>(les noms des files d'attente ne respectent pas la casse)|
+|Règles d'affectation des noms aux files d'attente|**Jusqu'à 63 caractères**<br/><br/>(les lettres dans un nom de file d'attente doivent être en minuscules)|**Jusqu’à 260 caractères**<br/><br/>(les chemins d’accès et noms des files d’attente ne respectent pas la casse)|
 |Fonction d'obtention de la longueur de la file d'attente|**Oui**<br/><br/>(valeur approximative si les messages expirent au-delà de la durée de vie sans être supprimés)|**Oui**<br/><br/>(valeur exacte, à un moment donné)|
 |Fonction Peek (aperçu)|**Oui**|**Oui**|
 
@@ -223,7 +222,7 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 
 - Les API de messagerie répartie .NET de Service Bus exploitent les connexions TCP en duplex intégral pour améliorer les performances par rapport au protocole REST sur HTTP, et elles prennent en charge le protocole standard AMQP 1.0.
 
-- Les noms des files d'attente Azure peuvent compter entre 3 et 63 caractères, ils peuvent contenir des lettres minuscules, des nombres et des traits d'union. Pour plus d'informations, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- Les noms des files d’attente Azure peuvent compter entre 3 et 63 caractères, ils peuvent contenir des lettres minuscules, des nombres et des traits d’union. Pour plus d'informations, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Les noms des files d'attente Service Bus peuvent compter jusqu'à 260 caractères. Les règles d'affectation de noms sont moins restrictives. Les noms des files d'attente Service Bus peuvent contenir des lettres, des nombres, des points (.), des traits d'union (-) et des traits de soulignement (\_).
 
@@ -311,8 +310,7 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Utilisation du service de mise en file d'attente dans Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-
 [portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

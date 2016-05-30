@@ -114,7 +114,6 @@ Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure Power
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -145,4 +144,4 @@ Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure Power
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

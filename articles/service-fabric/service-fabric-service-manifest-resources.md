@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
-   ms.author="mani-ramaswamy"/>
+   ms.date="05/13/2016"
+   ms.author="subramar"/>
 
 # Spécifier des ressources dans un manifeste de service
 
 ## Vue d’ensemble
 
-Le manifeste de service met les ressources à la disposition du service à déclarer/modifier sans changer le code compilé. Azure Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration.
+Le manifeste de service met les ressources à la disposition du service à déclarer/modifier sans changer le code compilé. Azure Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration. La définition de schéma pour le fichier ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ## Points de terminaison
 
-Quand une ressource de point de terminaison est définie dans le manifeste de service, Service Fabric alloue les ports de la plage de ports d’application réservés, si un port n’est pas spécifié de façon explicite (regardez par exemple le point de terminaison *ServiceEndpoint1* ci-dessous). En outre, les services peuvent également demander un port spécifique d’une ressource. Les réplicas de service exécutés sur des nœuds de cluster différents peuvent être alloués à des numéros de ports différents, tandis que les réplicas d’un même service exécutés sur un même nœud partagent le même port. Ces ports peuvent être utilisés par les réplicas de service à différentes fins (réplication, écoute des requêtes des clients, etc.).
+Quand une ressource de point de terminaison est définie dans le manifeste de service, Service Fabric alloue les ports de la plage de ports d’application réservés, si un port n’est pas spécifié de façon explicite (regardez par exemple le point de terminaison *ServiceEndpoint1* ci-dessous). En outre, les services peuvent également demander un port spécifique d’une ressource. Les réplicas de service exécutés sur des nœuds de cluster différents peuvent être alloués à des numéros de ports différents, tandis que les réplicas d’un même service exécutés sur un même nœud partagent le même port. Ces ports peuvent être utilisés par les réplicas de service à différentes fins (réplication, écoute des requêtes des clients, etc.).
 
 ```xml
 <Resources>
@@ -137,4 +137,4 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. (Vous 
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

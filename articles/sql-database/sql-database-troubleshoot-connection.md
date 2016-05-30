@@ -16,7 +16,7 @@
 	ms.date="03/29/2016"
 	ms.author="daleche"/>
 
-# Dépannage de l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement »
+# Dépannage de l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement »
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 Lorsqu’une application se connecte à une base de données SQL Azure, le message d’erreur suivant s’affiche :
@@ -31,7 +31,7 @@ Cette erreur se produit lorsque la base de données Azure est déplacée (ou rec
 
 ## Étapes pour résoudre les problèmes de connectivité transitoire
 1.	Consultez le [tableau de bord du service Microsoft Azure](https://azure.microsoft.com/status) pour obtenir la liste des coupures prévues qui se sont produites au moment où les erreurs ont été signalées par l’application.
-2. Les applications qui se connectent à un service cloud, tel que la base de données SQL Azure, doivent s’attendre à des événements périodiques de reconfiguration et implémenter une logique de nouvelle tentative pour gérer ces erreurs au lieu d’afficher ces événements en tant qu’erreurs de l’application aux utilisateurs. Consultez la section [Erreurs temporaires](sql-database-connectivity-issues.md) et les [Meilleures pratiques et instructions de conception](sql-database-connect-central-recommendations.md) pour obtenir plus d’informations et découvrir les stratégies générales de nouvelle tentative. Ensuite, consultez les [exemples de code](sql-database-develop-quick-start-client-code-samples.md) pour obtenir des détails spécifiques.
+2. Les applications qui se connectent à un service cloud, tel que la base de données SQL Azure, doivent s’attendre à des événements périodiques de reconfiguration et implémenter une logique de nouvelle tentative pour gérer ces erreurs au lieu d’afficher ces événements en tant qu’erreurs de l’application aux utilisateurs. Consultez la section [Erreurs temporaires](sql-database-connectivity-issues.md) et les [Meilleures pratiques et instructions de conception](sql-database-connect-central-recommendations.md) pour obtenir plus d’informations et découvrir les stratégies générales de nouvelle tentative. Passez ensuite en revue les exemples de code dans l’article [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md) pour obtenir des informations spécifiques.
 3.	Lorsqu’une base de données approche des limites de ressources, cela peut s’apparenter à un problème de connectivité transitoire. Consultez la page [Résolution des problèmes de performances](sql-database-troubleshoot-performance.md).
 4.	Si les problèmes de connectivité persistent ou si la durée pendant laquelle votre application rencontre une erreur dépasse les 60 secondes ou si plusieurs occurrences de l’erreur s’affichent dans un jour donné, créez une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options).
 
@@ -39,4 +39,4 @@ Cette erreur se produit lorsque la base de données Azure est déplacée (ou rec
 - Si vous recevez une erreur différente, consultez le [message d’erreur](sql-database-develop-error-messages.md) pour obtenir des indices sur la cause.
 - Si le problème persiste, consultez les instructions dans [Résolution des problèmes de connexion courants à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

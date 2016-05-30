@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Encodage avancé avec Media Encoder Premium Workflow
 
->[AZURE.NOTE]- Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
->
->- Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
+>[AZURE.NOTE] Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
+
+Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ##Vue d'ensemble
 
-Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow**. Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
+Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow**. Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
 
-Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow** :
+Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow** :
 
-- [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
+- [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
 
 - La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d’encodage de **Media Encoder Premium Workflow** et de **Media Encoder Standard**.
 
@@ -47,11 +47,11 @@ Les fichiers de flux de travail doivent être téléchargés vers votre compte M
 
 L’exemple suivant montre comment encoder avec **Media Encoder Premium Workflow**.
 
-Les étapes à exécuter sont les suivantes :
+Les étapes à exécuter sont les suivantes :
  
 1. Créez une ressource et téléchargez un fichier de flux de travail. 
 2. Créez une ressource et téléchargez un fichier multimédia source.
-3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
+3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
 4. Créez un travail et une tâche. 
 
 	Dans la plupart des cas, la chaîne de configuration de la tâche est vide (comme dans l'exemple suivant). Il existe certains scénarios avancés (qui nécessitent de définir dynamiquement les propriétés d'exécution) auquel cas, vous fournissez une chaîne XML à la tâche d'encodage. La création d'une superposition, l'assemblage parallèle ou séquentiel multimédia, le sous-titrage sont des exemples de ces scénarios.
@@ -61,7 +61,7 @@ Les étapes à exécuter sont les suivantes :
 
 	b. En second lieu, la ressource vidéo.
 	
-	**Remarque** : la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. La chaîne de configuration de cette tâche doit être vide.
+	**Remarque** : la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. La chaîne de configuration de cette tâche doit être vide.
 
 6. Soumettez le travail d’encodage.
 
@@ -268,6 +268,7 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 	}
 
 
+Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ##Parcours d’apprentissage de Media Services
 
@@ -277,4 +278,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/03/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
 
-Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF ou Office) stockés dans le stockage d’objets blob Azure. Le nouvel indexeur d’objets blob Azure Search rend ce processus rapide et transparent.
+Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Le nouvel indexeur d’objets blob Azure Search rend ce processus rapide et transparent.
 
 > [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
@@ -34,8 +34,8 @@ Pour configurer l’indexation d’objets blob, procédez comme suit :
 1. Créez une source de données de type `azureblob` qui référence un conteneur (et éventuellement, un dossier de ce conteneur) dans un compte de stockage Azure.
 	- Transmettez la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`.
 	- Spécifiez un nom de conteneur. Si vous le souhaitez, vous pouvez inclure un dossier à l’aide du paramètre `query`.
-2. Créer un index de recherche avec un champ `content` cherchable 
-3. Créer l'indexeur en connectant votre source de données à l'index cible
+2. Créez un index de recherche avec un champ `content` cherchable. 
+3. Créez l’indexeur en connectant votre source de données à l’index cible.
 
 ### Créer une source de données
 
@@ -104,7 +104,7 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 Azure Search indexe chaque document (objet blob) comme suit :
 
 - L’ensemble du contenu de texte du document est extrait dans un champ de chaîne nommé `content`. Notez que pour l’instant, nous ne prenons pas en charge l’extraction de plusieurs documents à partir d’un seul et même objet blob :
-	- Par exemple, un fichier CSV est indexé en tant que document unique.
+	- Par exemple, un fichier CSV est indexé en tant que document unique. Si vous avez besoin de traiter chaque ligne d’un fichier CSV comme un document séparé, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant une pièce jointe au format PDF) est également indexé en tant que document unique.
 
 - Les propriétés de métadonnées spécifiées par l’utilisateur qui sont éventuellement présentes dans l’objet blob sont extraites textuellement. Il est également possible d’utiliser les propriétés de métadonnées pour contrôler certains aspects du processus d’extraction de document. Pour plus d’informations, voir la section [Utilisation de métadonnées personnalisées pour contrôler l’extraction de document](#CustomMetadataControl).
@@ -135,9 +135,9 @@ Dans Azure Search, la clé de document identifie un document de manière unique.
    
 Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur le champ de clé de votre index. Les candidats sont les suivants :
 
-- **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en activant l’option `base64EncodeKeys` dans les propriétés de l’indexeur. Dans ce cas, pensez à encoder les clés de document lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
+- **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en activant l’option `base64EncodeKeys` dans les propriétés de l’indexeur. Dans ce cas, pensez à encoder les clés de document lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
 
-- **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://msdn.microsoft.com/library/azure/dn857353.aspx). Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de l’option `base64EncodeKeys`.
+- **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://msdn.microsoft.com/library/azure/dn857353.aspx). Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de l’option `base64EncodeKeys`.
 
 - Si aucune des solutions ci-dessus n’est adaptée à votre cas, vous pouvez en dernier recours ajouter une propriété de métadonnées personnalisée aux objets blob. Toutefois, cette approche contraint votre processus de chargement d’objets blob à ajouter cette propriété de métadonnées à tous les objets blob. Étant donné que la clé est une propriété obligatoire, tous les objets blob dépourvus de cette propriété ne seront pas indexés.
 
@@ -236,7 +236,7 @@ Plusieurs paramètres de configuration de l’indexeur sont disponibles pour con
 
 ### Indexer uniquement les objets blob avec des extensions de fichier spécifiques
 
-Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fichier que vous spécifiez à l'aide du paramètre de configuration d'indexeur `indexedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer uniquement les objets blob .PDF et .DOCX, procédez comme suit :
+Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fichier que vous spécifiez à l’aide du paramètre de configuration d’indexeur `indexedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer uniquement les objets blob .PDF et .DOCX, procédez comme suit :
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -249,7 +249,7 @@ Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fic
 
 ### Exclure de l’indexation les objets blob avec des extensions de fichier spécifiques
 
-Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom de fichier spécifiques à l'aide du paramètre de configuration `excludedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer tous les objets blob, sauf ceux qui ont les extensions .PNG et .JPEG, procédez comme suit :
+Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom de fichier spécifiques à l’aide du paramètre de configuration `excludedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer tous les objets blob, sauf ceux qui ont les extensions .PNG et .JPEG, procédez comme suit :
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -260,11 +260,11 @@ Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom
 	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
 	}
 
-Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` sont tous deux présents, Azure Search regarde d'abord `indexedFileNameExtensions`, puis `excludedFileNameExtensions`. Cela signifie que, si la même extension de fichier est présente dans les deux listes, elle sera exclue de l'indexation.
+Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` sont tous deux présents, Azure Search regarde d’abord `indexedFileNameExtensions`, puis `excludedFileNameExtensions`. Cela signifie que, si la même extension de fichier est présente dans les deux listes, elle sera exclue de l'indexation.
 
 ### Indexer uniquement les métadonnées de stockage
 
-Vous pouvez indexer uniquement les métadonnées de stockage et ignorer complètement le processus d'extraction de documents à l'aide de la propriété de configuration `indexStorageMetadataOnly`. Cela est utile lorsque vous n'avez pas besoin du contenu du document, ou des propriétés des métadonnées propres au type de contenu. Pour ce faire, définissez la propriété `indexStorageMetadataOnly` sur `true` :
+Vous pouvez indexer uniquement les métadonnées de stockage et ignorer complètement le processus d’extraction de documents à l’aide de la propriété de configuration `indexStorageMetadataOnly`. Cela est utile lorsque vous n'avez pas besoin du contenu du document, ou des propriétés des métadonnées propres au type de contenu. Pour ce faire, définissez la propriété `indexStorageMetadataOnly` sur `true` :
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -277,7 +277,7 @@ Vous pouvez indexer uniquement les métadonnées de stockage et ignorer complèt
 
 ### Indexer à la fois les métadonnées de type de contenu et de stockage, mais ignorer l’extraction du contenu
 
-Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de contenu pour tous les objets blob, vous pouvez demander ce comportement à l’aide de la configuration d’indexeur, au lieu d’avoir à ajouter des métadonnées `AzureSearch_SkipContent` à chaque objet blob. Pour ce faire, définissez la propriété de configuration de l’indexeur `skipContent` sur `true` :
+Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de contenu pour tous les objets blob, vous pouvez demander ce comportement à l’aide de la configuration d’indexeur, au lieu de devoir ajouter individuellement des métadonnées `AzureSearch_SkipContent` à chaque objet blob. Pour ce faire, définissez la propriété de configuration de l’indexeur `skipContent` sur `true` :
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -292,4 +292,4 @@ Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de 
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

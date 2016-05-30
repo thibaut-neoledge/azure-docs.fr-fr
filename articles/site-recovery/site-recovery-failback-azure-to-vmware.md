@@ -1,0 +1,253 @@
+<properties 
+   pageTitle="Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local | Microsoft Azure"
+   description="Découvrez la restauration automatique sur le site local après le basculement des machines virtuelles VMware et des serveurs physiques vers Azure." 
+   services="site-recovery" 
+   documentationCenter="" 
+   authors="ruturaj" 
+   manager="mkjain" 
+   editor=""/>
+
+<tags
+   ms.service="site-recovery"
+   ms.devlang="na"
+   ms.tgt_pltfrm="na"
+   ms.topic="article"
+   ms.workload="required" 
+   ms.date="05/10/2016"
+   ms.author="ruturajd"/>
+
+# Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local
+
+> [AZURE.SELECTOR]
+- [Portail Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portail Azure Classic](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portail Azure Classic (version héritée)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
+
+Cet article explique comment restaurer automatiquement des machines virtuelles Azure d’Azure vers le site local. Suivez les instructions qu’il contient lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure en suivant ce [didacticiel](site-recovery-vmware-to-azure-classic.md).
+
+
+
+## Vue d’ensemble
+
+Ce diagramme illustre l’architecture de restauration automatique correspondant à ce scénario.
+
+Utilisez cette architecture lorsque le serveur de processus est local et que vous utilisez ExpressRoute.
+
+![Diagramme d’architecture pour Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Utilisez cette architecture lorsque le serveur de processus est sur Azure et que vous disposez d’une connexion VPN ou ExpressRoute.
+
+![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+
+Pour afficher la liste complète des ports et le diagramme de l’architecture de restauration automatique, reportez-vous à l’image ci-dessous.
+
+![Basculement-restauration automatique sur tous les ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
+
+Voici comment fonctionne la restauration automatique :
+
+- Une fois que vous avez procédé au basculement vers Azure, vous pouvez effectuer une restauration automatique sur votre site local en quelques étapes :
+	- **Étape 1** : reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware qui s’exécutent sur votre site local. 
+	- **Étape 2** : une fois que vos machines virtuelles Azure sont répliquées vers votre site local, exécutez un basculement pour procéder à la restauration automatique à partir d’Azure.
+	- **Étape 3** : une fois vos données restaurées automatiquement, reprotégez les machines virtuelles locales vers lesquelles vous avez procédé à la restauration automatique pour qu’elles soient répliquées vers Azure.
+
+
+### Restaurer automatiquement vers l’emplacement d’origine ou vers un autre emplacement
+
+Si vous avez effectué le basculement d’une machine virtuelle VMware, vous pouvez procéder à une restauration automatique vers la même machine virtuelle source si elle existe toujours sur site. Dans ce scénario, seules les modifications delta sont restaurées automatiquement. Notez les points suivants :
+
+- Si vous avez procédé au basculement de serveurs physiques, la restauration automatique est toujours effectuée vers une nouvelle machine virtuelle VMware.
+	- Avant d’effectuer la restauration automatique d’un ordinateur physique, notez les points suivants :
+	- L’ordinateur physique protégé reviendra comme un ordinateur virtuel après un basculement à partir d'Azure vers VMware
+	- Veillez à découvrir au moins un serveur maître cible ainsi que les hôtes ESX/ESXi nécessaires sur lesquels vous devez effectuer une restauration automatique.
+- Si vous procédez à une restauration automatique vers la machine virtuelle d’origine, les conditions suivantes doivent être respectées :
+	- Si la machine virtuelle est gérée par un serveur vCenter, l’ordinateur hôte ESX du serveur maître cible doit avoir accès à la banque de données des machines virtuelles.
+	- Si la machine virtuelle se trouve sur un ordinateur hôte ESX, mais n’est pas gérée par vCenter, son disque dur doit se situer dans une banque de données accessible par l’ordinateur hôte du serveur maître cible.
+	- Si votre machine virtuelle se trouve sur un ordinateur hôte ESX et n’utilise pas vCenter, vous devez exécuter la détection de l’ordinateur hôte ESX du serveur maître cible avant d’assurer la reprotection. Cela s’applique également si vous restaurez automatiquement des serveurs physiques.
+	- Une autre option (si la machine virtuelle locale existe) consiste à la supprimer avant de procéder à une restauration automatique. La restauration automatique crée ensuite une machine virtuelle sur le même hôte que l’ordinateur hôte ESX cible maître.
+	
+- Si vous effectuez la restauration automatique vers un autre emplacement, les données sont récupérées dans la même banque de données et sur le même ordinateur hôte ESX que ceux qui sont utilisés par le serveur cible maître local.
+
+
+## Composants requis
+
+- Vous avez besoin d’un environnement VMware afin de restaurer automatiquement les machines virtuelles VMware et les serveurs physiques. La restauration automatique vers les serveurs physiques n’est pas prise en charge.
+- Pour procéder à une restauration automatique, vous devez avoir créé un réseau Azure lors de la configuration initiale de la protection. La restauration automatique nécessite une connexion VPN ou ExpressRoute à partir du réseau Azure dans lequel les machines virtuelles Azure sont situées sur le site local.
+- Si les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique sont gérées par un serveur vCenter, vous devez vous assurer de disposer des autorisations requises pour la détection des machines virtuelles sur les serveurs vCenter. [En savoir plus](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+- Si des instantanés sont présents sur une machine virtuelle, la reprotection échoue. Vous pouvez supprimer les instantanés ou les disques. 
+- Avant de procéder à une restauration automatique, vous devez créer un certain nombre de composants :
+	- **Créez un serveur de processus dans Azure**. Il s’agit d’une machine virtuelle Azure que vous devez créer et maintenir en cours d’exécution pendant la restauration automatique. Vous pouvez supprimer cette machine à l’issue de la restauration automatique.
+	- **Créez un serveur cible maître**. Le serveur cible maître envoie et reçoit des données de restauration automatique. Un serveur cible maître est installé par défaut sur le serveur d’administration que vous avez créé sur site. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique.
+	- Si vous souhaitez créer un autre serveur cible maître s’exécutant sur Linux, vous devez configurer la machine virtuelle Linux avant d’installer le serveur cible maître, comme décrit ci-dessous.
+- Le serveur de configuration est requis en local lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échouera. Vous devez donc veiller à planifier une sauvegarde régulière de votre serveur. En cas d'incident, vous devrez le restaurer avec la même adresse IP pour que la restauration automatique réussisse.
+
+## Stratégie de restauration automatique
+Pour effectuer une réplication en retour vers le site local, vous avez besoin d’une stratégie de restauration automatique. Cette stratégie est automatiquement créée lorsque vous créez une stratégie dans le sens initial. Notez les points suivants :
+
+1. Cette stratégie est automatiquement associée au serveur de configuration lors de la création.
+2. Cette stratégie n’est pas modifiable.
+3. Les valeurs définies de la stratégie sont : Seuil d’objectif de point de récupération = 15 minutes, Rétention de point de récupération = 24 heures, Fréquence des captures instantanées de cohérence d’application = 60 minutes) ![](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
+
+## Configurer le serveur de processus dans Azure
+
+Vous devez installer un serveur de processus dans Azure pour que les machines virtuelles Azure puissent renvoyer les données vers un serveur cible maître local.
+
+Si vous avez protégé vos machines en tant que ressources classiques (la machine virtuelle récupérée dans Azure est une machine virtuelle classique), vous aurez besoin d’un serveur de processus classique dans Azure. Si vous avez récupéré les machines avec un type de déploiement Resource Manager, vous aurez besoin d’un serveur de processus avec le même type de déploiement. Le type est sélectionné par le réseau virtuel Azure dans lequel vous déployez le serveur de processus.
+
+1.  Dans le coffre > Paramètres > Manage Site Recovery Infrastructure (Gérer l’infrastructure Site Recovery) > **Serveurs de configuration**, sous le titre For VMware and Physical Machines (Pour VMware et les machines physiques), sélectionnez le serveur de configuration. Cliquez sur +Serveur de processus
+
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+
+2. Pour le déploiement du serveur de processus, choisissez « Deploy a failback process server in Azure » (Déployer un serveur de processus de restauration automatique dans Azure).
+
+3. Sélectionnez l’abonnement dans lequel vous avez récupéré les machines.
+
+4. Ensuite, sélectionnez le réseau Azure dans lequel sont situées les machines récupérées. Le serveur de processus doit se trouver dans le même réseau, de sorte que les machines virtuelles récupérées et le serveur de processus puissent communiquer.
+
+5. Si vous avez sélectionné un réseau de *déploiement classique*, vous serez invité à créer une machine virtuelle par le biais de la galerie Azure et à y installer le serveur de processus.
+
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	
+	1. Le nom de l’image est *Microsoft Azure Site Recovery Process Server V2*. Veillez à sélectionner le modèle de déploiement *Classique*.
+	
+		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+	
+	2. Installez le serveur de processus conformément à la procédure fournie [ici](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
+	
+6. Si vous sélectionnez le réseau Azure *Resource Manager*, vous devrez définir les paramètres suivants pour déployer le serveur.
+
+    1. Indiquez le groupe de ressources dans lequel le déploiement du serveur a lieu.
+	
+	2. Nommez le serveur.
+	
+	3. Attribuez-lui un mot de passe et un nom d’utilisateur afin de pouvoir vous connecter.
+	
+	4. Sélectionnez le compte de stockage dans lequel vous souhaitez déployer le serveur.
+	
+	5. Choisissez le sous-réseau et l’interface réseau spécifiques pour la connexion. Remarque : vous devez créer votre propre [interface réseau](../virtual-network/virtual-networks-multiple-nics.md) et la sélectionner lors du déploiement.
+	
+		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+	
+	6. Cliquez sur OK. Cela déclenche une tâche qui crée une machine virtuelle selon le type de déploiement Resource Manager avec l’installation du serveur de processus. Vous devez exécuter l’installation sur la machine virtuelle pour inscrire le serveur auprès du serveur de configuration. Pour ce faire, appliquez la [procédure fournie ici](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+
+	7. Une tâche de déploiement du serveur de processus est alors déclenchée.
+
+7. À la fin, le serveur de processus doit être répertorié dans la page des serveurs de configuration, sous la section dédiée aux serveurs associés, dans l’onglet Serveurs de processus. ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
+
+		
+	>[AZURE.NOTE] Le serveur n’apparaît pas dans **Propriétés de machine virtuelle**. Il n’est visible que dans l’onglet **Serveurs** du serveur d’administration auprès duquel il est inscrit. L’affichage du serveur de processus peut prendre environ 10 à 15 minutes.
+
+
+## Configurer le serveur cible maître local
+
+Le serveur cible maître reçoit les données de restauration automatique. Un serveur cible maître est automatiquement installé sur le serveur d’administration local, mais si vous effectuez la restauration automatique de très nombreuses données, il se peut que vous deviez configurer un serveur cible maître supplémentaire. Procédez comme suit :
+
+>[AZURE.NOTE] Si vous voulez installer un serveur cible maître sur Linux, suivez les instructions de la procédure suivante.
+
+1. Si vous installez le serveur cible maître sur Windows, ouvrez la page Démarrage rapide à partir de la machine virtuelle sur laquelle vous installez le serveur cible maître, puis téléchargez le fichier d’installation de l’Assistant Installation unifiée d’Azure Site Recovery.
+2. Exécutez le programme d’installation, puis, dans **Avant de commencer**, sélectionnez **Ajouter des serveurs de processus supplémentaires au déploiement avec montée en puissance parallèle**.
+3. Terminez l’Assistant de la même façon que lors de la [configuration du serveur d’administration](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Dans la page **Détails du serveur de configuration**, spécifiez l’adresse IP de ce serveur cible maître ainsi qu’une phrase secrète pour accéder à la machine virtuelle.
+
+### Configurer une machine virtuelle Linux en tant que serveur cible maître
+Pour configurer le serveur d’administration exécutant le serveur cible maître en tant que machine virtuelle Linux, vous devez installer le système d’exploitation minimal CentOS 6.6, récupérer les ID SCSI de chaque disque dur SCSI, installer des packages supplémentaires et appliquer des modifications personnalisées.
+
+#### Installer CentOS 6.6
+
+1.	Installez le système d’exploitation minimal CentOS 6.6 sur la machine virtuelle du serveur d’administration. Conservez l’image ISO dans un lecteur de DVD et démarrez le système. Ignorez les tests de média, sélectionnez la langue US English (Anglais US) et **Basic Storage Devices** (Appareils de stockage de base), vérifiez que le disque dur ne comporte pas de données importantes et cliquez sur **Yes, discard any data** (Oui, supprimer toutes les données). Entrez le nom d’hôte du serveur d’administration et sélectionnez la carte réseau du serveur. Dans la boîte de dialogue **Editing System** (Système de modification), sélectionnez **Connect automatically** (Connecter automatiquement), puis ajoutez une adresse IP statique, un réseau et des paramètres DNS. Spécifiez un fuseau horaire et un mot de passe racine pour accéder au serveur d’administration. 
+2.	Lorsque le système vous demande le type d’installation souhaitée, sélectionnez **Create Custom Layout** (Créer une disposition personnalisée) en tant que partition. Après avoir cliqué sur **Next** (Suivant), sélectionnez **Free** (Libre) et cliquez sur Create (Créer). Créez les partitions **/**, **/var/crash** et **/home** avec **FS Type:** (Type FS) **ext4**. Créez la partition d’échange **FS Type: swap**.
+3.	Si des appareils préexistants sont trouvés, un message d’avertissement s’affiche. Cliquez sur **Format** pour formater le lecteur avec les paramètres de partition. Cliquez sur **Write change to disk** (Enregistrer les modifications sur le disque) pour appliquer les modifications de partition.
+4.	Sélectionnez **Install boot loader** (Installer le chargeur de démarrage) > **Next** (Suivant) pour installer le chargeur de démarrage dans la partition racine.
+5.	Une fois l’installation terminée, cliquez sur **Reboot** (Redémarrer).
+
+
+#### Récupérer les ID SCSI
+
+1. À l’issue de l’installation, récupérez les ID SCSI de chaque disque dur SCSI de la machine virtuelle. Pour ce faire, arrêtez la machine virtuelle du serveur d’administration, puis, dans les propriétés de la machine virtuelle dans VMware, cliquez avec le bouton droit sur l’entrée de la machine virtuelle > **Edit Settings** (Modifier les paramètres) > **Options**.
+2. Sélectionnez **Advanced** (Avancé) > **General item** (Général), puis cliquez sur **Configuration Parameters** (Paramètres de configuration). Cette option est désactivée lorsque la machine est en cours d’exécution. Pour l’activer, vous devez arrêter la machine.
+3. Si la ligne **disk.EnableUUID** existe, vérifiez que la valeur est définie sur **True** (Vrai) (respect de la casse). Si c’est déjà le cas, vous pouvez annuler et tester la commande SCSI dans un système d’exploitation invité après son démarrage. 
+4.	Si la ligne n’existe pas, cliquez sur **Add Row** (Ajouter une ligne) et ajoutez-la avec la valeur **True** (Vrai). N’utilisez pas de guillemets doubles.
+
+#### Installer des packages supplémentaires
+
+Vous devez télécharger et installer des packages supplémentaires.
+
+1.	Vérifiez que le serveur cible maître est connecté à Internet.
+2.	Exécutez la commande suivante pour télécharger et installer 15 packages à partir du référentiel CentOS : **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
+3.	Si les machines sources que vous protégez exécutent Linux avec le système de fichiers Reiser ou XFS pour l’appareil racine ou de démarrage, vous devez télécharger et installer des packages supplémentaires comme suit :
+
+	- # cd /usr/local
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
+	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+	- # wget [http://mirror.centos.org/centos/6.6/os/x86\_64/Packages/xfsprogs-3.1.1-16.el6.x86\_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+
+#### Appliquer des modifications personnalisées
+
+Pour appliquer des modifications personnalisées après avoir effectué les étapes de post-installation et installé les packages, procédez comme suit :
+
+1.	Copiez le binaire de l’agent unifié RHEL (Red Hat Enterprise Linux) 6-64 sur la machine virtuelle. Exécutez cette commande pour décompresser le fichier binaire : **tar –zxvf <file name>**.
+2.	Exécutez cette commande pour accorder des autorisations : **# chmod 755 ./ApplyCustomChanges.sh**.
+3.	Exécutez le script : **#./ApplyCustomChanges.sh**. Vous ne devez exécuter le script qu’une seule fois. Redémarrez le serveur après l’exécution du script.
+
+
+## Exécuter la restauration automatique
+
+### Reprotéger les machines virtuelles Azure
+
+1.	Dans le coffre, sous Éléments répliqués, sélectionnez la machine virtuelle qui a basculé et cliquez avec le bouton droit sur **Reprotéger**. Vous pouvez également cliquer sur la machine et sélectionner la reprotection à partir des boutons de commande.
+2.	Dans le panneau, vous pouvez voir que la direction de protection « d’Azure à local » est déjà sélectionnée.
+3.  Dans les champs **Serveur cible maître** et **Serveur de processus**, sélectionnez le serveur cible maître local et le serveur de processus de machine virtuelle Azure.
+4.  Sélectionnez le **Magasin de données** dans lequel vous souhaitez récupérer les disques locaux. Cette option est utilisée lorsque la machine virtuelle locale est supprimée et que des disques doivent être créés. Cette option est ignorée si les disques existent déjà, mais vous devez toujours spécifier une valeur. 
+5.	Le lecteur de rétention est utilisé pour arrêter les points dans le temps lorsque la machine virtuelle est répliquée vers le site local. Pour être répertorié pour le serveur cible maître, un lecteur de rétention doit respecter les critères suivants. a. Le volume ne doit pas être utilisé à d’autres fins (cible de réplication, etc.). b. Le volume ne doit pas être en mode de verrouillage. c. Le volume ne doit pas être un volume de cache. (Aucune installation de serveur maître cible ne doit exister sur ce volume. Un volume d’installation personnalisée serveur de processus+serveur maître cible n’est pas éligible comme volume de rétention. Ici, le volume serveur de processus+serveur maître cible est le volume de cache du serveur maître cible.) d. Le type de système de fichiers du volume ne doit pas être FAT ou FAT32. e. La capacité du volume ne doit pas être nulle. e. Le volume de rétention par défaut pour Windows est le volume R. f. Le volume de rétention par défaut pour Linux est /mnt/retention.
+
+6.  La stratégie de restauration automatique sera automatiquement sélectionnée.
+
+7.	Une fois que vous avez cliqué sur **OK** pour démarrer la reprotection, une tâche est lancée pour répliquer la machine virtuelle à partir d’Azure vers le site local. Vous pouvez en suivre la progression dans l’onglet **Tâches**.
+
+Si vous souhaitez procéder à la récupération vers un autre emplacement, sélectionnez le lecteur de rétention et la banque de données configurés pour le serveur cible maître. Si vous effectuez la restauration automatique vers le site local, les machines virtuelles VMware du plan de protection de la restauration automatique utilisent la même banque de données que le serveur cible maître. Si vous voulez récupérer la machine virtuelle Azure de réplica vers la même machine virtuelle locale, celle-ci doit déjà figurer dans la même banque de données que le serveur cible maître. En l’absence de machine virtuelle locale, une nouvelle machine virtuelle de ce type est créée pendant la reprotection. ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
+
+
+
+Vous pouvez également effectuer la reprotection au niveau du plan de récupération. Si vous avez un groupe de réplication, il peut être reprotégé à l’aide d’un plan de récupération uniquement. Dans le cadre d’une reprotection avec un plan de récupération, vous devrez définir les valeurs ci-dessus pour chaque machine protégée.
+
+>[AZURE.NOTE] Un groupe de réplication doit être protégé à l’aide du même serveur cible maître. S’il est protégé à l’aide d’un serveur cible maître différent, aucun point dans le temps ne peut être déterminé pour lui.
+
+### Exécuter un basculement vers le site local
+
+Après la reprotection de la machine virtuelle, vous pouvez initier un basculement à partir d’Azure vers le site local.
+
+1.	Dans la page des éléments répliqués, sélectionnez la machine virtuelle et cliquez avec le bouton droit sur **Basculement non planifié**.
+2.	Dans **Confirmer le basculement**, vérifiez le sens du basculement (d’Azure) et sélectionnez le point de récupération à utiliser pour le basculement (le dernier point ou le dernier point de cohérence au niveau application). Un point de cohérence au niveau application se situera derrière le dernier point dans le temps et entraînera une perte de données.
+3.	Site Recovery arrête les machines virtuelles Azure pendant le basculement. Après que vous avez vérifié que la restauration automatique s’est terminée comme prévu, vous pouvez vous assurer que les machines virtuelles Azure ont été arrêtées correctement.
+
+### Reprotéger le site local
+
+Une fois la restauration automatique terminée, vous devez valider la machine virtuelle pour garantir la suppression des machines virtuelles récupérées dans Azure.
+
+1. Cliquez avec le bouton droit sur l’élément protégé, puis cliquez sur Valider. Ceci déclenche une tâche qui supprimera les anciennes machines virtuelles récupérées dans Azure.
+
+Une fois la validation terminée, vos données se trouvent de nouveau sur le site local, mais elles ne sont pas protégées. Pour démarrer à nouveau une réplication vers Azure, procédez comme suit :
+
+1.	Dans le coffre > Paramètres > Éléments répliqués, sélectionnez les machines virtuelles qui ont été restaurées automatiquement, puis cliquez sur **Reprotéger**. 
+2.  Affectez la valeur du serveur de processus à utiliser pour renvoyer les données vers Azure.
+3.	Cliquez sur OK pour commencer la tâche de reprotection.
+
+Une fois la reprotection effectuée, la machine virtuelle est répliquée vers Azure et vous pouvez effectuer un basculement.
+
+
+### Problèmes courants lors de la restauration automatique
+
+1. Si vous effectuez une découverte vCenter en mode lecture seule utilisateur et protégez des machines virtuelles, l’opération réussit et le basculement fonctionne. Au moment de la reprotection, l’opération échouera car les magasins de données ne peuvent pas être détectés. Par conséquent, vous ne verrez pas les magasins de données répertoriés lors de la reprotection. Pour résoudre ce problème, mettez à jour les informations d'identification vCenter à l’aide du compte approprié disposant des autorisations, puis renouvelez l'opération. [En savoir plus](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+2. Lorsque vous restaurez automatiquement une machine virtuelle Linux et l’exécutez localement, vous constaterez que le package du Gestionnaire de réseau est désinstallé de l’ordinateur. Une fois la machine virtuelle récupérée dans Azure, le package du Gestionnaire de réseau est en effet supprimé.
+3. Lorsqu'une machine virtuelle est configurée avec une adresse IP statique puis restaurée automatiquement vers Azure, l'adresse IP est acquise via DHCP. Lorsque vous basculez à nouveau en local, la machine virtuelle continue d'utiliser DHCP pour acquérir l'adresse IP. Vous devez manuellement vous connecter à l'ordinateur et redéfinir l'adresse IP sur une adresse statique si nécessaire.
+4. Si vous utilisez la version gratuite d’ESXi 5.5 ou de vSphere 6 Hypervisor, le basculement devrait aboutir, mais la restauration automatique ne fonctionnera pas. Vous devrez effectuer une mise à niveau vers une licence d’évaluation pour activer la restauration automatique.
+
+## Restauration automatique avec ExpressRoute
+
+Vous pouvez effectuer une restauration automatique via une connexion VPN ou via Azure ExpressRoute. Si vous souhaitez utiliser ExpressRoute, notez les points suivants :
+
+- La solution ExpressRoute doit être configurée sur le réseau virtuel Azure vers lequel les machines sources basculent, et sur lequel les machines virtuelles Azure sont situées après le basculement.
+- Les données sont répliquées vers un compte de stockage Azure sur un point de terminaison public. Vous devez configurer une homologation publique dans ExpressRoute avec le centre de données cible pour que la réplication Site Recovery utilise ExpressRoute.
+
+<!---HONumber=AcomDC_0518_2016-->

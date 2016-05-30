@@ -30,21 +30,21 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 
 ## Composants requis
 
-*   **Cluster HPC Pack avec nœuds de calcul Linux de taille A8 ou A9** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8 ou A9 dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Consultez la configuration requise et la procédure applicables à chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 de taille A8 et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnement et service. 
+*   **Cluster HPC Pack avec nœuds de calcul Linux de taille A8 ou A9** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8 ou A9 dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure applicables à chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 de taille A8 et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnement et service. 
 
     **Autres informations à connaître**
 
-    *   Actuellement, la mise en réseau Linux RDMA dans Azure est uniquement prise en charge sur les machines virtuelles de taille A8 ou A9 créées à partir de SUSE Linux Enterprise Server 12, qui est optimisé pour les images de calcul haute performances à partir d’Azure Marketplace. Pour plus d’informations, consultez [À propos des instances nécessitant beaucoup de ressources système A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    *   Actuellement, la mise en réseau Linux RDMA dans Azure est uniquement prise en charge sur les machines virtuelles de taille A8 ou A9 créées à partir de SUSE Linux Enterprise Server 12, qui est optimisé pour les images de calcul haute performances à partir d’Azure Marketplace. Pour plus d’informations, consultez [À propos des instances nécessitant beaucoup de ressources système A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
     *   Si vous utilisez l’option de déploiement de script Powershell, déployez tous les nœuds de calcul Linux au sein d’un service cloud pour utiliser la connexion réseau RDMA.
 
     *   Après avoir déployé les nœuds Linux, si vous devez vous connecter par SSH pour effectuer certaines tâches administratives supplémentaires, détectez les détails de connexion SSH pour chaque machine virtuelle Linux du portail Azure.
         
-*   **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul Linux dans Azure, vous devez disposer du runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/fr-FR/intel-mpi-library/) (inscription obligatoire). Vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour vous y préparer, après votre inscription auprès d'Intel, suivez le lien dans le message de confirmation vers la page web associée et copiez le lien de téléchargement du fichier .tgz pour la version appropriée d'Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
+*   **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul Linux dans Azure, vous devez disposer du runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/) (inscription obligatoire). Vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour vous y préparer, après votre inscription auprès d'Intel, suivez le lien dans le message de confirmation vers la page web associée et copiez le lien de téléchargement du fichier .tgz pour la version appropriée d'Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
 
-*   **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://www.openfoam.org/download/source.php). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
+*   **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://www.openfoam.org/download/source.php). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
 
-*   **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez la version Windows du programme de visualisation et d’analyse [EnSight](https://www.ceisoftware.com/download/) sur le nœud principal du cluster HPC Pack. Les informations de licence et de téléchargement se trouvent sur le site EnSight.
+*   **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez la version Windows du programme de visualisation et d’analyse [EnSight](https://www.ceisoftware.com/download/) sur le nœud principal du cluster HPC Pack. Les informations de licence et de téléchargement se trouvent sur le site EnSight.
 
 
 ## Configuration de l’approbation mutuelle entre les nœuds de calcul
@@ -53,7 +53,7 @@ L'exécution d'une tâche de nœuds croisés sur plusieurs nœuds Linux requiert
 
 ### Génération d’une paire de clés RSA
 
-Générer une paire de clés RSA, contenant une clé publique et une clé privée, est facile : il vous suffit d'exécuter la commande Linux **ssh-keygen**.
+Générer une paire de clés RSA, contenant une clé publique et une clé privée, est facile : il vous suffit d'exécuter la commande Linux **ssh-keygen**.
 
 1.	Ouvrez une session sur un ordinateur Linux.
 
@@ -113,7 +113,7 @@ Générer une paire de clés RSA, contenant une clé publique et une clé privé
 
 La première commande crée un dossier nommé /openfoam sur tous les nœuds du groupe LinuxNodes. La deuxième commande monte le dossier partagé //SUSE12RDMA-HN/OpenFOAM sur les nœuds avec les bits dir\_mode et file\_mode définis sur 777. Les valeurs *username* et *password* dans la commande doivent être les informations d’identification d’un utilisateur du nœud principal.
 
->[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
+>[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
 
 ## Installer MPI et OpenFOAM
 
@@ -150,7 +150,7 @@ Enregistrez le package d’installation téléchargé pour Intel MPI (l\_mpi\_p\
     
 ### Configuration de MPI
 
-Pour le test, vous devez ajouter les lignes suivantes à /etc/security/limits.conf dans chaque nœud Linux :
+Pour le test, vous devez ajouter les lignes suivantes à /etc/security/limits.conf dans chaque nœud Linux :
 
 ```
 *               hard    memlock         unlimited
@@ -182,7 +182,7 @@ Enregistrez le package d’installation téléchargé pour le pack source OpenFO
 
 2.  Pour compiler OpenFOAM avec la bibliothèque MPI Intel, commencez par configurer certaines variables d’environnement à la fois pour Intel MPI et OpenFOAM. Pour ce faire, utilisez un script d’interpréteur de commandes appelé settings.sh. Vous trouverez un exemple dans les exemples de fichiers à la fin de cet article. Placez ce fichier (enregistré avec des fins de ligne Linux) dans le dossier partagé /openfoam. Ce fichier contient également des paramètres pour les runtimes MPI et OpenFOAM que vous utiliserez par la suite afin d’exécuter un travail OpenFOAM.
 
-3. Installez des packages dépendants nécessaires pour compiler OpenFOAM. En fonction de votre distribution Linux, vous aurez peut-être besoin d’ajouter un référentiel. Exécutez des commandes **clusrun** similaires à la suivante :
+3. Installez des packages dépendants nécessaires pour compiler OpenFOAM. En fonction de votre distribution Linux, vous aurez peut-être besoin d’ajouter un référentiel. Exécutez des commandes **clusrun** similaires à la suivante :
 
     ```
     clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
@@ -198,7 +198,7 @@ Enregistrez le package d’installation téléchargé pour le pack source OpenFO
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
     
-    >[AZURE.NOTE]Le symbole « ` » dans la commande est un symbole de caractère d’échappement pour PowerShell. « & » signifie que « & » fait partie de la commande.
+    >[AZURE.NOTE]Le symbole « ` » dans la commande est un symbole de caractère d’échappement pour PowerShell. « & » signifie que « & » fait partie de la commande.
 
 ## Préparer l’exécution d’un travail OpenFOAM
 
@@ -236,7 +236,7 @@ Utilisez le partage de nœud principal configuré précédemment pour partager l
 
     ![Modifier les variables d’étape][step_variables]
 
-5.  Spécifiez les valeurs souhaitées pour les variables dans le fichier system/decomposeParDict. Dans cet exemple 2 nœuds Linux avec chacun 8 cœurs sont utilisés. Alors, définissez la valeur numberOfSubdomains à 16 et n de hierarchicalCoeffs à (1 1 16), ce qui signifie exécuter OpenFOAM en parallèle avec 16 processus. Pour plus d’informations, consultez [Guide de l’utilisateur OpenFOAM : 3.4 Exécution d’applications en parallèle](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5.  Spécifiez les valeurs souhaitées pour les variables dans le fichier system/decomposeParDict. Dans cet exemple 2 nœuds Linux avec chacun 8 cœurs sont utilisés. Alors, définissez la valeur numberOfSubdomains à 16 et n de hierarchicalCoeffs à (1 1 16), ce qui signifie exécuter OpenFOAM en parallèle avec 16 processus. Pour plus d’informations, consultez [Guide de l’utilisateur OpenFOAM : 3.4 Exécution d’applications en parallèle](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
 
     ![Décomposer les processus][decompose]
 
@@ -264,7 +264,7 @@ Au cours de cette étape, vous créez un fichier hôte (une liste de nœuds de c
 
 1.	Sur l’un des nœuds Linux, créez un nouveau fichier nommé hostfile sous /openfoam afin que ce fichier puisse être atteint dans /openfoam/hostfile sur tous les nœuds Linux.
 
-2.	Écrivez vos noms de nœud Linux dans ce fichier. Dans cet exemple, le fichier ressemble à ce qui suit :
+2.	Écrivez vos noms de nœud Linux dans ce fichier. Dans cet exemple, le fichier ressemble à ce qui suit :
     
     ```       
     SUSE12RDMA-LN1
@@ -275,9 +275,9 @@ Au cours de cette étape, vous créez un fichier hôte (une liste de nœuds de c
 
     **Wrapper de script d’interpréteur de commandes**
 
-    Si vous disposez de plusieurs nœuds Linux et si votre travail s’exécute uniquement sur certains d’entre eux, l’utilisation d’un fichier hôte fixe, car vous ne connaissez pas les nœuds qui seront alloués à votre travail. Dans ce cas, écrivez un wrapper de script Bash pour **mpirun** afin de créer le fichier hôte automatiquement. Vous pouvez trouver un exemple de wrapper de script Bash appelé hpcimpirun.sh à la fin de cet article et l’enregistrer comme /openfoam/hpcimpirun.sh. L’exemple de script effectue les opérations suivantes :
+    Si vous disposez de plusieurs nœuds Linux et si votre travail s’exécute uniquement sur certains d’entre eux, l’utilisation d’un fichier hôte fixe, car vous ne connaissez pas les nœuds qui seront alloués à votre travail. Dans ce cas, écrivez un wrapper de script Bash pour **mpirun** afin de créer le fichier hôte automatiquement. Vous pouvez trouver un exemple de wrapper de script Bash appelé hpcimpirun.sh à la fin de cet article et l’enregistrer comme /openfoam/hpcimpirun.sh. L’exemple de script effectue les opérations suivantes :
 
-    1.	Configure les variables d’environnement pour **mpirun**, et certains paramètres de commande supplémentaires pour exécuter le travail MPI via le réseau RDMA. Dans ce cas, il définit les éléments suivants :
+    1.	Configure les variables d’environnement pour **mpirun**, et certains paramètres de commande supplémentaires pour exécuter le travail MPI via le réseau RDMA. Dans ce cas, il définit les éléments suivants :
 
         *	I\_MPI\_FABRICS=shm:dapl
         *	I\_MPI\_DAPL\_PROVIDER=ofa-v2-ib0
@@ -285,7 +285,7 @@ Au cours de cette étape, vous créez un fichier hôte (une liste de nœuds de c
 
     2.	Crée un fichier d’hôte en fonction de la variable d’environnement $CCP\_NODES\_CORES définie par le nœud principal HPC lorsque le travail est activé.
 
-        Le format de $CCP\_NODES\_CORES suit ce modèle :
+        Le format de $CCP\_NODES\_CORES suit ce modèle :
 
         ```
         <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -293,23 +293,23 @@ Au cours de cette étape, vous créez un fichier hôte (une liste de nœuds de c
 
         où
 
-        * `<Number of nodes>` : nombre de nœuds affectés à ce travail.  
+        * `<Number of nodes>` : nombre de nœuds affectés à ce travail.  
         
-        * `<Name of node_n_...>` : nom de chaque nœud affecté à ce travail.
+        * `<Name of node_n_...>` : nom de chaque nœud affecté à ce travail.
         
-        * `<Cores of node_n_...>` : nombre de cœurs présents sur le nœud affecté à ce travail.
+        * `<Cores of node_n_...>` : nombre de cœurs présents sur le nœud affecté à ce travail.
 
-        Par exemple, si le travail requiert 2 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit se présenter comme suit
+        Par exemple, si le travail requiert 2 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit se présenter comme suit
         
         ```
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
         ```
         
-    3.	Appelle la commande **mpirun** et ajoute les 2 paramètres à la ligne de commande.
+    3.	Appelle la commande **mpirun** et ajoute les 2 paramètres à la ligne de commande.
 
-        * `--hostfile <hostfilepath>: <hostfilepath>` : le chemin d’accès du fichier hôte que le script crée
+        * `--hostfile <hostfilepath>: <hostfilepath>` : le chemin d’accès du fichier hôte que le script crée
 
-        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` : une variable d’environnement définie par le nœud principal HPC Pack, qui stocke le nombre total de cœurs affectés à ce travail. Dans ce cas, elle spécifie le nombre de processus pour **mpirun**.
+        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` : une variable d’environnement définie par le nœud principal HPC Pack, qui stocke le nombre total de cœurs affectés à ce travail. Dans ce cas, elle spécifie le nombre de processus pour **mpirun**.
 
 
 ## Envoi d’un travail OpenFOAM
@@ -326,7 +326,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 
     ![Détails du travail][job_details]
 
-5.	Dans les **ressources de la tâche**, sélectionnez le type de ressource en tant que « Nœud » et définissez la valeur minimale sur 2. Le travail sera exécuté sur les 2 nœuds Linux comportant chacun 8 cœurs dans cet exemple.
+5.	Dans les **ressources de la tâche**, sélectionnez le type de ressource en tant que « Nœud » et définissez la valeur minimale sur 2. Le travail sera exécuté sur les 2 nœuds Linux comportant chacun 8 cœurs dans cet exemple.
 
     ![Ressources de la tâche][job_resources]
 
@@ -334,39 +334,39 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 
     >[AZURE.NOTE]L’exécution de `source /openfoam/settings.sh` configure les environnements d’exécution OpenFOAM et MPI pour que chacune des tâches suivantes l’appelle avant la commande OpenFOAM.
 
-    *   **Tâche 1**. Exécutez **decomposePar** pour générer des fichiers de données pour l’exécution de **interDyMFoam** en parallèle.
+    *   **Tâche 1**. Exécutez **decomposePar** pour générer des fichiers de données pour l’exécution de **interDyMFoam** en parallèle.
     
-        *   Affectez 1 nœud à la tâche
+        *   Affectez 1 nœud à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
         
         Voir la figure suivante. Vous configurez les tâches restantes de la même manière.
 
-        ![Détails de la tâche 1][task_details1]
+        ![Détails de la tâche 1][task_details1]
 
-    *   **Tâche 2**. Exécutez **interDyMFoam** en parallèle pour calculer l’exemple.
+    *   **Tâche 2**. Exécutez **interDyMFoam** en parallèle pour calculer l’exemple.
 
-        *   Affectez 2 nœuds à la tâche
+        *   Affectez 2 nœuds à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
-
-        *   **Répertoire de travail** - /openfoam/sloshingTank3D
-
-    *   **Tâche 3**. Exécutez la commande **reconstructPar** pour fusionner les jeux de répertoires temporels à partir de chaque répertoire processor\_N dans un seul ensemble de répertoires temporels.
-
-        *   Affectez 1 nœud à la tâche
-
-        *   **Ligne de commande** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
 
-    *   **Tâche 4**. Exécutez **foamToEnsight** en parallèle pour convertir les fichiers de résultats OpenFOAM au format EnSight et placez les fichiers EnSight dans un répertoire nommé Ensight dans le répertoire du cas.
+    *   **Tâche 3**. Exécutez la commande **reconstructPar** pour fusionner les jeux de répertoires temporels à partir de chaque répertoire processor\_N dans un seul ensemble de répertoires temporels.
 
-        *   Affectez 2 nœuds à la tâche
+        *   Affectez 1 nœud à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+
+        *   **Répertoire de travail** - /openfoam/sloshingTank3D
+
+    *   **Tâche 4**. Exécutez **foamToEnsight** en parallèle pour convertir les fichiers de résultats OpenFOAM au format EnSight et placez les fichiers EnSight dans un répertoire nommé Ensight dans le répertoire du cas.
+
+        *   Affectez 2 nœuds à la tâche
+
+        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
 
@@ -386,11 +386,11 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
     hpccred delcreds
     ```
 
-8.	Ce travail prend de quelques dizaines de minutes à plusieurs heures en fonction des paramètres que vous avez définis pour l’exemple. Dans la carte thermique, vous verrez le travail s’exécutant sur les nœuds Linux.
+8.	Ce travail prend de quelques dizaines de minutes à plusieurs heures en fonction des paramètres que vous avez définis pour l’exemple. Dans la carte thermique, vous verrez le travail s’exécutant sur les nœuds Linux.
 
     ![Carte thermique][heat_map]
 
-    Sur chaque nœud, 8 processus sont démarrés.
+    Sur chaque nœud, 8 processus sont démarrés.
 
     ![Processus Linux][linux_processes]
 
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

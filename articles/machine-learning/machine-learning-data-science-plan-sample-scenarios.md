@@ -3,9 +3,9 @@
 	description="Sélectionnez les scénarios appropriés pour le processus d’analyse prédictive avancée dans Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="" />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="msolhab;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="bradsev" />
 
 
 # Scénarios d’analyses avancées dans Azure Machine Learning
 
-Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus d’analyse Cortana (CAP). Il illustre les options disponibles dans les séquences de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
+Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus Cortana Analytics. Il illustre les options disponibles dans les séquences de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
 
 L’**arbre de décision** qui permet de sélectionner les exemples de scénarios qui conviennent dans le cas de vos données et objectifs est présenté à la dernière section.
 
@@ -160,7 +160,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
     b. Si les données ne sont pas déjà enregistrées, téléchargez les fichiers de données à partir du conteneur de stockage Azure vers le dossier de machine virtuelle local.
 
-    c. Exécutez SQL Server Management Studio
+    c. Exécutez SQL Server Management Studio.
 
     d. Créez la base de données et les tables cibles.
 
@@ -200,7 +200,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
     b. Téléchargez les fichiers de données à partir d’un conteneur de stockage Azure vers le dossier de machine virtuelle local.
 
-    c. Exécutez SQL Server Management Studio
+    c. Exécutez SQL Server Management Studio.
 
     d. Créez la base de données et les tables cibles.
 
@@ -296,8 +296,8 @@ Le schéma suivant résume les scénarios décrits ci-dessus et les processus de
 Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Learning qui utilisent le processus et la technologie d’analyse avancée à l’aide de jeux de données publics, consultez :
 
 
-* [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+* [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Processus Cortana Analytics en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

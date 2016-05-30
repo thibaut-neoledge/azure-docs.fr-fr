@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Approvisionnement d’une machine virtuelle pour la science des données
-
-## Introduction
 
 La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
 
@@ -99,7 +97,7 @@ Exécutez la commande suivante à partir de l'invite de commandes sur la machine
 
 À l'invite, choisissez un mot de passe fort.
 
-Vous verrez le hachage du mot de passe au format « sha1:xxxxxx » dans la sortie. Copiez ce hachage de mot de passe et remplacez le hachage existant dans votre fichier de configuration de bloc-notes qui se trouve dans **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** avec un nom de paramètre ***c.NotebookApp.password***.
+Vous verrez le hachage du mot de passe au format « sha1:xxxxxx » dans la sortie. Copiez ce hachage de mot de passe et remplacez le hachage existant dans votre fichier de configuration de notebook qui se trouve dans **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** avec un nom de paramètre ***c.NotebookApp.password***.
 
 Vous devez remplacer seulement la valeur existante du hachage qui figure entre les guillemets. Les guillemets et le préfixe ***sha1:*** de la valeur du paramètre doivent être conservés.
 
@@ -111,10 +109,10 @@ Enfin, vous devez arrêter et redémarrer le serveur Ipython qui s’exécute su
 Si vous souhaitez utiliser R pour votre analyse, Microsoft R Server Developer Edition est installé sur la machine virtuelle. Microsoft R Server est une plateforme d'analyse d'entreprise basée sur R, prise en charge, extensible et sécurisée, que vous pouvez largement déployer. Prenant en charge les statistiques Big Data, la modélisation prédictive et des fonctionnalités Machine Learning, R Server prend en charge la totalité de l'analyse : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R Open Source, Microsoft R Server est entièrement compatible avec les scripts, les fonctions et les packages CRAN R pour analyser les données à l'échelle de l'entreprise. Il gère également les limitations de mémoire de R Open Source en ajoutant le traitement parallèle et en bloc des données dans Microsoft R Server, permettant aux utilisateurs d'exécuter des analyses de données plus volumineuses que ce que la mémoire principale peut contenir. Un IDE pour R est également inclus dans la machine virtuelle auquel vous pouvez accéder en cliquant sur l'icône « Revolution R Enterprise 8.0 » dans le menu Démarrer ou sur le bureau. Vous pouvez télécharger et utiliser d’autres IDE, comme [RStudio](http://www.rstudio.com).
 
 ### Python
-Pour un développement basé sur Python, les versions 2.7 et 3.5 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win**+**S**). **Remarque** : afin de pointer Python Tools pour Visual Studio vers Anaconda Python 2.7 et 3.5, vous devez créer des environnements personnalisés pour chaque version en sélectionnant Tools -> Python Tools -> Python Environments, en cliquant sur « + Custom » dans Visual Studio 2015 Community Edition, puis en définissant les chemins d'accès de l'environnement. Anaconda Python 2.7 est installé sous C:\\Anaconda et Anaconda Python 3.5 est installé sous c:\\Anaconda\\envs\\py35. Consultez la [documentation de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) pour des instructions détaillées.
+Pour un développement basé sur Python, les versions 2.7 et 3.5 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win**+**S**). **Remarque** : Pour pointer Python Tools pour Visual Studio vers Anaconda Python 2.7 et 3.5, vous devez créer des environnements personnalisés pour chaque version en sélectionnant Tools -> Python Tools -> Python Environments, en cliquant sur « + Custom » dans Visual Studio 2015 Community Edition, puis en définissant les chemins de l’environnement. Anaconda Python 2.7 est installé sous C:\\Anaconda et Anaconda Python 3.5 est installé sous c:\\Anaconda\\envs\\py35. Pour obtenir des instructions détaillées, consultez la [documentation de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it).
 
-### Bloc-notes Jupyter
-La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d'analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de lancer le navigateur pour accéder au serveur. Si vous accédez à la machine virtuelle via Bureau à distance, vous pouvez également utiliser l'URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur Jupyter Notebook. Remarque : si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer. Nous avons inclus des exemples de blocs-notes : l'un dans Python et l'autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec le mot de passe créé à l'étape précédente, vous pouvez voir le lien vers les exemples sur la page d'accueil du bloc-notes.
+### Jupyter Notebook
+La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d'analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de lancer le navigateur pour accéder au serveur. Si vous accédez à la machine virtuelle par le biais du Bureau à distance, vous pouvez également utiliser l’URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur Jupyter Notebook. Remarque : Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer. Nous avons inclus des exemples de notebook : l'un dans Python et l'autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec le mot de passe créé à l'étape précédente, vous pouvez voir le lien vers les exemples sur la page d'accueil du notebook.
 
 ### Visual Studio 2015 Community Edition
 Visual Studio Community Edition est installé sur la machine virtuelle. Vous pouvez utiliser cette version gratuite de l’IDE populaire de Microsoft à des fins d’évaluation et dans le cadre de projets en petites équipes. Vous pouvez consulter les termes du contrat de licence [ici](https://www.visualstudio.com/support/legal/mt171547). Ouvrez Visual Studio en double-cliquant sur l’icône du bureau ou via le menu **Démarrer**. Vous pouvez également lancer une recherche de programmes avec **Win**+**S** et en entrant « Visual Studio ». Là, vous pouvez créer des projets dans des langages tels que C# ou Python. Vous trouverez également des plug-ins installés. Ceux-ci facilitent l'utilisation des services Azure tels que Azure Data Catalog, Azure HDInsight (Hadoop, Spark) et Azure Data Lake.
@@ -127,7 +125,7 @@ Une version limitée de SQL Server est également fournie avec Visual Studio Co
 ### Microsoft Azure 
 Plusieurs outils Azure sont installés sur la machine virtuelle :
 - Il existe un raccourci bureau pour accéder à la documentation du Kit de développement logiciel (SDK) Azure. 
-- **AzCopy** permet de déplacer des données vers et depuis votre compte Microsoft Azure Storage. 
+- **AzCopy** permet de déplacer des données vers et à partir de votre compte Microsoft Azure Storage. 
 - L’**explorateur Azure Storage** permet de parcourir les objets que vous avez stockés dans votre compte Azure Storage. 
 - **Microsoft Azure PowerShell**, qui permet de gérer vos ressources Azure dans le langage de script PowerShell, est également installé sur votre machine virtuelle. 
 
@@ -146,7 +144,7 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Explorez les différents outils de science des données sur la machine virtuelle de science des données en cliquant sur le menu Démarrer et en consultant les outils répertoriés dans le menu.
 * Accédez à **C:\\Program Files\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR dans R qui prend en charge l’analyse des données à l’échelle de l’entreprise.  
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](http://aka.ms/dsvmtenthings).
-* Apprenez à créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Intelligence Suite. Nous avons également inclus une icône dans le menu Démarrer et sur le bureau de la machine virtuelle pour un accès aisé. 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

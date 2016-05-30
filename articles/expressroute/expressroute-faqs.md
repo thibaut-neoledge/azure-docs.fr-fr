@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -149,7 +149,7 @@ Vous devez établir un circuit ExpressRoute et configurer des itinéraires pour 
 Oui. Nous acceptons jusqu’à 4000 préfixes d’itinéraires pour l’homologation privée et 200 pour l’homologation publique et l’homologation Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par homologation privée si vous activez la fonctionnalité Premium d’ExpressRoute.
 
 ### Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
-Nous n’acceptons pas les préfixes privés (RFC1918) dans la session BGP d’homologation publique.
+Nous n’acceptons pas les préfixes privés (RFC1918) dans la session BGP d’homologation publique et Microsoft.
 
 ### Que se passe-t-il si je dépasse les limites du protocole BGP ?
 Les sessions BGP sont supprimées. Elles sont ensuite réinitialisées lorsque le nombre de préfixes tombe en dessous de la limite.
@@ -245,4 +245,7 @@ Consultez la rubrique [Partenaires et emplacements ExpressRoute](expressroute-lo
 ### Puis-je accéder à Office 365 via Internet même si ExpressRoute a été configuré pour mon organisation ?
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
 
-<!---HONumber=AcomDC_0427_2016-->
+### Dynamics AX est-il accessible via une connexion ExpressRoute ?
+Non, ce n’est pas pris en charge.
+
+<!---HONumber=AcomDC_0518_2016-->

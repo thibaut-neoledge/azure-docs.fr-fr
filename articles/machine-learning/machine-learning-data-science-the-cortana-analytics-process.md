@@ -66,7 +66,7 @@ Les analystes des données, en collaboration avec des experts du domaine, doiven
 
 ## 4\. Créer des modèles prévisionnels 
 
-Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice,md).
+Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
 
@@ -91,4 +91,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

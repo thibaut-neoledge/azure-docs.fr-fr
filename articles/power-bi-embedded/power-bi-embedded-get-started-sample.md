@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Prise en main de l’exemple Microsoft Power BI Embedded
@@ -222,14 +222,14 @@ Une fois que vous avez un **rapport**, utilisez un **IFrame** pour incorporer le
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-### Filtrer les rapports incorporés dans votre application
+## Filtrer les rapports incorporés dans votre application
 
-Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. Pour ce faire, ajoutez un paramètre de chaîne de requête à l’URL SCRL iFrame avec le filtre spécifié. Voici la syntaxe de requête de filtre :
+Vous pouvez filtrer un rapport incorporé à l’aide d’une syntaxe d’URL. Pour ce faire, ajoutez un paramètre de chaîne de requête **$filter** avec un opérateur **eq** à l’URL SCRL iFrame avec le filtre spécifié. Voici la syntaxe de requête de filtre :
 
 ```
 https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+?reportId=d2a0ea38-...-9673-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [AZURE.NOTE] {tableName/fieldName} ne peut pas contenir d’espaces ou de caractères spéciaux. {fieldValue} accepte une seule valeur de catégorie.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Prise en main de la version préliminaire de Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [À propos du flux de jetons d’application dans Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

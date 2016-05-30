@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Architecture du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité | Microsoft Azure"
-	description="Diagramme d’architecture du modèle de solution Microsoft Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale, les services publics et le transport."
+	pageTitle="Architecture de la maintenance prédictive | Microsoft Azure"
+	description="Diagramme d’architecture du modèle de solution Microsoft Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale, les services publics, le transport"
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/14/2016"
 	ms.author="garye" />
 
 # Architecture du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
@@ -26,4 +26,4 @@ Vous pouvez télécharger une version en taille réelle du diagramme ici : [Diag
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

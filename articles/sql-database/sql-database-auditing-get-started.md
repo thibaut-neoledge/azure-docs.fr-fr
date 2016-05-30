@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="05/17/2016"
 	ms.author="carlrabeler; ronitr"/>
- 
+
 # Prise en main de l’audit de base de données SQL
 L’audit de base de données SQL Azure effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage. L’audit est en disponibilité générale pour les services De base, Standard et Premium.
 
@@ -57,12 +57,12 @@ Les journaux d’audit sont stockés dans votre compte de stockage Azure. Vous p
 
 Une stratégie d’audit peut être définie pour une base de données spécifique ou en tant que stratégie de serveur par défaut. Une stratégie d’audit de serveur par défaut s’appliquera à toutes les bases de données d’un serveur qui ne dispose d’aucune stratégie d’audit de remplacement de base de données spécifique définie.
 
-Avant de configurer l’audit, vérifiez que vous utilisez bien un [« Client de niveau inférieur »](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Avant de configurer l’audit, vérifiez que vous utilisez bien un [« Client de niveau inférieur »](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). En outre, si vous avez des paramètres de pare-feu stricts, notez que le [point de terminaison IP de votre base de données changera](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) au moment de l’activation de l’audit.
 
 
-##<a id="subheading-2"></a>Configuration de l’audit pour votre base de données
+##<a id="subheading-2"></a>Configuration de l'audit pour votre base de données
 
-1. Accédez au [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com. Vous pouvez également accéder au [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/. Voir les détails ci-dessous.
+1. Accédez au [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com. Vous pouvez également accéder au [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/. Voir les détails ci-dessous.
 
 2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
 
@@ -101,7 +101,7 @@ Vous pouvez importer vos journaux d’audit dans le modèle Excel directement à
 
 ##<a id="subheading-4"></a>Configurer l’audit pour votre base de données à partir du portail Azure Classic
 
-1. Lancez le [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/.
+1. Lancez le [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/.
 
 2. Cliquez sur la base de données SQL/le SQL Server que vous voulez auditer, puis sur l’onglet **AUDIT ET SÉCURITÉ**
 
@@ -140,7 +140,7 @@ Dans un environnement de production, vous êtes susceptible d’actualiser de te
 3. Revenez au panneau de configuration de l’audit, basculez la **clé d’accès de stockage** de *Secondaire* à *Primaire*, puis cliquez sur **ENREGISTRER**.
 
 4. Revenez dans l’interface utilisateur de stockage, puis **régénérez** la *Clé d’accès secondaire* (en vue du prochain cycle d’actualisation des clés).
-  
+
 ##<a id="subheading-7"></a>Automatisation
 Vous pouvez utiliser différentes applets de commande PowerShell pour configurer l’audit dans Base de données SQL Azure :
 
@@ -175,7 +175,4 @@ Vous pouvez utiliser différentes applets de commande PowerShell pour configurer
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-
- 
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

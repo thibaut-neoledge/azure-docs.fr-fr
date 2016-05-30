@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -55,14 +55,14 @@ Pour obtenir tous les détails pertinents pour un voyage en particulier, il suff
 Nous fournissons rapidement des informations supplémentaires relatives aux données lorsque nous les stockons dans les tables Hive.
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
-Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus. Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
+Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus. Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0
 
-2. **Classification multiclasse** : prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+2. **Classification multiclasse** : prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -70,7 +70,7 @@ Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’a
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
@@ -474,7 +474,7 @@ Le fichier *sample\_hive\_tipped\_frequencies.hql* ci-dessous effectue cette op�
 
 ### Exploration : distributions de classe dans le paramètre multiclasse
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Pour le problème de classification multiclasse décrit dans la section [Exemples de tâches de prédiction](machine-learning-data-science-process-hive-walkthrough.md#mltasks), ce jeu de données se prête également à une classification naturelle où nous aimerions prédire la quantité de pourboires donnés. Nous pouvons utiliser des compartiments pour définir les montants de pourboires dans la requête. Pour obtenir les distributions de classe pour les différents montants de pourboire, nous utilisons le fichier *sample\_hive\_tip\_range\_frequencies.hql*. Son contenu est présenté ci-dessous.
 
@@ -495,7 +495,7 @@ Exécutez la commande suivante dans la console de ligne de commande Hadoop :
 
 ### Exploration : calculer la distance directe entre deux emplacements de latitude-longitude
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Avoir une idée de la distance directe nous permet de déterminer l'écart entre celle-ci et la distance de course réelle. Nous expliquons cette fonctionnalité par le fait qu’un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire beaucoup plus long.
 
@@ -541,14 +541,14 @@ Pour afficher le contenu d'un fichier donné, par exemple 000000\_0, nous utilis
 
 	hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
-**Avertissement :**`copyToLocal` peut être très lent pour les fichiers volumineux et n'est pas recommandé pour une utilisation avec eux.
+**Avertissement :**`copyToLocal` peut être très lent pour les fichiers volumineux et n'est pas recommandé pour une utilisation avec eux.
 
 Le principal avantage lié au fait que ces données résident dans un objet blob Azure est que nous pouvons explorer les données au sein de Azure Machine Learning à l'aide du module [Lecteur][reader].
 
 
 ## <a name="#downsample"></a>Réduire l’échantillon des données et créer des modèles dans Azure Machine Learning
 
-**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Après la phase d'analyse exploratoire des données, nous sommes prêts à réduire l’échantillon des données pour générer des modèles dans Azure Machine Learning. Dans cette section, nous montrons comment utiliser une requête Hive pour réduire l’échantillon de données, qui est ensuite accessible à partir du module [Lecteur][reader] dans Azure Machine Learning.
 
@@ -697,17 +697,17 @@ En tant que composants requis pour la délivrance de requêtes Hive dans le modu
 
 Certains détails sur le module [Lecteur][reader] et les paramètres d'entrée :
 
-**URI du serveur HCatalog** : si le nom du cluster est abc123, il s'agit simplement : https://abc123.azurehdinsight.net
+**URI du serveur HCatalog** : si le nom du cluster est abc123, il s'agit simplement : https://abc123.azurehdinsight.net
 
-**Nom du compte utilisateur Hadoop** : le nom d'utilisateur choisi pour le cluster (et **non** le nom d'utilisateur de l'accès à distance)
+**Nom du compte utilisateur Hadoop** : le nom d'utilisateur choisi pour le cluster (et **non** le nom d'utilisateur de l'accès à distance)
 
-**Mot de passe du compte utilisateur Hadoop** : le mot de passe choisi pour le cluster (et **non** le mot de passe d'accès à distance)
+**Mot de passe du compte utilisateur Hadoop** : le mot de passe choisi pour le cluster (et **non** le mot de passe d'accès à distance)
 
-**Emplacement des données de sortie** : il est choisi pour être Azure.
+**Emplacement des données de sortie** : il est choisi pour être Azure.
 
-**Nom du compte de stockage Azure** : le nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de stockage Azure** : le nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
+**Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
 **Remarque importante :** **n'importe quelle table que nous souhaitons interroger à l'aide du module [Lecteur][reader] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 
@@ -729,9 +729,9 @@ Le jeu de données peut maintenant être utilisé comme point de départ pour g�
 
 Nous sommes désormais capables de passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont exploitables pour répondre aux problèmes de prévision identifiés précédemment :
 
-**1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
+**1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
-**Apprenant utilisé :** régression logistique à deux classes
+**Apprenant utilisé :** régression logistique à deux classes
 
 a. Pour ce problème, notre étiquette (ou classe) cible est « avec pourboire ». Notre jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : tip\_class, tip\_amount et total\_amount révèlent des informations sur l'étiquette cible qui n'est pas disponible au moment du test. Nous supprimons ces colonnes du compte à l'aide du module [Colonnes de projet][project-columns].
 
@@ -749,7 +749,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse ** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
@@ -770,7 +770,7 @@ b. Pour cette expérience, nous utilisons une matrice de confusion pour consulte
 Notez que la précision des classes sur les classes les plus courantes est assez bonne, mais que le modèle n'effectue pas un bon travail d’« apprentissage » sur les classes plus rares.
 
 
-**3. Tâche de régression** : prédire le montant du pourboire versé pour une course.
+**3. Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 **Apprenant utilisé :** arbre de décision optimisé
 
@@ -794,9 +794,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

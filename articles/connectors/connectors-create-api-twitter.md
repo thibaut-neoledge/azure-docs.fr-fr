@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajouter l’API Twitter à PowerApps Enterprise et à des applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’API Twitter avec les paramètres de l’API REST"
+	pageTitle="Ajouter le connecteur Twitter à PowerApps Enterprise et Logic Apps | Microsoft Azure"
+	description="Vue d’ensemble du connecteur Twitter avec les paramètres d’API REST"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/12/2016"
    ms.author="mandia"/>
 
 
-# Prendre en main l’API Twitter
-Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
+# Prise en main du connecteur Twitter
+Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. Le connecteur Twitter peut être utilisée à partir de :
 
 - Logic Apps 
 - PowerApps
@@ -37,9 +37,9 @@ Avec Twitter, vous pouvez effectuer les opérations suivantes :
 - Créer votre flux d’activité en fonction des données que vous obtenez de Twitter. 
 - Utiliser des déclencheurs quand il y a un nouveau tweet.
 - Utiliser des actions pour publier un tweet, rechercher des tweets et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau tweet s’affiche, vous pouvez le publier sur Facebook.
-- Ajouter l’API Twitter à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Ajoutez le connecteur Twitter à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
 
-Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,17 +51,17 @@ Déclencheur | Actions
 --- | ---
 <ul><li>Quand un nouveau tweet apparaît</li></ul>| <ul><li>Publier un nouveau tweet</li><li>Quand un nouveau tweet apparaît</li><li>Obtenir un fil d’actualités</li><li>Obtenir un utilisateur</li><li>Obtenir un fil d’utilisateur</li><li>Rechercher un tweet</li><li>Obtenir des abonnés</li><li>Obtenir mes abonnés</li><li>Obtenir un abonnement</li><li>Obtenir mon abonnement</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 
 ## Créer la connexion à Twitter
 
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Twitter.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Twitter.
 
 1. Connectez-vous à votre compte Twitter.
 2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Twitter et de l’utiliser. 
 
-Après avoir créé la connexion, vous entrez les propriétés Twitter, telles que le texte d’un tweet. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Twitter](../../includes/connectors-create-api-twitter.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Twitter dans d’autres applications logiques.
 
@@ -94,7 +94,7 @@ Déclenche un flux de travail quand un nouveau tweet publié correspond à votre
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
+|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
 
 #### Response
 |Nom|Description|
@@ -129,7 +129,7 @@ Récupère les tweets et retweets les plus récents publiés par mes abonnés et
 
 
 ### Obtenir un utilisateur 
-Récupère les détails de l’utilisateur spécifié (exemple : nom d’utilisateur, description, nombre d’abonnés, etc.). ```GET: /user```
+Récupère les détails de l’utilisateur spécifié (exemple : nom d’utilisateur, description, nombre d’abonnés, etc.). ```GET: /user```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -172,7 +172,7 @@ Récupère une collection de tweets pertinents correspondant à une requête sp�
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
+|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
 |maxResults|integer|no|query|20|Nombre maximal de tweets à récupérer|
 
 #### Response
@@ -306,13 +306,13 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Revenir à la [liste des API](apis-list.md)
+Revenir à la [liste des API](apis-list.md).
 
 <!--References-->
 
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

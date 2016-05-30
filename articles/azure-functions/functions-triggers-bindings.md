@@ -42,7 +42,7 @@ Propriétés de la requête HTTP :
 - `type` : propriété devant être définie sur *httpTrigger*.
 - `direction` : propriété devant être définie sur *in*. 
 - `webHookType` : pour les déclencheurs WebHook, les valeurs valides sont *github*, *slack* et *genericJson*. Pour un déclencheur HTTP autre qu’un WebHook, définissez cette propriété sur une chaîne vide. Pour plus d’informations sur les WebHooks, voir la section ci-après, [Déclencheurs WebHook](#webhook-triggers).
-- `authLevel` : ne s’applique pas aux déclencheurs WebHook. Définissez cette propriété sur "function" pour demander la clé API, sur "anonymous" pour annuler l’exigence de clé API ou sur "admin" pour exiger la clé API principale. Pour plus d’informations, voir la section [Clés API](#apikeys) ci-dessous.
+- `authLevel` : ne s’applique pas aux déclencheurs WebHook. Définissez cette propriété sur « function » pour demander la clé API, sur « anonymous » pour annuler l’exigence de clé API ou sur « admin » pour exiger la clé API principale. Pour plus d’informations, voir la section [Clés API](#apikeys) ci-dessous.
 
 Propriétés de la réponse HTTP :
 
@@ -117,7 +117,7 @@ using System.Threading.Tasks;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -177,7 +177,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string jsonContent = await req.Content.ReadAsStringAsync();
     dynamic data = JsonConvert.DeserializeObject(jsonContent);
 
-    log.Verbose($"WebHook was triggered! Comment: {data.comment.body}");
+    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         body = $"New GitHub comment: {data.comment.body}"
@@ -254,7 +254,7 @@ Cet exemple de code C# écrit un journal spécifique chaque fois que la fonction
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
 }
 ```
 
@@ -262,43 +262,23 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 Cette section comporte les sous-sections suivantes :
 
-* [Propriété de connexion Azure Storage dans function.json](#storageconnection)
 * [Déclencheur de file d’attente Azure Storage](#storagequeuetrigger)
 * [Liaison de sortie de file d’attente Azure Storage](#storagequeueoutput)
 * [Déclencheur d’objet blob Azure Storage](#storageblobtrigger)
 * [Liaisons d’entrée et de sortie d’objet blob Azure Storage](#storageblobbindings)
 * [Liaisons d’entrée et de sortie de tables Azure Storage](#storagetablesbindings)
 
-### <a id="storageconnection"></a> Propriété de connexion Azure Storage dans function.json
-
-Pour tous les déclencheurs et liaisons Azure Storage, le fichier *function.json* inclut une propriété `connection`. Par exemple :
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
-            "queueName": "myqueue-items",
-            "connection":""
-        }
-    ]
-}
-```
-
-Si vous laissez la propriété `connection` vide, le déclencheur ou la liaison fonctionneront avec le compte de stockage par défaut défini pour le conteneur de fonctions. Si vous souhaitez que le déclencheur ou la liaison fonctionnent avec un autre compte de stockage, créez dans le conteneur de fonctions un paramètre d’application qui pointe vers le compte de stockage à utiliser, puis définissez `connection` sur le nom du paramètre d’application. Pour ajouter un paramètre d’application, procédez comme suit :
-
-1. Dans le panneau **Conteneur de fonctions** du portail Azure, cliquez sur **Paramètres de conteneur de fonctions > Accéder aux paramètres App Service**.
-
-2. Dans le panneau **Paramètres**, cliquez sur **Paramètres de l’application**.
-
-3. Faites défiler les éléments vers le bas jusqu’à la section **Paramètres de l’application**, puis ajoutez une entrée avec **Clé** = *{valeur unique de votre choix}* et **Valeur** = chaîne de connexion du compte de stockage.
-
 ### <a id="storagequeuetrigger"></a> Déclencheur de file d’attente Azure Storage
 
-Le fichier *function.json* fournit le nom de la file d’attente à interroger et le nom de variable pour le message de file d’attente. Par exemple :
+Le fichier *function.json* pour un déclencheur de file d'attente de stockage spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour la fie d’attente ou le message de file d’attente. 
+- `queueName` : le nom de la file d’attente à interroger. Consultez [Nommage des files d’attente et métadonnées](https://msdn.microsoft.com/library/dd179349.aspx) pour les règles de nommage de file d’attente.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
+- `type` : propriété devant être définie sur *queueTrigger*.
+- `direction` : propriété devant être définie sur *in*. 
+
+#### Exemple *Function.json* pour un déclencheur de file d'attente de stockage
 
 ```json
 {
@@ -306,10 +286,10 @@ Le fichier *function.json* fournit le nom de la file d’attente à interroger e
     "bindings": [
         {
             "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
             "queueName": "myqueue-items",
-            "connection":""
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
         }
     ]
 }
@@ -319,10 +299,10 @@ Le fichier *function.json* fournit le nom de la file d’attente à interroger e
 
 Le message de file d’attente peut être désérialisé vers l’un des types suivants :
 
-* `string`
-* `byte[]`
-* Objet JSON   
-* `CloudQueueMessage`
+* Objet (de JSON)
+* Chaîne
+* Tableau d’octets 
+* `CloudQueueMessage` (C#) 
 
 #### Métadonnées de déclencheur de file d’attente
 
@@ -349,7 +329,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -372,23 +352,33 @@ Si vous souhaitez gérer les messages incohérents manuellement, vous pouvez obt
 
 ### <a id="storagequeueoutput"></a> Liaison de sortie de file d’attente Azure Storage
 
-Le fichier *function.json* fournit le nom de la file d’attente de sortie et un nom de variable pour le contenu du message. Cet exemple utilise un déclencheur de file d’attente et écrit un message de file d’attente.
+Le fichier *function.json* pour une liaison de sortie de file d'attente de stockage spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour la fie d’attente ou le message de file d’attente. 
+- `queueName` : le nom de la file d’attente. Consultez [Nommage des files d’attente et métadonnées](https://msdn.microsoft.com/library/dd179349.aspx) pour les règles de nommage de file d’attente.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
+- `type` : doit être définie sur *queue*.
+- `direction` : doit être définie sur *out*. 
+
+#### Exemple *Function.json* pour une liaison de sortie de file d'attente de stockage
+
+Cet exemple utilise un déclencheur de file d’attente et écrit un message de file d’attente.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "myQueue",
-      "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "",
+      "connection": "MyStorageConnection",
+      "type": "queue",
       "direction": "out"
     }
   ],
@@ -400,12 +390,14 @@ Le fichier *function.json* fournit le nom de la file d’attente de sortie et un
 
 La liaison `queue` peut sérialiser les types ci-après vers un message de file d’attente :
 
-* `string` (crée le message en file d’attente si la valeur du paramètre n’est pas null lorsque la fonction se termine)
-* `byte[]` (fonctionne comme le type string) 
-* `CloudQueueMessage` (fonctionne comme le type string) 
-* Objet JSON (crée un message avec un objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
+* Objet (`out T` en C#, crée un message avec un objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
+* Chaîne (`out string` en C#, crée le message en file d'attente si la valeur du paramètre n'est pas null lorsque la fonction se termine)
+* Tableau d’octets (`out byte[]` en C#, fonctionne comme le type string) 
+* `out CloudQueueMessage` (C#, fonctionne comme le type string) 
 
-#### Exemple de code de liaison de sortie de file d’attente
+En C# vous pouvez également lier à `ICollector<T>` ou `IAsyncCollector<T>`, où `T` est un des types pris en charge.
+
+#### Exemples de code de liaison de sortie de file d’attente
 
 Cet exemple de code C# écrit un message de file d’attente de sortie spécifique pour chaque message de file d’attente d’entrée.
 
@@ -428,7 +420,17 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Déclencheur d’objet blob Azure Storage
 
-Le fichier *function.json* fournit un chemin d’accès qui spécifie le conteneur à surveiller, et éventuellement un modèle de nom d’objet blob. Cet exemple code un déclencheur pour les objets blob qui sont ajoutés au conteneur samples-workitems.
+Le fichier *function.json* pour un déclencheur de blob de stockage spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour le blob. 
+- `path` : un chemin qui fournit un chemin d’accès qui spécifie le conteneur à surveiller, et éventuellement un modèle de nom d’objet blob.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
+- `type` : propriété devant être définie sur *blobTrigger*.
+- `direction` : propriété devant être définie sur *in*.
+
+#### Exemple *Function.json* pour un déclencheur de blob de stockage
+
+Cet exemple code un déclencheur pour les objets blob qui sont ajoutés au conteneur samples-workitems.
 
 ```json
 {
@@ -445,13 +447,15 @@ Le fichier *function.json* fournit un chemin d’accès qui spécifie le contene
 }
 ```
 
-> [AZURE.NOTE] Si le conteneur d’objets blob que le déclencheur surveille contient plus de 10 000 objets blob, le runtime Functions analyse les fichiers journaux pour effectuer le suivi des objets blob nouveaux ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés dans la mesure du possible](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclencheurs d’objet blob pour les conteneurs volumineux ne sont pas acceptables pour votre application, il est recommandé de créer un message de file d’attente lorsque vous créez l’objet blob, et d’utiliser un déclencheur de file d’attente plutôt qu’un déclencheur d’objet blob pour traiter cet objet blob.
-
 #### Types pris en charge pour le déclencheur d’objet blob
 
-Les objets blob peuvent être désérialisés vers les types suivants :
+Le blob peut être désérialisé sur n’importe lequel des types suivants dans les fonctions C # ou de Node :
 
-* string
+* Objet (de JSON)
+* Chaîne
+
+Dans les fonctions C#, vous pouvez également lier les types suivants :
+
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
@@ -465,12 +469,12 @@ Les objets blob peuvent être désérialisés vers les types suivants :
 
 #### Exemple de code C# de déclencheur d’objet blob
 
-Cet exemple de code C# enregistre le contenu de chaque objet blob qui est ajouté au conteneur.
+Cet exemple de code C# enregistre le contenu de chaque objet blob qui est ajouté au conteneur surveillé.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -530,16 +534,30 @@ Le message en file d’attente associé aux objets blob incohérents correspond
 * BlobName
 * ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
+#### Interrogation de blob pour les grands conteneurs
+
+Si le conteneur d’objets blob que le déclencheur surveille contient plus de 10 000 objets blob, le runtime Functions analyse les fichiers journaux pour effectuer le suivi des objets blob nouveaux ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés sur la base du « meilleur effort »](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclencheurs d’objet blob pour les conteneurs volumineux ne sont pas acceptables pour votre application, il est recommandé de créer un message de file d’attente lorsque vous créez l’objet blob, et d’utiliser un déclencheur de file d’attente plutôt qu’un déclencheur d’objet blob pour traiter cet objet blob.
+ 
 ### <a id="storageblobbindings"></a> Liaisons d’entrée et de sortie d’objet blob Azure Storage
 
-Le fichier *function.json* fournit les noms de conteneur et de variable pour le nom et le contenu d’objet blob. Cet exemple utilise un déclencheur de file d’attente pour copier un objet blob :
+Le fichier *function.json* pour une entrée de blob de stockage ou liaison de sortie spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour le blob. 
+- `path` : un chemin d’accès qui spécifie le conteneur pour lire ou écrire le blob, et éventuellement un modèle de nom d’objet blob.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, la liaison fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
+- `type` : doit être définie sur *blob*.
+- `direction` : définie sur *in* ou *out*. 
+
+#### Exemple *Function.json* pour une liaison d’entrée ou de sortie de blob de stockage
+
+Cet exemple utilise un déclencheur de file d’attente pour copier un objet blob :
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -548,14 +566,14 @@ Le fichier *function.json* fournit les noms de conteneur et de variable pour le 
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -565,13 +583,16 @@ Le fichier *function.json* fournit les noms de conteneur et de variable pour le 
 
 #### Types pris en charge pour l’entrée et la sortie d’objet BLOB
 
-La liaison `blob` peut sérialiser ou désérialiser les types suivants :
+La liaison `blob` peut sérialiser ou désérialiser les types suivants dans les fonctions Node.js ou C# :
 
+* Objet (`out T` en C# pour l’objet blob de sortie : crée un objet blob en tant qu’objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
+* Chaîne (`out string` en C# pour l’objet blob de sortie : crée un objet blob uniquement si le paramètre de chaîne ne présente pas la valeur Null lorsque la fonction renvoie les résultats)
+
+Dans les fonctions C#, vous pouvez également lier les types suivants :
+
+* `TextReader` (entrée uniquement)
+* `TextWriter` (sortie uniquement)
 * `Stream`
-* `TextReader`
-* `TextWriter`
-* `string` (pour l’objet blob de sortie : crée un objet blob uniquement si le paramètre de chaîne ne présente pas la valeur Null lorsque la fonction renvoie les résultats)
-* Objet JSON (pour l’objet blob de sortie : crée un objet blob en tant qu’objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
 * `CloudBlobStream` (sortie uniquement)
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -581,25 +602,41 @@ La liaison `blob` peut sérialiser ou désérialiser les types suivants :
 
 Cet exemple de code C# copie un objet blob dont le nom est reçu dans un message de file d’attente.
 
-```CSHARP
+```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
 ### <a id="storagetablesbindings"></a> Liaisons d’entrée et de sortie de tables Azure Storage
 
-Le fichier *function.json* relatif aux tables de stockage fournit plusieurs propriétés :
+Le fichier *function.json* pour les tables de stockage spécifie les propriétés suivantes.
 
-* `name` : nom de la variable à utiliser dans le code pour la liaison de table.
-* `tableName`
-* `partitionKey` et `rowKey` : propriétés utilisées conjointement pour lire une entité unique dans une fonction C# ou Node, ou pour écrire une entité unique dans une fonction Node.
-* `take` : nombre maximal de lignes à lire pour l’entrée de table dans une fonction Node.
-* `filter` : expression de filtre OData pour l’entrée de table dans une fonction Node.
+- `name` : le nom de variable utilisé dans le code de fonction pour la liaison de table. 
+- `tableName` : le nom de la table.
+- `partitionKey` et `rowKey` : propriétés utilisées conjointement pour lire une entité unique dans une fonction C# ou Node, ou pour écrire une entité unique dans une fonction Node.
+- `take` : nombre maximal de lignes à lire pour l’entrée de table dans une fonction Node.
+- `filter` : expression de filtre OData pour l’entrée de table dans une fonction Node.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, la liaison fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
+- `type` : doit être définie sur *table*.
+- `direction` : définie sur *in* ou *out*. 
 
-Ces propriétés prennent en charge les scénarios suivants :
+#### Types pris en charge pour l’entrée et la sortie des tables de stockage
+
+La liaison `table` peut sérialiser ou désérialiser les objets dans les fonctions Node.js ou C# : Les objets auront des propriétés RowKey et PartitionKey.
+
+Dans les fonctions C#, vous pouvez également lier les types suivants :
+
+* `T` où `T` implémente `ITableEntity`
+* `IQueryable<T>` (entrée uniquement)
+* `ICollector<T>` (sortie uniquement)
+* `IAsyncCollector<T>` (sortie uniquement)
+
+#### Scénarios de liaison des tables de stockage
+
+La liaison de tables prend en charge les scénarios suivants :
 
 * Lecture d’une seule ligne dans une fonction C# ou Node.
 
@@ -617,7 +654,7 @@ Ces propriétés prennent en charge les scénarios suivants :
 
 	Le runtime Functions fournit un objet `ICollector<T>` ou `IAsyncCollector<T>` lié à la table, où `T` spécifie le schéma des entités à ajouter. En général, le type `T` dérive de `TableEntity` ou implémente `ITableEntity`, mais ce n’est pas obligatoire. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.
 
-#### Lire une entité de table unique en C# ou en Node
+#### Exemple de tables de stockage : lire une entité de table unique en C# ou en Node
 
 Cet exemple *function.json* utilise un déclencheur de file d’attente pour lire une ligne de table unique, avec une valeur de clé de partition codée en dur et la clé de ligne fournie dans le message de file d’attente.
 
@@ -626,7 +663,7 @@ Cet exemple *function.json* utilise un déclencheur de file d’attente pour lir
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -637,20 +674,21 @@ Cet exemple *function.json* utilise un déclencheur de file d’attente pour lir
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
 L’exemple de code C# ci-après fonctionne avec le fichier *function.json* précédent pour lire une entité de table unique. Le message de file d’attente comporte la valeur de clé de ligne, et l’entité de table est lue dans un type défini dans le fichier *run.csx*. Le type inclut les propriétés `PartitionKey` et `RowKey`, et ne dérive pas de `TableEntity`.
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personEntity.Name}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -671,7 +709,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Lire plusieurs entités de table en C## 
+#### Exemple de tables de stockage : lire plusieurs entités de table en C# 
 
 L’exemple de fichier *function.json* et de code C# ci-après lit les entités relatives à une clé de partition spécifiée dans le message de file d’attente.
 
@@ -680,7 +718,7 @@ L’exemple de fichier *function.json* et de code C# ci-après lit les entités 
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -688,6 +726,7 @@ L’exemple de fichier *function.json* et de code C# ci-après lit les entités 
     {
       "name": "tableBinding",
       "type": "table",
+      "connection": "MyStorageConnection",
       "tableName": "Person",
       "direction": "in"
     }
@@ -704,10 +743,10 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Verbose($"Name: {person.Name}");
+        log.Info($"Name: {person.Name}");
     }
 }
 
@@ -717,7 +756,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Créer des entités de table en C## 
+#### Exemple de tables de stockage : créer des entités de table en C# 
 
 Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent comment écrire des entités de table en C#.
 
@@ -731,7 +770,7 @@ Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent commen
     },
     {
       "tableName": "Person",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -746,7 +785,7 @@ public static void Run(string input, ICollector<Person> tableBinding, TraceWrite
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Verbose($"Adding Person entity {i}");
+            log.Info($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -766,7 +805,7 @@ public class Person
 
 ```
 
-#### Créer une entité de table en Node
+#### Exemple de tables de stockage : créer une entité de table en Node
 
 Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent comment écrire une entité de table en Node.
 
@@ -775,7 +814,7 @@ Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent commen
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -784,7 +823,7 @@ Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent commen
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "personEntity",
       "type": "table",
       "direction": "out"
@@ -798,6 +837,167 @@ Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent commen
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Déclencheurs et liaisons Azure Service Bus
+
+Cette section comporte les sous-sections suivantes :
+
+* [Azure Service Bus : comportement de PeekLock](#sbpeeklock)
+* [Azure Service Bus : gestion des messages incohérents](#sbpoison)
+* [Azure Service Bus : thread unique](#sbsinglethread)
+* [File d'attente ou déclencheur de rubrique Azure Service Bus](#sbtrigger)
+* [Liaison de sortie de rubrique ou de file d’attente Azure Storage Bus](#sboutput)
+
+### <a id="sbpeeklock"></a> Azure Service Bus : comportement de PeekLock
+
+Le runtime Functions reçoit un message en mode `PeekLock` et appelle l’élément `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle l’élément `Abandon`. Si la fonction s’exécute au-delà du délai imparti à `PeekLock`, le verrou est automatiquement renouvelé.
+
+### <a id="sbpoison"></a> Azure Service Bus : gestion des messages incohérents
+
+Service Bus assure sa propre gestion des messages incohérents. Il est impossible de la contrôler ou de la configurer dans la configuration ou le code d’Azure Functions.
+
+### <a id="sbsinglethread"></a> Azure Service Bus : thread unique
+
+Par défaut, le runtime Functions traite plusieurs messages de file d’attente simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, réglez `serviceBus.maxConcurrrentCalls` sur 1 dans le fichier *host.json*. Pour plus d’informations sur le fichier *host.json*, consultez [Structure de dossiers](functions-reference.md#folder-structure) dans l’article de référence pour développeurs et [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans le Wiki du référentiel de WebJobs.Script.
+
+### <a id="sbtrigger"></a> File d'attente ou déclencheur de rubrique Azure Service Bus
+
+Le fichier *function.json* pour un déclencheur de Service Bus spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour la file d’attente ou rubrique, ou le message de file d’attente ou rubrique. 
+- `queueName` : pour le déclencheur de file d'attente uniquement, le nom de la file d'attente à interroger.
+- `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
+- `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion Service Bus. La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. Si la chaîne de connexion n’a pas de droits de gestion, définissez la propriété `accessRights`. Si vous laissez `connection` vide, le déclencheur ou la liaison fonctionnera avec la chaîne de connexion de Service Bus par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsServiceBus.
+- `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Réglez sur `listen` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
+- `type` : doit être définie sur *serviceBusTrigger*.
+- `direction` : propriété devant être définie sur *in*. 
+
+Le message de file d’attente Service Bus peut être désérialisé vers l’un des types suivants :
+
+* Objet (de JSON)
+* string
+* tableau d’octets 
+* `BrokeredMessage` (C#) 
+
+#### Exemple *Function.json* d’utilisation d’un déclencheur de file d’attente Service Bus
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### Exemple de code C# qui traite un message de file d’attente Service Bus
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+#### Exemple de code Node.js qui traite un message de file d’attente Service Bus
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+### <a id="sboutput"></a> File d'attente ou déclencheur de sortie Azure Service Bus
+
+Le fichier *function.json* pour une liaison de sortie de Service Bus spécifie les propriétés suivantes.
+
+- `name` : le nom de variable utilisé dans le code de fonction pour la fie d’attente ou le message de file d’attente. 
+- `queueName` : pour le déclencheur de file d'attente uniquement, le nom de la file d'attente à interroger.
+- `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
+- `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
+- `connection` : identique à la propriété du déclencheur Service Bus
+- `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Réglez sur `send` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion, comme la création de files d’attente.
+- `type` : doit être définie sur *serviceBus*.
+- `direction` : doit être définie sur *out*. 
+
+Azure Functions peut créer un message de file d’attente Service Bus à partir d’un des types suivants.
+
+* Objet (crée toujours un message JSON, crée le message avec un objet null si la valeur est null lorsque la fonction se termine)
+* chaîne (crée un message si la valeur du paramètre n’est pas null lorsque la fonction se termine)
+* tableau d’octets (fonctionne comme le type string) 
+* `BrokeredMessage` (C#, fonctionne comme le type string)
+
+Pour créer plusieurs messages dans une fonction C#, vous pouvez utiliser `ICollector<T>` ou `IAsyncCollector<T>`. Un message est créé lorsque vous appelez la méthode `Add`.
+
+#### Exemple *function.json* d’utilisation d’un déclencheur de minuteur pour écrire des messages de file d’attente Service Bus
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### Exemples de code C# créant des messages de file d’attente Service Bus
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
+```
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
+```
+
+#### Exemple de code Node.js qui crée un message de file d’attente Service Bus
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
     context.done();
 };
 ```
@@ -820,7 +1020,7 @@ Le fichier function.json fournit les propriétés ci-après à utiliser avec la 
 - `databaseName` : base de données contenant le document.
 - `collectionName` : collection contenant le document.
 - `id` : ID du document à récupérer. Cette propriété prend en charge les liaisons semblables à "{queueTrigger}", qui utiliseront la valeur de chaîne du message de file d’attente en tant qu’ID du document.
-- `connection` : cette chaîne doit correspondre à un paramètre d’application défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet Intégrer, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme VotreCompte\_DOCUMENTDB. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `connection` : cette chaîne doit correspondre à un Paramètre d’application défini sur le système d'extrémité de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet Intégrer, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme VotreCompte\_DOCUMENTDB. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
 - direction : propriété devant être définie sur *"in"*.
 
 Exemple de fichier function.json :
@@ -870,7 +1070,7 @@ Le fichier function.json fournit les propriétés ci-après à utiliser avec la 
 - `databaseName` : base de données contenant la collection dans laquelle le nouveau document sera créé.
 - `collectionName` : collection dans laquelle le nouveau document sera créé.
 - `createIfNotExists` : valeur booléenne indiquant si la collection sera ou non créée si elle n’existe pas. La valeur par défaut est *false*. Cette configuration est due au fait que les collections sont créées avec un débit réservé, ce qui a des conséquences sur le plan tarifaire. Pour plus d’informations, voir la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : cette chaîne doit correspondre à un **Paramètre d’application** défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet **Intégrer**, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme `yourAccount_DOCUMENTDB`. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
+- `connection` : cette chaîne doit correspondre à un **Paramètre d’application** défini sur le système d'extrémité de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet **Intégrer**, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme `yourAccount_DOCUMENTDB`. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction` : doit être définie sur *"out"*. 
  
 Exemple de fichier function.json :
@@ -917,7 +1117,7 @@ Document de sortie :
 
 	public static void Run(string myQueueItem, out object document, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   
 	    document = new {
 	        text = $"I'm running in a C# function! {myQueueItem}"
@@ -945,7 +1145,7 @@ Vous pourriez utiliser le code C# suivant dans une fonction de déclencheur de f
 	
 	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	    
 	    dynamic employee = JObject.Parse(myQueueItem);
 	    
@@ -966,30 +1166,30 @@ Exemple de sortie :
 	  "address": "A town nearby"
 	}
 
-## Liaisons de tables faciles Azure Mobile Apps
+## Liaisons Azure Mobile Apps
 
-Azure App Service Mobile Apps vous permet d’exposer les données de point de terminaison de table aux clients mobiles. Ces mêmes données tabulaires sont utilisables dans les liaisons d’entrée et de sortie avec Azure Functions. Lorsque vous disposez d’une application mobile principale Node.js, vous pouvez travailler avec ces données tabulaires dans le portail Azure en utilisant des *tables faciles*. Les tables faciles prennent en charge le schéma dynamique, de sorte que des colonnes sont automatiquement ajoutées pour correspondre à la forme des données en cours d’insertion, ce qui simplifie le développement du schéma. Le schéma dynamique est activé par défaut et doit être désactivé dans une application mobile de production. Pour plus d’informations sur les tables faciles dans Mobile Apps, voir [Procédure : utilisation de l’outil Easy Tables dans le portail Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Notez que pour l’instant, les tables faciles du portail ne sont pas prises en charge pour les applications mobiles principales .NET. Vous pouvez toujours utiliser les liaisons de fonction des points de terminaison de table d’application mobile principale .NET ; toutefois, le schéma dynamique n’est pas pris en charge pour les applications mobiles principales .NET.
+Azure App Service Mobile Apps vous permet d’exposer les données de point de terminaison de table aux clients mobiles. Ces mêmes données tabulaires sont utilisables avec les liaisons d’entrée et de sortie dans Azure Functions. Une application mobile de serveur principal Node.js est idéale pour exposer les données tabulaires à utiliser avec vos fonctions, grâce à sa prise en charge des schémas dynamiques. Le schéma dynamique est activé par défaut et doit être désactivé dans une application mobile de production. Pour plus d’informations sur les points de terminaison de table dans un serveur principal Node.js, consultez [Vue d’ensemble : opérations de table](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Dans Mobile Apps, le serveur principal Node.js prend en charge la navigation sur portail et la modification des tables. Pour plus d’informations, consultez [Modification sur le portail](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) dans la rubrique du kit de développement logiciel Node.js. Lorsque vous utilisez une application mobile de serveur principal .NET avec Azure Functions, vous devez manuellement mettre à jour votre modèle de données, comme requis par votre fonction. Pour plus d’informations sur les points de terminaison de table dans une application mobile de serveur principal .NET, consultez [Définir un contrôleur de table](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) dans la rubrique du kit de développement logiciel de .NET.
 
 Cette section comporte les sous-sections suivantes :
 
-* [Clé API de tables faciles Azure Mobile Apps](#easytablesapikey)
-* [Liaison d’entrée de tables faciles Azure Mobile Apps](#easytablesinput)
-* [Liaison de sortie de tables faciles Azure Mobile Apps](#easytablesoutput)
+* [Clé API de tables Azure Mobile Apps](#mobiletablesapikey)
+* [Liaison d’entrée de tables Azure Mobile Apps](#mobiletablesinput)
+* [Liaison de sortie de tables Azure Mobile Apps](#mobiletablesoutput)
 
-### <a id="easytablesapikey"></a> Utiliser une clé API pour sécuriser l’accès à vos points de terminaison de tables faciles Mobile Apps
+### <a id="mobiletablesapikey"></a> Utiliser une clé API pour sécuriser l’accès à vos points de terminaison de table Mobile Apps
 
-Pour l’instant, Azure Functions ne peut pas accéder aux points de terminaison sécurisés par l’authentification App Service. Cela signifie que tous les points de terminaison Mobile Apps utilisés dans vos fonctions avec des liaisons de tables faciles doivent autoriser l’accès anonyme, lequel constitue la valeur par défaut. Les liaisons de tables faciles vous permettent de spécifier une clé API, qui est une clé secrète partagée pouvant être utilisée pour empêcher les accès indésirables à partir d’applications autres que vos fonctions. Mobile Apps n’intègre aucune prise en charge de l’authentification par clé API. Toutefois, vous pouvez implémenter une clé API dans votre application mobile principale Node.js en suivant les exemples présentés dans [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Serveur principal Azure App Service Mobile Apps implémentant une clé API).
+Dans Azure Functions, les liaisons de tables vous permettent de spécifier une clé API, qui est une clé secrète partagée pouvant être utilisée pour empêcher les accès indésirables à partir d’applications autres que vos fonctions. Mobile Apps n’intègre aucune prise en charge de l’authentification par clé API. Toutefois, vous pouvez implémenter une clé API dans votre application mobile principale Node.js en suivant les exemples présentés dans [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Serveur principal Azure App Service Mobile Apps implémentant une clé API). Vous pouvez implémenter une clé d’API dans une [application mobile de serveur principal .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) de la même façon.
 
 >[AZURE.IMPORTANT] Cette clé API ne doit pas être distribuée avec vos clients d’application mobile ; elle doit uniquement être distribuée de façon sécurisée aux clients côté service, comme Azure Functions.
 
-### <a id="easytablesinput"></a> Liaison d’entrée de tables faciles Azure Mobile Apps
+### <a id="mobiletablesinput"></a> Liaisons d’entrée Azure Mobile Apps
 
-Les liaisons d’entrée peuvent charger un enregistrement à partir d’un point de terminaison de table Mobile Apps et le transmettre directement à votre liaison. L’ID d’enregistrement est déterminé en fonction du déclencheur qui a appelé la fonction. Dans une fonction C#, toutes les modifications apportées à l’enregistrement sont automatiquement renvoyées à la table une fois que la fonction s’est correctement terminée.
+Les liaisons d’entrée peuvent charger un enregistrement à partir d’un système d'extrémité de table mobile et le transmettre directement à votre liaison. L’ID d’enregistrement est déterminé en fonction du déclencheur qui a appelé la fonction. Dans une fonction C#, toutes les modifications apportées à l’enregistrement sont automatiquement renvoyées à la table une fois que la fonction s’est correctement terminée.
 
-Le fichier function.json prend en charge l’utilisation des propriétés ci-après avec les liaisons d’entrée de tables faciles Mobile Apps :
+Le fichier function.json prend en charge l’utilisation des propriétés ci-après avec les liaisons d’entrée Mobile Apps :
 
 - `name` : nom de variable utilisé dans le code de fonction pour le nouvel enregistrement.
-- `type` : type de liaison devant être défini sur *easyTable*.
+- `type` : type de liaison devant être défini sur *mobileTable*.
 - `tableName` : table dans laquelle sera créé le nouvel enregistrement.
 - `id` : ID de l’enregistrement à récupérer. Cette propriété prend en charge les liaisons semblables à `{queueTrigger}`, qui utiliseront la valeur de chaîne du message de file d’attente en tant qu’ID de l’enregistrement.
 - `apiKey` : chaîne correspondant au paramètre d’application qui spécifie la clé API facultative pour l’application mobile. Cette propriété est requise lorsque votre application mobile utilise une clé API pour restreindre l’accès client.
@@ -1002,7 +1202,7 @@ Exemple de fichier function.json :
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
 	      "connection": "My_MobileApp_Uri",
@@ -1013,9 +1213,9 @@ Exemple de fichier function.json :
 	  "disabled": false
 	}
 
-#### Exemple de code de tables faciles Azure Mobile Apps pour un déclencheur de file d’attente C#
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente C#
 
-En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente et le transmet au paramètre *record*. Si l’enregistrement est introuvable, le paramètre présente la valeur Null. L’enregistrement est ensuite mis à jour avec la nouvelle valeur *Text* une fois la fonction terminée.
+En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente depuis un système d'extrémité de table Mobile Apps et le transmet au paramètre *record*. Si l’enregistrement est introuvable, le paramètre présente la valeur Null. L’enregistrement est ensuite mis à jour avec la nouvelle valeur *Text* une fois la fonction terminée.
 
 	#r "Newtonsoft.Json"	
 	using Newtonsoft.Json.Linq;
@@ -1028,9 +1228,9 @@ En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’en
 	    }    
 	}
 
-#### Exemple de code de tables faciles Azure Mobile Apps pour un déclencheur de file d’attente Node.js
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente Node.js
 
-En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente et le transmet au paramètre *record*. Dans les fonctions Node.js, les enregistrements mis à jour ne sont pas renvoyés à la table. Cet exemple de code écrit l’enregistrement récupéré dans le journal.
+En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente depuis un système d'extrémité de table Mobile Apps et le transmet au paramètre *record*. Dans les fonctions Node.js, les enregistrements mis à jour ne sont pas renvoyés à la table. Cet exemple de code écrit l’enregistrement récupéré dans le journal.
 
 	module.exports = function (context, input) {    
 	    context.log(context.bindings.record);
@@ -1038,14 +1238,14 @@ En fonction de l’exemple de fichier function.json ci-dessus, la liaison d’en
 	};
 
 
-### <a id="easytablesoutput"></a> Liaison de sortie de tables faciles Azure Mobile Apps
+### <a id="mobiletablesoutput"></a> Liaisons de sortie Azure Mobile Apps
 
-Votre fonction peut écrire un enregistrement dans un point de terminaison de table Mobile Apps à l’aide d’une liaison de sortie de tables faciles.
+Votre fonction peut écrire un enregistrement dans un système d'extrémité de table Mobile Apps à l’aide d’une liaison de sortie.
 
-Le fichier function.json prend en charge l’utilisation des propriétés ci-après avec la liaison de sortie de tables faciles :
+Le fichier function.json prend en charge l’utilisation des propriétés ci-après avec la liaison de sortie de table mobile :
 
 - `name` : nom de variable utilisé dans le code de fonction pour le nouvel enregistrement.
-- `type` : type de liaison devant être défini sur *easyTable*.
+- `type` : type de liaison devant être défini sur *mobileTable*.
 - `tableName` : table dans laquelle est créé le nouvel enregistrement.
 - `apiKey` : chaîne correspondant au paramètre d’application qui spécifie la clé API facultative pour l’application mobile. Cette propriété est requise lorsque votre application mobile utilise une clé API pour restreindre l’accès client.
 - `connection` : chaîne correspondant au paramètre d’application qui spécifie l’URI de votre application mobile.
@@ -1057,7 +1257,7 @@ Exemple de fichier function.json :
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "connection": "My_MobileApp_Uri",
 	      "apiKey": "My_MobileApp_Key",
@@ -1067,9 +1267,9 @@ Exemple de fichier function.json :
 	  "disabled": false
 	}
 
-#### Exemple de code de tables faciles Azure Mobile Apps pour un déclencheur de file d’attente C#
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente C#
 
-Cet exemple de code C# insère un nouvel enregistrement avec une propriété *Text* dans la table spécifiée dans la liaison ci-dessus.
+Cet exemple de code C# insère un nouvel enregistrement sur un système d'extrémité de table Mobile Apps avec une propriété *Text* dans la table spécifiée dans la liaison ci-dessus.
 
 	public static void Run(string myQueueItem, out object record)
 	{
@@ -1078,9 +1278,9 @@ Cet exemple de code C# insère un nouvel enregistrement avec une propriété *Te
 	    };
 	}
 
-#### Exemple de code de tables faciles Azure Mobile Apps pour un déclencheur de file d’attente Node.js
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente Node.js
 
-Cet exemple de code Node.js insère un nouvel enregistrement avec une propriété *text* dans la table spécifiée dans la liaison ci-dessus.
+Cet exemple de code Node.js insère un nouvel enregistrement sur un système d'extrémité de table Mobile Apps avec une propriété *text* dans la table spécifiée dans la liaison ci-dessus.
 
 	module.exports = function (context, input) {
 	
@@ -1163,7 +1363,7 @@ Cet exemple envoie une notification pour une [inscription de modèles](../notifi
 	 
 	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
 	}
 	 
@@ -1180,7 +1380,7 @@ Cet exemple envoie une notification pour une [inscription de modèles](../notifi
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		log.Info($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{"message":"Hello from C#. Processed a queue item!"}";
 	}
 
@@ -1208,7 +1408,7 @@ Exemple de code :
 	 
 	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
 	{
-	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
 	private static TemplateNotification GetTemplateNotification(string message)
@@ -1226,4 +1426,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

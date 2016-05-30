@@ -13,30 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [Premium](cdn-query-string-premium.md)
+- [CDN Azure Premium fourni par Verizon](cdn-query-string-premium.md)
 
 ##Vue d'ensemble
 
 La mise en cache des chaînes de requête contrôle la manière dont les fichiers doivent être mis en cache lorsqu'ils contiennent des chaînes de requête.
 
-> [AZURE.NOTE] Les niveaux Standard et Premium de CDN fournissent la même fonctionnalité de mise en cache de la chaîne de requête, mais l’interface utilisateur est différente. Ce document décrit l’interface utilisateur du niveau **Standard**. Pour le niveau Premium, consultez [Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête - Premium](cdn-query-string-premium.md).
+> [AZURE.IMPORTANT] Les produits CDN Standard et Premium proposent les mêmes fonctionnalités de mise en cache des chaînes de requête, mais l’interface utilisateur est différente. Ce document décrit l’interface du **CDN Azure Standard fourni par Akamai** et du **CDN Azure Standard fourni par Verizon**. Pour la mise en cache des chaînes de requête avec le **CDN Azure Premium fourni par Verizon**, consultez [Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête – Premium](cdn-query-string-premium.md).
 
-Trois modes sont disponibles :
+Trois modes sont disponibles :
 
-- **Ignorer les chaînes de requête** : il s’agit du mode par défaut. Le nœud de périmètre CDN transmet la chaîne de requête du demandeur vers l’origine de la première demande et met en cache l’élément multimédia. Toutes les demandes ultérieures concernant cet élément multimédia traitées à partir du nœud de périmètre ignorent la chaîne de requête jusqu’à l’arrivée à expiration de l’élément multimédia mis en cache.
-- **Ignorer la mise en cache des URL avec des chaînes de requête** : dans ce mode, les demandes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud de périmètre CDN. Le nœud de périmètre récupère l’élément multimédia directement à partir de l’origine et le transmet au demandeur avec chaque demande.
-- **Mettre en cache chaque URL unique** : ce mode traite chaque demande avec une chaîne de requête comme élément multimédia unique avec son propre cache. Par exemple, la réponse depuis l’origine d’une demande pour *foo.ashx?q=bar* est mise en cache au niveau du nœud de périmètre et renvoyée pour les caches suivants avec la même chaîne de requête. Une demande pour *foo.ashx?q=somethingelse* est mise en cache comme un élément multimédia distinct avec sa propre durée de vie.
+- **Ignorer les chaînes de requête** : il s’agit du mode par défaut. Le nœud de périmètre CDN transmet la chaîne de requête du demandeur vers l’origine de la première demande et met en cache l’élément multimédia. Toutes les demandes ultérieures concernant cet élément multimédia traitées à partir du nœud de périmètre ignorent la chaîne de requête jusqu’à l’arrivée à expiration de l’élément multimédia mis en cache.
+- **Ignorer la mise en cache des URL avec des chaînes de requête** : dans ce mode, les demandes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud de périmètre CDN. Le nœud de périmètre récupère l’élément multimédia directement à partir de l’origine et le transmet au demandeur avec chaque demande.
+- **Mettre en cache chaque URL unique** : ce mode traite chaque demande avec une chaîne de requête comme élément multimédia unique avec son propre cache. Par exemple, la réponse depuis l’origine d’une demande pour *foo.ashx?q=bar* est mise en cache au niveau du nœud de périmètre et renvoyée pour les caches suivants avec la même chaîne de requête. Une demande pour *foo.ashx?q=somethingelse* est mise en cache comme un élément multimédia distinct avec sa propre durée de vie.
 
-	>[AZURE.WARNING] Ce mode ne doit pas être utilisé lorsque la chaîne de requête contient des paramètres qui changent avec chaque demande, comme un ID de session ou un nom d’utilisateur, car cela entraînerait un taux d’accès au cache très faible.
-
-##Modification des paramètres de mise en cache des chaînes de requête
+##Modification des paramètres de mise en cache des chaînes de requête pour les profils CDN Standard
 
 1. Dans le panneau du profil CDN, cliquez sur le point de terminaison CDN que vous souhaitez gérer.
 
@@ -56,4 +54,6 @@ Trois modes sont disponibles :
 
 4. Une fois vos sélections effectuées, cliquez sur le bouton **Enregistrer**.
 
-<!---HONumber=AcomDC_0302_2016-->
+> [AZURE.IMPORTANT] La modification des paramètres peut ne pas être visible immédiatement, car la propagation de l’inscription dans le CDN prend un certain temps. Pour les profils du <b>CDN Azure fourni par Akamai</b>, la propagation s’effectue généralement dans un délai d’une minute. Pour les profils du <b>CDN Azure fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
+
+<!---HONumber=AcomDC_0518_2016-->

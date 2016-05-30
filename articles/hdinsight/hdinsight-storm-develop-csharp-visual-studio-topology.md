@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio
@@ -442,7 +442,7 @@ Les éléments suivants sont utilisés lors de la création et de la soumission 
 
 -	Lors de l’envoi de la topologie au serveur, vous devez utiliser l’option **Configurations supplémentaires** pour spécifier les **chemins d’accès des fichiers Java**. Le chemin d’accès spécifié doit être le répertoire qui contient les fichiers JAR contenant vos classes Java.
 
-###Concentrateurs d'événements Azure
+###Hubs d’événements Azure
 
 SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l’utilisation du spout Event Hubs (spout Java qui lit à partir d’Event Hubs). Lorsque vous créez une topologie qui utilise ce spout, utilisez les méthodes suivantes :
 
@@ -632,13 +632,17 @@ Pour afficher les erreurs qui se sont produites dans une topologie en cours d’
 
 ##Étapes suivantes
 
-Maintenant que vous avez appris à développer et à déployer des topologies Storm à partir des outils HDInsight pour Visual Studio, découvrez comment [traiter les événements à partir du concentrateur d’événements Azure avec Storm sur HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+Maintenant que vous avez appris à développer et à déployer des topologies Storm à partir des outils HDInsight pour Visual Studio, découvrez comment [traiter les événements à partir du hub d’événements Azure avec Storm sur HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 Pour obtenir un exemple de topologie C# qui fractionne les données de flux en plusieurs flux de données, consultez la rubrique [Exemple c# Storm](https://github.com/Blackmist/csharp-storm-example).
 
 Pour plus d’informations sur la création de topologies C#, accédez à [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir davantage d’exemples Storm sur HDinsight, consultez les rubriques suivantes :
+
+**Microsoft SCP.NET**
+
+* [Guide de programmation SCP](hdinsight-storm-scp-programming-guide.md)
 
 **Apache Storm sur HDInsight**
 
@@ -658,4 +662,4 @@ Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir dav
 
 -	[Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

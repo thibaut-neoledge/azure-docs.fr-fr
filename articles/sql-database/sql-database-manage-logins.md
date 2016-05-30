@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données  
@@ -24,7 +24,7 @@ Découvrez la gestion de la sécurité SQL Database, en particulier la façon de
 
 ## Approvisionnement des bases de données et connexion du principal au niveau du serveur
 
-Dans la base de données SQL Azure de Microsoft, lorsque vous vous inscrivez pour bénéficier du service, le processus d’approvisionnement crée un serveur de base de données SQL Azure, une base de données nommée **master**, et une connexion, qui est le principal au niveau du serveur de votre serveur de base de données SQL Azure. Cette connexion est semblable au principal au niveau du serveur (**sa**), d’une instance locale de SQL Server.
+Dans la base de données SQL Azure de Microsoft, lorsque vous vous inscrivez pour bénéficier du service, le processus d’approvisionnement crée un serveur de base de données SQL Azure, une base de données nommée **master**, et une connexion, qui est le principal au niveau du serveur de votre serveur de base de données SQL Azure. Cette connexion est semblable au principal au niveau du serveur (**sa**), d’une instance locale de SQL Server. Les concepts décrits dans cette rubrique s’appliquent également à Azure SQL Data Warehouse.
 
 Le compte principal au niveau du serveur de base de données SQL Azure est autorisé à gérer l’ensemble de la sécurité au niveau du serveur et au niveau de la base de données. Cette rubrique explique comment utiliser le principal au niveau du serveur et d’autres comptes pour gérer les connexions et bases de données dans la base de données SQL
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Didacticiel sur la base de données SQL Azure : Premiers pas avec la sécurité de la base de données SQL Azure](sql-database-get-started-security.md) [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API Facebook
 Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. L’API Facebook peut être utilisée à partir de :
 
-- Logic Apps 
+- Applications logiques (abordées dans cette rubrique)
+- PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
@@ -31,7 +32,7 @@ Avec Facebook, vous pouvez effectuer les opérations suivantes :
 - Utiliser un déclencheur quand une publication est reçue.
 - Utiliser des actions pour publier dans votre journal, obtenir un flux de page et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand il y a une nouvelle publication dans votre journal, vous pouvez la transférer vers votre flux Twitter. 
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 L’API Facebook inclut les déclencheurs et les actions suivants.
@@ -48,7 +49,7 @@ Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser 
 1. Connectez-vous à votre compte Facebook.
 2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Facebook et de l’utiliser. 
 
-Après avoir créé la connexion, vous entrez les propriétés Facebook. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Facebook dans d’autres applications logiques.
 
@@ -75,7 +76,7 @@ Obtient les flux à partir du journal de l’utilisateur connecté. ```GET: /me/
 
 
 ### Publier dans mon journal
-Publier un message d’état dans le journal d’un utilisateur connecté. ```POST: /me/feed```
+Publier un message de statut dans le journal d’un utilisateur connecté. ```POST: /me/feed```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -105,7 +106,7 @@ Il n’existe aucun paramètre.
 
 
 ### Obtenir un flux de page
-Obtenir des publications à partir du flux d’une page spécifique. ```GET: /{pageId}/feed```
+Obtenir les publications du flux d’une page spécifiée. ```GET: /{pageId}/feed```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -124,7 +125,7 @@ Obtenir des publications à partir du flux d’une page spécifique. ```GET: /{p
 
 
 ### Obtenir le journal d’un utilisateur
-Obtenir des publications à partir du journal d’un utilisateur. ```GET: /{userId}/feed```
+Obtenir les publications du journal d’un utilisateur. ```GET: /{userId}/feed```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -433,6 +434,6 @@ Tout membre de ces groupes est susceptible de voir cette publication, à la diff
 
 ## Étapes suivantes
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

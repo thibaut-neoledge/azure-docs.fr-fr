@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # Informations sur les fonctionnalités et conditions de correspondance du moteur de règles CDN
 
-Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] Le moteur de règles exige le niveau CDN Premium. Pour plus d’informations sur les fonctionnalités des niveaux CDN Standard et Premium, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
+Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
 
 ## Conditions de correspondance
 
@@ -99,9 +99,11 @@ Une fonctionnalité définit le type d’action appliqué au type de requête id
 
 Ces fonctionnalités sont conçues pour contrôler l’accès au contenu.
 
+> [AZURE.NOTE] La disponibilité de l’authentification de jeton n’est pas encore généralisée, mais elle sera prise en charge dans une version ultérieure.
+
 Nom | Objectif
 -----|--------
-Refuser l’accès | Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
+Refuser l’accès | Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
 Authentification de jeton | Détermine si l’authentification basée sur les jetons est appliquée à une requête.
 Code de refus d’authentification de jeton | Détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
 Ignorer la casse de l’URL pour l’authentification de jeton | Détermine si les comparaisons d’URL effectuées par l’authentification basée sur les jetons respectent la casse.
@@ -132,7 +134,7 @@ Ignorer les plages inacceptables | Détermine la réponse à retourner aux clien
 Obsolescence maximale interne | Contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un serveur Edge quand ce serveur Edge ne parvient pas à la revalider avec le serveur d’origine.
 Partage de cache partiel | Détermine si une requête peut générer du contenu partiellement mis en cache.
 Prévalider le contenu mis en cache | Détermine si du contenu mis en cache peut faire l’objet d’une revalidation anticipée avant l’expiration de sa durée de vie.
-Actualiser les fichiers de cache de zéro octet | Détermine la façon dont nos serveurs Edge gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
+Actualiser les fichiers de cache de zéro octet | Détermine la façon dont nos serveurs Edge gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
 Définir les codes d’état pouvant être mis en cache | Définit l’ensemble des codes d’état qui peuvent générer du contenu mis en cache.
 Rendre obsolète la remise de contenu en cas d’erreur | Détermine si du contenu mis en cache qui a expiré est remis quand une erreur se produit pendant la revalidation du cache ou l’extraction du contenu demandé à partir du serveur d’origine du client.
 Rendre obsolète pendant la revalidation | Améliore les performances en permettant à nos serveurs Edge de rendre obsolète le client pour le demandeur pendant la revalidation.
@@ -156,7 +158,7 @@ Ces fonctionnalités sont conçues pour personnaliser les données stockées dan
 
 Nom | Objectif
 -----|--------
-Champ de fichier journal personnalisé 1 | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
+Champ de fichier journal personnalisé 1 | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
 Journaliser la chaîne de requête | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’accès.
 
 ### Optimisation
@@ -206,4 +208,4 @@ La fonctionnalité Pare-feu d’applications web détermine si une requête est 
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

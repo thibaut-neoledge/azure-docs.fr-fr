@@ -45,13 +45,7 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-15v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -150,6 +144,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_DS12\_v2 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 192 Mo par seconde | élevé |
 |Standard\_DS13\_v2 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 384 Mo par seconde | élevé |
 |Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 768 Mo par seconde | très élevé |
+|Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|62 500 960 Mo par seconde | très élevé |
 
 
 ** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
@@ -189,7 +184,8 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 
 ## Étapes suivantes
 
-- En savoir plus sur les [limites, quotas et contraintes des abonnements et services Azure](../articles/azure-subscription-service-limits.md).
-- En savoir plus sur [les instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
+- En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
+- En savoir plus sur l’[utilisation des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

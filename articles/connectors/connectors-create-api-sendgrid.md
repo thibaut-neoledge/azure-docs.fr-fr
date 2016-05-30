@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur SendGrid
@@ -57,9 +57,13 @@ Pour créer des applications logiques avec SendGrid, vous devez d’abord créer
 |Propriété| Requis|Description|
 | ---|---|---|
 |ApiKey|Oui|Fournir votre clé d’API SendGrid|
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+ 
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+
+Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
 ## Référence pour SendGrid
 S’applique à la version : 1.0
@@ -188,4 +192,4 @@ Ajouter un destinataire à une liste : ajouter un destinataire individuel à une
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

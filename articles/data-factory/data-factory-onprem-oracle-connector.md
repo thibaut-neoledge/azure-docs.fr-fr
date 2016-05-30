@@ -24,7 +24,7 @@ Cet article explique comment utiliser l’activité de copie Data factory pour d
 Pour permettre au service Azure Data Factory de se connecter à votre base de données Oracle locale, vous devez installer ce qui suit :
 
 - Une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md). 
-- Fournisseur de données Oracle pour .NET. Il est inclus dans [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Installez la version appropriée (32/64 bits) sur l’ordinateur hôte sur lequel la passerelle est installée. 
+- Fournisseur de données Oracle pour .NET. Il est inclus dans [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Installez la version appropriée (32/64 bits) sur l’ordinateur hôte sur lequel la passerelle est installée. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) peut accéder à Oracle Database 10g Release 2 ou version ultérieure.
 
 > [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
@@ -251,7 +251,7 @@ Dans le cas d’une activité de copie, lorsque la source est de type **OracleSo
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. 
-Par exemple : select * from MyTable <br/><br/>Si non spécifié, l’instruction SQL exécutée : select from MyTable | Non (si **tableName** de **dataset** est spécifiée)
+Par exemple : select * from MyTable <br/><br/>Si non spécifié, l’instruction SQL exécutée : select from MyTable | Non (si **tableName** de **dataset** est spécifiée)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -292,7 +292,7 @@ XML | String
 
 ## Conseils de dépannage
 
-**Problème:** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
+****Problème : ** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
 
 **Causes possibles**
 
@@ -316,4 +316,4 @@ XML | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

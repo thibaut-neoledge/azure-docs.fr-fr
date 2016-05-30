@@ -1,19 +1,19 @@
 <properties
    pageTitle="Problèmes de redémarrage ou de redimensionnement de machines virtuelles | Microsoft Azure"
    description="Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-windows"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Classique](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Gestionnaire de ressources](../articles/virtual-machines/virtual-machines-windows-arm-restart-resize-error-troubleshooting.md)
+- [Gestionnaire de ressources](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de redimensionner une machine virtuelle Azure existante, l’erreur la plus fréquemment rencontrée est un échec d’allocation. Cette erreur se produit lorsque le cluster ou la région n’ont pas de ressources disponibles ou ne prennent pas en charge la taille de machine virtuelle demandée.
 
@@ -69,16 +69,16 @@ La demande de redimensionnement de la machine virtuelle doit être exécutée su
 
 Réduisez la taille de la machine virtuelle demandée, puis relancez la demande de redimensionnement.
 
-* Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > _votre machine virtuelle_ > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
+* Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > _votre machine virtuelle_ > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
 S’il est impossible de réduire la taille de la machine virtuelle, procédez comme suit :
 
-  * Créez un service cloud en vous assurant qu’il n’est pas lié à un groupe d’affinités ni associé à un réseau virtuel lié à un groupe d’affinités.
+  * Créez un service Cloud, en vous assurant qu’il n’est pas lié à un groupe d’affinités et pas associé à un réseau virtuel lié à un groupe d’affinités.
 
   * Créez dans ce service une machine virtuelle plus volumineuse.
-  
+
 Vous pouvez consolider toutes vos machines virtuelles dans le même service cloud. Si votre service cloud existant est associé à un réseau virtuel basé sur une région, vous pouvez connecter le nouveau service cloud au réseau virtuel existant.
 
 Si le service cloud existant n’est pas associé à un réseau virtuel basé sur une région, vous devez supprimer les machines virtuelles du service cloud existant, puis les recréer dans le nouveau service cloud à partir de leurs disques. Toutefois, il est important de se rappeler que le nouveau service cloud aura un nouveau nom et une nouvelle adresse IP virtuelle. Vous devrez donc mettre à jour ces valeurs pour toutes les dépendances qui utilisent actuellement ces informations pour le service cloud existant.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

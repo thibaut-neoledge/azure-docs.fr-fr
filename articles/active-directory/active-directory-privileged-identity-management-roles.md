@@ -60,7 +60,7 @@ Si vous souhaitez autoriser un autre utilisateur à effectuer la gestion dans PI
 
 Les rôles dans Exchange Online ou SharePoint Online, à l’exception de ceux mentionnés ci-dessus, ne sont pas représentés dans Azure AD et par conséquent, ne sont pas visibles dans PIM. Pour plus d’informations sur la modification des affectations de rôles affinées dans ces services Office 365, voir [Autorisations dans Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, voir [Comment ajouter ou modifier des rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator) et pour plus d’informations sur Azure RBAC, voir [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, voir [Comment ajouter ou modifier des rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md) et, pour plus d’informations sur Azure RBAC, voir [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -87,4 +87,4 @@ L’accès à Microsoft Online Services peut nécessiter l’affectation d’une
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

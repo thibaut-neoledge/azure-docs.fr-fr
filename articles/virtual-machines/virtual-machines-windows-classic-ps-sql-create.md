@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="04/20/2016"
 	ms.author="jroth" />
 
-# Créer une machine virtuelle SQL Server dans Azure PowerShell (classique)
+# Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)
 
 ## Vue d'ensemble
 
 Cet article explique comment créer une machine virtuelle SQL Server dans Azure à l'aide des applets de commande PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de gestionnaire de ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Pour obtenir la version Resource Manager de cette rubrique, consultez [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Resource Manager)](virtual-machines-windows-ps-sql-create.md).
 
 ## Installation et configuration de PowerShell
 
@@ -168,8 +168,8 @@ Vous trouverez des instructions supplémentaires sur l’approvisionnement des m
 
 Dans de nombreux cas, l’étape suivante consiste à migrer vos bases de données vers cette nouvelle machine virtuelle SQL Server. Pour obtenir de l’aide sur la migration des bases de données, consultez [Migration d’une base de données vers un serveur SQL Server sur une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).
 
-Si vous voulez également savoir comment utiliser le portail Azure pour créer des machines virtuelles SQL, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md). Notez que le didacticiel qui vous guide à travers le portail crée des machines virtuelles en utilisant le modèle Resource Manager recommandé, plutôt que le modèle classique utilisé dans cette rubrique PowerShell.
+Si vous voulez également savoir comment utiliser le portail Azure pour créer des machines virtuelles SQL, consultez [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Notez que le didacticiel qui vous guide à travers le portail crée des machines virtuelles en utilisant le modèle Resource Manager recommandé, plutôt que le modèle classique utilisé dans cette rubrique PowerShell.
 
 Outre ces ressources, nous vous recommandons de consulter [les autres rubriques liées à l’exécution de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

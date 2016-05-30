@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestion et surveillance des sauvegardes de machines virtuelles Azure
@@ -42,7 +42,9 @@ Pour gérer des machines virtuelles protégées :
     ![Travaux](./media/backup-azure-manage-vms/backup-job.png)
 
 ## Sauvegarde à la demande d’une machine virtuelle
-Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une fois que celle-ci est configurée pour la protection. Si la sauvegarde initiale est en attente pour la machine virtuelle, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans l’archivage de sauvegarde Azure. Si la première sauvegarde est terminée, la sauvegarde à la demande envoie seulement les modifications apportées lors de la sauvegarde précédente à l’archivage de sauvegarde Azure.
+Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une fois que celle-ci est configurée pour la protection. Si la sauvegarde initiale est en attente pour la machine virtuelle, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans l’archivage de sauvegarde Azure. Si la première sauvegarde est terminée, la sauvegarde à la demande envoie seulement les modifications apportées lors de la sauvegarde précédente à l’archivage de sauvegarde Azure de manière toujours incrémentielle.
+
+>[AZURE.NOTE] La durée de rétention d’une sauvegarde à la demande est définie sur la valeur de rétention spécifiée pour la rétention quotidienne dans la stratégie de sauvegarde correspondant à la machine virtuelle.
 
 Pour créer une sauvegarde à la demande d’une machine virtuelle :
 
@@ -198,62 +200,38 @@ Pour afficher les journaux des opérations correspondant à un coffre de sauvega
     ![Détails de l'opération](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Notifications d’alerte
-Vous pouvez obtenir des notifications d’alerte personnalisées pour les travaux du portail. Pour cela, vous devez définir des règles d’alerte basées sur PowerShell sur les événements de journaux des opérations.
-
-Travail d’alertes basé sur les événements en mode ressource Azure. Basculer en mode de ressources Azure en exécutant l’applet de commande suivant en mode de commande élevé :
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Vous pouvez obtenir des notifications d’alerte personnalisées pour les travaux du portail. Pour cela, vous devez définir des règles d’alerte basées sur PowerShell sur les événements de journaux des opérations. Nous vous recommandons d’utiliser *PowerShell version 1.3.0 ou version ultérieure*.
 
 Pour définir une notification personnalisée et signaler les échecs de sauvegarde, un exemple de commande doit présenter :
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle Journaux des opérations, comme indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
 
-**EventName** : pour les alertes de sauvegarde de machines virtuelles IaaS, les valeurs prises en charge sont Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
+**OperationName** : cette valeur a le format « Microsoft.Backup/backupvault/<EventName> » où EventName peut être Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level** : les valeurs prises en charge sont Informational, Error. Pour les alertes sur l’action ayant échoué, utilisez Error et les alertes sur les travaux terminés, utilisez Informational.
-
-**OperationName** : il se présente sous le format « Microsoft.Backup/backupvault/<EventName> » où EventName est décrit ci-dessus.
-
-**État** : les valeurs prises en charge sont Démarré, Réussi et Échec. Il est conseillé de conserver le niveau Informational pour l’état Succeeded.
-
-**SubStatus** : identique à l’état des opérations de sauvegarde.
-
-**RuleType** : conservez la valeur *Event*, car les alertes de sauvegarde sont basées sur les événements.
+**État** : les valeurs prises en charge sont Démarré, Réussi et Échec.
 
 **ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
 
 **Nom** : nom de la règle d’alerte.
 
-**Description** : description de la règle d’alerte.
+**CustomEmail** : spécifiez l’adresse de messagerie personnalisée à laquelle vous voulez envoyer des notifications d’alerte.
 
-**CustomEmails** : spécifiez l’adresse de messagerie personnalisée à laquelle vous voulez envoyer des notifications d’alerte.
-
-**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement.
-
-Un message d’alerte exemple ressemble à ceci :
-
-Exemple d’en-tête :
-
-![En-tête d’alerte](./media/backup-azure-manage-vms/alert-header.png)
-
-Exemple de corps de message d’alerte :
-
-![Corps de l’alerte](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**
 
 ### Limitations sur les alertes
 Les alertes basées sur des événements sont soumises aux limitations suivantes :
 
 1. Des alertes sont déclenchées sur toutes les machines virtuelles dans le coffre de sauvegarde. Vous ne pouvez pas le personnaliser pour obtenir des alertes pour un ensemble spécifique de machines virtuelles à l’intérieur d’un coffre de sauvegarde.
-2. Les alertes sont automatiquement résolues si aucun événement d’alerte déclenché dans la durée d’alerte suivante. Utilisez le paramètre *WindowSize* dans l’applet de commande Add-AlertRule pour définir la durée de déclenchement de l’alerte.
+2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. Vous recevrez des alertes à partir de l’adresse « alerts-noreply@mail.windowsazure.com ». Actuellement, vous ne pouvez pas modifier l’expéditeur de courrier électronique. 
 
 ## Étapes suivantes
 
 - [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

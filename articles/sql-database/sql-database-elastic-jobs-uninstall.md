@@ -3,7 +3,7 @@
 	description="Désinstaller l’outil de tâche de base de données élastique" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/17/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Désinstallation des composants de Tâches de bases de données élastiques.
@@ -24,12 +24,12 @@ Les composants de **Tâches de bases de données élastiques** peuvent être dé
 1. Ouvrez le [portail Azure](https://ms.portal.azure.com/).
 2. Accédez à l'abonnement qui contient les composants de **Tâches de bases de données élastiques**, à savoir l'abonnement dans lequel les composants de Tâches de bases de données élastiques ont été installés.
 3. Cliquez sur **Parcourir** pus sur **Groupes de ressources**.
-4. Sélectionnez le groupe de ressources intitulé « \_\_ElasticDatabaseJob ».
+4. Sélectionnez le groupe de ressources intitulé « \_\_ElasticDatabaseJob ».
 5. Supprimez le groupe de ressources.
 
 ##Désinstallez les composants de Tâches de bases de données élastiques à l'aide de PowerShell
 
-1.	Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire des outils, sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x : tapez **cd tools**.
+1.	Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire des outils, sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x : tapez **cd tools**.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -38,7 +38,7 @@ Les composants de **Tâches de bases de données élastiques** peuvent être dé
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
 
-Ou exécutez simplement le script suivant, en supposant que les valeurs par défaut ont été utilisées pour l'installation des composants :
+Ou exécutez simplement le script suivant, en supposant que les valeurs par défaut ont été utilisées pour l'installation des composants :
 
 		$ResourceGroupName = "__ElasticDatabaseJob"
 		Switch-AzureMode AzureResourceManager
@@ -62,4 +62,6 @@ Pour plus d’informations concernant les tâches de bases de données élastiqu
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

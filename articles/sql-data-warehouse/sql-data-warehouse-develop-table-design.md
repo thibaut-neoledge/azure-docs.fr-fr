@@ -1,6 +1,6 @@
 <properties
    pageTitle="Conception de tables dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à la conception de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   description="Conseils relatifs à la conception de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,26 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Conception de tables dans SQL Data Warehouse #
-SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. Il stocke les données sur divers emplacements, appelés **distributions**. Chaque **distribution** est similaire à un compartiment, qui stocke un sous-ensemble unique de données dans l’entrepôt de données. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse peut proposer une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique.
+SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. Il stocke les données sur divers emplacements, appelés **distributions**. Chaque **distribution** est similaire à un compartiment, qui stocke un sous-ensemble unique de données dans l’entrepôt de données. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse propose une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique.
 
 Lorsqu’une table est créée dans SQL Data Warehouse, elle est répartie sur l’ensemble des distributions.
 
-Cet article aborde les rubriques suivantes :
+Cet article aborde les rubriques suivantes :
 
 - Types de données pris en charge
 - Principes de la distribution de données
-- Distribution par tourniquet (round robin)
+- Distribution par tourniquet (round robin)
 - Distribution par hachage
 - Partitionnement de tables
 - Statistiques
 - Fonctionnalités non prises en charge
 
 ## Types de données pris en charge
-SQL Data Warehouse prend en charge les types de données métiers les plus courants :
+SQL Data Warehouse prend en charge les types de données métiers les plus courants :
 
 - **bigint**
 - **binary**
@@ -52,12 +52,14 @@ SQL Data Warehouse prend en charge les types de données métiers les plus coura
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
-Dans votre entrepôt de données, vous pouvez identifier les colonnes qui contiennent des types incompatibles, via la requête suivante :
+Dans votre entrepôt de données, vous pouvez identifier les colonnes qui contiennent des types incompatibles, via la requête suivante :
 
 ```sql
 SELECT  t.[name]
@@ -75,68 +77,59 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
 
-La requête inclut les types de données définis par l’utilisateur qui ne sont pas pris en charge.
-
-Voici certaines alternatives que vous pouvez utiliser à la place des types de données non pris en charge.
+La requête inclut les types de données définis par l’utilisateur qui ne sont pas pris en charge. Voici certaines solutions que vous pouvez utiliser à la place des types de données non pris en charge.
 
 Au lieu du paramètre...
 
-- **geometry** : utilisez un type « varbinary » ;
-- **geography** : utilisez un type « varbinary » ;
-- **hierarchyid** : utilisez un type CLR non natif ;
-- **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
-- **nvarchar(max)** : utilisez le paramètre « nvarchar (4000) » ou une valeur inférieure pour optimiser les performances ;
-- **numeric** : utilisez une valeur décimale ;
-- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
-- **sysname** : utilisez le paramètre « nvarchar (128) » ;
-- **table** : appliquez une conversion vers des tables temporaires ;
-- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre BINARY(8) ou VARBINARY(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
-- **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
-- **uniqueidentifier** : utilisez le paramètre « varbinary (8) » ;
-- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
-- **xml** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ; répartissez les valeurs sur plusieurs colonnes, le cas échéant.
+- **geometry** : utilisez un type « varbinary » ;
+- **geography** : utilisez un type « varbinary » ;
+- **hierarchyid** : utilisez un type CLR non natif ;
+- **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
+- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
+- **table** : appliquez une conversion vers des tables temporaires ;
+- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre BINARY(8) ou VARBINARY(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
+- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
+- **xml** : utilisez la valeur varchar(max) ou une valeur inférieure pour optimiser les performances
 
-Prise en charge partielle :
+Pour optimiser les performances, au lieu de :
+
+- **nvarchar(max)** : utilisez le paramètre « nvarchar (4000) » ou une valeur inférieure pour optimiser les performances ;
+- **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
+
+Prise en charge partielle :
 
 - Les contraintes par défaut prennent uniquement en charge des littéraux et des constantes. Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge.
 
-> [AZURE.NOTE] Définissez les tables de façon à ce que la taille de ligne maximale (y compris la longueur totale des colonnes à longueur variable) ne dépasse pas 32 767 octets. Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette valeur maximale. Toutefois, vous ne pourrez pas insérer ces données dans la table. Essayez également de limiter la taille de vos colonnes à longueur variable, afin d’optimiser le débit lors de l’exécution des requêtes.
+> [AZURE.NOTE] Si vous utilisez PolyBase pour charger vos tables, définissez ces dernières de sorte que la taille de ligne maximale (longueur totale des colonnes à longueur variable comprise) ne dépasse pas 32 767 octets. Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette valeur maximale, et charger des lignes avec BCP. Toutefois, vous ne pouvez pas encore utiliser PolyBase pour charger ces données. La prise en charge de PolyBase pour les lignes larges sera bientôt disponible. Essayez également de limiter la taille de vos colonnes à longueur variable, afin d’optimiser le débit lors de l’exécution des requêtes.
 
 ## Principes de la distribution de données
 
-Il existe deux moyens de distribuer les données dans SQL Data Warehouse :
+Il existe deux moyens de distribuer les données dans SQL Data Warehouse :
 
 1. Vous pouvez les distribuer de manière équitable, mais aléatoire.
 2. Vous pouvez distribuer les données en fonction des valeurs de hachage d’une colonne unique.
 
 Le type de distribution des données est déterminé au niveau de la table. Toutes les tables sont distribuées. Vous allez attribuer une distribution pour chaque table de votre base de données SQL Data Warehouse.
 
-La première option porte le nom de **distribution par tourniquet (round robin)**, ou hachage aléatoire, dans certains cas. Il s’agit de l’option par défaut, ou sans échec.
+La première option porte le nom de **distribution par tourniquet (round robin)**, ou hachage aléatoire, dans certains cas. Il s’agit de l’option par défaut, ou sans échec.
 
 La deuxième option est qualifiée de **distribution par hachage**. On peut la considérer comme une forme de distribution des données optimisée. Il s’agit de l’option par défaut lorsque des clusters de tables partagent des critères d’agrégation et/ou d’association communs.
 
-## Distribution par tourniquet (round robin)
+## Distribution par tourniquet (round robin)
 
-Ce type de distribution permet de répartir les données de manière aussi équitable que possible, pour toutes les distributions. Des mémoires tampons contenant des lignes de données sont allouées tour à tour (d’où l’idée de tourniquet) à chaque distribution. Ce processus est répété jusqu’à ce que toutes les mémoires tampons de données aient été allouées. À aucun moment les données ne sont triées ni classées dans une table avec distribution par tourniquet (round robin). C’est pour cette raison que ce type de distribution est parfois appelé « hachage aléatoire ». Les données sont réparties sur les distributions, de manière aussi uniforme que possible.
+Ce type de distribution permet de répartir les données de manière aussi équitable que possible, pour toutes les distributions. Des mémoires tampons contenant des lignes de données sont allouées tour à tour (d’où l’idée de tourniquet) à chaque distribution. Ce processus est répété jusqu’à ce que toutes les mémoires tampons de données aient été allouées. À aucun moment les données ne sont triées ni classées dans une table avec distribution par tourniquet (round robin). C’est pour cette raison que ce type de distribution est parfois appelé « hachage aléatoire ». Les données sont réparties sur les distributions, de manière aussi uniforme que possible.
 
-Voici un exemple de table avec distribution par tourniquet (round robin) :
+Voici un exemple de table avec distribution par tourniquet (round robin) :
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -156,7 +149,7 @@ WITH
 ;
 ```
 
-En voici un autre :
+En voici un autre :
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -175,9 +168,9 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE] Comme vous pouvez le constater, le deuxième exemple ne fait mention d’aucune clé de distribution. Le type de distribution par tourniquet (round robin) est le type par défaut ; par conséquent, il n’est pas absolument nécessaire. Toutefois, comme il est explicite, il constitue une bonne pratique, car il permet de garantir que vos pairs sont avertis de vos intentions lorsque vous révisez la conception de la table.
+> [AZURE.NOTE] Comme vous pouvez le constater, le deuxième exemple ne fait mention d’aucune clé de distribution. Le type de distribution par tourniquet (round robin) est le type par défaut ; par conséquent, il n’est pas absolument nécessaire. Toutefois, comme il est explicite, il constitue une bonne pratique, car il permet de garantir que vos pairs sont avertis de vos intentions lorsque vous révisez la conception de la table.
 
-Ce type de table est couramment utilisé lorsqu’il n’existe aucune colonne clé évidente selon laquelle hacher les données. Il peut également être utilisé par des tables plus petites ou moins importantes lorsque le coût du mouvement n’est pas très intéressant.
+Ce type de table est couramment utilisé lorsqu’il n’existe aucune colonne clé évidente selon laquelle hacher les données. Il peut également être utilisé par des tables plus petites ou moins importantes lorsque le coût du mouvement n’est pas très intéressant.
 
 Le processus de chargement des données dans une table avec distribution par tourniquet (round robin) peut être plus rapide qu’une opération de chargement dans une table avec distribution par hachage. Dans le cas d’une table avec distribution par tourniquet (round robin), il n’est pas nécessaire de comprendre la nature des données ou d’exécuter le hachage avant le chargement. Pour cette raison, ce type de table représente souvent une cible de chargement adéquate.
 
@@ -185,23 +178,23 @@ Le processus de chargement des données dans une table avec distribution par tou
 
 ### Recommandations
 
-Vous pouvez envisager une distribution par tourniquet (round robin) des données de votre table dans les cas suivants :
+Vous pouvez envisager une distribution par tourniquet (round robin) des données de votre table dans les cas suivants :
 
-- lorsqu’il n’existe aucune clé de jointure évidente ;
-- si vous ne connaissez pas la clé de distribution du candidat au hachage ;
-- si la table ne partage aucune clé de jointure commune avec d’autres tables ;
-- si la jointure est moins importante que d’autres dans la requête ;
+- lorsqu’il n’existe aucune clé de jointure évidente ;
+- si vous ne connaissez pas la clé de distribution du candidat au hachage ;
+- si la table ne partage aucune clé de jointure commune avec d’autres tables ;
+- si la jointure est moins importante que d’autres dans la requête ;
 - si la table correspond à une table de chargement initial.
 
 ## Distribution par hachage
 
-Ce type de distribution exploite une fonction interne pour répartir un jeu de données sur les distributions, via le hachage d’une colonne unique. Lorsque les données sont hachées, aucun ordre explicite n’est attribué aux données allouées à une distribution. Toutefois, le hachage est un processus déterministe. De ce fait, les résultats du hachage sont prévisibles. Ainsi, le hachage d’une colonne de nombres entiers contenant la valeur 10 aura pour résultat la même valeur de hachage. Cela signifie que ***n’importe quelle*** colonne de nombres entiers hachée contenant la valeur 10 sera allouée à la même distribution. Il s’agit d’un état de fait également valable d’une table à l’autre.
+Ce type de distribution exploite une fonction interne pour répartir un jeu de données sur les distributions, via le hachage d’une colonne unique. Lorsque les données sont hachées, aucun ordre explicite n’est attribué aux données allouées à une distribution. Toutefois, le hachage est un processus déterministe. De ce fait, les résultats du hachage sont prévisibles. Ainsi, le hachage d’une colonne de nombres entiers contenant la valeur 10 aura pour résultat la même valeur de hachage. Cela signifie que ***n’importe quelle*** colonne de nombres entiers hachée contenant la valeur 10 sera allouée à la même distribution. Il s’agit d’un état de fait également valable d’une table à l’autre.
 
 Le côté prévisible du hachage joue un rôle critique. Il signifie que la distribution par hachage des données peut permettre d’améliorer les performances lors de la lecture des données et de la jointure des tables les unes avec les autres.
 
 Comme vous le verrez ci-dessous, la distribution par hachage peut être très efficace pour l’optimisation des requêtes. C’est pour cette raison qu’on la considère comme une forme de distribution des données optimisée.
 
-> [AZURE.NOTE] N’oubliez pas que le hachage n’est pas basé sur la valeur des données, mais plutôt sur le type des données hachées.
+> [AZURE.NOTE] N’oubliez pas Le hachage ne repose pas uniquement sur la valeur des données. C’est une combinaison de la valeur et du type de données.
 
 Voici une table dont les données ont été distribuées par hachage, via le paramètre ProductKey.
 
@@ -226,7 +219,7 @@ WITH
 > [AZURE.NOTE] Lorsqu’elles font l’objet d’une distribution par hachage, les données sont allouées à la distribution au niveau de la ligne.
 
 ## Partitions de table
-Les partitions de table sont prises en charge ; elles sont simples à définir.
+Les partitions de table sont prises en charge ; elles sont simples à définir.
 
 Exemple de commande `CREATE TABLE` partitionnée par SQL Data Warehouse :
 
@@ -254,7 +247,7 @@ WITH
 ;
 ```
 
-Vous pouvez constater qu’aucun schéma ou fonction de partitionnement ne figure dans la définition. En effet, ces paramètres sont pris en charge lorsque la table est créée. Il vous suffit d’identifier les points limites de la colonne qui servira de clé de partitionnement.
+Vous pouvez constater qu’aucun schéma ou fonction de partitionnement ne figure dans la définition. SQL Data Warehouse utilise une définition simplifiée de partitions qui diffère légèrement de celle de SQL Server. Il vous suffit d’identifier les points limites de la colonne partitionnée.
 
 ## Statistiques
 
@@ -264,46 +257,49 @@ Les statistiques sont conservées dans une ou plusieurs colonnes d’index ou de
 
 Dans SQL Data Warehouse, les statistiques figurant dans les colonnes sont définies par l’utilisateur.
 
-Nous devons donc les créer nous-mêmes. Comme nous l’avons vu, ce processus de création ne doit pas être négligé. Les logiciels SQL Server et SQL Data Warehouse sont très différents à ce niveau : SQL Server crée automatiquement des statistiques en cas de requête portant sur des colonnes. Par défaut, SQL Server met automatiquement ces statistiques à jour. Toutefois, dans SQL Data Warehouse, les statistiques doivent être créées manuellement, et gérées à la main.
+Nous devons donc les créer nous-mêmes. Comme nous l’avons vu, ce processus de création ne doit pas être négligé. Les logiciels SQL Server et SQL Data Warehouse sont très différents à ce niveau : SQL Server crée automatiquement des statistiques en cas de requête portant sur des colonnes. Par défaut, SQL Server met automatiquement ces statistiques à jour. Toutefois, dans SQL Data Warehouse, les statistiques doivent être créées manuellement, et gérées à la main.
 
 ### Recommandations
 
-Lorsque vous générez des statistiques, tenez compte des recommandations suivantes :
+Lorsque vous générez des statistiques, tenez compte des recommandations suivantes :
 
 1. Créez des statistiques à une colonne sur les colonnes utilisées dans les clauses `WHERE`, `JOIN`, `GROUP BY`, `ORDER BY` et `DISTINCT`.
 2. Générez des statistiques à plusieurs colonnes sur les clauses composites.
-3. Mettez les statistiques à jour régulièrement. Rappelez-vous : ce processus n’est pas effectué automatiquement !
+3. Mettez les statistiques à jour régulièrement. Rappelez-vous : ce processus n’est pas effectué automatiquement !
 
->[AZURE.NOTE] Bien souvent, SQL Data Warehouse s’appuie uniquement sur le paramètre `AUTOSTATS` pour vérifier que les statistiques des colonnes sont à jour. Ce n’est pas une meilleure pratique, même dans le cas d’entrepôts de données SQL Server. Les `AUTOSTATS` sont déclenchés par un taux de changement de 20 %, ce qui peut être insuffisant dans les tables de faits volumineuses qui contiennent des millions, voire des milliards de lignes. Ainsi, il est toujours judicieux de s’assurer de la mise à jour des statistiques, afin de garantir que ces dernières reflètent de manière précise la cardinalité de la table.
+>[AZURE.NOTE] Bien souvent, SQL Data Warehouse s’appuie uniquement sur le paramètre `AUTOSTATS` pour vérifier que les statistiques des colonnes sont à jour. Ce n’est pas une meilleure pratique, même dans le cas d’entrepôts de données SQL Server. Les `AUTOSTATS` sont déclenchés par un taux de changement de 20 %, ce qui peut être insuffisant dans les tables de faits volumineuses qui contiennent des millions, voire des milliards de lignes. Ainsi, il est toujours judicieux de s’assurer de la mise à jour des statistiques, afin de garantir que ces dernières reflètent de manière précise la cardinalité de la table.
 
 ## Fonctionnalités non prises en charge
-SQL Data Warehouse n’utilise ou ne prend pas en charge les fonctionnalités suivantes :
+SQL Data Warehouse n’utilise ou ne prend pas en charge les fonctionnalités suivantes :
 
-- Clés primaires
-- Clés étrangères
-- Contraintes CHECK
-- Contraintes uniques
-- Index uniques
-- Colonnes calculées
-- Colonnes éparses
-- Types définis par l’utilisateur
-- Vues indexées
-- Identités
-- Séquences
-- Déclencheurs
-- Synonymes
-
+| Fonctionnalité | Solution de contournement |
+| --- | --- |
+| Identités | [Affectation des clés de substitution] |
+| Clés primaires | N/A |
+| Clés étrangères | N/A |
+| Contraintes CHECK | N/A |
+| Contraintes uniques | N/A |
+| Index uniques | N/A |
+| Colonnes calculées | N/A |
+| Colonnes éparses | N/A |
+| Types définis par l’utilisateur | N/A |
+| Vues indexées | N/A |
+| Séquences | N/A |
+| Déclencheurs | N/A |
+| Synonymes | N/A |
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][]. Pour obtenir des conseils sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[Affectation des clés de substitution]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Meilleures pratiques relatives à SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

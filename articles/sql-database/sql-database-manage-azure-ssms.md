@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Gestion d’une base de données SQL avec SSMS | Microsoft Azure" 
+	pageTitle="Gestion d’une base de données SQL avec SSMS | Microsoft Azure" 
 	description="Découvrez comment utiliser SQL Server Management Studio pour gérer des serveurs et les bases de données de la base de données SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
 # Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio 
@@ -25,17 +25,19 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs logiques et les bases de données Azure SQL. Cette rubrique vous présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur logique et d’une base de données créés dans Azure SQL. Pour plus d’informations sur la façon de se connecter, puis d’exécuter une requête SELECT simple, consultez [Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide d’exemples de données et du portail Azure](sql-database-get-started.md) et [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
+Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs logiques et les bases de données Azure SQL. Cette rubrique vous présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur logique et d’une base de données créés dans Azure SQL. Pour plus d’informations sur la façon de se connecter, puis d’exécuter une requête SELECT simple, consultez [Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide d’exemples de données et du portail Azure](sql-database-get-started.md) et [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 
-Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. Pour l’obtenir, accédez à [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL.
 
-## Créer et gérer les bases de données Azure SQL
+> [AZURE.IMPORTANT] Vous devez utiliser la dernière version de SQL Server Management Studio (SSMS) afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. Une version antérieure de SSMS ne fonctionnera pas correctement avec la base de données SQL. Pour obtenir cette version, consultez la page de [téléchargement de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+## Créer et gérer les bases de données Azure SQL
 
 Lorsque vous êtes connecté à la base de données **principale**, vous pouvez créer des bases de données sur le serveur et modifier ou supprimer les bases de données existantes. La procédure ci-dessous décrit la façon d’accomplir plusieurs tâches courantes de gestion de base de données par le biais de Management Studio. Pour effectuer ces tâches, vérifiez que vous êtes connecté à la base de données **principale** avec la connexion principale de niveau serveur que vous avez créée lors de la configuration de votre serveur.
 
 Pour ouvrir une fenêtre de requête dans Management Studio, ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **master**, puis cliquez sur **Nouvelle requête**.
 
--   Utilisez l’instruction **CREATE DATABASE** pour créer une base de données. Pour plus d'informations, consultez la rubrique [CREATE DATABASE (Base de données SQL)](https://msdn.microsoft.com/library/dn268335.aspx). L’instruction ci-dessous crée une base de données appelée **myTestDB** et spécifie qu’il s’agit d’une base de données Standard S0 Edition d’une taille maximale de 250 Go.
+-   Utilisez l’instruction **CREATE DATABASE** pour créer une base de données. Pour plus d'informations, consultez la rubrique [CREATE DATABASE (Base de données SQL)](https://msdn.microsoft.com/library/dn268335.aspx). L’instruction ci-dessous crée une base de données appelée **myTestDB** et spécifie qu’il s’agit d’une base de données Standard S0 Edition d’une taille maximale de 250 Go.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
@@ -53,7 +55,7 @@ Cliquez sur **Exécuter** pour exécuter la requête.
 
         DROP DATABASE myTestBase;
 
--   La base de données principale dispose d’une vue **sys.databases** vous permettant d’afficher des informations sur toutes les bases de données. Pour afficher toutes les bases de données existantes, exécutez l’instruction suivante :
+-   La base de données principale dispose d’une vue **sys.databases** vous permettant d’afficher des informations sur toutes les bases de données. Pour afficher toutes les bases de données existantes, exécutez l’instruction suivante :
 
         SELECT * FROM sys.databases;
 
@@ -72,7 +74,7 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
 -   Utilisez l’instruction **CREATE USER** pour octroyer des autorisations au niveau de la base de données. Toutes les connexions doivent être créées dans la base de données **principale**, mais pour qu’une connexion permette d’accéder à une autre base de données, vous devez lui octroyer des autorisations de niveau de base de données en utilisant l’instruction **CREATE USER** dans cette base de données. Pour plus d'informations, consultez [CREATE USER (Base de données SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
--   Pour fournir à connexion1 des autorisations d’accès à une base de données appelée **maBDTest**, procédez comme suit :
+-   Pour fournir à connexion1 des autorisations d’accès à une base de données appelée **maBDTest**, procédez comme suit :
 
  1.  Pour actualiser l'Explorateur d'objets de façon à voir la base de données **myTestDB** que vous venez de créer, cliquez avec le bouton droit sur le nom du serveur dans l'Explorateur d'objets, puis cliquez sur **Actualiser**.  
 
@@ -100,7 +102,7 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
         DROP LOGIN login1;
 
--   La base de données principale dispose d’une vue **sys.sql\_logins** vous permettant d’afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l’instruction suivante :
+-   La base de données principale dispose d’une vue **sys.sql\_logins** vous permettant d’afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l’instruction suivante :
 
         SELECT * FROM sys.sql_logins;
 
@@ -108,16 +110,16 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
 La base de données SQL prend en charge plusieurs vues de gestion dynamique vous permettant de surveiller une base de données individuelle. Voici quelques exemples du type de données de surveillance que vous pouvez récupérer au moyen de ces vues. Pour plus d'informations et pour obtenir d'autres exemples d’utilisation, consultez [Surveillance d’une base de données SQL Azure à l’aide de vues de gestion dynamique](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
--   L’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE**. Pour octroyer l’autorisation **VIEW DATABASE STATE** à un utilisateur de base de données spécifique, connectez-vous à la base de données que vous voulez gérer avec votre connexion de principe de niveau serveur et exécutez l’instruction suivante dans la base de données :
+-   L’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE**. Pour octroyer l’autorisation **VIEW DATABASE STATE** à un utilisateur de base de données spécifique, connectez-vous à la base de données que vous voulez gérer avec votre connexion de principe de niveau serveur et exécutez l’instruction suivante dans la base de données :
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calculez la taille de la base de données au moyen de la vue **sys.dm\_db\_partition\_stats**. La vue **sys.dm\_db\_partition\_stats** renvoie les informations de page et de nombre de lignes pour chaque partition de la base de données, vous permettant de calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
+-   Calculez la taille de la base de données au moyen de la vue **sys.dm\_db\_partition\_stats**. La vue **sys.dm\_db\_partition\_stats** renvoie les informations de page et de nombre de lignes pour chaque partition de la base de données, vous permettant de calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Utilisez les vues **sys.dm\_exec\_connections** et **sys.dm\_exec\_sessions** pour extraire les informations concernant les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
+-   Utilisez les vues **sys.dm\_exec\_connections** et **sys.dm\_exec\_sessions** pour extraire les informations concernant les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
 
         SELECT
             e.connection_id,
@@ -149,4 +151,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
  
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux" 
-	description="Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS." 
+	pageTitle="Vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services" 
+	description="Cette rubrique fournit une vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,239 +13,133 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
-	ms.author="cenkdin;juliako"/>
+	ms.date="05/17/2016"
+	ms.author="juliako"/>
 
-#Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
+#Vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services
 
 ##Vue d'ensemble
 
-Dans Azure Media Services, un **canal** représente un pipeline de traitement du contenu de diffusion dynamique. Un **canal** reçoit des flux d’entrée dynamiques de l’une des manières suivantes :
+La diffusion d’événements en flux continu avec Azure Media Services implique généralement les composants suivants :
 
-- Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Votre encodeur live peut également envoyer un flux à débit binaire unique, mais ceci n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+- Une caméra utilisée pour diffuser un événement.
+- Un encodeur vidéo live qui convertit les signaux de la caméra en flux de données qui sont envoyés vers un service de vidéo en flux continu.
 
-
-Le diagramme suivant illustre un workflow de vidéo en flux continu utilisant un encodeur dynamique local pour produire des flux à débit binaire multiple au format MP4 fragmenté (Smooth Streaming) ou RMTP.
-
-![Flux de travail en direct][live-overview]
-
-Cette rubrique couvre les sujets suivants :
-
-- [Scénario courant de diffusion dynamique en continu](media-services-manage-channels-overview.md#scenario)
-- [Description d’un canal et de ses composants associés](media-services-manage-channels-overview.md#channel)
-- [Considérations](media-services-manage-channels-overview.md#considerations)
-- [Tâches liées à la diffusion dynamique en continu](media-services-manage-channels-overview.md#tasks)
-
-##<a id="scenario"></a>Scénario courant de diffusion dynamique en continu
-Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de vidéo en flux continu.
-
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté (Smooth Streaming) ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+	Éventuellement, plusieurs encodeurs live synchronisés. Pour certains événements en direct critiques qui exigent une disponibilité et une qualité d’expérience très élevées, nous vous recommandons d’utiliser des encodeurs redondants en mode actif-actif avec synchronisation date/heure pour obtenir un basculement transparent sans perte de données.
+- Service de vidéo en flux continu qui vous permet d’effectuer les opérations suivantes :
 	
-	Cette étape peut également être effectuée après la création du canal.
+	- Recevoir du contenu en direct à l’aide de différents protocoles de diffusion de vidéo en flux continu (par exemple RTMP ou Smooth Streaming)
+	- Encoder votre flux en flux à débit adaptatif (facultatif)
+	- Afficher un aperçu de votre flux live
+	- Enregistrer et stocker le contenu ingéré pour le diffuser ultérieurement (vidéo à la demande)
+	- Fournir le contenu via des protocoles de diffusion communs (par exemple, MPEG DASH, Smooth, TLS, HDS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire
 
-1. Créez et démarrez un canal.
-1. Récupérez l’URL de réception du canal. 
 
-	L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
-1. Récupérez l’URL d’aperçu du canal. 
+**Microsoft Azure Media Services** (AMS) offre la possibilité de recevoir, d’encoder, d’afficher, de stocker et de distribuer votre contenu vidéo en flux continu.
 
-	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+Quand vous distribuez votre contenu aux clients, votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour ce faire, utilisez les encodeurs live pour encoder votre flux dans un flux vidéo à débit binaire multiple (débit binaire adaptatif). Pour prendre en charge la diffusion en continu sur différents appareils, utilisez l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md) Media Services pour empaqueter de manière dynamique votre flux dans différents protocoles. Media Services prend en charge la distribution des technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-3. Créez un programme.
+Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
 
-	Lors de l’utilisation du portail Azure Classic, la création d’un programme crée également un élément multimédia.
+Un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un canal peut recevoir des flux d’entrée live de l’une des manières suivantes :
 
-	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
-1. Publiez la ressource associée au programme.   
+- Un encodeur live local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple, configuré pour une remise **pass-through** (directe). Avec la remise **pass-through**, les flux ingérés transitent par les **canaux** sans traitement supplémentaire. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
-	Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-1. Supprimez le programme (et éventuellement la ressource).     
-
-La section [Tâches de diffusion en continu dynamique](media-services-manage-channels-overview.md#tasks) offre des liens vers des rubriques expliquant comment effectuer les tâches décrites ci-dessus.
-
-##<a id="channel"></a>Description d’un canal et de ses composants associés
-
-###<a id="channel_input"></a>Configurations de l’entrée (réception) des canaux
-
-####<a id="ingest_protocols"></a>Protocole de diffusion en continu de réception
-
-Media Services prend en charge la réception des flux dynamiques à l’aide des protocoles de diffusion en continu suivants :
-
-- **MP4 fragmenté à débit binaire multiple**
- 
-- **RTMP à débit binaire multiple**
-
-	Lorsque le protocole de diffusion en continu de réception **RTMP** est sélectionné, deux points de terminaison de réception (entrée) sont créés pour le canal :
+	>[AZURE.NOTE] La méthode pass-through est le moyen le plus économique de diffuser des vidéos en continu si plusieurs événements vous concernent sur une longue période, et si vous avez déjà investi dans des encodeurs locaux. Consultez les détails de la [tarification](/pricing/details/media-services/).
 	
-	**URL principale** : spécifie l’URL complète du point de terminaison de réception RTMP principal du canal.
-
-	**URL secondaire** : spécifie l’URL complète du point de terminaison de réception RTMP secondaire du canal.
-
-
-	Utilisez l’URL secondaire si vous désirez améliorer la durabilité et la tolérance de panne de votre flux de réception, ainsi que le basculement et la tolérance de panne de l’encodeur, tout spécialement dans les scénarios suivants.
-
-	- Double envoi d’encodeur unique vers des URL principales et secondaires :
 	
-		L’objectif principal de ce scénario est d’améliorer la résilience des fluctuations et gigues du réseau. Certains codeurs RTMP ne gèrent pas correctement les déconnexions du réseau. En cas de déconnexion du réseau, un encodeur peut arrêter le codage et ne plus envoyer les données en mémoire tampon lorsque la reconnexion se produit, ce qui provoque parfois des discontinuités et des pertes de données. La déconnexion du réseau peut être due à un problème de réseau ou une maintenance côté Azure. Les URL principales et secondaires réduisent les problèmes de réseau et fournissent également un processus de mise à niveau contrôlé. Chaque fois qu’une déconnexion réseau planifiée se produit, Media Services gère la déconnexion principale et secondaire et décale la déconnexion entre les deux, ce qui permet aux encodeurs d’avoir suffisamment de temps pour envoyer des données, puis se reconnecter. L’ordre de la déconnexion peut être aléatoire, mais il y aura toujours un délai entre la déconnexion principale et la déconnexion secondaire. Dans ce scénario, l’encodeur est toujours le point de défaillance unique.
-	 
-	- Plusieurs encodeurs, chaque encodeur envoyant les données vers un point dédié :
-		
-		Ce scénario met en place une redondance d’encodeurs et d’ingestion. Dans ce scénario, l’encodeur 1 envoie les données à l’URL principale et l’encodeur 2 envoie les données à l’URL secondaire. Si un encodeur tombe en panne, l’autre peut toujours continuer à envoyer les données. La redondance des données peut toujours être maintenue car Media Services ne déconnecte pas les URL principale et secondaire en même temps. Ce scénario part du principe que les encodeurs sont synchronisés et envoient exactement les mêmes données.
- 
-	- Double envoi de plusieurs encodeurs vers des URL principales et secondaires :
-	
-		Dans ce scénario, les deux encodeurs envoient des données aux URL principales et secondaires. Cela améliore la fiabilité et la tolérance de panne, ainsi que la redondance des données. Ce scénario peut tolérer une panne des deux encodeurs, ainsi que des déconnexions, même si l’un des encodeurs cesse de fonctionner. Ce scénario part du principe que les encodeurs sont synchronisés et envoient exactement les mêmes données.
+- Un encodeur live envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage live avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le format RTP (MPEG-TS) est également pris en charge, à condition de disposer d’une connexion dédiée au centre de données Azure. Les encodeurs live suivants avec sortie RTMP fonctionnent avec des canaux de ce type : Telestream Wirecast, FMLE. Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
-Pour plus d’informations sur les encodeurs dynamiques RTMP, consultez la page [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Les considérations suivantes s'appliquent :
+À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
-- Assurez-vous que vous disposez d’une connectivité Internet libre suffisante pour envoyer des données aux points de réception. 
-- L’utilisation d’une URL de réception secondaire nécessite de la bande passante supplémentaire. 
-- Le flux à débit binaire multiple entrant peut présenter un maximum de 10 niveaux de qualité vidéo (également appelés couches) et un maximum de 5 pistes audio.
-- Le débit binaire moyen le plus élevé pour les niveaux ou couches de qualité vidéo doit être inférieur à 10 Mbit/s.
-- La somme des débits binaires moyens de tous les flux vidéo et audio doit être inférieure à 25 Mbit/s.
-- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
-- Vous pouvez recevoir un flux à débit binaire unique dans votre canal, mais comme le flux de données n’est pas traité par le canal, les applications clientes recevront également un flux à débit binaire unique (cette option n’est pas recommandée).
+- **Aucun** (pass-through) : indiquez cette valeur si vous envisagez d’utiliser un encodeur live local qui produira des flux à débit binaire multiple (un flux pass-through). Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10.  
 
-####URL (points de terminaison) de réception 
+- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit binaire unique en flux à débit binaire multiple. Cette méthode est plus économique pour une mise à l’échelle rapide pour les événements peu fréquents. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
-Un canal fournit un point de terminaison d’entrée (URL de réception) que vous spécifiez dans l’encodeur dynamique pour que ce dernier puisse transmettre les flux à vos canaux.
+##Comparaison des types de canaux
 
-Vous pouvez obtenir les URL de réception lors de la création du canal. Pour les obtenir, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**. Lorsque vous êtes prêt à commencer l’envoi de données dans le canal, ce dernier doit être à l’état **En cours d’exécution**. Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux via l’URL d’aperçu.
+Le tableau suivant fournit un guide de comparaison des deux types de canaux pris en charge dans Media Services
 
-Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS. Il n’est pas possible de recevoir un flux RTMP via SSL pour le moment.
-
-####<a id="keyframe_interval"></a>Intervalle d’image clé
-
-Lorsque vous utilisez un encodeur dynamique local pour générer un flux à débit binaire multiple, l’intervalle d’image clé spécifie la durée du GOP (tel qu’il est utilisé par cet encodeur externe). Une fois ce flux entrant reçu par le canal, vous pouvez distribuer votre flux dynamique aux applications de lecture clientes dans un des formats suivants : Smooth Streaming, DASH et HLS. Lors de la diffusion en continu, TLS est toujours empaquetée de façon dynamique. Par défaut, Media Services calcule automatiquement le coefficient d’empaquetage de segment HLS (fragments par segment) en fonction de l’intervalle d’image clé, également appelé groupe d’images (GOP), reçu de l’encodeur dynamique.
-
-Le tableau suivant montre le mode de calcul de la durée du segment :
-
-Intervalle d’image clé|Coefficient d’empaquetage de segment HLS (FragmentsPerSegment)|Exemple
+Fonctionnalité|Canal pass-through|Canal standard
 ---|---|---
-Inférieur ou égal à 3 secondes|3|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 2 secondes, le coefficient d’empaquetage de segment HLS est égal à 3, ce qui a pour effet de créer un segment HLS de 6 secondes.
-3 à 5 secondes|2:1|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 4 secondes, le coefficient d’empaquetage de segment HLS est égal à 2 pour 1, ce qui a pour effet de créer un segment HLS de 8 secondes.
-Supérieur à 5 secondes|1:1|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 6 secondes, le coefficient d’empaquetage de segment HLS est égal à 1, ce qui a pour effet de créer un segment HLS de 6 secondes.
+L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud|Non|Oui
+Résolution maximale, nombre de couches|1080p, 8 couches, plus de 60 i/s|720p, 6 couches, 30 i/s
+Protocoles d’entrée|RTMP, Smooth Streaming|RTMP, Smooth Streaming et RTP
+Prix|Consultez la [page de tarification](/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|Consultez la [page de tarification](/pricing/details/media-services/) 
+Durée maximale|24 x 7|8 heures
+Prise en charge de l’insertion d’ardoises|Non|Oui
+Prise en charge de la signalisation des annonces|Non|Oui
+Légendes CEA 608/708 pass-through|Oui|Oui
+Capacité de récupération suite à de brèves interruptions du flux de contribution|Oui|Non (défaillance du canal après plus de six secondes sans données d’entrée)
+Prise en charge des groupes d’images d’entrée non uniformes|Oui|Non. L’entrée doit être constituée de groupes d’images fixes de deux secondes
+Prise en charge de l’entrée à fréquence d’images variable|Oui|Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde.
+Auto-fermeture des canaux en cas de perte du flux d’entrée|Non|Après 12 heures si aucun programme n’est en cours d’exécution 
+
+##Utilisation de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux (pass-through)
+
+Le diagramme suivant présente les principaux composants de la plateforme AMS impliqués dans ce flux de travail **pass-through**.
+
+![Flux de travail live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+
+Pour plus d’informations, consultez [Utilisation de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
+
+##Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
+
+Le schéma suivant illustre les principales parties de la plateforme AMS impliquées dans le flux de travail de vidéo en flux continu où un canal est activé pour effectuer un encodage live avec Media Services.
+
+![Flux de travail live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
+
+Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+
+##Description d’un canal et de ses composants associés
+
+###Canal
+
+Dans Media Services, les [canaux](https://msdn.microsoft.com/library/azure/dn783458.aspx) sont responsables du traitement du contenu de vidéo en flux continu. Un canal fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un transcodeur live. Le canal reçoit des flux d’entrée live en provenance du transcodeur et les met à disposition pour la diffusion en continu via un ou plusieurs StreamingEndpoints. Les canaux fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires.
+
+Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la création du canal. Pour obtenir ces URL, il n’est pas obligatoire que le canal soit à l’état démarré. Lorsque vous êtes prêt à commencer l’envoi de données à partir d’un transcodeur live dans le canal, celui-ci doit être démarré. Une fois que le transcodeur live a commencé l’ingestion des données, vous pouvez prévisualiser votre flux.
+
+Chaque compte Media Services peut contenir plusieurs canaux, plusieurs programmes et plusieurs StreamingEndpoints. Selon les besoins en matière de bande passante et de sécurité, les services StreamingEndpoint peuvent être affectés à un ou plusieurs canaux. N’importe quel StreamingEndpoint peut assurer l’extraction à partir de n’importe quel canal.
 
 
-Vous pouvez modifier le coefficient de fragments par segment en configurant la sortie du canal et le paramètre FragmentsPerSegment sur ChannelOutputHls.
+###Programme 
 
-Vous pouvez également modifier la valeur d’intervalle d’image clé en définissant la propriété KeyFrameInterval sur ChannelInput.
+Un [programme](https://msdn.microsoft.com/library/azure/dn783463.aspx) vous permet de contrôler la publication et le stockage des segments dans un flux live. Les canaux gèrent des programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal. Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la propriété **ArchiveWindowLength**. Cette valeur peut être comprise entre 5 minutes et 25 heures.
 
-Si vous définissez explicitement la valeur KeyFrameInterval, le coefficient d’empaquetage de segment HLS FragmentsPerSegment est calculé à l’aide des règles décrites ci-dessus.
+ArchiveWindowLength détermine également la durée maximale que les clients peuvent rechercher en arrière à partir de la position dynamique actuelle. Les programmes peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
 
-Si vous définissez explicitement les valeurs KeyFrameInterval et FragmentsPerSegment, Media Services utilise les valeurs que vous avez définies.
-
-
-####Adresses IP autorisées
-
-Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
-
-Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
-
-###Aperçu du canal 
-
-####URL d’aperçu
-
-Les canaux fournissent un point de terminaison d’aperçu (URL d’aperçu) permettant de prévisualiser et de valider le flux avant de lui appliquer un traitement supplémentaire et de le distribuer.
-
-Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obtenir l’URL, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**.
-
-Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
-
-Notez que pour le moment, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure Classic pour afficher votre flux.
-
-
-####Adresses IP autorisées
-
-Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
-
-###Sortie du canal
-
-Pour plus d’informations, consultez la section [Configuration de l’intervalle d’image clé](#keyframe_interval).
-
-
-###Programmes du canal
-
-Un canal est associé à des programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
-
-Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la durée de la **fenêtre d’archivage**. Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les programmes peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
-
-Chaque programme est associé à une ressource qui stocke le contenu diffusé en continu. Un élément multimédia est mappé à un conteneur d'objets blob dans le compte de stockage Azure et les fichiers de l'élément multimédia sont stockés en tant qu'objets blob dans ce conteneur. Pour publier le programme afin que vos clients puissent visionner le flux, vous devez créer un localisateur OnDemand pour la ressource associée. Le fait de posséder ce localisateur vous permettra de générer une URL de diffusion en continu que vous pourrez fournir à vos clients.
+Chaque programme est associé à un élément multimédia. Pour publier le programme, vous devez créer un localisateur pour l’élément multimédia associé. Le fait de posséder ce localisateur vous permettra de générer une URL de diffusion en continu que vous pourrez fournir à vos clients.
 
 Un canal prend en charge jusqu’à trois programmes exécutés simultanément, ce qui rend possible la création de plusieurs archives du même flux entrant. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Par exemple, imaginez que vous devez archiver 6 heures d’un programme, mais diffuser uniquement les 10 dernières minutes. Pour ce faire, vous devez créer deux programmes exécutés simultanément. Un programme est configuré pour archiver 6 heures de l’événement, mais il n’est pas publié. L’autre programme est configuré pour archiver pendant 10 minutes et il est publié.
 
-Vous ne devez pas réutiliser de programmes existants pour de nouveaux événements. Au lieu de cela, créez et démarrez un nouveau programme pour chaque événement, tel que décrit dans la section Programmation d’applications de vidéo en flux continu.
 
-Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+##Implications de facturation
 
-Pour supprimer du contenu archivé, arrêtez et supprimez le programme, puis supprimez l’élément multimédia associé. Un élément multimédia ne peut pas être supprimé s’il est utilisé par un programme ; le programme doit d’abord être supprimé.
+La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API.
 
-Même après l’arrêt et la suppression du programme, les utilisateurs pourront lire votre contenu archivé en tant que vidéo à la demande tant que vous n’aurez pas supprimé l’élément multimédia.
+Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure Classic. Notez que les états sont légèrement différentes entre l'API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure Classic, la facturation est active.
 
-Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pour la diffusion, supprimez le localisateur de diffusion en continu.
+Pour arrêter la facturation, vous devez arrêter le canal par le biais de l’API ou du portail Azure Classic. Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel. Ne pas arrêter un canal d'encodage provoque la facturation continue.
 
-##<a id="states"></a>États du canal et mappage des états au mode de facturation 
+###<a id="states"></a>États du canal et mappage au mode de facturation 
 
 État actuel d’un canal. Les valeurs possibles incluent :
 
-- **Arrêté**. C’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
-- **Démarrage en cours**. Le canal est en cours de démarrage. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
-- **Exécution en cours**. Le canal est capable de traiter des flux dynamiques.
-- **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
-- **Suppression en cours**. Le canal est en cours de suppression. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
+- **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
+- **Démarrage en cours**. Le canal est en cours de démarrage. Aucune facturation ne survient dans cet état. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
+- **Exécution en cours**. Le canal est capable de traiter des flux live. Il facture désormais l'utilisation. Vous devez arrêter le canal pour empêcher toute facturation supplémentaire. 
+- **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
+- **Suppression en cours**. Le canal est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
 
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation.
  
-État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
----|---|---|---
+État du canal|Indicateurs de l’interface utilisateur du portail|Existe-t-il une facturation ?
+---|---|---
 Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
-Exécution|Prêt (aucun programme en cours d'exécution)<p>ou<p> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
+Exécution|Prêt (aucun programme en cours d'exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution)|OUI
 En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
 Arrêté|Arrêté|Non
-
-##<a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités 
-
-Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
-
-Standard|Remarques
----|---
-CEA-708 et EIA-608 (708/608)|CEA-708 et EIA-608 sont des normes de sous-titrage codé pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d’entrée encodé. Vous devez utiliser un encodeur multimédia dynamique capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribuera le contenu avec les sous-titres insérés à vos utilisateurs.
-TTML dans ismt (pistes textuelles Smooth Streaming)|L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants : MPEG DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous serez seulement en mesure de distribuer le flux aux clients Smooth Streaming.
-SCTE-35|Système de signalisation numérique utilisé pour signaler l’insertion de publicités. Les récepteurs en aval utilisent le signal pour ajouter les publicités au flux pendant le temps alloué. SCTE-35 doit être envoyé comme piste partiellement allouée dans le flux d’entrée.<p><p>Notez qu’actuellement, le seul format de flux d’entrée pris en charge transmettant les signaux publicitaires est le format MP4 fragmenté (Smooth Streaming), qui est aussi le seul format de sortie compatible.
-
-
-##<a id="Considerations"></a>Considérations
-
-Lorsque vous utilisez un encodeur dynamique local pour envoyer un flux à débit binaire multiple dans un canal, les contraintes suivantes s’appliquent :
-
-- Assurez-vous que vous disposez d’une connectivité Internet libre suffisante pour envoyer des données aux points de réception. 
-- Le flux à débit binaire multiple entrant peut présenter un maximum de 10 niveaux de qualité vidéo (10 couches) et un maximum de 5 pistes audio.
-- Le débit binaire moyen le plus élevé pour les niveaux ou couches de qualité vidéo doit être inférieur à 10 Mbit/s.
-- La somme des débits binaires moyens de tous les flux vidéo et audio doit être inférieure à 25 Mbit/s.
-- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
-
-
-Autres considérations liées à l’utilisation des canaux et des composants associés :
-
-- Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme. 
-- Un canal peut être arrêté uniquement lorsqu’il est en cours d’exécution et que tous les programmes du canal ont été arrêtés.
-- Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
-- Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
-- Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-channels-overview.md#states) section.
-
-##Création de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux
-
-Pour plus d’informations sur les encodeurs en direct locaux, consultez [Utilisation d’encodeurs tiers en direct avec Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
-
-Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
 
 
 ##Parcours d’apprentissage de Media Services
@@ -262,11 +156,12 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
-[Diffusion d’événements en direct en continu avec Azure Media Services](media-services-live-streaming-workflow.md)
+[Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+
+[Utilisation des canaux recevant un flux live à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
+
+[Quotas et limitations](media-services-quotas-and-limitations.md)
 
 [Concepts Azure Media Services](media-services-concepts.md)
 
-[live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
- 
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

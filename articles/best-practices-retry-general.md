@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Conseils généraux sur les nouvelles tentatives
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Toutes les applications qui communiquent avec des services à distance ou des ressources distantes doivent être sensibles aux erreurs temporaires. Cela est particulièrement vrai pour les applications exécutées dans le cloud, où la nature de l’environnement et la connectivité via Internet augmentent le risque de rencontrer ce type d’erreurs. Les erreurs temporaires incluent la perte momentanée de la connectivité réseau aux composants et aux services, l’indisponibilité passagère d’un service ou les expirations de délai qui surviennent lorsqu’un service est occupé. Ces erreurs se corrigent souvent d’elles-mêmes, et si l’action est répétée après un délai approprié, il est probable qu’elle aboutisse.
 
@@ -115,4 +115,4 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
 * [Modèle de transaction de compensation](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modèles d’idempotence](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Ports et protocoles nécessaires à l’identité hybride
@@ -84,4 +84,4 @@ Ce tableau décrit les ports et les protocoles sortants nécessaires à la commu
 ### 6b - Points de terminaison pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

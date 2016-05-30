@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="04/22/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
@@ -54,9 +54,9 @@ Un travail d’indexation peut générer des fichiers de sous-titres dans les fo
 
 Les fichiers de sous-titre dans ces formats permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 
-##Configuration de la tâche (présélection)
+##Configuration de la tâche (préconfiguration)
 
-Lors de la création d’une tâche d’indexation avec **Azure Media Indexer 2 Preview*, vous devez spécifier une présélection de configuration.
+Lors de la création d’une tâche d’indexation avec **Azure Media Indexer 2 Preview**, vous devez spécifier une présélection de configuration.
 
 Le code JSON suivant définit les paramètres disponibles.
 
@@ -289,4 +289,4 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

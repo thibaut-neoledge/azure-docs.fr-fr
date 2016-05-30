@@ -424,11 +424,48 @@ IngestManifestAssets représente les ressources dans un IngestManifest qui sont 
 	Expect: 100-continue
 	{ "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
 
-###(Facultatif) Création de ContentKeys utilisées pour le chiffrement
 
-Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à utiliser pour le chiffrement avant de créer IngestManifestFiles pour la ressource. Dans ce cas, les propriétés suivantes sont incluses dans le corps de la demande.
+###Création d’IngestManifestFiles pour chaque ressource
+
+Un IngestManifestFile représente un objet blob réel vidéo ou audio qui sera téléchargé dans le cadre de la réception en bloc pour une ressource. Des propriétés liées au chiffrement ne sont pas requises, sauf si la ressource utilise une option de chiffrement. L’exemple utilisé dans cette section illustre la création d’un IngestManifestFile qui fait appel à StorageEncryption pour la ressource créée précédemment.
+
+
+**Réponse HTTP**
+
+	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 367
+	Expect: 100-continue
+	
+	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
+	
+###Téléchargement des fichiers vers le stockage d’objets blob
+
+Vous pouvez utiliser n’importe quelle application cliente rapide capable de télécharger les fichiers de ressources sur l’URI du conteneur de stockage d’objets blob fourni par la propriété BlobStorageUriForUpload d’IngestManifest. [Aspera On Demand pour l'Application Azure](http://go.microsoft.com/fwlink/?LinkId=272001) est un service de téléchargement à grande vitesse intéressant.
+
+###Surveillance de la progression de la réception en bloc
+
+Vous pouvez surveiller la progression des opérations de réception en bloc pour un IngestManifest en interrogeant la propriété Statistics d’IngestManifest. Cette propriété est de type complexe [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Pour interroger la propriété Statistics, envoyez une demande HTTP GET en transmettant l’ID d’IngestManifest.
  
-Demander la propriété body | ID de description | L’ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ». ContentKeyType | Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage. EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une demande HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu. ProtectionKeyType | Il s’agit du type de chiffrement de la clé de protection qui a été utilisé pour chiffrer la clé de contenu. Cette valeur est StorageEncryption(1) dans notre exemple. Somme de contrôle | La somme de contrôle calculée MD5 pour la clé de contenu. Elle est calculée en chiffrant l’ID de contenu avec la clé de contenu. L’exemple de code montre comment calculer la somme de contrôle.
+
+##Créer des ContentKeys utilisées pour le chiffrement
+
+Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à utiliser pour le chiffrement avant de créer les fichiers de ressources. Pour le chiffrement du stockage, les propriétés suivantes doivent être incluses dans le corps de la demande.
+ 
+Propriété du corps de la demande | Description
+---|---
+ID | ID de la ContentKey que nous générons nous-mêmes en utilisant le format suivant, « nb:kid:UUID:<NEW GUID> ».
+ContentKeyType | Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage.
+EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une demande HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey.
+ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu.
+ProtectionKeyType | Il s’agit du type de chiffrement de la clé de protection qui a été utilisé pour chiffrer la clé de contenu. Cette valeur est StorageEncryption(1) dans notre exemple.
+Somme de contrôle |La somme de contrôle calculée MD5 pour la clé de contenu. Elle est calculée en chiffrant l’ID de contenu avec la clé de contenu. L’exemple de code montre comment calculer la somme de contrôle.
 
 
 **Réponse HTTP**
@@ -465,35 +502,6 @@ La ContentKey est associée à une ou plusieurs ressources en envoyant une deman
 	
 	{ "uri": "https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A32e6efaf-5fba-4538-b115-9d1cefe43510')"}
 
-###Création d’IngestManifestFiles pour chaque ressource
-
-Un IngestManifestFile représente un objet blob réel vidéo ou audio qui sera téléchargé dans le cadre de la réception en bloc pour une ressource. Des propriétés liées au chiffrement ne sont pas requises, sauf si la ressource utilise une option de chiffrement. L’exemple utilisé dans cette section illustre la création d’un IngestManifestFile qui fait appel à StorageEncryption pour la ressource créée précédemment.
-
-
-**Réponse HTTP**
-
-	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-	Host: media.windows.net
-	Content-Length: 367
-	Expect: 100-continue
-	
-	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
-	
-###Téléchargement des fichiers vers le stockage d’objets blob
-
-Vous pouvez utiliser n’importe quelle application cliente rapide capable de télécharger les fichiers de ressources sur l’URI du conteneur de stockage d’objets blob fourni par la propriété BlobStorageUriForUpload d’IngestManifest. [Aspera On Demand pour l'Application Azure](http://go.microsoft.com/fwlink/?LinkId=272001) est un service de téléchargement à grande vitesse intéressant.
-
-###Surveillance de la progression de la réception en bloc
-
-Vous pouvez surveiller la progression des opérations de réception en bloc pour un IngestManifest en interrogeant la propriété Statistics d’IngestManifest. Cette propriété est de type complexe [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Pour interroger la propriété Statistics, envoyez une demande HTTP GET en transmettant l’ID d’IngestManifest.
- 
-
 **Réponse HTTP**
 
 	GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
@@ -521,4 +529,4 @@ Vous pouvez surveiller la progression des opérations de réception en bloc pour
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

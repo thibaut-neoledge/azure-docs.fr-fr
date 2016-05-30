@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # FAQ sur la gestion des API Azure
@@ -35,6 +35,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité ADFS ?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 
 
 
@@ -53,7 +54,7 @@ Une fonctionnalité en version préliminaire est complète et opérationnelle, m
 Il existe plusieurs options prises en charge.
 
 1. Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Configuration des paramètres de l’API](api-management-howto-create-apis.md#configure-api-settings).
-2. Utilisez l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
+2. Utilisez l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure](api-management-howto-mutual-certificates.md).
 3. Utilisez une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante et vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez récupérer l’adresse IP de votre instance de gestion des API sur le **Tableau de bord** dans le portail Azure Classic.
 4. Vous pouvez connecter votre instance de gestion des API à un réseau virtuel Azure (classique). Pour plus d’informations, consultez [Comment configurer des connexions VPN dans Gestion des API Azure](api-management-howto-setup-vpn.md).
 
@@ -63,7 +64,7 @@ Il existe plusieurs options que vous pouvez utiliser pour copier une instance de
 
 -	Utilisez la fonctionnalité de sauvegarde et restauration de la gestion des API. Pour plus d’informations, consultez [Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure](api-management-howto-disaster-recovery-backup-restore.md).
 -	Créez votre propre fonctionnalité de sauvegarde et restauration à l’aide de l’[API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx) pour enregistrer et restaurer les entités requises à partir de votre instance de service.
--	Téléchargez la configuration du service à l’aide de Git et chargez-la vers une nouvelle instance. Pour plus d’informations, consultez [Découvrez comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git](api-management-configuration-repository-git.md).
+-	Téléchargez la configuration du service à l’aide de Git et chargez-la vers une nouvelle instance. Pour plus d’informations, consultez [Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git](api-management-configuration-repository-git.md).
 
 ### Puis-je gérer mon instance de gestion des API par programme ?
 
@@ -71,7 +72,18 @@ Oui, vous pouvez la gérer à l’aide de l’[API REST de gestion des API](http
 
 ### Comment puis-je ajouter un utilisateur au groupe d’administrateurs ?
 
-À ce stade, les administrateurs sont limités aux utilisateurs qui se connectent via le portail Azure Classic en tant qu’administrateurs ou co-administrateurs de l’abonnement Azure qui contient l’instance de gestion des API. Les utilisateurs créés dans le portail des éditeurs ne peuvent pas être désignés comme administrateurs ou ajoutés au groupe Administrateurs.
+Vous pouvez suivez les étapes ci-dessous :
+
+1. Connectez-vous au nouveau [Portail Azure](https://portal.azure.com) 
+2. Accédez au groupe de ressources qui contient l’instance de gestion des API souhaitée
+3. Ajoutez l’utilisateur souhaité au rôle « collaborateur de gestion des API »
+
+Une fois cette opération effectuée, le contributeur nouvellement ajouté peut utiliser les [applets de commande](https://msdn.microsoft.com/library/mt613507.aspx) Azure PowerShell pour se connecter en tant qu’administrateur :
+
+1. Utilisez l’applet de commande `Login-AzureRmAccount` pour vous connecter
+2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
+3. Récupérez le jeton d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Copiez-collez l’URL dans le navigateur : l’utilisateur doit avoir accès au portail d’administration
 
 
 ### Pourquoi la stratégie que je veux ajouter n’est-elle pas activée dans l’éditeur de stratégie ?
@@ -94,7 +106,7 @@ Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que 
 
 ### SOAP est-il pris en charge dans la gestion des API ?
 
-Actuellement, nous proposons un support limité pour SOAP dans la gestion des API Azure. Nous étudions actuellement cette fonctionnalité. Il serait très intéressant pour nous de recevoir des exemples de WSDL de la part de votre client, ainsi qu’une description des fonctionnalités requises. Cela nous permettrait de développer notre stratégie. Veuillez nous contacter en utilisant les informations de contact référencées dans [Comment puis-je poser une question à l’équipe de gestion des API?](#how-can-i-ask-a-question-to-the-api-management-team)
+Actuellement, nous proposons un support limité pour SOAP dans la gestion des API Azure. Nous étudions actuellement cette fonctionnalité. Il serait très intéressant pour nous de recevoir des exemples de WSDL de la part de votre client, ainsi qu’une description des fonctionnalités requises. Cela nous permettrait de développer notre stratégie. Veuillez nous contacter en utilisant les informations de contact référencées dans [Comment puis-je poser une question à l’équipe de gestion des API ?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 Si vous avez besoin que cette fonctionnalité soit opérationnelle, certains membres de notre communauté ont suggéré des solutions. Consultez [Gestion des API Azure - APIM, consommer un service WCF de SOAP sur HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
 
@@ -115,10 +127,14 @@ L’adresse IP (ou les adresses dans le cas de déploiement dans plusieurs régi
 
 ### Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité ADFS ?
 
-Pour plus d’informations sur la configuration de ce scénario, consultez [Utilisation d’ADFS dans la gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+Pour plus d’informations sur la configuration de ce scénario, consultez [Utilisation d’AD FS dans la gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ? 
 
-La gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour plus d’informations sur les différentes méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+La gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour plus d’informations sur les différentes méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+### Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?
+
+Oui, consultez les modèles de démarrage rapide [Service de gestion des API Azure](http://aka.ms/apimtemplate).
+
+<!---HONumber=AcomDC_0518_2016-->

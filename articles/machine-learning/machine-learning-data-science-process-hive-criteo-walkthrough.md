@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="ginathan;bradsev" />
 
 # Processus d’analyse Cortana en action : utilisation des clusters Hadoop Azure HDInsight sur un groupe de données de 1 To
@@ -94,7 +94,7 @@ Une autre approche vous permettant d’accéder, d’explorer et de modéliser c
 
 ## <a name="login"></a>Connexion au nœud principal du cluster
 
-Pour vous connecter au nœud principal du cluster, utilisez le portail de [gestion Azure](manage.windowsazure.com) afin de localiser le cluster. Cliquez sur l'icône d'éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration**, double-cliquez sur l'icône CONNECTER en bas de la page et entrez les informations d'identification de votre accès à distance lorsque vous y êtes invité. Vous accédez ainsi au nœud principal du cluster.
+Pour vous connecter au nœud principal du cluster, utilisez le portail de [gestion Azure](https://manage.windowsazure.com) afin de localiser le cluster. Cliquez sur l'icône d'éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration**, double-cliquez sur l'icône CONNECTER en bas de la page et entrez les informations d'identification de votre accès à distance lorsque vous y êtes invité. Vous accédez ainsi au nœud principal du cluster.
 
 Une première connexion au nœud principal de cluster ressemble généralement à ceci :
 
@@ -663,4 +663,4 @@ Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes
 
 Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

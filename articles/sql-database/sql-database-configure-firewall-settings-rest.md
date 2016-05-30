@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2016"
-	ms.author="stevestein"/>
+	ms.date="05/09/2016"
+	ms.author="sstein"/>
 
 
 # Configurer un pare-feu sur une base de données Azure SQL à l’aide de l’API REST
@@ -73,4 +73,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : effectuer une mise à niveau vers la dernière version
@@ -34,7 +34,7 @@ Pour connaître les autorisations requises, consultez [Autorisations requises po
 ## Mise à niveau sur place
 Une mise à niveau sur place fonctionne à partir d’Azure AD Sync ou d’Azure AD Connect, mais pas pour DirSync ou une solution combinant FIM et Azure AD Connect.
 
-Nous vous recommandons cette méthode si vous avez un seul serveur et moins de 100 000 objets environ. Après la mise à niveau, une importation et une synchronisation complètes se produisent pour que la nouvelle configuration s’applique à tous les objets existants dans le système. Cette opération peut prendre plusieurs heures selon le nombre d’objets dans l’étendue du moteur de synchronisation. La synchronisation différentielle normale planifiée, par défaut toutes les 30 minutes, est suspendue, mais la synchronisation des mots de passe continue. Vous pouvez envisager une mise à niveau sur place pendant le week-end.
+Nous vous recommandons cette méthode si vous avez un seul serveur et moins de 100 000 objets environ. Après la mise à niveau, une importation et une synchronisation complètes se produisent si des modifications ont été apportées aux règles out-of-box de synchronisation. pour que la nouvelle configuration s’applique à tous les objets existants dans le système. Cette opération peut prendre plusieurs heures selon le nombre d’objets dans l’étendue du moteur de synchronisation. La synchronisation différentielle normale planifiée, par défaut toutes les 30 minutes, est suspendue, mais la synchronisation des mots de passe continue. Vous pouvez envisager une mise à niveau sur place pendant le week-end. S’il n’y a aucune modification de la configuration out-of-box avec la nouvelle version d’Azure AD Connect, une importation/synchronisation différentielle normale démarre à la place.
 
 ![Mise à niveau sur place](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
@@ -85,4 +85,4 @@ Voici les éléments qui doivent être configurés de la même façon sur les de
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

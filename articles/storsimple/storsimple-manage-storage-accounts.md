@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre compte de stockage
@@ -60,7 +60,10 @@ Vous pouvez créer plusieurs comptes pour un fournisseur de services cloud donn�
 
 Pendant l’enregistrement du compte de stockage, le service tente de communiquer avec votre fournisseur de services cloud. Les informations d’identification et les données d’accès que vous avez fournies sont alors authentifiées. Un compte de stockage est créé uniquement si l’authentification réussit. Si l’authentification échoue, un message d’erreur s’affiche.
 
-> [AZURE.NOTE]La procédure d’ajout d’un compte de stockage varie en fonction de la version du logiciel StorSimple que vous utilisez. Veillez à suivre la procédure correspondant à la version de StorSimple que vous utilisez.
+Les comptes de stockage Resource Manager créés dans le portail Azure sont également pris en charge dans StorSimple. Les comptes de stockage Resource Manager ne s’affichent pas dans la liste déroulante de sélection lorsque vous tentez de créer un conteneur de volumes. Seuls les comptes de stockage créés dans le portail Azure Classic sont affichés. Les comptes de stockage Resource Manager doivent être ajoutés à l’aide de la procédure d’ajout d’un compte de stockage décrite ci-dessous.
+
+> [AZURE.NOTE] La procédure d’ajout d’un compte de stockage varie en fonction de la version du logiciel StorSimple que vous utilisez. Veillez à suivre la procédure correspondant à la version de StorSimple que vous utilisez.
+
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -87,7 +90,7 @@ Vous pouvez modifier un compte de stockage utilisé par un conteneur de volumes.
   
 ## Suppression d'un compte de stockage
 
-> [AZURE.IMPORTANT]Vous pouvez supprimer un compte de stockage uniquement s’il n’est pas utilisé par un conteneur de volumes. Si un compte de stockage est utilisé par un conteneur de volumes, supprimez d’abord ce dernier, puis le compte de stockage associé.
+> [AZURE.IMPORTANT] Vous pouvez supprimer un compte de stockage uniquement s’il n’est pas utilisé par un conteneur de volumes. Si un compte de stockage est utilisé par un conteneur de volumes, supprimez d’abord ce dernier, puis le compte de stockage associé.
 
 #### Pour supprimer un compte de stockage
 
@@ -103,7 +106,7 @@ Vous pouvez modifier un compte de stockage utilisé par un conteneur de volumes.
 
 Pour des raisons de sécurité, les centres de données exigent souvent une rotation des clés.
 
-> [AZURE.NOTE]Les informations suivantes sur la rotation des clés et la procédure de rotation s’appliquent uniquement aux comptes de stockage Microsoft Azure. Si vous utilisez un autre fournisseur de services cloud, vous pouvez gérer les clés de compte de stockage via le tableau de bord de ce fournisseur.
+> [AZURE.NOTE] Les informations suivantes sur la rotation des clés et la procédure de rotation s’appliquent uniquement aux comptes de stockage Microsoft Azure. Si vous utilisez un autre fournisseur de services cloud, vous pouvez gérer les clés de compte de stockage via le tableau de bord de ce fournisseur.
  
 Chaque abonnement Microsoft Azure peut être associé à un ou plusieurs comptes de stockage. L’accès à ces comptes est contrôlé par l’abonnement et les clés d’accès de chaque compte de stockage.
 
@@ -151,4 +154,4 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 - En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

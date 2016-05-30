@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite
+# Connexion de votre appareil à la solution préconfigurée de surveillance à distance (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -149,7 +149,7 @@ La fonction **main** du programme appelle la fonction **remote\_monitoring\_run*
 Dans la section principale de la fonction **remote\_monitoring\_run**, le programme effectue les opérations suivantes à l'aide du handle **iotHubClientHandle** :
 
 - Crée une instance du modèle de thermostat Contoso et définit les rappels de message pour les deux commandes.
-- Envoie des informations sur l'appareil lui-même, y compris les commandes prises en charge, à votre hub IoT à l'aide de la bibliothèque du sérialiseur. Lorsque le concentrateur reçoit ce message, il fait passer l'état de l'appareil dans le tableau de bord de **En attente** à **Exécution**.
+- Envoie des informations sur l'appareil lui-même, y compris les commandes prises en charge, à votre hub IoT à l'aide de la bibliothèque du sérialiseur. Lorsque le hub reçoit ce message, il fait passer l'état de l'appareil dans le tableau de bord de **En attente** à **Exécution**.
 - Démarre une boucle **while** qui envoie chaque seconde les valeurs de température, de température externe et d'humidité à IoT Hub.
 
 Pour référence, voici un exemple de message **DeviceInfo** envoyé à IoT Hub au démarrage :
@@ -199,7 +199,7 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 
     ![][11]
 
-4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme le périphérique se connecte généralement à 115 200 bauds, entrez 115200 dans le champ **Vitesse**. Cliquez ensuite sur **Ouvrir** :
+4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme l’appareil se connecte généralement à 9600 bauds, entrez 9600 dans le champ **Vitesse**. Cliquez ensuite sur **Ouvrir** :
 
 5. Le programme démarre l’exécution. Il se peut que vous deviez réinitialiser le tableau (appuyez sur CTRL + Retour ou appuyez sur le bouton de réinitialisation du tableau) si le programme ne démarre pas automatiquement à la connexion.
 
@@ -220,4 +220,4 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

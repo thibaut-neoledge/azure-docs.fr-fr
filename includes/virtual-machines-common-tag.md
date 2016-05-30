@@ -9,7 +9,7 @@ Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](htt
 
 ![Déploiement simple avec des balises](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Ce modèle inclut les balises suivantes :*Service* *Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
+Ce modèle inclut les balises suivantes :*Service**Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
 
 ![Balises Azure dans un modèle](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
@@ -44,24 +44,3 @@ Ajoutez une nouvelle balise via le portail en définissant votre propre paire cl
 Votre nouvelle balise doit maintenant apparaître dans la liste des balises pour votre ressource.
 
 ![Nouvelle balise enregistrée dans le portail Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
-
-
-## Affichage de vos balises dans les détails d’utilisation
-
-Les balises placées sur des ressources Calcul, Réseau et Stockage via Azure Resource Manager apparaissent dans vos détails d'utilisation dans le [portail de facturation](https://account.windowsazure.com/).
-
-Cliquez sur **Télécharger les détails d'utilisation** pour afficher les détails d'utilisation dans votre abonnement.
-
-![Détails d’utilisation dans le portail Azure](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
-
-Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
-
-![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
-
-Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
-
-![Colonne Balises dans le portail Azure](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
-
-En analysant ces balises ainsi que leur utilisation, les organisations sont en mesure de mieux comprendre leurs données de consommation.
-
-<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="05/05/2016"
    ms.author="ganesr"/>
 
 
@@ -98,7 +98,7 @@ Exécutez la commande suivante pour obtenir les détails concernant le circuit E
 
     get-azurededicatedcircuit
 
-Vous devez être en mesure de voir la clé de service répertoriée. Vous pouvez désormais gérer les liens vers le circuit ExpressRoute. Les articles suivants vont vous guider tout au long de la gestion des liens vers le circuit ExpressRoute :
+Vous devez être en mesure de voir la clé de service répertoriée. Vous pouvez maintenant gérer les liens au circuit ExpressRoute à l’aide des commandes de votre modèle de déploiement classique standard pour les réseaux virtuels classiques, et des commandes de votre modèle ARM standard pour les réseaux virtuels ARM. Les articles suivants vont vous guider tout au long de la gestion des liens vers le circuit ExpressRoute :
 
 - [Liaison de réseaux virtuels à des circuits ExpressRoute dans le modèle de déploiement Resource Manager](expressroute-howto-linkvnet-arm.md)
 - [Liaison de réseaux virtuels à des circuits ExpressRoute dans le modèle de déploiement classique](expressroute-howto-linkvnet-classic.md)
@@ -126,4 +126,4 @@ Après avoir créé votre circuit, effectuez les opérations suivantes :
 - [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
 - [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

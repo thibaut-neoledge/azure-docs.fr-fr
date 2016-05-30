@@ -63,6 +63,7 @@ Pour configurer son intégration à Azure AD, vous devez ajouter Intralinks à v
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
+
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
@@ -80,11 +81,14 @@ Pour configurer son intégration à Azure AD, vous devez ajouter Intralinks à v
 6. Dans la zone de recherche, saisissez **Intralinks**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
+
 7. Dans le volet de résultats, sélectionnez **Intralinks**, puis cliquez sur **Terminer** pour ajouter l’application.
 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
 ##  Configuration et test de l’authentification unique Azure AD
+
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Intralinks, en tirant parti d’un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Intralinks équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Intralinks associé.
@@ -106,19 +110,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Intralinks, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Intralinks**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Classic, sur la page d’intégration d’applications **Intralinks**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 	 
 	![Configurer l’authentification unique][6]
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Intralinks ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Intralinks ?**, sélectionnez **Authentification unique avec Azure AD**, puis cliquez sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_03.png)
 
-3. Dans la page de boîte de dialogue **Configurer les paramètres de l’application**, procédez comme suit :
+3. Sur la page de boîte de dialogue **Configurer les paramètres de l’application**, procédez comme suit :
 
 	![Configurer l’authentification unique](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_04.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez l’URL utilisée par vos utilisateurs pour se connecter à votre application Intralinks, au format suivant : **https://\<nom entreprise>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<ID client Azure AD>/**
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Intralinks, au format suivant : **https://\<nom entreprise>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<ID client Azure AD>/**.
 
     b. Cliquez sur **Next**.
 	
@@ -134,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 5. Pour configurer l’authentification unique pour votre application, contactez l’équipe du support technique Intralinks et joignez le fichier de métadonnées téléchargé à votre e-mail.
 
 
-6. Sur le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 	
 	![Authentification unique Azure AD][10]
 
@@ -166,7 +170,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -186,11 +190,11 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_08.png)
 
@@ -213,7 +217,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Intralinks, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -271,10 +275,10 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
 
 	![Ajout d’une application Intralinks VIA ou Elite](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_53.png)
 
-	a. Dans la zone de texte URL de connexion, saisissez l’URL utilisée par vos utilisateurs pour se connecter à votre application Intralinks, au format suivant : **https://\<NomEntreprise>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDClientAzureAD>/**
+	a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Intralinks, au format suivant : **https://\<NomEntreprise>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDClientAzureAD>/**
 
 
-11. Cliquez sur Suivant
+11. Cliquez sur **Next**.
 
 12. Affectez l’application à un utilisateur ou à un groupe, comme indiqué dans la section **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)**.
 
@@ -311,4 +315,4 @@ Lorsque vous cliquez sur la vignette Intralinks dans le volet d’accès, vous d
 [204]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

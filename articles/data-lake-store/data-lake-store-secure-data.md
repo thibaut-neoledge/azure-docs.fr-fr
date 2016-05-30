@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Sécurisation des données stockées dans Azure Data Lake Store
@@ -30,10 +30,14 @@ Cet article explique comment utiliser le portail Azure pour effectuer les tâche
 
 ## Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
+## Les vidéos vous permettent-elles d’apprendre rapidement ?
+
+[Regardez cette vidéo](https://mix.office.com/watch/1q2mgzh9nn5lx) sur la sécurisation des données stockées dans Data Lake Store.
 
 ## Créer des groupes de sécurité dans Azure Active Directory
 
@@ -58,7 +62,7 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
 	* Ajouter un utilisateur/groupe au compte, puis lui affecter un rôle, ou
 	* Ajouter un rôle, puis affecter les utilisateurs/groupes au rôle.
 
-	Dans cette section, nous examinons la première approche : ajouter un groupe, puis affecter les rôles. Vous pouvez suivre les mêmes étapes pour commencer par sélectionner un rôle puis affecter des groupes à ce rôle.
+	Dans cette section, nous examinons la première approche : ajouter un groupe, puis affecter les rôles. Vous pouvez suivre les mêmes étapes pour commencer par sélectionner un rôle puis affecter des groupes à ce rôle.
 	
 4. Dans le panneau **Utilisateurs**, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès**. Dans le panneau **Ajouter un accès**, cliquez sur **Sélectionner un rôle**, puis sélectionnez un rôle pour l'utilisateur ou le groupe.
 
@@ -98,8 +102,8 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	![Lister les accès standard et personnalisés](./media/data-lake-store-secure-data/adl.acl.2.png "Lister les accès standard et personnalisés")
 
-	* L'accès standard est l'accès de type UNIX, où vous spécifiez la lecture, l'écriture et l'exécution (rwx) à trois classes d'utilisateurs distinctes : propriétaire, groupe et autres.
-	* L'accès personnalisé correspond aux ACL POSIX et vous permet de définir des autorisations pour des utilisateurs nommés ou des groupes en particulier, et pas seulement pour le propriétaire du fichier ou le groupe.
+	* L’**accès standard** est l’accès de type UNIX, où vous spécifiez la lecture, l’écriture et l’exécution (rwx) pour trois classes d’utilisateurs distinctes : propriétaire, groupe et autres.
+	* L’**accès personnalisé** correspond aux listes de contrôle d’accès (ACL) POSIX, et vous permet de définir des autorisations pour des utilisateurs ou des groupes nommés spécifiques, et pas seulement pour le propriétaire du fichier ou le groupe. 
 	
 	Pour plus d'informations, consultez la page [ACL HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -111,15 +115,20 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 
 	![Affecter des autorisations à un groupe](./media/data-lake-store-secure-data/adl.acl.4.png "Affecter des autorisations à un groupe")
 
+	Les autorisations peuvent être comprises comme suit :
 
-	>[AZURE.NOTE] L'autorisation d'exécution est requise pour l'énumération des répertoires, et souvent lorsque vous fournissez un accès en lecture seule aux données à un utilisateur ou à un groupe.
+	* **Lecture** : si cette autorisation est définie sur un répertoire, elle donne la possibilité de lire les noms des fichiers dans le répertoire.
+	* **Écrire** : si cette autorisation est définie sur un répertoire, elle donne la possibilité de modifier les entrées dans le répertoire, comme créer un fichier, supprimer un fichier ou renommer un fichier.
+	* **Exécuter** : si cette autorisation est définie sur un répertoire, elle donne la possibilité d’accéder au contenu du fichier dans le répertoire. Elle donne également accès aux métadonnées du fichier, si le nom de fichier est connu. Cependant, cette autorisation ne vous autorise pas à répertorier les fichiers dans le répertoire, sauf si l’autorisation **Lecture** est également définie.
+
+	>[AZURE.NOTE] L’autorisation **Lire + Exécuter** est requise pour l’énumération des répertoires, et elle est souvent requise quand vous fournissez un accès en lecture seule aux données à un utilisateur ou à un groupe.
 
 
 6. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, sera désormais répertorié dans le panneau **Accès**.
 
 	![Affecter des autorisations à un groupe](./media/data-lake-store-secure-data/adl.acl.5.png "Affecter des autorisations à un groupe")
 
-	> [AZURE.IMPORTANT] Dans la version actuelle, vous ne pouvez avoir que 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
+	> [AZURE.IMPORTANT] Dans la version actuelle, vous pouvez avoir seulement 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
 
 7. Si nécessaire, vous pouvez également modifier les autorisations d'accès après avoir ajouté le groupe. Cochez ou décochez la case de chaque type d'autorisation (lecture, écriture, exécution) selon que vous souhaitez retirer ou affecter cette autorisation au groupe de sécurité. Cliquez sur **Enregistrer** pour enregistrer les modifications, ou sur **Ignorer** pour annuler les modifications.
 
@@ -165,4 +174,4 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

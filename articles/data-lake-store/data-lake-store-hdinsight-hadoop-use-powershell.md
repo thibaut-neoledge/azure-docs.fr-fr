@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -28,6 +28,8 @@ Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hado
 * **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
 
 * **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire.
+
+> [AZURE.NOTE] L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store est disponible uniquement si vous utilisez HDInsight version 3.2 (pour Windows et Linux).
 
 
 Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire.
@@ -45,7 +47,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
-- **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
+- **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/en-us/downloads). Il vous permet de créer un certificat de sécurité.
 
 
 ##Installer Azure PowerShell 1.0 et versions ultérieures
@@ -98,7 +100,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] Si vous recevez une erreur similaire à `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` lors de l’enregistrement du fournisseur de ressources Data Lake Store, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Azure Data Lake Store. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Store en suivant ces [instructions](data-lake-store-get-started-portal.md#signup).
+	>[AZURE.NOTE] Si vous recevez une erreur similaire à `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Store, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Azure Data Lake Store. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Store en suivant ces [instructions](data-lake-store-get-started-portal.md#signup).
 
 3. Un compte Azure Data Lake Store est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
 
@@ -120,7 +122,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 
 	Le résultat doit être **True**.
 
-4. Téléchargez des exemples de données sur Azure Data Lake. Nous les utiliserons plus loin dans cet article pour vérifier que les données sont accessibles à partir d'un cluster HDInsight. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+4. Téléchargez des exemples de données sur Azure Data Lake. Nous les utiliserons plus loin dans cet article pour vérifier que les données sont accessibles à partir d'un cluster HDInsight. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Dépôt Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
 		$myrootdir = "/"
@@ -138,7 +140,7 @@ Pour configurer l'authentification Active Directory pour Azure Data Lake, vous d
 
 ### Créer un certificat auto-signé
 
-Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.windows.com/fr-FR/downloads) est installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme **C:\\mycertdir**, où sera créé le certificat.
+Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.windows.com/en-us/downloads) est installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme **C:\\mycertdir**, où sera créé le certificat.
 
 1. Dans la fenêtre PowerShell, accédez à l’emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, `C:\Program Files (x86)\Windows Kits\10\bin\x86`) et utilisez l’utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes.
 
@@ -261,7 +263,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
     	hive
 
-2. À l’aide de l’interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **vehicles** à l’aide des exemples de données du Data Lake Store :
+2. À l’aide de l’interface CLI, entrez les instructions suivantes pour créer une table nommée **vehicles** en utilisant les exemples de données dans Data Lake Store :
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -378,4 +380,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

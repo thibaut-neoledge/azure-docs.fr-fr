@@ -233,7 +233,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
@@ -460,7 +460,7 @@ GO
 Les fonctionnalités OLTP In-Memory dans la base de données SQL Azure sont [disponibles en version préliminaire depuis le 28 octobre 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-Pendant la phase d’évaluation précédant la mise à disposition générale, In-Memory OLTP est pris en charge uniquement pour les éléments suivants :
+Dans la version préliminaire actuelle, OLTP In-Memory est pris en charge uniquement pour les bases de données suivantes :
 
 - Bases de données appartenant à un niveau de service *Premium*.
 
@@ -491,7 +491,11 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 #### Autres relations
 
 
-- L’utilisation des fonctionnalités In-Memory OLTP avec les bases de données dans des pools élastiques n’est pas prise en charge pour l’instant dans la version préliminaire, mais le sera à l’avenir.
+- L’utilisation des fonctionnalités In-Memory OLTP avec les bases de données dans des pools élastiques n’est pas prise en charge pour l’instant dans la version préliminaire.
+ - Pour déplacer vers un pool élastique une base de données qui contient ou a contenu des objets In-Memory OLTP, procédez comme suit :
+  - 1. Supprimez les tables optimisées en mémoire, les types de table et les modules T-SQL compilés en mode natif de la base de données
+  - 2. Modifiez le niveau de service de la base de données pour basculer au niveau standard (*un problème empêche actuellement de déplacer des bases de données Premium ayant contenu des objets In-Memory OLTP dans un pool élastique ; les experts de la base de données Azure travaillent activement à la résolution de ce problème)
+  - 3. Déplacez la base de données vers le pool élastique
 
 - L’utilisation d’In-Memory OLTP avec SQL Data Warehouse n’est pas prise en charge.
  - La fonctionnalité d’index columnstore de In-Memory Analytics est prise en charge dans SQL Data Warehouse.
@@ -529,8 +533,8 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Version préliminaire de SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx), pour la dernière version mensuelle.
 
-- [Description des utilitaires RML pour SQL Server](http://support.microsoft.com/fr-FR/kb/944837)
+- [Description des utilitaires RML pour SQL Server](http://support.microsoft.com/en-us/kb/944837)
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -49,7 +49,7 @@ Les étapes de base du processus sont énoncées ci-dessous. La solution inclut 
 
 La solution compte le nombre d’occurrences d’un terme de recherche (« Microsoft ») dans les fichiers d’entrée organisés en série chronologique. Il renvoie le nombre de fichiers de sortie.
 
-**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
+**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
 
 ## Composants requis
 
@@ -62,21 +62,17 @@ La solution compte le nombre d’occurrences d’un terme de recherche (« Micr
     L’exemple de solution utilise Azure Batch (indirectement via un pipeline Azure Data Factory) pour traiter des données en parallèle sur un pool de nœuds de calcul, c’est-à-dire une collection gérée de machines virtuelles.
 
 4.  Créez un **pool Azure Batch** comprenant au moins 2 nœuds de calcul.
-
-	 Vous pouvez télécharger le code source pour l’[outil Azure Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), le compiler et l’utiliser pour créer le pool (**fortement recommandé pour cet exemple de solution**), ou utiliser la [Bibliothèque Batch pour .NET](../batch/batch-dotnet-get-started.md). Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer. Vous pouvez également utiliser l’applet de commande [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) pour créer un pool Azure Batch.
-
-	 Utilisez l’explorateur Batch pour créer le pool avec le paramètre suivant :
-
-	-   Entrez un ID pour le pool (**ID du pool**). Notez l’**ID du pool**, car vous en aurez besoin lors de la création de la solution Data Factory.
-
-	-   Spécifiez **Windows Server 2012 R2** pour le paramètre **Operating System Family** (Famille de systèmes d’exploitation).
-
-	-   Spécifiez **2** comme valeur pour le paramètre **Max tasks per compute node** (Nombre maximal de tâches par nœud de calcul).
-
-	-   Spécifiez **2** comme valeur pour le paramètre **Number of Target Dedicated** (Nombre de cibles dédiées).
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  Dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir** dans le menu de gauche, puis cliquez sur **Comptes Batch**. 
+	2. Sélectionnez votre compte Azure Batch pour ouvrir le panneau **Compte Batch**. 
+	3. Cliquez sur la vignette **Pools**.
+	4. Dans le panneau **Pools**, cliquez sur le bouton Ajouter de la barre d’outils pour ajouter un pool.
+		1. Entrez un ID pour le pool (**ID du pool**). Notez l’**ID du pool**, car vous en aurez besoin lors de la création de la solution Data Factory. 
+		2. Spécifiez **Windows Server 2012 R2** pour le paramètre de famille du système d’exploitation.
+		3. Sélectionnez le **niveau tarifaire du nœud**. 
+		3. Entrez **2** comme valeur du paramètre **Target Dedicated** (Cibles dédiées).
+		4. Entrez **2** comme valeur du paramètre **Max tasks per node** (Nombre maximal de tâches par nœud).
+	5. Cliquez sur **OK** pour créer le pool. 
+ 	 
 5.  [Azure Storage Explorer 6 (outil)](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (à partir de logiciels ClumsyLeaf). Il s’agit d’outils d’interface graphique utilisateur permettant de consulter et de modifier les données de vos projets Azure Storage, notamment les journaux de vos applications hébergées dans le cloud.
 
     1.  Créez un conteneur nommé **mycontainer** avec un accès privé (par d’accès anonyme).
@@ -153,15 +149,15 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 
 -   La méthode accepte quatre paramètres :
 
-    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
+    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
 
-    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
+    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
 
-    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
+    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
 
-    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
+    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
 
--   La méthode renvoie un dictionnaire qui peut être utilisé pour enchaîner les activités personnalisées. Nous n’utiliserons pas cette fonctionnalité dans cet exemple de solution.
+-   La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ultérieurement des activités personnalisées. Cette fonctionnalité n’étant pas encore implémentée, seule un dictionnaire vide est retourné par la méthode.
 
 ### Procédure : Création de l’activité personnalisée
 
@@ -228,13 +224,8 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -277,8 +268,6 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -295,7 +284,8 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -428,9 +418,6 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	Le code appelle également une méthode d’assistance, **GetFolderPath**, pour récupérer le chemin d’accès au dossier (nom du conteneur de stockage).
 
 		folderPath = GetFolderPath(outputDataset);
@@ -552,11 +539,17 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     2.  Remplacez **clé d’accès** avec la clé d’accès du compte Azure Batch.
 
-    3.  Entrez l’ID du pool pour la propriété **poolName**. pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
+    3.  Entrez l’ID du pool pour la propriété **poolName****. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
 
-    4.  Entrez l’URI du lot pour la propriété JSON **batchUri**. L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
+    4.  Entrez l’URI du lot pour la propriété JSON **batchUri**.
+    
+		> [AZURE.IMPORTANT] L’**URL** figurant dans le **panneau du compte Azure Batch** est au format suivant : <nomducompte>.<région>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez **supprimer « nomducompte ».** de l’URL. Par exemple : "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		Pour la propriété **poolName**, vous pouvez également spécifier l’ID du pool au lieu du nom du pool.
+
+		> [AZURE.NOTE] Le service Data Factory ne prend pas en charge l’option à la demande pour Azure Batch contrairement à HDInsight. Vous pouvez uniquement utiliser votre propre pool Azure Batch dans une fabrique de données Azure.
 
     5.  Pour la propriété **LinkedServiceName**, spécifiez **StorageLinkedService**. Vous avez créé ce service lié à l’étape précédente. Ce stockage est utilisé en tant que zone de transit pour les fichiers et les journaux.
 
@@ -576,7 +569,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -651,7 +644,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Dans la barre d’outils, cliquez sur **Déployer** pour créer et déployer la table **InputDataset**. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche dans la barre de titre de l’éditeur.
+3.  Dans la barre d’outils, cliquez sur **Déployer** pour créer et déployer la table **InputDataset**.
 
 #### Créer un jeu de données de sortie
 
@@ -665,7 +658,7 @@ Au cours de cette étape, vous allez créer un autre jeu de données de type Azu
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -723,7 +716,7 @@ Au cours de cette étape, vous allez créer un pipeline comprenant une seule act
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
@@ -808,6 +801,8 @@ Au cours de cette étape, vous allez tester le pipeline en déposant des fichier
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
 
+	> [AZURE.NOTE] Téléchargez le code source de l’[outil Explorateur Azure Batch][batch-explorer], compilez-le et servez-vous en pour créer et surveiller les pools Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
+
 7.  Les fichiers de sortie devraient apparaître dans le dossier **outputfolder** de **mycontainer** à l’intérieur de votre stockage d’objets blob.
 
     ![](./media/data-factory-data-processing-using-batch/image15.png)
@@ -887,7 +882,7 @@ Le débogage consiste à utiliser quelques techniques de base :
 
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d’Azure Data Factory et d’Azure Batch. Par exemple, pour traiter des tranches d’une autre plage de temps, procédez comme suit :
 
-1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
+1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
 
 2.  Augmentez ou réduisez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement qui se produit sur Azure Batch. (Pour plus d’informations sur le paramètre **concurrency**, voir l’étape 4 : Créer et exécuter le pipeline.)
 
@@ -897,9 +892,9 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
  
 		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-	Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md).
+	Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md).
 
-	Le service Azure Batch peut prendre de 15 à 30 minutes pour préparer la machine virtuelle avant d’exécuter l’activité personnalisée sur celle-ci.
+	Si le pool utilise la valeur par défaut du paramètre [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), le service Batch peut mettre entre 15 et 30 minutes à préparer la machine virtuelle avant d’exécuter l’activité personnalisée. Si le pool utilise une autre valeur pour autoScaleEvaluationInterval, le service Batch peut prendre la durée d’autoScaleEvaluationInterval + 10 minutes.
 	 
 5. Dans l’exemple de solution, la méthode **Execute** appelle la méthode **Calculate** qui traite une tranche de données d’entrée pour produire une tranche de données de sortie. Vous pouvez écrire votre propre méthode pour traiter les données d’entrée, et remplacer l’appel de la méthode Calculate dans la méthode Execute par un appel à votre méthode.
 
@@ -910,13 +905,13 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 Après avoir traité des données, vous pouvez les employer avec des outils en ligne tels que **Microsoft Power BI**. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
--   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-service-get-data/)
+-   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
 
--   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
+-   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
--   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-refresh-data/)
+-   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
 
--   [Azure et Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-azure-and-power-bi/)
+-   [Azure et Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
 
 ## Références
 
@@ -938,4 +933,8 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+
+<!---HONumber=AcomDC_0518_2016-->

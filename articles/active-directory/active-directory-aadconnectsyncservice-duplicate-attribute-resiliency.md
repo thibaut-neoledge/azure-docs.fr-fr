@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="markusvi"/>
 
 
@@ -150,17 +150,17 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
 1. Un utilisateur ayant une configuration d’attribut spécifique continue à recevoir des erreurs d’exportation ; les attributs ne sont pas mis en quarantaine. Par exemple :
 
-    a. Un utilisateur est créé dans Active Directory avec un nom UPN de **Joe@contoso.com** et ProxyAddress **smtp :Joe@contoso.com**
+    a. Un utilisateur est créé dans AD avec un UPN ****Joe@contoso.com** et une ProxyAddress **smtp :Joe@contoso.com**
 
-    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est **SMTP :Joe@contoso.com**.
+    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est ** SMTP :Joe@contoso.com**.
 
     c. Lors de l’exportation, une erreur de **conflit ProxyAddress** est générée au lieu de mettre en quarantaine les attributs à l’origine du conflit. L’opération est retentée à chaque cycle de synchronisation, comme cela était le cas avant l’activation de la fonction de résilience.
 
 2. La tâche du minuteur qui recherche les conflits d’attributs en double résolus compare uniquement les conflits UPN avec d’autres conflits UPN. Ceci provoque le problème indiqué à l’étape 4 du scénario suivant :
 
-    a. **UserA@contoso.com** dispose d’un UPN qui n’est pas unique en raison d’un autre objet ayant la même valeur de ProxyAddress.
+    a. ****UserA@contoso.com** dispose d’un UPN qui n’est pas unique en raison d’un autre objet ayant la même valeur de ProxyAddress.
 
-    b. UserA reçoit un **UPN MOERA** temporaire, **UserA1234@contoso.onmicrosoft.com** et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
+    b. UserA reçoit un **UPN MOERA** temporaire, ****UserA1234@contoso.onmicrosoft.com** et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
 
     c. L’autre objet en conflit voit son paramètre ProxyAddress supprimé ultérieurement.
 
@@ -186,11 +186,11 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     a. L’**Utilisateur A** est synchronisé en premier avec **UPN = User@contoso.com**.
 
-    b. Il y a ensuite une tentative de synchronisation de l’**Utilisateur B** avec **UPN = User@contoso.com**.
+    b. Il y a ensuite une tentative de synchronisation de l’**Utilisateur B** avec ** UPN = User@contoso.com**.
 
-    c. L’UPN de **l’Utilisateur B** est modifié en **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté à **DirSyncProvisioningErrors**.
+    c. L’UPN de **l’Utilisateur B** est modifié en ****User1234@contoso.onmicrosoft.com** et ****User@contoso.com** est ajouté à **DirSyncProvisioningErrors**.
 
-    d. Le message d’erreur pour l’**Utilisateur B** doit indiquer que l’**Utilisateur A** a déjà **User@contoso.com**, comme UPN, mais il affiche le propre displayName de **l’Utilisateur B**.
+    d. Le message d’erreur pour l’**Utilisateur B** doit indiquer que l’**Utilisateur A** a déjà****User@contoso.com**, comme UPN, mais il affiche le propre displayName de **l’Utilisateur B**.
 
 3. Il se peut que le rapport affiche uniquement des informations détaillées sur l’erreur pour les utilisateurs rencontrant des conflits **UPN**, et non pour ceux rencontrant des erreurs **ProxyAddress** (nous étudions toujours si ce problème est constant ou relève de l’environnement utilisé).
 
@@ -200,4 +200,4 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

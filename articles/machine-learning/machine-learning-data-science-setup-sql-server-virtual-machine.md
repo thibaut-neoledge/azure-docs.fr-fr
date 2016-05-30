@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
 
@@ -219,7 +219,7 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 11. S’il s’agit de votre première connexion, vous pouvez désigner cette connexion en tant qu’administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
 
-    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
+    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
 
     ![administrateur système][12]
 
@@ -233,7 +233,7 @@ Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vo
 
 1.  Dans le portail Azure Classic (ou à partir de l’étape précédente), sélectionnez **VIRTUAL MACHINES**.
 
-2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne **http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
+2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne ****http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
 
 ##<a name="cde"></a>Se connecter au moteur de base de données à partir d’un autre ordinateur
 
@@ -306,4 +306,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

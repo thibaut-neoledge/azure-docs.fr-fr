@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Didacticiel : Recherche de représentations d’appareil physique à l’aide de requêtes (version préliminaire)
+# Didacticiel : Recherche de représentations d’appareil physique à l’aide de requêtes avec C# (version préliminaire)
+
+[AZURE.INCLUDE [iot-hub-device-management-query-selector](../../includes/iot-hub-device-management-query-selector.md)]
 
 La gestion des appareils IoT Azure vous permet de trouver des représentations d’appareils, la représentation sous forme de service d’un appareil physique, à l’aide de requêtes. Vous pouvez interroger selon les propriétés de l’appareil, les propriétés du service ou les balises de la représentation de l’appareil. Vous pouvez interroger à l’aide de balises et de propriétés :
 
@@ -53,26 +55,29 @@ Les requêtes sur les propriétés du service et les propriétés d’appareils 
 - **Project** : l’expression qui désigne les champs à partir de l’objet appareil à inclure dans le jeu de résultats de la requête (équivalent à SELECT dans SQL) :
 
   ```
-  var query = JsonConvert.SerializeObject(
-      project = new
-      {
-        all = false,
-        properties = new []
-        {
-          new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          new
-          {
-            name = "Weight",
-            type = "service"
-          }
-        }
-      }
-  );
-```
+	  var query = JsonConvert.SerializeObject(
+		  new
+		  {
+			  project = new
+			  {
+				  all = false,
+				  properties = new[]
+				  {
+					  new
+					  {
+					  name = "CustomerId",
+					  type = "service"
+					  },
+					  new
+					  {
+					  name = "Weight",
+					  type = "service"
+					  }
+				  }
+			  }
+		  }
+	  );
+	```
 
 - **Filter** : l’expression qui limite les objets appareils inclus dans le jeu de résultats de la requête (équivalent à WHERE dans SQL) :
 
@@ -95,7 +100,7 @@ Les requêtes sur les propriétés du service et les propriétés d’appareils 
   );
   ```
 
-- **Aggregate** : l’expression qui détermine comment regrouper le jeu de résultats de la requête (équivalent à GROUPBY dans SQL) :
+- **Aggregate** : l’expression qui détermine comment regrouper le jeu de résultats de la requête (équivalent à GROUP BY dans SQL) :
 
   ```
   var query = JsonConvert.SerializeObject(
@@ -216,4 +221,4 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

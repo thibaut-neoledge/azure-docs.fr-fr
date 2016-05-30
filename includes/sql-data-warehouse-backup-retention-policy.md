@@ -8,8 +8,8 @@ As of circa 2016-04-22, the following topics might include this include:
 articles/sql-data-warehouse/sql-data-warehouse-overview-expectations.md
 articles/sql-data-warehouse/sql-data-warehouse-overview-backup-and-restore.md
 -->
-SQL Data Warehouse backs up all live data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows you to restore the data to one of at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. 
+SQL Data Warehouse sauvegarde toutes les données actives au moins toutes les 8 heures, à l’aide d’instantanés Azure Storage. Ces instantanés sont conservés pendant 7 jours. Ainsi, vous pouvez restaurer les données à 21 instants différents au cours des 7 derniers jours, jusqu’au moment de la prise du dernier instantané.
 
-SQL Data Warehouse takes a database snapshot before a database is dropped and retains it for 7 days. When this occurs, it no longer retains snapshots from the live database. This allows you to restore a deleted database to the point when it was deleted.
+Avant de supprimer une base de données, SQL Data Warehouse en crée un instantané et le conserve 7 jours. Lorsque cela se produit, il ne conserve pas les instantanés de la base de données active. Cela vous permet de restaurer une base de données supprimée dans son état au moment de sa suppression.
 
-SQL Data Warehouse copies snapshots asynchronously to a different geographical Azure region for added recoverability in case of a regional failure. If you cannot access your database because of a failure in an Azure region, you can restore your database to one of the geo-redundant snapshots.
+SQL Data Warehouse copie les instantanés de façon asynchrone dans une autre région géographique pour faciliter leur récupération en cas de défaillance dans une région. Si vous ne pouvez pas accéder à votre base de données en raison d’une défaillance dans une région Azure, vous pouvez la restaurer à l’aide de l’un des instantanés géo-redondants.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Création de mots de passe d’application dans le portail 365 myapps pour Azure Multi-Factor Authentication
@@ -25,7 +25,7 @@ Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n
 ## Pour créer des mots de passe d’application si vous ne possédez pas d’abonnement Office 365 ou Azure
 --------------------------------------------------------------------------------
 <ol>
-<li>Connectez-vous à [https://myapps.microsoft.com] (https://myapps.microsoft.com)</li>
+<li>Connectez-vous à [https://myapps.microsoft.com] (https://myapps.microsoft.com)</li>	
 <li>En haut de la page, sélectionnez le profil.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
@@ -39,4 +39,7 @@ Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n
 <li>Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**.</li>
 <li>Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

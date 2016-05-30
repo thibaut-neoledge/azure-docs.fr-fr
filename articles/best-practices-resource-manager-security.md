@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Questions de sécurité relatives à Azure Resource Manager"
+	pageTitle="Considérations de sécurité pour Resource Manager | Microsoft Azure"
 	description="Montre les approches recommandées dans Azure Resource Manager pour la sécurisation des ressources avec des clés et des secrets, l’accès basé sur les rôles, contrôlent et les groupes de sécurité du réseau."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -23,7 +23,7 @@ Lorsqu’on examine les aspects relatifs à la sécurité pour vos modèles Azur
 
 Cette rubrique suppose que vous êtes familiarisé avec la notion de contrôle d’accès en fonction du rôle (RBAC) dans Azure Resource Manager. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez World Class ARM Templates Considerations and Proven Practices (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secrets et certificats
 
@@ -306,7 +306,7 @@ Chaque sous-réseau créé dans un réseau virtuel est automatiquement associé 
 
 ### Itinéraires BGP
 
-Au moment de la rédaction de cet article, [ExpressRoute](./expressroute/expressroute-introduction.md) n’est pas encore pris en charge par le [fournisseur de ressources réseau](virtual-network/resource-groups-networking.md) d’Azure Resource Manager. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](./expressroute/expressroute-introduction.md)
+Au moment de la rédaction de cet article, [ExpressRoute](./expressroute/expressroute-introduction.md) n’est pas encore pris en charge par le [fournisseur de ressources réseau](./virtual-network/resource-groups-networking.md) d’Azure Resource Manager. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](./expressroute/expressroute-introduction.md)
 
 >[AZURE.NOTE] Une fois ExpressRoute pris en charge sur NRP, vous pouvez configurer votre environnement Azure de manière à ce qu’il utilise le tunneling forcé via votre réseau local en créant un itinéraire défini par l’utilisateur pour le sous-réseau 0.0.0.0/0 qui utilise la passerelle VPN comme tronçon suivant. Toutefois, cela ne fonctionne que si vous utilisez une passerelle VPN, et non ExpressRoute. Pour ExpressRoute, le tunneling forcé est configuré via BGP.
 
@@ -339,4 +339,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Pour configurer le routage et le transfert IP, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide d’un modèle](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Pour obtenir une présentation du contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

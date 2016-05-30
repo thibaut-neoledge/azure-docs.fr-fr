@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connexion à SQL Database à l’aide de Python"
+	pageTitle="Se connecter à une base de données SQL à l’aide de Python | Microsoft Azure"
 	description="Cette rubrique présente un exemple de code Python que vous pouvez utiliser pour vous connecter à une base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -47,4 +47,4 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

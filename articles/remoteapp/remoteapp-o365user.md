@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/08/2016" 
+    ms.date="05/13/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Suivez les instructions de la rubrique [Modification du client Azure Active Dire
 
 À ce stade, votre abonnement Azure RemoteApp est associé à votre annuaire Office 365 Azure AD. Vous pouvez utiliser les comptes d’utilisateur Office 365 existants avec Azure RemoteApp.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

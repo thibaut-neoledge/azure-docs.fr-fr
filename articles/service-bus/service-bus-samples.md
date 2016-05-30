@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Vue d’ensemble des exemples Service Bus | Microsoft Azure"
-   description="Classe et décrit les exemples Service Bus avec des liens vers chacun d’eux."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Vue d’ensemble des exemples Service Bus | Microsoft Azure"
+    description="Classe et décrit les exemples Service Bus avec des liens vers chacun d’eux."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Exemples Service Bus
 
 Les exemples de Service Bus illustrent des fonctionnalités clés de [Service Bus](https://azure.microsoft.com/services/service-bus/) (service cloud) et [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
 >[AZURE.NOTE] Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples de kit de développement logiciels Microsoft Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>
+>Un ensemble actualisé d’exemples de messagerie Service Bus est également disponible [ici](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (ils ne sont pas décrits dans cet article pour le moment). Des exemples de relais sont disponibles [ici](https://github.com/Azure-Samples/azure-servicebus-relay-samples).
 
 ## Messagerie répartie Service Bus
 
@@ -132,4 +134,4 @@ Consultez les rubriques suivantes pour obtenir des présentations conceptuelles 
 - [Architecture de Service Bus](service-bus-architecture.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -130,8 +130,7 @@ Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.N
 
 Pour obtenir des exemples de code qui illustrent la logique de nouvelle tentative, consultez :
 
-- [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
-
+- Exemples de code : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
 ### Numéros d’erreur pour les erreurs temporaires
 
@@ -161,10 +160,12 @@ Pour plus d’informations, consultez :
 Les rubriques suivantes contiennent des liens vers des exemples de code pour plusieurs langages et technologies de pilote que vous pouvez utiliser pour vous connecter à Azure SQL Database à partir de votre programme client.
 
 
-Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Windows, Linux et Mac OS X.
+Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Windows, Linux et Mac.
 
 
-**Exemples généraux :** il existe des [exemples de code](sql-database-develop-quick-start-client-code-samples.md) pour un grand nombre de langages de programmation, comme PHP, Python, Node.js et .NET CSharp. De même, des exemples sont fournis pour les clients qui s’exécutent sur Windows, Linux et Mac OS X.
+**Exemples généraux :** il existe des exemples de code pour un grand nombre de langages de programmation, comme PHP, Python, Java, Node.js et .NET CSharp. Vous trouverez des liens vers des exemples de code dans les articles suivants :
+
+- [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
 
 **Mise à l’échelle élastique :** pour plus d’informations sur la connectivité aux bases de données de mise à l’échelle élastique, consultez :
@@ -172,9 +173,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 - [Prise en main de l'infrastructure élastique d’Azure SQL Database (version préliminaire)](sql-database-elastic-scale-get-started.md)
 - [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**Bibliothèques de pilotes :** pour plus d’informations sur les bibliothèques de pilotes de connexion, ainsi que sur les versions recommandées, consultez :
-
-- [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

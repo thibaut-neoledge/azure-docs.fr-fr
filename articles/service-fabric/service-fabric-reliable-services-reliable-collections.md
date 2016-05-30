@@ -34,7 +34,7 @@ Les Collections fiables peuvent être considérées comme l’évolution naturel
 - Asynchrones : les API sont asynchrones afin de s’assurer que les threads ne sont pas bloqués en cas d’entrées/sorties.
 - Transactionnelles : les API utilisent l’abstraction de transactions pour vous permettre de gérer facilement plusieurs Collections fiables au sein d’un service.
 
-Les Collections fiables fournissent des garanties de forte cohérence instantanée afin de faciliter le raisonnement sur l'état de l'application. La forte cohérence est obtenue en s’assurant que la transaction n’est validée comme terminée que lorsque l’intégralité de la transaction a été appliquée à un quorum de réplicas, y compris au réplica principal. Pour obtenir une cohérence plus faible, les applications peuvent accuser réception au client/demandeur avant la validation asynchrone.
+Les Collections fiables fournissent des garanties de forte cohérence instantanée afin de faciliter le raisonnement sur l'état de l'application. La forte cohérence est obtenue en s’assurant que la transaction n’est validée comme terminée que lorsque l’intégralité de la transaction a été enregistrée dans un quorum majoritaire de réplicas, y compris le réplica principal. Pour obtenir une cohérence plus faible, les applications peuvent accuser réception au client/demandeur avant la validation asynchrone.
 
 Les API de Collections fiables sont une évolution des API de collections simultanées (trouvées dans l’espace de noms **System.Collections.Concurrent**) :
 
@@ -55,7 +55,7 @@ Les Collections fiables choisissent automatiquement le niveau d'isolement à uti
 Il existe deux niveaux d'isolement pris en charge dans les Collections fiables :
 
 - **Lecture renouvelée** : spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Instantané** : spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Instantané** : spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction. Les instantanés sont cohérents sur les Collections fiables. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Le Dictionnaire fiable et la File d'attente fiable prennent en charge le protocole Read Your Writes. En d'autres termes, toute écriture dans une transaction sera visible pour une lecture suivante appartenant à la même transaction.
 
@@ -99,24 +99,28 @@ Notez que le scénario de blocage ci-dessus est un exemple illustrant parfaiteme
 
 ## Recommandations
 
-- Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, `TryPeekAsync` ou `TryGetAsync`). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
+- Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, `TryPeekAsync` ou `TryGetValueAsync`). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
 - Exécutez une copie complète de l’objet renvoyé de type personnalisé avant de le modifier. Comme les structures et les types intégrés ont une valeur de passage, vous n’avez pas besoin d’en effectuer une copie complète.
 - N’utilisez pas `TimeSpan.MaxValue` pour les délais d’attente. Les délais d’expiration doivent être utilisés pour détecter des blocages.
 - Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
+- Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système en dépend pour la fusion des points de contrôle.
+- Envisagez d’utiliser la fonctionnalité de sauvegarde et de restauration pour bénéficier de la récupération d’urgence.
 
 Voici quelques points à retenir :
 
 - Le délai d’expiration par défaut est de 4 secondes pour toutes les API de Collections fiables. La plupart des utilisateurs ne doivent pas remplacer ce délai.
 - Le jeton d'annulation par défaut est `CancellationToken.None` dans toutes les API de Collections fiables.
 - Le paramètre de type de clé (*TKey*) pour un Dictionnaire fiable doit implémenter correctement `GetHashCode()` et `Equals()`. Les clés doivent être immuables.
-- Les énumérations sont un instantané cohérent au sein d'une collection. Toutefois, les énumérations de plusieurs collections ne sont pas cohérentes d'une collection à l'autre.
 - Pour obtenir un haut niveau de disponibilité pour les Collections fiables, chaque service doit avoir au moins une taille de jeu de réplicas cible minimum égale à 3.
+- Les opérations de lecture sur le secondaire peuvent lire des versions qui ne sont pas validées dans le quorum. Cela signifie qu’une version des données lue à partir d’un seul secondaire peut présenter une progression erronée. Bien sûr, les lectures à partir du principal sont toujours stables : la progression n’est jamais erronée.
 
 ## Étapes suivantes
 
 - [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Sauvegarde et restauration de Reliable Services (récupération d’urgence)](service-fabric-reliable-services-backup-restore.md)
+- [Configuration du Gestionnaire d’état fiable](service-fabric-reliable-services-configuration.md)
 - [Prise en main des services API Web de Fabric Service](service-fabric-reliable-services-communication-webapi.md)
 - [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

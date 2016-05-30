@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS | Microsoft Azure"
+   pageTitle="Créer un jeu d’enregistrements et des enregistrements pour une zone DNS en utilisant PowerShell | Microsoft Azure"
    description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de PowerShell"
    services="dns"
    documentationCenter="na"
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
 
-# Création d’enregistrements DNS
+
+# Créer des jeux d’enregistrements et des enregistrements DNS en utilisant PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -25,69 +26,83 @@
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Interface de ligne de commande Azure](dns-getstarted-create-recordset-cli.md)
 
-Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre les enregistrements DNS et les jeux d’enregistrements.
+Cet article vous guide dans la création d’enregistrements et de jeux d’enregistrements en utilisant PowerShell. Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre la notion d’enregistrements et de jeux d’enregistrements DNS.
+
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
+
+## Avant de commencer
+
+Vérifiez que la dernière version des applets de commande PowerShell Azure Resource Manager est installée. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+
+## Création d’un jeu d’enregistrements et d’un enregistrement
+
+Dans cette section, nous allons vous montrer comment créer un jeu d’enregistrements et des enregistrements.
 
 
-## Compréhension des jeux d’enregistrements et des enregistrements.
-Chaque enregistrement DNS a un nom et un type.
+### 1\. Connexion à votre abonnement 
 
-Le nom _complet_ inclut le nom de la zone, contrairement au nom _relatif_. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
+Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
->[AZURE.NOTE] Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs.
+	Login-AzureRmAccount
 
-Il existe différents types d’enregistrement, selon les données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui associe un nom à une adresse IPv4. Un autre type est un enregistrement « MX », qui associe un nom à un serveur de messagerie.
+Vérifiez les abonnements associés au compte.
 
-Azure DNS prend en charge tous les types d’enregistrement DNS courants : A, AAAA, CNAME, MX, NS, SOA, SRV et TXT. (Notez que les [enregistrements SPF doivent être créés à l’aide du type d’enregistrement TXT](http://tools.ietf.org/html/rfc7208#section-3.1).)
+	Get-AzureRmSubscription 
 
-Vous devez parfois créer plusieurs enregistrements DNS avec un nom et un type donnés. Par exemple, supposons que le site web www.contoso.com est hébergé sur des adresses IP différentes. Cela requiert deux enregistrements A, un pour chaque adresse IP :
+Spécifiez l’abonnement à utiliser.
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-Il s’agit d’un exemple de jeu d’enregistrements. Un jeu d’enregistrements est une collection d’enregistrements DNS dans une zone ayant le même nom et le même type. La plupart des jeux d’enregistrements contiennent un enregistrement unique, mais les exemples comme celui ci-dessus dans lequel un jeu d’enregistrements contient plusieurs enregistrements sont relativement courants. Les enregistrements de type SOA et CNAME constituent une exception, les normes DNS n’autorisant pas plusieurs enregistrements avec le même nom pour ces types.
-
-La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistrement est mis en cache par les clients avant d’être réinterrogé. Dans l’exemple ci-dessus, la durée de vie est de 3 600 secondes ou 1 heure. La durée de vie est spécifiée pour le jeu d’enregistrements, pas pour chaque enregistrement. La même valeur est donc utilisée pour tous les enregistrements au sein de ce jeu d’enregistrements.
-
->[AZURE.NOTE] Azure DNS gère les enregistrements DNS à l’aide de jeux d’enregistrements.
+Pour plus d’informations sur l’utilisation de PowerShell, consultez [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
 
+### 2\. Création d’un jeu d'enregistrements
 
-## Création de jeux d’enregistrements et d’enregistrements
+Les jeux d’enregistrements sont créés à l’aide de la commande `New-AzureRmDnsRecordSet`. Lors de la création d’un jeu d’enregistrements, vous devez spécifier le nom du jeu d’enregistrements, la zone, la durée de vie (TTL) et le type d’enregistrement.
 
-Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistrements et des enregistrements. Nous allons utiliser le type d'enregistrement DNS « A », pour d'autres types d'enregistrements, consultez [Gestion des enregistrements DNS](dns-operations-recordsets.md)
+Pour créer un jeu d'enregistrements à l'apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d'enregistrement « "@" » (guillemets compris). Il s'agit d'une convention DNS courante.
+
+L’exemple ci-dessous crée un jeu d’enregistrements avec le nom relatif *www* dans la zone DNS *contoso.com*. Le nom complet des enregistrements est *www.contoso.com*, le type d’enregistrement est *A* et la durée de vie est de 60 secondes. À la fin de cette étape, vous obtenez un jeu d’enregistrements *www* vide qui est affecté à la variable *$rs*.
+
+	$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+
+#### Si un jeu d’enregistrements existe déjà
+
+Si un jeu d’enregistrements existe déjà, la commande échoue, sauf si commutateur *-Overwrite* est utilisé. L’option *-Overwrite* déclenche une invite de confirmation, qui peut être supprimée en utilisant le commutateur *-Force*.
 
 
-### Étape 1 :
+	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
-Créez un jeu d'enregistrements et assignez-le à une variable $rs :
 
-	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+Dans l'exemple ci-dessus, la zone est spécifiée à l'aide du nom de la zone et du nom du groupe de ressources. Vous pouvez également spécifier un objet de zone, retourné par `Get-AzureRmDnsZone` ou `New-AzureRmDnsZone`.
 
-Le jeu d’enregistrements ayant le nom relatif « www » dans la zone DNS « contoso.com », le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes.
+	$zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
 
->[AZURE.NOTE] Pour créer un jeu d'enregistrements à l'apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d'enregistrement « "@" » (guillemets compris). Il s'agit d'une convention DNS courante.
+`New-AzureRmDnsRecordSet` retourne un objet local qui représente le jeu d’enregistrements créé dans Azure DNS.
 
-Le jeu d'enregistrements est vide et vous devez ajouter des enregistrements pour pouvoir utiliser le jeu d'enregistrements « www » que vous venez de créer.<BR>
+### 3\. Ajouter un enregistrement
 
-### Étape 2 :
+Pour pouvoir utiliser le jeu d’enregistrements*www* que vous venez de créer, vous devez y ajouter des enregistrements. Ajoutez des enregistrements IPv4 *A* au jeu d’enregistrements *www* en utilisant l’exemple suivant : Cet exemple s’appuie sur la variable $rs que vous avez définie à l’étape précédente.
 
-Ajoutez des enregistrements IPv4 A au jeu d’enregistrements « www » à l’aide de la variable $rs attribuée lors de la création du jeu d’enregistrements à l’étape 1 :
+L’ajout d’enregistrements à un jeu d’enregistrements avec `Add-AzureRmDnsRecordConfig` est une opération hors connexion. Seule la variable locale *$rs* est mise à jour.
 
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-L'ajout d'enregistrements à un jeu d'enregistrements à l'aide de Add-AzureRmDnsRecordConfig est une opération hors connexion. Seule la variable locale $rs est mise à jour.
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-### Étape 3
-Validez les modifications apportées au jeu d’enregistrements. Utilisez Set-AzureRmDnsRecordSet pour charger les modifications apportées au jeu d’enregistrements dans Azure DNS :
+### 4\. Valider les modifications
 
+Validez les modifications apportées au jeu d’enregistrements. Utilisez `Set-AzureRmDnsRecordSet` pour charger les modifications apportées au jeu d’enregistrements dans Azure DNS.
 
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-Les modifications sont terminées. Vous pouvez récupérer le jeu d'enregistrements à partir d'Azure DNS à l'aide de Get-AzureRmDnsRecordSet :
+### 5\. Récupérer le jeu d’enregistrements
+
+Vous pouvez récupérer le jeu d’enregistrements auprès d’Azure DNS en utilisant `Get-AzureRmDnsRecordSet`, comme dans l’exemple suivant.
 
 
-	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,13 +115,12 @@ Les modifications sont terminées. Vous pouvez récupérer le jeu d'enregistreme
 	Tags              : {}
 
 
-
 Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroger le nouveau jeu d’enregistrements.
 
->[AZURE.NOTE] Comme lors de la création de la zone, si vous n’avez pas encore délégué le domaine aux serveurs de noms Azure DNS, vous devez spécifier l’adresse du serveur de noms de votre zone explicitement.
+Si vous n’avez pas encore délégué le domaine aux serveurs de noms Azure DNS, vous devez spécifier explicitement l’adresse du serveur de noms pour votre zone.
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+	nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -115,15 +129,21 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 	Addresses:  134.170.185.46
     	        134.170.188.221
 
+## Autres exemples de types d’enregistrements
+
+
+Les exemples suivants montrent comment créer un jeu d’enregistrements de chaque type d’enregistrement, chacun contenant un seul enregistrement.
+
+[AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 
 ## Étapes suivantes
 
 [Gestion des zones DNS](dns-operations-dnszones.md)
 
-[Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR>
+[Gestion des enregistrements DNS](dns-operations-recordsets.md)
 
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

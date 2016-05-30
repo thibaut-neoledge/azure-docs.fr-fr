@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Problèmes avec Azure Multi-Factor Authentication
@@ -30,25 +30,25 @@ Cette section vous aidera à résoudre certains problèmes courants que vous pou
 - [J’ai un nouveau téléphone et je dois modifier mon numéro de téléphone](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [Je ne reçois pas de code sur mon téléphone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [Les mots de passe d’application ne fonctionnent pas](#app-passwords-are-not-working)
-- [Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
 - [Je n’ai pas trouvé de réponse à mon problème](#i-didnt-find-an-answer-to-my-problem)
 
 ##Erreurs d'ID de corrélation
-Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR) afin que nous puissions résoudre votre problème dès que possible.
+Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/en-us) afin que nous puissions résoudre votre problème dès que possible.
 
-Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
+Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
 
- - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
- - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
- - **ErrorCode** : le code d’erreur spécifique que vous recevez.
- - **SessionId** : l’ID de session spécifique que vous recevez.
- - **ID de corrélation** : quel était l’ID de corrélation généré lorsque l’utilisateur a remarqué l’erreur ?
- - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+ - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
+ - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
+ - **ErrorCode** : le code d’erreur spécifique que vous recevez.
+ - **SessionId** : l’ID de session spécifique que vous recevez.
+ - **ID de corrélation** : quel était l’ID de corrélation généré lorsque l’utilisateur a remarqué l’erreur ?
+ - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
  
-![ID de corrélation :](./media/multi-factor-authentication-end-user-manage/correlation.png)
+![ID de corrélation :](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com)?)
- - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com)?)
+ - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
 
@@ -75,20 +75,20 @@ Selon la façon dont vous utilisez l’authentification multification, vous pouv
 
 Mode d’utilisation de l’authentification multifacteur|Description
 :------------- | :------------- | 
-[Je l’utilise avec Office 365](#changing-your-settings-with-office-365)| Cela signifie que vous souhaitez modifier vos paramètres par le biais du portail Office 365.
+[Je l’utilise avec Office 365](#changing-your-settings-with-office-365)| Cela signifie que vous souhaitez modifier vos paramètres par le biais du portail Office 365.
 [Je ne sais pas](#changing-your-settings-with-the-myapps-portal)|Cela signifie que vous souhaitez vous connecter à [http://myapps.microsoft.com](http://myapps.microsoft.com) et y modifier votre paramètre.
 [Je l’utilise avec Microsoft Azure](#changing-your-settings-with-microsoft-azure)| Cela signifie que vous souhaitez modifier vos paramètres par le biais du portail Azure.
 
 
  
-### Modification des paramètres avec Office 365
+### Modification des paramètres avec Office 365
 
 
-Si vous utilisez l’authentification multifacteur avec Office 365, vous souhaitez peut-être gérer vos paramètres de vérification de sécurité supplémentaires par le biais du portail Office 365.
+Si vous utilisez l’authentification multifacteur avec Office 365, vous souhaitez peut-être gérer vos paramètres de vérification de sécurité supplémentaires par le biais du portail Office 365.
 
-#### Pour modifier vos paramètres dans le portail Office 365
+#### Pour modifier vos paramètres dans le portail Office 365
 
-1. Connectez-vous au [portail Office 365](https://login.microsoftonline.com/).
+1. Connectez-vous au [portail Office 365](https://login.microsoftonline.com/).
 2. Dans l’angle supérieur droit, sélectionnez le widget et choisissez les paramètres d’Office 365.
 3. Cliquez sur Vérification de sécurité supplémentaire.
 4. Sur la droite, cliquez sur le lien indiquant **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte.** ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
@@ -117,7 +117,7 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous pouvez chang
 
 1. Connectez-vous au portail Azure.
 2. En haut du portail Azure, cliquez sur votre nom d’utilisateur. Une zone de liste déroulante s’affiche.
-3. Dans la liste déroulante, sélectionnez Vérification de sécurité supplémentaire. ![Microsoft Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
+3. Dans la liste déroulante, sélectionnez Vérification de sécurité supplémentaire. ![Microsoft Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
 4. Ceci vous amènera sur la page qui vous permet de modifier vos paramètres. ![Vérification](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ##J’ai un nouveau téléphone et je dois modifier mon numéro de téléphone
@@ -162,14 +162,14 @@ Si vous avez déjà configuré un téléphone de secours, nous vous recommandons
 ##Les mots de passe d’application ne fonctionnent pas
 Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. S’il ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md). Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d’application existants](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords). Vous pourrez alors créer un mot de passe et l’utiliser.
 
-##Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?
+##Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?
 Lorsque vous désinstallez l’application de votre appareil ou que vous réinitialisez l’appareil, l’application ne sera pas désactivée sur le serveur principal. Vous devez suivre la procédure décrite dans la section relative au [transfert vers un nouvel appareil](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
 ##Je n’ai pas trouvé de réponse à mon problème
-Si n’a pas trouvé de réponse à votre problème sur cette page, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR).
+Si n’a pas trouvé de réponse à votre problème sur cette page, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/en-us).
 
 En outre, vous pouvez contacter votre administrateur ou la personne qui a configuré Multi-Factor Authentication pour vous et voir s’ils peuvent vous aider.
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

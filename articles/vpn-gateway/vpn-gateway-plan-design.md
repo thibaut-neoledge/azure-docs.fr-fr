@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 # Planification et conception de la passerelle VPN
@@ -23,7 +23,7 @@ La planification et de la conception de vos configurations entre plusieurs locau
 ## Planification
 
 
-### <a name="compare"></a>1. Comparer les options de connectivité entre locaux
+### <a name="compare"></a>Options de connectivité intersite
 
 Si vous avez décidé de connecter vos sites locaux à un réseau virtuel en toute sécurité, vous disposez de trois options : Site à site, Point à site et ExpressRoute. Comparer les différentes connexions entre locaux qui sont disponibles. L’option que vous choisirez peut dépendre de la réponse à différentes questions, notamment :
 
@@ -44,7 +44,7 @@ Le tableau ci-après peut vous aider à déterminer la meilleure option de conne
 
 
 
-### <a name="gwrequire"></a>2. Tenir compte des besoins en matière de passerelle par type de VPN et par SKU
+### <a name="gwrequire"></a>Configuration requise de la passerelle par type de VPN et SKU
 
 
 Lorsque vous créez une passerelle VPN, vous devez spécifier la passerelle de référence (SKU) que vous souhaitez utiliser. Il existe 3 SKU de passerelle VPN :
@@ -57,7 +57,7 @@ Lorsque vous créez une passerelle VPN, vous devez spécifier la passerelle de r
 
 
 
-### 3\. Types de passerelle et débit total estimé
+### <a name="aggthroughput"></a>Types de passerelle et débit total estimé
 
 Le tableau ci-dessous indique les types de passerelle et le débit total estimé. Le débit total estimé peut être un facteur décisif pour votre conception. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
@@ -65,7 +65,7 @@ Le tableau ci-dessous indique les types de passerelle et le débit total estimé
 
 
 
-### <a name="wf"></a>4. Workflow
+### <a name="wf"></a>Flux de travail
 
 La liste suivante présente le flux de travail courant pour la connectivité au cloud :
 
@@ -78,13 +78,13 @@ La liste suivante présente le flux de travail courant pour la connectivité au 
 
 ## Conception
 
-### 1\. Sélectionner une topologie de connexion
+### <a name="topologies"></a>Topologies de connexion
 
-Commencez par consulter l’article [Topologies de connexion](vpn-gateway-topology.md). Cet article contient des schémas de base, les modèles de déploiement de chaque topologie (Resource Manager ou classique) et les outils de déploiement que vous pouvez utiliser pour déployer votre configuration.
+Commencez par consulter les diagrammes dans l’article [Topologies de connexion](vpn-gateway-topology.md). Cet article contient des schémas de base, les modèles de déploiement de chaque topologie (Resource Manager ou classique) et les outils de déploiement que vous pouvez utiliser pour déployer votre configuration.
 
-### 2\. Comprendre les bases de la conception
+### <a name="designbasics"></a>Concepts de base
 
-Les sections ci-dessous présentent les notions de base des passerelles VPN. En outre, vous devez prendre en considération les [limitations des services de mise en réseau](../articles/azure-subscription-service-limits.md#networking-limits).
+Les sections ci-dessous présentent les notions de base des passerelles VPN. De plus, vous devez prendre en compte les [limitations des services de mise en réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
 #### <a name="subnets"></a>À propos des sous-réseaux
@@ -113,7 +113,7 @@ Les types de passerelles sont les suivants :
 - Vpn
 - ExpressRoute
 
-#### À propos des types de connexion
+#### <a name="connectiontype"></a>À propos des types de connexion
 
 Chaque configuration nécessite un type de connexion spécifique. Les types de connexion sont les suivants :
 
@@ -134,27 +134,28 @@ Les tableaux suivants indiquent le type de VPN en fonction de chaque configurati
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)]
 
-### <a name="devices"></a>3. Sélectionner un périphérique VPN pour les connexions de site à site
+### <a name="devices"></a>Périphériques VPN et connexions de site à site
 
 Pour configurer une connexion de site à site, quel que soit le modèle de déploiement, vous avez besoin des éléments suivants :
 
 - un périphérique VPN compatible avec les passerelles VPN Azure
 - une adresse IPv4 publique qui ne se trouve pas derrière un NAT
 
-Vous devez savoir configurer votre périphérique VPN pour la création d’une configuration de site à site. Pour plus d’informations sur les périphériques VPN, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). L’article sur les périphériques VPN contient des informations sur les périphériques validés, la configuration requise pour les périphériques qui n’ont pas été validés, ainsi que des liens vers les documents de configuration de périphérique pour chaque périphérique, le cas échéant.
+Vous devez avoir de l’expérience pour configurer votre périphérique VPN. Pour plus d’informations sur les périphériques VPN, consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). L’article sur les périphériques VPN contient des informations sur les périphériques validés, la configuration requise pour les périphériques qui n’ont pas été validés, ainsi que des liens vers les documents de configuration de périphérique pour chaque périphérique, le cas échéant.
 
-### <a name="forcedtunnel"></a>4. Envisager le routage avec tunneling forcé
+### <a name="forcedtunnel"></a>Envisager le routage avec tunneling forcé
 
 Dans la plupart des configurations, vous pouvez configurer le tunneling forcé. Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise.
 
-Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fera toujours à partir de l’infrastructure du réseau Azure directement vers Internet, sans vous laisser inspecter ou vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité. Pour plus d’informations sur la configuration du tunneling forcé, consultez [À propos du tunneling forcé pour le modèle de déploiement classique](vpn-gateway-about-forced-tunneling.md) et [À propos du tunneling forcé pour le modèle de déploiement Resource Manager](vpn-gateway-about-forced-tunneling.md).
+Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fera toujours à partir de l’infrastructure du réseau Azure directement vers Internet, sans vous laisser inspecter ou vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité.
 
-**Schéma du tunneling forcé**
+Pour plus d’informations sur la configuration du tunneling forcé, consultez [Configuration du tunneling forcé pour les passerelles VPN à l’aide du modèle de déploiement Classic](vpn-gateway-about-forced-tunneling.md) et [Configuration du tunneling forcé pour les passerelles VPN à l’aide du modèle de déploiement Resource Manager](vpn-gateway-about-forced-tunneling.md).
+
+**Diagramme du tunneling forcé**
 
 ![Connexion de tunneling forcé](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forcé")
 
-
-Ce tableau présente le modèle de déploiement correspondant au tunneling forcé, les outils de déploiement pour configurer le tunneling forcé, ainsi que des liens vers des articles, le cas échéant. Nous mettons à jour les tableaux lorsque de nouveaux articles sont disponibles.
+Une connexion de tunneling forcé peut être configurée dans les deux modèles de déploiement et à l’aide de différents outils. Pour plus d’informations, consultez le tableau ci-après. Nous mettons à jour ce tableau à mesure que de nouveaux articles, de nouveaux modèles de déploiement et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.
 
 [AZURE.INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
@@ -162,6 +163,8 @@ Ce tableau présente le modèle de déploiement correspondant au tunneling forc�
 
 ## Étapes suivantes
 
-Consultez le [Forum aux questions - Passerelle VPN](vpn-gateway-vpn-faq.md) et [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md) pour plus d’informations pouvant vous aider dans votre conception. Pour plus d’informations sur les topologies de connexion, consultez [Topologies de connexion](vpn-gateway-topology.md).
+Pour plus d’informations susceptibles de vous aider dans votre conception, consultez [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) et [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+Pour plus d’informations sur les topologies de connexion, consultez [Topologies de connexion](vpn-gateway-topology.md).
+
+<!---HONumber=AcomDC_0518_2016-->

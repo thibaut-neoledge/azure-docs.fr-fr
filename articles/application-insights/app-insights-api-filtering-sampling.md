@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Échantillonnage, filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
@@ -79,7 +79,8 @@ Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajout
 
 [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
-## Filtrage
+<a name="filtering"></a>
+## Filtrage : ITelemetryProcessor
 
 Cette technique vous offre un contrôle plus direct sur ce qui est inclus ou exclu du flux de télémétrie. Vous pouvez l'utiliser conjointement avec l'échantillonnage, ou séparément.
 
@@ -239,8 +240,8 @@ public void Process(ITelemetry item)
 
 ```
 
-
-## Ajout de propriétés
+<a name="add-properties"></a>
+## Ajouter des propriétés : ITelemetryInitializer
 
 Utilisez des initialiseurs de télémétrie pour définir des propriétés globales qui sont envoyées avec toute la télémétrie ; et pour substituer le comportement sélectionné des modules standard de télémétrie.
 
@@ -368,6 +369,15 @@ Pour obtenir un résumé des propriétés non personnalisées disponibles dans l
 Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
 
+## ITelemetryProcessor et ITelemetryInitializer
+
+Quelle est la différence entre les processeurs de télémétrie et les initialiseurs de télémétrie ?
+
+* Leurs utilisations se recoupent partiellement : les deux peuvent être utilisés pour ajouter des propriétés à la télémétrie.
+* Les TelemetryInitializers sont toujours exécutés avant les TelemetryProcessors.
+* Les TelemetryProcessors permettent de remplacer ou supprimer complètement un élément de télémétrie.
+* Les TelemetryProcessors ne traitent pas la télémétrie du compteur de performances.
+
 ## Documents de référence
 
 * [Présentation de l’API](app-insights-api-custom-events-metrics.md)
@@ -409,4 +419,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

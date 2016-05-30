@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide du portail Azure
@@ -45,9 +45,9 @@ Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Da
 
 	![Volet du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Nom** : nom du compte Analytics.
-	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Azure Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
-	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
+	- **Nom** : nom du compte Analytics.
+	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Azure Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
+	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
 	- **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d'un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md). 
 	- **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics. 
 
@@ -109,7 +109,7 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 
 <a name="default-adl-account"></a>**Pour rechercher le compte de stockage Data Lake par défaut**
 
-- Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le compte Data Lake Store par défaut est affiché sous **Essential** :
+- Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le compte Data Lake Store par défaut est affiché sous **Essential** :
 
 	![Ajouter une source de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
@@ -136,12 +136,12 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 	
 	Pour chaque compte Data Lake Store, vous pouvez
 	
-	- **Nouveau dossier** : ajouter un nouveau dossier.
-	- **Télécharger** : télécharger des fichiers vers le compte de stockage à partir de votre poste de travail.
-	- **Accès** : configurer les autorisations d'accès.
-	- **Renommer le dossier** : renommer un dossier.
-	- **Propriétés du dossier** : afficher les propriétés du fichier ou du dossier, comme le chemin WASB, le chemin WEBHDFS, l'heure de la dernière modification, et ainsi de suite.
-	- **Supprimer le dossier** : supprimer un dossier.
+	- **Nouveau dossier** : ajouter un nouveau dossier.
+	- **Télécharger** : télécharger des fichiers vers le compte de stockage à partir de votre poste de travail.
+	- **Accès** : configurer les autorisations d'accès.
+	- **Renommer le dossier** : renommer un dossier.
+	- **Propriétés du dossier** : afficher les propriétés du fichier ou du dossier, comme le chemin WASB, le chemin WEBHDFS, l'heure de la dernière modification, et ainsi de suite.
+	- **Supprimer le dossier** : supprimer un dossier.
 
 <a name="upload-data-to-adls"></a> **Pour télécharger des fichiers vers le compte Data Lake Store**
 
@@ -167,7 +167,7 @@ Data Lake Analytics utilise un contrôle d'accès basé sur le rôle avec Azure 
 |Collaborateur|Accéder au portail ; soumettre et contrôler les travaux. Pour être en mesure de soumettre des travaux, un collaborateur a également besoin de l'autorisation de lecture ou d'écriture sur les comptes Data Lake Store.|
 |DataLakeAnalyticsDeveloper | L'utilisateur peut soumettre des travaux, surveiller tous les travaux, mais peut uniquement annuler ses propres travaux. Il ne peut pas gérer son propre compte, par exemple, ajouter des utilisateurs, modifier les autorisations ou supprimer le compte. Pour pouvoir exécuter des travaux, l'utilisateur a besoin de l'accès en lecture ou en écriture aux comptes Data Lake Store | 
 |Lecteur|Vous permet de tout afficher, mais sans apporter de modifications.|  
-|Utilisateur DevTest Lab|Vous permet de tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.|  
+|Utilisateur de DevTest Labs|Vous permet de tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.|  
 |Administrateur de l'accès utilisateur|Vous permet de gérer l'accès utilisateur aux ressources Azure.|  
 
 Pour plus d'informations sur la création d'utilisateurs et de groupes de sécurité Azure Active Directory, consultez [Qu'est-ce qu'Azure Active Directory ?](../active-directory/active-directory-whatis.md).
@@ -293,4 +293,4 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 - [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

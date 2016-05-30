@@ -14,19 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite
+# Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Node.js)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Générer et exécuter l'exemple de solution node.js
 
-1. Pour cloner le référentiel GitHub des *kits de développement logiciel (SDK) Microsoft Azure IoT* et installer le *Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js* dans votre environnement de bureau, suivez les instructions contenues dans [Préparation de votre environnement de développement][lnk-github-prepare].
+1. Pour cloner le dépôt GitHub des *SDK Microsoft Azure IoT* et installer le *SDK Microsoft Azure IoT device pour Node.js* dans votre environnement de bureau, suivez les instructions contenues dans [Préparation de votre environnement de développement][lnk-github-prepare].
 
-2. À partir de votre copie locale du référentiel [azure-iot-sdks][lnk-github-repo], copiez les deux fichiers suivants, contenus dans le dossier noeud/périphérique/exemples, dans un dossier sur votre périphérique :
+2. À partir de votre copie locale du dépôt [azure-iot-sdks][lnk-github-repo], copiez les deux fichiers suivants, contenus dans le dossier noeud/périphérique/exemples, dans un dossier sur votre périphérique :
 
   - packages.json
   - remote\_monitoring.js
@@ -62,4 +62,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

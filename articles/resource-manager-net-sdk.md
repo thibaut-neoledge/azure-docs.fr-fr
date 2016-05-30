@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # Kit de développement logiciel (SDK) Azure Resource Manager pour .Net  
@@ -28,9 +28,9 @@ Cette documentation n’est pas destinée à décrire tous les aspects du Kit de
 Vous pouvez trouver [ici](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) un exemple de projet complet téléchargeable à partir de l’endroit d’où proviennent tous les extraits de code figurant ci-dessous.
 
 ## Authentification
-L’authentification pour ARM est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Pour obtenir ce jeton, vous devez d’abord créer ce que l’on appelle une application Azure AD et un principal du service qui seront utilisés pour la connexion. Référez-vous à [Création de l’application Active Directory et du principal du service](./resource-group-create-service-principal-portal.md) pour obtenir des instructions étape par étape.
+L’authentification pour ARM est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Pour obtenir ce jeton, vous devez d’abord créer ce que l’on appelle une application Azure AD et un principal du service qui seront utilisés pour la connexion. Consultez [Création de l’application Azure AD et du principal du service](resource-group-create-service-principal-portal.md) pour obtenir des instructions détaillées.
 
-Une fois le principal du service créé, vous devez avoir les éléments suivants :
+Une fois le principal du service créé, vous devez avoir les éléments suivants :
 * ID de client (GUID)
 * Clé secrète client (chaîne de caractères)
 * ID client (GUID) ou nom de domaine (chaîne de caractères)
@@ -93,7 +93,7 @@ Notez que JSON envoie une réponse depuis Azure à partir de laquelle les ID d�
 À partir de là, chaque appel des API Azure utiliseront le Kit de développement logiciel (SDK) Azure pour .NET. Le code sera donc légèrement différent.
 
 ### Encapsulage du jeton en tant qu’objet TokenCredentials
-Tous les appels d’API suivants nécessiteront le jeton que vous avez reçu d’Azure AD au format d’un objet « TokenCredentials ». Un tel objet est créé facilement en transmettant simplement le jeton brut en tant que paramètre au constructeur de la classe.
+Tous les appels d’API suivants nécessiteront le jeton que vous avez reçu d’Azure AD au format d’un objet « TokenCredentials ». Un tel objet est créé facilement en transmettant simplement le jeton brut en tant que paramètre au constructeur de la classe.
 
 ```csharp
 var credentials = new TokenCredentials(token);
@@ -116,22 +116,22 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
 ```
 
 ## Création de ressources manuellement ou à l’aide de modèles
-Il existe différentes manières d’interagir avec les API de l’Azure Resource Manager, mais voici les deux méthodes principales :
+Il existe différentes manières d’interagir avec les API de l’Azure Resource Manager, mais voici les deux méthodes principales :
 
 * Manuellement, en appelant des fournisseurs de ressources spécifiques manuellement ou
 * en utilisant un modèle Azure Resource Manager (c’est-à-dire un modèle ARM)
 
-L’utilisation de modèles ARM présente les avantages suivants :
+L’utilisation de modèles ARM présente les avantages suivants :
 
-* vous spécifiez de façon déclarative le résultat final que vous souhaitez obtenir plutôt que la manière dont il doit être obtenu ;
-* vous n’êtes pas obligé de traiter manuellement l’exécution parallèle de vos déploiements. ARM exécute cette opération pour vous ;
-* vous n’êtes pas obligé d’apprendre C# ou tout autre langage afin de déployer un modèle ARM, même si vous pouvez utiliser n’importe quel langage pour démarrer un déploiement basé sur un modèle ;
+* vous spécifiez de façon déclarative le résultat final que vous souhaitez obtenir plutôt que la manière dont il doit être obtenu ;
+* vous n’êtes pas obligé de traiter manuellement l’exécution parallèle de vos déploiements. ARM exécute cette opération pour vous ;
+* vous n’êtes pas obligé d’apprendre C# ou tout autre langage afin de déployer un modèle ARM, même si vous pouvez utiliser n’importe quel langage pour démarrer un déploiement basé sur un modèle ;
 * Le langage de domaine spécifique, DSL, qui est utilisé dans les modèles, est conçu à l’aide de JSON et suffisamment facile à comprendre par toute personne ayant travaillé avec JSON.
 
 Même si les modèles permettent de profiter de tous ces avantages, nous allons commencer par vous montrer comment appeler les API manuellement.
 
 ### Création d’une machine virtuelle élément par élément
-Nous disposons maintenant de notre abonnement et de notre groupe de ressources. Si nous souhaitons déployer une machine virtuelle, nous devons déterminer les éléments faisant réellement partie d’une machine virtuelle. Et ils sont nombreux :
+Nous disposons maintenant de notre abonnement et de notre groupe de ressources. Si nous souhaitons déployer une machine virtuelle, nous devons déterminer les éléments faisant réellement partie d’une machine virtuelle. Et ils sont nombreux :
 
 * 1 ou plusieurs comptes de stockage, pour le stockage de disques persistants
 * 1 ou plusieurs adresses IP publiques (PIP) pour l’accessibilité depuis Internet (comprenant un nom DNS)
@@ -139,9 +139,9 @@ Nous disposons maintenant de notre abonnement et de notre groupe de ressources. 
 * 1 ou plusieurs cartes d’interface réseau (NIC) pour permettre à la machine virtuelle de communiquer
 * 1 ou plusieurs machines virtuelles (VM) pour exécuter nos logiciels
 
-Il est également intéressant de noter que certaines de ces ressources peuvent être créées en parallèle alors que d’autres ne le peuvent pas. Par exemple :
+Il est également intéressant de noter que certaines de ces ressources peuvent être créées en parallèle alors que d’autres ne le peuvent pas. Par exemple :
 
-* les cartes d’interface réseau dépendent des adresses IP publiques et des réseaux virtuels ;
+* les cartes d’interface réseau dépendent des adresses IP publiques et des réseaux virtuels ;
 * les machines virtuelles dépendent des cartes d’interface réseau et des comptes de stockage.
 
 Vous devez vous assurer que vous n’essayez pas d’instancier des ressources avant que les dépendances nécessaires n’aient été créées. L’[exemple](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) complet fourni avec cette documentation montre comment vous pouvez créer efficacement vos ressources en parallèle tout en suivant ce que vous avez déjà créé.
@@ -163,7 +163,7 @@ private static async Task<StorageAccount> CreateStorageAccountAsync(TokenCredent
 }
 ```
 
-#### Création d’une adresse IP publique (PIP)
+#### Création d’une adresse IP publique (PIP)
 L’adresse IP publique est ce qui rend vos ressources dans Azure accessibles depuis Internet. Un nom de domaine qualifié complet (FQDN) vous sera affecté en même temps que l’adresse IP. Vous pouvez l’utiliser pour faciliter l’accès.
 
 ```csharp
@@ -274,7 +274,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Utilisation d’un déploiement basé sur un modèle
-Veuillez lire et suivre les indications du didacticiel [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) pour obtenir des instructions détaillées sur la manière de déployer un modèle.
+Veuillez lire et suivre les indications du didacticiel [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](./virtual-machines/virtual-machines-windows-csharp-template.md) pour obtenir des instructions détaillées sur la manière de déployer un modèle.
 
 En bref, le déploiement d’un modèle est beaucoup plus facile que l’approvisionnement manuel des ressources. Et le code ci-dessous montre comment le faire en pointant sur les URI dans lesquelles se trouvent le modèle et un fichier de paramètres.
 
@@ -298,4 +298,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/16/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur ProjectOnline
@@ -65,7 +65,8 @@ Pour créer des applications logiques avec ProjectOnline, vous devez d’abord c
 |Propriété| Requis|Description|
 | ---|---|---|
 |Jeton|Oui|Fournir des informations d’identification ProjectOnline|
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -523,4 +524,4 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

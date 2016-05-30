@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/23/2016"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 # Prise en main de l’API web pour Node
@@ -927,4 +927,4 @@ Clonez simplement sur votre ordinateur de développement et configurez comme ind
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

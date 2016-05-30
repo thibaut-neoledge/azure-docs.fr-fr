@@ -109,7 +109,7 @@ Les bibliothèques actuellement requises figurent dans la [documentation d’ins
 
 ### Inscription de votre appareil pour les notifications Push au démarrage
 
-1. Ajoutez un appel à **registerForPushNotifications** durant le rappel du processus de connexion, ou en bas de la méthode **onDeviceReady** :
+1. Ajoutez un appel à **registerForPushNotifications** durant le rappel du processus de connexion, ou en bas de la méthode **onDeviceReady** :
 
 
 		// Login to the service.
@@ -195,10 +195,10 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [documentation d’installation phonegap-plugin-push]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/fr-FR/features/cordova-vs.aspx
+[Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
-[Kit de développement logiciel d’Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Kit de développement logiciel d’Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

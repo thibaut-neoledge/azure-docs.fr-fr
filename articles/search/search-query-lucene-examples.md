@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="04/22/2016"
+    ms.date="05/17/2016"
     ms.author="liamca"
 />
 
@@ -48,8 +48,8 @@ Notez que la requête utilise un index Azure Search préconfiguré appelé nycjo
 
 Vous pouvez modifier les exemples de cet article en spécifiant une construction **fieldname:searchterm** pour définir une opération de requête portant sur un champ, où le champ est un mot unique et le terme de recherche est également un mot ou une expression unique, éventuellement avec des opérateurs booléens. Voici quelques exemples :
 
-- business\_title:senior NOT junior
-- state:"New York" AND "New Jersey"
+- business\_title:(senior NOT junior)
+- state:("New York" AND "New Jersey")
 
 Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux villes distinctes sont recherchées dans le champ d’emplacement. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
 
@@ -129,4 +129,4 @@ Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les lie
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

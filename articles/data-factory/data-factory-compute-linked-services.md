@@ -66,7 +66,7 @@ Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’obj
 Propriété | Description | Requis
 -------- | ----------- | --------
 type | La propriété de type doit être définie sur **HDInsightOnDemand**. | Oui
-clusterSize | La taille du cluster à la demande. Spécifiez le nombre de nœuds souhaité dans ce cluster à la demande. | Oui
+clusterSize | Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard\_D3 à 4 cœurs, un cluster à 4 nœuds worker prend 24 cœurs (4 x 4 pour les nœuds de travail + 2 x 4 pour les nœuds principaux). Pour plus d’informations sur le niveau Standard\_D3, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Oui
 timetolive | La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif une fois l'exécution d'une activité terminée s'il n'existe aucune autre tâche active dans le cluster.<br/><br/>Par exemple, si l'exécution d'une activité prend 6 minutes alors que la propriété timetolive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes de traitement d'exécution de l'activité. Si une autre activité est exécutée au cours de ces 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d'un cluster HDInsight à la demande est une opération coûteuse (pouvant prendre du temps). Utilisez ce paramètre pour améliorer les performances d'une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété timetolive sur 0, le cluster est supprimé dès que l'exécution de l'activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Ainsi, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété timetolive est configurée correctement. | Oui
 version | Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cluster Windows et 3.2 pour le cluster Linux. | Non
 linkedServiceName | Le magasin d'objets blob utilisé par le cluster à la demande pour le stockage et le traitement des données. | Oui
@@ -137,9 +137,9 @@ Vous pouvez spécifier la taille du nœud principal, du nœud de données et du 
 
 Propriété | Description | Requis
 :-------- | :----------- | :--------
-headNodeSize | Spécifie la taille du nœud principal. La valeur par défaut est « Large » (grande). Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. | Non
-dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut est « Large » (grande). | Non
-zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est « Small » (petite). | Non
+headNodeSize | Spécifie la taille du nœud principal. La valeur par défaut est Standard\_D3. Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. | Non
+dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut est Standard\_D3. | Non
+zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est Standard\_D3. | Non
  
 #### Spécification des tailles de nœud
 Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
@@ -297,14 +297,14 @@ subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement 
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
 
-Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Erreur de l’opération d’informations d’identification : invalid\_grant - AADSTS70002: Erreur lors de la validation des informations d’identification. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : Erreur de l’opération d’informations d’identification : invalid\_grant - AADSTS70002: Erreur lors de la validation des informations d’identification. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
-| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | 14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
+| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | 14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
  
-Pour éviter ou résoudre cette erreur, vous devez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
+Pour éviter ou résoudre cette erreur, vous devez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** au moment où le **jeton expire**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
 
 ### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
 Le code suivant génère les valeurs des propriétés **sessionId** et **authorization**.
@@ -339,4 +339,4 @@ Consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.m
 
 Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

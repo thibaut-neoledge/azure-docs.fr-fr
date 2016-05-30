@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -215,4 +215,4 @@ Votre environnement de cloud hybride simulé est maintenant prêt pour les tests
 
 - Configurez une [batterie de serveurs intranet SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), une [application métier web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou un [serveur de synchronisation d’annuaires Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

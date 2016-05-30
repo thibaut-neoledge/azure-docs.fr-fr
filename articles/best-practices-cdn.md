@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Aide relative au réseau de distribution de contenu (CDN) | Microsoft Azure"
+   pageTitle="Aide relative au réseau de distribution de contenu (CDN) | Microsoft Azure"
    description="Instructions relatives au réseau de distribution contenu (CDN) pour la distribution de contenu d’une bande passante élevée hébergé dans Azure."
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Aide relative au réseau de distribution de contenu (CDN)
 
-![Logo des modèles et pratiques](./media/best-practices-cdn/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 Microsoft Azure Content Delivery Network (CDN) offre aux développeurs une solution globale pour fournir du contenu de large bande passante hébergé dans Azure ou ailleurs. Le réseau de diffusion de contenu (CDN) vous permet de mettre en cache des objets disponibles publiquement, chargés à partir d’un stockage d’objets blob Azure, d’une application web, d’une machine virtuelle, d’un dossier d’application ou d’un autre emplacement HTTP/HTTPS. Le cache du CDN peut être maintenu dans des emplacements stratégiques afin d’offrir une bande passante maximale pour la distribution de contenu aux utilisateurs. Le CDN est généralement utilisé pour distribuer du contenu statique tel que des images, des feuilles de style, des documents, des fichiers, des scripts côté client et des pages HTML.
 
 Vous pouvez également utiliser le CDN en tant que cache pour servir du contenu dynamique, tel qu’un rapport au format PDF ou un graphique basé sur des entrées spécifiées. Si les mêmes valeurs d’entrée sont fournies par différents utilisateurs, le résultat doit être identique.
@@ -50,27 +50,26 @@ Un CDN est généralement utilisé dans les cas suivants :
 
 + La gestion des fluctuations de la demande sans que l’application doive être mise à l’échelle, évitant ainsi une augmentation des coûts d’exécution. Par exemple, quand une mise à jour de système d’exploitation est publiée pour un appareil tel qu’un modèle spécifique de routeur, ou pour un bien de consommation tel qu’un téléviseur connecté, la demande croît fortement, car des millions d’utilisateurs et d’appareils télécharge la mise à jour sur une brève période.
 
-La liste suivante répertorie des exemples de temps médian jusqu’au premier octet dans différentes zones géographiques. Le rôle web cible est déployé sur Azure dans l’ouest des États-Unis. Il existe un lien étroit entre la forte stimulation due au CDN et la proximité d’un nœud du CDN. Pour obtenir la liste complète des emplacements de nœuds CDN Azure, voir [Emplacements des nœuds du réseau de distribution de contenu (CDN) Azure](./cdn/cdn-pop-locations.md/).
+La liste suivante répertorie des exemples de temps médian jusqu’au premier octet dans différentes zones géographiques. Le rôle web cible est déployé sur Azure dans l’ouest des États-Unis. Il existe un lien étroit entre la forte stimulation due au CDN et la proximité d’un nœud du CDN. Pour obtenir la liste complète des emplacements de nœuds CDN Azure, voir [Emplacements des nœuds du réseau de distribution de contenu (CDN) Azure](./cdn/cdn-pop-locations.md/).
 
 
 || Temps (en ms) jusqu’au premier octet (origine) | Temps (en ms) jusqu’au premier octet (CDN) |% d’amélioration du temps CDN|
 |-------------|------------------------|--------------------|------------------|
-|*San Jose, CA| 47,5 | 46,5 | 2 % |
-|**Dulles, VA| 109 | 40,5 | 169 % |
-|Buenos Aires, AR| 210 | 151 | 39 %|
-|*Londres, Royaume-Uni| 195 | 44 | 343 %|
-|Shanghai, CN| 242 | 206 | 17 % |
-|*Singapour | 214 | 74 | 189 % |
-|*Tokyo, JP | 163 | 48 | 204 % |
-|Séoul, KR| 190 | 190 | 0 % |
+|*San Jose, CA| 47,5 | 46,5 | 2 % |
+|**Dulles, VA| 109 | 40,5 | 169 % |
+|Buenos Aires, AR| 210 | 151 | 39 %|
+|*Londres, Royaume-Uni| 195 | 44 | 343 %|
+|Shanghai, CN| 242 | 206 | 17 % |
+|*Singapour | 214 | 74 | 189 % |
+|*Tokyo, JP | 163 | 48 | 204 % |
+|Séoul, KR| 190 | 190 | 0 % |
 
 
-\* A un nœud de CDN Azure dans la même ville.  
-\*\* A un nœud de CDN Azure dans une ville voisine.  
+* A un nœud de CDN Azure dans la même ville. ** A un nœud de CDN Azure dans une ville voisine.
 
 ## Défis  
 
-Il existe plusieurs problèmes à prendre en compte lorsque vous envisagez d’utiliser le CDN :
+Il existe plusieurs problèmes à prendre en compte lorsque vous envisagez d’utiliser le CDN :
 
 + **Déploiement**. Vous devez décider l’origine à partir de laquelle le CDN va extraire le contenu, et si vous avez besoin de déployer le contenu dans plusieurs systèmes de stockage (par exemple, dans le CDN et dans un autre emplacement).
 
@@ -90,7 +89,7 @@ Il existe plusieurs problèmes à prendre en compte lorsque vous envisagez d’u
 
   Vous pouvez surveiller la disponibilité du contenu, la bande passante, les données transférées, les accès, le taux d’accès au cache et les métriques du cache de votre CDN sur le portail Azure en [temps réel](./cdn/cdn-real-time-stats.md) et dans les [rapports agrégés](./cdn/cdn-analyze-usage-patterns.md).
 
-Les scénarios où le CDN peut s’avérer moins utile sont :
+Les scénarios où le CDN peut s’avérer moins utile sont :
 
 + Si le contenu a un faible taux d’accès, il risque de n’être accessible que quelques fois quand il est valide (ce que détermine son paramètre de durée de vie). La première fois qu’un élément est téléchargé, vous encourez deux frais de transaction (du point d’origine au CDN, puis du CDN au client).
 
@@ -99,7 +98,7 @@ Les scénarios où le CDN peut s’avérer moins utile sont :
 
 ## Instructions générales et meilleures pratiques
 
-L’utilisation du CDN est une bonne façon de réduire la charge sur votre application et d’optimiser la disponibilité et les performances. Vous devez envisager d’adopter cette stratégie pour l’ensemble du contenu et des ressources appropriés que votre application utilise. Lors de l’élaboration de votre stratégie d’utilisation du CDN, prenez en considération les points des sections suivantes :
+L’utilisation du CDN est une bonne façon de réduire la charge sur votre application et d’optimiser la disponibilité et les performances. Vous devez envisager d’adopter cette stratégie pour l’ensemble du contenu et des ressources appropriés que votre application utilise. Lors de l’élaboration de votre stratégie d’utilisation du CDN, prenez en considération les points des sections suivantes :
 
 
 ### Origine
@@ -120,7 +119,7 @@ Vous pouvez utiliser la réécriture d’URL pour les ressources telles que les 
 
 Lorsque vous utilisez des objets blob de stockage Azure pour conserver le contenu du CDN, l’URL des ressources dans les objets blob est sensible à la casse pour le nom du conteneur et des objets blob.
 
-Lorsque vous utilisez des origines personnalisées ou Azure Web Apps, vous spécifiez le chemin d’accès à l’instance CDN dans les liens vers les ressources. Par exemple, le code suivant spécifie un fichier image dans le dossier **Images** dossier du site qui sera distribué via le CDN :
+Lorsque vous utilisez des origines personnalisées ou Azure Web Apps, vous spécifiez le chemin d’accès à l’instance CDN dans les liens vers les ressources. Par exemple, le code suivant spécifie un fichier image dans le dossier **Images** dossier du site qui sera distribué via le CDN :
 
 ```XML
 <img src="http://[your-cdn-endpoint].azureedge.net/Images/image.jpg" />
@@ -136,11 +135,11 @@ Si vous devez déployer le contenu à un emplacement supplémentaire, cela const
 
 Vous ne pouvez pas configurer un point de terminaison CDN pour une application de l’émulateur Azure local dans Visual Studio. Cette restriction affecte les tests d’unités, les tests fonctionnels et les tests avant le déploiement final. Vous devez autoriser cela en implémentant un autre mécanisme. Par exemple, vous pouvez prédéployer le contenu du CDN à l’aide d’une application ou d’un utilitaire personnalisés, et effectuer des tests pendant la période où il est mis en cache. Autrement, utilisez des directives de compilation ou des constantes globales pour contrôler l’emplacement à partir duquel l’application charge les ressources. Par exemple, lors de l’exécution en mode débogage, elle peut charger des ressources telles que les regroupements de script côté client et d’autres contenus à partir d’un dossier local et utiliser le CDN lors de l’exécution en mode version finale.
 
-Envisagez l’approche de compression que votre CDN doit prendre en charge :
+Envisagez l’approche de compression que votre CDN doit prendre en charge :
 
-+ Vous pouvez [activer la compression](./cdn/cdn-improve-performance) sur votre serveur d’origine, auquel cas le CDN prend en charge la compression par défaut, et distribue le contenu compressé aux clients dans un format tel que zip ou gzip. Lorsque vous utilisez un dossier d’application comme point de terminaison du CDN, le serveur peut compresser du contenu automatiquement de la même façon que lors de sa distribution directement à un navigateur web ou à un autre type de client. Le format dépend la valeur de l’en-tête **Accept-Encoding** dans la demande envoyée par le client. Dans Azure, le mécanisme par défaut consiste à compresser automatiquement le contenu lorsque l’utilisation du processeur est inférieure à 50 %. Si vous utilisez un service cloud pour héberger l’application, la modification des paramètres peut nécessiter l’utilisation d’une tâche de démarrage pour activer la compression du résultat dynamique dans IIS. Pour plus d’informations, voir [Activation de la compression gzip avec le CDN Microsoft Azure via un rôle web](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx).
++ Vous pouvez [activer la compression](./cdn/cdn-improve-performance) sur votre serveur d’origine, auquel cas le CDN prend en charge la compression par défaut, et distribue le contenu compressé aux clients dans un format tel que zip ou gzip. Lorsque vous utilisez un dossier d’application comme point de terminaison du CDN, le serveur peut compresser du contenu automatiquement de la même façon que lors de sa distribution directement à un navigateur web ou à un autre type de client. Le format dépend la valeur de l’en-tête **Accept-Encoding** dans la demande envoyée par le client. Dans Azure, le mécanisme par défaut consiste à compresser automatiquement le contenu lorsque l’utilisation du processeur est inférieure à 50 %. Si vous utilisez un service cloud pour héberger l’application, la modification des paramètres peut nécessiter l’utilisation d’une tâche de démarrage pour activer la compression du résultat dynamique dans IIS. Pour plus d’informations, voir [Activation de la compression gzip avec le CDN Microsoft Azure via un rôle web](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx).
 
-+ Vous pouvez activer la compression directement sur les serveurs Edge CDN, auquel cas le CDN compresse les fichiers et les envoie aux utilisateurs. Pour plus d’informations, voir [Compression du CDN Azure](./cdn/cdn-improve-performance.md/).
++ Vous pouvez activer la compression directement sur les serveurs Edge CDN, auquel cas le CDN compresse les fichiers et les envoie aux utilisateurs. Pour plus d’informations, voir [Compression du CDN Azure](./cdn/cdn-improve-performance.md/).
 
 ### Routage et contrôle de version
 
@@ -156,7 +155,7 @@ Envisagez de limiter l’accès au contenu du CDN par pays. Le CDN Azure vous pe
 
 Considérez comment gérer la mise en cache dans le système. Par exemple, lors de l’utilisation d’un dossier en tant qu’origine du CDN, vous pouvez spécifier la capacité de mise en cache de pages qui génèrent le contenu, et le délai d’expiration de contenu pour toutes les ressources d’un dossier spécifique. Vous pouvez également spécifier des propriétés de cache pour le CDN et pour le client à l’aide d’en-têtes HTTP standard. Même si vous gérez probablement déjà la mise en cache sur le serveur et client, l’utilisation du CDN vous permettra de mieux voir la façon dont votre contenu est mis en cache à quel emplacement.
 
-Pour empêcher des objets d’être disponibles sur le CDN, vous pouvez les supprimer du point l’origine (conteneur d’objets blob ou dossier racine *cdn* de l’application), supprimer le point de terminaison du CDN ou, dans le cas du stockage d’objets blob, rendre le conteneur ou l’objet blob privés. Toutefois, des éléments sont supprimés du CDN uniquement lorsque leur durée de vie (TTL) expire. Si aucune période d’expiration du cache n’est spécifiée (par exemple, quand le contenu est chargé à partir d’un stockage d’objets blob), le contenu est mis en cache sur le CDN pendant jusqu’à 7 jours. Vous pouvez également [vider un point de terminaison CDN](./cdn/cdn-purge-endpoint.md) manuellement.
+Pour empêcher des objets d’être disponibles sur le CDN, vous pouvez les supprimer du point l’origine (conteneur d’objets blob ou dossier racine *cdn* de l’application), supprimer le point de terminaison du CDN ou, dans le cas du stockage d’objets blob, rendre le conteneur ou l’objet blob privés. Toutefois, des éléments sont supprimés du CDN uniquement lorsque leur durée de vie (TTL) expire. Si aucune période d’expiration du cache n’est spécifiée (par exemple, quand le contenu est chargé à partir d’un stockage d’objets blob), le contenu est mis en cache sur le CDN pendant jusqu’à 7 jours. Vous pouvez également [vider un point de terminaison CDN](./cdn/cdn-purge-endpoint.md) manuellement.
 
 Dans une application web, vous pouvez définir la mise en cache et l’expiration pour tout le contenu à l’aide de l’élément *clientCache* dans la section *system.webServer/staticContent* du fichier web.config. N’oubliez pas que, lorsque vous placez un fichier web.config dans un dossier, il a une incidence sur les fichiers de ce dossier et tous ses sous-dossiers.
 
@@ -168,7 +167,7 @@ Le CDN peut distribuer du contenu via HTTPS (SSL) à l’aide du certificat four
 
 Un CDN Azure ne fournit pas d’équipements de contrôle d’accès pour sécuriser l’accès au contenu. Vous ne pouvez pas utiliser des signatures d’accès partagé (SAS) avec le CDN.
 
-Si vous distribuez des scripts côté client à l’aide du CDN, vous pouvez rencontrer des problèmes si ces scripts utilisent un appel *XMLHttpRequest* pour effectuer des demandes HTTP pour d’autres ressources telles que des données, des images ou des polices dans un autre domaine. De nombreux navigateurs web empêchent le partage des ressources provenant de différentes origines (CORS) sauf si le serveur web est configuré pour définir les en-têtes de réponse appropriés. Vous pouvez configurer le CDN pour prendre en charge le CORS :
+Si vous distribuez des scripts côté client à l’aide du CDN, vous pouvez rencontrer des problèmes si ces scripts utilisent un appel *XMLHttpRequest* pour effectuer des demandes HTTP pour d’autres ressources telles que des données, des images ou des polices dans un autre domaine. De nombreux navigateurs web empêchent le partage des ressources provenant de différentes origines (CORS) sauf si le serveur web est configuré pour définir les en-têtes de réponse appropriés. Vous pouvez configurer le CDN pour prendre en charge le CORS :
 
 + si le stockage d’objets blob Azure est l’emplacement d’origine à partir duquel vous distribuez du contenu, vous pouvez ajouter une *CorsRule* aux propriétés de service. La règle peut spécifier les origines autorisées pour les demandes CORS, les méthodes autorisées telles que GET et la durée maximale en secondes de la règle (la période pendant laquelle le client doit demander les ressources liées après le chargement du contenu d’origine). Pour plus d’informations, consultez [Support du partage des ressources provenant de différentes origines (CORS) pour les services de stockage d’Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -186,7 +185,7 @@ Vous devez envisager la façon dont votre application peut faire face à une dé
 
 ### Optimisation de moteur de recherche (SEO)
 
-Si la SEO constitue un aspect important de votre application, effectuez les tâches suivantes :
+Si la SEO constitue un aspect important de votre application, effectuez les tâches suivantes :
 
 + Incluez un en-tête canonique *Rel* dans chaque page ou ressource.
 
@@ -267,7 +266,7 @@ L’extrait suivant d’un fichier Web.config à la racine d’une application h
 </system.webServer>
 ```
 
-Ces règles de réécriture effectuent les redirections suivantes :
+Ces règles de réécriture effectuent les redirections suivantes :
 
 + La première règle vous permet d’incorporer une version dans le nom de fichier d’une ressource, qui est alors ignorée. Par exemple, *Filename\_v123.jpg * est réécrit sous la forme *Filename.jpg*.
 
@@ -280,8 +279,8 @@ Notez que l’utilisation de la réécriture d’URL requiert que vous apportiez
 
 + [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Documentation sur le réseau de distribution de contenu (CDN) Azure](https://azure.microsoft.com/documentation/services/cdn/)
-+ [Distribution de contenu depuis Azure CDN dans votre application web](./cdn/cdn-serve-content-from-cdn-in-your-web-application/)
-+ [Intégration d’un service cloud à Azure CDN](./cdn/cdn-cloud-service-with-cdn.md/)
-+ [Meilleures pratiques pour le réseau de distribution de contenu Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Distribution de contenu depuis Azure CDN dans votre application web](./cdn/cdn-serve-content-from-cdn-in-your-web-application/)
++ [Intégration d’un service cloud à Azure CDN](./cdn/cdn-cloud-service-with-cdn.md/)
++ [Meilleures pratiques pour le réseau de distribution de contenu Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

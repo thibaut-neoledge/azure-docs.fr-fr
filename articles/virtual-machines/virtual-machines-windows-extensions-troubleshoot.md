@@ -24,13 +24,13 @@
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Affichage de l’état de l’extension
-Les modèles Azure Resource Manager peuvent être exécutés à partir d’Azure PowerShell. Une fois que le modèle est exécuté, l'état de l'extension peut être affiché à partir d'Azure Resource Explorer ou des outils de ligne de commande.
+Les modèles Azure Resource Manager sont exécutables à partir d’Azure PowerShell. Une fois que le modèle est exécuté, l'état de l'extension peut être affiché à partir d'Azure Resource Explorer ou des outils de ligne de commande.
 
 Voici un exemple :
 
-Azure Powershell :
+Azure PowerShell :
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Voici l'exemple de sortie :
 
@@ -66,8 +66,8 @@ Si vous exécutez des scripts sur la machine virtuelle à l’aide de l’extens
 
 #### Suppression de l’extension d’Azure PowerShell
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

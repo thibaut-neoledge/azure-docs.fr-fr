@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Utilisation de l’utilitaire Distcp pour copier des données entre des objets blob Azure Storage et le Data Lake Store
@@ -27,6 +27,10 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
+
+## Les vidéos vous permettent-elles d’apprendre plus rapidement ?
+
+[Regardez cette vidéo](https://mix.office.com/watch/1liuojvdx6sie) pour savoir comment copier des données entre des objets blob Azure Storage et Data Lake Store à l’aide de DistCp.
 
 ## Utilisez Distcp à partir d’un bureau à distance (cluster Windows) ou d’un serveur SSH (cluster Linux)
 
@@ -52,7 +56,7 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
 		hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-	Cette commande copiera le contenu du dossier **/example/data/gutenberg/** dans WASB vers le répertoire **/myfolder** du compte Data Lake Store.
+	Cette commande copie le contenu du dossier **/example/data/gutenberg/** de WASB vers le répertoire **/myfolder** du compte Data Lake Store.
 
 6. De la même manière, utilisez Distcp pour copier des données d’un compte Data Lake Store vers WASB.
 
@@ -67,4 +71,4 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

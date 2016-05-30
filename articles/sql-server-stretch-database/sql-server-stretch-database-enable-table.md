@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une table
@@ -43,7 +43,7 @@ Examinez l’objectif de l’Assistant et les conditions préalables.
 
 Vérifiez que la table que vous souhaitez activer est affichée et sélectionnée.
 
-Dans RC3, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat de filtre simple basé sur la date dans l'assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
+Vous pouvez migrer une table entière ou spécifier un prédicat de filtre simple basé sur la date dans l’assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
 
 -   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier un prédicat.
 
@@ -118,4 +118,4 @@ Pour plus d’informations, voir [CREATE TABLE (Transact-SQL)](https://msdn.micr
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

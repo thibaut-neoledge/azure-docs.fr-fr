@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conception de fonctionnalités dans le processus d'analyse Cortana | Microsoft Azure" 
+	pageTitle="Conception de fonctionnalités dans le processus Cortana Analytics | Microsoft Azure" 
 	description="Explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique."
 	services="machine-learning"
 	documentationCenter=""
@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/10/2016"
 	ms.author="zhangya;bradsev" />
 
 
-# Conception de fonctionnalités dans le processus d'analyse Cortana 
+# Conception de fonctionnalités dans le processus Cortana Analytics 
 
-La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage.
+Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-##Introduction
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique. Ces exemples sont tirés d'Azure Machine Learning Studio.
-
-La conception et la sélection de fonctionnalités constituent une partie du processus de CAP présentée dans [Qu'est ce que le processus d'analyse Cortana ?](machine-learning-data-science-the-cortana-analytics-process.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus CAP.
+La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage. La conception et la sélection de fonctionnalités constituent une partie du processus de CAP présentée dans [Qu'est ce que le processus Cortana Analytics ?](machine-learning-data-science-the-cortana-analytics-process.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus CAP.
 * La **conception de fonctionnalités** : ce processus tente de créer des fonctionnalités supplémentaires pertinentes à partir de fonctionnalités brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
 * La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
 
@@ -98,4 +95,4 @@ L'ingénierie et la sélection de caractéristiques augmentent l'efficacité du 
 Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caractéristiques ou la sélection des caractéristiques. Que cela soit nécessaire ou non dépend des données que l'on a à disposition ou qui sont collectées, de l'algorithme choisi et des objectifs de l'expérience.
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

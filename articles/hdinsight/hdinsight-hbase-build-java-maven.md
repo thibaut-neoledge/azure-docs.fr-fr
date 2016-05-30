@@ -361,7 +361,10 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Téléchargement du fichier JAR et démarrage d'une tâche
 
-> [AZURE.NOTE] Il existe de nombreuses façons de télécharger un fichier vers votre cluster HDInsight, comme décrit dans la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md). Les étapes suivantes utilisent [Azure PowerShell](../powershell-install-configure.md).
+Il existe de nombreuses façons de télécharger un fichier vers votre cluster HDInsight, comme décrit dans la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md). Les étapes suivantes utilisent Azure PowerShell.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 1. Après avoir installé et configuré Azure PowerShell, créez un fichier appelé __hbase-runner.psm1__. Utilisez les données suivantes comme contenu de ce fichier :
 
@@ -629,4 +632,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

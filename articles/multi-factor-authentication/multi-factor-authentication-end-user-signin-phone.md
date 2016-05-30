@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Connexion à l'aide d'un appel sur votre téléphone de bureau ou mobile avec Azure Multi-Factor Authentication
@@ -38,4 +38,13 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <li>Vous devez maintenant être connecté.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

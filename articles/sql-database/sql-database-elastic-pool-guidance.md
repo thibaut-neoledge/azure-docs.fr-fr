@@ -22,7 +22,7 @@ Déterminez si l’utilisation d’un pool de base de données élastique est é
 
 - Pour obtenir une vue d’ensemble des pools, consultez [Pools de bases de données SQL élastiques](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] Les pools de bases de données élastiques sont en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12.
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis, du Sud du Brésil, de l’Inde de l’Ouest, du Sud de l’Inde et du Nord de la Chine, où ils sont actuellement en version préliminaire. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
 
 ## Pool de bases de données élastique
 
@@ -131,4 +131,4 @@ Les bases de données uniques ne sont pas toutes de parfaits candidats à un poo
 - [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md)
 - [Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

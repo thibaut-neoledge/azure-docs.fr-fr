@@ -123,7 +123,7 @@ Nous allons utiliser les valeurs suivantes pour cette configuration :
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour obtenir des instructions sur la création d’un certificat racine auto-signé à l’aide de *makecert*, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine.
+10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour obtenir des instructions sur la création d’un certificat racine auto-signé à l’aide de *makecert*, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine. Pour obtenir la clé publique comme indiqué dans l’exemple ci-dessous, exportez le fichier CER au format X.509 codé en base 64, puis ouvrez-le dans le bloc-notes. Là, copiez tout entre -----BEGIN CERTIFICATE----- et -----END CERTIFICATE-----
 	
 	Ci-après figure un exemple de ce à quoi il ressemble. La difficulté du chargement des données de certificat public tient au fait que vous devez copier et coller la chaîne entière sans espaces. Dans le cas contraire, le chargement ne fonctionne pas. Vous devez utiliser votre propre fichier .cer de certificat pour cette étape. N’essayez pas de copier et coller l’exemple ci-dessous.
 
@@ -240,4 +240,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

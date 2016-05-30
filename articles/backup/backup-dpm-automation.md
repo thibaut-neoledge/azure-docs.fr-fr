@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/20/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -98,16 +98,7 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - | 
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Abonnement à Microsoft Update | - |
-| /nu | Ne pas rechercher les mises à jour après l’installation | - |
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
-| /ph | Adresse de l’hôte proxy | - |
-| /po | Numéro de port de l’hôte proxy | - |
-| /pu | Nom d’utilisateur de l’hôte proxy | - |
-| /pw | Mot de passe du proxy | - |
+| /q | Installation silencieuse | - | | /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Abonnement à Microsoft Update | - | | /nu | Ne pas rechercher les mises à jour après l’installation | - | | /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - | | /po | Numéro de port de l’hôte proxy | - | | /pu | Nom d’utilisateur de l’hôte proxy | - | | /pw | Mot de passe du proxy | - |
 
 ### Inscription auprès du service Azure Backup
 Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-azure-dpm-introduction.md) sont remplies. Vous devez respecter les consignes suivantes :
@@ -300,7 +291,10 @@ Pour terminer, les modifications doivent être validées avant que DPM puisse ef
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Affichage des points de sauvegarde
-Vous pouvez utiliser l’applet de commande [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) pour obtenir la liste de tous les points de récupération d’une source de données. Dans cet exemple, nous allons : - extraire tous les groupes de protection sur le serveur DPM qui seront stockés dans un tableau ```$PG``` - obtenir les sources de données correspondant à ```$PG[0]``` - obtenir tous les points de récupération d’une source de données.
+Vous pouvez utiliser l’applet de commande [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) pour obtenir la liste de tous les points de récupération d’une source de données. Dans cet exemple, nous allons :
+- extraire tous les groupes de protection sur le serveur DPM pour les stocker dans un tableau ```$PG``` ;
+- obtenir les sources de données correspondant à ```$PG[0]``` ;
+- obtenir tous les points de récupération pour une source de données.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -333,4 +327,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 
 - Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation des sauvegardes DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

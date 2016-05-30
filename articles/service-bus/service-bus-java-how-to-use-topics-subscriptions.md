@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 # Utilisation des rubriques et abonnements Service Bus
@@ -32,11 +32,12 @@ Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure
 
 Ajoutez les instructions import suivantes au début du fichier Java :
 
-    // Include the following imports to use service bus APIs
-    import com.microsoft.windowsazure.services.servicebus.*;
-    import com.microsoft.windowsazure.services.servicebus.models.*;
-    import com.microsoft.windowsazure.core.*;
-    import javax.xml.datatype.*;
+```
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
 
 Ajoutez les bibliothèques Azure pour Java au chemin de votre build et incluez-le dans votre assembly de déploiement du projet.
 
@@ -66,7 +67,7 @@ La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et
 		System.exit(-1);
 	}
 
-Il existe des méthodes sur **TopicInfo** qui permettent de paramétrer des propriétés de la rubrique, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la rubrique. L’exemple suivant montre comment créer une rubrique nommée `TestTopic` avec une taille maximale de 5 Go :
+Il existe des méthodes sur **TopicInfo** qui permettent de paramétrer des propriétés de la rubrique, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la rubrique. L’exemple suivant montre comment créer une rubrique nommée `TestTopic` avec une taille maximale de 5 Go :
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -95,58 +96,61 @@ Parmi les types de filtre pris en charge par les abonnements, [SqlFilter][] est 
 
 Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 :
 
-    // Create a "HighMessages" filtered subscription  
-	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-    CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
-	RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "HighMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
-    service.deleteRule("TestTopic", "HighMessages", "$Default");
+```
+// Create a "HighMessages" filtered subscription  
+SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
+CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
+ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
+CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
+// Delete the default rule, otherwise the new rule won't be invoked.
+service.deleteRule("TestTopic", "HighMessages", "$Default");
+```
 
 De même, l’exemple suivant crée l’abonnement `LowMessages` avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété **MessageNumber** a une valeur inférieure ou égale à 3 :
 
-    // Create a "LowMessages" filtered subscription
-	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-	CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
-    RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "LowMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
-    service.deleteRule("TestTopic", "LowMessages", "$Default");
-
+```
+// Create a "LowMessages" filtered subscription
+SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
+CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
+ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
+CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", ruleInfo);
+// Delete the default rule, otherwise the new rule won't be invoked.
+service.deleteRule("TestTopic", "LowMessages", "$Default");
+```
 
 À présent, dès lors qu’un message est envoyé vers `TestTopic`, il est toujours remis aux destinataires abonnés à l’abonnement `AllMessages` et est remis de manière sélective aux destinataires abonnés aux abonnements `HighMessages` et `LowMessages` (en fonction du contenu du message).
 
 ## Envoi de messages à une rubrique
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit obtenir un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message à la rubrique `TestTopic` créée plus haut dans l’espace de noms `HowToSample` :
+Pour envoyer un message à une rubrique Service Bus, votre application obtient un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message à la rubrique `TestTopic` créée plus haut dans l’espace de noms `HowToSample` :
 
-    BrokeredMessage message = new BrokeredMessage("MyMessage");
-    service.sendTopicMessage("TestTopic", message);
+```
+BrokeredMessage message = new BrokeredMessage("MyMessage");
+service.sendTopicMessage("TestTopic", message);
+```
 
 Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][]* possèdent un ensemble de propriétés standard (telles que **setLabel** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][] ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
 
 L’exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** `TestTopic` obtenu dans l’extrait de code précédent. Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l'itération de la boucle (détermine les abonnements qui le reçoivent) :
 
-    for (int i=0; i<5; i++)  {
-       	// Create message, passing a string message for the body
-		BrokeredMessage message = new BrokeredMessage("Test message " + i);
-		// Set some additional custom app-specific property
-		message.setProperty("MessageNumber", i);
-		// Send message to the topic
-		service.sendTopicMessage("TestTopic", message);
-	}
+```
+for (int i=0; i<5; i++)  {
+// Create message, passing a string message for the body
+BrokeredMessage message = new BrokeredMessage("Test message " + i);
+// Set some additional custom app-specific property
+message.setProperty("MessageNumber", i);
+// Send message to the topic
+service.sendTopicMessage("TestTopic", message);
+}
+```
 
 Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Mo (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Mo). Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
 ## Réception des messages d’un abonnement
 
-Le principal moyen de recevoir les messages d'un abonnement est d'utiliser un objet **ServiceBusContract**. Ces messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
+Pour recevoir les messages d’un abonnement, utilisez un objet **ServiceBusContract**. Ces messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
 
 Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique : quand Service Bus reçoit une demande de lecture pour un message, il marque ce message comme étant consommé et le renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
@@ -154,62 +158,64 @@ En mode **PeekLock**, la réception devient une opération en deux étapes, qui 
 
 L'exemple ci-dessous montre comment les messages peuvent être reçus et traités avec le mode **PeekLock** (et pas le mode par défaut). L'exemple ci-dessous lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arrête lorsqu'il n'y a plus de messages (cette boucle peut aussi être configurée pour attendre de nouveaux messages).
 
-	try
-	{
-		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+```
+try
+{
+	ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+	opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 
-		while(true)  {
-		    ReceiveSubscriptionMessageResult  resultSubMsg =
-		        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-		    BrokeredMessage message = resultSubMsg.getValue();
-		    if (message != null && message.getMessageId() != null)
-		    {
-			    System.out.println("MessageID: " + message.getMessageId());
-			    // Display the topic message.
-			    System.out.print("From topic: ");
-			    byte[] b = new byte[200];
-			    String s = null;
-			    int numRead = message.getBody().read(b);
-			    while (-1 != numRead)
-	            {
-	                s = new String(b);
-	                s = s.trim();
-	                System.out.print(s);
-	                numRead = message.getBody().read(b);
-			    }
-	            System.out.println();
-			    System.out.println("Custom Property: " +
-			        message.getProperty("MessageNumber"));
-			    // Delete message.
-			    System.out.println("Deleting this message.");
-			    service.deleteMessage(message);
-		    }  
-		    else  
-		    {
-		        System.out.println("Finishing up - no more messages.");
-		        break;
-		        // Added to handle no more messages.
-		        // Could instead wait for more messages to be added.
+	while(true)  {
+	    ReceiveSubscriptionMessageResult  resultSubMsg =
+	        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
+	    BrokeredMessage message = resultSubMsg.getValue();
+	    if (message != null && message.getMessageId() != null)
+	    {
+		    System.out.println("MessageID: " + message.getMessageId());
+		    // Display the topic message.
+		    System.out.print("From topic: ");
+		    byte[] b = new byte[200];
+		    String s = null;
+		    int numRead = message.getBody().read(b);
+		    while (-1 != numRead)
+            {
+                s = new String(b);
+                s = s.trim();
+                System.out.print(s);
+                numRead = message.getBody().read(b);
 		    }
+            System.out.println();
+		    System.out.println("Custom Property: " +
+		        message.getProperty("MessageNumber"));
+		    // Delete message.
+		    System.out.println("Deleting this message.");
+		    service.deleteMessage(message);
+	    }  
+	    else  
+	    {
+	        System.out.println("Finishing up - no more messages.");
+	        break;
+	        // Added to handle no more messages.
+	        // Could instead wait for more messages to be added.
 	    }
-	}
-	catch (ServiceException e) {
-	    System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
-	catch (Exception e) {
-	    System.out.print("Generic exception encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
+    }
+}
+catch (ServiceException e) {
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+catch (Exception e) {
+    System.out.print("Generic exception encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+```
 
 ## Gestion des blocages d’application et des messages illisibles
 
 Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlockMessage** pour le message reçu (au lieu de la méthode **deleteMessage**). Cela amène Service Bus à déverrouiller le message dans la rubrique et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
-De même, il faut savoir qu'un message verrouillé dans une rubrique est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
+De même, il faut savoir qu’un message verrouillé dans la rubrique est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
 Si l'application subit un incident après le traitement du message, mais avant l'émission de la demande **deleteMessage**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, Ceci est souvent obtenu grâce à la propriété **getMessageId** du message, qui reste constante pendant les tentatives de remise.
 
@@ -217,13 +223,15 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Le principal moyen de supprimer des rubriques et des abonnements est d'utiliser un objet **ServiceBusContract**. La suppression d'une rubrique a également pour effet de supprimer les abonnements inscrits au niveau de la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante.
 
-    // Delete subscriptions
-    service.deleteSubscription("TestTopic", "AllMessages");
-    service.deleteSubscription("TestTopic", "HighMessages");
-    service.deleteSubscription("TestTopic", "LowMessages");
+```
+// Delete subscriptions
+service.deleteSubscription("TestTopic", "AllMessages");
+service.deleteSubscription("TestTopic", "HighMessages");
+service.deleteSubscription("TestTopic", "LowMessages");
 
-    // Delete a topic
-	service.deleteTopic("TestTopic");
+// Delete a topic
+service.deleteTopic("TestTopic");
+```
 
 ## Étapes suivantes
 
@@ -237,4 +245,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell;billmath"/>
 
 # Plus de détails sur les fonctionnalités de la version préliminaire
@@ -36,19 +36,11 @@ Ce groupe est représenté comme un groupe de distribution dans les versions loc
 >[AZURE.NOTE] L’écriture différée sur un groupe nécessite un abonnement Azure AD Premium.
 
 ## Écriture différée de l’utilisateur
-> [AZURE.IMPORTANT] La fonctionnalité d’écriture différée utilisateur en version préliminaire a été provisoirement supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
-
-L’écriture différée de l’utilisateur est actuellement en version préliminaire. Elle peut être utilisée uniquement si Azure AD est la source de tous les objets utilisateur et si l’annuaire Active Directory local est vide avant d’activer la fonctionnalité (déploiement en mode champ vert).
-
->[AZURE.WARNING] Cette fonctionnalité doit être testée uniquement dans un environnement de test et ne doit pas être utilisée dans un annuaire Azure AD destiné à une utilisation en production.
-
-.
-
->[AZURE.NOTE] L’écriture différée utilisateur sur un appareil exige un abonnement Azure AD Premium.
+> [AZURE.IMPORTANT] La fonctionnalité d’écriture différée utilisateur en version préliminaire a été supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
 
 ## Étapes suivantes
 Poursuivez votre [installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

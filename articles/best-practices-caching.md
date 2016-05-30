@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Recommandations en matière de cache
 
-![Logo des modèles et pratiques](media/best-practices-caching/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 La mise en cache est une technique courante qui vise à améliorer les performances et l’extensibilité d’un système. Elle consiste à copier temporairement des données fréquemment sollicitées dans un stockage rapide situé près de l’application. Si cet espace de stockage rapide des données se trouve plus près de l’application que la source d’origine, la mise en cache peut améliorer sensiblement les temps de réponse des applications clientes en fournissant les données plus rapidement.
 
@@ -337,7 +337,7 @@ Le cache Redis Azure agit comme façade devant les serveurs Redis sous-jacents. 
 
 Il s’agit d’un processus potentiellement complexe, car vous devrez peut-être créer plusieurs machines virtuelles faisant office de nœuds principaux et subordonnés si vous souhaitez implémenter une réplication. En outre, si vous souhaitez créer un cluster, vous avez besoin de plusieurs serveurs maîtres et subordonnés. Une topologie de réplication en cluster minimale offrant un niveau élevé de disponibilité et d’évolutivité comprend au moins six machines virtuelles organisées sous la forme de trois paires de serveurs maître/subordonné (un cluster devant contenir au moins trois nœuds principaux).
 
-Chaque paire maître/subordonné doit être proche pour réduire la latence. Toutefois, chaque ensemble de paires peut s’exécuter dans différents centres de données Azure situés dans différentes régions, si vous souhaitez rechercher des données mises en cache à proximité des applications les plus susceptibles de les utiliser. La page relative à l’[exécution de Redis sur une machine virtuelle Linux CentOS dans Microsoft Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), accessible sur le site web de Microsoft, présente un exemple décrivant comment créer et configurer un nœud Redis s’exécutant en tant que machine virtuelle Azure.
+Chaque paire maître/subordonné doit être proche pour réduire la latence. Toutefois, chaque ensemble de paires peut s’exécuter dans différents centres de données Azure situés dans différentes régions, si vous souhaitez rechercher des données mises en cache à proximité des applications les plus susceptibles de les utiliser. La page relative à l’[exécution de Redis sur une machine virtuelle Linux CentOS dans Windows Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), accessible sur le site web de Microsoft, présente un exemple décrivant comment créer et configurer un nœud Redis s’exécutant en tant que machine virtuelle Azure.
 
 Notez que si vous implémentez votre propre cache Redis de cette façon, vous êtes responsable de la surveillance, de la gestion et de la sécurisation du service.
 
@@ -934,4 +934,4 @@ Le modèle suivant peut également être pertinent dans votre cas si vous implé
 - Page relative aux [transactions dans Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) dans le référentiel StackExchange.Redis.
 - [Guide de partitionnement des données](http://msdn.microsoft.com/library/dn589795.aspx) sur le site web de Microsoft.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

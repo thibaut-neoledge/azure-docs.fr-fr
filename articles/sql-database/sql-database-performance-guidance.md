@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/20/2016"
+	ms.date="04/29/2016"
 	ms.author="carlrab" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
@@ -62,6 +62,8 @@ Les paramètres de niveau de performances Standard et Premium vous permettent de
 
 Pour en savoir plus sur les niveaux de service, les niveaux de performances et les DTU, consultez [Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md).
 
+
+
 ## Motifs d’utilisation des niveaux de service
 
 Bien que chaque charge de travail puisse différer, les niveaux de service visent à fournir une prévisibilité hautes performances dans un large éventail de niveaux de performances. Les niveaux de service permettent aux clients dont les besoins en ressources sont très variables pour leurs bases de données de travailler dans un environnement informatique plus dédié.
@@ -84,6 +86,20 @@ Bien que chaque charge de travail puisse différer, les niveaux de service visen
 Le niveau exact dont vous aurez besoin dépend des exigences de charge maximale pour chaque dimension de ressource. Certaines applications peuvent utiliser des quantités insignifiantes pour une ressource mais avoir des exigences considérables pour une autre.
 
 Pour en savoir plus sur les niveaux de service, consultez [Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md).
+
+## Informations sur la tarification et la facturation
+
+Les pools de bases de données élastiques sont facturés en fonction des caractéristiques suivantes :
+
+- Un pool élastique est facturé lors de sa création, même s’il n’inclut aucune base de données.
+- Il est facturé toutes les heures. La fréquence de mesure est identique à celle des niveaux de performances associés aux bases de données uniques.
+- Si un pool élastique est redimensionné en fonction d’un nouveau nombre d’eDTU, ce pool n’est pas facturé selon ce nouveau nombre, tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données autonomes.
+
+
+- Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool. Le prix d’un pool élastique est indépendant de l’utilisation des bases de données élastiques qu’il contient.
+- Le prix est calculé comme suit : le nombre d’eDTUs d’un pool x le prix unitaire par eDTU.
+
+Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données autonome au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Capacités et limites des niveaux de service
 Chaque niveau de service et de performance est associé à différentes limites et caractéristiques de performances. Le tableau suivant décrit ces caractéristiques pour une base de données unique.
@@ -110,7 +126,7 @@ La **récupération d'urgence** fait référence à la capacité de restauration
 
 La *restauration géographique* est disponible pour tous les niveaux de service, sans aucun coût supplémentaire. En cas de panne, vous pouvez utiliser la dernière sauvegarde géo-redondante pour restaurer votre base de données avec n'importe quelle région Azure.
 
-La géo-réplication standard et active fournit des fonctionnalités de récupération d'urgence similaires, mais avec un objectif de point de récupération (RPO) beaucoup plus faible. Par exemple, avec la restauration géographique, le RPO est inférieur à une heure (en d'autres termes, la sauvegarde peut remonter jusqu'à une heure). Mais pour la géo-réplication, le RPO est inférieur à 5 secondes.
+La [géo-réplication active](sql-database-geo-replication-overview.md) fournit des fonctionnalités de récupération d’urgence similaires, mais avec un objectif de point de récupération (RPO) beaucoup plus faible. Par exemple, avec la restauration géographique, le RPO est inférieur à une heure (en d'autres termes, la sauvegarde peut remonter jusqu'à une heure). Mais pour la géo-réplication active, le RPO est inférieur à 5 secondes.
 
 Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -173,7 +189,7 @@ Il existe deux vues qui vous permettent de surveiller l'utilisation des ressourc
 ### Avec sys.dm\_db\_resource\_stats
 La vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe dans chaque base de données SQL et fournit les dernières données sur l'utilisation des ressources par rapport au niveau de service. Les pourcentages moyens de CPU, d'E/S des données, d'écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
-Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm_db_resource_stats** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
+Étant donné que cette vue fournit un aperçu plus granulaire de l'utilisation des ressources, vous devez d'abord utiliser **sys.dm\_db\_resource\_stats ** pour n'importe quelle analyse d'état actuel ou pour la résolution des problèmes. Par exemple, la requête suivante affiche l'utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
@@ -291,11 +307,11 @@ Alors que les niveaux de service sont conçus pour améliorer la stabilité et l
 ## Techniques de paramétrage
 Cette section explique certaines techniques que vous pouvez utiliser pour paramétrer la base de données SQL Azure afin d’obtenir les meilleures performances de votre application et d’être en mesure d’exécuter le plus petit niveau de performances possible. Plusieurs techniques correspondent aux meilleures pratiques de paramétrage SQL Server traditionnelles, mais certaines sont spécifiques à la base de données SQL Azure. Dans certains cas, les techniques SQL Server traditionnelles peuvent être étendues pour également fonctionner sur la base de données SQL Azure en examinant les ressources utilisées par une base de données afin de déterminer des zones à paramétrer davantage.
 
-### Query Performance Insight et assistant Index
-La base de données SQL fournit deux outils dans le portail Azure Classic pour l’analyse et la résolution des problèmes de performances qui affectent votre base de données :
+### Query Performance Insight et SQL Database Advisor
+La base de données SQL fournit deux outils dans le portail Azure pour l'analyse et la résolution des problèmes de performances qui affectent votre base de données :
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Assistant Index](sql-database-index-advisor.md)
+- [SQL Database Advisor](sql-database-index-advisor.md)
 
 Consultez les liens précédents pour plus d'informations sur chaque outil et leur utilisation. Les deux sections suivantes sur les index manquants et le réglage des requêtes fournissent d'autres façons de rechercher et de corriger manuellement des problèmes de performances similaires. Nous vous recommandons de tester d'abord les outils du portail pour diagnostiquer et corriger plus efficacement les problèmes. Utilisez l'approche du réglage manuel pour les cas spéciaux.
 
@@ -324,7 +340,7 @@ Dans l’exemple suivant, le plan de requête sélectionné contient une analyse
 
 La base de données SQL Azure contient des fonctionnalités pour indiquer aux administrateurs de base de données comment rechercher et résoudre les situations courantes d’index manquants. Les vues de gestion dynamique (DMV) intégrées à la base de données SQL Azure examinent la compilation de requêtes là où un index réduirait de manière significative le coût estimé d’exécution d’une requête. Pendant l’exécution de requêtes, elles suivent la fréquence selon laquelle chaque plan de requête est exécuté, ainsi que l’écart estimé entre le plan de requête en cours d’exécution et le plan imaginé dans lequel cet index existait. Cela permet à un administrateur de base de données de supposer rapidement quelles modifications de conception physique de la base de données amélioreraient le coût total de la charge de travail pour une base de données spécifiée et sa charge de travail réelle.
 
->[AZURE.NOTE] Avant d'utiliser les DMV pour rechercher les index manquants, lisez d'abord la section de la rubrique [Query Performance Insight et assistant Index](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Avant d’utiliser les DMV pour rechercher les index manquants, lisez d’abord la section de la rubrique [Query Performance Insight et SQL Database Advisor](#query-performance-insight-and-index-advisor).
 
 La requête suivante peut être utilisée pour évaluer les index manquants éventuels.
 
@@ -491,4 +507,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

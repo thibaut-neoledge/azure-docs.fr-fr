@@ -3,7 +3,7 @@
    description="Découvrez comment configurer l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawams"
+   authors="mthalman-msft"
    manager="timlt"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="03/29/2016"
-   ms.author="cawa" />
+   ms.author="mthalman" />
 
 # Configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services
 
@@ -45,7 +45,7 @@ Avant de configurer l’ordinateur de build, vous devez créer un [principal du 
 
     a. Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour (PowerShellGet est déjà installé).
 
-    b. Dans le cas contraire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
+    b. Dans le cas contraire, installez [Windows Management Framework 5.0](https://aka.ms/wmf5download), qui inclut PowerShellGet.
 
 2.	Installez et mettez à jour le module AzureRM. Si vous disposez d’une version précédente d’Azure PowerShell installée, supprimez-la :
 
@@ -53,11 +53,9 @@ Avant de configurer l’ordinateur de build, vous devez créer un [principal du 
 
     b. Recherchez « Azure PowerShell » et désinstallez le programme.
 
-    c. Ouvrez une invite de commandes PowerShell.
+    c. Ouvrez une invite de commandes PowerShell en tant qu’administrateur.
 
     d. Installez le module AzureRM à l’aide de la commande `Install-Module AzureRM`.
-
-    e. Mettez à jour le module AzureRM à l’aide de la commande `Update-AzureRM`.
 
 3.	Désactivez (ou activez) la collecte de données Azure.
 
@@ -99,10 +97,10 @@ Avant de configurer l’ordinateur de build, vous devez créer un [principal du 
 | --- | --- |
 | KeyVaultLocation | Valeur de votre choix. Ce paramètre doit correspondre à l’emplacement dans lequel vous prévoyez de créer le cluster. |
 | CertificateSecretName | Valeur de votre choix. |
-| CertificateDnsName | Doit correspondre au nom DNS de votre cluster. Exemple : `mycluster.westus.azure.cloudapp.net` |
+| CertificateDnsName | Doit correspondre au nom DNS de votre cluster. Exemple : `mycluster.westus.cloudapp.azure.com` |
 | SecureCertificatePassword | Valeur de votre choix. Ce paramètre est utilisé quand vous importez le certificat sur votre ordinateur de build. |
-| KeyVaultResourceGroupName | Valeur de votre choix. Toutefois, n’utilisez pas le nom du groupe de ressources que vous prévoyez d’utiliser pour votre cluster. |
 | KeyVaultName | Valeur de votre choix. |
+| KeyVaultResourceGroupName | Valeur de votre choix. Toutefois, n’utilisez pas le nom du groupe de ressources que vous prévoyez d’utiliser pour votre cluster. |
 | PfxFileOutputPath| Valeur de votre choix. Ce fichier est utilisé pour importer le certificat sur votre ordinateur de build. |
 
 Lorsque le script se termine, il génère les trois valeurs suivantes. Notez ces valeurs, car elles sont utilisées comme variables de build.
@@ -129,7 +127,7 @@ Si vous n’avez pas encore de machine, vous pouvez rapidement configurer une ma
 
 5. Sélectionnez **Calculer** > **Machine virtuelle** > **À partir de la galerie**.
 
-6. Sélectionnez l’image **Visual Studio Enterprise 2015 Update 1 avec le Kit de développement logiciel (SDK) Azure 2.8 sur Windows Server 2012 R2**.
+6. Sélectionnez l’image **Visual Studio Enterprise 2015 Update 2 avec les outils Windows universels et le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2**.
 
     >[AZURE.NOTE] Le Kit de développement logiciel (SDK) Azure n’est pas un composant obligatoire, mais actuellement aucune image n’ayant que Visual Studio 2015 installé n’est disponible.
 
@@ -137,7 +135,7 @@ Si vous n’avez pas encore de machine, vous pouvez rapidement configurer une ma
 
 ### Installer le Kit de développement logiciel (SDK) Service Fabric
 
-Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/) sur votre machine.
+Installez le [Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md#install-the-runtime-sdk-and-tools) sur votre machine.
 
 ### Installation d'Azure PowerShell
 
@@ -161,10 +159,10 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
     b. Ouvrez une invite PowerShell administrateur et exécutez les commandes suivantes à l’aide du mot de passe transmis à `CreateAndUpload-Certificate.ps1` précédemment.
 
-        ```
-        $password = Read-Host -AsSecureString
-        Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
-        ```
+    ```powershell
+    $password = Read-Host -AsSecureString
+    Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
+    ```
 
 2.	Exécutez le gestionnaire de certificats :
 
@@ -184,19 +182,19 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
     d. Sélectionnez le bouton **Ajouter**, entrez **Service réseau**, puis choisissez **Vérifier les noms**.
 
-    e. Sélectionnez **OK**, puis fermez le gestionnaire de certificats.
+    e. Sélectionnez **OK**.
 
     ![Capture d’écran de la procédure pour accorder l’autorisation au compte de service local](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 4.  Copiez le certificat dans le dossier `Trusted People`.
 
-    a. Votre certificat a été importé dans **Personnel/certificats**, mais nous devons l’ajouter à **Personnes autorisées**. Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Copier**. Puis, cliquez avec le bouton droit sur le dossiers **Personnes autorisées** et sélectionnez **Coller**.
+    a. Votre certificat a été importé dans **Personnel/certificats**, mais nous devons l’ajouter à **Personnes autorisées**. Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Copier**. Puis, cliquez avec le bouton droit sur le dossier **Personnes autorisées** et sélectionnez **Coller**.
 
 ### Inscrire votre agent de build
 
 1.	Téléchargez agent.zip. Pour ce faire :
 
-    a. Connectez-vous à votre projet d’équipe, par exemple **https://[your-VSTS-account-name].visualstudio.com**.
+    a. Connectez-vous à votre projet d’équipe, par exemple ****https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Sélectionnez l’icône en forme d’engrenage dans l’angle supérieur droit de votre écran.
 
@@ -221,7 +219,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 |Pool d’agents|Entrez le nom de votre pool d’agents. (Si vous n’avez pas créé de pool d’agents, acceptez la valeur par défaut).|
 |Dossier de travail|Acceptez la valeur par défaut. C’est le dossier dans lequel l’agent de build va effectivement créer votre application. Si vous prévoyez d’utiliser des services web ASP.NET 5, nous vous recommandons de choisir le nom le plus court possible pour ce dossier pour éviter de rencontrer des erreurs PathTooLongExceptions pendant le déploiement.|
 |Installer en tant que service Windows ?|La valeur par défaut est N. Remplacez cette valeur par **Y**.|
-|Compte d’utilisateur pour exécuter le service|Acceptez la valeur par défaut, `NT AUTHORITY\NetworkService`.|
+|Compte d’utilisateur pour exécuter le service|La valeur par défaut est `NT AUTHORITY\LOCAL SERVICE`. Remplacez-la par la valeur `NT AUTHORITY\NetworkService`.|
 |Mot de passe de `NT AUTHORITY\Network Service`|Le compte de service réseau ne dispose pas d’un mot de passe, mais refuse les mots de passe vides. Entrez une chaîne non vide pour le mot de passe (ce que vous entrez sera ignoré).|
 |Annuler la configuration de l’agent existant ?|Acceptez la valeur par défaut, **N**.|
 
@@ -277,7 +275,9 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
     e. Vérifiez que le référentiel et la branche appropriés sont sélectionnés.
 
-    f. Sélectionnez la file d’attente de l’agent dans laquelle vous avez inscrit votre agent de build, puis cochez la case **Intégration continue**.
+    f. Cochez la case **Intégration continue** pour garantir le déclenchement de cette build chaque fois que la branche est mise à jour.
+
+    g. Sélectionnez la file d’attente de l’agent dans laquelle vous avez inscrit votre agent de build.
 
 2.	Dans l’onglet **Variables**, créez les variables suivantes avec ces valeurs.
 
@@ -337,13 +337,13 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 5.	Enregistrez la définition de build.
 
-### Ajouter une étape « Supprimer le groupe de ressources de cluster »
+### <a name="RemoveClusterResourceGroup"></a> Ajouter une étape « Supprimer le groupe de ressources de cluster »
 
 Si une build précédente n’a pas nettoyé après avoir terminé (par exemple, si la build a été annulée avant de pouvoir nettoyer), il est possible qu’un groupe de ressources existant entre en conflit avec le nouveau. Pour éviter les conflits, nettoyez tout groupe de ressources restant (et ses ressources associées) avant d’en créer un nouveau.
 
-1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
+1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
-2.	Sélectionnez **Déployer** > **Déploiement d'un groupe de ressources Azure**.
+2.	Sélectionnez **Déployer** > **Déploiement d’un groupe de ressources Azure**.
 
 3.	Sélectionnez l’icône en forme de crayon en regard du nom de l’étape de build et renommez-la **Supprimer le groupe de ressources de cluster**.
 
@@ -355,14 +355,15 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Abonnement Azure RM|Sélectionnez le point de terminaison de connexion que vous avez créé dans la section **Créer un principal du service**.|
     |Action|**Supprimer un groupe de ressources**|
     |Groupe de ressources|Entrez un nom non utilisé. Vous devez utiliser le même nom à l'étape suivante.|
+    |Continuer en cas d’erreur|Cette étape échouera si le groupe de ressources n’existe pas. Activez l’option **Continuer en cas d’erreur** dans la section **Options de contrôle** pour éviter ce problème.|
 
 5.	Enregistrez la définition de build.
 
 ### Ajout d’une étape « Configurer un cluster sécurisé »
 
-1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
+1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
-2.	Sélectionnez **Déployer** > **Déploiement d'un groupe de ressources Azure**.
+2.	Sélectionnez **Déployer** > **Déploiement d’un groupe de ressources Azure**.
 
 3.	Sélectionnez l’icône en forme de crayon en regard du nom de l’étape de build et renommez-la **Configurer un cluster sécurisé**.
 
@@ -375,14 +376,14 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Action|**Créer ou mettre à jour un groupe de ressources**|
     |Groupe de ressources|Doit correspondre au nom que vous avez utilisé à l'étape précédente.|
     |Emplacement|Doit correspondre à l’emplacement de votre coffre de clés.|
-    |Modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.json`|
-    |Paramètres de modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.parameters.json`|
+    |Modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.json`.|
+    |Paramètres de modèle|Cliquez sur le bouton **…** et sélectionnez `azuredeploy.parameters.json`.|
 
 5.	Enregistrez la définition de build.
 
 ### Ajoutez une étape « Déployer »
 
-1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
+1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**.
 
 2.	Sélectionnez **Utilitaire** > **PowerShell**.
 
@@ -393,10 +394,18 @@ Si une build précédente n’a pas nettoyé après avoir terminé (par exemple,
     |Nom de paramètre|Valeur|
     |---|---|
     |Type|**Chemin de fichier**|
-    |Nom du fichier de script|Cliquez sur le bouton **...** et accédez au répertoire **Scripts** à l'intérieur de votre projet d'application. Sélectionnez `Deploy-FabricApplication.ps1`.|
+    |Nom du fichier de script|Cliquez sur le bouton **...** et accédez au répertoire **Scripts** à l’intérieur de votre projet d’application. Sélectionnez `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
 5.	Enregistrez la définition de build.
+
+### Ajouter une étape « Vérifier »
+
+1. Cette étape est facultative lors de la configuration initiale de cette définition de build. Mais une fois que vous avez correctement exécuté une build et vérifié l’exactitude des autres étapes de build, vous pouvez insérer votre propre étape de build de vérification ici. Elle est spécifique à votre application et est destinée à vérifier l’exactitude de l’application qui a été déployée sur le cluster.
+  
+### Ajouter une étape « Nettoyer » finale
+
+1. Suivez les instructions de la section [Ajouter une étape « Supprimer le groupe de ressources de cluster »](#RemoveClusterResourceGroup). Cette étape nettoie toutes les ressources Azure configurées qui ont été créées pendant la génération.
 
 ### Essayer
 
@@ -406,7 +415,7 @@ Sélectionnez **Mettre la build en file d’attente** pour démarrer une build. 
 
 Les instructions précédentes créent un cluster pour chaque build et le suppriment à la fin du build. Si vous préférez que chaque build effectue une mise à niveau de l’application (vers un cluster existant) à la place, procédez comme suit :
 
-1.	Créez manuellement un cluster de test par le biais du portail Azure ou d’Azure PowerShell en suivant [ces instructions](service-fabric-cluster-creation-via-portal.md).
+1.	Créez manuellement un cluster de test par le biais du Portail Azure ou d’Azure PowerShell en suivant [ces instructions](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configurez votre profil de publication pour prendre en charge la mise à niveau de l’application en suivant [ces instructions](service-fabric-visualstudio-configure-upgrade.md).
 
@@ -420,4 +429,4 @@ Pour en savoir plus sur l’intégration continue avec les applications de Servi
  - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

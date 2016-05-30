@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,12 +62,12 @@ Procédez de la manière suivante pour restaurer une machine virtuelle sur une n
 
 1. Dans l’écran **Sélectionner l’instance à restaurer**, spécifiez les détails de l’emplacement où restaurer la machine virtuelle.
 
-  - Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Si vous envisagez de remplacer une machine virtuelle existante portant le même nom, commencez par supprimer la machine virtuelle existante ainsi que les disques de données, puis restaurez les données à partir d’Azure Backup.
+  - Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Nous ne prenons pas en charge l’écrasement d’une machine virtuelle existante. 
   - Sélectionnez un service cloud pour la machine virtuelle : ce champ est obligatoire pour la création d’une machine virtuelle. Vous pouvez utiliser un service cloud existant ou en créer un.
 
-        Quel que soit le nom du service cloud choisi, il doit être globalement unique. En général, le nom du service cloud est associé à une URL orientée public qui se présente sous la forme suivante : [cloudservice].cloudapp.net. Azure ne vous permet pas de créer un service cloud si son nom est déjà utilisé. Si vous choisissez de créer un service cloud, le même nom que la machine virtuelle lui sera attribué. Par conséquent, le nom de la machine virtuelle doit être assez unique pour être appliqué au service cloud associé.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        Nous n'affichons que les services cloud et les réseaux virtuels qui ne sont associés à aucun groupe d'affinités dans les détails de l'instance de restauration. [En savoir plus](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Sélectionnez un compte de stockage pour la machine virtuelle : ce champ est obligatoire pour la création de la machine virtuelle. Vous pouvez sélectionner un compte de stockage existant dans la même région que l’archivage de sauvegarde Azure. Nous ne prenons pas en charge les comptes de stockage redondants dans une zone ou de type Premium.
 
@@ -101,6 +101,12 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 ![Travail de restauration terminé](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](virtual-machines-set-up-endpoints) de la machine virtuelle dans le portail Azure.
+
+## Sauvegarde de machines virtuelles restaurées
+Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.
+
+## Restauration d’une machine virtuelle en cas de défaillance du centre de données Azure
+Azure Backup permet de restaurer des machines virtuelles sauvegardées sur le centre de données associé en cas de défaillance du centre de données principal sur lequel s’exécutent les machines virtuelles et si vous avez configuré le coffre de sauvegarde pour qu’il soit géo-redondant. Le cas échéant, vous devez sélectionner un compte de stockage qui est présent dans le centre de données associé et le reste du processus de restauration reste le même. Azure Backup utilise le service de calcul du centre de données géo-redondant associé pour créer la machine virtuelle restaurée.
 
 ## Restauration de machines virtuelles d’un contrôleur de domaine
 Azure Backup prend en charge la sauvegarde de machines virtuelles d’un contrôleur de domaine. Vous devez toutefois faire preuve de prudence au cours du processus de restauration. L’expérience de restauration varie considérablement selon que les machines virtuelles se trouvent dans une configuration à un seul contrôleur de domaine ou dans une configuration à plusieurs contrôleurs de domaine.
@@ -140,7 +146,7 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 
 2. Créer la configuration de machine virtuelle requise pour l'équilibreur de charge/plusieurs cartes réseau/plusieurs adresse IP réservée à l'aide des applets de commande PowerShell et utilisez-la pour créer la machine virtuelle avec la configuration souhaitée.
 	- Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
+	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
 	- Créer une machine virtuelle avec [plusieurs cartes d’interface réseau](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Créer des machines virtuelles avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -149,4 +155,4 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -70,7 +70,7 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 	Ce code envoie une notification de modèle contenant item.text quand un nouvel élément todo est inséré.
 
 2. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
-
-<!---HONumber=AcomDC_1223_2015-->

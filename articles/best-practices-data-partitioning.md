@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Recommandations en matière de partitionnement des données
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Au sein de nombreuses solutions à grande échelle, les données sont divisées en partitions distinctes qui peuvent être gérées et accessibles séparément. La stratégie de partitionnement doit être choisie avec soin afin d’optimiser les avantages tout en réduisant les effets négatifs. Le partitionnement peut aider à améliorer l’extensibilité, à réduire la contention et à optimiser les performances. Autre avantage du partitionnement, il peut fournir un mécanisme permettant de diviser les données selon le modèle d’utilisation. Par exemple, vous pouvez archiver les données (froides) anciennes et moins actives dans le stockage de données le plus économique.
 
@@ -436,7 +436,7 @@ Les applications clientes envoient simplement les demandes à l’un des serveur
 
 Ce modèle est mis en œuvre à l’aide du clustering Redis et est décrit plus en détail sur la page (en anglais) [Redis cluster tutorial] sur le site Web de Redis. Le clustering Redis est transparent pour les applications clientes. Vous pouvez ajouter des serveurs Redis supplémentaires au cluster (et repartitionner les données) sans avoir à reconfigurer les clients.
 
-> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [Running Redis on a CentOS Linux VM in Microsoft Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
+> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [Running Redis on a CentOS Linux VM in Windows Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
 
 La page [Partitioning: how to split data among multiple Redis instances] sur le site web Redis fournit des informations supplémentaires sur l’implémentation du partitionnement avec Redis. Le reste de cette section part du principe que vous mettez en œuvre le partitionnement côté client ou assisté par proxy.
 
@@ -529,7 +529,7 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 - La page [Types de données pris en charge (Azure Search)] sur le site web Microsoft présente une synthèse des types de données que vous pouvez utiliser dans les documents et les index pouvant faire l’objet d’une recherche.
 - La page [Cache Redis Azure] sur le site web Microsoft présente le cache Redis Azure.
 - La page [Partitioning: how to split data among multiple Redis instances] sur le site web Redis fournit des informations sur la façon d’implémenter le partitionnement avec Redis.
-- Le billet de blog [Running Redis on a CentOS Linux VM in Microsoft Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
+- Le billet de blog [Running Redis on a CentOS Linux VM in Windows Azure] sur le site web Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
 - La page [Data Types] sur le site web Redis présente les types de données disponibles avec Redis et le cache Redis Azure.
 
 [Cache Redis Azure]: http://azure.microsoft.com/services/cache/
@@ -553,7 +553,7 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Niveaux de performances dans DocumentDB]: documentdb/documentdb-performance-levels.md
 [Exécution de transactions de groupe d’entités]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Microsoft Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
+[Running Redis on a CentOS Linux VM in Windows Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Mise à l'échelle à l’aide de l'outil de fractionnement et de fusion de bases de données élastiques]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Utilisation du réseau de distribution de contenu Azure]: cdn/cdn-create-new-endpoint.md
@@ -566,4 +566,4 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Présentation d’Azure SQL Database]: sql-database/sql-database-technical-overview.md
 [Qu’est-ce qu’Azure SQL Database ?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

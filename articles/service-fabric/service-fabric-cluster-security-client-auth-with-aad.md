@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="seanmck"/>
 
 # VERSION PRÉLIMINAIRE : Créer un cluster Service Fabric à l’aide d’Azure Active Directory pour l’authentification client
@@ -33,15 +33,19 @@ Pour simplifier certaines des étapes impliquées dans la configuration d’AAD 
 
 >[AZURE.NOTE] Vous devez effectuer ces étapes *avant* de créer le cluster ; ainsi, dans les situations où les scripts attendent des noms de cluster et des points de terminaison, ces valeurs doivent être les valeurs planifiées et non celles que vous avez déjà créées.
 
-1. [Téléchargez les scripts][sf-aad-ps-script-download] et extrayez-les avant de continuer.
+1. [Téléchargez les scripts][sf-aad-ps-script-download] sur votre ordinateur.
 
-2. Exécutez `SetupApplications.ps1`, en indiquant TenantId, ClusterName et WebApplicationReplyUrl en tant que paramètres. Par exemple :
+2. Cliquez avec le bouton droit sur le fichier zip, choisissez **Propriétés**, puis cochez la case **Débloquer** et appliquez.
+
+3. Extrayez le fichier zip.
+
+4. Exécutez `SetupApplications.ps1`, en indiquant TenantId, ClusterName et WebApplicationReplyUrl en tant que paramètres. Par exemple :
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
     ```
 
-    Vous pouvez trouver votre **TenantId** en examinant l’URL pour le locataire dans le portail Azure Classic. Le GUID incorporé dans cette URL est le TenantId. Par exemple :
+    Vous pouvez trouver votre **TenantId** en examinant l’URL pour le locataire dans le Portail Azure Classic. Le GUID incorporé dans cette URL est le TenantId. Par exemple :
 
     https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/**690ec069-8200-4068-9d01-5aaf188e557a**/users
 
@@ -51,7 +55,7 @@ Pour simplifier certaines des étapes impliquées dans la configuration d’AAD 
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    Vous serez invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire AAD. Une fois cette opération effectuée, le script continuera de créer les applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du locataire dans le [portail Azure Classic][azure-classic-portal], vous devez voir deux nouvelles entrées :
+    Vous serez invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire AAD. Une fois cette opération effectuée, le script continuera de créer les applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du locataire dans le [Portail Azure Classic][azure-classic-portal], vous devez voir deux nouvelles entrées :
 
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
@@ -80,7 +84,7 @@ clusterApplication fait référence à l’application web créée dans la secti
 
 ## Affecter des utilisateurs aux rôles
 
-Une fois que vous avez créé les applications pour représenter votre cluster, vous devez affecter les utilisateurs aux rôles pris en charge par Service Fabric : en lecture seule et administrateur. Pour ce faire, utilisez le [portail Azure Classic][azure-classic-portal].
+Une fois que vous avez créé les applications pour représenter votre cluster, vous devez affecter les utilisateurs aux rôles pris en charge par Service Fabric : en lecture seule et administrateur. Pour ce faire, utilisez le [Portail Azure Classic][azure-classic-portal].
 
 1. Accédez à votre locataire et choisissez Applications.
 2. Choisissez l’application web, qui portera un nom comme `myTestCluster_Cluster`.
@@ -147,7 +151,7 @@ Pour contourner ce problème, ajoutez **http://<i></i>localhost** comme URI de r
 <!-- Links -->
 [sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]: https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
-[aad-graph-api-docs]: https://msdn.microsoft.com/fr-FR/library/azure/ad/graph/api/api-catalog
+[aad-graph-api-docs]: https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
 
 <!-- Images -->
@@ -156,4 +160,4 @@ Pour contourner ce problème, ajoutez **http://<i></i>localhost** comme URI de r
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

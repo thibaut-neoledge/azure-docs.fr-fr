@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser les applets de commande Azure PowerShell pour Azure Storage afin de créer et gérer des comptes de stockage, d’utiliser des objets blob, des tables, des files d’attente et des fichiers ; de configurer et d’interroger Storage Analytics et de créer des signatures d’accès partagé."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
@@ -102,16 +102,16 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 	- **$SubscriptionName :** vous devez mettre à jour cette variable avec le nom de votre propre abonnement. Suivez l’une des trois méthodes suivantes pour rechercher le nom de votre abonnement :
 
 		a. Dans **Windows PowerShell ISE**, cliquez sur **Fichier** > **Nouveau** pour créer un fichier script. Copiez le script suivant dans le nouveau fichier de script, puis cliquez sur **Déboguer** > **Exécuter**. Le script demande tout d'abord vos informations d'identification de compte Azure pour ajouter votre compte Azure à l'environnement PowerShell local puis affiche tous les abonnements qui sont connectés à la session PowerShell locale. Notez le nom de l'abonnement que vous voulez utiliser dans ce didacticiel :
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. Pour rechercher et copier le nom de votre abonnement dans le [portail Azure](https://portal.azure.com), cliquez sur **Abonnements** dans le menu Hub sur la gauche. Copier le nom de l'abonnement que vous souhaitez utiliser lors de l'exécution des scripts de ce guide.
-		
+
 		![Portail Azure][Image2]
-		  
+
 		c. Pour rechercher et copier le nom de votre abonnement dans le [portail Azure Classic](https://manage.windowsazure.com/), faites défiler et cliquez sur **Paramètres** sur le côté gauche du portail. Cliquez sur **Abonnements** pour afficher la liste de vos abonnements. Copier le nom de l'abonnement que vous souhaitez utiliser lors de l'exécution des scripts de ce guide.
-		
+
 		![Portail Azure Classic][Image1]
 
 	- **$StorageAccountName** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
@@ -235,8 +235,26 @@ Pour plus d’informations sur la configuration d’une chaîne de connexion de 
 
 Maintenant, vous avez configuré votre ordinateur et découvert comment gérer les abonnements et les comptes de stockage à l'aide d'Azure PowerShell. Allez à la section suivante pour découvrir comment gérer les objets blob Azure et les instantanés d'objet blob.
 
+### Récupération et régénération des clés de stockage Azure
+
+Un compte Azure Storage est fourni avec deux clés de compte. Vous pouvez utiliser l’applet de commande suivante pour récupérer vos clés.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+Utilisez l’applet de commande suivante pour récupérer une clé spécifique. Les valeurs valides sont : Primaire et Secondaire.
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+Si vous souhaitez régénérer vos clés, utilisez l’applet de commande suivante. Les valeurs valides pour -KeyType sont « Primaire » et « Secondaire »
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## Gestion des objets blob Azure
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main de Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts du service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main de Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts du service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Création d'un conteneur
 Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l'aide de l'applet de commande New-AzureStorageContainer :
@@ -300,7 +318,7 @@ Notez que cet exemple effectue une copie asynchrone. Vous pouvez surveiller l’
 ### Comment copier des objets blob à partir d’un emplacement secondaire
 Vous pouvez copier des objets blob à partir de l’emplacement secondaire d’un compte pour lequel le stockage RA-GRS est activé.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -373,7 +391,7 @@ Vous pouvez copier l'instantané d'un objet blob pour restaurer l'instantané. P
 Vous avez appris à gérer les objets blob Azure et les instantanés d'objet blob avec Azure PowerShell. Allez à la section suivante pour découvrir comment gérer les tables, les files d'attente et les fichiers.
 
 ## Gestion des tables et des entités de table Azure
-Le service de stockage de tables Azure est un magasin de données NoSQL que vous pouvez utiliser pour stocker et interroger de grands ensembles de données non relationnelles structurées. Les principaux composants du service sont les tables, les entités et les propriétés. une table est une collection d’entités. Une entité est un ensemble de propriétés. Chaque entité peut comprendre jusqu'à 252 propriétés, qui sont toutes des paires nom-valeur. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de tables Azure. Pour plus d’informations, consultez les sections [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) et [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
+Le service de stockage de tables Azure est un magasin de données NoSQL que vous pouvez utiliser pour stocker et interroger de grands ensembles de données non relationnelles structurées. Les principaux composants du service sont les tables, les entités et les propriétés. une table est une collection d’entités. Une entité est un ensemble de propriétés. Chaque entité peut comprendre jusqu'à 252 propriétés, qui sont toutes des paires nom-valeur. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de tables Azure. Pour plus d’informations, consultez les sections [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) et [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
 
 Dans les sous-sections suivantes, vous allez apprendrez à gérer le service de stockage de tables Azure à l'aide d'Azure PowerShell. Les scénarios abordés sont les suivants : **création**, **suppression** et **récupération** de **tables** et **ajout**, **interrogation** et **suppression des entités d’une table**.
 
@@ -514,7 +532,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
     }
 
 ## Gestion des files d'attente et des messages de file d'attente Azure
-Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de files d'attente Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md).
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage de files d'attente Azure. Pour obtenir des informations détaillées, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md).
 
 Cette section vous présente la gestion du service de stockage de files d'attente Azure à l'aide d'Azure PowerShell. Les scénarios traités incluent l’**insertion** et la **suppression** de messages de file d’attente, ainsi que la **création**, la **suppression** et la **récupération des files d’attente**.
 
@@ -613,7 +631,7 @@ Une signature d’accès partagé peut prendre deux formes :
 - **SAP ad hoc** : quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
 - **SAP avec stratégie d’accès stockée** : une stratégie d’accès stockée est définie sur un conteneur de ressource, un conteneur d’objets blob, une table ou une file d’attente. Vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
 
-Pour plus d'informations, consultez les sections [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+Pour plus d’informations, consultez les sections [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
 Dans les sections suivantes, vous allez découvrir comment créer un jeton de signature d'accès partagé et une stratégie d'accès stockée pour les tables Azure. PowerShell Azure fournit aussi des applets de commande semblables pour les conteneurs, les objets blob et les files d'attente. Pour exécuter les scripts de cette section, vous devez télécharger [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou ultérieure.
 
@@ -732,6 +750,5 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

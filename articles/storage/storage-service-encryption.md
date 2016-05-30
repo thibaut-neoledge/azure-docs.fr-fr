@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/11/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption pour les données au repos (version préliminaire)
@@ -37,7 +37,7 @@ Lorsque vous avez cliqué sur le paramètre Chiffrement, vous pouvez activer ou 
 
 ##Availability
 
-Notez que cette fonctionnalité est actuellement disponible dans la région Asie de l’Est pour le stockage Standard et Japon de l’Est pour le stockage Premium Storage. Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles pour cette fonctionnalité.
+Notez que cette fonctionnalité est actuellement disponible dans la région Asie de l’Est et Europe de l’Ouest pour le stockage Standard et Japon de l’Est pour le stockage Premium Storage. Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles pour cette fonctionnalité.
 
 ##Scénarios de chiffrement
 
@@ -215,7 +215,7 @@ R : Quand avez-vous créé le compte de stockage ? Pendant la version prélimina
 
 **Q : La version préliminaire de SSE est-elle autorisée uniquement dans des régions spécifiques ?**
 
-R : La fonctionnalité SSE en version préliminaire est actuellement disponible dans la région Asie de l’Est pour le stockage Standard et Japon de l’Est pour le stockage Premium Storage. Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles dans les mois qui viennent.
+R : La fonctionnalité SSE en version préliminaire est actuellement disponible dans la région Asie de l’Est et Europe de l’Ouest pour le stockage Standard et Japon de l’Est pour le stockage Premium Storage. Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles dans les mois qui viennent.
 
 **Q : Comment obtenir de l’aide si je rencontre des problèmes ou que je souhaite envoyer des commentaires ?**
 
@@ -225,4 +225,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

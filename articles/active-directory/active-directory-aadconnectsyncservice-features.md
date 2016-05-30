@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 # Fonctionnalités de service de synchronisation d’Azure AD Connect
 
@@ -77,7 +77,7 @@ Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide 
 
 Pour plus d’informations, voir [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192)
 
-L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName lorsqu’il est modifié en local, sauf si vous utilisez des domaines fédérés.
+L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName lorsqu’il est modifié en local et que vous utilisez la synchronisation de mot de passe. Si vous utilisez la fédération, cette fonctionnalité ne fonctionnera pas.
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette option est activée en exécutant :
 ```
@@ -100,4 +100,4 @@ Ces paramètres seront activés pour tous les répertoires Azure AD à l’aveni
 
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

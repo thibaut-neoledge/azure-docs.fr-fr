@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Entités de messagerie partitionnées | Microsoft Azure"
-   description="Décrit comment partitionner des entités de messagerie à l'aide de plusieurs courtiers de messages."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Entités de messagerie partitionnées | Microsoft Azure"
+    description="Décrit comment partitionner des entités de messagerie à l'aide de plusieurs courtiers de messages."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Entités de messagerie partitionnées
 
@@ -23,9 +23,9 @@ Pour plus d'informations sur les éléments internes de Service Bus, consultez 
 
 ## Files d'attente et rubriques partitionnées
 
-Chaque file d'attente ou rubrique partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente et géré par un courtier de messages différent. Lorsqu'un message est envoyé à une file d'attente ou une rubrique partitionnée, Service Bus affecte le message à l'un des fragments. La sélection est effectuée au hasard par Service Bus ou par une clé de partition que l'expéditeur peut spécifier.
+Chaque file d'attente ou rubrique partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente et géré par un courtier de messages différent. Lorsqu'un message est envoyé à une file d'attente ou une rubrique partitionnée, Service Bus affecte le message à l'un des fragments. La sélection est effectuée au hasard par Service Bus ou à l’aide d’une clé de partition que l’expéditeur peut spécifier.
 
-Lorsqu'un client souhaite recevoir un message à partir d'une file d'attente partitionnée ou à partir d'un abonnement d'une rubrique partitionnée, Service Bus interroge tous les fragments des messages, puis retourne le premier message qui est renvoyé à partir de l'une des banques de messagerie au destinataire. Service Bus place les autres messages en cache pour les retourner quand il reçoit d'autres requêtes de réception. Un client destinataire n'est pas conscient de ce partitionnement ; le comportement côté client d'une file d'attente ou d'une rubrique partitionnée (par exemple, lecture, exécution, report, rebut, préchargement) est identique à celui d'une entité ordinaire.
+Lorsqu’un client souhaite recevoir un message à partir d’une file d’attente partitionnée ou à partir d’un abonnement d’une rubrique partitionnée, Service Bus interroge tous les fragments des messages, puis retourne le premier message qui est obtenu à partir de l’une des banques de messagerie au destinataire. Service Bus place les autres messages en cache pour les retourner quand il reçoit d'autres requêtes de réception. Un client destinataire n'est pas conscient de ce partitionnement ; le comportement côté client d'une file d'attente ou d'une rubrique partitionnée (par exemple, lecture, exécution, report, rebut, préchargement) est identique à celui d'une entité ordinaire.
 
 Il n'existe aucun coût supplémentaire lors de l'envoi d'un message à, ou lors de la réception d'un message depuis, une file d'attente ou une rubrique partitionnée.
 
@@ -125,7 +125,7 @@ Dans son implémentation actuelle, Service Bus impose les limites suivantes aux
 
 ## Étapes suivantes
 
-Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et files d'attente partitionnées de Service Bus][] pour en savoir plus sur le partitionnement des entités de messagerie.
+Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et files d’attente partitionnées de Service Bus][] pour en savoir plus sur le partitionnement des entités de messagerie.
 
   [Architecture de Service Bus]: service-bus-architecture.md
   [portail Azure Classic]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et f
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [prise en charge par AMQP 1.0 des rubriques et files d'attente partitionnées de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+  [prise en charge par AMQP 1.0 des rubriques et files d’attente partitionnées de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

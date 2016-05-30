@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Quand vous inscrivez une application dans le portail de gestion Azure, deux obje
 - **Objet principal du service** : cet objet représente une instance de votre application dans le client de votre annuaire. Vous pouvez appliquer des stratégies à des objets principal du service, notamment en attribuant des autorisations au principal du service qui permettent à l’application de lire les données d’annuaire de votre client. Chaque fois que vous modifiez votre objet application, les modifications sont également appliquées à l’objet principal du service associé dans votre client.
 
 
-> [AZURE.NOTE]Si votre application est configurée pour l’accès externe, les modifications apportées à l’objet application ne sont pas répercutées dans le principal du service d’un client consommateur tant que ce dernier n’a pas supprimé, puis accordé de nouveau l’accès.
+> [AZURE.NOTE] Si votre application est configurée pour l’accès externe, les modifications apportées à l’objet application ne sont pas répercutées dans le principal du service d’un client consommateur tant que ce dernier n’a pas supprimé, puis accordé de nouveau l’accès.
 
 
 
@@ -85,4 +85,4 @@ Propriété | Description
 
 ##
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

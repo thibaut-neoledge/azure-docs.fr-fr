@@ -19,7 +19,7 @@
 
 # Écrire, modifier et exécuter des requêtes SQL pour DocumentDB à l’aide de l’Explorateur de requêtes 
 
-Cet article fournit une vue d’ensemble de l’Explorateur de requêtes [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui permet d’écrire, de modifier et d’exécuter des requêtes SQL dans une [collection DocumentDB](documentdb-create-collection).
+Cet article fournit une vue d’ensemble de l’Explorateur de requêtes de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui permet d’écrire, de modifier et d’exécuter des requêtes SQL sur une [collection DocumentDB](documentdb-create-collection.md).
 
 1. Dans la barre de lancement du portail Azure, cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**.
 
@@ -79,4 +79,4 @@ L’Explorateur de requêtes du portail Azure permet simplement d’exécuter de
 
 Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de requêtes, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez l’[Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md). Vous pouvez également expérimenter le [Query Playground](https://www.documentdb.com/sql/demo) où vous pouvez tester des requêtes en ligne en utilisant un exemple de jeu de données.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

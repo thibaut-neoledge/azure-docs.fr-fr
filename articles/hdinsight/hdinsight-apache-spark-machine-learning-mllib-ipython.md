@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -170,7 +170,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 1. Commençons par nous faire une idée de ce que notre jeu de données contient. Par exemple, quelles sont les différentes valeurs dans la colonne **résultats** ?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	Un résultat similaire à ce qui suit s’affiche normalement :
@@ -412,4 +412,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

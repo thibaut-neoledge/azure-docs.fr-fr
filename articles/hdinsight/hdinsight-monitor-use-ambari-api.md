@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
@@ -75,7 +75,7 @@ Voici un script Azure PowerShell permettant d’obtenir des informations de suiv
 
 	$response.metrics.'yarn.queueMetrics'
 
-Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
+Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -174,4 +174,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Documentation d'aide de zones géographiques multiples
@@ -38,7 +38,9 @@ Si vous ouvrez une expérience à partir de la galerie, vous pouvez également s
 
 ## Gestion des services web
 
-Pour gérer par programme les services web, par exemple pour le recyclage, utilisez l'adresse spécifique à la région : ****https://asiasoutheast.management.azureml.net**
+Pour gérer par programmation les services web, par exemple pour la reformation, utilisez l’adresse propre à la région :
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Points à noter
 
@@ -57,4 +59,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

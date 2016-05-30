@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS
@@ -24,7 +24,6 @@ Des conseils sur les technologies utilisées pour déplacer des données vers et
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## Introduction
 
 Une fois que les clients ont déplacé les données locales dans le cloud, ils peuvent y accéder à partir de n’importe quel service Azure pour mettre à profit la totalité des performances de la suite de technologies Azure. Il peut être utilisé, par exemple, dans Machine Learning ou sur un cluster HDInsight.
 
@@ -44,10 +43,10 @@ Pour exécuter les tâches décrites dans cet article, vous devez disposer d’u
 
 Pour utiliser les **connecteurs SSIS** vous devez télécharger :
 
-- **SQL Server 2014 ou 2016 Standard (ou version ultérieure)** : l’installation inclut SQL Server Integration Services.
+- **SQL Server 2014 ou 2016 Standard (ou version ultérieure)** : l’installation inclut SQL Server Integration Services.
 - **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** peuvent être téléchargés respectivement depuis les pages [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
-> [AZURE.NOTE] SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](http://www.microsoft.com/fr-FR/server-cloud/products/sql-server-editions/)
+> [AZURE.NOTE] SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 
 Pour les supports de formation sur SSIS, consultez la [formation pratique SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
 
@@ -88,4 +87,4 @@ Nous remarquons ici que le pack de fonctionnalités SSIS permet de gérer des fl
 - Pour exécuter un script Hive sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Hive](https://msdn.microsoft.com/library/mt146771.aspx).
 - Pour exécuter un script Pig sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Pig](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

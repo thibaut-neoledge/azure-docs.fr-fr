@@ -58,8 +58,7 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | Demande d'une opération d'exécution sur une entité désactivée. | Activez l'entité. | Une nouvelle tentative peut aider si l'entité a été activée entre-temps. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | Service Bus renvoie cette exception si vous envoyez un message à une rubrique avec le filtre préalable activé et si aucun des filtres ne correspond. | Assurez-vous qu'au moins un filtre correspond. | Une nouvelle tentative ne sera pas bénéfique. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Une charge utile de message dépasse la limite de 256 Ko. Notez que la limite de 256 Ko correspond à la taille totale du message, qui peut inclure des propriétés système et toute surcharge .NET. | Réduisez la taille de la charge utile de message, puis recommencez l'opération. | Une nouvelle tentative ne sera pas bénéfique. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transaction ambiante (*Transaction.Current*) n’est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | | Une nouvelle tentative ne sera pas bénéfique. | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. | Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transaction ambiante (*Transaction.Current*) n’est pas valide. Elle a peut-être été terminée ou annulée. Une exception en interne peut fournir des informations supplémentaires. | | Une nouvelle tentative ne sera pas bénéfique. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. | Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. | - |
 
 ## QuotaExceededException
 
@@ -98,7 +97,7 @@ Pour le Service Bus Relay, cette exception encapsule [System.ServiceModel.QuotaE
 
 ## TimeoutException 
 
-Une [TimeoutException][] indique qu'une opération lancée par l'utilisateur dépasse le délai d'expiration de l'opération.
+Une [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indique qu’une opération lancée par l’utilisateur dépasse le délai d’expiration de l’opération.
 
 ### Files d'attente et rubriques
 
@@ -139,4 +138,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

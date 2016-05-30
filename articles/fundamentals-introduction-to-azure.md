@@ -304,7 +304,7 @@ Azure Automation est une solution idéale pour automatiser les tâches répétit
 
 La création et la publication d'API (Application Programmer Interfaces) sur Internet est une méthode communément utilisée pour fournir des services à des applications. Si ces services sont destinés à la revente (données météo, par exemple), l'entreprise peut autoriser des tiers à y accéder moyennant paiement. Lorsque le nombre de partenaires augmente, vous devez généralement optimiser et contrôler l'accès. Certains partenaires peuvent également avoir besoin des données sous un autre format.
 
-Le service Gestion des API Azure permet aux entreprises de publier facilement des API pour les partenaires, employés et développeurs tiers et ce, de manière sécurisée et à l'échelle. Il fournit un point de terminaison API différent et fait office de proxy pour accéder au point de terminaison tout en proposant des services comme la mise en cache, la transformation, la limitation, le contrôle d'accès et l'agrégation d'analyses.
+Le service Gestion des API Azure permet aux entreprises de publier facilement des API pour les partenaires, employés et développeurs tiers et ce, de manière sécurisée et à l'échelle. Il fournit un système d'extrémité d’API différent et agit comme proxy pour appeler le système d'extrémité réel lors de services comme la mise en cache, la transformation, la limitation, le contrôle des accès et l’agrégation d’analyses.
 
 **Scénarios relatifs au service Gestion des API**
 
@@ -606,4 +606,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

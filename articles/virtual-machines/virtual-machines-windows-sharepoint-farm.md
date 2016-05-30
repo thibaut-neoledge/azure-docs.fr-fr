@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/04/2016"
@@ -67,4 +67,4 @@ Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes 
 
 - Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

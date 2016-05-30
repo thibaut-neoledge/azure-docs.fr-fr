@@ -1,6 +1,6 @@
 <properties
 pageTitle="GitHub | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de référentiel Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
+description="Créer des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur GitHub
@@ -61,6 +61,8 @@ Pour créer des applications logiques avec GitHub, vous devez d’abord créer u
 |Jeton|Oui|Fournir des informations d’identification GitHub|
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à GitHub](../../includes/connectors-create-api-github.md)]
+
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
 ## Référence pour GitHub
@@ -73,8 +75,8 @@ Créer un problème : crée un problème
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|repositoryOwner|string|yes|path|(aucun)|Propriétaire du référentiel|
-|repositoryName|string|yes|path|(aucun)|Nom du référentiel|
+|repositoryOwner|string|yes|path|(aucun)|Propriétaire du dépôt|
+|repositoryName|string|yes|path|(aucun)|Nom du dépôt|
 |issueBasicDetails| |yes|body|(aucun)|Publication des détails|
 
 #### Response
@@ -177,4 +179,4 @@ Il n’existe aucun paramètre pour cet appel
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

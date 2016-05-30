@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Transfert automatique d'entités de messagerie de Service Bus | Microsoft Azure"
-   description="Décrit comment chaîner une file d'attente ou un abonnement à une autre file d'attente ou rubrique qui fait partie du même espace de noms de service."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Transfert automatique d'entités de messagerie de Service Bus | Microsoft Azure"
+    description="Comment chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Chaînage des entités Service Bus avec transfert automatique
 
-La fonctionnalité de *transfert automatique* vous permet de chaîner une file d'attente ou un abonnement à une autre file d'attente ou rubrique qui fait partie du même espace de noms de service. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d'attente ou le premier abonnement (source) pour les placer dans la deuxième file d'attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu'il n'est pas possible de chaîner une sous-file d'attente, comme une file d'attente de rebut, à une autre file d'attente ou rubrique.
+La fonctionnalité de *transfert automatique* vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d'attente ou le premier abonnement (source) pour les placer dans la deuxième file d'attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu’il n’est pas possible de chaîner une sous-file d’attente, comme une file d’attente de rebut, à une autre file d’attente ou rubrique.
 
 ## Utilisation du transfert automatique
 
@@ -31,7 +31,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 L'entité de destination doit exister au moment de la création de l'entité source. Si l'entité de destination n'existe pas, Service Bus renvoie une exception lorsqu'il lui est demandé de créer l'entité source.
 
-Vous pouvez utiliser le transfert automatique pour faire évoluer une rubrique particulière. Service Bus limite le nombre d'abonnements à une rubrique donnée. Vous pouvez créer des abonnements supplémentaires en créant des rubriques de second niveau. Notez que même si vous n'êtes pas lié par la limitation de Service Bus sur le nombre d'abonnements, l'ajout d'un deuxième niveau de rubriques peut améliorer le débit global de votre rubrique.
+Vous pouvez utiliser le transfert automatique pour faire évoluer une rubrique particulière. Service Bus limite le [nombre d’abonnements à une rubrique donnée](service-bus-quotas.md) à 2 000. Vous pouvez créer des abonnements supplémentaires en créant des rubriques de second niveau. Notez que même si vous n'êtes pas lié par la limitation de Service Bus sur le nombre d'abonnements, l'ajout d'un deuxième niveau de rubriques peut améliorer le débit global de votre rubrique.
 
 ![Scénario de transfert automatique][0]
 
@@ -43,7 +43,7 @@ Si Alice part en vacances, sa file d'attente personnelle, et non la rubrique ERP
 
 ## Considérations sur le transfert automatique
 
-Si l'entité de destination a accumulé de nombreux messages et dépasse le quota, ou l'entité de destination est désactivée, l'entité source ajoute les messages à sa file d'attente de rebut jusqu'à ce qu'il y ait de l'espace dans la destination (ou que l'entité soit réactivée). Ces messages continuent de résider dans la file d'attente de rebut, donc vous devez explicitement les recevoir et les traiter à partir de la file d'attente de rebut.
+Si l’entité de destination a accumulé de nombreux messages et dépasse le quota, ou l’entité de destination est désactivée, l’entité source ajoute les messages à sa [file d’attente de rebut](service-bus-dead-letter-queues.md) jusqu’à ce qu’il y ait de l’espace dans la destination (ou que l’entité soit réactivée). Ces messages continuent de résider dans la file d'attente de rebut, donc vous devez explicitement les recevoir et les traiter à partir de la file d'attente de rebut.
 
 Lors du chaînage de rubriques individuelles pour obtenir une rubrique composite avec de nombreux abonnements, nous vous recommandons d'avoir un nombre modéré d'abonnements à la rubrique de premier niveau et beaucoup d'abonnements aux rubriques de second niveau. Par exemple, une rubrique de premier niveau avec 20 abonnements, chacun étant chaîné à une rubrique de second niveau possédant 200 abonnements, permet d'obtenir un débit plus élevé qu'une rubrique de premier niveau possédant 200 abonnements, chacun étant chaîné à une rubrique de second niveau possédant 20 abonnements.
 
@@ -53,7 +53,7 @@ Pour créer un abonnement qui est chaîné à une autre file d'attente ou rubriq
 
 ## Étapes suivantes
 
-Pour plus d'informations sur le transfert automatique, consultez les rubriques de référence suivantes :
+Pour plus d’informations sur le transfert automatique, consultez les rubriques de référence suivantes :
 
 - [SubscriptionDescription.ForwardTo][]
 - [QueueDescription][]
@@ -69,4 +69,4 @@ Pour en savoir plus sur les améliorations des performances de Service Bus, cons
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Entités de messagerie partitionnées]: service-bus-partitioning.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

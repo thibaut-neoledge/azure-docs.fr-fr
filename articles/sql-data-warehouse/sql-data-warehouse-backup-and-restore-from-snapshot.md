@@ -43,7 +43,7 @@ Pour restaurer à l’aide du portail Azure, procédez comme suit.
 
 Utilisez Azure PowerShell pour exécuter par programme une restauration de base de données avec l’applet de commande [Restore-AzureRmSqlDatabase][].
 
-> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
+> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez [Installation et configuration d’Azure PowerShell][].
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -158,14 +158,14 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 >[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer la base de données récupérée en suivant le guide [Finaliser une base de données récupérée][].
 
 ## Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, consultez [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database-business-continuity.md
-[Finaliser une base de données récupérée]: sql-database-recovered-finalize.md
-[Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
+[Finaliser une base de données récupérée]: ../sql-database/sql-database-recovered-finalize.md
+[Installation et configuration d’Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Création d’une demande de restauration de base de données]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [portail Azure]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
