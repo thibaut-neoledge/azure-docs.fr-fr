@@ -29,10 +29,10 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 
 ## Composants requis
 
-* **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 et de 4 nœuds de calcul CentOS 6.6 de grande taille (A3). Adaptez ces éléments à votre environnement si nécessaire.
+* **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 et de 4 nœuds de calcul CentOS 6.6 de grande taille (A3). Adaptez ces éléments à votre environnement si nécessaire.
 
 
-* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ayant pour extension .tar, vous devrez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour ce faire, suivez les instructions données plus loin dans cet article.
+* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ayant pour extension .tar, vous devrez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour ce faire, suivez les instructions données plus loin dans cet article.
 
 * **VMD** (facultatif) : pour afficher les résultats de votre tâche NAMD, téléchargez et installez le programme de visualisation moléculaire [VMD](http://www.ks.uiuc.edu/Research/vmd/) sur un ordinateur de votre choix. La version actuelle est 1.9.2. Consultez le site de téléchargement de VMD pour commencer.
 
@@ -243,13 +243,13 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 
 6. Sur la page **Détails de la tâche et redirection d’E/S**, définissez les valeurs suivantes.
 
-    * **Ligne de commande** : `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+    * **Ligne de commande** : `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
 
     >[AZURE.TIP] La ligne de commande précédente est une commande unique sans saut de ligne. Un retour à la ligne sera appliqué pour qu’elle apparaisse sur plusieurs lignes sous **Ligne de commande**.
 
-    * **Répertoire de travail** : /namd2
+    * **Répertoire de travail** : /namd2
 
-    * **Minimum** : 3
+    * **Minimum** : 3
 
     ![Détails de la tâche][task_details]
 

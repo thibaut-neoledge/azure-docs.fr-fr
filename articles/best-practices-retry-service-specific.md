@@ -227,7 +227,7 @@ La prise en charge de la fonctionnalité de nouvelle tentative est assurée lors
   * Définit les méthodes synchrones et asynchrones **Execute***.
   * Définit les classes qui peuvent être utilisées directement ou configurées sur un contexte de base de données comme une stratégie par défaut mappée sur un nom de fournisseur ou un nom de fournisseur et un nom de serveur. En cas de configuration sur un contexte, les nouvelles tentatives se produisent au niveau des opérations de base de données individuelles. Il peut y en avoir plusieurs pour une opération de contexte donnée.
   * Définit à quel moment et comment proposer une nouvelle tentative en cas d’échec de connexion.
-* Il inclut plusieurs implémentations intégrées de l’interface **IDbExecutionStrategy** :
+* Il inclut plusieurs implémentations intégrées de l’interface **IDbExecutionStrategy** :
   * Par défaut : aucune nouvelle tentative.
   * Par défaut pour la base de données SQL (automatique) : aucune nouvelle tentative, mais inspecte les exceptions et y inclut la suggestion d’utiliser la stratégie de base de données SQL.
   * Par défaut pour la base de données SQL : exponentielle (héritée de la classe de base) et logique de détection de base de données SQL.
@@ -1072,7 +1072,7 @@ Prenez en compte les éléments suivants lors de l’accès aux services Azure o
 
 Voici les types d’intervalles de stratégie de nouvelle tentative classiques :
 
-* **Exponentielle** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de tentatives en utilisant une approche de secours exponentielle répartie de manière aléatoire pour déterminer l’intervalle entre deux tentatives. Par exemple :
+* **Exponentielle** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de tentatives en utilisant une approche de secours exponentielle répartie de manière aléatoire pour déterminer l’intervalle entre deux tentatives. Par exemple :
 
 		var random = new Random();
 
@@ -1083,12 +1083,12 @@ Voici les types d’intervalles de stratégie de nouvelle tentative classiques 
 		               this.maxBackoff.TotalMilliseconds);
 		retryInterval = TimeSpan.FromMilliseconds(interval);
 
-* **Incrémentielle** : une stratégie de nouvelle tentative avec un nombre spécifié de nouvelles tentatives et un intervalle de temps incrémentiel entre deux tentatives. Par exemple :
+* **Incrémentielle** : une stratégie de nouvelle tentative avec un nombre spécifié de nouvelles tentatives et un intervalle de temps incrémentiel entre deux tentatives. Par exemple :
 
 		retryInterval = TimeSpan.FromMilliseconds(this.initialInterval.TotalMilliseconds +
 		               (this.increment.TotalMilliseconds * currentRetryCount));
 
-* **LinearRetry** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de nouvelles tentatives en utilisant un intervalle fixe spécifique entre deux tentatives. Par exemple :
+* **LinearRetry** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de nouvelles tentatives en utilisant un intervalle fixe spécifique entre deux tentatives. Par exemple :
 
 		retryInterval = this.deltaBackoff;
 

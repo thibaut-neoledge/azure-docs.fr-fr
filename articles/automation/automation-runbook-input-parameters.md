@@ -96,11 +96,19 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
 
     ![Ajouter une nouvelle entrée](media/automation-runbook-input-parameters/automation_03_AddNewInput.png)
 
-4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureVM** :
+4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureVM** :
 
-    * **Parameter1:** Name--VMName, Type--String, Mandatory--No
+    * **Parameter1:** 
+    Name--VMName, 
+    Type--String, 
+    Mandatory--No
 
-    * **Parameter2:** Name--ServiceName, Type--String, Mandatory--No, Default Value--Custom, Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
+    * **Parameter2:** 
+    Name--ServiceName, 
+    Type--String, 
+    Mandatory--No, 
+    Default Value--Custom, 
+    Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
 
 5. Une fois les paramètres ajoutés, cliquez sur **OK**. Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
 
@@ -213,7 +221,7 @@ Vous pouvez créer et démarrer une tâche de Runbook avec l’API REST d’Azur
 
 Dans l’URI de demande, remplacez les paramètres suivants :
 
-* **subscription-id** : ID de votre abonnement Azure.  
+* **subscription-id** : ID de votre abonnement Azure.  
 * **cloud-service-name :** nom du service cloud auquel la demande doit être envoyée.  
 * **automation-account-name :** nom de votre compte Automation hébergé dans le service cloud spécifié.  
 * **job-id :** GUID de la tâche. Vous pouvez créer des GUID dans PowerShell à l’aide de la commande **[GUID]::NewGuid(). ToString()**.

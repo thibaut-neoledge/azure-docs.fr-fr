@@ -47,9 +47,9 @@ Pour plus d’informations sur *comment* et *Pourquoi* effectuer ces optimisatio
 
 Pour les applications sensibles aux performances, il est recommandé d’utiliser les [tailles de machine virtuelle](virtual-machines-windows-sizes.md) suivantes :
 
-- **SQL Server Enterprise Edition** : DS3 ou supérieure
+- **SQL Server Enterprise Edition** : DS3 ou supérieure
 
-- **SQL Server Standard Edition ou SQL Server Web Edition** : DS2 ou supérieure
+- **SQL Server Standard Edition ou SQL Server Web Edition** : DS2 ou supérieure
 
 
 ## Conseils liés au stockage
@@ -100,7 +100,7 @@ Pour les machines virtuelles qui prennent en charge Premium Storage (de série D
 
 - **Stratégie de mise en cache** : Pour les disques de données Premium Storage, activez la mise en cache de lecture uniquement sur les disques de données hébergeant vos fichiers de données et TempDB. Si vous n’utilisez pas Premium Storage, n’activez aucune mise en cache sur les disques de données. Pour obtenir des instructions sur la configuration de la mise en cache des disques, consultez les rubriques suivantes : [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) et [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
-- **Taille d’unité d’allocation NTFS** : lors du formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
+- **Taille d’unité d’allocation NTFS** : lors du formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
 
 ## Recommandations liées aux E/S
 
@@ -134,11 +134,11 @@ Pour les machines virtuelles qui prennent en charge Premium Storage (de série D
 
 Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
 
-- **Sauvegarde vers le stockage Azure** : lors de la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+- **Sauvegarde vers le stockage Azure** : lors de la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
 
 	Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’[outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
 
-- **Fichiers de données SQL Server dans Azure** : cette nouvelle fonctionnalité, nommée [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
+- **Fichiers de données SQL Server dans Azure** : cette nouvelle fonctionnalité, nommée [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
 
 ## Étapes suivantes
 

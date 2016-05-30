@@ -56,7 +56,7 @@ Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une aut
 
 ##<a name="https"></a> Sécurisation des communications avec les clients
 
-Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre application App Service, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine ***.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](web-sites-custom-domain-name.md), vous pouvez charger un certificat SSL et [activer HTTPS](web-sites-configure-ssl-certificate.md) pour le domaine personnalisé.
+Si vous utilisez le nom de domaine **\*.azurewebsites.net** créé pour votre application App Service, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine **\*.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](web-sites-custom-domain-name.md), vous pouvez charger un certificat SSL et [activer HTTPS](web-sites-configure-ssl-certificate.md) pour le domaine personnalisé.
 
 L’activation du protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protège la communication entre votre application et ses utilisateurs contre les attaques de l’intercepteur.
 

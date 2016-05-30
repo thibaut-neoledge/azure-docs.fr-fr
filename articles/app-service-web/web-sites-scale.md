@@ -70,7 +70,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 	
 	![Mode de mise à l’échelle automatique défini sur Performance][Autoscale]
 	
-3. Dans **Paramètres**, cliquez sur **Par défaut, échelle 1-1**, déplacez les deux curseurs pour définir le nombre minimal et le nombre maximal d’instances à mettre à l’échelle automatiquement pour le plan App Service. Pour ce didacticiel, placez le curseur maximal sur **6** instances.
+3. Dans **Paramètres**, cliquez sur **Par défaut, échelle 1-1**, déplacez les deux curseurs pour définir le nombre minimal et le nombre maximal d’instances à mettre à l’échelle automatiquement pour le plan App Service. Pour ce didacticiel, placez le curseur maximal sur **6** instances.
 	
 4. Cliquez sur **OK**.
 	

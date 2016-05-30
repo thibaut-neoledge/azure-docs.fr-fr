@@ -91,20 +91,20 @@ La requête inclut les types de données définis par l’utilisateur qui ne son
 
 Au lieu du paramètre...
 
-- **geometry** : utilisez un type « varbinary » ;
-- **geography** : utilisez un type « varbinary » ;
-- **hierarchyid** : utilisez un type CLR non natif ;
-- **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
-- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
-- **table** : appliquez une conversion vers des tables temporaires ;
-- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre BINARY(8) ou VARBINARY(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
-- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
+- **geometry** : utilisez un type « varbinary » ;
+- **geography** : utilisez un type « varbinary » ;
+- **hierarchyid** : utilisez un type CLR non natif ;
+- **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
+- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
+- **table** : appliquez une conversion vers des tables temporaires ;
+- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre BINARY(8) ou VARBINARY(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
+- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
 - **xml** : utilisez la valeur varchar(max) ou une valeur inférieure pour optimiser les performances
 
 Pour optimiser les performances, au lieu de :
 
-- **nvarchar(max)** : utilisez le paramètre « nvarchar (4000) » ou une valeur inférieure pour optimiser les performances ;
-- **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
+- **nvarchar(max)** : utilisez le paramètre « nvarchar (4000) » ou une valeur inférieure pour optimiser les performances ;
+- **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
 
 Prise en charge partielle :
 

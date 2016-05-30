@@ -25,7 +25,7 @@ Cet article explique comment configurer une application Web à l’aide du [port
 
 ## Paramètres de l’application
 
-1. Sur le [portail Azure](https://portal.azure.com/), ouvrez le panneau de l’application Web.
+1. Sur le [portail Azure](https://portal.azure.com), ouvrez le panneau de l’application Web.
 2. Cliquez sur **Tous les paramètres**.
 3. Cliquez sur **Paramètres de l’application**.
 
@@ -37,10 +37,10 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 
 **Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
 
-- **.NET Framework** : définissez la version du .NET Framework. 
-- **PHP** : définissez la version du langage PHP ou choisissez **OFF** pour désactiver PHP. 
-- **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
-- **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
+- **.NET Framework** : définissez la version du .NET Framework. 
+- **PHP** : définissez la version du langage PHP ou choisissez **OFF** pour désactiver PHP. 
+- **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
+- **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
 
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
@@ -142,20 +142,20 @@ Le nom d’utilisateur FTP complet est « app\\username », où *app* représ
 
 En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application Web](web-sites-configure-ssl-certificate.md).
 
-Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
+Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Noms de domaine
 
 Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md).
 
-Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
+Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Déploiements
 
 - Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service](web-sites-publish-source-control.md)
 - Emplacements de déploiement Consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md)
 
-Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
+Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
 
 ### Analyse

@@ -40,7 +40,7 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD)
     - Le **Type de problème** est **Technique**.
 	- Sélectionnez l’**Abonnement** approprié.
     - Le **Service** est **Active Directory**.
-    - Sélectionnez le **Plan de support** approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/en-us/support/plans/).
+    - Sélectionnez le **Plan de support** approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/support/plans/).
 
     ![Support - Fonctions de base](./media/active-directory-b2c-support/support-basics.png)
 
@@ -61,7 +61,7 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD)
 
 8. Après avoir soumis votre demande d’assistance, vous pouvez la surveiller en cliquant sur **Aide + support** dans le tableau d’accueil, puis sur **Gérer les demandes de support**.
 
-## Problème connu : dépôt d’une demande de support dans le contexte d’un client B2C
+## Problème connu : dépôt d'une demande de support dans le contexte d'un client B2C
 
 Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 

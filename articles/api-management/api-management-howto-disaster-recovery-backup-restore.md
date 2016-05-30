@@ -128,7 +128,7 @@ Définissez la valeur de l’en-tête de la demande `Content-Type` sur `applicat
 
 La sauvegarde est une opération de longue durée qui peut prendre plusieurs minutes. Si la demande a réussi et que le processus de sauvegarde a été lancé, vous recevez un code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Lorsque la sauvegarde est en cours, vous continuez à recevoir le code d'état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de sauvegarde a réussi.
 
-**Remarque** :
+**Remarque** :
 
 - Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 * Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion des services** telle que la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc. 

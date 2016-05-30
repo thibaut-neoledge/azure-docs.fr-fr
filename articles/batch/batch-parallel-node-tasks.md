@@ -34,7 +34,7 @@ Alors que certains scénarios tirent parti du fait de dédier toutes les ressour
 
 Voici un exemple qui illustre les avantages de l'exécution de tâches en parallèle. Supposons que votre application de tâche a des exigences en termes de processeur et de mémoire adaptées à une taille de nœud [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d). Cependant, afin d'exécuter le travail dans le délai imparti, il vous faut 1 000 nœuds de ce type.
 
-Au lieu d’utiliser les nœuds Standard\_D1 avec 1 cœur de processeur, vous pouvez employer des nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) avec 16 cœurs chacun et activer l’exécution de tâches parallèles. Dans ce cas, vous pouvez donc utiliser *16 fois moins de nœuds* : au lieu de 1 000 nœuds, seuls 63 sont requis. Cela améliore considérablement le temps et l’efficacité de l’exécution des tâches si des fichiers d’application ou des données de référence de grande taille sont requis pour chaque nœud.
+Au lieu d’utiliser les nœuds Standard\_D1 avec 1 cœur de processeur, vous pouvez employer des nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) avec 16 cœurs chacun et activer l’exécution de tâches parallèles. Dans ce cas, vous pouvez donc utiliser *16 fois moins de nœuds* : au lieu de 1 000 nœuds, seuls 63 sont requis. Cela améliore considérablement le temps et l’efficacité de l’exécution des tâches si des fichiers d’application ou des données de référence de grande taille sont requis pour chaque nœud.
 
 ## Activer l’exécution des tâches parallèles
 

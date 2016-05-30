@@ -79,7 +79,7 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 
 3. Ouvrez **QSTodoListViewController.cs** et modifiez la définition de méthode de **ViewDidLoad** pour supprimer ou placer en commentaire l’appel à **RefreshAsync()** vers la fin.
 
-4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
+4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
 
 		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {

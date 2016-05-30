@@ -286,7 +286,7 @@ Enfin, appelez la fonction **CREATE\_MODEL\_INSTANCE**. Notez que **WeatherStati
 
 ### Définition du modèle
 
-Un modèle de la bibliothèque **serializer** définit les événements que votre appareil peut envoyer à IoT Hub et les messages, appelés *actions* dans le langage de la modélisation qu’il peut recevoir. Un modèle se définit avec un ensemble de macros C comme dans l’exemple d’application **simplesample\_amqp** :
+Un modèle de la bibliothèque **serializer** définit les événements que votre appareil peut envoyer à IoT Hub et les messages, appelés *actions* dans le langage de la modélisation qu’il peut recevoir. Un modèle se définit avec un ensemble de macros C comme dans l’exemple d’application **simplesample\_amqp** :
 
 ```
 BEGIN_NAMESPACE(WeatherStation);

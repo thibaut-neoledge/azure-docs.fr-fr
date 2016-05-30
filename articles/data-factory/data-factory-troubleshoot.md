@@ -82,7 +82,7 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 	  }
 	}
 
-Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+ Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### Problème : échec de l’opération de copie hybride
 Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie à partir de/vers un magasin de données local avec la passerelle de gestion des données.

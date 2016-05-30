@@ -107,7 +107,7 @@ Vous pouvez lancer le notebook Jupyter à partir du portail Azure. Recherchez vo
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Vous pouvez également naviguer jusqu’à ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux notebooks Jupyter. Remplacez simplement la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Vous aurez besoin du mot de passe de votre compte d’administrateur pour accéder aux notebooks.
+Vous pouvez également naviguer jusqu’à ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux notebooks Jupyter. Remplacez simplement la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Vous aurez besoin du mot de passe de votre compte d’administrateur pour accéder aux notebooks.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

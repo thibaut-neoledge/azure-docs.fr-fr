@@ -54,7 +54,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  
         using Microsoft.WindowsAzure.MobileServices.Sync;         
 
-6. Commentez la ligne qui commence `todoTable` en tant que **IMobileServiceTable**, puis supprimez les marques de commentaire de la ligne de code qui commence `todoTable` en tant que **IMobileServiceSyncTable** :
+6. Commentez la ligne qui commence `todoTable` en tant que **IMobileServiceTable**, puis supprimez les marques de commentaire de la ligne de code qui commence `todoTable` en tant que **IMobileServiceSyncTable** :
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); 

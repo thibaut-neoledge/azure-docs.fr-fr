@@ -43,7 +43,7 @@ Les instructions suivantes sont applicables aux téléphones Samsung GS3 et sup�
 6. Sur l’écran Jonction d’espace de travail, entrez l’ID utilisateur fourni par votre organisation et cliquez sur **Joindre**.
 7. Pour vous connecter à l’application Azure Authenticator, entrez votre compte et votre mot de passe d’organisation, puis cliquez sur **Connecter**.
 8. L’écran suivant qui affiche des informations sur l’authentification multifacteur concerne des éléments de sécurité supplémentaires et est facultatif. Vous verrez cet écran si votre entreprise ou votre établissement scolaire requiert une authentification de second facteur pour la création d’un compte professionnel. Il fournit des instructions pour vérifier votre compte de façon plus avancée.
-9. L’écran Jonction d’espace de travail affiche le message « **Jonction d’espace de travail en cours** ». L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
+9. L’écran Jonction d’espace de travail affiche le message « **Jonction d’espace de travail en cours** ». L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
 10. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
 
 >[AZURE.NOTE]

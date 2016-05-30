@@ -66,7 +66,7 @@ Après avoir créé votre collection Azure RemoteApp, double-cliquez sur son nom
 Pour créer une **collection dans le cloud et dans un réseau virtuel**, procédez comme suit :
 
 1. Accédez à la page RemoteApp du portail de gestion.
-2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
+2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
 3. Entrez un nom pour votre collection.
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
 5. Choisissez le réseau virtuel que vous avez déjà créé. Vous ne savez pas comment faire ? Pour l’instant, les étapes se trouvent dans la rubrique [hybride](remoteapp-create-hybrid-deployment.md).

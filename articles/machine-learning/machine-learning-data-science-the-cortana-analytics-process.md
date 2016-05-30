@@ -21,11 +21,11 @@
 
 Le processus d’analyse Cortana est une méthode scientifique de traitement systématique des données qui présente une suite d’opérations utilisant des analyses avancées pour générer des applications intelligentes. Les opérations CAP fournissent des **conseils** sur la façon de définir une problématique, d’analyser des données pertinentes, de générer et d’évaluer les modèles prévisionnels, puis de déployer ces modèles dans des applications intelligentes.
 
-Voici les étapes du **processus d’analyse Cortana ** :
+Voici les étapes du **processus d’analyse Cortana ** :
 
 ![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 

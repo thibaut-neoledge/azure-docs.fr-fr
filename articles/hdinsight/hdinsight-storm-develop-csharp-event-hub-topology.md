@@ -22,9 +22,9 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 
 Dans ce didacticiel, vous découvrirez comment utiliser les modèles Visual Studio installés avec les Outils HDInsight pour Visual Studio afin de créer deux topologies qui fonctionnent avec les hubs d’événements Azure.
 
-* **EventHubWriter** : génère des données de façon aléatoire et les écrit dans les hubs d’événements
+* **EventHubWriter** : génère des données de façon aléatoire et les écrit dans les hubs d’événements
 
-* **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
+* **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
 
 > [AZURE.NOTE] Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
@@ -131,11 +131,11 @@ Dans cette section, vous allez créer une topologie qui écrit des données vers
 
 4. Une fois le projet créé, vous devez avoir les fichiers suivants :
 
-	* **Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie qui se compose d’un seul spout et d’un seul bolt est créée.
+	* **Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie qui se compose d’un seul spout et d’un seul bolt est créée.
 
-	* **Spout.cs** : exemple de spout.
+	* **Spout.cs** : exemple de spout.
 
-	* **Bolt.cs** : exemple de bolt. Il sera supprimé lorsque vous utiliserez le bolt Event Hubs pour écrire dans le hub d’événements.
+	* **Bolt.cs** : exemple de bolt. Il sera supprimé lorsque vous utiliserez le bolt Event Hubs pour écrire dans le hub d’événements.
 
 ### Configuration
 
@@ -551,11 +551,11 @@ Vous pouvez également exporter et importer les points de contrôle persistants 
 
 Les scripts présents dans ce répertoire sont :
 
-* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
+* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
 
-* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
+* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
 
-* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
+* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
 
 L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le hub lorsque vous remettez un nouveau cluster en ligne.
 

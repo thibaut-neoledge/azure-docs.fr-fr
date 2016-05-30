@@ -159,7 +159,7 @@ De même, vous pouvez accéder à toute URL accessible publiquement à l’adres
 -	un contrôleur/une action ;
 -	si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
-En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>*.azureedge.net/**. Si je me rends à l'adresse ****http://camservice.azureedge.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
+En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>*.azureedge.net/**. Si je me rends à l'adresse **http://camservice.azureedge.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

@@ -168,8 +168,8 @@ Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin
 1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
 3.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
-	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
-	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
 4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
 5.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.

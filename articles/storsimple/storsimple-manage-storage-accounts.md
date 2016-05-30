@@ -33,9 +33,9 @@ Les comptes de stockage contiennent les informations d’identification que l’
 
 Dans la page **Configurer**, tous les comptes de stockage créés pour l’abonnement à la facturation sont affichés sous forme de tableau et contiennent les informations suivantes :
 
-- **Nom** : nom unique attribué au compte lors de sa création.
-- **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
-- **Utilisé par** : nombre de volumes utilisant le compte de stockage.
+- **Nom** : nom unique attribué au compte lors de sa création.
+- **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
+- **Utilisé par** : nombre de volumes utilisant le compte de stockage.
 
 Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stockage dans la page **Configurer** sont les suivantes :
 
@@ -48,9 +48,9 @@ Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stoc
 
 Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorSimple.
 
-- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour en savoir plus sur la création de ces comptes de stockage, consultez l’[Étape 1 : création d’un nouveau service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) dans [Déploiement de l’appareil local StorSimple](storsimple-deployment-walkthrough.md). 
-- **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). 
-- **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
+- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour en savoir plus sur la création de ces comptes de stockage, consultez l’[Étape 1 : création d’un nouveau service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) dans [Déploiement de l’appareil local StorSimple](storsimple-deployment-walkthrough.md). 
+- **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). 
+- **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
 
 ## Ajout d’un compte de stockage
 

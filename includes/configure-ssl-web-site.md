@@ -175,7 +175,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application d
 
 	> [AZURE.NOTE] Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
 	>
-	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
+	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
 	>
 	`````
@@ -295,7 +295,7 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 
 	> [AZURE.NOTE] Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
 	>
-	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
+	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
 	>
 	`````
@@ -447,7 +447,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 > [AZURE.NOTE] Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 >
-> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
+> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
 >    
 >     ![Adresse IP virtuelle](./media/configure-ssl-web-site/staticip.png)
 >    

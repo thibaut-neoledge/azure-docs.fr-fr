@@ -37,7 +37,7 @@ La mise à niveau d’application propagée surveillée est la mise à niveau la
 Enfin, la mise à niveau d’application propagée automatisée permet aux environnements de développement ou de test de fournir un cycle d’itération rapide pendant le développement du service.
 
 ## Passer en mode de mise à niveau manuelle
-**Mode manuel** : arrêter la mise à niveau de l’application au domaine de mise à niveau actuel et passer en mode de mise à niveau manuelle non surveillée. L’administrateur doit appeler manuellement **MoveNextApplicationUpgradeDomainAsync** pour procéder à la mise à niveau ou déclencher une restauration en initiant une nouvelle mise à niveau. Une fois que la mise à niveau est en mode manuel, elle demeure dans ce mode jusqu'à ce qu'une nouvelle mise à niveau soit initiée. La commande **GetApplicationUpgradeProgressAsync** renvoie FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
+**Mode manuel** : arrêter la mise à niveau de l’application au domaine de mise à niveau actuel et passer en mode de mise à niveau manuelle non surveillée. L’administrateur doit appeler manuellement **MoveNextApplicationUpgradeDomainAsync** pour procéder à la mise à niveau ou déclencher une restauration en initiant une nouvelle mise à niveau. Une fois que la mise à niveau est en mode manuel, elle demeure dans ce mode jusqu'à ce qu'une nouvelle mise à niveau soit initiée. La commande **GetApplicationUpgradeProgressAsync** renvoie FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
 ## Effectuer une mise à niveau avec un package différentiel
 

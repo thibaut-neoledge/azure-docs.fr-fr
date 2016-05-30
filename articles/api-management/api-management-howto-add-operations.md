@@ -82,11 +82,11 @@ Les paramètres de l'opération sont gérés dans l'onglet Paramètres. Les para
 
 Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des paramètres de requête** et entrez les informations suivantes :
 
--	**Nom** : nom du paramètre.
--	**Description** : courte description du paramètre (facultatif).
--	**Type** : type de paramètre, sélectionné dans la liste déroulante.
--	**Valeurs** : valeurs qui peuvent être affectées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).
--	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire. 
+-	**Nom** : nom du paramètre.
+-	**Description** : courte description du paramètre (facultatif).
+-	**Type** : type de paramètre, sélectionné dans la liste déroulante.
+-	**Valeurs** : valeurs qui peuvent être affectées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).
+-	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire. 
 
 ![Paramètres de demande][api-management-request-parameters]
 

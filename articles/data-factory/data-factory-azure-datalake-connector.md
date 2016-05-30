@@ -413,7 +413,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 
 ## Expiration du jeton 
-Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Erreur de l’opération d’informations d’identification : \_grant - AADSTS70002 non valide : Erreur lors de la validation des informations d’identification. AADSTS70008 : L’autorisation d’accès fournie est expirée ou révoquée. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 
 | Type d’utilisateur | Expire après |
@@ -526,10 +526,10 @@ Pour spécifier la compression pour un jeu de données, utilisez la propriété 
  
 Notez que la section **compression** a deux propriétés :
   
-- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
-- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
-	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
-	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
+- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
+- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
+	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
+	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
 	
 	Pour plus d'informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
@@ -547,7 +547,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -555,7 +555,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 
 
-**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |

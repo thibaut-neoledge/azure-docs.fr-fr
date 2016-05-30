@@ -38,7 +38,7 @@ Utilisez cette architecture lorsque le serveur de processus est local et que vou
 
 Utilisez cette architecture lorsque le serveur de processus est sur Azure et que vous disposez d’une connexion VPN ou ExpressRoute.
 
-![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Pour afficher la liste complète des ports et le diagramme de l’architecture de restauration automatique, reportez-vous à l’image ci-dessous.
 
@@ -96,7 +96,7 @@ Si vous avez protégé vos machines en tant que ressources classiques (la machin
 
 1.  Dans le coffre > Paramètres > Manage Site Recovery Infrastructure (Gérer l’infrastructure Site Recovery) > **Serveurs de configuration**, sous le titre For VMware and Physical Machines (Pour VMware et les machines physiques), sélectionnez le serveur de configuration. Cliquez sur +Serveur de processus
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. Pour le déploiement du serveur de processus, choisissez « Deploy a failback process server in Azure » (Déployer un serveur de processus de restauration automatique dans Azure).
 
@@ -106,11 +106,11 @@ Si vous avez protégé vos machines en tant que ressources classiques (la machin
 
 5. Si vous avez sélectionné un réseau de *déploiement classique*, vous serez invité à créer une machine virtuelle par le biais de la galerie Azure et à y installer le serveur de processus.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. Le nom de l’image est *Microsoft Azure Site Recovery Process Server V2*. Veillez à sélectionner le modèle de déploiement *Classique*.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Installez le serveur de processus conformément à la procédure fournie [ici](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -126,7 +126,7 @@ Si vous avez protégé vos machines en tant que ressources classiques (la machin
 	
 	5. Choisissez le sous-réseau et l’interface réseau spécifiques pour la connexion. Remarque : vous devez créer votre propre [interface réseau](../virtual-network/virtual-networks-multiple-nics.md) et la sélectionner lors du déploiement.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. Cliquez sur OK. Cela déclenche une tâche qui crée une machine virtuelle selon le type de déploiement Resource Manager avec l’installation du serveur de processus. Vous devez exécuter l’installation sur la machine virtuelle pour inscrire le serveur auprès du serveur de configuration. Pour ce faire, appliquez la [procédure fournie ici](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -250,4 +250,4 @@ Vous pouvez effectuer une restauration automatique via une connexion VPN ou via
 - La solution ExpressRoute doit être configurée sur le réseau virtuel Azure vers lequel les machines sources basculent, et sur lequel les machines virtuelles Azure sont situées après le basculement.
 - Les données sont répliquées vers un compte de stockage Azure sur un point de terminaison public. Vous devez configurer une homologation publique dans ExpressRoute avec le centre de données cible pour que la réplication Site Recovery utilise ExpressRoute.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!-------HONumber=AcomDC_0518_2016-->

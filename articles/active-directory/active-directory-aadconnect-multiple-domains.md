@@ -128,7 +128,7 @@ Et l’IssuerUri sur notre nouveau domaine a été défini sur https://bmfabrika
 ##Prise en charge des sous-domaines
 Lorsque vous ajoutez un sous-domaine, en raison de la façon dont Azure AD a géré les domaines, il héritera des paramètres du parent. Cela signifie que l’IssuerUri doit correspondre aux parents.
 
-Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com. Cela signifie que l’IssuerUri pour un utilisateur de corp.bmcontoso.com devra être ****http://bmcontoso.com/adfs/services/trust.** Cependant, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que ****http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
+Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com. Cela signifie que l’IssuerUri pour un utilisateur de corp.bmcontoso.com devra être **http://bmcontoso.com/adfs/services/trust.** Cependant, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que **http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
 
 ### Activation de la prise en charge des sous-domaines
 Pour contourner ce problème, l’approbation de la partie de confiance AD FS de Microsoft Online doit être mise à jour. Pour cela, vous devez configurer une règle de revendication personnalisée afin qu’elle retire tous les sous-domaines du suffixe UPN de l’utilisateur pendant la construction de la valeur Issuer.

@@ -21,7 +21,7 @@
 #Mise à l’échelle automatique et environnement App Service
 
 ##Introduction
-**Les environnements App Service ** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de Workers individuels par le biais d’indicateurs de mesure ou de la planification.
+**Les environnements App Service** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de Workers individuels par le biais d’indicateurs de mesure ou de la planification.
  
 ![][intro]
  
@@ -51,10 +51,10 @@ Une fois qu’un profil est défini, les règles de mise à l’échelle automat
  Toutes les règles de mesure du **pool de Workers** ou du **serveur Front-end** peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
  
 ##Exemple de mise à l’échelle automatique
-La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario. Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service ** hébergés dans une ASE.
+La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario. Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service** hébergés dans une ASE.
 
 ###Présentation du scénario
-Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service **.
+Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service**.
 
 L’**environnement App Service** est configuré sur mise à l'échelle manuelle, comme suit :
 * Serveurs frontaux : 3
@@ -70,7 +70,7 @@ Frank connaît très bien l’application et sait que les heures de pointe de ch
 
 ![][asp-scale]
 
-|	**Profil de la mise à l’échelle automatique – Jours de semaine – Plan de service de l’application** |	** Profil de la mise à l’échelle automatique – Week-ends – Plan de Service de l’application** |
+|	**Profil de la mise à l’échelle automatique – Jours de semaine – Plan de service de l’application** |	**Profil de la mise à l’échelle automatique – Week-ends – Plan de Service de l’application** |
 |	----------------------------------------------------	|	----------------------------------------------------	|
 |	**Nom :** profil jour de semaine |	**Nom :** profil week-end |
 |	**Mise à l’échelle selon :** Planification et règles de performances |	**Mise à l’échelle selon :** Planification et règles de performances |
@@ -102,13 +102,13 @@ Frank connaît très bien l’application et sait que les heures de pointe de ch
 ###Taux d’inflation du plan de service de l’application
 Les **plans de service de l’application** sont configurés pour une mise à l’échelle automatique, et fonctionneront ainsi au taux maximal par heure. Cette vitesse peut être calculée en fonction des valeurs fournies sur la règle de mise à l’échelle automatique.
 
-La compréhension et le calcul du **taux d’inflation du plan de service d’application ** est importante pour la mise à l’échelle du **pool de Workers** de l’**environnement de Service d’application** car les modifications d’un **pool de Workers** ne sont pas instantanées et prennent un certain temps à s’appliquer.
+La compréhension et le calcul du **taux d’inflation du plan de service d’application** est importante pour la mise à l’échelle du **pool de Workers** de l’**environnement de Service d’application** car les modifications d’un **pool de Workers** ne sont pas instantanées et prennent un certain temps à s’appliquer.
 
 Le taux d’inflation du **plan de service d’application** est calculé comme suit :
 
 ![][ASP-Inflation]
 
-Si l’on prend la règle *mise à l’échelle automatique - Mise à l’échelle supérieure* du profil *Jour de semaine * le **plan de service d’application** de production devrait se présenter comme suit :
+Si l’on prend la règle *mise à l’échelle automatique - Mise à l’échelle supérieure* du profil *Jour de semaine* le **plan de service d’application** de production devrait se présenter comme suit :
 
 ![][Equation1]
 
@@ -126,7 +126,7 @@ Dans le cas de la règle de *mise à l’échelle automatique – Mise à l’é
 
 ![][Equation4]
 
-Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
+Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
 
 Si plusieurs **plans App Service** sont hébergés dans un **pool de Workers**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans App Service** hébergés dans ce **pool de Workers**.
 

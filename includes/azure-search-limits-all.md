@@ -1,6 +1,21 @@
 Ressource|Gratuit|De base (version préliminaire) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
-Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par abonnement Azure Taille de stockage maximum <sup>1</sup>|50 Mo ou 10 000 documents|2 Go par service|25 Go par partition ou 300 Go de documents par service|100 Go par partition ou 1,2 To par service Nombre maximum de documents hébergés|10 000 au total|1 million par service|15 millions par partition (jusqu’à 180 millions de documents par service)|60 millions par partition (jusqu’à 720 millions de documents par service) Nombre maximum d’index|3|5|50|200 Nombre maximum d’indexeurs|3|5|50|200 Nombre maximum de sources de données d’indexeur |3|5|50|200 Index : nombre maximum de champs par index|1 000|100 <sup>5</sup>|1 000|1 000 Index : nombre maximum de profils de score par index|16|16|16|16 Index : nombre maximum de fonctions par profil|8|8|8|8 Indexeurs : charge d’indexation maximum par appel|10 000 documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents Indexeurs : durée d’exécution maximum|3 minutes|24 heures|24 heures|24 heures Indexeur d’objets blob : taille maximum d’objet blob, Mo|16|16|128|256 Indexeur d’objets blob : nombre maximum de caractères de contenu extrait d’un objet blob|32 000|64 000|4 millions|4 millions Requêtes par seconde <sup>16</sup>|N/A|~3 par réplica|~15 par réplica|~60 par réplica Montée en charge : nombre maximum d’unités de recherche <sup>3</sup>|N/A|Jusqu’à 3 unités (3 réplicas et 1 partition)|36 unités|36 unités Tarification <sup>4</sup>|N/A|75 $ par unité de recherche par mois|250 $ par unité de recherche par mois|1 000 $ par unité de recherche par mois
+Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par abonnement Azure 
+Taille de stockage maximum <sup>1</sup>|50 Mo ou 10 000 documents|2 Go par service|25 Go par partition ou 300 Go de documents par service|100 Go par partition ou 1,2 To par service 
+Nombre maximum de documents hébergés|10 000 au total|1 million par service|15 millions par partition (jusqu’à 180 millions de documents par service)|60 millions par partition (jusqu’à 720 millions de documents par service) 
+Nombre maximum d’index|3|5|50|200 
+Nombre maximum d’indexeurs|3|5|50|200 
+Nombre maximum de sources de données d’indexeur |3|5|50|200 
+Index : nombre maximum de champs par index|1 000|100 <sup>5</sup>|1 000|1 000 
+Index : nombre maximum de profils de score par index|16|16|16|16 
+Index : nombre maximum de fonctions par profil|8|8|8|8 
+Indexeurs : charge d’indexation maximum par appel|10 000 documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents 
+Indexeurs : durée d’exécution maximum|3 minutes|24 heures|24 heures|24 heures 
+Indexeur d’objets blob : taille maximum d’objet blob, Mo|16|16|128|256 
+Indexeur d’objets blob : nombre maximum de caractères de contenu extrait d’un objet blob|32 000|64 000|4 millions|4 millions 
+Requêtes par seconde <sup>16</sup>|N/A|~3 par réplica|~15 par réplica|~60 par réplica 
+Montée en charge : nombre maximum d’unités de recherche <sup>3</sup>|N/A|Jusqu’à 3 unités (3 réplicas et 1 partition)|36 unités|36 unités 
+Tarification <sup>4</sup>|N/A|75 $ par unité de recherche par mois|250 $ par unité de recherche par mois|1 000 $ par unité de recherche par mois
 
 <sup>1</sup> La taille de stockage est un volume fixe ou le nombre de documents par service, en fonction de la première occurrence.
 

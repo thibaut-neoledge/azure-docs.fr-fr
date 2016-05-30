@@ -226,7 +226,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur. 
 
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
 
 `statusDetails` : détails de l’état.
 
@@ -329,7 +329,7 @@ HTTP 200 (OK) si l’opération réussit.
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur. 
  
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
  
 `statusDetails` : détails de l’état.
 

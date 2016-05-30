@@ -679,7 +679,7 @@ Retourne les *N* premiers enregistrements triés d’après les colonnes spécif
 
 * *NumberOfRows :* nombre de lignes de *T* à retourner.
 * *Sort\_expression :* expression utilisée pour trier les lignes. Il s’agit généralement juste d’un nom de colonne. Vous pouvez spécifier plusieurs expressions sort\_expression.
-* `asc` ou `desc` (la valeur par défaut) peut permettre d’indiquer si la sélection est effectuée à partir du «bas » ou du « haut » de la plage.
+* `asc` ou `desc` (la valeur par défaut) peut permettre d’indiquer si la sélection est effectuée à partir du « bas » ou du « haut » de la plage.
 
 
 **Conseils**
@@ -1288,7 +1288,17 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo |
+||
+|`<` |Inférieur à
+|`<=`|Inférieur ou égal à
+|`>` |Supérieur à
+|`>=`|Supérieur ou égal à
+|`<>`|Non égal à
+|`!=`|Non égal à
 
 
 
@@ -1305,8 +1315,8 @@ Alias `floor`.
 
 **Arguments**
 
-* *value :* nombre, date ou intervalle de temps. 
-* *roundTo :* la « taille bin ». Nombre, date ou intervalle de temps qui divise *value*. 
+* *value:* nombre, date ou intervalle de temps. 
+* *roundTo:* la « taille bin ». Nombre, date ou intervalle de temps qui divise *value*. 
 
 **Retourne**
 

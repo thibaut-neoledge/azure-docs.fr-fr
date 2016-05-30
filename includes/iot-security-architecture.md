@@ -172,17 +172,17 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
 
-**Déni de service ** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
+**Déni de service** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image (en spectre visible) d’un couloir vide peut être forcée à afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 
 **Falsification** : une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données de l’appareil sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
    
-**Divulgation d’informations ** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
+**Divulgation d’informations** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
 
 **Divulgation d’informations**: une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre l’appareil et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner les informations.
 

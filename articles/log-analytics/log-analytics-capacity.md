@@ -69,9 +69,9 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 La vignette ouvre le tableau de bord **Gestion de la capacité**, où vous pouvez afficher un résumé de la capacité de votre serveur. La page présente les vignettes suivantes :
 
-- *Capacité des ordinateurs virtuels* : indique la capacité restante (en jours) des ordinateurs virtuels.
-- *Calcul* : affiche les cœurs de processeurs et la mémoire disponible.
-- *Stockage* : indique l'espace disque utilisé et la latence.
+- *Capacité des ordinateurs virtuels* : indique la capacité restante (en jours) des ordinateurs virtuels.
+- *Calcul* : affiche les cœurs de processeurs et la mémoire disponible.
+- *Stockage* : indique l'espace disque utilisé et la latence.
 - *Recherche* : explorateur de données que vous pouvez utiliser pour rechercher des données dans le système OMS.
 
 ![image du tableau de bord Gestion de la capacité](./media/log-analytics-capacity/oms-capacity02.png)
@@ -98,20 +98,20 @@ Vous pouvez générer un classeur Excel pour les catégories suivantes :
 
 Le tableau de bord **Calcul** présente les zones suivantes :
 
-**Utilisation** : indique le taux d'utilisation du cœur de processeur et de la mémoire des hôtes de vos ordinateurs virtuels.
+**Utilisation** : indique le taux d'utilisation du cœur de processeur et de la mémoire des hôtes de vos ordinateurs virtuels.
 
-- *Cœurs utilisés* : somme de tous les hôtes (% d'utilisation du processeur multiplié par le nombre de cœurs physiques sur l'hôte).
-- *Cœurs libres* : nombre total de cœurs moins les cœurs utilisés.
-- *Pourcentage de cœurs disponibles* : nombre de cœurs physiques libres divisé par le nombre total de cœurs physiques.
-- *Cœurs virtuels par ordinateur virtuel* : nombre total de cœurs dans le système divisé par le nombre total d'ordinateurs virtuels dans le système.
-- *Rapport cœurs virtuels/cœurs physiques* : rapport entre le nombre total de cœurs physiques et le nombre de cœurs physiques utilisés par des ordinateurs virtuels du système.
-- *Nombre de cœurs virtuels disponibles* : rapport entre le nombre de cœurs virtuels et de cœurs physiques multiplié par le nombre de cœurs physiques disponibles.
-- *Mémoire utilisée* : somme de la mémoire utilisée par tous les hôtes.
-- *Mémoire disponible* : mémoire physique totale moins la mémoire utilisée.
-- *Pourcentage de mémoire disponible* : mémoire physique disponible divisée par la mémoire physique totale.
-- *Mémoire virtuelle par ordinateur virtuel* : mémoire virtuelle totale du système divisée par le nombre total d'ordinateurs virtuels dans le système.
-- *Rapport mémoire virtuelle/mémoire physique* : mémoire virtuelle totale du système divisée par la mémoire physique totale du système.
-- *Mémoire virtuelle disponible* : rapport entre la mémoire virtuelle et la mémoire physique multiplié par la mémoire physique disponible.
+- *Cœurs utilisés* : somme de tous les hôtes (% d'utilisation du processeur multiplié par le nombre de cœurs physiques sur l'hôte).
+- *Cœurs libres* : nombre total de cœurs moins les cœurs utilisés.
+- *Pourcentage de cœurs disponibles* : nombre de cœurs physiques libres divisé par le nombre total de cœurs physiques.
+- *Cœurs virtuels par ordinateur virtuel* : nombre total de cœurs dans le système divisé par le nombre total d'ordinateurs virtuels dans le système.
+- *Rapport cœurs virtuels/cœurs physiques* : rapport entre le nombre total de cœurs physiques et le nombre de cœurs physiques utilisés par des ordinateurs virtuels du système.
+- *Nombre de cœurs virtuels disponibles* : rapport entre le nombre de cœurs virtuels et de cœurs physiques multiplié par le nombre de cœurs physiques disponibles.
+- *Mémoire utilisée* : somme de la mémoire utilisée par tous les hôtes.
+- *Mémoire disponible* : mémoire physique totale moins la mémoire utilisée.
+- *Pourcentage de mémoire disponible* : mémoire physique disponible divisée par la mémoire physique totale.
+- *Mémoire virtuelle par ordinateur virtuel* : mémoire virtuelle totale du système divisée par le nombre total d'ordinateurs virtuels dans le système.
+- *Rapport mémoire virtuelle/mémoire physique* : mémoire virtuelle totale du système divisée par la mémoire physique totale du système.
+- *Mémoire virtuelle disponible* : rapport entre la mémoire virtuelle et la mémoire physique multiplié par la mémoire physique disponible.
 
 **Outil de projection**
 
@@ -119,10 +119,10 @@ L'outil de projection vous permet d'afficher l'historique des tendances d'utilis
 
 **Efficacité**
 
-- *Ordinateurs virtuels inactifs* : ordinateurs utilisant moins de 10 % du processeur et de 10 % de la mémoire pour une période donnée.
-- *Ordinateurs virtuels surexploités* : ordinateurs utilisant plus de 90 % du processeur et de 90 % de la mémoire pour une période donnée.
-- *Hôte inactif* : ordinateurs utilisant moins de 10 % du processeur et de 10 % de la mémoire pour une période donnée.
-- *Hôte surexploité* : ordinateurs utilisant plus de 90 % du processeur et de 90 % de la mémoire pour une période donnée.
+- *Ordinateurs virtuels inactifs* : ordinateurs utilisant moins de 10 % du processeur et de 10 % de la mémoire pour une période donnée.
+- *Ordinateurs virtuels surexploités* : ordinateurs utilisant plus de 90 % du processeur et de 90 % de la mémoire pour une période donnée.
+- *Hôte inactif* : ordinateurs utilisant moins de 10 % du processeur et de 10 % de la mémoire pour une période donnée.
+- *Hôte surexploité* : ordinateurs utilisant plus de 90 % du processeur et de 90 % de la mémoire pour une période donnée.
 
 ### Utilisation des éléments de la page Calcul
 
@@ -142,12 +142,12 @@ Vous pouvez générer un classeur Excel à partir de ces informations de capacit
 
 La page **Stockage** présente les zones suivantes :
 
-- *Utilisation* : permet de consulter le taux d'utilisation de l'espace disque de vos hôtes d'ordinateurs virtuels.
-- *Espace disque total* : somme (espace disque logique) de tous les hôtes.
-- *Espace disque utilisé* : somme (espace disque logique utilisé) de tous les hôtes.
-- *Espace disque disponible* : espace disque total moins l'espace disque utilisé.
-- *Pourcentage de disque utilisé* : espace disque utilisé divisé par l'espace disque total.
-- *Pourcentage de disque disponible* : espace disque disponible divisé par l'espace disque total.
+- *Utilisation* : permet de consulter le taux d'utilisation de l'espace disque de vos hôtes d'ordinateurs virtuels.
+- *Espace disque total* : somme (espace disque logique) de tous les hôtes.
+- *Espace disque utilisé* : somme (espace disque logique utilisé) de tous les hôtes.
+- *Espace disque disponible* : espace disque total moins l'espace disque utilisé.
+- *Pourcentage de disque utilisé* : espace disque utilisé divisé par l'espace disque total.
+- *Pourcentage de disque disponible* : espace disque disponible divisé par l'espace disque total.
 
 ![image de la page Stockage en attachement direct de gestion de la capacité](./media/log-analytics-capacity/oms-capacity04.png)
 

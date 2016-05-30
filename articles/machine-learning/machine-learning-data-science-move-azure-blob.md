@@ -24,7 +24,7 @@ Des conseils sur les technologies utilisées pour déplacer des données vers et
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée.
+La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée.
 
 > [AZURE.NOTE] Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 

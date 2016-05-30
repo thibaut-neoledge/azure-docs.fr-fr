@@ -34,7 +34,7 @@ Publier des commentaires ou des questions au bas de cet article ou sur le [Forum
 Voici ce dont vous avez besoin pour ce déploiement :
 
 - **Serveur d’administration** : machine virtuelle exécutant Windows Server 2012 R2 et qui agit en tant que serveur d’administration. Vous installez les composants Site Recovery (y compris le serveur de configuration et le serveur de processus) sur ce serveur. Pour en savoir plus, consultez les [considérations relatives aux serveurs d’administration](site-recovery-vmware-to-azure-classic.md#management-server-considerations) et les [conditions préalables source](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
-- **Machines virtuelles IaaS** : machines virtuelles à migrer.
+- **Machines virtuelles IaaS** : machines virtuelles à migrer.
 
 ## Étapes du déploiement
 

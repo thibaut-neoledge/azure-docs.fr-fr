@@ -209,10 +209,10 @@ Ensuite, configurez le SP1 pour la nouvelle batterie de serveurs SharePoint et u
 11.	Dans **Comment voulez-vous configurer votre batterie SharePoint**, cliquez sur **Démarrer l’Assistant**.
 12.	Dans la page Configuration de votre batterie SharePoint, dans **Compte de service**, cliquez sur **Utiliser un compte géré existant**.
 13.	Dans **Services**, décochez toutes les cases, sauf la case **Service d’états**, puis cliquez sur **Suivant**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine.
-14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL ****http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1.
+14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL **http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1.
 15.	Dans la page Cette page est la dernière de l’Assistant Configuration de batterie de serveurs, cliquez sur **Terminer**. L'onglet Internet Explorer affiche le site Administration centrale de SharePoint 2013.
 16.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
-17.	Dans la barre d’adresses, tapez ****http://sp1/**, puis appuyez sur Entrée. Vous devriez voir le site d'équipe SharePoint de la société Contoso Corporation. L'affichage du site peut prendre un certain temps.
+17.	Dans la barre d’adresses, tapez **http://sp1/**, puis appuyez sur Entrée. Vous devriez voir le site d'équipe SharePoint de la société Contoso Corporation. L'affichage du site peut prendre un certain temps.
 
 Ceci est votre configuration actuelle.
 

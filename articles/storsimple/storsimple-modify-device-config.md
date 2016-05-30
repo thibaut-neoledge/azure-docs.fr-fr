@@ -34,10 +34,10 @@ Les paramètres de l’appareil incluent le nom convivial de l’appareil et sa 
 
 Un appareil StorSimple qui est connecté au service StorSimple Manager se voit attribuer un nom par défaut. Celui-ci reflète généralement le numéro de série de l’appareil. Par exemple, voici comment interpréter un nom d’appareil par défaut constitué de 15 caractères, tel que 8600-SHX0991003G44HT :
 
-- **8600** : indique le modèle de l’appareil.
-- **SHX** : indique le site de fabrication.
-- **0991003** : indique un produit spécifique.
-- **G44HT** : les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.
+- **8600** : indique le modèle de l’appareil.
+- **SHX** : indique le site de fabrication.
+- **0991003** : indique un produit spécifique.
+- **G44HT** : les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.
 
 Vous pouvez utiliser le portail Azure Classic pour modifier le nom de l’appareil et lui attribuer le nom convivial unique de votre choix. Ce nom peut contenir tout type de caractère et ne doit pas dépasser 64 caractères.
 
@@ -81,26 +81,26 @@ Dans StorSimple série 8000 Update 1, la métrique de routage de DATA 0 est d
 
 Pour chaque interface réseau, les paramètres suivants sont affichés :
 
-- **Vitesse** : paramètre non configurable par l’utilisateur. DATA 0, DATA 1, DATA 4 et DATA 5 sont toujours des interfaces réseau 1 Gigabit Ethernet, tandis que DATA 2 et DATA 3 sont des interfaces 10 Gigabit Ethernet.
+- **Vitesse** : paramètre non configurable par l’utilisateur. DATA 0, DATA 1, DATA 4 et DATA 5 sont toujours des interfaces réseau 1 Gigabit Ethernet, tandis que DATA 2 et DATA 3 sont des interfaces 10 Gigabit Ethernet.
 
      >[AZURE.NOTE] La vitesse et le mode duplex sont toujours autonégociés. Les trames Jumbo ne sont pas prises en charge.
  
-- **État de l’interface** : une interface peut être activée ou désactivée. Si elle est activée, l’appareil essaie de l’utiliser. Nous vous recommandons d’activer uniquement les interfaces qui sont connectées au réseau et utilisées. Désactivez celles que vous n’utilisez pas.
+- **État de l’interface** : une interface peut être activée ou désactivée. Si elle est activée, l’appareil essaie de l’utiliser. Nous vous recommandons d’activer uniquement les interfaces qui sont connectées au réseau et utilisées. Désactivez celles que vous n’utilisez pas.
 
-- **Type d’interface** : ce paramètre vous permet d’isoler le trafic iSCSI du trafic de stockage cloud. Ce paramètre peut avoir l’une des valeurs suivantes :
+- **Type d’interface** : ce paramètre vous permet d’isoler le trafic iSCSI du trafic de stockage cloud. Ce paramètre peut avoir l’une des valeurs suivantes :
 
-    - **Compatible cloud** : l’appareil utilise cette interface pour communiquer avec le cloud.
-    - **Compatible iSCSI** : l’appareil utilise cette interface pour communiquer avec l’hôte iSCSI.
+    - **Compatible cloud** : l’appareil utilise cette interface pour communiquer avec le cloud.
+    - **Compatible iSCSI** : l’appareil utilise cette interface pour communiquer avec l’hôte iSCSI.
 
     Nous vous recommandons d’isoler le trafic iSCSI du trafic de stockage cloud. Notez aussi que si votre hôte se trouve dans le même sous-réseau que votre appareil, il est inutile d’affecter une passerelle. En revanche, si votre hôte se trouve dans un sous-réseau différent de celui de votre appareil, vous devez affecter une passerelle.
 
-- **Adresse IP** : il peut s’agir d’une adresse IPv4 ou IPv6 ou les deux à la fois. Les familles d’adresses IPv4 et IPv6 sont prises en charge pour les interfaces réseau de l’appareil. Quand vous utilisez IPv4, spécifiez une adresse IP 32 bits (*xxx.xxx.xxx.xxx*) en notation décimale à point. Quand vous utilisez IPv6, indiquez simplement un préfixe à 4 chiffres. Une adresse 128 bits sera alors générée automatiquement pour l’interface réseau de votre appareil à partir de ce préfixe.
+- **Adresse IP** : il peut s’agir d’une adresse IPv4 ou IPv6 ou les deux à la fois. Les familles d’adresses IPv4 et IPv6 sont prises en charge pour les interfaces réseau de l’appareil. Quand vous utilisez IPv4, spécifiez une adresse IP 32 bits (*xxx.xxx.xxx.xxx*) en notation décimale à point. Quand vous utilisez IPv6, indiquez simplement un préfixe à 4 chiffres. Une adresse 128 bits sera alors générée automatiquement pour l’interface réseau de votre appareil à partir de ce préfixe.
 
-- **Sous-réseau** : ce paramètre fait référence au masque de sous-réseau et est configuré via l’interface Windows PowerShell.
+- **Sous-réseau** : ce paramètre fait référence au masque de sous-réseau et est configuré via l’interface Windows PowerShell.
 
-- **Passerelle** : il s’agit de la passerelle par défaut que cette interface doit utiliser quand elle tente de communiquer avec les nœuds situés dans le même espace d’adressage IP (sous-réseau). La passerelle par défaut doit se trouver dans le même espace d’adressage (sous-réseau) que l’adresse IP de l’interface, ce qui est détermine par le masque de sous-réseau.
+- **Passerelle** : il s’agit de la passerelle par défaut que cette interface doit utiliser quand elle tente de communiquer avec les nœuds situés dans le même espace d’adressage IP (sous-réseau). La passerelle par défaut doit se trouver dans le même espace d’adressage (sous-réseau) que l’adresse IP de l’interface, ce qui est détermine par le masque de sous-réseau.
 
-- **Adresse IP fixe** : ce champ est seulement disponible pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l’appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L’adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
+- **Adresse IP fixe** : ce champ est seulement disponible pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l’appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L’adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
 
 Vous pouvez reconfigurer le contrôleur 0 et le contrôleur 1 par le biais du portail Azure Classic.
 

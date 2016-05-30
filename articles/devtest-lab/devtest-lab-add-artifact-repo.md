@@ -61,7 +61,7 @@ Pour ajouter un dépôt d’artefacts GitHub à votre laboratoire, vous devez d�
 
 1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Dépôt d’artefacts**.
 
-1. Dans le panneau **Dépôt d’artefacts** :
+1. Dans le panneau **Dépôt d’artefacts** :
 
     1. Entrez un **Nom** pour le dépôt.
     1. Entrez l’**URL de clonage Git** enregistrée.
@@ -91,7 +91,7 @@ Pour ajouter un dépôt d’artefacts Git Visual Studio à votre laboratoire, vo
 
 1. Sous l’onglet **Sécurité**, appuyez sur **Ajouter**.
 
-1. Sur la page **Créer un jeton d’accès personnel** :
+1. Sur la page **Créer un jeton d’accès personnel** :
 
     1. Entrez une **Description** pour le jeton.
     2. Dans la liste **Expire dans**, sélectionnez **180 jours**.

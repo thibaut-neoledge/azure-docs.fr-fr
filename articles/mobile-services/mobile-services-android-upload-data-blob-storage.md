@@ -74,12 +74,12 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Mettre à jour le fichier manifeste pour le stockage et l’appareil photo
 
-1. Spécifier votre application implique la mise à disposition d’un appareil photo par l’ajout de cette ligne **AndroidManifest.xml** :
+1. Spécifier votre application implique la mise à disposition d’un appareil photo par l’ajout de cette ligne **AndroidManifest.xml** :
 
 	    <uses-feature android:name="android.hardware.camera"
 	        android:required="true" />
 
-2. La spécification de votre application doit avoir l’autorisation d’écrire dans le support de stockage externe en ajoutant cette ligne **AndroidManifest.xml** :
+2. La spécification de votre application doit avoir l’autorisation d’écrire dans le support de stockage externe en ajoutant cette ligne **AndroidManifest.xml** :
 
 	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -87,7 +87,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Mettre à jour des fichiers de ressources pour la nouvelle interface utilisateur
 
-1. Ajoutez l’intitulé des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
+1. Ajoutez l’intitulé des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
 
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>

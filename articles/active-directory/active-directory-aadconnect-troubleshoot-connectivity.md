@@ -36,7 +36,11 @@ Extrait de celle-ci, le tableau suivant indique le strict minimum pour pouvoir s
 | URL | Port | Description |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| **.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. | | *.entrust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. | | *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. | | *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
+| *.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
+| *.entrust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. | 
+| *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. |
+| *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
 
 ## Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Les configurations de proxy que nous effectuons sont globales pour la machine. En cas de problème, ce dernier apparaît donc très probablement déjà dans la page **Connexion à Azure AD** de l’Assistant.
@@ -50,7 +54,7 @@ Cette erreur s’affiche lorsque l’Assistant ne peut pas joindre le proxy. ![n
 - Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
 ### Impossible d’atteindre le point de terminaison de l’authentification MFA
-Cette erreur s’affiche si le point de terminaison ****https://secure.aadcdn.microsoftonline-p.com** ne peut pas être atteint et que l’authentification MFA est activée chez votre administrateur général ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** ne peut pas être atteint et que l’authentification MFA est activée chez votre administrateur général ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Dans ce cas, vérifiez que le point de terminaison secure.aadcdn.microsoftonline-p.com a été ajouté au serveur proxy.
 
@@ -169,6 +173,6 @@ Cette erreur apparaît lorsque l’Assistant de connexion ne peut pas accéder a
 - Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
 ## Étapes suivantes
-En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 <!---HONumber=AcomDC_0518_2016-->

@@ -199,7 +199,7 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 
     ![][11]
 
-4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme l’appareil se connecte généralement à 9600 bauds, entrez 9600 dans le champ **Vitesse**. Cliquez ensuite sur **Ouvrir** :
+4. Dans PuTTY, cliquez sur le type de connexion **Série**. Comme l’appareil se connecte généralement à 9600 bauds, entrez 9600 dans le champ **Vitesse**. Cliquez ensuite sur **Ouvrir** :
 
 5. Le programme démarre l’exécution. Il se peut que vous deviez réinitialiser le tableau (appuyez sur CTRL + Retour ou appuyez sur le bouton de réinitialisation du tableau) si le programme ne démarre pas automatiquement à la connexion.
 

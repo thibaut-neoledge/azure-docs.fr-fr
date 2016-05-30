@@ -3,14 +3,14 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 ### <a name="dotnet"></a>Projet de serveur principal .NET
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
 
-3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+3. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
+2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;

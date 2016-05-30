@@ -31,7 +31,7 @@ Cette fonctionnalité active un nouveau comportement qui se trouve dans la parti
 En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UPN ou ProxyAddress qui enfreint cette contrainte d’unicité, Azure Active Directory bloque la création de l’objet. De même, si un objet est mis à jour avec une valeur UPN ou ProxyAddress qui n’est pas unique, la mise à jour échoue. Le client de synchronisation refait la tentative d’approvisionnement ou la mise à jour à chaque cycle d’exportation ; il échouera à chaque fois jusqu’à la résolution du conflit. Chaque tentative infructueuse génère un e-mail contenant un rapport d’erreur, et une erreur est consignée par le client de synchronisation.
 
 ## Comportement avec une résilience d’attribut en double
-Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est « ***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com*** ». Si l’attribut n’est pas requis, par exemple **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création de l’objet ou la mise à jour.
+Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est « ***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com*** ». Si l’attribut n’est pas requis, par exemple **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création de l’objet ou la mise à jour.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne seront pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
 
@@ -150,17 +150,17 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
 1. Un utilisateur ayant une configuration d’attribut spécifique continue à recevoir des erreurs d’exportation ; les attributs ne sont pas mis en quarantaine. Par exemple :
 
-    a. Un utilisateur est créé dans AD avec un UPN ****Joe@contoso.com** et une ProxyAddress **smtp :Joe@contoso.com**
+    a. Un utilisateur est créé dans AD avec un UPN **Joe@contoso.com** et une ProxyAddress **smtp :Joe@contoso.com**
 
-    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est ** SMTP :Joe@contoso.com**.
+    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est **SMTP :Joe@contoso.com**.
 
     c. Lors de l’exportation, une erreur de **conflit ProxyAddress** est générée au lieu de mettre en quarantaine les attributs à l’origine du conflit. L’opération est retentée à chaque cycle de synchronisation, comme cela était le cas avant l’activation de la fonction de résilience.
 
 2. La tâche du minuteur qui recherche les conflits d’attributs en double résolus compare uniquement les conflits UPN avec d’autres conflits UPN. Ceci provoque le problème indiqué à l’étape 4 du scénario suivant :
 
-    a. ****UserA@contoso.com** dispose d’un UPN qui n’est pas unique en raison d’un autre objet ayant la même valeur de ProxyAddress.
+    a. **UserA@contoso.com** dispose d’un UPN qui n’est pas unique en raison d’un autre objet ayant la même valeur de ProxyAddress.
 
-    b. UserA reçoit un **UPN MOERA** temporaire, ****UserA1234@contoso.onmicrosoft.com** et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
+    b. UserA reçoit un **UPN MOERA** temporaire, **UserA1234@contoso.onmicrosoft.com** et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
 
     c. L’autre objet en conflit voit son paramètre ProxyAddress supprimé ultérieurement.
 
@@ -168,7 +168,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
 3. Si deux Groupes sont créés en local avec la même adresse SMTP, l’approvisionnement de l’un des deux échouera lors de la première tentative, ce qui génèrera une erreur standard de **ProxyAddress** en double. Toutefois, la valeur en double sera bien mise en quarantaine lors du prochain cycle de synchronisation.
 
-**Applets de commande PowerShell** :
+**Applets de commande PowerShell** :
 
 1. **ImmutableId** / **LastDirSyncTime** ne sont pas affichés pour la classe d’objet Utilisateur.
 
@@ -186,11 +186,11 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     a. L’**Utilisateur A** est synchronisé en premier avec **UPN = User@contoso.com**.
 
-    b. Il y a ensuite une tentative de synchronisation de l’**Utilisateur B** avec ** UPN = User@contoso.com**.
+    b. Il y a ensuite une tentative de synchronisation de l’**Utilisateur B** avec **UPN = User@contoso.com**.
 
-    c. L’UPN de **l’Utilisateur B** est modifié en ****User1234@contoso.onmicrosoft.com** et ****User@contoso.com** est ajouté à **DirSyncProvisioningErrors**.
+    c. L’UPN de **l’Utilisateur B** est modifié en **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté à **DirSyncProvisioningErrors**.
 
-    d. Le message d’erreur pour l’**Utilisateur B** doit indiquer que l’**Utilisateur A** a déjà****User@contoso.com**, comme UPN, mais il affiche le propre displayName de **l’Utilisateur B**.
+    d. Le message d’erreur pour l’**Utilisateur B** doit indiquer que l’**Utilisateur A** a déjà **User@contoso.com**, comme UPN, mais il affiche le propre displayName de **l’Utilisateur B**.
 
 3. Il se peut que le rapport affiche uniquement des informations détaillées sur l’erreur pour les utilisateurs rencontrant des conflits **UPN**, et non pour ceux rencontrant des erreurs **ProxyAddress** (nous étudions toujours si ce problème est constant ou relève de l’environnement utilisé).
 

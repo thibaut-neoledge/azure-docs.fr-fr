@@ -80,7 +80,7 @@ Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indi
 
 Lors de l'exécution d'une tâche de sauvegarde planifiée, un conteneur est créé (pour stocker les données de sauvegarde) dans le compte de stockage que vous avez indiqué. Le nom du conteneur se présente comme suit : *Service BizTalk nom-date-heure*.
 
-Si le tableau de bord du service BizTalk indique l'état **Échec** :
+Si le tableau de bord du service BizTalk indique l'état **Échec** :
 
 ![Statut de la dernière sauvegarde planifiée][BackupStatus]
 
@@ -98,7 +98,7 @@ Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’[AP
 
 #### Restauration d'une sauvegarde
 
-1. Dans le portail Azure Classic, sélectionnez **Nouveau** > **Services d’application** > **Service BizTalk** > **Restaurer** :
+1. Dans le portail Azure Classic, sélectionnez **Nouveau** > **Services d’application** > **Service BizTalk** > **Restaurer** :
 
 	![Restauration d'une sauvegarde][Restore]
 

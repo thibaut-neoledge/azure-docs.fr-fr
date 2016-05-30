@@ -151,7 +151,8 @@ Songez à implémenter un cache local privé dans chaque instance d’une applic
 
 Cette approche nécessite une configuration soigneuse pour éviter que le cache local devienne trop caduque par rapport au cache partagé. Toutefois, le cache local fait office de tampon si le cache partagé est inaccessible. La figure 3 illustre cette structure.
 
-![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) _Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
+![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) 
+_Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
 
 Pour prendre en charge des caches volumineux qui contiennent des données à long terme, certains services de cache offrent une option de haute disponibilité qui implémente le basculement automatique si le cache devient indisponible. Cette approche implique généralement une réplication des données mises en cache sur un serveur de cache principal vers un serveur de cache secondaire, et un basculement vers le serveur secondaire en cas d’échec du serveur principal ou de perte de la connectivité.
 
@@ -337,7 +338,7 @@ Le cache Redis Azure agit comme façade devant les serveurs Redis sous-jacents. 
 
 Il s’agit d’un processus potentiellement complexe, car vous devrez peut-être créer plusieurs machines virtuelles faisant office de nœuds principaux et subordonnés si vous souhaitez implémenter une réplication. En outre, si vous souhaitez créer un cluster, vous avez besoin de plusieurs serveurs maîtres et subordonnés. Une topologie de réplication en cluster minimale offrant un niveau élevé de disponibilité et d’évolutivité comprend au moins six machines virtuelles organisées sous la forme de trois paires de serveurs maître/subordonné (un cluster devant contenir au moins trois nœuds principaux).
 
-Chaque paire maître/subordonné doit être proche pour réduire la latence. Toutefois, chaque ensemble de paires peut s’exécuter dans différents centres de données Azure situés dans différentes régions, si vous souhaitez rechercher des données mises en cache à proximité des applications les plus susceptibles de les utiliser. La page relative à l’[exécution de Redis sur une machine virtuelle Linux CentOS dans Windows Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), accessible sur le site web de Microsoft, présente un exemple décrivant comment créer et configurer un nœud Redis s’exécutant en tant que machine virtuelle Azure.
+Chaque paire maître/subordonné doit être proche pour réduire la latence. Toutefois, chaque ensemble de paires peut s’exécuter dans différents centres de données Azure situés dans différentes régions, si vous souhaitez rechercher des données mises en cache à proximité des applications les plus susceptibles de les utiliser. La page relative à l’[exécution de Redis sur une machine virtuelle Linux CentOS dans Microsoft Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), accessible sur le site web de Microsoft, présente un exemple décrivant comment créer et configurer un nœud Redis s’exécutant en tant que machine virtuelle Azure.
 
 Notez que si vous implémentez votre propre cache Redis de cette façon, vous êtes responsable de la surveillance, de la gestion et de la sécurisation du service.
 
@@ -564,7 +565,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key-value pairs
+  // Create a list of key/value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -573,7 +574,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key-value pairs in the cache
+  // Store the list of key/value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys

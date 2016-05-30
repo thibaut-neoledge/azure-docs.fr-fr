@@ -133,7 +133,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | :-- | :-- |
 | [Azure Data Factory : Journal des modifications de l’API .NET](data-factory-api-change-log.md) | Décrit les dernières modifications, les ajouts de fonctionnalités, les correctifs de bogues, etc., d’une version spécifique de l'API .NET de Azure Data Factory. |
 | [Référence du développeur Azure Data Factory](data-factory-sdks.md) | Découvrez les différentes façons de créer, surveiller et gérer des fabriques de données Azure. |
-| [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically.md) | Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK. |
+| [Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET](data-factory-create-data-factories-programmatically.md) | Découvrez comment créer, analyser et gérer par programmation des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory. |
 
 
 ## Divers
@@ -151,7 +151,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - [Recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 
-- [Affichage des dernières mises à jour du service data-factory](http://azure.microsoft.com/updates/?service=data-factory)
+- [Affichage des dernières mises à jour du service Data Factory](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Graphique du parcours d’apprentissage des services Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 

@@ -34,7 +34,7 @@ Publier des commentaires ou des questions au bas de cet article, ou sur le [Foru
 Voici ce dont vous avez besoin pour commencer :
 
 - **Serveur d’administration** : machine virtuelle exécutant Windows Server 2012 R2 et qui agit en tant que serveur d’administration. Vous installez les composants Site Recovery (y compris le serveur de configuration et le serveur de processus) sur ce serveur. Pour en savoir plus, consultez les [considérations relatives aux serveurs d’administration](site-recovery-vmware-to-azure-classic.md#management-server-considerations) et les [conditions préalables source](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
-- **Instances de machine virtuelle EC2** : instances que vous souhaitez migrer, puis protéger.
+- **Instances de machine virtuelle EC2** : instances que vous souhaitez migrer, puis protéger.
 
 ## Étapes du déploiement
 

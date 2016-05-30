@@ -271,7 +271,7 @@ Apportez les modifications suivantes au projet ToDoListAngular.
 
 ## Configurer le projet ToDoListAPI pour utiliser l’authentification
 
-Pour le moment, le projet ToDoListAPI envoie « * » comme valeur `owner` pour ToDoListDataAPI. Dans cette section, vous allez modifier le code pour envoyer l’ID de l’utilisateur connecté.
+Pour le moment, le projet ToDoListAPI envoie « * » comme valeur `owner` pour ToDoListDataAPI. Dans cette section, vous allez modifier le code pour envoyer l’ID de l’utilisateur connecté.
 
 Apportez les modifications suivantes au projet ToDoListAPI.
 
@@ -305,7 +305,7 @@ Apportez les modifications suivantes au projet ToDoListAPI.
 
 	![Page To Do List](./media/app-service-api-dotnet-user-principal-auth/webappindex.png)
 
-	Aucune tâche ne s’affiche, car jusqu’ici, elles étaient toutes pour le propriétaire « * ». Maintenant le niveau intermédiaire demande des éléments pour l’utilisateur connecté, et aucun n’a encore été créé.
+	Aucune tâche ne s’affiche, car jusqu’ici, elles étaient toutes pour le propriétaire « * ». Maintenant le niveau intermédiaire demande des éléments pour l’utilisateur connecté, et aucun n’a encore été créé.
 
 11. Ajoutez de nouveaux éléments de tâche pour vérifier que l’application fonctionne.
 

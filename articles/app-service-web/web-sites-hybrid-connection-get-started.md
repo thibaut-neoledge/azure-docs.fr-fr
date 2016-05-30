@@ -79,7 +79,7 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le volet **Créer une connexion hybride** :
+	Dans le volet **Créer une connexion hybride** :
 	- Sous **Nom**, entrez un nom pour la connexion.
 	- Sous **Nom d'hôte**, entrez le nom de l'ordinateur local qui héberge votre ressource.
 	- Sous **Port**, entrez le numéro du port utilisé par votre ressource locale (1433 pour une instance par défaut SQL Server).

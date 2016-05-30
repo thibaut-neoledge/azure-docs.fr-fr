@@ -88,7 +88,7 @@ Nos équipes d’ingénierie et de support technique ont trouvé qu’un des pro
 
 	When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-En consultant le fichier hive-site.xml, nous avons confirmé que **hive.auto.convert.join.noconditionaltask** a en effet la valeur **true** :
+En consultant le fichier hive-site.xml, nous avons confirmé que **hive.auto.convert.join.noconditionaltask** a en effet la valeur **true** :
 
 	<property>
     	<name>hive.auto.convert.join.noconditionaltask</name>

@@ -82,7 +82,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 		# sudo chkconfig network on
 
 
-8. **CentOS 6.3 uniquement** : installez les pilotes pour les services d’intégration Linux (LIS).
+8. **CentOS 6.3 uniquement** : installez les pilotes pour les services d’intégration Linux (LIS).
 
 	**Important : cette opération s’applique uniquement à CentOS 6.3 et aux versions antérieures.** Sous CentOS 6.4+, les services d’intégration Linux sont *déjà disponibles dans le noyau standard*.
 
@@ -156,7 +156,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 		# yum clean all
 
-14. **CentOS 6.3 uniquement** : mettez à jour le noyau avec la commande suivante :
+14. **CentOS 6.3 uniquement** : mettez à jour le noyau avec la commande suivante :
 
 		# sudo yum --disableexcludes=all install kernel
 

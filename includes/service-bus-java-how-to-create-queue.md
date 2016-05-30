@@ -6,9 +6,9 @@ Les files d’attente Service Bus prennent en charge un modèle de communication
 
 Les files d’attente Service Bus sont une technologie à usage généraliste pouvant servir à une grande diversité de situations :
 
-- Communication entre les rôles Web et les rôles de travail dans une application multiniveau Azure.
-- Communication entre les applications locales et les applications hébergées par Azure dans une solution hybride.
-- Communication entre les composants d’une application distribuée s’exécutant en local dans différentes organisations ou dans différents services d’une organisation.
+-   Communication entre les rôles Web et les rôles de travail dans une application multiniveau Azure.
+-   Communication entre les applications locales et les applications hébergées par Azure dans une solution hybride.
+-   Communication entre les composants d’une application distribuée s’exécutant en local dans différentes organisations ou dans différents services d’une organisation.
 
 L’utilisation des files d’attente permet une meilleure montée en charge de vos applications et une plus grande résilience dans votre architecture.
 

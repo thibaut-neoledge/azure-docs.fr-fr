@@ -329,7 +329,7 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-15.	L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Une fois que vous avez installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
+15.	L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Une fois que vous avez installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

@@ -60,12 +60,12 @@ Ensuite, vous créez un package d’application pour l’application Node.js. Le
 
 Voici une description des paramètres utilisés :
 
-- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
-- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
-- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
-- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
-- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
-- **/AppType** : définit le nom du type de l’application Service Fabric.
+- **/source** : pointe vers le répertoire de l’application qui doit être empaquetée.
+- **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
+- **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
+- **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
+- **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`. `/ma:'bin/www'` indique à l’outil d’empaquetage d’utiliser `bin/ma` comme argument pour node.exe.
+- **/AppType** : définit le nom du type de l’application Service Fabric.
 
 Si vous accédez au répertoire spécifié dans le paramètre /target, vous constatez que l’outil a créé un package Service Fabric entièrement fonctionnel, comme illustré ci-dessous :
 

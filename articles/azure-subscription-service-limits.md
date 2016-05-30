@@ -182,11 +182,11 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 ### Limites Azure Search
 
-Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
+Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
-- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
+- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
 - Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d'un tarif réduit.
-- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
+- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
 
 [AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
@@ -242,7 +242,7 @@ Pour en savoir plus sur les autres limites, telles que la taille du document, le
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-### Limites Operational Insights
+### Limites Operational Insights
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 

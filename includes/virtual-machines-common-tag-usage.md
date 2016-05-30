@@ -9,11 +9,11 @@ Cliquez sur **Télécharger les détails d'utilisation** pour afficher les déta
 
 ![Détails d’utilisation dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
+Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
 
 ![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
+Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
 
 ![Colonne Balises dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 

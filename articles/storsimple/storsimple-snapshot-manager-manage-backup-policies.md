@@ -69,19 +69,19 @@ Pour créer une stratégie de sauvegarde, procédez comme suit.
 
    5. Cliquez sur **OK**.
 
-Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
+Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
 
-- **Nom** : nom de la stratégie de sauvegarde.
+- **Nom** : nom de la stratégie de sauvegarde.
 
-- **Type** : instantané local ou instantané cloud.
+- **Type** : instantané local ou instantané cloud.
 
-- **Groupe de volumes** : groupe de volumes associé à la stratégie.
+- **Groupe de volumes** : groupe de volumes associé à la stratégie.
 
-- **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
+- **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
 
-- **Créé** : date à laquelle cette stratégie a été créée.
+- **Créé** : date à laquelle cette stratégie a été créée.
 
-- **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
+- **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
 
 ## Modifier une stratégie de sauvegarde
 

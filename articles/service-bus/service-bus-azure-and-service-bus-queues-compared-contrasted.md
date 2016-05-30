@@ -141,7 +141,7 @@ Cette section compare les fonctionnalités avancées fournies par les files d'at
 |Prise en charge des messages incohérents|**Oui**|**Oui**|
 |Mise à jour sur place|**Oui**|**Oui**|
 |Journal des transactions côté serveur|**Oui**|**Non**|
-|Métriques de stockage|**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d'appels API, nombre d'erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l'espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Métriques de stockage|**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d'appels API, nombre d'erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l'espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
 |Gestion de l'état|**Non**|**Oui**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Transfert automatique des messages|**Non**|**Oui**|
 |Fonction de purge de la file d'attente|**Oui**|**Non**|
@@ -204,7 +204,8 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Protocole de gestion|**REST sur HTTP/HTTPS**|**REST sur HTTPS**|
-|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**| |API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
+|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**|
+|API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
 |C++ natif|**Oui**|**Non**|
 |API Java|**Oui**|**Oui**|
 |API PHP|**Oui**|**Oui**|
@@ -272,7 +273,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
 |Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|

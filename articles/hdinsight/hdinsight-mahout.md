@@ -377,7 +377,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
+    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
 
 5. Testez la forêt en classant l’ensemble de données __KDDTest+.arff__. Utilisez la commande suivante :
 
@@ -409,7 +409,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Cette tâche génère également un fichier situé dans \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
+  Cette tâche génère également un fichier situé dans __wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
 
 > [AZURE.NOTE] Les tâches Mahout ne remplacent pas les fichiers. Si vous souhaitez réexécuter ces tâches, vous devez supprimer les fichiers créés par les tâches précédentes.
 
@@ -427,9 +427,9 @@ Mahout est installé sur les clusters HDInsight 3.1 et peut être installé man
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	À l'issue de la création, vous pouvez localiser le fichier JAR à l'emplacement __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] À la sortie de Mahout1.0, vous devriez être en mesure d'utiliser les packages préconçus avec HDInsight3,0.
 
 2. Téléchargez le fichier jar vers __example/jars__ dans le stockage par défaut de votre cluster. Dans le script suivant, remplacez CLUSTERNAME par le nom de votre cluster HDInsight et FILENAME par le chemin d'accès du fichier __mahout-coure-0.9-job.jar__.
 

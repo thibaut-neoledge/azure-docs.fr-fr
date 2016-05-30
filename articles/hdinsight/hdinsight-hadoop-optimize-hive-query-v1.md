@@ -94,13 +94,13 @@ Le partitionnement Hive est implémenté en réorganisant les données brutes en
 
 Considérations relatives au partitionnement :
 
-- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
+- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
 
-- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
+- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
 
-- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
+- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
-Pour créer une table de partition, utilisez la clause *Partitioned By* :
+Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
     CREATE TABLE lineitem_part
     	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -141,9 +141,9 @@ Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apac
 
 Hive prend en charge différents formats de fichier. Par exemple :
 
-- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
-- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
-- **ORC/Parquet** : adapté pour les performances
+- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
+- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
+- **ORC/Parquet** : adapté pour les performances
 
 Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker des données Hive. Par rapport aux autres formats, ORC présente les avantages suivants :
 
@@ -152,7 +152,7 @@ Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker 
 - création d’index toutes les 10 000 lignes, ce qui permet d’ignorer des lignes ;
 - baisse significative de l’exécution du démarrage.
 
-Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
+Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
 
     CREATE TABLE lineitem_orc_part
     	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
@@ -163,7 +163,7 @@ Pour activer le format ORC, vous devez commencer par créer une table avec la cl
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
+Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -201,8 +201,8 @@ Pour plus d’informations, consultez la page [Exécution de requêtes vectoris�
 
 Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple :
 
-- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
-- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
+- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 - **Augmentation des raccords de réduction**
 
 ##<a id="nextsteps"></a>Étapes suivantes

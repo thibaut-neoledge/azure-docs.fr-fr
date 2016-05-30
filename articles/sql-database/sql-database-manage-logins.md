@@ -75,7 +75,7 @@ Microsoft recommande l’emploi d’utilisateurs de base de données à relation
 
 ## Gestion des connexions
 
-Gérez les connexions avec la connexion au principal au niveau du serveur en se connectant à la base de données master. Vous pouvez utiliser les instructions ``CREATE LOGIN``, ``ALTER LOGIN`` ou ``DROP LOGIN``. L’exemple qui suit crée une connexion nommée **login1** :
+Gérez les connexions avec la connexion au principal au niveau du serveur en se connectant à la base de données master. Vous pouvez utiliser les instructions ``CREATE LOGIN``, ``ALTER LOGIN`` ou ``DROP LOGIN``. L’exemple qui suit crée une connexion nommée **login1** :
 
 ```
 -- first, connect to the master database
@@ -113,7 +113,7 @@ Pour créer une connexion et un utilisateur associé en mesure de créer des bas
 3. Créez un utilisateur pour cette connexion dans la base de données MASTER à l’aide de la commande ``CREATE USER``. Pour plus d’informations, voir [CRÉER UN UTILISATEUR (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 4. Utilisez la procédure stockée ``sp_addrolememeber`` pour ajouter un nouvel utilisateur au rôle de base de données **dbmanager**, au rôle de base de données loginmanager, ou aux deux.
 
-L’exemple de code qui suit montre comment créer une connexion nommée **login1**, et un utilisateur de base de données correspondant nommé **login1User** qui est en mesure de créer des bases de données ou d’autres connexions lorsqu’il est connecté à la base de données **MASTER** :
+L’exemple de code qui suit montre comment créer une connexion nommée **login1**, et un utilisateur de base de données correspondant nommé **login1User** qui est en mesure de créer des bases de données ou d’autres connexions lorsqu’il est connecté à la base de données **MASTER** :
 
 ```
 -- first, connect to the master database
@@ -137,7 +137,7 @@ Pour créer un compte utilisateur dans une autre base de données, en supposant 
 4. Établir une connexion vers la nouvelle base de données (avec la connexion qui a créé la base de données).
 5. Créez un utilisateur dans la nouvelle base de données à l’aide de la commande ``CREATE USER``. Pour plus d’informations, voir [CRÉER UN UTILISATEUR (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
-L’exemple de code suivant montre comment créer une connexion nommée **login1** et une base de données nommée **database1** :
+L’exemple de code suivant montre comment créer une connexion nommée **login1** et une base de données nommée **database1** :
 
 ```
 -- first, connect to the master database
@@ -147,7 +147,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE] Vous devez utiliser un mot de passe fort au moment de la création d’une connexion. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
 
-L’exemple suivant montre comment créer un utilisateur de base de données nommé **login1User** dans la base de données **database1**, qui correspond à la connexion **login1** : Pour exécuter l'exemple suivant, vous devez tout d'abord établir une nouvelle connexion à database1 via une connexion à l’aide de l’autorisation **ALTER ANY USER** dans cette base de données. Tout utilisateur qui se connecte en tant que membre du rôle **db\_owner** aura cette autorisation, tout comme la connexion qui a créé la base de données.
+L’exemple suivant montre comment créer un utilisateur de base de données nommé **login1User** dans la base de données **database1**, qui correspond à la connexion **login1** : Pour exécuter l'exemple suivant, vous devez tout d'abord établir une nouvelle connexion à database1 via une connexion à l’aide de l’autorisation **ALTER ANY USER** dans cette base de données. Tout utilisateur qui se connecte en tant que membre du rôle **db\_owner** aura cette autorisation, tout comme la connexion qui a créé la base de données.
 
 ```
 -- Establish a new connection to the database1 database

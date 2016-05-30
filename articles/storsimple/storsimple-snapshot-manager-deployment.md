@@ -149,7 +149,7 @@ Pour vérifier que le Gestionnaire d’instantanés StorSimple est connecté à 
 
     ![État de l’appareil dans le Gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png)
 
-2. Vérifiez le volet **Résultats** :
+2. Vérifiez le volet **Résultats** :
 
    - Si un indicateur vert est affiché sur l’icône de l’appareil et **Disponible** est indiqué dans la colonne **État**, cela signifie que l’appareil est connecté. 
 

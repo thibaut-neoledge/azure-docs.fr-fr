@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 - [Linux sur Azure : Distributions approuvées](virtual-machines-linux-endorsed-distros.md)
 - [Prise en charge d’images Linux dans Microsoft Azure](http://support2.microsoft.com/kb/2941892)

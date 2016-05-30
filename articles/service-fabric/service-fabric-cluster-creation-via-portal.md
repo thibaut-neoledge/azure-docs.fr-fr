@@ -26,7 +26,7 @@ Cette page vous aide à configurer un cluster Azure Service Fabric. Votre abonne
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
+2. Cliquez sur **+ Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez votre modèle dans le **Marketplace** sous **Tout** ; il porte le nom **Cluster Service Fabric**.
 
     a. Au niveau supérieur, cliquez sur **Marketplace**.
 
@@ -88,7 +88,8 @@ Dans le volet De base, vous devez fournir les informations de base de votre clus
 
 	b. Ajoutez tous les ports dans le champ séparé par des virgules **Points de terminaison d’entrée d’application**. Le point de terminaison de connexion TCP client étant 19000 par défaut, vous n’avez pas besoin de les spécifier. Ainsi, l’exemple d’application de comptage de mots a besoin du port 83 pour être ouvert. Cette information se trouve dans le fichier servicemanifest.xml, dans votre package d’application. (Plusieurs fichiers servicemanifest.xml peuvent coexister.)
 
-    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. ![Ports][Ports]
+    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. 
+    	![Ports][Ports]
 
 10. Vous n’avez pas besoin de configurer **Propriétés de sélection élective**, car une propriété de sélection élective par défaut de « NodeTypeName » est ajoutée par le système. Vous pouvez en ajouter si votre application le nécessite.
 
@@ -127,7 +128,8 @@ Une fois votre cluster créé, vous pouvez l’inspecter dans le portail :
 
 1. Accédez à **Parcourir**, puis cliquez sur **Clusters Service Fabric**.
 
-2. Recherchez votre cluster et cliquez dessus. ![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
+2. Recherchez votre cluster et cliquez dessus. 
+	![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
 
 3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler l’**Adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse. ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
 

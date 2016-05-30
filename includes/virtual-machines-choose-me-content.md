@@ -32,9 +32,9 @@ Outre le système d'exploitation, les autres choix de configuration de vos machi
 
 D’autres avantages à prendre en compte pour les machines virtuelles :
 
-**Paiement à l'utilisation** : Azure facture un tarif à l’heure, établi en fonction de la taille de la machine virtuelle et du système d'exploitation utilisé. Pour les heures partielles, Azure vous facture uniquement les minutes d'utilisation. Le stockage est facturé séparément. Pour en savoir plus, consultez la rubrique [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Paiement à l'utilisation** : Azure facture un tarif à l’heure, établi en fonction de la taille de la machine virtuelle et du système d'exploitation utilisé. Pour les heures partielles, Azure vous facture uniquement les minutes d'utilisation. Le stockage est facturé séparément. Pour en savoir plus, consultez la rubrique [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Résilience** : Azure analyse le matériel physique qui héberge chaque machine virtuelle en cours d'exécution. Si un serveur physique exécutant une machine virtuelle échoue, Azure s’en aperçoit, transfère la machine virtuelle vers un nouveau matériel et la redémarre. Ce processus est parfois appelé service de réparation. Azure protège également les données d'une machine virtuelle, en conservant des copies redondantes des disques durs virtuels dans le stockage d’objets blob.
+**Résilience** : Azure analyse le matériel physique qui héberge chaque machine virtuelle en cours d'exécution. Si un serveur physique exécutant une machine virtuelle échoue, Azure s’en aperçoit, transfère la machine virtuelle vers un nouveau matériel et la redémarre. Ce processus est parfois appelé service de réparation. Azure protège également les données d'une machine virtuelle, en conservant des copies redondantes des disques durs virtuels dans le stockage d’objets blob.
 
 
 

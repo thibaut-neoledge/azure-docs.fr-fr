@@ -109,7 +109,7 @@ Les bibliothèques actuellement requises figurent dans la [documentation d’ins
 
 ### Inscription de votre appareil pour les notifications Push au démarrage
 
-1. Ajoutez un appel à **registerForPushNotifications** durant le rappel du processus de connexion, ou en bas de la méthode **onDeviceReady** :
+1. Ajoutez un appel à **registerForPushNotifications** durant le rappel du processus de connexion, ou en bas de la méthode **onDeviceReady** :
 
 
 		// Login to the service.

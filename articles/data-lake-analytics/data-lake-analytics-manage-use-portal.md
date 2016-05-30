@@ -45,9 +45,9 @@ Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Da
 
 	![Volet du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Nom** : nom du compte Analytics.
-	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Azure Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
-	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
+	- **Nom** : nom du compte Analytics.
+	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Azure Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
+	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
 	- **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d'un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md). 
 	- **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics. 
 
@@ -109,7 +109,7 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 
 <a name="default-adl-account"></a>**Pour rechercher le compte de stockage Data Lake par défaut**
 
-- Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le compte Data Lake Store par défaut est affiché sous **Essential** :
+- Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le compte Data Lake Store par défaut est affiché sous **Essential** :
 
 	![Ajouter une source de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
@@ -136,12 +136,12 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 	
 	Pour chaque compte Data Lake Store, vous pouvez
 	
-	- **Nouveau dossier** : ajouter un nouveau dossier.
-	- **Télécharger** : télécharger des fichiers vers le compte de stockage à partir de votre poste de travail.
-	- **Accès** : configurer les autorisations d'accès.
-	- **Renommer le dossier** : renommer un dossier.
-	- **Propriétés du dossier** : afficher les propriétés du fichier ou du dossier, comme le chemin WASB, le chemin WEBHDFS, l'heure de la dernière modification, et ainsi de suite.
-	- **Supprimer le dossier** : supprimer un dossier.
+	- **Nouveau dossier** : ajouter un nouveau dossier.
+	- **Télécharger** : télécharger des fichiers vers le compte de stockage à partir de votre poste de travail.
+	- **Accès** : configurer les autorisations d'accès.
+	- **Renommer le dossier** : renommer un dossier.
+	- **Propriétés du dossier** : afficher les propriétés du fichier ou du dossier, comme le chemin WASB, le chemin WEBHDFS, l'heure de la dernière modification, et ainsi de suite.
+	- **Supprimer le dossier** : supprimer un dossier.
 
 <a name="upload-data-to-adls"></a> **Pour télécharger des fichiers vers le compte Data Lake Store**
 

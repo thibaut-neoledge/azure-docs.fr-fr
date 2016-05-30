@@ -35,13 +35,13 @@ Vous pouvez créer une connexion hybride dans le portail Azure avec Web Apps **o
 
 **Pour créer des connexions hybrides à l’aide de Web Apps**, consultez la page [Connexion d’Azure Web Apps à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md). Vous pouvez également installer le Gestionnaire de connexion hybride à partir de votre application web, qui est la méthode recommandée.
 
-**Pour créer des connexions hybrides dans BizTalk Services** :
+**Pour créer des connexions hybrides dans BizTalk Services** :
 
 1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
 
 	Si vous n’avez pas de service BizTalk, vous pouvez en [créer un](biztalk-provision-services.md).
-3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
+3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
 
 4. Sélectionnez **Créer une connexion hybride** ou cliquez sur le bouton **AJOUTER** dans la barre des tâches. Entrez les informations suivantes :
 
@@ -72,8 +72,8 @@ Après la création d’une connexion hybride, installez le Gestionnaire de conn
 
 1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
-3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
-4. Dans la barre des tâches, sélectionnez **Installation locale** : ![On-Premises Setup][HCOnPremSetup]
+3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
+4. Dans la barre des tâches, sélectionnez **Installation locale** : ![On-Premises Setup][HCOnPremSetup]
 5. Sélectionnez **Installer et configurer** pour exécuter ou télécharger le Gestionnaire de connexions hybrides sur le système local. 
 6. Cliquez sur la coche pour démarrer l’installation. 
 
@@ -114,7 +114,7 @@ Pour gérer vos connexions hybrides, vous pouvez :
 
 1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
-3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
+3. Sélectionnez l’onglet **Connexions hybrides** : ![Onglet Connexions hybrides][HybridConnectionTab]
 4. Sélectionnez la connexion hybride. Dans la barre des tâches, sélectionnez **Gérer la connexion** : ![Gérer les options][HCManageConnection]
 
 	**Gérer la connexion** répertorie les chaînes de connexion locales et d’application. Vous pouvez copier les chaînes de connexion ou régénérer la clé d’accès utilisée dans la chaîne de connexion.

@@ -78,11 +78,11 @@ Dans les étapes de ce document, vous allez utiliser le type de projet Applicati
 
 4.	Une fois le projet créé, vous devez avoir les fichiers suivants :
 
-	-	**Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie consistant en un seul spout et un seul bolt est créée.
+	-	**Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie consistant en un seul spout et un seul bolt est créée.
 
-	-	**Spout.cs** : un spout d’exemple émettant des nombres aléatoires.
+	-	**Spout.cs** : un spout d’exemple émettant des nombres aléatoires.
 
-	-	**Bolt.cs** : un bolt d’exemple qui conserve un décompte des nombres émis par le spout.
+	-	**Bolt.cs** : un bolt d’exemple qui conserve un décompte des nombres émis par le spout.
 
 	Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents seront téléchargés à partir de NuGet.
 
@@ -92,7 +92,7 @@ Dans les sections suivantes, vous allez modifier ce projet en une application de
 
 1.	Ouvrez **Spout.cs**. Les spouts sont utilisés pour lire des données dans une topologie à partir d’une source externe. Les principaux composants d’un spout sont :
 
-	-	**NextTuple** : appelé par Storm lorsque le spout est autorisé à émettre de nouveaux tuples.
+	-	**NextTuple** : appelé par Storm lorsque le spout est autorisé à émettre de nouveaux tuples.
 
 	-	**Accusé** (topologie transactionnelle uniquement) : gère les accusés de réception initiés par d’autres composants dans la topologie, pour les tuples envoyés depuis ce spout. Un accusé de réception de tuple permet au spout de savoir qu’il a été correctement traité par les composants en aval.
 
@@ -398,13 +398,13 @@ La précédente ci-dessus est non transactionnelle. Les composants de la topolog
 
 Les topologies transactionnelles implémentent les opérations suivantes pour prendre en charge la relecture des données :
 
--	**Mise en cache des métadonnées** : le spout doit stocker les métadonnées relatives aux données émises, afin que les données puissent être récupérées et émises à nouveau en cas de défaillance. Dans la mesure où les données émises par l’exemple sont petites, les données brutes de chaque tuple sont stockées dans un dictionnaire pour la relecture.
+-	**Mise en cache des métadonnées** : le spout doit stocker les métadonnées relatives aux données émises, afin que les données puissent être récupérées et émises à nouveau en cas de défaillance. Dans la mesure où les données émises par l’exemple sont petites, les données brutes de chaque tuple sont stockées dans un dictionnaire pour la relecture.
 
--	**Accusé** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Lorsque tous les bolts ont signalé le traitement du tuple, la méthode`Ack` du spout est appelée. Cela permet au spout de supprimer les données mises en cache pour la relecture, étant donné que les données ont été entièrement traitées.
+-	**Accusé** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Lorsque tous les bolts ont signalé le traitement du tuple, la méthode`Ack` du spout est appelée. Cela permet au spout de supprimer les données mises en cache pour la relecture, étant donné que les données ont été entièrement traitées.
 
--	**Échec** : chaque bolt peut appeler `this.ctx.Fail(tuple)` pour indiquer que le traitement d’un tuple a échoué. L’échec se propage à la méthode `Fail` du spout, où le tuple peut être relu à l’aide des métadonnées mises en cache.
+-	**Échec** : chaque bolt peut appeler `this.ctx.Fail(tuple)` pour indiquer que le traitement d’un tuple a échoué. L’échec se propage à la méthode `Fail` du spout, où le tuple peut être relu à l’aide des métadonnées mises en cache.
 
--	**ID de séquence** : lors de l’émission d’un tuple, un ID de séquence peut être spécifié. Il doit s’agir d’une valeur qui identifie le tuple pour le traitement de la relecture (accusé de réception et échec). Par exemple, le spout dans le projet **Exemple Storm** utilise les éléments suivants lors de l’émission de données :
+-	**ID de séquence** : lors de l’émission d’un tuple, un ID de séquence peut être spécifié. Il doit s’agir d’une valeur qui identifie le tuple pour le traitement de la relecture (accusé de réception et échec). Par exemple, le spout dans le projet **Exemple Storm** utilise les éléments suivants lors de l’émission de données :
 
 	```
 	this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
@@ -420,11 +420,11 @@ Les outils HDInsight pour Visual Studio peuvent également être utilisés pour
 
 Pour un exemple de topologie hybride, créez un nouveau projet, puis sélectionnez **Exemple Storm hybride**. Cela créera un exemple commenté contenant plusieurs topologies qui illustrent les éléments suivants :
 
--	**Spout Java** et **bolt C#** : définis dans **HybridTopology\_javaSpout\_csharpBolt**
+-	**Spout Java** et **bolt C#** : définis dans **HybridTopology\_javaSpout\_csharpBolt**
 
 	-	Une version transactionnelle est définie dans **HybridTopologyTx\_javaSpout\_csharpBolt**
 
--	**Spout C#** et **bolt Java** : définis dans **HybridTopology\_javaSpout\_csharpBolt**
+-	**Spout C#** et **bolt Java** : définis dans **HybridTopology\_javaSpout\_csharpBolt**
 
 	-	Une version transactionnelle est définie dans **HybridTopologyTx\_csharpSpout\_javaBolt**
 
@@ -446,9 +446,9 @@ Les éléments suivants sont utilisés lors de la création et de la soumission 
 
 SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l’utilisation du spout Event Hubs (spout Java qui lit à partir d’Event Hubs). Lorsque vous créez une topologie qui utilise ce spout, utilisez les méthodes suivantes :
 
--	Classe **EventHubSpoutConfig** : crée un objet qui contient la configuration du composant de spout
+-	Classe **EventHubSpoutConfig** : crée un objet qui contient la configuration du composant de spout
 
--	Méthode **TopologyBuilder.SetEventHubSpout** : ajoute le composant spout Event Hubs à la topologie
+-	Méthode **TopologyBuilder.SetEventHubSpout** : ajoute le composant spout Event Hubs à la topologie
 
 > [AZURE.NOTE] Bien qu’il soit plus facile d’utiliser le spout Event Hubs que les autres composants Java, vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par spout.
 
@@ -487,7 +487,7 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
 	using Microsoft.SCP;
 	```
 
-4.	Utilisez le code suivant comme contenu pour la classe **LocalTest** :
+4.	Utilisez le code suivant comme contenu pour la classe **LocalTest** :
 
 	```
 	// Drives the topology components
@@ -574,7 +574,7 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
 
 	Prenez un moment pour lire les commentaires du code. Ce code utilise **LocalContext** pour exécuter les composants dans l’environnement de développement, en conservant le flux de données entre les composants dans des fichiers texte sur le disque local.
 
-5.	Ouvrez **Program.cs** et ajoutez le code suivant à la méthode **Main** :
+5.	Ouvrez **Program.cs** et ajoutez le code suivant à la méthode **Main** :
 
 	```
 	Console.WriteLine("Starting tests");

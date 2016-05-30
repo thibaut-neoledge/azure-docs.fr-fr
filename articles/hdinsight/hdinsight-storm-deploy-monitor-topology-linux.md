@@ -24,13 +24,13 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 ## Configuration requise
 
-- **Un cluster Storm Linux sur HDInsight** : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
+- **Un cluster Storm Linux sur HDInsight** : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
-- **Des connaissances en SSH et SCP** : pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
-    - **Clients Linux, Unix ou OS X** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    - **Clients Windows** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+- **Des connaissances en SSH et SCP** : pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
+    - **Clients Linux, Unix ou OS X** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - **Clients Windows** : consultez [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-- **Un client SCP** : il est fourni avec tous les systèmes Linux, Unix et OS X. Pour les clients Windows, nous vous recommandons PSCP, disponible dans la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- **Un client SCP** : il est fourni avec tous les systèmes Linux, Unix et OS X. Pour les clients Windows, nous vous recommandons PSCP, disponible dans la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Démarrage d’une topologie Storm
 
@@ -102,38 +102,38 @@ L’interface utilisateur Storm fournit une interface web incluse dans votre clu
 ### Page principale
 
 La page principale de l’interface utilisateur de Storm fournit les informations suivantes :
-- **Résumé du cluster** : des informations de base sur le cluster Storm.
-- **Résumé de la topologie** : une liste des topologies en cours d’exécution. Utilisez les liens de cette section pour afficher plus d’informations sur les topologies spécifiques.
+- **Résumé du cluster** : des informations de base sur le cluster Storm.
+- **Résumé de la topologie** : une liste des topologies en cours d’exécution. Utilisez les liens de cette section pour afficher plus d’informations sur les topologies spécifiques.
 - **Résumé du superviseur**: des informations sur le superviseur Storm.
-- **Configuration Nimbus** : configuration Nimbus du cluster.
+- **Configuration Nimbus** : configuration Nimbus du cluster.
 
 ### Résumé de la topologie
 
 La sélection d’un lien de la section **Résumé de la topologie** affiche les informations suivantes sur la topologie :
-- **Résumé de la topologie** :des informations de base sur la topologie.
-- **Actions de la topologie** : les actions de gestion que vous pouvez effectuer sur la topologie.
-  - **Activer** : reprend le traitement d’une topologie arrêtée.
-  - **Désactiver** : suspend une topologie en cours d’exécution.
+- **Résumé de la topologie** :des informations de base sur la topologie.
+- **Actions de la topologie** : les actions de gestion que vous pouvez effectuer sur la topologie.
+  - **Activer** : reprend le traitement d’une topologie arrêtée.
+  - **Désactiver** : suspend une topologie en cours d’exécution.
   - **Rééquilibrer**: ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation ou la diminution du nombre de nœuds du cluster.
 
       Pour plus d’informations, consultez la rubrique <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Présentation du parallélisme d’une topologie Storm</a>.
 
-  - **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+  - **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
-- **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
-- **Spouts** : les spouts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des spouts spécifiques.
-- **Bolts** : les bolts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des bolts spécifiques.
-- **Configuration de la topologie** : configuration de la topologie sélectionnée.
+- **Topology stats** : statistiques relatives à la topologie. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
+- **Spouts** : les spouts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des spouts spécifiques.
+- **Bolts** : les bolts utilisés par la topologie. Utilisez les liens de cette section pour afficher plus d’informations sur des bolts spécifiques.
+- **Configuration de la topologie** : configuration de la topologie sélectionnée.
 
 ### Résumé relatif aux spouts et aux bolts
 
 La sélection d’un spout à partir de la section **Spouts** ou **Bolts** affiche les informations suivantes sur l’élément sélectionné :
-- **Résumé du composant** : des informations de base sur le spout ou le bolt.
-- **Statistiques du spout/bolt** : des statistiques relatives au spout ou au bolt. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
+- **Résumé du composant** : des informations de base sur le spout ou le bolt.
+- **Statistiques du spout/bolt** : des statistiques relatives au spout ou au bolt. Utilisez les liens de la colonne **Fenêtre** pour définir l’intervalle de temps des entrées restantes sur la page.
 - **Statistiques d’entrée** (bolt uniquement) : des informations sur les flux d’entrée consommés par le bolt.
-- **Statistiques de sortie** : des informations sur les flux de données émis par ce spout ou ce bolt.
-- **Exécuteurs** : informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance.
-- **Erreurs** : les informations d’erreur pour ce spout ou ce bolt.
+- **Statistiques de sortie** : des informations sur les flux de données émis par ce spout ou ce bolt.
+- **Exécuteurs** : informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance.
+- **Erreurs** : les informations d’erreur pour ce spout ou ce bolt.
 
 ## API REST
 
@@ -145,7 +145,7 @@ Pour plus d’informations, consultez la rubrique [API REST de l’interface uti
 
 ### URI de base
 
-L’URI de base de l’API REST sur les clusters HDInsight basés sur Linux est disponible sur le nœud principal à l’adresse ****https://HEADNODEFQDN:8744/api/v1/** ; en revanche, le nom de domaine du nœud principal est généré lors de la création du cluster et il n’est pas statique.
+L’URI de base de l’API REST sur les clusters HDInsight basés sur Linux est disponible sur le nœud principal à l’adresse **https://HEADNODEFQDN:8744/api/v1/** ; en revanche, le nom de domaine du nœud principal est généré lors de la création du cluster et il n’est pas statique.
 
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 

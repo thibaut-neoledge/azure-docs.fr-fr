@@ -45,7 +45,7 @@ Utilisez ces étapes pour créer une image basée sur une machine virtuelle Azur
 
 Utilisez ces étapes pour importer la nouvelle image dans Azure RemoteApp :
 
-1. Dans l’onglet **Images de modèle** :
+1. Dans l’onglet **Images de modèle** :
 	- Si vous ne disposez pas d’images existantes, cliquez sur **Télécharger ou importer une image de modèle**.
 	- Si vous disposez déjà d’au moins une image, cliquez sur **+** pour ajouter une nouvelle image.
 

@@ -93,14 +93,17 @@ Crée une demande de création de modèle.
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Corps de la demande | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
 
 OData XML
 
@@ -146,7 +149,7 @@ Crée une demande d'obtention de modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -209,7 +212,7 @@ Récupère tous les modèles de l'utilisateur actuel.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -264,7 +267,9 @@ OData XML
 
 ###5\.4. Mise à jour du modèle
 
-Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
+Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br>
+<ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br>
+Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 
 | Méthode HTTP | URI |
@@ -278,7 +283,7 @@ Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br
 |||
 | Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -296,7 +301,7 @@ Supprime un modèle existant par ID.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -340,7 +345,7 @@ Disponible uniquement pour la build de recommandation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -577,7 +582,7 @@ Disponible uniquement pour la build de recommandation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -657,7 +662,7 @@ Obtient un exemple du modèle de recommandation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -828,7 +833,7 @@ Voici les types de règles pris en charge :
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -885,10 +890,21 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Corps de la requête | 
-<ins>Quand vous fournissez des ID d’éléments pour les règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que celui utilisé dans le fichier de catalogue)</ins><br> <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Quand vous fournissez des ID d’éléments pour les règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que celui utilisé dans le fichier de catalogue)</ins><br> 
+<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureBlockList :</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
+Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
+<ins>Pour ajouter une règle WhiteList :</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureWhiteList :</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -936,7 +952,7 @@ OData XML
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -953,7 +969,7 @@ Code d'état HTTP : 200
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -975,7 +991,11 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 | | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
+| Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
+| Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
+| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | 
+| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -986,10 +1006,13 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), nombres (0-9), tirets (-) et traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion | 1.0 |
+|||
+| Corps de la requête | Exemple (avec fonctionnalités) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1034,7 +1057,7 @@ Récupère tous les éléments de catalogue. Le catalogue sera récupéré page 
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1137,7 +1160,7 @@ OData XML
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1189,9 +1212,12 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID d’élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille de fichier maximale : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion | 1.0 | 
+|||
+| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1337,7 +1363,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** : Code d'état HTTP : 200
 
 ###9\.2. Liste des fichiers d'utilisation de modèle
 Récupère les métadonnées de tous les fichiers d'utilisation du modèle. Les fichiers d'utilisation seront récupérés page par page. Chaque page contient 100 éléments. Si vous souhaitez obtenir des éléments à un index particulier, vous pouvez utiliser le paramètre $skip odata. Par exemple si vous souhaitez obtenir les éléments commençant à la position 100, ajoutez le paramètre $skip = 100 à la requête.
@@ -1353,7 +1379,7 @@ Récupère les métadonnées de tous les fichiers d'utilisation du modèle. Les 
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1420,7 +1446,7 @@ Obtient les statistiques d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1503,7 +1529,7 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1543,7 +1569,7 @@ Récupère le contenu intégral du fichier d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1599,7 +1625,7 @@ Supprime le fichier d'utilisation du modèle spécifié.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1618,12 +1644,14 @@ Supprime tous les fichiers d'utilisation du modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 ##10\. Caractéristiques
-Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement. Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes. Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
+Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement.
+Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes.
+Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
 
 ###10\.1. Obtention d'informations sur les caractéristiques (pour la dernière build de classement)
 Récupère des informations sur les caractéristiques, y compris le classement, pour la dernière build de classement réussie.
@@ -1641,7 +1669,7 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1724,7 +1752,7 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1885,7 +1913,7 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 |||
 | Corps de la requête | S’il est laissé vide, la build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1961,7 +1989,7 @@ OData XML
 |||
 | Corps de la requête | S’il est laissé vide, le build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi que la liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -2038,7 +2066,7 @@ Récupère les builds et leur état pour un modèle spécifié.
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -2122,7 +2150,7 @@ Récupère les états de build de tous les modèles d'un utilisateur.
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -2914,7 +2942,8 @@ La réponse inclut une entrée par élément recommandé. Chaque entrée compren
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
 ##13\. Historique d’utilisation de l’utilisateur
-Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. Cette API permet de récupérer l’historique de l’utilisateur.
+Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. 
+Cette API permet de récupérer l’historique de l’utilisateur.
 
 Remarque : l’historique de l’utilisateur est actuellement disponible uniquement pour les builds de recommandation.
 
@@ -3045,7 +3074,7 @@ Supprime toutes les notifications lues pour un modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -3063,7 +3092,7 @@ Supprime toutes les notifications pour tous les modèles.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -3071,7 +3100,10 @@ Code d'état HTTP : 200
 
 
 ##15\. Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br>
+Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br>
+Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br>
+© 2015 Microsoft. Tous droits réservés.
  
 
 <!---HONumber=AcomDC_0518_2016-->

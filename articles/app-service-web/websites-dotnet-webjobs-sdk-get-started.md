@@ -73,11 +73,13 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 1. Ouvrez la fenêtre **Explorateur de serveurs** dans Visual Studio.
 
-2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. ![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. 
+![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Connectez-vous à l'aide de vos informations d'identification Azure.
 
-5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. ![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. 
+![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage.
 
@@ -466,10 +468,10 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
-- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
+	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
+	- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
 
