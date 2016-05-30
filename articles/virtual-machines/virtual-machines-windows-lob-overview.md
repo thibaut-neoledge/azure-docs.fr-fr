@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Déploiement d'une application métier | Microsoft Azure" 
-	description="Déployez une application métier à haute disponibilité basée sur le web avec des groupes de haute disponibilité SQL Server AlwaysOn dans Azure en cinq phases." 
+	description="Déployez une application métier web, à haute disponibilité, avec des groupes de disponibilité Always On SQL Server dans Azure en cinq phases." 
 	documentationCenter=""
 	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
@@ -11,17 +11,17 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # Déployer une application métier à haute disponibilité dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
-Cette rubrique contient des liens vers des instructions détaillées pour le déploiement d'une application métier basée sur le Web spécialement conçue pour l’Intranet, avec des groupes de haute disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure. L'application est hébergée sur ces ordinateurs :
+Cet article contient des liens vers des instructions détaillées permettant de déployer une application métier web, à haute disponibilité, spécialement conçue pour l’Intranet, avec des groupes de disponibilité Always On SQL Server dans des services d’infrastructure Azure. L'application est hébergée sur ces ordinateurs :
 
 - Deux serveurs Web
 - Deux serveurs de base de données
@@ -73,9 +73,9 @@ Vous déployez cette configuration dans les phases suivantes :
 
 - [Phase 1 : configuration d'Azure](virtual-machines-windows-ps-lob-ph1.md). Créez des comptes de stockage, des groupes à haute disponibilité et un réseau virtuel intersite.
 - [Phase 2 : configurer les contrôleurs de domaine](virtual-machines-windows-ps-lob-ph2.md). Créez et configurez des réplicas de contrôleurs de domaine des services de domaine Active Directory (AD DS).
-- [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-windows-ps-lob-ph3.md). Créez et configurez les ordinateurs virtuels exécutant SQL Server, créez le cluster et activez des groupes de haute disponibilité SQL Server AlwaysOn.
+- [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-windows-ps-lob-ph3.md). Créez et configurez les machines virtuelles exécutant SQL Server, créez le cluster et activez des groupes de disponibilité AlwaysOn SQL Server.
 - [Phase 4 : configurer les serveurs web](virtual-machines-windows-ps-lob-ph4.md). Créez et configurez les deux machines virtuelles du serveur Web.
-- [Phase 5 : ajouter les bases de données de l’application à un groupe de disponibilité SQL Server AlwaysOn](virtual-machines-windows-ps-lob-ph5.md). Préparez les bases de données de l’application métier et ajoutez-les à un groupe de haute disponibilité SQL Server AlwaysOn.
+- [Phase 5 : ajouter les bases de données de l’application à un groupe de disponibilité AlwaysOn SQL Server](virtual-machines-windows-ps-lob-ph5.md). Préparez les bases de données de l’application métier et ajoutez-les à un groupe de disponibilité Always On SQL Server.
 
 Ce déploiement est conçu pour accompagner le [Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664) et intégrer les dernières recommandations.
 
@@ -93,4 +93,4 @@ Pour plus d’informations sur la conception des charges de travail informatique
 
 - Commencez la configuration de cette charge de travail avec la [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

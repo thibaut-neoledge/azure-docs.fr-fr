@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API FTP
 Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
 
-- Logic Apps
+- Applications logiques (abordées dans cette rubrique)
+- PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
@@ -51,7 +52,7 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs su
 |Nom d'utilisateur| Oui | Entrez le nom d'utilisateur pour vous connecter au serveur FTP.|
 |Mot de passe | Oui | Entrez le mot de passe de l’utilisateur.|
 
-Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l’API REST** de cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion FTP dans d'autres applications logiques.
 
@@ -131,7 +132,7 @@ Récupère le contenu d’un fichier sur le serveur FTP à partir de son identif
 
 
 ### Obtenir le contenu d’un fichier à l'aide du chemin
-Récupère le contenu d’un fichier sur le serveur FTP à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier sur le serveur FTP en utilisant le chemin. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -145,7 +146,7 @@ Récupère le contenu d’un fichier sur le serveur FTP à l’aide du chemin d�
 
 
 ### Obtenir les métadonnées d’un fichier 
-Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide de son identifiant. ```GET: /datasets/default/files/{id}```
+Récupère les métadonnées d’un fichier sur le serveur FTP à partir de son identifiant. ```GET: /datasets/default/files/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -159,7 +160,7 @@ Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide de son 
 
 
 ### Obtenir les métadonnées d’un fichier à l'aide du chemin
-Récupère les métadonnées d’un fichier sur le serveur FTP à l'aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier sur le serveur FTP en utilisant le chemin. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -245,6 +246,6 @@ Met à jour un fichier sur le serveur FTP. ```PUT: /datasets/default/files/{id}`
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

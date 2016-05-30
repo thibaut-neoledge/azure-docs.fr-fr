@@ -3,7 +3,7 @@
 	description="Présente les fonctionnalités de modélisation et d’exploration de données du kit d’outils Spark MLlib."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,47 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Exploration et modélisation des données avec Spark
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-## Introduction 
-
 Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données ainsi que les tâches de classification binaire et de modélisation de la régression sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](http://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
 
 - La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 - La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
 
-Les étapes de modélisation contiennent également du code déterminant comment former, évaluer et enregistrer chaque type de modèle. Python a été utilisé pour coder la solution et montrer les tracés correspondants.
-
 Les modèles que nous utilisons incluent la régression logistique, la régression linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree) :
 
 - La [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
-- La [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), ou régression « logit », est un modèle de régression qui s’utilise lorsque la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
+- La [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), ou régression « logit », est un modèle de régression qui s’utilise quand la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
 - Les [forêts aléatoires](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision. Elles combinent plusieurs arbres de décision pour réduire le risque de sur-ajustement. Utilisées pour la régression et la classification, les forêts aléatoires gèrent les caractéristiques catégorielles, prennent en compte le paramètre de classification multiclasse, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
 - Les arbres GBT ([Gradient Boosting Tree](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts)) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Utilisés pour la régression et la classification, les arbres GBT gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
 
+Les étapes de modélisation contiennent également du code déterminant comment former, évaluer et enregistrer chaque type de modèle. Python a été utilisé pour coder la solution et montrer les tracés correspondants.
 
->REMARQUE AZURE : Bien que la boîte à outils Spark MLlib soit conçue pour des jeux de données volumineux, nous utilisons par souci de commodité un échantillon relativement petit (environ 30 Mo sur 170 000 lignes, soit 0,1 % du jeu de données NYC d’origine) afin d’illustrer ses fonctionnalités de modélisation. Le cas de figure présenté ici fonctionne efficacement sur un cluster HDInsight à 2 nœuds de travail (en 10 minutes environ). Le même code permet de traiter des jeux de données plus volumineux, avec quelques modifications mineures concernant la mise en cache des données dans la mémoire ou l’adaptation de la taille du cluster.
+
+>[AZURE.NOTE] Bien que la boîte à outils Spark MLlib soit conçue pour des jeux de données volumineux, nous utilisons par souci de commodité un échantillon relativement petit (environ 30 Mo sur 170 000 lignes, soit 0,1 % du jeu de données NYC d’origine) afin d’illustrer ses fonctionnalités de modélisation. Le cas de figure présenté ici fonctionne efficacement sur un cluster HDInsight à 2 nœuds de travail (en 10 minutes environ). Le même code permet de traiter des jeux de données plus volumineux, avec quelques modifications mineures concernant la mise en cache des données dans la mémoire ou l’adaptation de la taille du cluster.
 
 ## Composants requis
 
-Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark pour commencer cette procédure. Consultez [Vue d’ensemble de la science des données utilisant Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md) pour en savoir plus sur ces exigences, pour obtenir une description des données NYC 2013 Taxi utilisées ici et pour savoir comment exécuter du code à partir d’un notebook Jupyter sur le cluster Spark. Le notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenant les exemples de code de cette rubrique est disponible dans [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+Vous avez besoin d’un compte Azure et d’un cluster Spark HDInsight. Vous avez besoin d’un cluster HDInsight 3.4 Spark 1.6 pour effectuer cette procédure pas à pas. Consultez [Vue d’ensemble de la science des données utilisant Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md) pour en savoir plus sur ces exigences, pour obtenir une description des données NYC 2013 Taxi utilisées ici et pour savoir comment exécuter du code à partir d’un notebook Jupyter sur le cluster Spark. Le notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenant les exemples de code de cette rubrique est disponible dans [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## Configuration : emplacements de stockage, bibliothèques et contexte Spark
+## Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
 
 Spark peut lire et écrire dans Azure Blob Storage (également appelé WASB). Donc, vos données stockées dedans sont exploitables par Spark et les résultats peuvent être stockés à nouveau dans WASB.
 
 Pour enregistrer les modèles ou les fichiers dans WASB, le chemin d’accès doit être correctement spécifié. Le conteneur par défaut associé au cluster Spark peut être référencé à l’aide d’un chemin commençant par wasb///. Les autres emplacements sont référencés par wasb://.
 
-Le programme d’installation requiert également l’importation des bibliothèques nécessaires et la définition du contexte Spark.
 
 ### Définir les chemins d’accès aux emplacements de stockage dans WASB
 
@@ -66,13 +63,13 @@ L’exemple de code suivant spécifie l’emplacement des données à lire et le
 	taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 	# SET THE MODEL STORAGE DIRECTORY PATH 
-	# Note that the final backslash in the path is needed.
+	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
 
-### Importer les bibliothèques nécessaires et définir le contexte Spark 
+### Importer les bibliothèques
 
-Définissez le contexte Spark et importez les bibliothèques nécessaires à l’aide du code suivant.
+Le programme d’installation nécessite également l’importation des bibliothèques nécessaires. Définissez le contexte Spark et importez les bibliothèques nécessaires à l’aide du code suivant.
 
 
 	# IMPORT LIBRARIES
@@ -80,7 +77,6 @@ Définissez le contexte Spark et importez les bibliothèques nécessaires à l�
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
-	%matplotlib inline
 	import matplotlib
 	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
@@ -90,21 +86,25 @@ Définissez le contexte Spark et importez les bibliothèques nécessaires à l�
 	from numpy import array
 	import numpy as np
 	import datetime
-	datetime.datetime.now()
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
-
-**Output:**
-
-4
 
 
-## Ingestion de données
+### Contexte Spark prédéfini et commandes magiques PySpark
+
+Les noyaux PySpark fournis avec les notebooks Jupyter ont un contexte prédéfini. Vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
+
+- sc : pour Spark 
+- sqlContext : pour Hive
+
+Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec %%. Deux de ces commandes sont utilisées dans ces exemples de code.
+
+- **%%local** Indique que le code des lignes suivantes est exécuté localement. Le code doit être du code Python valide.
+- **%%sql -o <variable name>** Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
+ 
+
+Pour plus d’informations sur les noyaux pour notebooks Jupyter et sur les « commandes magiques » prédéfinies appelées avec %% (par exemple, %%local) qu’ils fournissent, consultez [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+ 
+
+## Ingestion de données à partir d’un objet blob public
 
 Cette section contient le code d’une série de tâches nécessaires à l’ingestion de l’échantillon de données à modéliser. Lisez un échantillon de 0,1 % du fichier de trajets et de tarifs de taxi (stocké dans un fichier TSV), formatez et nettoyez les données, créez et mettez en cache une trame de données en mémoire, puis enregistrez-le en tant que table temporaire dans le contexte SQL.
 
@@ -152,7 +152,7 @@ Voici le code pour l’ingestion de données.
 	                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
 	                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 	
-	    
+	
 	# CREATE DATA FRAME
 	taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 	
@@ -162,7 +162,7 @@ Voici le code pour l’ingestion de données.
 	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
 	    .drop('direct_distance').drop('surcharge')\
 	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
-	
+
 	
 	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 	taxi_df_train_cleaned.cache()
@@ -174,11 +174,11 @@ Voici le code pour l’ingestion de données.
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**Output:**
+**SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 19,8 secondes
+Durée d’exécution de la cellule ci-dessus : 51,72 seconde
 
 
 ## Exploration et visualisation de données
@@ -187,67 +187,92 @@ Une fois les données intégrées dans Spark, l’étape suivante du processus d
 
 ### Tracer un histogramme des fréquences de nombres de passagers dans l’échantillon des courses de taxi
 
-Ce code utilise une requête SQL pour échantillonner les données et convertit les résultats en une trame de données Pandas à tracer.
+Ce code et les extraits de code suivants utilisent une commande magique SQL pour interroger l’exemple et une commande magique locale pour tracer les données.
+
+- **Commande magique SQL (`%%sql`)** Le noyau HDInsight PySpark prend en charge les requêtes HiveQL inline faciles exécutées sur sqlContext. L’argument (-o nom\_variable) conserve la sortie de la requête SQL en tant que tableau de données Pandas sur le serveur Jupyter. Cela signifie qu’elle sera disponible en mode local.
+- La **commande magique `%%local`** est utilisée pour exécuter le code localement sur le serveur Jupyter, qui est le nœud principal du cluster HDInsight. En général, vous utilisez la commande magique `%%local` conjointement avec la commande magique `%%sql` avec le paramètre -o. Le paramètre -o conserve la sortie de la requête SQL localement, puis la commande magique %%local déclenche l’ensemble suivant d’extrait de code pour une exécution locale sur la sortie des requêtes SQL conservées localement.
+
+La sortie est affichée automatiquement après l’exécution du code.
+
+Cette requête récupère le nombre de trajets par passager.
 
 	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
-	# SQL SQUERY
-	sqlStatement = """
-	    SELECT passenger_count, COUNT(*) as trip_counts 
-	    FROM taxi_train 
-	    WHERE passenger_count > 0 and passenger_count < 7
-	    GROUP BY passenger_count 
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
+	# HIVEQL QUERY AGAINST THE sqlContext
+	%%sql -q -o sqlResults
+	SELECT passenger_count, COUNT(*) as trip_counts 
+	FROM taxi_train 
+	WHERE passenger_count > 0 and passenger_count < 7 
+	GROUP BY passenger_count 
+
+Ce code crée un tableau de données local à partir de la sortie de la requête et il trace les données. La commande magique `%%local` crée un tableau de données local, `sqlResults`, qui peut être utilisé pour le tracé avec matplotlib.
+
+>[AZURE.NOTE] Cette commande magique PySpark est utilisée plusieurs fois lors de cette procédure pas à pas. Si la quantité de données est élevée, vous devez échantillonner pour créer un tableau de données adapté à la mémoire locale.
+
+	#CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+	%%local
 	
-	#CONVERT TO PANDAS DATA FRAME FOR PLOTTING IN PYTHON
-	resultsPDDF = sqlResults.toPandas()
-	
+	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+	# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+	sqlResults
+
+Voici le code qui permet de tracer les nombres de trajets par passager.
+
 	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
-	x_labels = resultsPDDF['passenger_count'].values
-	fig = resultsPDDF[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+	%%local
+	import matplotlib.pyplot as plt
+	%matplotlib inline
+	
+	x_labels = sqlResults['passenger_count'].values
+	fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
 	fig.set_xticklabels(x_labels)
-	fig.set_title('Frequency of trips by passenger count')
+	fig.set_title('Counts of trips by passenger count')
+	fig.set_xlabel('Passenger count in trips')
+	fig.set_ylabel('Trip counts')
 	plt.show()
 
-**Output:**
+**SORTIE :**
 
 ![Fréquence des voyages par nombre de passagers](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
+Vous pouvez sélectionner différents types de visualisations (tables, secteurs, lignes, zones ou barres) à l’aide des boutons de menu **Type** dans le notebook. Le graphique à barres est illustré ici.
 	
-### Tracez un histogramme du montant des pourboires et montrez comment le montant du pourboire varie selon le type et le montant du paiement.
+### Tracez un histogramme du montant des pourboires et montrez comment le montant du pourboire varie selon le nombre de passagers et le montant des trajets.
 
-Ce code utilise une requête SQL pour échantillonner les données et convertit les résultats en une trame de données Pandas à tracer.
+Utilisez une requête SQL pour échantillonner les données.
 
 	#PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
+	
+	# HIVEQL QUERY AGAINST THE sqlContext
+	%%sql -q -o sqlResults
+	SELECT fare_amount, passenger_count, tip_amount, tipped 
+	FROM taxi_train 
+	WHERE passenger_count > 0 
+	AND passenger_count < 7 
+	AND fare_amount > 0 
+	AND fare_amount < 200 
+	AND payment_type in ('CSH', 'CRD') 
+	AND tip_amount > 0 
+	AND tip_amount < 25
 
-	# RECORD START TIME
-	timestart = datetime.datetime.now()
+
+Cette cellule de code utilise la requête SQL pour créer trois graphiques de données.
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+	%%local
 	
-	# SQL SQUERY
-	sqlStatement = """
-	    SELECT fare_amount, passenger_count, tip_amount, tipped
-	    FROM taxi_train 
-	    WHERE passenger_count > 0 AND passenger_count < 7
-	    AND fare_amount > 0 AND fare_amount < 200
-	    AND payment_type in ('CSH', 'CRD')
-	    AND tip_amount > 0 AND tip_amount < 25
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
-	
-	#CONVERT TO PANDAS DATA FRAME FOR PLOTTING IN PYTHON
-	resultsPDDF= sqlResults.toPandas()
-	
-	# HISTOGRAM OF TIP AMOUNTS
-	ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+	# HISTOGRAM OF TIP AMOUNTS AND PASSENGER COUNT
+	ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
 	ax1.set_title('Tip amount distribution')
 	ax1.set_xlabel('Tip Amount ($)')
 	ax1.set_ylabel('Counts')
 	plt.suptitle('')
 	plt.show()
 	
-	# TIP AMOUNT BY PASSENGER COUNT
-	ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
+	# TIP BY PASSENGER COUNT
+	ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
 	ax2.set_title('Tip amount by Passenger count')
 	ax2.set_xlabel('Passenger count')
 	ax2.set_ylabel('Tip Amount ($)')
@@ -255,28 +280,21 @@ Ce code utilise une requête SQL pour échantillonner les données et convertit 
 	plt.show()
 	
 	# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
-	ax = resultsPDDF.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(resultsPDDF.passenger_count))
+	ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
 	ax.set_title('Tip amount by Fare amount')
 	ax.set_xlabel('Fare Amount ($)')
 	ax.set_ylabel('Tip Amount ($)')
-	plt.axis([-2, 120, -2, 30])
+	plt.axis([-2, 100, -2, 20])
 	plt.show()
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**Output:**
+**SORTIE :**
 
 ![Distribution des montants de pourboire](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
 
 ![Montant de pourboire par nombre de passagers](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
 ![Montant du pourboire par montant de la course](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
-
-Durée d’exécution de la cellule ci-dessus : 10,61 secondes
 
 
 ## Conception des caractéristiques, transformation et préparation des données à modéliser
@@ -294,7 +312,7 @@ Cette section décrit et fournit le code des procédures servant à préparer le
 
 Ce code montre comment créer une nouvelle caractéristique en regroupant les heures dans des périodes de trafic et comment mettre en cache la trame de données obtenue en mémoire. Là où les jeux de données distribués résilients (RDD) et les trames de données sont utilisés de manière répétitive, la mise en cache réduit les temps d’exécution. Par conséquent, nous mettons en cache les RDD et les trames de données à plusieurs stades de la procédure.
 
-	## CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
 	    SELECT *,
 	    CASE
@@ -307,11 +325,13 @@ Ce code montre comment créer une nouvelle caractéristique en regroupant les he
 	"""
 	taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 	
-	## CACHE DATA FRAME IN MEMORY & MATERIALIZE IT IN MEMORY
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	# THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
+	# MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
 	taxi_df_train_with_newFeatures.cache()
 	taxi_df_train_with_newFeatures.count()
 
-**Output:**
+**SORTIE :**
 
 126050
 
@@ -319,9 +339,9 @@ Ce code montre comment créer une nouvelle caractéristique en regroupant les he
 
 Cette section montre comment indexer ou encoder les caractéristiques catégorielles à intégrer dans les fonctions de modélisation. Les fonctions de modélisation et de prédiction de MLlib requièrent des caractéristiques avec des données d’entrée catégorielles à indexer ou à encoder avant leur utilisation. Selon le modèle, vous devez les indexer ou les encoder différemment :
 
-- La **modélisation arborescente** requiert l’encodage des catégories en tant que valeurs numériques (par exemple, une caractéristique avec 3 catégories peut être encodée par 0, 1, 2). C’est ce que permet la fonction [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) de MLlib. Cette fonction encode une colonne de libellés en une colonne d’index de libellé, classés par fréquence de libellé. Bien qu’indexés par des valeurs numériques pour le traitement des entrées et des données, les algorithmes arborescents peuvent être configurés pour les traiter comme des catégories. 
+- La **modélisation arborescente** nécessite l’encodage des catégories en tant que valeurs numériques (par exemple, une caractéristique avec 3 catégories peut être encodée avec 0, 1, 2). C’est ce que permet la fonction [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) de MLlib. Cette fonction encode une colonne de libellés en une colonne d’index de libellé, classés par fréquence de libellé. Bien qu’indexés par des valeurs numériques pour le traitement des entrées et des données, les algorithmes arborescents peuvent être configurés pour les traiter comme des catégories. 
 
-- Les **modèles de régression logistique et linéaire** requièrent un encodage linéaire où, par exemple, une fonction avec 3 catégories peut être développée en 3 colonnes de caractéristiques, chacune contenant 0 ou 1 selon la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) permettant d’effectuer un encodage linéaire. Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques continues, comme la régression logistique, à des caractéristiques catégorielles.
+- Les **modèles de régression logistique et linéaire** nécessitent un encodage linéaire où, par exemple, une fonction avec trois catégories peut être développée en 3 colonnes de caractéristiques, chacune contenant 0 ou 1 en fonction de la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) permettant d’effectuer un encodage linéaire. Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques, comme la régression logistique, à des caractéristiques catégorielles.
 
 Voici le code permettant d’indexer et d’encoder des caractéristiques catégorielles :
 
@@ -367,20 +387,21 @@ Voici le code permettant d’indexer et d’encoder des caractéristiques catég
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 1,42 seconde
+Durée d’exécution de la cellule ci-dessus : 1,28 seconde
 
 ### Créer des objets point étiquetés à intégrer dans les fonctions ML
 
 Cette section contient le code qui montre comment indexer des données textuelles catégorielles en type point étiqueté et les encoder afin qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes ML dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.
 
-Cette section contient le code qui montre comment indexer des données textuelles catégorielles en type [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) et les encoder afin qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) composés d’un libellé (variable cible/réponse) et du vecteur de caractéristique. Ce format est nécessaire en entrée par de nombreux algorithmes ML de MLlib.
+Cette section contient le code qui montre comment indexer des données textuelles catégorielles en type [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) et les encoder pour qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) composés d’un libellé (variable cible/réponse) et du vecteur de caractéristique. Ce format est nécessaire en entrée par de nombreux algorithmes ML de MLlib.
 
+Voici le code qui permet d’indexer et d’encoder des caractéristiques textuelles pour la classification binaire.
 
 	# FUNCTIONS FOR BINARY CLASSIFICATION
 
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.regression import LabeledPoint
 	from numpy import array
 
@@ -401,6 +422,8 @@ Cette section contient le code qui montre comment indexer des données textuelle
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
 
+
+Voici le code qui permet d’encoder des caractéristiques textuelles par catégorie d’index pour l’analyse de régression linéaire.
 
 	# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
@@ -462,17 +485,20 @@ Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). B
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 0,26 seconde
+Durée d’exécution de la cellule ci-dessus : 0,24 seconde
 
 
 ### Mise à l’échelle des caractéristiques
 
-La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les fonctionnalités à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).
+La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les caractéristiques à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).
 
->REMARQUE AZURE : Nous avons découvert que l’algorithme LinearRegressionWithSGD est sensible à la mise à l’échelle des caractéristiques.
+>[AZURE.NOTE] Nous avons découvert que l’algorithme LinearRegressionWithSGD est sensible à la mise à l’échelle des caractéristiques.
 
+Voici le code pour mettre à l’échelle des variables pour l’algorithme pour une utilisation avec l’algorithme SGD linéaire régularisé.
+
+	# FEATURE SCALING
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -501,9 +527,9 @@ La mise à l’échelle des caractéristiques, également appelée normalisation
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 6,63 secondes
+Durée d’exécution de la cellule ci-dessus : 13,17 secondes
 
 
 ### Mettre en cache des objets en mémoire
@@ -534,9 +560,9 @@ La durée d’apprentissage et de test des algorithmes ML peut être réduite pa
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 0,11 seconde
+Durée d’exécution de la cellule ci-dessus : 0,15 seconde
 
 
 ## Prédire si un pourboire a été payé avec des modèles de classification binaires
@@ -549,21 +575,24 @@ Cette section montre comment utiliser trois modèles de tâche de classification
 
 Chaque section de code générateur de modèle est divisée en étapes :
 
-1. Données d’**apprentissage du modèle** avec un jeu de paramètres
+1. Données de **formation du modèle** avec un jeu de paramètres
 2. **Évaluation du modèle** sur un jeu de données de test avec des mesures
 3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure
 
 ### Classification par régression logistique
 
-Le code de cette section montre comment former, évaluer et enregistrer un modèle de régression logistique avec [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York.
+Le code de cette section montre comment former, évaluer et enregistrer un modèle de régression logistique avec [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm), qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York.
 
+**Former le modèle de régression logistique à l’aide de la validation croisée et du balayage hyperparamétrique**
 
-	#PREDICT WHETHER A TIP IS PAID OR NOT USING LOGISTIC REGRESSION WITH LBFGS
+	# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
+
+	# GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
 	from sklearn.metrics import roc_curve,auc
 	from pyspark.mllib.evaluation import BinaryClassificationMetrics
@@ -575,6 +604,33 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	                                               regParam=0.01, regType='l2', intercept=True, corrections=10, 
 	                                               tolerance=0.0001, validateData=True, numClasses=2)
 	
+	# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+	# NOTE: There are 20 coefficient terms for the 10 features, 
+	#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+	print("Coefficients: " + str(logitModel.weights))
+	print("Intercept: " + str(logitModel.intercept))
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**SORTIE :**
+
+Coefficients : [0,0082065285375, -0,0223675576104, -0,0183812028036, -3.48124578069e-05, -0,00247646947233, -0,00165897881503, 0,0675394837328, -0,111823113101, -0,324609912762, -0,204549780032, -1,36499216354, 0,591088507921, -0,664263411392, -1,00439726852, 3,46567827545, -3,51025855172, -0,0471341112232, -0,043521833294, 0,000243375810385, 0,054518719222]
+
+Interception : -0,0111216486893
+
+Durée d’exécution de la cellule ci-dessus : 14,43 secondes
+
+**Évaluer le modèle de classification binaire avec des mesures standard**
+
+	#EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+
 	# PREDICT ON TEST DATA WITH MODEL
 	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitModel.predict(lp.features)), lp.label))
 	
@@ -596,13 +652,61 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	print("Precision = %s" % precision)
 	print("Recall = %s" % recall)
 	print("F1 Score = %s" % f1Score)
+
+
+	## SAVE MODEL WITH DATE-STAMP
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
+	dirfilename = modelDir + logisticregressionfilename;
+	logitModel.save(sc, dirfilename);
 	
-	# CREATE A PANDAS DATA-FRAME AND PLOT ROC-CURVE, FROM PREDICTED PROBS AND LABELS                                     
+	# OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
 	logitModel.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
 	predictionAndLabelsDF = predictionAndLabels.toDF()
-	test_predictions = predictionAndLabelsDF.toPandas()
-	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
+	predictionAndLabelsDF.registerTempTable("tmp_results");
 	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+**SORTIE :**
+
+Zone sous PR = 0,985297691373
+
+Zone sous ROC = 0,983714670256
+
+Résumé des statistiques
+
+Précision = 0,984304060189
+
+Rappel = 0,984304060189
+
+Score F1 = 0,984304060189
+
+Durée d’exécution de la cellule ci-dessus : 57,61 secondes
+
+**Tracer la courbe ROC.**
+
+*predictionAndLabelsDF* est enregistré en tant que tableau, *tmp\_results*, dans la cellule précédente. *tmp\_results* peut servir à effectuer des requêtes et à afficher les résultats dans le tableau de données sqlResults pour le traçage. Voici le code.
+
+
+	# QUERY RESULTS                              
+	%%sql -q -o sqlResults
+	SELECT * from tmp_results
+
+
+Voici le code permettant d’effectuer des prédictions et de tracer la courbe ROC.
+
+	# MAKE PREDICTIONS AND PLOT ROC-CURVE
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+	%%local
+	%matplotlib inline
+	from sklearn.metrics import roc_curve,auc
+
+	# MAKE PREDICTIONS
+	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
 	prob = predictions_pddf["probability"] 
 	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
 	roc_auc = auc(fpr, tpr)
@@ -619,27 +723,13 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	plt.legend(loc="lower right")
 	plt.show()
 	
-	## SAVE MODEL WITH DATE-STAMP
-	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
-	dirfilename = modelDir + logisticregressionfilename;
-	
-	logitModel.save(sc, dirfilename);
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
-
-Aire sous PR = 0,985319161941 Aire sous ROC = 0,983511076103 Précision des statistiques de résumé = 0,984187223276 Rappel = 0,984187223276 F1 Score = 0,984187223276
+**SORTIE :**
 
 ![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
-Durée d’exécution de la cellule ci-dessus : 26,63 secondes
 
-### Classement selon le modèle des forêts aléatoires
+### Classification par forêts aléatoires
 
 Le code de cette section montre comment former, évaluer et enregistrer un modèle de forêts aléatoires qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York.
 	
@@ -672,8 +762,6 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	
 	# AREA UNDER ROC CURVE
 	metrics = BinaryClassificationMetrics(predictionAndLabels)
-
-	# PRINT TEST METRICS
 	print("Area under ROC = %s" % metrics.areaUnderROC)
 	
 	# PERSIST MODEL IN BLOB
@@ -688,9 +776,11 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**SORTIE :**
 
-Aire sous ROC = 0,985240932843 Durée d’exécution ce la cellule ci-dessus : 25,62 seconds
+Zone sous ROC = 0,985297691373
+
+Durée d’exécution de la cellule ci-dessus : 31,09 secondes
 
 
 ### Classification par arbres GBT (Gradient Boosting Tree)
@@ -734,17 +824,24 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
+**SORTIE :**
+
+Zone sous ROC = 0,985297691373
+
+Durée d’exécution de la cellule ci-dessus : 19,76 secondes
+
+
 ## Prédire le montant des pourboires de courses de taxi avec les modèles de régression
 
 Cette section montre comment utiliser trois modèles pour la tâche de régression qui consiste à prédire le montant du pourboire versé pour une course de taxi en fonction d’autres caractéristiques de pourboire. Les modèles présentés sont les suivants :
 
 - Régression linéaire régularisée
-- Modèle de forêts aléatoires
+- Forêts aléatoires
 - Arbres GBT (Gradient Boosting Tree)
 
 Ces modèles sont décrits dans l’introduction. Chaque section de code générateur de modèle est divisée en étapes :
 
-1. Données d’**apprentissage du modèle** avec un jeu de paramètres
+1. Données de **formation du modèle** avec un jeu de paramètres
 2. **Évaluation du modèle** sur un jeu de données de test avec des mesures
 3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure
 
@@ -752,20 +849,27 @@ Ces modèles sont décrits dans l’introduction. Chaque section de code génér
 
 Le code de cette section montre comment utiliser des caractéristiques mises à l’échelle pour former une régression linéaire utilisant utilise la descente de gradient stochastique (SGD) à des fins d’optimisation et comment noter, évaluer et enregistrer le modèle dans Azure Blob Storage (WASB).
 
->REMARQUE AZURE : selon notre expérience, il peut y avoir des problèmes fréquents avec la convergence des modèles LinearRegressionWithSGD, et les paramètres doivent être modifiés/optimisés avec soin pour obtenir un modèle valide. La mise à l’échelle des variables est très utile (voir ci-dessous).
+>[AZURE.TIP] D’après notre expérience, il peut y avoir des problèmes avec la convergence des modèles LinearRegressionWithSGD, et les paramètres doivent être modifiés/optimisés avec soin pour obtenir un modèle valide. La mise à l’échelle des variables est très utile avec la convergence.
+
 
 	#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
 	from pyspark.mllib.evaluation import RegressionMetrics
 	from scipy import stats
 	
 	# USE SCALED FEATURES TO TRAIN MODEL
 	linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
+
+	# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+	# NOTE: There are 20 coefficient terms for the 10 features, 
+	#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+	print("Coefficients: " + str(linearModel.weights))
+	print("Intercept: " + str(linearModel.intercept))
 	
 	# SCORE ON SCALED TEST DATA-SET & EVALUATE
 	predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
@@ -775,7 +879,7 @@ Le code de cette section montre comment utiliser des caractéristiques mises à 
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
 	
-	# SAVE MODEL IN BLOB
+	# SAVE MODEL WITH DATE-STAMP IN THE DEFAULT BLOB FOR THE CLUSTER
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 	linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
 	dirfilename = modelDir + linearregressionfilename;
@@ -787,10 +891,22 @@ Le code de cette section montre comment utiliser des caractéristiques mises à 
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+**SORTIE :**
+
+Coefficients : [0,00457675809917, -0,0226314167349, -0,0191910355236, 0,246793409578, 0,312047890459, 0,359634405999, 0,00928692253981, -0,000987181489428, -0,0888306617845, 0,0569376211553, 0,115519551711, 0,149250164995, -0,00990211159703, -0,00637410344522, 0,545083566179, -0,536756072402, 0,0105762393099, -0,0130117577055, 0,0129304737772, -0,00171065945959]
+
+Interception : -0,853872718283
+
+RMSE = 1,24190115863
+
+Racine carrée = 0,608017146081
+
+Durée d’exécution de la cellule ci-dessus : 58,42 secondes
+
 
 ### Régression par forêts aléatoires
 
-Le code de cette section montre comment former, évaluer et enregistrer un modèle de forêts aléatoires qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
+Le code de cette section montre comment former, évaluer et enregistrer une régression de forêts aléatoires qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
 
 
 	#PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -816,9 +932,9 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	## PREDICT AND EVALUATE ON TEST DATA-SET
 	predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
 	predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
-	testMetrics = RegressionMetrics(predictionAndLabels)
 
-	# PRINT TEST METRICS
+	# TEST METRICS
+	testMetrics = RegressionMetrics(predictionAndLabels)
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
 	
@@ -834,11 +950,20 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+**SORTIE :**
+
+RMSE = 0,891209218139
+
+Racine carrée = 0,759661334921
+
+Durée d’exécution de la cellule ci-dessus : 49,21 secondes
+
 
 ### Régression par arbres GBT (Gradient Boosting Tree)
 
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT, qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
 
+****Former et évaluer**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -857,16 +982,53 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	## EVALUATE A TEST DATA-SET
 	predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
 	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
-	testMetrics = RegressionMetrics(predictionAndLabels)
 
-	# PRINT TEST METRICS
+	# TEST METRICS
+	testMetrics = RegressionMetrics(predictionAndLabels)
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
+
+	# SAVE MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
+	dirfilename = modelDir + btregressionfilename;
+	gbtModel.save(sc, dirfilename)
 	
-	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+	# CONVER RESULTS TO DF AND REGISER TEMP TABLE
 	test_predictions = sqlContext.createDataFrame(predictionAndLabels)
-	test_predictions_pddf = test_predictions.toPandas()
+	test_predictions.registerTempTable("tmp_results");
 	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**SORTIE :**
+
+RMSE = 0,908473148639
+
+Racine carrée = 0,753835096681
+
+Durée d’exécution de la cellule ci-dessus : 34,52 secondes
+
+**Tracer**
+
+*tmp\_results* est enregistré en tant que table Hive dans la cellule précédente. Les résultats de la table sont fournis au tableau de données *sqlResults* pour le traçage. Voici le code.
+
+	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+
+	# SELECT RESULTS
+	%%sql -q -o sqlResults
+	SELECT * from tmp_results
+
+Voici le code pour tracer les données à l’aide du serveur Jupyter.
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+	%%local
+	%matplotlib inline
+	import numpy as np
+
+	# PLOT 
 	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
 	fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
 	ax.set_title('Actual vs. Predicted Tip Amounts ($)')
@@ -876,23 +1038,8 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 	plt.axis([-1, 20, -1, 20])
 	plt.show(ax)
 	
-	# SAVE MODEL IN BLOB
-	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
-	dirfilename = modelDir + btregressionfilename;
-	
-	gbtModel.save(sc, dirfilename)
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTLOOK**
-
-RMSE = 0,962160568829
-
-Racine carrée = 0,717354800581
+**SORTIE :**
 
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
@@ -924,7 +1071,7 @@ Utilisez `unpersist()` pour supprimer les objets mis en cache en mémoire.
 
 ## Enregistrer les emplacements de stockage des modèles à des fins de consommation et de notation
 
-Pour consommer et noter un jeu de données indépendant décrit dans la rubrique [Noter et évaluer des modèles Machine Learning créés avec Spark](machine-learning-data-science-spark-model-consumption.md), vous devez copier et coller ces noms de fichier contenant les modèles enregistrés créés ici dans le Notebook Jupyter de consommation. Voici le code permettant d’imprimer les chemins d’accès aux fichiers de modèle dont vous avez besoin ici.
+Pour consommer et évaluer un jeu de données indépendant décrit dans la rubrique [Noter et évaluer des modèles Machine Learning créés avec Spark](machine-learning-data-science-spark-model-consumption.md), vous devez copier et coller ces noms de fichiers contenant les modèles enregistrés créés ici dans le notebook Jupyter de consommation. Voici le code permettant d’imprimer les chemins d’accès aux fichiers de modèle dont vous avez besoin ici.
 
 	# MODEL FILE LOCATIONS FOR CONSUMPTION
 	print "logisticRegFileLoc = modelDir + "" + logisticregressionfilename + """;
@@ -935,10 +1082,27 @@ Pour consommer et noter un jeu de données indépendant décrit dans la rubrique
 	print "BoostedTreeRegressionFileLoc = modelDir + "" + btregressionfilename + """;
 
 
+**SORTIE**
+
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-05-0317\_03\_23.516568"
+
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-05-0317\_05\_21.577773"
+
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-05-0317\_04\_11.950206"
+
+randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-05-0317\_06\_08.723736"
+
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-05-0317\_04\_36.346583"
+
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-05-0317\_06\_51.737282"
+
+
 ## Et ensuite ?
 
-Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles.
+Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles. Le notebook avancé d’exploration et de modélisation des données approfondit la validation croisée, le balayage hyperparamétrique et l’évaluation du modèle.
 
-**Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning créés avec Spark](machine-learning-data-science-spark-model-consumption.md).
+**Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+**Validation croisée et balayage hyperparamétrique** : consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
+
+<!---HONumber=AcomDC_0518_2016-->

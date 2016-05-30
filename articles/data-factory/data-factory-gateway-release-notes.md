@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/17/2016" 
 	ms.author="spelluru"/>
 
 # Notes de version pour la passerelle de gestion des données
@@ -22,7 +22,13 @@ Un des défis de l’intégration de données modernes consiste à déplacer en 
 
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus.
 
-## Version actuelle (1.11.5918.1)
+## VERSION ACTUELLE (1.12.5953.1)
+- Résolution des bogues
+
+
+## Versions antérieures
+
+## 1\.11.5918.1
 
 - La taille maximale du journal des événements de la passerelle a été augmentée de 1 Mo à 40 Mo.
 - Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard. 
@@ -30,8 +36,6 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 - Amélioration des performances
 	- Améliorez les performances lors du chargement de tables de grande taille à partir du serveur local dans le scénario de copie sans code.
 - Résolution des bogues
-
-## Versions antérieures
 
 ## 1\.10.5892.1
 
@@ -145,4 +149,4 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 ### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
 Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

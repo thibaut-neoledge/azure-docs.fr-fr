@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sécurisation d'une application dans Azure App Service"
-	description="Découvrez comment sécuriser une application web, un backend d’application mobile ou une application API dans Azure App Service."
+	description="Découvrez comment sécuriser une application web, un serveur principal d’application mobile ou une application API dans Azure App Service."
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
@@ -19,7 +19,7 @@
 
 #Sécurisation d'une application dans Azure App Service
 
-Cet article vous aide à démarrer la sécurisation de votre application web, de votre backend d’application mobile ou de votre application API dans Azure App Service.
+Cet article vous aide à démarrer la sécurisation de votre application web, de votre serveur principal d’application mobile ou de votre application API dans Azure App Service.
 
 Il existe deux niveaux de sécurité dans Azure App Service.
 
@@ -34,7 +34,7 @@ Il existe deux niveaux de sécurité dans Azure App Service.
 - toutes les communications entre votre application App Service et des ressources externes, telles que la gestion de PowerShell, une interface de ligne de commande, des kits de développement logiciel Azure, des API REST et des connexions hybrides, sont correctement chiffrés ;
 - la gestion continue des menaces protège les ressources App Service contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces. 
 
-Pour plus d’informations sur l’infrastructure et la plateforme et de sécurité dans Azure, consultez [Centre de gestion de la confidentialité Azure](/support/trust-center/security/).
+Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de gestion de la confidentialité Azure](/support/trust-center/security/).
 
 #### Sécurité des applications
 
@@ -62,7 +62,7 @@ L’activation du protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protèg
 
 ## Sécurisation de la couche Données
 
-App Service est hautement intégré dans la base de données SQL, de sorte que toutes les chaînes de connexion sont chiffrées sur le panneau et sont décryptées uniquement sur la machine virtuelle sur laquelle l’application s’exécute *et* uniquement lorsque l’application s’exécute. En outre, la base de données SQL Azure comprend plusieurs fonctionnalités de sécurité qui protègent vos données d’application des cyber-menaces, notamment [le chiffrement au repos](https://msdn.microsoft.com/library/dn948096.aspx), [le chiffrement intégral](https://msdn.microsoft.com/library/mt163865.aspx), [le masquage dynamique des données (Dynamic Data Masking)](../sql-database/sql-database-dynamic-data-masking-get-started.md) et [la détection des menaces](sql-database-threat-detection-get-started). Si vous avez des données sensibles ou devez répondre à des exigences de conformité, consultez la rubrique [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md) pour plus d’informations sur la manière de sécuriser vos données.
+App Service est hautement intégré dans la base de données SQL, de sorte que toutes les chaînes de connexion sont chiffrées sur le panneau et sont décryptées uniquement sur la machine virtuelle sur laquelle l’application s’exécute *et* uniquement lorsque l’application s’exécute. En outre, la base de données SQL Azure comprend plusieurs fonctionnalités de sécurité qui protègent vos données d’application des cyber-menaces, notamment [le chiffrement au repos](https://msdn.microsoft.com/library/dn948096.aspx), [le chiffrement intégral](https://msdn.microsoft.com/library/mt163865.aspx), [le masquage dynamique des données (Dynamic Data Masking)](../sql-database/sql-database-dynamic-data-masking-get-started.md) et [la détection des menaces](../sql-database/sql-database-threat-detection-get-started.md). Si vous avez des données sensibles ou devez répondre à des exigences de conformité, consultez la rubrique [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md) pour plus d’informations sur la manière de sécuriser vos données.
 
 Si vous utilisez un fournisseur de base de données tiers, tels que ClearDB, vous devez consulter directement la documentation du fournisseur quant aux meilleures pratiques de sécurité.
 
@@ -123,4 +123,4 @@ Pour plus d’informations sur la journalisation des informations des applicatio
 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

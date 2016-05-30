@@ -6,14 +6,14 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # Déploiement d'un exécutable invité dans Service Fabric
@@ -34,7 +34,7 @@ Dans cet article, nous abordons les étapes de base pour empaqueter un exécutab
 
 ## Vue d’ensemble rapide des fichiers du manifeste de service et d’application.
 
-Avant d’entrer dans les détails du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d'empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers :
+Avant d’entrer dans les détails du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d’empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers XML : les manifestes d’applications et de services. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 
 * **Manifeste d’application**
@@ -248,10 +248,10 @@ La dernière étape consiste à déployer votre application. Le script PowerShel
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -272,11 +272,11 @@ Cette configuration est utile pour les applications frontales (par exemple, un p
 
 Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud 1 :
 
-![Nœud sur lequel le service est en cours d’exécution](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![Nœud sur lequel le service est en cours d’exécution](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 Si vous accédez au nœud et accédez à l’application, vous verrez des informations essentielles sur le nœud, notamment son emplacement sur le disque.
 
-![Emplacement sur le disque](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![Emplacement sur le disque](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous trouverez le répertoire de travail et le dossier des journaux du service comme indiqué ci-dessous.
 
@@ -286,8 +286,8 @@ Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous
 ## Étapes suivantes
 Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Pour continuer, vous pouvez consulter le contenu supplémentaire sur ce sujet.
 
-- [Exemple pour empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
+- [Exemple pour empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
 - [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 - [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

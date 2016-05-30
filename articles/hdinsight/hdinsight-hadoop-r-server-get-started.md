@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de R Server sur HDInsight (version préliminaire) | Azure"
-   description="Apprenez à créer un Apache Spark sur un cluster HDInsight (version préliminaire) incluant R Server, puis à envoyer un script R sur le cluster."
+   description="Apprenez à créer un Apache Spark sur un cluster HDInsight (Hadoop) incluant R Server (version préliminaire), puis à envoyer un script R sur le cluster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -14,12 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/25/2016"
-   ms.author="jeffstok"/>
+   ms.date="05/16/2016"
+   ms.author="jeffstok"
+/>
 
-#Commencer à utiliser R Server sur HDInsight (version préliminaire)
+# Commencer à utiliser R Server sur HDInsight (version préliminaire)
 
-L’offre de niveau Premium pour HDInsight inclut R Server sur HDInsight (version préliminaire). Cela permet aux scripts R d’utiliser MapReduce et Spark pour exécuter des calculs distribués. Dans ce document, vous allez apprendre à créer un R Server sur HDInsight, puis à exécuter un script R illustrant l’utilisation de Spark pour effectuer des calculs R distribués.
+L’offre de niveau Premium pour HDInsight inclut R Server dans votre cluster HDInsight (version préliminaire). Cela permet aux scripts R d’utiliser MapReduce et Spark pour exécuter des calculs distribués. Dans ce document, vous allez apprendre à créer un R Server sur HDInsight, puis à exécuter un script R illustrant l’utilisation de Spark pour effectuer des calculs R distribués.
 
 ![Diagramme du flux de travail pour ce document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -174,76 +175,106 @@ Un contexte de calcul vous permet de contrôler si calcul sera effectué localem
         
 1. Dans la console R, utilisez ce qui suit pour charger les exemples de données dans le stockage par défaut pour HDInsight.
 
-        # Set the NameNode and port for the cluster
-        myNameNode <- "default"
-        myPort <- 0
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
-        # Source for the data to load
-        source <- system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
-        # Directory in bigDataDirRoot to load the data into
-        inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
+        # create a local folder for storaging data temporarily
+        source <- "/tmp/AirOnTimeCSV2012"
+        dir.create(source)
+        # Download data to the tmp folder
+        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+        download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
+        download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
+        download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
+        download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
+        download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
+        download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
+        download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
+        download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
+        download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
+        download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
+        download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
+        download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+        # Set directory in bigDataDirRoot to load the data into
+        inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012") 
         # Make the directory
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
-        rxHadoopCopyFromLocal(source, inputDir)
+        rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. Ensuite, créez des facteurs et définissez une source de données exploitables.
+2. Ensuite, créez des données et définissez deux sources de données exploitables.
 
         # Define the HDFS (WASB) file system
-        hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, 
-                                   port=myPort)
-        # Create Factors for the days of the week
-        colInfo <- list(DayOfWeek = list(type = "factor",
-             levels = c("Monday", 
-                        "Tuesday", 
-                        "Wednesday", 
-                        "Thursday", 
-                        "Friday", 
-                        "Saturday", 
-                        "Sunday")))
-        # Define the data source
-        airDS <- RxTextData(file = inputDir, 
-                            missingValueString = "M",
-                            colInfo  = colInfo, 
-                            fileSystem = hdfsFS)
+        hdfsFS <- RxHdfsFileSystem()
+        # Create info list for the airline data
+        airlineColInfo <- list(
+            DAY_OF_WEEK = list(type = "factor"),
+            ORIGIN = list(type = "factor"),
+            DEST = list(type = "factor"),
+            DEP_TIME = list(type = "integer"),
+            ARR_DEL15 = list(type = "logical"))
 
-3. Exécutez une régression linéaire sur les données à l’aide du contexte de calcul local.
+        # get all the column names
+        varNames <- names(airlineColInfo)
+
+        # Define the text data source in hdfs
+        airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+        # Define the text data source in local system
+        airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
+
+        # formula to use
+        formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+
+3. Exécutez une régression logistique sur les données à l’aide du contexte de calcul local.
 
         # Set a local compute context
         rxSetComputeContext("local")
-        # Run a linear regression
+        # Run a logistic regression
         system.time(
-            modelLocal <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
-                                   data = airDS)
+            modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
         )
         # Display a summary 
-        summary(modelLocal) 
+        summary(modelLocal)
 
     Vous devez voir la sortie qui se termine par des lignes similaires à ce qui suit.
-    
-        Residual standard error: 40.39 on 582620 degrees of freedom
-        Multiple R-squared: 0.01465
-        Adjusted R-squared: 0.01464
-        F-statistic:  1238 on 7 and 582620 DF,  p-value: < 2.2e-16
-        Condition number: 10.6542
 
-4. Ensuite, exécutez la même régression linéaire en utilisant le contexte Spark. Le contexte Spark répartit le traitement sur tous les nœuds de travail dans le cluster HDInsight.
+        Data: airOnTimeDataLocal (RxTextData Data Source)
+        File name: /tmp/AirOnTimeCSV2012
+        Dependent variable(s): ARR_DEL15
+        Total independent variables: 634 (Including number dropped: 3)
+        Number of valid observations: 6005381
+        Number of missing observations: 91381
+        -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
+
+        Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)
+        (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
+        ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
+        ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
+        ......
+        DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
+        DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
+        DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
+        DEST=BPT         Dropped    Dropped Dropped  Dropped
+        ---
+        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+        Condition number of final variance-covariance matrix: 11904202
+        Number of iterations: 7
+
+4. Ensuite, exécutez la même régression logistique en utilisant le contexte Spark. Le contexte Spark répartit le traitement sur tous les nœuds de travail dans le cluster HDInsight.
 
         # Define the Spark compute context 
-        mySparkCluster <- RxSpark(consoleOutput=TRUE) 
+        mySparkCluster <- RxSpark()
         # Set the compute context 
-        rxSetComputeContext(mySparkCluster) 
-        # Run a linear regression 
+        rxSetComputeContext(mySparkCluster)
+        # Run a logistic regression 
         system.time(  
-            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
+            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
         # Display a summary
         summary(modelSpark)
 
-    La sortie du traitement Spark est écrite sur la console, car nous avons défini `consoleOutput=TRUE`.
-    
-    > [AZURE.NOTE] Vous pouvez également utiliser MapReduce pour répartir le calcul sur des nœuds de cluster. Pour plus d’informations sur le contexte de calcul, voir [Options de contexte de calcul pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md).
+    > [AZURE.NOTE] Vous pouvez également utiliser MapReduce pour répartir le calcul sur des nœuds de cluster. Pour plus d’informations sur le contexte de calcul, consultez [Options de contexte de calcul pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ##Distribuer le code R à plusieurs nœuds
 
@@ -271,7 +302,7 @@ Si vous utilisez encore le contexte Spark ou MapReduce, cela renvoie la valeur d
 
 ##Installer des packages R
 
-Si vous souhaitez installer des packages R supplémentaires sur le nœud de périmètre, vous pouvez utiliser `install.packages()` directement à partir de la console R lorsque vous êtes connecté au nœud de périmètre via SSH. Toutefois, si vous avez besoin installer des packages R sur les nœuds de travail du cluster, vous devez utiliser une action de script.
+Si vous souhaitez installer des packages R supplémentaires sur le nœud de périmètre, vous pouvez utiliser `install.packages()` directement à partir de la console R quand vous êtes connecté au nœud de périmètre par le biais de SSH. Toutefois, si vous avez besoin installer des packages R sur les nœuds de travail du cluster, vous devez utiliser une action de script.
 
 Les actions de script sont des scripts Bash permettant de modifier la configuration du cluster HDInsight ou d’installer des logiciels supplémentaires. Dans ce cas, il s’agit d’installer des packages R supplémentaires. Pour installer des packages supplémentaires à l’aide d’une action de Script, procédez comme suit.
 
@@ -279,23 +310,23 @@ Les actions de script sont des scripts Bash permettant de modifier la configurat
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre R Server sur le cluster HDInsight.
 
-2. Dans le panneau du cluster, sélectionnez __Tous les paramètres__, puis __Actions de script__. Dans le panneau __Actions de script__, sélectionnez __Envoyer nouvelle__ pour soumettre une nouvelle action de script.
+2. Dans le panneau du cluster, sélectionnez __Tous les paramètres__, puis __Actions de script__. Dans le panneau __Actions de script__, sélectionnez __Envoyer__ pour soumettre une nouvelle action de script.
 
     ![Image du panneau Actions de script](./media/hdinsight-getting-started-with-r/newscriptaction.png)
 
-3. Dans le panneau __Envoi de l’action de script __, entrez les informations suivantes.
+3. Dans le panneau __Envoyer une action de script__, entrez les informations suivantes.
 
-    * __Nom__ : un nom convivial à utiliser pour identifier ce script
-    * __URI de script Bash__ : http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
-    * __Head__ : cette valeur doit être __désactivée__
-    * __Worker__ : cette valeur doit être __activée__
-    * __Zookeeper__ : cette valeur doit être __désactivée__
-    * __Paramètres__ : packages R à installer. Par exemple, `bitops stringr arules`
-    * __Conserver ce script...__ : cette option doit être __activée__
+    * __Nom__ : un nom convivial à utiliser pour identifier ce script
+    * __URI de script bash__ : http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
+    * __En-tête__ : cette valeur doit être __désactivée__
+    * __Collaborateur__ : cette valeur doit être __activée__
+    * __Zookeeper__ : cette valeur doit être __désactivée__
+    * __Paramètres__ : packages R à installer. Par exemple, `bitops stringr arules`
+    * __Conserver ce script...__ : cette option doit être __activée__
     
     > [AZURE.IMPORTANT] Si les packages R que vous installez nécessitent l’ajout de bibliothèques système, vous devez télécharger le script de base utilisé ici et ajouter des étapes pour installer les bibliothèques système. Vous devez ensuite charger le script modifié dans un conteneur d’objets blob publics dans Azure Storage, puis utiliser le script modifié pour installer les packages.
     >
-    >Pour plus d’informations sur le développement d’actions de script, voir [Développer des actions de script](hdinsight-hadoop-script-actions-linux.md).
+    >Pour plus d’informations sur le développement d’actions de script, consultez [Développer des actions de script](hdinsight-hadoop-script-actions-linux.md).
     
     ![Ajout d’une action de script](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
@@ -320,6 +351,6 @@ Si vous êtes intéressé par l’automatisation de la création de R Server su
 
 Les deux modèles créent un cluster HDInsight et un compte de stockage associé, et peuvent être utilisés à partir de l’interface de ligne de commande Azure, d’Azure PowerShell ou du portail Azure.
 
-Pour des informations générales sur l’utilisation des modèles ARM, voir [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Pour des informations générales sur l’utilisation des modèles ARM, consultez [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

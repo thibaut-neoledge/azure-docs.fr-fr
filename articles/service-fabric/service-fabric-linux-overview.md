@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/13/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric sur Linux
@@ -38,4 +38,4 @@ Notez que Service Fabric sur Linux sera semblable du point de vue conceptuel à 
 
 Se familiariser avec les infrastructures de programmation [Reliable Actors](service-fabric-reliable-actors-introduction.md) et [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

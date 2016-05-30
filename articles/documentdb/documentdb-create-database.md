@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Comment créer une base de données dans DocumentDB | Microsoft Azure" 
-	description="Apprenez à créer une base de données à l’aide du portail du service en ligne pour Azure DocumentDB, un service de gestion de base de données de documents NoSQL pour JSON. Obtenez un compte gratuit dès aujourd’hui." 
+	description="Découvrez comment créer une base de données à l’aide du portail du service en ligne pour Azure DocumentDB, votre base de données NoSQL globale et rapide." 
 	keywords="création d’une base de données" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Création d’une base de données pour DocumentDB à l’aide du portail Azure
@@ -51,4 +51,4 @@ Une fois votre collection créée, vous pouvez [ajouter des documents JSON](docu
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-sql-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

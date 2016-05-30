@@ -81,6 +81,8 @@ Pour créer des applications logiques avec Outlook.com, vous devez d’abord cr�
 |Jeton|Oui|Fournir des informations d’identification Outlook.com|
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
 ## Référence pour Outlook.com
@@ -912,4 +914,4 @@ Mettre à jour un contact : met à jour partiellement un contact
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -44,7 +44,7 @@ Vous n'avez pas le temps de suivre le didacticiel et vous souhaitez seulement ob
 	<tr><th>URI du script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Date de modification</th>
-		<td>04/26/2015</td></tr>
+		<td>26/04/2016</td></tr>
 	<tr><th>Versions de HDInsight prises en charge</th>
 		<td>3.1, 3.2.</td></tr>
 	<tr><th>Journal des modifications</th>
@@ -76,7 +76,8 @@ Lors de l'approvisionnement d'un cluster HDInsight, vous spécifiez un compte Az
 
 1. Connectez-vous au [portail Azure Classic][azure-classic-portal].
 
-2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**. ![Portail Azure Classic où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
+2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**. 
+	![Portail Azure Classic où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
 
 3. Entrez l’**URL**, sélectionnez les valeurs **EMPLACEMEN**T et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge.
 	
@@ -218,7 +219,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 2. 
 	<p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB. </p>
 
-    <p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>
+	<p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>
 
 	> [AZURE.NOTE] **L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> 
 	'*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
@@ -237,7 +238,9 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
  
 3.  Créons maintenant une table Hive pour la collection de sortie. Les propriétés des documents de sortie seront le mois, le jour, l'heure, les minutes et le nombre total d'occurrences.
 
-	> [AZURE.NOTE] **Une fois encore, l’attribution du nom DocumentDB.outputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> '*DocumentDB.ouputCollections*' = ’*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br> Les documents seront distribués en tourniquet (round robin), sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
+	> [AZURE.NOTE] **Une fois encore, l’attribution du nom DocumentDB.outputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> 
+	'*DocumentDB.ouputCollections*' = ’*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br> 
+	Les documents seront distribués en tourniquet (round robin), sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -314,8 +317,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (DTS) et des identificateurs uniques (_rid) à partir d'une collection DocumentDB, comptabilise tous les documents à la minute, puis stocke les résultats de la sauvegarde dans une nouvelle collection DocumentDB.</p>
     <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
-
-    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
+    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br>
+    '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
 
 	Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
@@ -464,7 +467,7 @@ Pour en savoir plus, consultez les articles suivants :
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
@@ -483,4 +486,4 @@ Pour en savoir plus, consultez les articles suivants :
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

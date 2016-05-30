@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -98,11 +98,9 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 1.	Connectez-vous à http://azure.microsoft.com.
 2.	Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 3.	Dans le portail de gestion Azure Multi-Factor Authentication, si le nom de votre client ou fournisseur Azure MFA s'affiche à gauche avec le signe +, cliquez sur le signe + pour afficher les différents groupes de réplication du serveur MFA et le groupe Azure par défaut. Cliquez sur le groupe approprié.
-4.	Sous Administration des utilisateurs, cliquez sur **Contournement à usage unique**.
-![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
+4.	Sous Administration des utilisateurs, cliquez sur **Contournement à usage unique**. ![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
 5.	Dans la page Contournement à usage unique, cliquez sur **Nouveau contournement à usage unique**.
-6.	Saisissez le nom d'utilisateur, le nombre de secondes pendant lesquelles le contournement se produira, la raison du contournement, puis cliquez sur **Contourner**.
-![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
+6.	Saisissez le nom d'utilisateur, le nombre de secondes pendant lesquelles le contournement se produira, la raison du contournement, puis cliquez sur **Contourner**. ![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
 7.	À ce stade, l'utilisateur doit se connecter avant l'expiration du contournement à usage unique.
 
 
@@ -136,14 +134,10 @@ Avant de commencer, tenez compte des informations suivantes :
 2.	Connectez-vous à http://azure.microsoft.com.
 3.	Accédez au portail de gestion MFA avec les instructions indiquées en haut de cette page.
 4.	Dans le portail de gestion Azure Multi-Factor Authentication, cliquez sur Messages vocaux dans la section Configurer.
-5.	Sous la section Messages vocaux, cliquez sur **Nouveau message vocal**.
-![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	Dans la page Configurer : nouveaux messages vocaux, cliquez sur **Gérer les fichiers audio**.
-![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	Dans la page Configurer : fichiers audio, cliquez sur **Télécharger un fichier audio**.
-![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	Dans la page Configurer : télécharger un fichier audio, cliquez sur **Parcourir**, accédez à votre message vocal, puis cliquez sur **Ouvrir**.
-![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
+5.	Sous la section Messages vocaux, cliquez sur **Nouveau message vocal**. ![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	Dans la page Configurer : nouveaux messages vocaux, cliquez sur **Gérer les fichiers audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	Dans la page Configurer : fichiers audio, cliquez sur **Télécharger un fichier audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	Dans la page Configurer : télécharger un fichier audio, cliquez sur **Parcourir**, accédez à votre message vocal, puis cliquez sur **Ouvrir**. ![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
 9.	Ajoutez une description et cliquez sur Télécharger.
 10.	Une fois cette opération terminée, vous verrez un message indiquant que vous avez téléchargé le fichier.
 11.	Sur la gauche, cliquez sur Messages vocaux.
@@ -152,8 +146,7 @@ Avant de commencer, tenez compte des informations suivantes :
 14.	Si ce message concerne une application spécifique, spécifiez-la dans la zone de l'application.
 15.	Dans le type de message, sélectionnez le type de message qui sera remplacé par notre nouveau message personnalisé.
 16.	Dans le menu déroulant du fichier audio, sélectionnez le fichier audio.
-17.	Cliquez sur **Create**. Vous verrez un message indiquant que vous avez créé un message vocal.
-![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+17.	Cliquez sur **Create**. Vous verrez un message indiquant que vous avez créé un message vocal. ![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 
@@ -356,8 +349,7 @@ Toutefois, étant donné que les utilisateurs sont autorisés à mémoriser MFA 
 3. Dans Active Directory, cliquez sur le répertoire pour lequel vous souhaitez configurer Mémoriser Multi-Factor Authentication pour les appareils.
 4. Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.
 5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
-6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur pour les appareils de confiance**.
-![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
+6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur pour les appareils de confiance**. ![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
 8. Définissez le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
@@ -370,8 +362,8 @@ Méthode|Description
 :------------- | :------------- | 
 [Appel vers le téléphone](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Effectue un appel vocal automatisé vers le téléphone d’authentification. L’utilisateur répond à l’appel et appuie sur la touche # du clavier du téléphone pour s’authentifier. Ce numéro de téléphone n’est pas synchronisé avec Active Directory local.
 [Message texte vers le téléphone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envoie un message texte contenant un code de vérification à l’utilisateur. L’utilisateur est invité à répondre au SMS avec le code de vérification ou à entrer le code de vérification dans l’interface de connexion.
-[Notification via une application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l’application Azure Authenticator empêche l’accès non autorisé aux comptes et arrête les transactions frauduleuses. Cette opération est effectuée à l’aide d’une notification Push sur votre téléphone ou votre appareil inscrit. Affichez simplement la notification et si elle est légitime, sélectionnez Vérifier. Dans le cas contraire, vous pouvez choisir de refuser ou de refuser et signaler la notification frauduleuse. Pour plus d’informations sur le signalement des notifications frauduleuses, consultez la rubrique Utilisation de la fonctionnalité de refus et signalement d’une fraude pour Multi-Factor Authentication.</br></br>L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
-[Code de vérification de l’application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l'application Azure Authenticator peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Ce code de vérification peut ensuite être entré avec le nom d’utilisateur et un mot de passe pour fournir la deuxième forme d’authentification.</li><br><p> L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Notification via une application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l’application Azure Authenticator empêche l’accès non autorisé aux comptes et arrête les transactions frauduleuses. Cette opération est effectuée à l’aide d’une notification Push sur votre téléphone ou votre appareil inscrit. Affichez simplement la notification et si elle est légitime, sélectionnez Vérifier. Dans le cas contraire, vous pouvez choisir de refuser ou de refuser et signaler la notification frauduleuse. Pour plus d’informations sur le signalement des notifications frauduleuses, consultez la rubrique Utilisation de la fonctionnalité de refus et signalement d’une fraude pour Multi-Factor Authentication.</br></br>L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
+[Code de vérification de l’application mobile](multi-factor-authentication-end-user-first-time-mobile-app.md)|Dans ce mode, l'application Azure Authenticator peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Ce code de vérification peut ensuite être entré avec le nom d’utilisateur et un mot de passe pour fournir la deuxième forme d’authentification.</li><br><p> L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ### Comment activer/désactiver les méthodes d'authentification
 
@@ -384,4 +376,4 @@ Méthode|Description
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

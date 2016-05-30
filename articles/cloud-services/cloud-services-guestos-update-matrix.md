@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2016"
+   ms.date="05/17/2016"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -28,6 +28,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## Nouvelles mises à jour
+
+###### **17 mai 2016**
+Le déploiement du SE invité du mois de mai commence le 17 mai 2016 et devrait être publié le 10 juin 2016.
 
 ###### **18 avril 2016**
 Le déploiement du SE invité du mois d’avril commence le 18 avril 2016, et devrait être publié le 12 mai 2016.
@@ -55,9 +58,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.31\_201604-01 | 12 mai 2016 * | Publication 4.33 | TBD |
+| WA-GUEST-OS-4.32\_201605-01 | 10 juin 2016* | Publication 4.34 | TBD |
+| WA-GUEST-OS-4.31\_201604-01 | 2 mai 2016 | Publication 4.33 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 7 avril 2016 | Publication 4.32 | TBD |
-| WA-GUEST-OS-4.29\_201602-02 | 12 mars 2016 | Publication 4.31 | TBD |
+| WA-GUEST-OS-4.29\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-4.28\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD | 
 | WA-GUEST-OS-4.27\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
 | ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 janvier 2016 | 12 mars 2016 | TBD |
@@ -80,9 +84,10 @@ Prend en charge .NET 4.0, 4.5
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.38\_201604-01 | 12 mai 2016 * | Publication 3.40 | TBD |
+| WA-GUEST-OS-3.39\_201605-01 | 10 juin 2016* | Publication 3.41 | TBD |
+| WA-GUEST-OS-3.38\_201604-01 | 2 mai 2016 | Publication 3.40 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 7 avril 2016 | Publication 3.39 | TBD |
-| WA-GUEST-OS-3.36\_201602-02 | 12 mars 2016 | Publication 3.38 | TBD |
+| WA-GUEST-OS-3.36\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-3.35\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD |
 | WA-GUEST-OS-3.34\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
 | ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 janvier 2016 | 12 mars 2016 | TBD |
@@ -106,9 +111,10 @@ Prend en charge .NET 3.5, 4.0
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.50\_201604-01 | 12 mai 2016 * | Publication 2.52 | TBD |
+| WA-GUEST-OS-2.51\_201605-01 | 10 juin 2016* | Publication 2.53 | TBD |
+| WA-GUEST-OS-2.50\_201604-01 | 2 mai 2016 | Publication 2.52 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 7 avril 2016 | Publication 2.51 | TBD |
-| WA-GUEST-OS-2.48\_201602-02 | 12 mars 2016 | Publication 2.50 | TBD |
+| WA-GUEST-OS-2.48\_201602-02 | 12 mars 2016 | 2 juin 2016 | TBD |
 | WA-GUEST-OS-2.47\_201601-01 | 12 février 2016 | 7 mai 2016 | TBD |
 | WA-GUEST-OS-2.46\_201512-01 | 12 janvier 2016 | 12 avril 2016 | TBD |
 | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 janvier 2016 | 12 mars 2016 | TBD |
@@ -126,7 +132,7 @@ La liste des correctifs inclus dans chaque publication mensuelle du SE invité e
 
 ## Prise en charge des Kits de développement logiciel (SDK)
 
-La [stratégie de suppression pour le Kit de développement logiciel (SDK) Microsoft Azure][retire policy sdk] indique que seules les versions ultérieures à 2.2 sont prises en charge. Toutefois, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
+La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Microsoft Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
 
 | Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
 | --------------- | ----------------------- |
@@ -136,11 +142,11 @@ La [stratégie de suppression pour le Kit de développement logiciel (SDK) Micro
 | 1 | Versions 1.0 et ultérieures |
 
 ## Informations de publication du SE invité
-Trois dates sont importantes à propos des publications du SE invité : la date de **publication**, la date de **désactivation** et la date d’**expiration**. Un SE invité est considéré comme disponible quand il est proposé dans le portail et qu’il peut être sélectionné comme SE invité cible. Quand un SE invité arrive à la date de **désactivation**, il est supprimé du portail Azure. Toutefois, tous les services cloud qui ciblent ce SE invité continuent de fonctionner normalement.
+Trois dates sont importantes à propos des publications du SE invité : la date de **publication**, la date de **désactivation** et la date d’**expiration**. Un SE invité est considéré comme disponible quand il est proposé dans le portail et qu’il peut être sélectionné comme SE invité cible. Quand un SE invité atteint la date de **désactivation**, il est supprimé du portail Azure. Toutefois, tous les services cloud qui ciblent ce SE invité continuent de fonctionner normalement.
 
-Durant la période entre la date de **désactivation** et la date d’**expiration**, vous pouvez facilement passer de votre SE invité actuel à une version plus récente. Si vous utilisez la mise à jour *automatique* pour votre SE invité, la version appliquée est toujours la version la plus récente. Vous n’avez donc pas à vous soucier de la date d’expiration.
+Durant la période entre la date de **désactivation** et la date d’**expiration**, vous pouvez facilement passer de votre SE invité actuel à une version plus récente. Si vous utilisez la mise à jour *automatique* pour votre SE invité, vous disposez toujours de la version la plus récente. Vous n’avez donc pas à vous soucier de la date d’expiration.
 
-Après la date d’**expiration** du SE invité, tous les services cloud qui utilisent encore ce SE invité sont arrêtés, supprimés ou mis à niveau de manière forcée. Des informations supplémentaires sur la stratégie de suppression sont fournies [ici][retirepolicy].
+Après la date d’**expiration** du SE invité, tous les services cloud qui utilisent encore ce SE invité sont arrêtés, supprimés ou mis à niveau de manière forcée. Des informations supplémentaires sur la stratégie de déclassement sont fournies [ici][retirepolicy].
 
 ## Informations sur les versions des familles de SE invité
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
@@ -153,11 +159,11 @@ Les familles de SE invité sont basées sur les versions publiées de Microsoft 
 
 - **Publication de SE invité** Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure Classic permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
 
-Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
+Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 
-**Publication du SE invité** - 2.12 rel2
+**Publication du SE invité** - 2.12 rel2
 
-**Chaîne de configuration pour cette publication** - WA-GUEST-OS-2.12\_201208-02
+**Chaîne de configuration pour cette publication** - WA-GUEST-OS-2.12\_201208-02
 
 Ces informations sont intégrées dans la chaîne de configuration d’un SE invité, ainsi qu’une date indiquant les correctifs MSRC envisagés pour cette publication. Dans cet exemple, les correctifs MSRC produits pour Windows Server 2008 R2 jusqu’à août 2012 inclus ont été envisagés pour l’inclusion. Seuls les correctifs s’appliquant spécifiquement à cette version de Windows Server sont inclus. Par exemple, si un correctif logiciel de MSRC s’applique à Microsoft Office, il ne sera pas inclus, car ce produit ne fait pas partie de l’image de base de Windows Server.
 
@@ -197,4 +203,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

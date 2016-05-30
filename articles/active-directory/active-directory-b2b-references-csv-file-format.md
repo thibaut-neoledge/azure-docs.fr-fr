@@ -49,7 +49,7 @@ Voici un exemple de fichier CSV que vous pouvez modifier.
 > Ajoutez des champs facultatifs dans Excel en spécifiant l'étiquette et en remplissant la colonne en dessous.
 
 ```
-Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications, InvitedToGroups,CcEmailAddress,Language
+Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications,InvitedToGroups,CcEmailAddress,Language
 wharp@contoso.com,Walter Harp,Hi Walter! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 jsmith@contoso.com,Jeff Smith,Hi Jeff! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
@@ -67,4 +67,4 @@ Consultez les autres articles sur la collaboration B2B d’Azure AD :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

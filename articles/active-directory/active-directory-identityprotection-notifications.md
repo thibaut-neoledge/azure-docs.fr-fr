@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/16/2016"
 	ms.author="markvi"/>
 
 #Notifications d’Azure Active Directory Identity Protection 
 
 
-Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les événements à risque :
+Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les événements à risque :
 
 - E-mail d’alerte en cas d’utilisateur compromis
 
@@ -33,7 +33,7 @@ Un e-mail d’alerte en cas d’utilisateur compromis est généré lorsqu’Azu
 
 ## E-mail de synthèse hebdomadaire
 
-L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux événements à risque.<br> Il inclut :
+L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux événements à risque.<br> Il inclut :
 
 - Les utilisateurs à risque
 - Activités suspectes
@@ -59,4 +59,4 @@ Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire. <br><
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

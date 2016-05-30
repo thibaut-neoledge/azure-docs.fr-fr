@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Installation de l’interface de ligne de commande Azure | Microsoft Azure"
-	description="Installation de l’interface de ligne de commande Azure pour Mac, Linux et Windows afin d’utiliser les services Azure"
+	description="Installation de l’interface de ligne de commande (CLI) Azure pour Mac, Linux et Windows afin d’utiliser les services Azure"
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/20/2016"
 	ms.author="danlep"/>
-
+    
 # Installer l’interface de ligne de commande Microsoft Azure
+
+> [AZURE.SELECTOR]
+- [PowerShell](powershell-install-configure.md)
+- [Interface de ligne de commande Azure](xplat-cli-install.md)
 
 Installez rapidement l’interface de ligne de commande Azure (Azure CLI) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure. Plusieurs choix d’installation s’offrent à vous : utilisez un des packages de programme d’installation fournis pour différents systèmes d’exploitation, installez à partir d’un package npm ou installez l’interface de ligne de commande Azure en tant que conteneur dans un hôte Docker. Pour obtenir davantage d’options générales et de contexte, consultez le référentiel du projet sur [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -31,7 +35,7 @@ Les packages d'installation suivants sont disponibles :
 
 * [Programme d’installation Windows][windows-installer]
 
-* [Programme d’installation OS X](http://go.microsoft.com/fwlink/?LinkId=252249)
+* [Programme d’installation OS X][mac-installer]
 
 * [Programme d’installation Linux][linux-installer]
 
@@ -59,6 +63,11 @@ Une fois l’interface de ligne de commande Azure installée, vous pouvez exécu
 ```
 azure help
 ```
+> [AZURE.NOTE]Sur certaines distributions Linux, vous pourriez recevoir une erreur, /usr/bin/env: ‘node’: No such file or directory. Cela est causé par les installations récentes de nodejs installées dans /usr/bin/nodejs. Pour corriger cette erreur, créez un lien symbolique vers /usr/bin/node en exécutant la commande suivante
+
+```
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
 
 Pour afficher la version de l’interface CLI que vous avez installée, saisissez la commande suivante :
 
@@ -67,6 +76,8 @@ azure --version
 ```
 
 Vous avez terminé l’installation. Pour accéder à toutes les commandes de l’interface de ligne de commande et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).
+
+>[AZURE.NOTE] Lorsque vous utilisez l’interface de ligne de commande Azure version 0.9.20 ou version ultérieure pour la première fois, vous verrez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations sur l’utilisation de l’interface de ligne de commande. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable` à tout moment.
 
 
 ## Mise à jour de l’interface CLI
@@ -83,7 +94,7 @@ npm update -g azure-cli
 
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
-* Si vous avez des questions sur l’utilisation de l’interface de ligne de commande Azure ou d’Azure, consultez les [forums Microsoft Azure](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurescripting).
+* Si vous avez des questions sur l’utilisation de l’interface de ligne de commande Azure ou d’Azure, consultez les [forums Microsoft Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 * Pour les systèmes Linux, vous pouvez également installer l’interface Azure CLI en la générant à partir de la [source](http://aka.ms/linux-azure-cli). Pour plus d’informations sur la génération à partir de la source, consultez le fichier INSTALL inclus dans l’archive source.
 
@@ -93,4 +104,4 @@ npm update -g azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

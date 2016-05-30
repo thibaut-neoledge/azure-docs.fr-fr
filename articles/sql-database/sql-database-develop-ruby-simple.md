@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connexion à SQL Database à l’aide de Ruby"
+	pageTitle="Se connecter à une base de données SQL à l’aide de Ruby | Microsoft Azure"
 	description="Offre un exemple de code Ruby que vous pouvez exécuter pour vous connecter à la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -40,4 +40,4 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 
 [Preuve de concept sur la connexion à SQL à l’aide de Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
@@ -22,9 +22,9 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 
 Dans ce didacticiel, vous découvrirez comment utiliser les modèles Visual Studio installés avec les Outils HDInsight pour Visual Studio afin de créer deux topologies qui fonctionnent avec les hubs d’événements Azure.
 
-* **EventHubWriter** : génère des données de façon aléatoire et les écrit dans les hubs d’événements
+* **EventHubWriter** : génère des données de façon aléatoire et les écrit dans les hubs d’événements
 
-* **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
+* **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
 
 > [AZURE.NOTE] Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous découvrirez comment utiliser les modèles Visual Stud
 
 * Un [cluster Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-* Un [Concentrateur d'événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Un [hub d'événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 * Le [kit de développement logiciel Azure .NET](http://azure.microsoft.com/downloads/)
 
@@ -62,7 +62,7 @@ La version la plus récente du fichier **eventhubs-storm-spout-0.9-jar-with-depe
 
 	Une fois le fichier téléchargé, vous pouvez extraire l’archive et le fichier sera copié dans le répertoire **lib**.
 
-* **Clonage du projet** : si [Git](http://git-scm.com/) est installé, exécutez la commande suivante pour cloner le référentiel localement, puis recherchez le fichier dans le répertoire **lib**.
+* **Clonage du projet** : si [Git](http://git-scm.com/) est installé, exécutez la commande suivante pour cloner le dépôt localement, puis recherchez le fichier dans le répertoire **lib**.
 
 		git clone https://github.com/hdinsight/hdinsight-storm-examples
 
@@ -72,15 +72,15 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > __APP SERVICES__ > **SERVICE BUS** > **EVENT HUB** > **CRÉATION PERSONNALISÉE**.
 
-2. Sur l’écran **Ajouter un nouveau concentrateur d’événements**, entrez un **nom de concentrateur d’événements**, sélectionnez la **région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
+2. Sur l’écran **Ajouter un nouvel hub d’événements**, entrez un **nom de hub d’événements**, sélectionnez la **région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
 	![page 1 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
 	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
-2. Sur l’écran **Configurer le concentrateur d’événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 8 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
+2. Sur l’écran **Configurer un hub d’événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 8 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
-3. Une fois le concentrateur d’événements créé, sélectionnez l’espace de noms, puis le **Concentrateurs d’événements**. Enfin, sélectionnez le concentrateur d’événements créé auparavant.
+3. Une fois le hub d’événements créé, sélectionnez l’espace de noms, puis **Event Hubs**. Enfin, sélectionnez le hub d’événements que vous avez créé.
 
 4. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d’accès en utilisant les informations suivantes.
 
@@ -105,7 +105,7 @@ Le stockage de table sera utilisé pour conserver les valeurs lues à partir de 
 
 2. Entrez un **nom** pour le compte de stockage, sélectionnez un **emplacement**, puis cliquez sur la **coche** pour créer le compte de stockage.
 
-	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre concentrateur d’événements et de serveur Storm sur HDInsight pour réduire la latence et les coûts.
+	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre hub d’événements et de serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
 3. Une fois le nouveau compte de stockage créé, sélectionnez-le, puis utilisez le lien **Gérer les clés d’accès** en bas de la page pour récupérer le **Nom du compte de stockage** et la **Clé d’accès primaire**. Enregistrez ces informations, car elles vous en aurez besoin ultérieurement.
 
@@ -131,11 +131,11 @@ Dans cette section, vous allez créer une topologie qui écrit des données vers
 
 4. Une fois le projet créé, vous devez avoir les fichiers suivants :
 
-	* **Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie qui se compose d’un seul spout et d’un seul bolt est créée.
+	* **Program.cs** : définit la topologie de votre projet. Notez que, par défaut, une topologie qui se compose d’un seul spout et d’un seul bolt est créée.
 
-	* **Spout.cs** : exemple de spout.
+	* **Spout.cs** : exemple de spout.
 
-	* **Bolt.cs** : exemple de bolt. Il sera supprimé lorsque vous utiliserez le bolt Event Hubs pour écrire dans le hub d’événements.
+	* **Bolt.cs** : exemple de bolt. Il sera supprimé lorsque vous utiliserez le bolt Event Hubs pour écrire dans le hub d’événements.
 
 ### Configuration
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez créer une topologie qui écrit des données vers
 
 2. Dans les propriétés du projet, sélectionnez **Paramètres**, puis sélectionnez **Ce projet ne contient pas de fichier de paramètres par défaut. Cliquez ici pour en créer un.**
 
-3. Entrez les paramètres suivants. Utilisez les informations du concentrateur d’événements que vous avez créé précédemment dans la colonne **Valeur**.
+3. Entrez les paramètres suivants. Utilisez les informations du hub d’événements que vous avez créé précédemment dans la colonne **Valeur**.
 
 	| Nom | Type | Scope |
     | ----- | ----- | ----- |
@@ -301,7 +301,7 @@ Dans cette section, vous allez créer une topologie qui lit des données à part
 
 2. Dans les propriétés du projet, sélectionnez **Paramètres**, puis sélectionnez **Ce projet ne contient pas de fichier de paramètres par défaut. Cliquez ici pour en créer un.**
 
-3. Entrez les paramètres suivants. Utilisez les informations du concentrateur d’événements et du compte de stockage que vous avez créés précédemment dans la colonne **Valeur**.
+3. Entrez les paramètres suivants. Utilisez les informations du hub d’événements et du compte de stockage que vous avez créés précédemment dans la colonne **Valeur**.
 
 	| Nom | Type | Scope |
     | ----- | ----- | ----- |
@@ -519,9 +519,9 @@ Lors de l’écriture des données dans le stockage de table, vous devez créer 
 
 6. Lorsque les deux topologies sont en cours d’exécution, sélectionnez **Explorateur de serveurs**, puis développez **Azure** > **Stockage**, puis sélectionnez le compte de stockage que vous avez créé précédemment. Sous le compte de stockage, développez **Tables**. Enfin, double-cliquez sur la table **events** pour ouvrir la table. Vous devez voir les données qui ont été stockées dans la table à partir de la topologie **EventHubReader**.
 
-	* Les événements sont générés par la topologie **EventHubWriter**, qui les écrit dans le concentrateur d’événements.
+	* Les événements sont générés par la topologie **EventHubWriter**, qui les écrit dans le hub d’événements.
 
-	* **EventHubReader** lit ensuite les événements à partir des concentrateurs d’événements et les stocke dans le stockage de table, dans la table **events**.
+	* **EventHubReader** lit ensuite les événements à partir des hubs d’événements et les stocke dans le stockage de table, dans la table **events**.
 
 ## Arrêt des topologies
 
@@ -551,11 +551,11 @@ Vous pouvez également exporter et importer les points de contrôle persistants 
 
 Les scripts présents dans ce répertoire sont :
 
-* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
+* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
 
-* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
+* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
 
-* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
+* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
 
 L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le hub lorsque vous remettez un nouveau cluster en ligne.
 
@@ -567,7 +567,9 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 
 * [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
+* [Guide de programmation SCP](hdinsight-storm-scp-programming-guide.md)
+
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

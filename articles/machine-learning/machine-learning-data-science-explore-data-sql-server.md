@@ -13,16 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Explorer les données d’une machine virtuelle SQL Server sur Azure
 
-##Introduction
 
 Ce document explique comment explorer les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
 
-Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus Cortana Analytics (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -70,10 +69,10 @@ La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble
 
 Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md).
 
-## Exemple de processus d’analyse Cortana en action
+## Exemple de processus Cortana Analytics en action
 
-Pour obtenir un exemple de procédure pas à pas complet du processus d’analyse Cortana à l’aide d’un jeu de données public, consultez [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas complet du processus Cortana Analytics à l’aide d’un jeu de données public, consultez [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

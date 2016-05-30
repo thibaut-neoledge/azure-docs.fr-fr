@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-La bibliothèque cliente DM Azure IoT Hub vous permet de gérer vos appareils IoT avec Azure IoT Hub. Vous pouvez notamment effectuer un redémarrage, rétablir les paramètres d’usine et mettre à jour le microprogramme. Actuellement, nous fournissons une bibliothèque C indépendante de la plateforme, mais nous proposerons bientôt la prise en charge d’autres langages. Comme l’indique la [vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-dm-overview], la gestion des appareils IoT Hub repose sur trois concepts clés :
+La bibliothèque cliente de gestion des appareils Azure IoT Hub vous permet de gérer vos appareils IoT avec Azure IoT Hub. Vous pouvez notamment effectuer un redémarrage, rétablir les paramètres d’usine et mettre à jour le microprogramme. Actuellement, nous fournissons une bibliothèque C indépendante de la plateforme, mais nous proposerons bientôt la prise en charge d’autres langages. Comme l’indique la [vue d’ensemble de la gestion des appareils Azure IoT Hub][lnk-dm-overview], la gestion des appareils IoT Hub repose sur trois concepts clés :
 
 - Représentations d’appareil physique
 - Travaux d’appareil
@@ -46,13 +46,13 @@ Le principal moyen d’interaction du service avec l’appareil physique réside
 
 Les sections suivantes présentent l’architecture de la bibliothèque cliente et vous expliquent comment implémenter les différents objets d’appareil sur votre appareil.
 
-## Principes de conception et concepts fonctionnels de la bibliothèque cliente DM
+## Principes de conception et concepts fonctionnels de la bibliothèque cliente de gestion des appareils
 La conception de la bibliothèque cliente DM s’articule autour de la portabilité et de l’intégration multiplateforme. Les choix de conception suivants ont donc été faits :
 
 1.	Utilisation du protocole standard LWM2M sur COAP pour permettre l’extensibilité d’une gamme d’appareils variés.
 2.	Écriture en langage ANSI C99 pour faciliter la portabilité vers un large éventail de plateformes.
 3.	Sécurisation par le biais de l’authentification TCP/TLS et Azure IoT Hub (jetons SAP) pour une utilisation haute sécurité.
-4.	Conception basée sur le projet OSS [Eclipse Wakaama][lnk-Wakaama] pour exploiter les données existantes et contribuer à la communauté.
+4.	Conception basée sur le projet OSS [Eclipse Wakaama][lnk-Wakaama] pour exploiter le code existant et contribuer à la communauté.
 
 ### Concepts LWM2M appropriés
 Nous avons choisi le standard LWM2M afin de permettre l’extensibilité d’une gamme d’appareils variés. Pour simplifier l’expérience de développement, nous avons fait abstraction de la majeure partie du protocole. Toutefois, il est important de bien comprendre les principes fondamentaux de la bibliothèque, notamment son modèle de données et le mode de transmission des données.
@@ -69,7 +69,7 @@ Ce modèle offre deux relations un-à-plusieurs :
 - **Objets et ressources** : chaque objet peut avoir plusieurs ressources. Par exemple, un objet peut contenir les ressources de mise à jour du microprogramme d’un appareil Contoso, comme l’URI du package où est stockée la nouvelle image.
 
 #### Modèle observer/informer : mode de transmission des données selon le standard LWM2M
-Outre ces concepts, il est important de bien comprendre le flux des données entre l’appareil et le service. Pour ce faire, le standard LWM2M définit le modèle « observer/informer ». Lorsque l’appareil physique se connecte au service, il lance l’observation sur les propriétés de l’appareil sélectionné. Ensuite, l’appareil physique informe le service des modifications apportées aux propriétés de l’appareil.
+Outre ces concepts, il est important de bien comprendre le flux des données entre l’appareil et le service. Pour ce faire, le standard LWM2M définit le modèle « observer/informer ». Quand l’appareil physique se connecte au service, IoT Hub lance « l’observation » sur les propriétés de l’appareil sélectionné. Ensuite, l’appareil physique informe le service des modifications apportées aux propriétés de l’appareil.
 
 Dans notre bibliothèque cliente, nous avons choisi le modèle observer/informer pour envoyer les données de gestion des appareils de l’appareil vers IoT Hub. Ce modèle est contrôlé par deux paramètres :
 
@@ -222,4 +222,4 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

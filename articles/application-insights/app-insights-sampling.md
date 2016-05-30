@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
 
 #  Échantillonnage dans Application Insights
@@ -24,10 +24,22 @@ L’échantillonnage est une fonctionnalité d’Application Insights qui vous p
 
 La fonction d’échantillonnage, actuellement disponible en version bêta, est susceptible d’être modifiée.
 
+## En bref :
+
+* L’échantillonnage conserve 1 enregistrement sur *n* et ignore le reste. Par exemple, il peut conserver 1 événement sur 5, soit un taux d’échantillonnage de 20 %.
+* L’échantillonnage s’effectue automatiquement si votre application envoie de nombreuses données de télémétrie. L’échantillonnage automatique intervient uniquement pour des volumes élevés et seulement dans les applications de serveur web ASP.NET.
+* Vous pouvez également définir l’échantillonnage manuellement, soit dans le portail sur la page de tarification (pour réduire le volume de données de télémétrie conservées et respecter votre quota mensuel), soit dans le Kit de développement logiciel (SDK) ASP.NET dans le fichier .config, pour réduire également le trafic réseau.
+* Le taux d’échantillonnage actuel est une propriété de chaque enregistrement. Dans la fenêtre de recherche, ouvrez un événement, par exemple une demande. Cliquez sur les points de suspension « ... » pour développer les propriétés complètes et afficher la propriété « nombre * » - nommée, par exemple, « nombre de demandes » ou « nombre d’événements », selon le type de télémétrie. S’il est > 1, l’échantillonnage se produit. S’il est égal à 3, l’échantillonnage est de 33 % : chaque enregistrement conservé correspond à 3 enregistrements générés à l’origine.
+* Si vous consignez des événements personnalisés et que vous souhaitez vous assurer qu’un ensemble d’événements soit conservé ou ignoré conjointement, faites en sorte qu’ils aient la même valeur OperationId.
+* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](app-insights-analytics-tour.md#counting-sampled-data). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
+
+
+## Types d’échantillonnage
+
 Il existe trois autres méthodes d’échantillonnage :
 
-* L’**échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées depuis le Kit de développement logiciel (SDK) dans votre application ASP.NET. Il s’agit du comportement par défaut depuis la version 2.0.0-beta3 du Kit de développement logiciel (SDK).
-* L’**échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées depuis votre serveur ASP.NET et les navigateurs de vos utilisateurs. Vous définissez le débit.
+* L’**échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées à partir du Kit de développement logiciel (SDK) dans votre application ASP.NET. Il s’agit du comportement par défaut depuis la version 2.0.0-beta3 du Kit de développement logiciel (SDK).
+* L’**échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées à partir de votre serveur ASP.NET et des navigateurs de vos utilisateurs. Vous définissez le débit.
 * L’**échantillonnage d’ingestion** réduit le volume de données de télémétrie conservées par le service Application Insights, à un débit défini par vous-même. Le trafic des données de télémétrie n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. 
 
 ## Échantillonnage d’ingestion
@@ -41,6 +53,8 @@ Définissez le taux d’échantillonnage dans le panneau Quota + tarification :
 ![Dans le panneau Vue d’ensemble de l’application, cliquez sur Paramètres, Quota + tarification, Échantillons conservés, sélectionnez un taux d’échantillonnage, puis cliquez sur Mettre à jour.](./media/app-insights-sampling/04.png)
 
 Comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique. Les données de mesure telles que les taux de demandes et le taux d’exceptions sont correctement conservées.
+
+Les points de données ignorés par l’échantillonnage ne sont disponibles dans aucune fonctionnalité Application Insights, par exemple l’[exportation continue](app-insights-export-telemetry.md).
 
 L’échantillonnage d’ingestion ne fonctionne pas pendant qu’une opération d’échantillonnage adaptatif ou taux fixe basé sur un Kit de développement logiciel (SDK) est en cours d’exécution. Si le taux d’échantillonnage dans le Kit de développement logiciel (SDK) est inférieur à 100 %, le taux d’échantillonnage d’ingestion que vous avez défini est ignoré.
 
@@ -74,7 +88,7 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 
     En cas de modification du pourcentage d’échantillonnage, délai avant que le pourcentage d’échantillonnage puisse de nouveau être réduit pour capturer moins de données.
 
-* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
 
     En cas de modification du pourcentage d’échantillonnage, délai avant que le pourcentage d’échantillonnage puisse de nouveau être augmenté pour capturer plus de données.
 
@@ -184,7 +198,7 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
 
 1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
 
-2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
+2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
 
     ```xml
 
@@ -241,6 +255,7 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
 ```
 
 ([En savoir plus sur les processeurs de télémétrie](app-insights-api-filtering-sampling.md#filtering).)
+
 
 ## Quand utiliser l’échantillonnage ?
 
@@ -315,9 +330,7 @@ Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à 
 
  * Oui, l’échantillonnage adaptatif modifie progressivement le pourcentage d’échantillonnage en fonction du volume de données de télémétrie constaté.
 
-*Puis-je déterminer le taux de l’échantillonnage adaptatif ?*
-
- * Oui, utilisez la méthode de code de configuration d’échantillonnage adaptatif pour fournir un rappel qui obtient le taux d’échantillonnage. Si vous utilisez l’exportation continue, le taux d’échantillonnage est répertorié dans les points de données exportés.
+ 
 
 *Si j’utilise l’échantillonnage à débit fixe, comment déterminer le pourcentage d’échantillonnage optimal pour mon application ?*
 
@@ -343,4 +356,4 @@ Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à 
 
  * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

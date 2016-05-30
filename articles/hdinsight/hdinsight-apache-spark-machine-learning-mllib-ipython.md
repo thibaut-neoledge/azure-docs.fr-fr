@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 ## Création d’une application Machine Learning à l’aide de Spark MLlib
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -167,10 +167,10 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
 ## Comprendre les données
 
-1. Commençons par nous faire une idée de ce que notre jeu de données contient. Par exemple, quelles sont les différentes valeurs dans la colonne **résultats** ?
+1. Commençons par nous faire une idée de ce que notre jeu de données contient. Par exemple, quelles sont les différentes valeurs dans la colonne **résultats** ?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	Un résultat similaire à ce qui suit s’affiche normalement :
@@ -412,4 +412,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

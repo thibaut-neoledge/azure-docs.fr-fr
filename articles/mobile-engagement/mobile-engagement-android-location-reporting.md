@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Génération de rapports d’emplacement Mobile Engagement pour Android"
-	description="Génération de rapports d’emplacement Azure Mobile Engagement pour Android"
+	pageTitle="Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android"
+	description="Décrit comment configurer la génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Rapports d’emplacement dans Engagement sur Android
+# Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Cette rubrique explique comment mettre en œuvre la génération de rapports d’emplacement Engagement dans votre application Android.
+Cette rubrique explique comment générer des rapports d’emplacement pour votre application Android.
 
-## Composants requis
+## Configuration requise
 
 [AZURE.INCLUDE [Conditions préalables](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Rapports d'emplacement
 
@@ -47,7 +46,7 @@ Pour activer le service de localisation de zone différé, vous pouvez utiliser 
 
 Vous devez également ajouter l'autorisation suivante si elle manque :
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou vous pouvez continuer à utiliser ``ACCESS_FINE_LOCATION`` si vous l’utilisez déjà dans votre application.
 
@@ -66,7 +65,7 @@ Pour activer les rapports d’emplacement en temps réel, ajoutez une ligne de c
 
 Vous devez également ajouter l'autorisation suivante si elle manque :
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou vous pouvez continuer à utiliser ``ACCESS_FINE_LOCATION`` si vous l’utilisez déjà dans votre application.
 
@@ -82,7 +81,7 @@ Par défaut, le rapport d'emplacement en temps réel utilise uniquement des empl
 
 Vous devez également ajouter l'autorisation suivante si elle manque :
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Rapports en arrière-plan
 
@@ -98,18 +97,18 @@ Par défaut, le rapport d'emplacement en temps réel est uniquement actif quand 
 
 Le rapport d'emplacement en arrière-plan sera arrêté si l'utilisateur redémarre son appareil. Pour configurer un redémarrage automatique au moment du démarrage, ajoutez ce qui suit :
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 Vous devez également ajouter l'autorisation suivante si elle manque :
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Autorisations Android M
+## Autorisations Android M
 
 À partir d’Android M, certaines autorisations sont gérées lors de l’exécution et nécessitent une approbation de l’utilisateur.
 
@@ -160,4 +159,4 @@ Voici un exemple de code à utiliser dans une activité de votre application pou
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

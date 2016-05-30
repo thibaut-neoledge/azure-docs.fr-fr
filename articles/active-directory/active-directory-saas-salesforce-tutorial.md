@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
@@ -22,7 +22,7 @@ Ce didacticiel explique comment connecter votre environnement Salesforce à Azur
 
 ##Composants requis
 
-1. Pour accéder à Active Directory Azure via le [portail de gestion Azure](https://manage.windowsazure.com), vous devez d’abord avoir un abonnement Azure valide.
+1. Pour accéder à Active Directory Azure via le [portail Azure Classic](https://manage.windowsazure.com), vous devez d’abord avoir un abonnement Azure valide.
 
 2. Vous devez avoir un client valide dans [Salesforce.com](https://www.salesforce.com/).
 
@@ -46,7 +46,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 ##Étape 1 : ajout de Salesforce à votre annuaire
 
-1. Dans le volet de navigation gauche du [portail de gestion Azure](https://manage.windowsazure.com), cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory**.
 
 	![Sélectionnez Active Directory dans le volet de navigation gauche.][0]
 
@@ -256,4 +256,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

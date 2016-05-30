@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Exportation de données Log Analytics vers Power BI
 
-[Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-service-get-started/) est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données. Log Analytics peut exporter automatiquement les données entre le référentiel OMS et Power BI afin de vous permettre de tirer parti de ses visualisations et de ses outils d’analyse.
+[Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/) est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données. Log Analytics peut exporter automatiquement les données entre le référentiel OMS et Power BI afin de vous permettre de tirer parti de ses visualisations et de ses outils d’analyse.
 
 Lorsque vous configurez Power BI avec Log Analytics, vous créez des requêtes de journal qui exportent les résultats vers les jeux de données correspondants dans Power BI. La requête et l’exportation poursuivent automatiquement leur exécution selon une planification que vous avez définie afin de maintenir à jour le jeu de données avec les dernières données collectées par Log Analytics.
 
-![Log Analytics vers Power BI](media/log-analytics-power-bi/overview.png)
+![Log Analytics vers Power BI](media/log-analytics-powerbi/overview.png)
 
 ## Planifications Power BI
 
@@ -29,13 +29,13 @@ Une *planification Power BI* inclut une recherche de journal qui exporte un jeu 
 
 Les champs du jeu de données correspondent aux propriétés des enregistrements renvoyés par la recherche de journal. Si la recherche renvoie des enregistrements de différents types, le jeu de données inclura toutes les propriétés de chacun des types d’enregistrements inclus.
 
-Il est recommandé d’utiliser une requête de recherche de journal qui renvoie des données brutes, plutôt que d’effectuer une consolidation à l’aide de commandes de type [Mesure](log-analytics-search-reference.md#measure). Vous pouvez effectuer des agrégations et des calculs dans Power BI à partir des données brutes.
+> [AZURE.NOTE] Il est recommandé d’utiliser une requête de recherche de journal qui retourne des données brutes, plutôt que d’effectuer une consolidation à l’aide de commandes de type [Mesure](log-analytics-search-reference.md#measure). Vous pouvez effectuer des agrégations et des calculs dans Power BI à partir des données brutes.
 
 ## Connexion de l’espace de travail OMS à Power BI
 
 Avant de pouvoir exporter des données de Log Analytics vers Power BI, vous devez connecter à votre espace de travail OMS à votre compte Power BI. Pour cela, procédez comme suit :
 
-1. Dans la console OMS, cliquez sur la mosaïque **Paramètres**.
+1. Dans la console OMS, cliquez sur la vignette **Paramètres**.
 2. Sélectionnez **Comptes**.
 3. Dans la section **Informations sur l’espace de travail**, cliquez sur **Se connecter à un compte Power BI**.
 4. Entrez les informations d’identification de votre compte Power BI.
@@ -44,8 +44,8 @@ Avant de pouvoir exporter des données de Log Analytics vers Power BI, vous deve
 
 Créez une planification Power BI pour chaque jeu de données à l’aide de la procédure suivante.
 
-1. Dans la console OMS, cliquez sur la mosaïque **Recherche**.
-2. Entrez une nouvelle requête ou sélectionnez une recherche enregistrée qui renvoie les données que vous souhaitez exporter vers **Power BI**.  
+1. Dans la console OMS, cliquez sur la vignette **Recherche de journal**.
+2. Entrez une nouvelle requête ou sélectionnez une recherche enregistrée qui retourne les données que vous souhaitez exporter vers **Power BI**.  
 3. Cliquez sur le bouton **Power BI** en haut de la page pour ouvrir la boîte de dialogue **Power BI**.
 4. Renseignez les informations du tableau suivant et cliquez sur **Enregistrer**.
 
@@ -60,60 +60,60 @@ Créez une planification Power BI pour chaque jeu de données à l’aide de la 
 
 Utilisez la procédure suivante pour afficher la liste des planifications Power BI.
 
-1. Dans la console OMS, cliquez sur la mosaïque **Paramètres**.
+1. Dans la console OMS, cliquez sur la vignette **Paramètres**.
 2. Sélectionnez **Power BI**.
 
 Vous obtenez, outre les détails de la planification, le nombre d’exécutions de la planification au cours de la semaine précédente ainsi que l’état de la dernière synchronisation. Si la synchronisation a rencontré des erreurs, vous pouvez cliquer sur le lien pour exécuter une recherche de journal afin d’obtenir les enregistrements et les détails de l’erreur.
 
-Vous pouvez supprimer une planification en cliquant sur le **X** dans la colonne **Supprimer**. Pour désactiver une planification, sélectionnez **Désactivé**. Pour modifier une planification, vous devez la supprimer et la recréer avec les nouveaux paramètres.
+Vous pouvez supprimer une planification en cliquant sur le **X** dans **Supprimer la colonne**. Pour désactiver une planification, sélectionnez **Désactivé**. Pour modifier une planification, vous devez la supprimer et la recréer avec les nouveaux paramètres.
 
-![Planifications Power BI](media/log-analytics-power-bi/schedules.png)
+![Planifications Power BI](media/log-analytics-powerbi/schedules.png)
 
 ## Exemple de procédure pas à pas
 La section suivante explique, au travers d’un exemple, comment création une planification Power BI et utiliser son jeu de données pour créer un rapport simple. Dans cet exemple, toutes les données de performances d’un ensemble d’ordinateurs sont exportées vers Power BI. Un graphique linéaire est ensuite créé pour afficher l’utilisation du processeur.
 
 ### Création de la recherche de journal
-Nous allons commencer par créer une recherche de journal sur les données que vous souhaitez envoyer au jeu de données. Dans cet exemple, nous allons utiliser une requête qui renvoie toutes les données de performances des ordinateurs dont le nom commence par *srv*.
+Nous allons commencer par créer une recherche de journal sur les données que vous souhaitez envoyer au jeu de données. Dans cet exemple, nous allons utiliser une requête qui retourne toutes les données de performances des ordinateurs dont le nom commence par *srv*.
 
-![Planifications Power BI](media/log-analytics-power-bi/walkthrough-query.png)
+![Planifications Power BI](media/log-analytics-powerbi/walkthrough-query.png)
 
 ### Création d’une recherche Power BI
-Cliquez sur le bouton **Power BI** pour ouvrir la boîte de dialogue Power BI et renseignez les informations requises. Nous voulons exécuter cette recherche une fois par heure et créer un jeu de données nommé *Contoso Perf*. Puisque nous avons déjà ouvert la recherche qui permet de créer les données souhaitées, nous allons conserver la valeur par défaut de l’option *Utiliser la requête de recherche active* pour **Recherche enregistrée**.
+Cliquez sur le bouton **Power BI** pour ouvrir la boîte de dialogue Power BI et renseignez les informations requises. Vous souhaitez exécuter cette recherche une fois par heure et créer un jeu de données nommé *Contoso Perf*. Puisque vous avez déjà ouvert la recherche qui permet de créer les données souhaitées, conservez la valeur par défaut de l’option *Utiliser la requête de recherche active* pour **Recherche enregistrée**.
 
-![Recherche Power BI](media/log-analytics-power-bi/walkthrough-schedule.png)
+![Recherche Power BI](media/log-analytics-powerbi/walkthrough-schedule.png)
 
 ### Vérification de la recherche Power BI
-Pour vérifier que la planification a été correctement créée, nous allons afficher la liste des recherches Power BI sous la mosaïque **Paramètres** dans le tableau de bord OMS. Attendez quelques minutes et actualisez cette vue jusqu’à ce que vous obteniez confirmation que la synchronisation a été exécutée.
+Pour vérifier que la planification a été correctement créée, affichez la liste des recherches Power BI sous la vignette **Paramètres** dans le tableau de bord OMS. Attendez quelques minutes et actualisez cette vue jusqu’à ce que vous obteniez confirmation que la synchronisation a été exécutée.
 
-![Recherche Power BI](media/log-analytics-power-bi/walkthrough-schedules.png)
+![Recherche Power BI](media/log-analytics-powerbi/walkthrough-schedules.png)
 
 ### Vérification du jeu de données dans Power BI
-Connectez-vous à votre compte à l’adresse [powerbi.microsoft.com](http://powerbi.microsoft.com/) et accédez à la section **Jeux de données** en bas du volet gauche. Comme vous pouvez le voir, le jeu de données *Contoso Perf* apparaît, ce qui signifie que l’exportation a bien été exécutée.
+Connectez-vous à votre compte à l’adresse [powerbi.microsoft.com](http://powerbi.microsoft.com/) et faites défiler le volet gauche vers le bas jusque **Jeux de données**. Comme vous pouvez le voir, le jeu de données *Contoso Perf* apparaît, ce qui signifie que l’exportation a réussi.
 
-![Jeu de données Power BI](media/log-analytics-power-bi/walkthrough-datasets.png)
+![Jeu de données Power BI](media/log-analytics-powerbi/walkthrough-datasets.png)
 
 ### Création d’un rapport dérivé du jeu de données
 Sélectionnez le jeu de données **Contoso Perf**, puis cliquez sur **Résultats** dans le volet **Champs** pour afficher les champs qui font partie de ce jeu de données. Pour créer un graphique linéaire illustrant l’utilisation des ressources processeur de chaque ordinateur, effectuez les actions suivantes.
 
 1. Sélectionnez la visualisation Graphique en courbes.
-2. Faites glisser **ObjectName** vers **Filtre du niveau de rapport** et cochez la case **Processeur**.
-3. Faites glisser **CounterName** vers **Filtre du niveau de rapport** et cochez **% temps processeur**.
-4. Faites glisser **CounterValue** vers **Valeurs**.
-5. Faites glisser **Ordinateur** vers **Légende**.
-6. Faites glisser **TimeGenerated** vers **Axe**.
+2. Faites glisser **ObjectName** sur **Filtre du niveau de rapport** et cochez la case **Processeur**.
+3. Faites glisser **CounterName** sur **Filtre du niveau de rapport** et cochez **% temps processeur**.
+4. Faites glisser **CounterValue** sur **Valeurs**.
+5. Faites glisser **Ordinateur** sur **Légende**.
+6. Faites glisser **TimeGenerated** sur **Axe**.
 
 Comme vous pouvez le voir, le graphique en courbes obtenu s’affiche avec les données de notre jeu de données.
 
-![Graphique en courbes Power BI](media/log-analytics-power-bi/walkthrough-linegraph.png)
+![Graphique en courbes Power BI](media/log-analytics-powerbi/walkthrough-linegraph.png)
 
 ### Enregistrement du rapport
 Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’écran, puis vérifiez qu’il apparaît désormais dans la section Rapports dans le volet gauche.
 
-![Rapports Power BI](media/log-analytics-power-bi/walkthrough-report.png)
+![Rapports Power BI](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## Étapes suivantes
 
 - Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
-- Découvrez comment utiliser [Power BI](powerbi.microsoft.com) pour créer des visualisations basées sur des exportations de données Log Analytics.
+- Découvrez comment utiliser [Power BI](powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

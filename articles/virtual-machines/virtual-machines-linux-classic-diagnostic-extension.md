@@ -44,7 +44,7 @@ L’extension peut être activée via le [portail Azure](https://ms.portal.azure
 Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ « URL du blog Windows »/).
 
 
-Cet article est centré sur l’activation et la configuration de l’extension via des commandes de l’interface de ligne de commande Azure. Ceci vous permet de lire et d’afficher directement les données de la table de stockage.
+Cet article est centré sur l’activation et la configuration de l’extension via des commandes de l’interface de ligne de commande Azure. Ceci vous permet de lire et d’afficher directement les données de la table de stockage. Sachez que les méthodes de configuration décrites ci-dessous ne fonctionnent pas pour le portail Azure. Pour afficher et configurer le système et des données de performance directement depuis le portail Azure, cette extension doit être activée via le portail Azure, comme indiqué dans le paragraphe précédent.
 
 
 ## Composants requis
@@ -74,15 +74,13 @@ Pour la version 2.0 et ultérieure, les données collectées par défaut compren
 ###   Scénario 2 Personnaliser les métriques de surveillance des performances  
 Cette section décrit comment personnaliser le tableau des données de diagnostic et de performance.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu apparaissant dans l’exemple suivant. Spécifiez les données spécifiques que vous souhaitez collecter.
+Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu comme décrit par le scénario 1 ci-dessus. Créez également un fichier nommé PrivateConfig.json comme dans l’exemple suivant. Spécifiez les données spécifiques que vous souhaitez collecter.
 
 Pour tous les fournisseurs et les variables pris en charge, consultez ce [document](https://scx.codeplex.com/wikipage?title=xplatproviders). Vous pouvez avoir plusieurs requêtes et les stocker dans plusieurs tables en ajoutant d’autres requêtes dans le script.
 
 Par défaut, les données de Rsyslog sont toujours collectées.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -90,17 +88,15 @@ Par défaut, les données de Rsyslog sont toujours collectées.
 	}
 
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions ’2.*’ --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scénario 3 Charger vos propres fichiers journaux
 Cette section décrit comment collecter et charger des fichiers journaux spécifiques dans votre compte de stockage. Vous devez spécifier le chemin d’accès à votre fichier journal, ainsi que le nom de la table où stocker votre journal. Vous pouvez avoir plusieurs fichiers journaux en ajoutant plusieurs entrées fichier/table au script.
 
-Étape 1. Créez un fichier nommé PrivateConfig.json avec le contenu suivant.
+Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu décrit dans le scénario 1. Créez un autre fichier nommé PublicConfig.json avec le contenu suivant.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -109,21 +105,19 @@ Cette section décrit comment collecter et charger des fichiers journaux spécif
 	}
 
 
-Étape 2. Exécutez **azure vm extension set nom\_machine\_virtuelle LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions ’2.*’ --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scénario 4 Désactiver l’extension de surveillance Linux
-Étape 1. Créez un fichier nommé PrivateConfig.json avec le contenu suivant.
+Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu décrit dans le scénario 1. Créez un autre fichier nommé PublicConfig.json avec le contenu suivant.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
-Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions ’2.*’ --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Passer en revue vos données
@@ -143,4 +137,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 ## Problèmes connus
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

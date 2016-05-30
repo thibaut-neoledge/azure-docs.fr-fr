@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="05/11/2015" 
 	ms.author="donnam"/>
 
 # Prise en main de l'authentification dans Mobile Services
@@ -27,7 +27,7 @@
 
 Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
 2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
@@ -76,7 +76,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
     Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié.
 
-    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d’instancier l’objet `MobileServiceClient`.
 
@@ -109,7 +109,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

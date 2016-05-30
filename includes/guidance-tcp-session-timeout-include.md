@@ -1,26 +1,20 @@
-##TCP settings for Azure VMs
+##Paramètres TCP pour les machines virtuelles Azure
 
-Azure VMs communicate with the public Internet by using [NAT][nat] (Network Address Translation). NAT devices assign a public IP address and port to an Azure VM, allowing that VM to establish a socket for communication with other devices. If packets stop flowing through that socket after a specific time, the NAT device kills the mapping, and the socket is free to be used by other VMs.
+Les machines virtuelles Azure communiquent avec l’Internet public à l’aide de la traduction d’adresses réseau ou [NAT][nat]. Les appareils NAT attribuent une adresse IP publique et un port à une machine virtuelle Azure, permettant à celle-ci d’établir un socket pour communiquer avec d’autres appareils. Si le flux de paquets transitant via ce socket s’interrompt après une durée donnée, l’appareil NAT supprime le mappage et libère le socket pour d’autres machines virtuelles.
 
-This is a common NAT behavior, which can cause communication issues on TCP based applications that expect a socket to be maintained beyond a time-out period. There are two idle timeout settings to consider, for sessions in a *established connection* state:
+Ce comportement NAT courant peut entraîner des problèmes de communication sur les applications TCP qui prévoient le maintien d’un socket au-delà d’un délai. Il y a deux délais à prendre en compte pour les sessions avec une *connexion établie* :
 
-- **inbound** through the [Azure load balancer][azure-lb-timeout]. This timeout defaults to 4 minutes, and can be adjusted up to 30 minutes.
-- **outbound** using [SNAT][snat] (Source NAT). This timeout is set to 4 minutes, and cannot be adjusted.
+- **entrant** via [Azure Load Balancer][azure-lb-timeout]. Ce délai est de 4 minutes par défaut. Sa valeur maximale est de 30 minutes.
+- **sortant** à l’aide de [SNAT][snat] (Source NAT). Ce délai est de 4 minutes et n’est pas modifiable.
 
-To ensure connections are not lost beyond the timeout limit, you should make sure either your application keeps the session alive, or you can configure the underlying operating system to do so. The settings to be used are different for Linux and Windows systems, as shown below.
+Pour garantir le maintien des connexions au-delà de ce délai, vous devez vous assurer que votre application garde la session active ou configurer le système d’exploitation sous-jacent en ce sens. Les paramètres à utiliser sont différents pour les systèmes Linux et Windows, comme indiqué ci-dessous.
 
-For [Linux][linux], you should change the kernel variables below.
-net.ipv4.tcp_keepalive_time = 120
-net.ipv4.tcp_keepalive_intvl = 30
-net.ipv4.tcp_keepalive_probes = 8
+Sous [Linux][linux], vous devez modifier les variables de noyau ci-dessous : net.ipv4.tcp\_keepalive\_time = 120 net.ipv4.tcp\_keepalive\_intvl = 30 net.ipv4.tcp\_keepalive\_probes = 8
  
-For [Windows][windows], you should change the registry values below.
-KeepAliveInterval = 30
-KeepAliveTime = 120
-TcpMaxDataRetransmissions = 8
+Sous [Windows][windows], vous devez modifier les valeurs ci-dessous dans le Registre : KeepAliveInterval = 30 KeepAliveTime = 120 TcpMaxDataRetransmissions = 8
 
 
-The settings above ensure a keep alive packet is sent after 2 minutes (120 seconds) of idle time, and then sent every 30 seconds. And if 8 of those packets fail, the session is dropped.
+Les paramètres ci-dessus garantissent l’envoi d’un paquet de maintien d’activité après 2 minutes (120 secondes) d’inactivité, puis toutes les 30 secondes. Si l’envoi de 8 de ces paquets échoue, la session est fermée.
 
 <!-- links -->
 [nat]: http://computer.howstuffworks.com/nat.htm

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="05/05/2016" 
 	ms.author="arramac"/>
 	
 # Indexation automatique dans Azure DocumentDB
@@ -67,4 +67,4 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 - Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

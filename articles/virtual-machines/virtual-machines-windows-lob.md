@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -85,4 +85,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 - Découvrez un [aperçu](virtual-machines-windows-lob-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

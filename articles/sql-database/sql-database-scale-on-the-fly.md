@@ -42,6 +42,16 @@ Les bases de données SQL incluent une innovante technologie de mise en mémoire
 
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
 
-Accédez à la page d’accueil pour voir les autres avantages des bases de données SQL. [Découvrir](https://azure.microsoft.com/services/sql-database/)
+Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Étapes suivantes
+
+Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
+
+## En savoir plus
+
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

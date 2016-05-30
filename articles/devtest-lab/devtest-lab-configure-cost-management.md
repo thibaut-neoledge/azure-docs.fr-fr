@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuration de la gestion des coûts | Microsoft Azure"
-	description="Découvrez comment configurer les fonctionnalités de gestion des coûts de votre DevTest Lab."
+	description="Découvrez comment configurer les fonctionnalités de gestion des coûts de DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Configurer la gestion des coûts
@@ -26,7 +26,7 @@ La fonctionnalité de gestion des coûts de DevTest Labs vous permet de suivre l
 
 Afin d'activer le graphique Tendance des coûts mensuels estimés, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -68,4 +68,4 @@ Voici quelques possibilités d’opérations pour la suite :
 - [Configurer des images Marketplace](./devtest-lab-configure-marketplace-images.md) - DevTest Labs prend en charge la création de nouvelles machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de nouvelles machines virtuelles dans un laboratoire.
 - [Créer une machine virtuelle dans un labo](./devtest-lab-add-vm-with-artifacts.md) - Montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="jgao"/>
 
 #Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
@@ -196,17 +196,49 @@ Il existe de nombreuses façons de programmer le processus :
 
 Pour les informations de tarification, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Pour supprimer un cluster du portail, consultez [Supprimer les clusters](#delete-clusters)
 
-##Modifier le nom d’utilisateur du cluster
+##Modifier les mots de passe
 
-Un cluster HDInsight peut disposer de deux comptes d'utilisateur. Le nom d’utilisateur du cluster HDInsight ( le compte d’utilisateur HTTP) et le compte d’utilisateur SSH sont créés durant le processus de création du cluster. Vous pouvez utiliser l’interface utilisateur web d’Ambari pour modifier le nom d’utilisateur et le mot de passe du compte d’utilisateur du cluster :
+Un cluster HDInsight peut disposer de deux comptes d'utilisateur. Le nom d’utilisateur du cluster HDInsight ( le compte d’utilisateur HTTP) et le compte d’utilisateur SSH sont créés durant le processus de création du cluster. Vous pouvez utiliser l’interface utilisateur web d’Ambari pour modifier le nom d’utilisateur et le mot de passe du compte d’utilisateur du cluster, et des actions de script pour modifier le compte d’utilisateur SSH :
 
-**Pour modifier le mot de passe de l’utilisateur du cluster HDInsight**
+###Modifier le mot de passe d’utilisateur du cluster
+
+> [AZURE.NOTE] Si vous modifiez le mot de passe d’utilisateur (admin) du cluster, les actions de script exécutées sur ce cluster risquent d’échouer. Si des actions de script persistantes ciblent des nœuds de travail, elles peuvent échouer quand vous ajoutez des nœuds au cluster par le biais d’opérations de redimensionnement. Pour plus d’informations sur les actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Connectez-vous à l’interface utilisateur web d’Ambari à l’aide des informations d’identification de l’utilisateur du cluster HDInsight. Le nom d’utilisateur par défaut est **admin**. L’URL est **https://<HDInsight Cluster Name>azurehdinsight.net**.
 2. Cliquez sur **Admin** dans le menu supérieur et cliquez sur « Gérer Ambari ». 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs**.
 4. Cliquez sur **Admin**.
 5. Cliquez sur **Modifier le mot de passe**.
+
+Ambari modifie ensuite le mot de passe sur tous les nœuds du cluster.
+
+###Modifier le mot de passe d’utilisateur SSH
+
+1. À l’aide d’un éditeur de texte, enregistrez ce qui suit dans un fichier nommé __changepassword.sh__.
+
+    > [AZURE.IMPORTANT] Vous devez utiliser un éditeur qui utilise LF comme caractère de fin de ligne. Si l’éditeur utilise CRLF, le script échoue.
+    
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+
+2. Chargez le fichier sur un emplacement de stockage accessible à partir de HDInsight à l’aide d’une adresse HTTP ou HTTPS. Par exemple, un magasin de fichiers public tel que le stockage d’objets blob Azure ou OneDrive. Enregistrez l’URI (adresse HTTP ou HTTPS), dans le fichier, car vous en aurez besoin à l’étape suivante.
+
+3. Dans le portail Azure, sélectionnez votre cluster HDInsight, puis __Tous les paramètres__. Dans le panneau __Paramètres__, sélectionnez __Actions de script__.
+
+4. Dans le panneau __Actions de script__, sélectionnez __Envoyer__. Quand le panneau __Envoyer une action de script__ s’affiche, entrez les informations suivantes.
+
+    | Champ | Valeur |
+    | ----- | ----- |
+    | Nom | Modifier le mot de passe SSH |
+    | URI de script bash | URI du fichier changepassword.sh |
+    | Nœuds (En-tête, Collaborateur, Nimbus, Superviseur, Zookeeper, etc.) | ✓ pour tous les types de nœuds répertoriés |
+    | Paramètres | Entrez le nom d’utilisateur SSH, puis le nouveau mot de passe. Il doit y avoir un espace entre le nom d’utilisateur et le mot de passe.
+    | Conservez cette action de script... | Laissez ce champ non coché.
+
+5. Sélectionnez __Créer__ pour appliquer le script. Une fois le script terminé, vous pourrez vous connecter au cluster à l’aide de SSH avec le nouveau mot de passe.
 
 ##Octroyer/Révoquer l’accès
 
@@ -227,7 +259,7 @@ Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer ou oct
 1. Connectez-vous au [portail][azure-portal].
 2. Cliquez sur **Parcourir tout** dans le menu de gauche, puis cliquez sur **Abonnements**. Chaque abonnement a un nom et un ID.
 
-Chaque cluster est lié à un abonnement Azure. L’ID d’abonnement est indiqué dans la mosaïque **Essential** du cluster. Voir [Énumération et affichage des clusters](#list-and-show-clusters).
+Chaque cluster est lié à un abonnement Azure. L’ID d’abonnement est indiqué dans la vignette **Essential** du cluster. Voir [Énumération et affichage des clusters](#list-and-show-clusters).
 
 ##Trouvez le groupe de ressources 
 
@@ -241,7 +273,7 @@ Voir [Énumération et affichage des clusters](#list-and-show-clusters).
 
 ##Trouvez le compte de stockage par défaut
 
-Chaque cluster HDInsight dispose d’un compte de stockage par défaut. Le compte de stockage par défaut et ses clés pour un cluster se trouvent sous **Paramètres**/**Propriétés**/**Clés Azure Storage**. Voir [Énumération et affichage des clusters](#list-and-show-clusters).
+Chaque cluster HDInsight dispose d’un compte de stockage par défaut. Le compte de stockage par défaut et ses clés pour un cluster se trouvent sous **Paramètres**/**Propriétés**/**Clés de stockage Azure**. Voir [Énumération et affichage des clusters](#list-and-show-clusters).
 
 
 ##Exécuter des requêtes Hive
@@ -271,7 +303,7 @@ Vous pouvez utiliser le portail Azure pour parcourir le contenu du conteneur par
 4. Cliquez sur **Paramètres**.
 5. Dans le panneau **Paramètres**, cliquez sur **Clés de stockage Azure**.
 6. Cliquez sur le nom du compte de stockage par défaut.
-7. Cliquez sur la mosaïque **Objets blob**.
+7. Cliquez sur la vignette **Objets blob**.
 8. Cliquez sur le nom du conteneur par défaut.
 
 
@@ -300,4 +332,4 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

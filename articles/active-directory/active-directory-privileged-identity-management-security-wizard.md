@@ -31,12 +31,12 @@ La deuxième étape de l’Assistant vous donne la possibilité de modifier les 
 
 Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche plus. La prochaine fois que vous ou un autre administrateur de sécurité utiliserez PIM, vous verrez le tableau de bord de PIM.
 
-- Si vous souhaitez ajouter des utilisateurs dans des rôles ou en supprimer, ou encore modifier des affectations de l’état permanent à l’état temporaire, consultez la rubrique [Comment ajouter ou supprimer un rôle d’utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user) pour en savoir plus.
-- Si vous souhaitez autoriser plus d’utilisateurs à gérer PIM, consultez la rubrique expliquant [comment affecter un accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim) pour en savoir plus.
+- Si vous souhaitez ajouter des utilisateurs dans des rôles ou en supprimer, ou encore modifier des affectations de l’état permanent à l’état temporaire, consultez la rubrique [Comment ajouter ou supprimer un rôle d’utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user.md) pour en savoir plus.
+- Si vous souhaitez autoriser plus d’utilisateurs à gérer PIM, consultez la rubrique expliquant [comment affecter un accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md) pour en savoir plus.
 
 
 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

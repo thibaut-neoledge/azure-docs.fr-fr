@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Flux Azure Active Directory Identity Protection | Microsoft Azure"
+	pageTitle="Expériences de connexion avec Azure AD Identity Protection | Microsoft Azure"
 	description="Fournit une vue d’ensemble de l’expérience utilisateur lorsque Identity Protection a atténué ou corrigé la connexion d’un utilisateur ou lorsque l’authentification multifacteur est requise par une stratégie."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
-#Flux Azure Active Directory Identity Protection
+# Expériences de connexion avec Azure AD Identity Protection
 
-Avec Azure Active Directory Identity Protection, vous pouvez :
+Avec Azure Active Directory Identity Protection, vous pouvez :
 
 - exiger que les utilisateurs s’inscrivent à l’authentification multifacteur
 
@@ -57,12 +57,12 @@ Cette rubrique donne une vue d’ensemble de l’expérience de connexion d’un
 
 L’utilisateur bénéficie d’une expérience optimale pour le flux de récupération de compte compromis et de connexion à risque lorsqu’il peut effectuer lui-même l’opération de récupération. Si des utilisateurs sont inscrits à l’authentification multifacteur, ils ont déjà un numéro de téléphone associé à leur compte qu’ils peuvent utiliser pour répondre aux questions de sécurité. La récupération d’un compte suite à sa compromission ne nécessite pas l’intervention du support technique ou d’un administrateur. Par conséquent, nous vous recommandons vivement de demander à vos utilisateurs de s’inscrire à l’authentification multifacteur.
 
-Les administrateurs peuvent :
+Les administrateurs peuvent :
 
-- définir une stratégie qui impose aux utilisateurs d’ajouter une vérification de sécurité supplémentaire à leur compte ; 
-- autoriser les utilisateurs à ignorer l’inscription à l’authentification multifacteur pendant 30 jours maximum, s’ils souhaitent leur accorder un délai de grâce avant l’inscription.
+- définir une stratégie qui impose aux utilisateurs d’ajouter une vérification de sécurité supplémentaire à leur compte ; 
+- autoriser les utilisateurs à ignorer l’inscription à l’authentification multifacteur pendant 30 jours maximum, s’ils souhaitent leur accorder un délai de grâce avant l’inscription.
 
-**L’inscription à l’authentification multifacteur comporte trois étapes :**
+**L’inscription à l’authentification multifacteur comporte trois étapes :**
 
 1. Dans la première étape, l’utilisateur reçoit une notification concernant la nécessité d’inscrire le compte à l’authentification multifacteur. <br><br> ![Correction](./media/active-directory-identityprotection-flows/140.png "Correction") <br>
 
@@ -79,7 +79,7 @@ Les administrateurs peuvent :
 
 Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter.
 
-**Le flux de connexion à risque comporte deux étapes :**
+**Le flux de connexion à risque comporte deux étapes :**
 
 1. L’utilisateur est informé que quelque chose d’inhabituel a été détecté concernant sa connexion, par exemple en cas de connexion depuis un nouvel emplacement, un nouvel appareil ou une nouvelle application. <br> <br> ![Correction](./media/active-directory-identityprotection-flows/120.png "Correction") <br>
 
@@ -99,7 +99,7 @@ Il est important que les utilisateurs s’inscrivent à l’authentification mul
 
 Pour éviter cette situation, exigez des utilisateurs qu’ils s’inscrivent à l’authentification multifacteur dès que possible, afin qu’un numéro de téléphone soit déjà associé à leur compte en cas de compromission de ce dernier. Les administrateurs peuvent également bloquer complètement les utilisateurs compromis qui ne sont pas inscrits à l’authentification multifacteur.
 
-**L’inscription à l’authentification multifacteur au cours d’une connexion à risque comporte deux étapes :**
+**L’inscription à l’authentification multifacteur au cours d’une connexion à risque comporte deux étapes :**
 
 1. L’utilisateur est averti que le compte est à risque. <br><br> ![Correction](./media/active-directory-identityprotection-flows/150.png "Correction") <br>
 
@@ -114,7 +114,7 @@ Pour les étapes suivantes, consultez [Inscription à l’authentification multi
 
 Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a été configurée, les utilisateurs dont le niveau de risque correspond à celui spécifié dans la stratégie (et qui sont donc considérés comme compromis) doivent passer par le flux de récupération de compte compromis avant de pouvoir se connecter.
 
-**Le flux de récupération de compte compromis comporte trois étapes :**
+**Le flux de récupération de compte compromis comporte trois étapes :**
 
 1. L’utilisateur est informé que la sécurité de son compte est menacée en raison d’activités suspectes ou de la divulgation de ses informations d’identification.
 
@@ -158,4 +158,4 @@ Si des utilisateurs compromis voient leur connexion bloquée, un administrateur 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

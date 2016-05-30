@@ -3,7 +3,7 @@
 	description="Documentation relative aux API Azure Machine Learning Recommendations pour un moteur de recommandations disponible dans Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/05/2016" 
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
@@ -94,8 +94,8 @@ Crée une demande de création de modèle.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
-| apiVersion | 1.0 |
-|||
+| apiVersion | 1.0 | 
+||| 
 | Corps de la demande | AUCUN |
 
 
@@ -890,18 +890,18 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Corps de la requête | 
-<ins>Lorsque vous fournissez des ID d’éléments pour les règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que celui utilisé dans le fichier de catalogue)</ins><br>
-<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Pour ajouter une règle FeatureBlockList :</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Pour ajouter une règle WhiteList :</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Pour ajouter une règle FeatureWhiteList :</ins><br>
-<br>
+<ins>Quand vous fournissez des ID d’éléments pour les règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que celui utilisé dans le fichier de catalogue)</ins><br> 
+<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureBlockList :</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
+Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
+<ins>Pour ajouter une règle WhiteList :</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Pour ajouter une règle FeatureWhiteList :</ins><br> 
+<br> 
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Réponse** :
@@ -994,9 +994,8 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 | Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
 | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
 | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
-| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4000 | Description de cet élément. |
-| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4000 ; nombre maximal de fonctionnalités : 20 |
-| Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
+| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | 
+| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
@@ -1213,7 +1212,10 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID d’élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille de fichier maximale : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion | 1.0 | 
+|||
+| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -2940,7 +2942,8 @@ La réponse inclut une entrée par élément recommandé. Chaque entrée compren
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
 ##13\. Historique d’utilisation de l’utilisateur
-Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. Cette API permet de récupérer l’historique de l’utilisateur.
+Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. 
+Cette API permet de récupérer l’historique de l’utilisateur.
 
 Remarque : l’historique de l’utilisateur est actuellement disponible uniquement pour les builds de recommandation.
 
@@ -3097,7 +3100,10 @@ Code d'état HTTP : 200
 
 
 ##15\. Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br>
+Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br>
+Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br>
+© 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

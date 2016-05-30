@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Activation des applications hybrides locales et dans le cloud
@@ -38,13 +38,13 @@ Les applications hybrides locales et dans le cloud sont une réalité des enviro
 - [Informations sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 - [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md)
 - [Référence de l’API REST de Service Bus](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Inscription pour une version d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Ouvrir gratuitement un compte Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Services connexes
 
 - [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)
-- [Mobile Services](https://azure.microsoft.com/services/mobile-services/)
+- [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

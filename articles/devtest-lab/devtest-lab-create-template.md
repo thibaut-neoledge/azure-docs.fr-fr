@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
-	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
+<properties
+	pageTitle="Créer une image personnalisée DevTest Labs à partir d’un fichier VHD | Microsoft Azure"
+	description="Découvrez comment créer une image personnalisée à partir d’un fichier VHD, qui peut ensuite être utilisé pour créer des machines virtuelles dans DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Création d’une image personnalisée DevTest Lab à partir d’un fichier VHD
+# Créer une image personnalisée DevTest Labs à partir d’un fichier VHD
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Une fois que vous avez [créé une instance de service DevTest Lab](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou une *image du Marketplace*. Dans cet article, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cet article.
+Une fois que vous avez [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou *image du Marketplace*. Dans cet article, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cet article.
 
-## Création d’une image personnalisée
+## Créer une image personnalisée
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -32,11 +32,11 @@ Une fois que vous avez [créé une instance de service DevTest Lab](devtest-lab-
 
 1. Le panneau **Paramètres** du laboratoire sélectionné s’affiche.
 
-1. Dans le panneau **Paramètres** du laboratoire, appuyez sur **Images personnalisées**.
+1. Dans le panneau **Paramètres** du laboratoire, cliquez sur **Images personnalisées**.
 
     ![Option Images personnalisées](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-1. Dans le panneau **Paramètres** du laboratoire, appuyez sur **+ Image personnalisée**.
+1. Dans le panneau **Images personnalisées**, cliquez sur **+ Image personnalisée**.
 
     ![Ajouter une image personnalisée](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -72,10 +72,10 @@ Pour ajouter une nouvelle image personnalisée, vous devez avoir accès à un fi
 
     ![Télécharger une image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. Le panneau suivant affiche des instructions pour modifier et exécuter un script PowerShell qui télécharge un fichier VHD sur votre abonnement Azure. **Remarque :** la taille du fichier VHD et votre vitesse de connexion influent sur la durée de ce processus.
+1. Le panneau suivant affiche des instructions pour modifier et exécuter un script PowerShell qui télécharge un fichier VHD sur votre abonnement Azure. **Remarque :** la taille du fichier VHD et votre vitesse de connexion influent sur la durée de ce processus.
 
 ##Étapes suivantes
 
-Une fois que vous avez ajouté une image personnalisée à utiliser pendant la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre instance du service DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).
+Une fois que vous avez ajouté une image personnalisée à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

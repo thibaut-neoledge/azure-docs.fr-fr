@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Connexion à l’aide d’une autre méthode avec Azure Multi-Factor Authentication
@@ -33,4 +33,6 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
 <li>Choisissez une autre méthode et connectez-vous.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

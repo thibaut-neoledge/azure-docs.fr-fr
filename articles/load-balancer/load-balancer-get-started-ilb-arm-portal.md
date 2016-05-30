@@ -50,22 +50,22 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
 
 Après la création de l’équilibreur de charge, accédez à la ressource d’équilibreur de charge pour la configurer. Vous devez tout d’abord configurer un pool d’adresses de serveur principal, ainsi qu’une sonde avant de configurer une règle d’équilibrage de charge.
 
-### Étape 1 :
+### Étape 1 :
 
 Configurer un pool principal :
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
 2. Dans le panneau **Paramètres**, cliquez sur **Pools principaux**. 
-3. Dans le panneau **Sondes**, cliquez sur **Ajouter**.
+3. Dans le panneau **Pools d’adresses principaux**, cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter un pool principal**, tapez le **nom** du pool principal, puis cliquez sur **OK**.
 
-### Étape 2 
+### Étape 2 
 
 Configurer une sonde :
  
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
 2. Dans le panneau **Paramètres**, cliquez sur **Sondes**. 
-3. Dans le panneau **Pools d’adresses principaux**, cliquez sur **Ajouter**.
+3. Dans le panneau **Sondes**, cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter une sonde**, tapez le **nom** de la sonde.
 5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
 6. Sous **Port**, spécifiez le port à utiliser pour accéder à la sonde.
@@ -74,7 +74,7 @@ Configurer une sonde :
 5. Sous **Seuil défectueux**, spécifiez le nombre de tentatives devant échouer avant que la machine virtuelle principale ne soit marquée comme défectueuse.
 5. Cliquez sur **OK** pour créer la sonde.
 
-### Étape 3
+### Étape 3
 
 Configurer les règles d’équilibrage de la charge :
 
@@ -97,4 +97,4 @@ Configurer les règles d’équilibrage de la charge :
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

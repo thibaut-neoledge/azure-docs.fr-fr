@@ -3,7 +3,7 @@
 	description="Traiter les données de SQL Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="fashah;garye" />
+	ms.date="05/16/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 
@@ -66,7 +66,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 
 ###<a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 
-Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
+Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
 	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -84,7 +84,7 @@ L’exemple ci-dessous illustre comment générer des fonctionnalités compartim
 
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
-Voici une brève introduction relative aux données de latitude/longitude (reposant sur les informations du site stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
+Voici une petite présentation des données de latitude/longitude issue du site stackoverflow : [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude) (Comment mesurer la précision de la latitude et de la longitude). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
 
 - Le signe indique si nous nous trouvons au nord, au sud, à l’est ou à l’ouest.
 - Un chiffre des centaines différent de zéro indique que nous utilisons la longitude, et non la latitude.
@@ -97,7 +97,7 @@ Voici une brève introduction relative aux données de latitude/longitude (repos
 - La cinquième décimale équivaut à 1,1 m maximum : elle permet de distinguer un arbre d’un autre. Un tel niveau de précision sur les appareils GPS commerciaux ne peut être atteint qu’au moyen d’une correction différentielle.
 - La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment l’utiliser pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
 
-Vous pouvez implémenter les informations d’emplacement comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Notez qu’il est également possible d’appeler un point de terminaison REST, tel que l’API Bing Cartes disponible à l’adresse `https://msdn.microsoft.com/library/ff701710.aspx`, pour obtenir les informations de région/secteur.
+Vous pouvez implémenter les informations de localisation comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Notez que vous pouvez aussi appeler un point de terminaison REST, tel que l’API Bing Cartes disponible dans [Rechercher un emplacement par point](https://msdn.microsoft.com/library/ff701710.aspx), pour obtenir des informations sur la région/le secteur.
 
 	select 
 		<location_columnname>
@@ -110,17 +110,17 @@ Vous pouvez implémenter les informations d’emplacement comme illustré ci-des
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’emplacement pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
+Vous pouvez en outre exploiter les fonctionnalités de localisation ci-dessus pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
 
 
-> [AZURE.TIP] Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] Vous pouvez insérer les enregistrements par programmation en utilisant le langage de votre choix. Vous aurez peut-être besoin d’insérer les données dans des blocs pour améliorer l’efficacité des écritures (pour obtenir un exemple illustrant la marche à suivre, consultez cet [exemple HelloWorld qui montre comment accéder à SQL Server avec python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)).
  
 
 > [AZURE.TIP] Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
-La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Lecteur][reader] dans Azure Machine Learning comme expliqué ci-dessous :
+La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données][reader] dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml][1]
 
@@ -139,7 +139,7 @@ La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md).
+Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans l’article [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md).
 
 ## Exemple de processus de science des données Azure en action
 
@@ -152,4 +152,4 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

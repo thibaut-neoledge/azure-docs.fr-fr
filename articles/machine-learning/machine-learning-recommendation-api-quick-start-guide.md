@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Guide de démarrage rapide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="05/09/2016" 
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
@@ -93,11 +93,11 @@ Création d'une requête « Créer un modèle » :
 | Corps de la demande | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
 
 OData XML
 
@@ -147,7 +147,7 @@ Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec
 | Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoir</th><th>Type</th><th>Description</th></tr><tr><td>ID d’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Nom de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l’élément</td></tr><tr><td>Catégorie de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle appartient cet élément (par exemple, livres de cuisine, théâtre…)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -195,7 +195,7 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |||
 | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>ID de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -238,9 +238,9 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
+|	apiVersion | 1\.0 |
 |||
-|Corps de la demande| Entrée de données d’événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l’exemple de corps d’événement ci-dessous.)|
+|Corps de la demande| Entrée de données d'événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l'exemple du corps d'événement ci-dessous.)|
 
 
 - Exemple pour l'événement « Click » :
@@ -333,7 +333,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** :
+**Réponse** :
 Code d'état HTTP : 200
 
 ###Génération d'un modèle de recommandation
@@ -348,9 +348,9 @@ Code d'état HTTP : 200
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
 |||
-| Corps de la demande | AUCUNE |
+| Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -425,7 +425,7 @@ OData XML
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -445,19 +445,19 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build.
 
-États de build valides :
- - Created : l’entrée de demande de build a été créée.
- - Queued : la demande de build a été déclenchée et mise en file d’attente.
- - Building : la build est en cours d’exécution.
- - Success : la build a été correctement exécutée.
- - Error : la build s’est terminée par un échec.
- - Cancelled : la build a été annulée.
- - Cancelling : la build est en cours d’annulation.
+État de build valide :
+- Created : l’entrée de demande de build a été créée.
+- Queued : la demande de build a été déclenchée et mise en attente.
+- Building : la build est en cours.
+- Success : la build a été correctement exécutée.
+- Error : la build s'est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d’annulation.
 
 Valeurs valides pour le type de build :
- - Rang - Build de classement. (Pour en savoir plus sur les builds de classement, reportez-vous au document « Documentation sur les API Machine Learning Recommandation »).
- - Recommandation - Build de recommandation.
- -Fbt - Build fréquemment achetés ensemble.
+- Rank - Build de classement. (Pour plus d’informations sur les builds de classement, consultez le document « Documentation sur les API Machine Learning Recommandation »).
+- Recommendation - Build de recommandation.
+- Fbt - Build fréquemment achetés ensemble.
 
 OData XML
 
@@ -511,7 +511,7 @@ OData XML
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
 
-**Réponse :**
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -677,7 +677,7 @@ L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
 
 ###Mise à jour du modèle
 Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active.
-*Identifiant de build active* : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
+*Identifiant de build active* : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
@@ -691,9 +691,9 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 | id | Identificateur unique du modèle (respecte la casse) |
 | apiVersion | 1\.0 |
 |||
-| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
+| Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -714,4 +714,4 @@ Certains exemples sont fournis à titre indicatif uniquement et sont fictifs.
 Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

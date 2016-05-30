@@ -21,9 +21,11 @@
 
 Par défaut, les clusters Hadoop ne sont pas optimisés pour les performances. Cet article présente quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
-[AZURE.INCLUDE [portail](../../includes/hdinsight-azure-portal.md)]
-
-* [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md)
+> [AZURE.IMPORTANT] Les étapes de ce document utilisent le portail Azure Classic. Microsoft ne recommande pas l’utilisation du portail Classic lors de la création de services. Pour obtenir une explication des avantages du portail Azure, consultez la rubrique [Portail Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Ce document inclut également des informations sur l’utilisation d’Azure PowerShell. Les extraits de code fournis sont basés sur des commandes qui utilisent Azure Service Management (ASM) pour travailler avec HDInsight et qui sont __déconseillées__. Ces commandes seront supprimées d’ici au 1er janvier 2017.
+>
+>Pour obtenir une version de ce document qui utilise le portail Azure, ainsi que des extraits de code PowerShell qui recourent à Azure Resource Manager (ARM), consultez [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md).
 
 ##Montée en charge des nœuds de travail
 
@@ -57,7 +59,7 @@ Vous pouvez activer n’importe quelle requête Hive pour Tez en faisant précé
 
 	set hive.execution.engine=tez;
 
-Tez doit être activé lors de l’approvisionnement. Voici un exemple de script PowerShell Azure pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
+Tez doit être activé lors de l’approvisionnement. Voici un exemple de script Azure PowerShell pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -92,11 +94,11 @@ Le partitionnement Hive est implémenté en réorganisant les données brutes en
 
 Considérations relatives au partitionnement :
 
-- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
+- **Évitez les sous-partitionnements** : les partitionnements appliqués à des colonnes contenant uniquement quelques valeurs peuvent entraîner des partitions très réduites. Par exemple, un partitionnement de genre crée uniquement deux partitions (masculin et féminin), ce qui réduit la latence de moitié seulement.
 
-- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
+- **Évitez les sur-partitionnements** : l’autre extrême, le partitionnement appliqué à une colonne avec une valeur unique (par exemple, userid) va entraîner de nombreuses partitions et communiquer un stress important au cluster namenode, car ce dernier devra gérer de grandes quantités de répertoires.
 
-- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
+- **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
 Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
@@ -139,9 +141,9 @@ Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apac
 
 Hive prend en charge différents formats de fichier. Par exemple :
 
-- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
-- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
-- **ORC/Parquet** : adapté pour les performances
+- **Texte** : il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
+- **Avro** : fonctionne correctement avec les scénarios d’interopérabilité
+- **ORC/Parquet** : adapté pour les performances
 
 Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker des données Hive. Par rapport aux autres formats, ORC présente les avantages suivants :
 
@@ -199,8 +201,8 @@ Pour plus d’informations, consultez la page [Exécution de requêtes vectoris�
 
 Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple :
 
-- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
-- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+- **Création de compartiments Hive** : cette technique permet de mettre en cluster ou de segmenter des jeux de données volumineux pour optimiser les performances des requêtes.
+- **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 - **Augmentation des raccords de réduction**
 
 ##<a id="nextsteps"></a>Étapes suivantes
@@ -218,4 +220,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

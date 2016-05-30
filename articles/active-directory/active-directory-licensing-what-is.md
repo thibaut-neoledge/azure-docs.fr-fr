@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/01/2016"
+    ms.date="05/16/2016"
     ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
@@ -45,7 +45,11 @@ En général, les informations d’abonnement Azure AD sont gérées par l’in
 
 > Lors de l'achat d'Azure AD ou Enterprise Mobility Suite via la licence en volume, l’activation de l'abonnement se produit automatiquement lorsque l'accord comprend d’autres services Microsoft Online, comme Office 365.
 
-Les fonctionnalités Azure AD payantes couvrent l’étendue de l’annuaire. Exemples : - Fonctionnalité d’attribution par groupe aux applications, activée sous l’application que vous gérez. - Fonctionnalités de gestion de groupe avancées et en libre service, disponibles sous la configuration du répertoire ou au sein du groupe concerné. - Rapports de sécurité Premium, accessibles dans l’onglet Génération de rapports. - Découverte des applications cloud, accessible dans le portail Azure sous Identité.
+Les fonctionnalités Azure AD payantes couvrent l’étendue de l’annuaire. Voici quelques exemples :
+- L’attribution par groupe aux applications, activée sous l’application que vous gérez.
+- Les fonctionnalités avancées et en libre-service de gestion des groupes sont disponibles sous la configuration d’annuaire ou dans le groupe donné.
+- Les rapports de sécurité Premium se trouvent dans l’onglet Rapports
+- La détection des applications cloud s’affiche dans le portail Azure sous Identité.
 
 ###Attribution de licences
 Alors que la configuration des fonctionnalités payantes ne nécessite rien d’autre qu’un abonnement, l’utilisation des fonctionnalités Azure AD payantes requiert la distribution de licences aux personnes adéquates. En général, une licence doit être attribuée à tout utilisateur ayant besoin d’accéder à une fonctionnalité Azure AD payante ou géré par le biais de ce type de fonctionnalité. L’attribution d’une licence est un mappage entre un utilisateur et un service acheté, comme Azure AD Premium, Azure AD Standard ou Enterprise Mobility Suite.
@@ -58,7 +62,9 @@ Avec l’attribution de licences par groupe, tout utilisateur non associé à un
 
 La prise en main d’Azure AD est d’une grande simplicité ; vous pouvez toujours créer votre annuaire dans le cadre de votre inscription à la version d’évaluation gratuite d’Azure. [En savoir plus sur l’inscription en tant qu’organisation](sign-up-organization.md). Les informations ci-après peuvent vous aider à vérifier que votre annuaire s’harmonise au mieux avec d’autres services Microsoft que vous consommez ou envisagez de consommer, ainsi qu’avec vos objectifs en obtenant le service.
 
-Voici quelques bonnes pratiques : - Si vous utilisez déjà l’un des services d’organisation de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans ce cas, vous devez continuer à utiliser le même annuaire pour les autres services, afin que la gestion des identités principales, y compris l’approvisionnement et l’authentification unique hybride, soit utilisable dans l’ensemble des services. Vos utilisateurs bénéficieront alors d’une expérience d’ouverture de session unique et de fonctionnalités enrichies dans tous les services. Par conséquent, si vous décidez d’acheter un service Azure AD payant pour vos ressources, nous vous recommandons d’utiliser le même répertoire pour effectuer cette opération. - Si vous prévoyez d’utiliser Azure AD pour un autre groupe d’utilisateurs (partenaires, clients, etc.), que vous souhaitez évaluer des services Azure AD indépendamment de votre service de production, ou que vous cherchez à configurer un environnement de bac à sable (sandbox) pour vos services, nous vous recommandons de commencer par créer un autre répertoire par le biais du Portail Azure Classic. [En savoir plus sur la création d’un nouveau répertoire Azure AD dans le Portail Azure Classic](active-directory-licensing-directory-independence.md). Ce nouvel annuaire sera créé avec votre compte en tant qu’utilisateur externe avec des autorisations d’administrateur globales. Lorsque vous vous connecterez au Portail Azure Classic avec ce compte, vous pourrez voir ce répertoire et accéder à toutes les tâches d’administration de répertoire. Nous vous recommandons de créer un compte local avec les privilèges appropriés pour gérer les autres services Microsoft (ceux qui ne sont pas accessibles par le biais du Portail Azure Classic). [En savoir plus sur la création de comptes d'utilisateurs dans Azure AD](active-directory-create-users.md).
+Voici quelques meilleures pratiques :
+- Si vous utilisez déjà l’un des services d’organisation de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans ce cas, vous devez continuer à utiliser le même annuaire pour les autres services, afin que la gestion des identités principales, y compris l’approvisionnement et l’authentification unique hybride, soit utilisable dans l’ensemble des services. Vos utilisateurs bénéficieront alors d’une expérience d’ouverture de session unique et de fonctionnalités enrichies dans tous les services. Par conséquent, si vous décidez d’acheter un service Azure AD payant pour vos ressources, nous vous recommandons d’utiliser le même annuaire pour effectuer cette opération.
+- Si vous prévoyez d’utiliser Azure AD pour un autre groupe d’utilisateurs (partenaires, clients, etc.), que vous souhaitez évaluer des services Azure AD indépendamment de votre service de production, ou que vous cherchez à configurer un environnement de bac à sable (sandbox) pour vos services, nous vous recommandons de commencer par créer un autre annuaire par le biais du Portail Azure Classic. [En savoir plus sur la création d’un nouveau répertoire Azure AD dans le Portail Azure Classic](active-directory-licensing-directory-independence.md). Ce nouvel annuaire sera créé avec votre compte en tant qu’utilisateur externe avec des autorisations d’administrateur globales. Lorsque vous vous connecterez au Portail Azure Classic avec ce compte, vous pourrez voir ce répertoire et accéder à toutes les tâches d’administration de répertoire. Nous vous recommandons de créer un compte local avec les privilèges appropriés pour gérer les autres services Microsoft (ceux qui ne sont pas accessibles par le biais du Portail Azure Classic). [En savoir plus sur la création de comptes d'utilisateurs dans Azure AD](active-directory-create-users.md).
 
 > [AZURE.NOTE] Azure AD prend en charge les « utilisateurs externes », qui correspondent aux comptes d’utilisateurs d’une instance Azure AD qui ont été créés à l’aide d’un compte Microsoft (MSA) ou d’une identité Azure AD à partir d’un autre annuaire. Bien que nous ayons entrepris d’étendre cette fonctionnalité à tous les services d’organisation Microsoft, ces comptes ne sont actuellement pas pris en charge dans les expériences de certains services ; par exemple, le portail d’administration d’Office 365 ne prend pas en charge ces utilisateurs pour l’instant. En conséquence, les utilisateurs externes dotés de comptes Microsoft ne seront pas en mesure d’accéder au portail d’administration d’Office 365, tandis que les utilisateurs externes d’autres annuaires Azure AD seront ignorés. Dans ce dernier cas, seuls le compte local de l’utilisateur, l’annuaire Azure AD ou l’annuaire Office 365 dans lesquels l’utilisateur a été créé, seront accessibles par le biais de ces expériences.
 
@@ -97,7 +103,9 @@ Vous pouvez alors rechercher ou parcourir les groupes et les ajouter à la colon
 
 Lorsqu’un groupe est attribué, ses membres héritent des licences dans les 30 minutes qui suivent, mais le plus souvent en l’espace de 1 à 2 minutes seulement.
 
-Lors de l’attribution des licences Azure AD, des erreurs d’attribution peuvent se produire, mais restent relativement rares. Les erreurs d’attribution se limitent aux problèmes suivants : - Conflit d’attribution, lorsqu’un utilisateur a précédemment reçu une licence incompatible avec la licence actuelle. Dans ce cas, l’attribution de la nouvelle licence nécessitera la suppression de la licence précédente. - Dépassement du nombre de licences disponibles : lorsque le nombre d’utilisateurs des groupes attribués dépasse le nombre de licences disponibles, l’état d’attribution des utilisateurs reflétera l’échec de l’attribution du fait de licences manquantes.
+Lors de l’attribution des licences Azure AD, des erreurs d’attribution peuvent se produire, mais restent relativement rares. Les erreurs d’attribution se limitent aux problèmes suivants :
+- Conflit d’attribution, lorsqu’un utilisateur a précédemment reçu une licence incompatible avec la licence actuelle. Dans ce cas, l’attribution de la nouvelle licence nécessitera la suppression de la licence précédente.
+- Dépassement du nombre de licences disponibles : lorsque le nombre d’utilisateurs des groupes attribués dépasse le nombre de licences disponibles, l’état d’attribution des utilisateurs reflétera l’échec de l’attribution du fait de licences manquantes.
 
 ###Visualiser les licences attribuées
 
@@ -132,4 +140,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

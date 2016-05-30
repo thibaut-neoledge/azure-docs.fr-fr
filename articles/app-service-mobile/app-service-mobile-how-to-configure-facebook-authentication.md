@@ -34,9 +34,9 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 4. Cliquez sur **Mes applications** > **Ajouter une nouvelle application** > **Site Web** > **Ignorer et créer un ID d’application**.
 
-5. Dans **Nom d’affichage**, saisissez un nom unique pour votre application, choisissez une **Catégorie** pour votre application, puis cliquez sur **Create App ID** et effectuez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
+5. Dans **Nom d’affichage**, saisissez un nom unique pour votre application, saisissez votre **Contact Email (Adresse de messagerie de contact)** choisissez une **Catégorie** pour votre application, puis cliquez sur **Create App ID (Créer ID application)** et effectuez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
 
-6. Sous « Facebook Login » (Connexion Facebook ), cliquez sur **Get Started** (Prise en main). Ajoutez l’**URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**.
+6. Sous « Facebook Login » (Connexion Facebook), cliquez sur **Get Started** (Prise en main). Ajoutez l’**URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**.
 
 	> [AZURE.NOTE] Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/facebook/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
@@ -72,7 +72,7 @@ Vous êtes maintenant prêt à utiliser Facebook pour l'authentification dans vo
 <!-- URLs. -->
 [Développeurs Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /fr-FR/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

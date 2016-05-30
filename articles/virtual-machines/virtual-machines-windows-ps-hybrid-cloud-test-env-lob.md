@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -220,4 +220,4 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 
 - Déployez l’[environnement de production](virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

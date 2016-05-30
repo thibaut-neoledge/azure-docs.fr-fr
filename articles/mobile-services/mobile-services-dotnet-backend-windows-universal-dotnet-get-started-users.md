@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajout de l’authentification à votre application Windows 8.1 universelle | Microsoft Azure"
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows 8.1 universelle en utilisant divers fournisseurs d’identité, notamment Google, Facebook, Twitter et Microsoft."
+	pageTitle="Ajout de l’authentification à votre application Windows 8.1 universelle | Microsoft Azure"
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows 8.1 universelle en utilisant divers fournisseurs d’identité, notamment Google, Facebook, Twitter et Microsoft."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -30,7 +30,7 @@ Cette rubrique explique comment authentifier les utilisateurs dans Azure Mobile 
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services] ou le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]Ce didacticiel vous explique comment effectuer une authentification dirigée vers le serveur des utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour plus d’informations sur l’authentification dirigée vers le client, consultez la rubrique [Connexion à Azure Mobile Services avec les Kits de développement logiciel (SDK) Google, Microsoft et Facebook](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]Ce didacticiel vous explique comment effectuer une authentification dirigée vers le serveur des utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour plus d’informations sur l’authentification dirigée vers le client, consultez la rubrique [Connexion à Azure Mobile Services avec les Kits de développement logiciel (SDK) Google, Microsoft et Facebook](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -48,7 +48,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 >[AZURE.NOTE]Lorsque vous utilisez les outils Visual Studio pour connecter votre application à un service mobile, l'outil génère deux ensembles de définitions **MobileServiceClient**, une pour chaque plateforme cliente. C'est le bon moment pour simplifier le code généré en unifiant les définitions **MobileServiceClient** encapsulées dans `#if...#endif` en une seule définition encapsulée, utilisée par les deux versions de l'application. Cette opération n'est pas nécessaire si vous avez téléchargé l'application de démarrage rapide à partir du [portail Azure Classic].
 
-&nbsp;&nbsp;8. Appuyez sur la touche F5 pour exécuter l'application Windows Store, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Unauthorized) est déclenchée après le démarrage de l'application.
+&nbsp;&nbsp;8. Appuyez sur la touche F5 pour exécuter l'application Windows Store, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Unauthorized) est déclenchée après le démarrage de l'application.
 
 &nbsp;&nbsp;Cela se produit, car l’application essaie d’accéder à Mobile Services en tant qu’utilisateur non authentifié, mais la table *TodoItem* nécessite désormais l’authentification.
 
@@ -93,14 +93,14 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
-[Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
-[Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

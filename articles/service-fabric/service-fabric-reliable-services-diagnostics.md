@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="05/17/2016"
    ms.author="alanwar"/>
 
 # Fonctionnalité de diagnostic pour Reliable Services avec état
@@ -44,4 +44,4 @@ StatefulRunAsyncFailure est émis à chaque fois que la tâche RunAsync() du ser
 
 StatefulRunAsyncSlowCancellation est émis à chaque fois qu’une requête d’annulation de la tâche RunAsync prend plus de quatre secondes. Lorsqu’un service prend trop de temps pour terminer l’annulation, cela a un impact sur la capacité du service à être redémarré rapidement sur un autre nœud. Cela peut avoir un impact sur la disponibilité globale du service.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

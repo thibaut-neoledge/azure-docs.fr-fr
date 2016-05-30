@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD
@@ -26,7 +26,7 @@ Pour exécuter les tâches détaillées dans cet article, vous avez besoin des �
 
 2. Un **répertoire Azure AD**, synchronisé avec un répertoire local ou un répertoire cloud uniquement.
 
-3. Les **services de domaine** doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](./active-directory-ds-getting-started.md).
+3. Les **services de domaine Azure AD**, qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](./active-directory-ds-getting-started.md).
 
 4. Un **certificat à utiliser pour activer le protocole LDAP sécurisé**.
     - Il est **recommandé** d’obtenir un certificat de votre autorité de certification d’entreprise ou d’une autorité de certification publique. Il s’agit d’une option de configuration plus sécurisée.
@@ -242,4 +242,4 @@ Et voilà, vous êtes maintenant prêt à vous connecter au domaine géré à l�
 
 - [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

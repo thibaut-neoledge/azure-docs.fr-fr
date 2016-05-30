@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn
@@ -38,13 +38,13 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 
 	>[AZURE.NOTE] La valeur **Client Secret** est une information d’identification de sécurité importante.
 
-6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Authorized Redirect URLs** (sous **OAuth 2.0**). Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). Cliquez sur **Add**, puis sur **Update**.
+6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Authorized Redirect URLs** (sous **OAuth 2.0**). Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). Cliquez sur **Add**, puis sur **Update**. La valeur **{tenant}** respecte la casse.
 
     ![LinkedIn - configuration d’application](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## Configuration de LinkedIn en tant que fournisseur d’identité dans votre client
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
 2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « LI ».
@@ -52,4 +52,4 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’ID client et la clé secrète client de l’application LinkedIn que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration LinkedIn.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

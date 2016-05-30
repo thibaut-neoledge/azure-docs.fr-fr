@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Journaux IIS dans Log Analytics | Microsoft Azure"
    description="Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics. Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans le référentiel OMS."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Journaux IIS dans Log Analytics
@@ -26,6 +26,8 @@ Log Analytics collecte les entrées des fichiers journaux créés par IIS, et vo
 Log Analytics prend uniquement en charge les fichiers journaux IIS stockés au format W3C. Il ne collecte pas les journaux au format natif NCSA ou IIS.
 
 Configurez les journaux IIS dans Log Analytics à partir du [menu Données dans Paramètres de Log Analytics](log-analytics-data-sources.md/configuring-data-sources). Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
+
+Quand vous activez la collecte de journaux IIS, nous vous recommandons de configurer le paramètre de substitution de journal IIS sur chaque serveur.
 
 
 ## Collecte des données
@@ -76,7 +78,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 ## Étapes suivantes
 
 - Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
-- En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 
+- Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 - Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

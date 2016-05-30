@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés (application Windows 8.1 universelle) | Azure Mobile Services"
-	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à un utilisateur authentifié particulier qui exécute votre application Windows 8.1 universelle."
+	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés (application Windows 8.1 universelle) | Azure Mobile Services"
+	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à un utilisateur authentifié particulier qui exécute votre application Windows 8.1 universelle."
 	services="mobile-services,notification-hubs"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -26,13 +26,13 @@
 
 ##Vue d'ensemble
 
-Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. À l'inverse du précédent didacticiel relatif aux [notifications Push][Get started with push notifications], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du hub de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le code du serveur est mis à jour pour envoyer la notification uniquement à l'utilisateur authentifié, et non à toutes les inscriptions.
+Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. À l'inverse du précédent didacticiel relatif aux [notifications Push][Get started with push notifications], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le code du serveur est mis à jour pour envoyer la notification uniquement à l'utilisateur authentifié, et non à toutes les inscriptions.
 
 Ce didacticiel prend en charge les applications Windows Store et Windows Phone Store.
 
 ##Configuration requise
 
-Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
+Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
 + [Prise en main de l’authentification] ajoute une exigence de connexion à l’exemple d’application TodoList.
 
@@ -62,8 +62,8 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 
 <!-- URLs. -->
-[Prise en main de l’authentification]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[Prise en main des notifications Push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[Prise en main de l’authentification]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
+[Prise en main des notifications Push]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/13/2016"
 	ms.author="nitinme"/>
 
 
 # Notes de publication pour les composants Hadoop sur Azure HDInsight
+
+## Notes pour la version du 13/05/2016 de HDInsight
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - inchangé)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - inchangé)
+* HDInsight (Windows) 3.1.4.922.2266903 (HDP 2.1.15.0-2374 - inchangé)
+* HDInsight (Windows) 3.2.7.922.2266903 (HDP 2.2.9.1-11)
+* HDInsight (Windows) 3.3.0.922.2266903 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.2.1000.0.7565644 (HDP 2.2.9.1-11)
+* HDInsight (Linux) 3.3.1000.0.7565644 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.4.1000.0.7548380 (HDP 2.4.2.0)
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Spark, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Mise à jour de la version Spark et autres correctifs de bogue | Cette version met à jour la version de Spark dans le cluster HDInsight vers 1.6.1 et corrige d’autres bogues| de diffusion en continu | Spark| N/A
 
 ## Notes de publication du 11/04/2016 pour HDInsight
 
@@ -31,7 +50,7 @@ Les numéros de version complets des clusters HDInsight déployés avec cette ve
 * HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - inchangé)
 * HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
 * HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
-* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* HDInsight (Linux) 3.4.1000.0.7338911 (HDP 2.4.1.1-3)
 * Kit de développement logiciel (SDK) 1.5.8
 
 Cette version contient les mises à jour suivantes.
@@ -41,7 +60,7 @@ Cette version contient les mises à jour suivantes.
 | Problèmes de mise à niveau personnalisée du metastore pour HDI 3.4 | La création du cluster échouait si vous utilisiez un metastore personnalisé auparavant utilisé sur une version antérieure d’un autre cluster HDInsight. Ceci était dû à une erreur de script de mise à niveau qui a maintenant été résolue| Création du cluster | Tout | N/A
 | Récupération après blocage de Livy | Fournit la résilience de l’état du travail pour tout travail soumis via Livy | Fiabilité | Spark sous Linux| N/A
 | Haute disponibilité du contenu de Jupyter | Fournit la capacité d’enregistrer et de charger les contenus des blocs-notes Jupyter depuis et vers le compte de stockage associé au cluster. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Blocs-notes | Spark sous Linux| N/A
-| Suppression de hiveContext dans les blocs-notes Jupyter | Utilisez la commande magique `%%sql` au lieu de la commande magique `%%hive`. SqlContext est équivalent à hiveContext. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Blocs-notes | Clusters Spark sur Linux| N/A
+| Suppression de hiveContext dans les blocs-notes Jupyter | Utilisez la commande magique `%%sql` au lieu de la commande magique `%%hive`. SqlContext est équivalent à hiveContext. Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Blocs-notes | Clusters Spark sur Linux| N/A
 | Désapprobation d’anciennes versions de Spark | La version 1.3.1 de Spark sera retirée du service le 31/05 | de diffusion en continu | Clusters Spark sur Windows | N/A
 
 ## Notes pour la version du 29/03/2016 de HDInsight
@@ -62,7 +81,7 @@ Cette version contient les mises à jour suivantes.
 
 | Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Version 3.4 de HDInsight ajoutée et versions de HDP mises à jour pour tous les clusters HDInsight | Avec cette version, nous avons ajouté HDInsight version 3.4 (basée sur HDP 2.4) et avons également mis à jour d’autres versions de HDP. Les notes de publication de HDP 2.4 sont disponibles [ici](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). De plus amples informations sur les versions de HDInsight sont disponibles [ici](hdinsight-component-versioning.md).| Service | Tous les clusters Linux| N/A
+| Version 3.4 de HDInsight ajoutée et versions de HDP mises à jour pour tous les clusters HDInsight | Avec cette version, nous avons ajouté HDInsight version 3.4 (basée sur HDP 2.4) et avons également mis à jour d’autres versions de HDP. Les notes de publication de HDP 2.4 sont disponibles [ici](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). De plus amples informations sur les versions de HDInsight sont disponibles [ici](hdinsight-component-versioning.md).| Service | Tous les clusters Linux| N/A
 | HDInsight Premium | HDInsight est désormais disponible en deux catégories : Standard et Premium. HDInsight Premium est actuellement en version préliminaire, disponible uniquement pour les clusters Hadoop et Spark sur Linux. Pour plus d’informations, consultez [ceci](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Service | Hadoop et Spark sur Linux| N/A
 | Microsoft R Server | HDInsight Premium fournit Microsoft R Server qui peut être inclus avec les clusters Hadoop et Spark sur Linux. Pour plus d’informations, consultez [Vue d’ensemble de R Server sur HDInsight](hdinsight-hadoop-r-server-overview.md).| Service | Hadoop et Spark sur Linux| N/A
 | Spark 1.6.0 | Les clusters HDInsight 3.4 incluent désormais Spark 1.6.0| Service | Clusters Spark sur Linux| N/A
@@ -1267,7 +1286,7 @@ Cette version de correctif logiciel a résolu un problème de fuite de mémoire 
 
 ## Notes pour la version du 07/10/2014
 
-* Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie à présent le nom de domaine complet du nœud au lieu du seul nom d’hôte. Par exemple, au lieu de renvoyer « **headnode0** », vous pouvez obtenir le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** ». Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel. Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+* Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie à présent le nom de domaine complet du nœud au lieu du seul nom d’hôte. Par exemple, au lieu de renvoyer « **headnode0** », vous pouvez obtenir le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** ». Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel. Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 * Nous avons fourni de nouveaux paramètres de mémoire pour le déploiement par défaut d'un cluster HDInsight. Les précédents paramètres de mémoire ne prenaient pas correctement en compte les conseils relatifs au nombre de cœurs de processeurs déployés. Ces nouveaux paramètres de mémoire doivent normalement fournir de meilleures valeurs par défaut, conformément aux recommandations de Hortonworks. Pour les modifier, veuillez consulter la documentation de référence du Kit de développement logiciel (SDK) relative à la modification de la configuration du cluster. Les nouveaux paramètres de mémoire utilisés par le cluster HDInsight quadricœur (8 conteneurs) par défaut sont répertoriés dans le tableau suivant. Les valeurs utilisées avant cette version sont également indiquées entre parenthèses.
 
@@ -1289,9 +1308,9 @@ Cette version de correctif logiciel a résolu un problème de fuite de mémoire 
 
 Pour plus d’informations sur les paramètres de configuration de mémoire utilisés par YARN et MapReduce sur la plateforme de données Hortonworks utilisée par HDInsight, consultez la page [Déterminer les paramètres de configuration de la mémoire HDP](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks a également fourni un outil permettant de calculer les paramètres de mémoire adéquats.
 
-En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
+En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
 
-* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell **Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
+* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell **Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
 
 * Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel HDInsight à partir de [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure/).
 
@@ -1565,4 +1584,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

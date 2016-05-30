@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Recommandations en matière de cache
 
-![Logo des modèles et pratiques](media/best-practices-caching/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 La mise en cache est une technique courante qui vise à améliorer les performances et l’extensibilité d’un système. Elle consiste à copier temporairement des données fréquemment sollicitées dans un stockage rapide situé près de l’application. Si cet espace de stockage rapide des données se trouve plus près de l’application que la source d’origine, la mise en cache peut améliorer sensiblement les temps de réponse des applications clientes en fournissant les données plus rapidement.
 
@@ -151,7 +151,8 @@ Songez à implémenter un cache local privé dans chaque instance d’une applic
 
 Cette approche nécessite une configuration soigneuse pour éviter que le cache local devienne trop caduque par rapport au cache partagé. Toutefois, le cache local fait office de tampon si le cache partagé est inaccessible. La figure 3 illustre cette structure.
 
-![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) _Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
+![Utilisation d’un cache local privé avec un cache partagé](media/best-practices-caching/Caching3.png) 
+_Figure 3 : Utilisation d'un cache local privé avec un cache partagé_
 
 Pour prendre en charge des caches volumineux qui contiennent des données à long terme, certains services de cache offrent une option de haute disponibilité qui implémente le basculement automatique si le cache devient indisponible. Cette approche implique généralement une réplication des données mises en cache sur un serveur de cache principal vers un serveur de cache secondaire, et un basculement vers le serveur secondaire en cas d’échec du serveur principal ou de perte de la connectivité.
 
@@ -564,7 +565,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key-value pairs
+  // Create a list of key/value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -573,7 +574,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key-value pairs in the cache
+  // Store the list of key/value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys
@@ -934,4 +935,4 @@ Le modèle suivant peut également être pertinent dans votre cas si vous implé
 - Page relative aux [transactions dans Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) dans le référentiel StackExchange.Redis.
 - [Guide de partitionnement des données](http://msdn.microsoft.com/library/dn589795.aspx) sur le site web de Microsoft.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

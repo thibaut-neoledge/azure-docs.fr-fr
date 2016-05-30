@@ -1,6 +1,6 @@
 <properties
-	pageTitle="API de recherche de journal Log Analytics | Microsoft Azure"
-	description="Ce guide fournit un didacticiel de base qui vous décrit comment utiliser l'API de recherche de Log Analytics dans Operations Management Suite (OMS), de même que des exemples vous permettant de découvrir les commandes qui peuvent être utilisées."
+	pageTitle="API REST de recherche de journal Log Analytics | Microsoft Azure"
+	description="Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -17,21 +17,21 @@
 	ms.author="banders"/>
 
 
-# API de recherche de journal Log Analytics
+# API REST de recherche de journal Log Analytics
 
-Ce guide fournit un didacticiel de base qui vous décrit comment utiliser l'API de recherche de Log Analytics dans Operations Management Suite (OMS), de même que des exemples vous permettant de découvrir les commandes qui peuvent être utilisées. Certains exemples de cet article font référence à Operational Insights, qui est le nom de la version précédente de Log Analytics.
+Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes. Certains exemples de cet article font référence à Operational Insights, qui est le nom de la version précédente de Log Analytics.
 
-## Vue d'ensemble de l'API de recherche de journaux
+## Vue d’ensemble de l’API REST de recherche de journal
 
-L'API de recherche de Log Analytics est un service RESTful qui est accessible via l'API Azure Resource Manager. Vous trouverez, dans ce document, des exemples qui vous indiqueront comment accéder à l'API via l’[ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l'API RESTful Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
+L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API Azure Resource Manager. Vous trouverez, dans ce document, des exemples qui vous indiqueront comment accéder à l'API via l’[ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Une autre option consiste à utiliser le module Azure PowerShell pour OperationalInsights qui inclut des applets de commande pour accéder à la recherche. Grâce à ces outils, vous pouvez utiliser l'API RESTful Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
-Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque pour .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) et une [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Pour en savoir plus, consultez les pages Web connexes.
+Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque pour .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) et une [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Pour en savoir plus, consultez les pages web connexes.
 
-## Didacticiel de base sur l'API de recherche de journal de Log Analytics
+## Didacticiel de base sur l’API de recherche de journal de Log Analytics
 
 ### Pour utiliser le client ARM
 
-1. Installez [Chocolatey](https://chocolatey.org/), qui est un gestionnaire de package de machines open source pour Windows. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
+1. Installez [Chocolatey](https://chocolatey.org/) (gestionnaire de packages open source pour Windows). Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -51,7 +51,7 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
     armclient login
     ```
 
-    Une connexion réussie répertorie tous les abonnements qui sont associés au compte spécifique. Par exemple :
+    Une connexion réussie répertorie tous les abonnements associés au compte spécifique :
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -63,13 +63,13 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 
-2. Obtenir les espaces de travail Operations Management Suite. Par exemple :
+2. Obtenez les espaces de travail Operations Management Suite :
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    Un appel Get effectué avec succès affiche tous les espaces de travail liés à l'abonnement. Par exemple :
+    Un appel Get réussi affiche tous les espaces de travail liés à l’abonnement :
 
     ```
     {
@@ -87,18 +87,18 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
        ]
     }
     ```
-3. Créer votre variable de recherche. Par exemple :
+3. Créez votre variable de recherche :
 
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
-4. Effectuer une recherche à l'aide de votre nouvelle variable de recherche. Par exemple :
+4. Lancez une recherche à l’aide de votre nouvelle variable de recherche :
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## Exemples de référence d'API de recherche de journal de Log Analytics
+## Exemples de référence de l’API REST de recherche Log Analytics
 Les exemples suivants vous expliquent comment utiliser l'API de recherche.
 
 ### Recherche - Action/lecture
@@ -197,7 +197,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et Http Gone est renvoyé. Si la demande de recherche initiale a renvoyé immédiatement un état « Succès », le résultat ne sera pas ajouté au cache, ce qui signifie que cette API devra retourner Http Gone si elle est interrogée. Le contenu d'un résultat Http 200 sera présenté sous le même format que la demande de recherche initiale, avec des valeurs qui auront été mises à jour.
+>[AZURE.NOTE] Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et HTTP Gone est retourné. Si la demande de recherche initiale a retourné immédiatement un état « Succès », le résultat n’est pas ajouté au cache, ce qui signifie que cette API retourne HTTP Gone si elle est interrogée. Le contenu d’un résultat HTTP 200 est présenté dans le même format que la demande de recherche initiale. Toutefois, les valeurs sont mises à jour.
 
 ### Recherches enregistrées - REST uniquement
 
@@ -379,7 +379,7 @@ La requête utilisée pour la définition du groupe doit retourner un ensemble d
 
 La définition de la recherche enregistrée doit inclure une balise nommée Group avec une valeur Computer pour que la recherche soit classée comme un groupe d'ordinateurs.
 
-	$etag=get-date -f yyyy-MM-ddThh:mm:ss.msZ
+	$etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
 	$groupName="My Computer Group"
 	$groupQuery = "Computer=srv* | Distinct Computer"
 	$groupCategory="My Computer Groups"
@@ -402,4 +402,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 - En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

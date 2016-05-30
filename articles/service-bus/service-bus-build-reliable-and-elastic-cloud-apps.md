@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Création d'applications cloud fiables et élastiques avec messagerie 
@@ -39,10 +39,11 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
 
 - [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Référence de l’API REST de Service Bus](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Service Bus RP REST API reference](https://msdn.microsoft.com/library/azure/mt639375.aspx) (Référence de l’API RP REST de Service Bus)
 
 ## Services connexes
 
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Création d’une collection DocumentDB à l’aide du portail Azure
@@ -44,11 +44,11 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 
 	Si vous souhaitez créer une collection partitionnée, vous n’avez pas besoin de sélectionner de niveau de tarification. Vous pouvez directement passer à l’étape 7.
 
-7. Sélectionnez un **Mode de partitionnement** pour la collection : **Partition unique** ou **Partitionné**. Une partition unique possède une capacité de stockage réservée de 10 Go et peut atteindre des niveaux de débit compris entre 400 et 10 000 unités de requête par seconde. Une collection partitionnée peut être mise à l’échelle afin de gérer 250 Go de stockage sur plusieurs partitions. Les niveaux de débit peuvent atteindre 10, 100 ou 250 000 unités de requête par seconde.
+7. Sélectionnez un **Mode de partitionnement** pour la collection : **Partition unique** ou **Partitionné**. Une partition unique possède une capacité de stockage réservée de 10 Go et peut atteindre des niveaux de débit compris entre 400 et 10 000 unités de requête par seconde. Une collection partitionnée peut être mise à l’échelle afin de gérer 250 Go de stockage sur plusieurs partitions. Les niveaux de débit peuvent atteindre 10, 100 ou 250 000 unités de requête par seconde. Pour plus d’informations sur les demandes d’augmentation de ces allocations par défaut après la création d’une collection, consultez [Demander une augmentation des limites d’un compte DocumentDB](documentdb-increase-limits.md).
 
-8. Sélectionnez le **débit** correspondant à la collection partitionnée. Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez l’article [Request Units in DocumentDB](documentdb-request-units.md).
+8. Sélectionnez le **débit** pour la collection partitionnée. Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez [Unités de requête](documentdb-request-units.md).
 
-9. Si vous créez une collection partitionnée, sélectionnez la **Clé de Partition** correspondant à la collection. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations sur la sélection d’une clé de partition, consultez la page [Données de partition et d’échelle dans DocumentDB](documentdb-partition-data.md).
+9. Si vous créez une collection partitionnée, sélectionnez la **Clé de Partition** pour la collection. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations sur la sélection d’une clé de partition, consultez [Partitionnement des données dans DocumentDB](documentdb-partition-data.md).
 
 10. Cliquez sur **OK** en bas de l'écran pour créer la nouvelle collection.
 
@@ -66,12 +66,12 @@ Les collections diffèrent des tables dans les bases de données relationnelles.
 
 ## Autres méthodes de création d'une collection DocumentDB
 
-Les collections ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) et l’API REST.
+Les collections ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) et avec l’API REST.
 
-- Pour obtenir un exemple de code C#, consultez la rubrique [Exemples de collection C#](documentdb-dotnet-samples.md#collection-examples). 
-- Pour obtenir un exemple de code Node.js, consultez la rubrique [Exemples de collection Node.js](documentdb-nodejs-samples.md#collection-examples).
-- Pour obtenir un exemple de code Python, consultez la rubrique [Exemples de collection Python](documentdb-python-samples.md#collection-examples).
-- Pour obtenir un exemple d’API REST, consultez la page [Create a Collection](https://msdn.microsoft.com/library/azure/mt489078.aspx).
+- Pour obtenir un exemple de code C#, consultez [Exemples de collections C#](documentdb-dotnet-samples.md#collection-examples). 
+- Pour obtenir un exemple de code Node.js, consultez [Exemples de collections Node.js](documentdb-nodejs-samples.md#collection-examples).
+- Pour obtenir un exemple de code Python, consultez [Exemples de collections Python](documentdb-python-samples.md#collection-examples).
+- Pour obtenir un exemple d’API REST, consultez [Créer une collection](https://msdn.microsoft.com/library/azure/mt489078.aspx).
 
 ## Résolution des problèmes
 
@@ -83,8 +83,8 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 
 - Vous pouvez [ajouter des documents](documentdb-view-json-document-explorer.md) à l’aide de l’Explorateur de documents, dans le portail.
 - Vous pouvez [importer des documents et des données](documentdb-import-data.md) à l'aide de l'outil de migration de données DocumentDB qui vous permet d'importer des fichiers JSON et CSV ainsi que des données depuis SQL Server, MongoDB, le stockage de table Azure et d’autres collections DocumentDB. 
-- Vous pouvez également ajouter des documents en vous aidant des [kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code C# montrant comment utiliser les documents à l’aide du Kit de développement logiciel (SDK) .NET DocumentDB, consultez les [exemples de document C#](documentdb-dotnet-samples.md#document-examples). Pour obtenir des exemples de code Node.js montrant comment utiliser les documents à l’aide du Kit de développement logiciel (SDK) Node.js DocumentDB, consultez les [exemples de document Node.js](documentdb-nodejs-samples.md#document-examples).
+- Vous pouvez également ajouter des documents en vous aidant des [kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code C# montrant comment utiliser des documents avec le SDK .NET DocumentDB, consultez les [exemples de documents C#](documentdb-dotnet-samples.md#document-examples). Pour obtenir des exemples de code Node.js montrant comment utiliser des documents avec le SDK Node.js DocumentDB, consultez les [exemples de documents Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

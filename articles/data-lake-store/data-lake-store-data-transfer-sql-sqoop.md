@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Copier des données entre Data Lake Store et une base de données SQL Azure à l’aide de Sqoop
@@ -21,7 +21,7 @@
 Découvrez comment utiliser Apache Sqoop pour importer et exporter des données entre Azure SQL Database et Data Lake Store.
  
 
-## Qu'est-ce que Sqoop ?
+## Qu'est-ce que Sqoop ?
 
 Les applications Big Data sont un choix naturel pour le traitement des données non structurées et semi-structurées, telles que les journaux et les fichiers. Toutefois, il peut également être nécessaire de traiter des données structurées stockées dans des bases de données relationnelles.
 
@@ -30,12 +30,16 @@ Les applications Big Data sont un choix naturel pour le traitement des données 
 
 ## Composants requis
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup). 
 - **Cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Cet article suppose que vous disposez d’un cluster Linux HDInsight avec accès à Data Lake Store.
-- **Base de données SQL Azure**. Pour savoir comment en créer un, consultez [Créer une base de données SQL Azure](../sql-database/sql-database-get-started.md).
+- **Base de données SQL Azure**. Pour savoir comment en créer un, consultez [Créer une base de données SQL Azure](../sql-database/sql-database-get-started.md).
+
+## Les vidéos vous permettent-elles d’apprendre plus rapidement ?
+
+[Regardez cette vidéo](https://mix.office.com/watch/1butcdjxmu114) pour savoir comment copier des données entre des objets blob Azure Storage et Data Lake Store à l’aide de DistCp.
 
 ## Créer des exemples de tables dans la base de données SQL Azure
 
@@ -67,7 +71,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 		) ON [PRIMARY] 
 		GO
 
-2. Dans **Table1**, ajoutez des exemples de données. Laissez **Table2** vide. Nous importerons des données à partir de **Table1** dans Data Lake Store. Ensuite, nous exporterons les données de Data Lake Store dans **Table2**. Exécutez l'extrait de code suivant.
+2. Dans **Table1**, ajoutez des exemples de données. Laissez **Table2** vide. Nous importerons des données de **Table1** dans Data Lake Store. Ensuite, nous exporterons les données de Data Lake Store vers **Table2**. Exécutez l'extrait de code suivant.
 
 		 
 		INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson'); 
@@ -77,9 +81,9 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré le cluster HDInsight pour utiliser un Data Lake Store comme un espace de stockage supplémentaire, vous pouvez utiliser Sqoop (sans aucune modification de configuration) pour importer/exporter des données entre une base de données relationnelle (dans cet exemple, Azure SQL Database) et un compte Data Lake Store.
 
-1. Pour ce didacticiel, nous supposons que vous avez créé un cluster Linux ; vous devez donc utiliser SSH pour vous connecter au cluster. Consultez [Connexion à un cluster HDInsight sous Linux](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+1. Pour ce didacticiel, nous supposons que vous avez créé un cluster Linux ; vous devez donc utiliser SSH pour vous connecter au cluster. Consultez [Connexion à un cluster HDInsight sous Linux](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
 
-2. Vérifiez si vous pouvez accéder au compte Data Lake Store à partir du cluster. Exécutez la commande suivante depuis une invite SSH :
+2. Vérifiez si vous pouvez accéder au compte Data Lake Store à partir du cluster. Exécutez la commande suivante depuis une invite SSH :
 
 		
 		hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
@@ -90,19 +94,19 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
 
 3. Accédez au répertoire dans lequel se trouvent les packages Sqoop. En règle générale, il s’agit de `/usr/hdp/<version>/sqoop/bin`. 
 
-4. Importez les données à partir de **Table1** dans le compte Data Lake Store. Utilisez la syntaxe suivante :
+4. Importez les données de **Table1** dans le compte Data Lake Store. Utilisez la syntaxe suivante :
 
 		
 		sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-	L’espace réservé **sql-database-server-name** représente le nom du serveur sur lequel s’exécute la base de données SQL Azure, tandis que l’espace réservé **sql-database-name** désigne le nom de la base de données.
+	Notez que l’espace réservé **sql-database-server-name** représente le nom du serveur sur lequel s’exécute la base de données SQL Azure, tandis que l’espace réservé **sql-database-name** désigne le nom de la base de données.
 
 	Par exemple,
 
 		
 		sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-5. Vérifiez que les données ont été transférées vers le compte Data Lake Store. Exécutez la commande suivante :
+5. Vérifiez que les données ont été transférées vers le compte Data Lake Store. Exécutez la commande suivante :
 
 		
 		hdfs dfs -ls adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/
@@ -121,7 +125,7 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
 
 ### Exporter les données de Data Lake Store dans la base de données SQL Azure
 
-6. Exportez les données du compte Data Lake Store vers la table vide **Table2**, dans la base de données SQL Azure. Utilisez la syntaxe suivante.
+6. Exportez les données du compte Data Lake Store vers la table vide, **Table2**, dans la base de données SQL Azure. Utilisez la syntaxe suivante.
 
 		
 		sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -152,4 +156,4 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

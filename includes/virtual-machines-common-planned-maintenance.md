@@ -59,7 +59,7 @@ Cet événement de maintenance planifiée aura un impact sur la disponibilité d
 
 ## Notification par courrier électronique
 
-Pour les configurations de machine virtuelle multi-instance et à instance unique uniquement, Azure envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur et du coadministrateur du compte fournis dans l’abonnement. Voici un exemple de ce type de courrier électronique :
+Pour les configurations de machine virtuelle multi-instance et à instance unique uniquement, Azure envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur et du coadministrateur de l’abonnement. Voici un exemple de ce type de courrier électronique :
 
 <!--Image reference-->
 ![][image1]
@@ -81,6 +81,8 @@ Chine orientale | Chine du Nord
 Est du Japon | Ouest du Japon
 Sud du Brésil | Sud du centre des États-Unis
 Sud-est de l’Australie | Est de l’Australie
+Inde-Centre | Sud de l'Inde
+Inde-Ouest | Sud de l'Inde
 Gouvernement américain - Iowa | Gouvernement américain - Virginie
 
 <!--Anchors-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une base de données
@@ -133,4 +133,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

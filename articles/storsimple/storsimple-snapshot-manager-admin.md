@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="05/18/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
@@ -39,7 +39,7 @@ Cet article fournit des liens vers des didacticiels qui décrivent le Gestionnai
 
 - Pour connaître les procédures de déploiement du Gestionnaire d’instantanés StorSimple, consultez l’article [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 
->[AZURE.NOTE]Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
+>[AZURE.NOTE] Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
 
 ## Tâches et flux de travail du Gestionnaire d’instantanés StorSimple
 
@@ -62,4 +62,4 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 
 [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

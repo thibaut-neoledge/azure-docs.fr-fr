@@ -33,7 +33,7 @@ Les événements utilisés à partir d'un hub d'événements, ainsi que les opé
 
 ## Que sont les unités de débit des hubs d'événements ?
 
-Les unités de débit des Event Hubs sont explicitement sélectionnées par l’utilisateur via le portail Azure Classic ou les API de gestion Event Hub. Les unités de débit s'appliquent à tous les hubs d'événements dans un espace de noms Service Bus, et chaque unité de débit fournit à l'espace de noms les fonctionnalités suivantes :
+Les unités de débit des hubs d’événements sont explicitement sélectionnées par l’utilisateur via le portail Azure Classic ou les modèles Resource Manager de hubs d’événements. Les unités de débit s'appliquent à tous les hubs d'événements dans un espace de noms Service Bus, et chaque unité de débit fournit à l'espace de noms les fonctionnalités suivantes :
 
 - Jusqu’à 1 Mo par seconde d'événements d'entrée (événements envoyés à un hub d'événements), mais pas plus de 1 000 événements d'entrée, opérations de gestion ou appels d’API de contrôle par seconde.
 
@@ -110,4 +110,4 @@ Pour plus d’informations sur les hubs d’événements, consultez les articles
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

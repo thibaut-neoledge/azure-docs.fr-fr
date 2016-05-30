@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Résolution des problèmes de compression des fichiers CDN
@@ -45,11 +45,13 @@ Tout d’abord, effectuez une vérification rapide de l’intégrité de la requ
 - Vérifiez que la requête est envoyée à l’URL de point de terminaison, `<endpointname>.azureedge.net`, et non à l’origine.
 - Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **deflate** ou **bzip2**.
 
+> [AZURE.NOTE] Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
+
 ![En-têtes de requête CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Vérifier les paramètres de compression (profil CDN Standard)
 
-> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN se trouve dans le niveau de tarification **Standard**.
+> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard fourni par Verizon** ou du **CDN Azure Standard fourni par Akamai**.
 
 Accédez à votre point de terminaison dans le [portail Azure](https://portal.azure.com) et cliquez sur le bouton **Configurer**.
 
@@ -60,7 +62,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ### Vérifier les paramètres de compression (profil CDN Premium)
 
-> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN se trouve dans le niveau de tarification **Premium**.
+> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Premium fourni par Verizon**.
 
 Accédez à votre point de terminaison dans le [portail Azure](https://portal.azure.com) et cliquez sur le bouton **Gérer**. Le portail supplémentaire s’ouvre. Pointez sur l'onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**. Cliquez sur **Compression**.
 
@@ -72,6 +74,8 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ### Vérifier que le contenu est mis en cache
 
+> [AZURE.NOTE] Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+
 À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
 
 - Vérifiez l’en-tête de réponse **Server**. L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple ci-dessous.
@@ -81,9 +85,11 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ### Vérifier que le fichier respecte les exigences de taille
 
+> [AZURE.NOTE] Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+
 Pour être éligible pour la compression, un fichier doit respecter les exigences de taille suivantes :
 
 - Plus de 128 octets.
 - Moins de 1 Mo.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

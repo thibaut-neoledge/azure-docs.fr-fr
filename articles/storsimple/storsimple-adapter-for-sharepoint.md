@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos" />
 
 # Installation et configuration de StorSimple Adapter for SharePoint
@@ -37,13 +37,13 @@ Dans un site SharePoint, le contenu est stocké comme des données BLOB non stru
 
 Avec RBS, vous devez utiliser un fournisseur RBS comme StorSimple Adapter for SharePoint pour activer RBS dans SharePoint. StorSimple Adapter for SharePoint fonctionne avec RBS, vous permettant de déplacer des objets blob vers un serveur soutenu par le système Microsoft Azure StorSimple. Microsoft Azure StorSimple stocke ensuite les données d’objets blob localement ou dans le cloud, selon leur utilisation. Les objets blob très actifs (généralement appelés données à chaud ou de niveau 1) résident localement. Les données moins actives et les données archivées résident dans le cloud. Après avoir activé RBS sur une base de données de contenu, tout nouveau contenu bloc créé dans SharePoint est stocké sur l’appareil StorSimple et non dans la base de données de contenu.
 
-L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivants :
+L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivants :
 
 - En déplaçant le contenu blob vers un serveur distinct, vous pouvez réduire la charge de requête sur SQL Server, ce qui peut améliorer la réactivité du serveur SQL. 
 
 - Azure StorSimple utilise la déduplication et la compression pour réduire la taille des données.
 
-- Azure StorSimple assure la protection des données sous la forme d’instantanés locaux et sur le cloud. En outre, si vous placez la base de données elle-même sur l’appareil StorSimple, vous pouvez sauvegarder ensemble la base de données de contenu et les objets blob afin de limiter les risques de défaillance. (Le déplacement de la base de données de contenu sur l’appareil est uniquement pris en charge pour la série StorSimple 8000. Aucune prise en charge pour les séries 5000 ou 7000.)
+- Azure StorSimple assure la protection des données sous la forme d’instantanés locaux et sur le cloud. En outre, si vous placez la base de données elle-même sur l’appareil StorSimple, vous pouvez sauvegarder ensemble la base de données de contenu et les objets blob afin de limiter les risques de défaillance. (Le déplacement de la base de données de contenu sur l’appareil est uniquement pris en charge pour la série StorSimple 8000. Aucune prise en charge pour les séries 5000 ou 7000.)
 
 - Azure StorSimple inclut des fonctionnalités de récupération d'urgence, notamment le basculement, la récupération de fichier et de volume (y compris une récupération test) et la restauration rapide des données.
 
@@ -226,7 +226,7 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 >
 >- Une fois la mise à niveau/réinstallation terminée, vous devez activer RBS pour les bases de données de contenu. Consultez [Configuration de RBS](#configure-rbs) pour plus d'informations.
 >
->- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l'**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
+>- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l'**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
@@ -238,7 +238,7 @@ Les procédures suivantes décrivent comment déplacer les objets BLOB vers les 
 
 ### Avant de commencer 
 
-Rassemblez les informations suivantes avant de déplacer les données vers les bases de données de contenu SQL Server et de commencer le processus de suppression de l'adaptateur :
+Rassemblez les informations suivantes avant de déplacer les données vers les bases de données de contenu SQL Server et de commencer le processus de suppression de l'adaptateur :
 
 - Les noms de toutes les bases de données pour lesquelles RBS est activé
 - Le chemin d'accès UNC du magasin d'objets BLOB configuré
@@ -255,7 +255,7 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 2. Ouvrez la page **Administration centrale de SharePoint** et accédez à **Paramètres du système**.
 
-3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
+3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
 
 4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe.
 
@@ -263,7 +263,7 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 Vous pouvez également utiliser l'applet de commande Microsoft` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
+Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
 
 ### Désinstallation de l'adaptateur
 
@@ -306,6 +306,6 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
+[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

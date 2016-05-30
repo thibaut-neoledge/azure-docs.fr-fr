@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Cet article explique comment utiliser Site Recovery pour migrer des machines virtuelles Azure d’une région Azure vers une autre. Avant de commencer, notez les points suivants :
+Cet article explique comment utiliser Site Recovery pour migrer des machines virtuelles Azure d’une région Azure vers une autre. Avant de commencer, notez les points suivants :
 
 - Vous ne pouvez que migrer pour l’instant. Cela signifie que vous pouvez basculer les machines virtuelles d’une région Azure à une autre, mais vous ne pourrez pas les restaurer par la suite.
 - Cet article résume et utilise la plupart des étapes décrites en détail dans [Répliquer des machines virtuelles VMware ou des serveurs physiques sur Azure](site-recovery-vmware-to-azure-classic.md), qui fournit les dernières instructions améliorées pour la configuration de la réplication. Nous vous suggérons de suivre cet article pour obtenir des instructions détaillées lors de la migration.
@@ -31,9 +31,9 @@ Publier des commentaires ou des questions au bas de cet article ou sur le [Forum
 
 ## Composants requis
 
-Voici ce dont vous avez besoin pour ce déploiement :
+Voici ce dont vous avez besoin pour ce déploiement :
 
-- **Serveur d’administration** : une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur d’administration. Vous installez les composants Site Recovery (y compris le serveur de configuration et le serveur de processus) sur ce serveur. Pour en savoir plus, consultez [Considérations relatives aux serveurs d’administration](site-recovery-vmware-to-azure-classic.md#management-server-considerations) et [Conditions préalables locales](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Serveur d’administration** : machine virtuelle exécutant Windows Server 2012 R2 et qui agit en tant que serveur d’administration. Vous installez les composants Site Recovery (y compris le serveur de configuration et le serveur de processus) sur ce serveur. Pour en savoir plus, consultez les [considérations relatives aux serveurs d’administration](site-recovery-vmware-to-azure-classic.md#management-server-considerations) et les [conditions préalables source](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Machines virtuelles IaaS** : machines virtuelles à migrer.
 
 ## Étapes du déploiement
@@ -61,4 +61,4 @@ Voici ce dont vous avez besoin pour ce déploiement :
 
 Découvrez les autres scénarios de réplication dans [Qu’est-ce que le service Azure Site Recovery ?](site-recovery-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

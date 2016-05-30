@@ -22,12 +22,7 @@ Ce didacticiel montre comment utiliser une application API depuis une applicati
 
 ## Configuration requise
 
-Ce didacticiel s'appuie sur la série de didacticiels sur les applications API :
-
-1. [Créer une application API Azure](../app-service-dotnet-create-api-app)
-3. [Déployer une application API Azure](../app-service-dotnet-deploy-api-app)
-4. [Déboguer une application API Azure](../app-service-dotnet-remotely-debug-api-app)
-
+Ce didacticiel s’appuie sur [Création d’une application API Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 ## Créer une application ASP.NET MVC dans Visual Studio
 
@@ -89,4 +84,4 @@ Suivez les instructions fournies dans [Comment déployer une application web Azu
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

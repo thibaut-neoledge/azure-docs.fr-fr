@@ -19,7 +19,7 @@
 
 # Azure Authenticator pour Android
 
-Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :
+Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :
 
 * Multi-Factor Authentication vous permet de sécuriser vos comptes professionnels ou scolaires avec une vérification en deux étapes. Vous vous connectez avec quelque chose que vous connaissez (par exemple votre mot de passe) et vous protégez en plus le compte avec quelque chose que vous avez (une clé de sécurité provenant de cette application). L’application Azure Authenticator vous informe d’une demande de vérification à deux facteurs en attente en affichant une alerte sur votre appareil mobile. Vous devez simplement afficher la demande dans l’application et appuyer pour vérifier ou pour annuler. Vous pouvez aussi être invité à entrer le code secret affiché dans l’application.
 
@@ -43,8 +43,8 @@ Les instructions suivantes sont applicables aux téléphones Samsung GS3 et sup�
 6. Sur l’écran Jonction d’espace de travail, entrez l’ID utilisateur fourni par votre organisation et cliquez sur **Joindre**.
 7. Pour vous connecter à l’application Azure Authenticator, entrez votre compte et votre mot de passe d’organisation, puis cliquez sur **Connecter**.
 8. L’écran suivant qui affiche des informations sur l’authentification multifacteur concerne des éléments de sécurité supplémentaires et est facultatif. Vous verrez cet écran si votre entreprise ou votre établissement scolaire requiert une authentification de second facteur pour la création d’un compte professionnel. Il fournit des instructions pour vérifier votre compte de façon plus avancée.
-9. L’écran Jonction d’espace de travail affiche le message « **Jonction d’espace de travail en cours** ». L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
-10. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
+9. L’écran Jonction d’espace de travail affiche le message « **Jonction d’espace de travail en cours** ». L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail.
+10. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
 
 >[AZURE.NOTE]
 Un seul compte professionnel est autorisé sur votre appareil.
@@ -53,7 +53,7 @@ Un seul compte professionnel est autorisé sur votre appareil.
 Après avoir installé l’application Azure Authenticator, vous pouvez également créer un compte professionnel à partir du Gestionnaire de compte Android.
 
 1. Dans le menu Paramètres, accédez à **Comptes** et cliquez sur **Ajouter un compte**.
-2. Suivez les étapes 3 à 10 de la procédure « Ajout du compte professionnel via l’écran d’accueil de l’application » pour ajouter un compte professionnel.
+2. Suivez les étapes 3 à 10 de la procédure « Ajout du compte professionnel via l’écran d’accueil de l’application » pour ajouter un compte professionnel.
 
 Ajout du compte professionnel à partir d’un appareil Android autre que Samsung
 ------------------------------------------------------------------------------------------------------------------
@@ -65,15 +65,15 @@ Ajout du compte professionnel à partir d’un appareil Android autre que Samsun
 4. Si vous voyez l’écran Comptes, cliquez sur **Ajouter un compte**. Si un compte professionnel a déjà été créé précédemment, vous verrez un écran Synchronisation montrant le compte professionnel existant. Vous pouvez conserver le compte professionnel en appuyant simplement sur la flèche Précédent vers l’écran d’accueil. Vous pouvez aussi sélectionner le compte pour le supprimer et recréer un compte professionnel sur l’écran Jonction d’espace de travail, entrer l’ID d’utilisateur fourni par votre organisation et cliquer sur Joindre.
 5. Pour vous connecter à l’application Azure Authenticator, entrez votre compte et votre mot de passe d’organisation, puis cliquez sur **Connecter**.
 7. L’écran suivant qui affiche des informations sur l’authentification multifacteur concerne des éléments de sécurité supplémentaires et est facultatif. Vous verrez cet écran si votre entreprise ou votre établissement scolaire requiert une authentification de second facteur pour la création d’un compte professionnel. Il fournit des instructions pour vérifier votre compte de façon plus avancée.
-8. Cliquez sur **OK** sur l’écran suivant. Ne changez pas le nom du certificat. Le message « Jonction d’espace de travail en cours » apparaît. L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
+8. Cliquez sur **OK** sur l’écran suivant. Ne changez pas le nom du certificat. Le message « Jonction d’espace de travail en cours » apparaît. L’application Azure Authenticator tente de joindre votre appareil à votre espace de travail. Vous devez normalement voir le message « Joint à l’espace de travail » sur l’écran suivant.
 
 >[AZURE.NOTE]
 Un seul compte professionnel est autorisé sur votre appareil.
 
 Après avoir installé l’application Azure Authenticator, vous pouvez également créer un compte professionnel à partir du Gestionnaire de compte Android.
 
-1. Dans le menu **Paramètres**, accédez à Comptes et cliquez sur **Ajouter un compte**.
-2. Suivez les étapes 2 à 7 de la procédure « Ajout du compte professionnel via l’écran d’accueil de l’application » pour ajouter un compte professionnel.
+1. Dans le menu Paramètres, accédez à **Comptes** et cliquez sur **Ajouter un compte**.
+2. Suivez les étapes 2 à 7 de la procédure « Ajout du compte professionnel via l’écran d’accueil de l’application » pour ajouter un compte professionnel.
 
 ### Recherche de la version installée
 
@@ -83,9 +83,9 @@ Après avoir installé l’application Azure Authenticator, vous pouvez égaleme
  
 ### Envoi de fichiers journaux pour signaler des problèmes
 
-1. Suivez les instructions du support technique Microsoft pour signaler un incident avec l’application Azure Authentificator, pour obtenir un numéro d’incident et pour envoyer des fichiers journaux avec le numéro d’incident attribué :
+1. Suivez les instructions du support technique Microsoft pour signaler un incident avec l’application Azure Authentificator, pour obtenir un numéro d’incident et pour envoyer des fichiers journaux avec le numéro d’incident attribué :
 2. Dans le menu contextuel, cliquez sur **Journalisation**.
-3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/fr-FR/contactus) pour ouvrir un nouvel incident.
+3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/en-us/contactus) pour ouvrir un nouvel incident.
 4. Dans l’écran de journalisation, cliquez sur **Envoyer maintenant**.
 5. Sélectionnez le fournisseur de messagerie à utiliser.
 7. Si vous disposez déjà d’un incident de support technique Microsoft ouvert, contactez l’ingénieur de support affecté à votre problème pour savoir comment envoyer les données du journal et comment les associer à votre incident. L’ingénieur du support vous fournira les informations nécessaires pour l’adresse de messagerie et la ligne de l’objet du message. Si vous n’avez pas encore créé un incident de support, suivez les instructions du support technique Microsoft pour ouvrir un nouvel incident.
@@ -94,17 +94,18 @@ Après avoir installé l’application Azure Authenticator, vous pouvez égaleme
 
 ### Suppression du compte professionnel et sortie de votre espace de travail
 
-Vous pouvez supprimer à tout moment le compte que vous avez créé, comme suit :
+Vous pouvez supprimer à tout moment le compte que vous avez créé, comme suit :
 
 **Pour supprimer le compte professionnel à partir du menu Paramètres**
 
 1. Dans le Gestionnaire de comptes, sélectionnez **Compte professionnel**.
-2. Dans l’écran Compte professionnel, dans **Paramètres généraux**, sélectionnez **Paramètres du compte – Quitter votre réseau d’espace de travail**.
+2. Dans l’écran Compte professionnel, dans **Paramètres généraux**, sélectionnez **Paramètres du compte – Quitter votre réseau d’espace de travail**.
 3. Sélectionnez **Quitter** sur l’écran **Jonction d’espace de travail**.
-4. Cliquez sur **OK** quand le message « Voulez-vous vraiment quitter l’espace de travail » s’affiche.
+4. Cliquez sur **OK** quand le message « Voulez-vous vraiment quitter l’espace de travail » s’affiche.
 5. Ceci garantit que vous avez supprimé votre compte professionnel de votre espace de travail.
 
->[AZURE.NOTE> Il est recommandé de ne pas utiliser l’option Supprimer le compte pour supprimer un compte professionnel, car cette option peut ne pas fonctionner dans certaines versions antérieures d’Android.
+>[AZURE.NOTE]
+Il est recommandé de ne pas utiliser l’option Supprimer le compte pour supprimer un compte professionnel, car cette option peut ne pas fonctionner dans certaines versions antérieures d’Android.
 
 ##Désinstallation de l’application
 
@@ -116,4 +117,4 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 
 Si vous voyez l’**erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

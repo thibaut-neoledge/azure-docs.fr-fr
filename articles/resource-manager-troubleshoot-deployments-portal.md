@@ -27,9 +27,7 @@
 
 Si vous avez reçu une erreur lors du déploiement des ressources sur Azure, vous devez résoudre le problème. Le portail Azure fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
-Vous pouvez dépanner votre déploiement en examinant les journaux d'audit ou les opérations de déploiement. Cette rubrique illustre les deux méthodes.
-
-Vous pouvez éviter certaines erreurs en validant votre modèle et votre infrastructure avant le déploiement. Pour plus d’informations, consultez la page [Déploiement d’un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Utilisation des journaux d'audit pour résoudre les problèmes
 
@@ -99,7 +97,8 @@ Pour afficher les opérations de déploiement, procédez comme suit :
 
 ## Étapes suivantes
 
+- Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - Pour en savoir plus sur l'utilisation des journaux d'audit pour surveiller d'autres types d'actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/16/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Affichage et modification des ressources à l’aide de l’Explorateur de ressources Azure
@@ -24,11 +24,11 @@ Le code source de l’outil Explorateur de ressources est disponible sur [github
 ## Afficher les ressources
 Accédez à [https://resources.azure.com](https://resources.azure.com) et connectez-vous avec les informations d’identification que vous utilisez pour le [portail Azure](https://portal.azure.com).
 
-Une fois chargée, l’arborescence de gauche vous permet d’accéder aux informations détaillées sur vos abonnements et groupes de ressources :
+Une fois chargée, l’arborescence de gauche vous permet d’accéder aux informations détaillées sur vos abonnements et groupes de ressources :
 
 ![arborescence](./media/resource-manager-resource-explorer/are-01-treeview.png)
 
-Lorsque vous accédez à un groupe de ressources, les fournisseurs pour lesquels il existe des ressources dans ce groupe s’affichent :
+Lorsque vous accédez à un groupe de ressources, les fournisseurs pour lesquels il existe des ressources dans ce groupe s’affichent :
 
 ![fournisseurs](./media/resource-manager-resource-explorer/are-02-treeview-providers.png)
 
@@ -46,7 +46,7 @@ L’exploration d’une base de données nous montre les propriétés de cette b
 
 ## Modifier les ressources
 
-Une fois que vous avez accédé à une ressource, vous pouvez sélectionner le bouton Modifier pour rendre le contenu JSON modifiable. Vous pouvez ensuite utiliser l’Explorateur de ressources pour modifier le script JSON et envoyer une demande PUT pour modifier la ressource. Par exemple, l’image ci-dessous indique que le niveau de base de données est désormais défini sur `S0` :
+Une fois que vous avez accédé à une ressource, vous pouvez sélectionner le bouton Modifier pour rendre le contenu JSON modifiable. Vous pouvez ensuite utiliser l’Explorateur de ressources pour modifier le script JSON et envoyer une demande PUT pour modifier la ressource. Par exemple, l’image ci-dessous indique que le niveau de base de données est désormais défini sur `S0` :
 
 ![base de données - demande PUT](./media/resource-manager-resource-explorer/are-05-database-put.png)
 
@@ -67,11 +67,11 @@ L’onglet PowerShell de l’Explorateur de ressources affiche les applets de co
 
 ![PowerShell](./media/resource-manager-resource-explorer/are-07-powershell.png)
 
-Pour plus d’informations sur les applets de commande Azure PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
+Pour plus d’informations sur les applets de commande Azure PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 
 ## Résumé
 Lorsque vous travaillez avec ARM, l’Explorateur de ressources peut être un outil extrêmement utile. Il est idéal pour trouver des moyens d’utiliser PowerShell pour effectuer des requêtes et apporter des modifications. Si vous utilisez l’API REST, c’est un excellent moyen de commencer à tester rapidement les appels d’API avant de commencer à écrire du code. En outre, si vous écrivez des modèles ARM, cela peut être un excellent moyen de comprendre la hiérarchie des ressources et de déterminer où placer la configuration. Vous pouvez apporter une modification dans le portail puis rechercher les entrées correspondantes dans l’Explorateur de ressources.
 
-Pour plus d’informations, consultez la [vidéo Channel 9 avec Scott Hanselman et David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
+Pour plus d’informations, consultez la [vidéo Channel 9 avec Scott Hanselman et David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

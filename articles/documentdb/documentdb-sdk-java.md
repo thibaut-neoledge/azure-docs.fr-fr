@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/02/2016" 
 	ms.author="andrl"/>
 
 # Kit SDK DocumentDB
@@ -35,6 +35,12 @@
 </table></br>
 
 ## Notes de publication
+
+### <a name="1.7.1"/>[1\.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+- Ajout de la prise en charge d’une stratégie de nouvelle tentative pour la limitation.  
+
+### <a name="1.7.0"/>[1\.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+- Ajout de la prise en charge de la durée de vie (TTL) pour les documents. 
 
 ### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
 - Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
@@ -77,20 +83,22 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 mars 2016 |---
-| [1\.5.1](#1.5.1) | 31 décembre 2015 |---
-| [1\.5.0](#1.5.0) | 04 décembre 2015 |---
-| [1\.4.0](#1.4.0) | 05 octobre 2015 |---
-| [1\.3.0](#1.3.0) | 05 octobre 2015 |---
-| [1\.2.0](#1.2.0) | 05 août 2015 |---
-| [1\.1.0](#1.1.0) | 09 juillet 2015 |---
-| [1\.0.1](#1.0.1) | 12 mai 2015 |---
-| [1\.0.0](#1.0.0) | 07 avril 2015 |---
-| Version préliminaire 0.9.5 | 09 mars 2015 | 29 février 2016
-| Version préliminaire 0.9.4 | 17 février 2015 | 29 février 2016
-| Version préliminaire 0.9.3 | 13 janvier 2015 | 29 février 2016
-| Version préliminaire 0.9.2 | 19 décembre 2014 | 29 février 2016
-| Version préliminaire 0.9.1 | 19 décembre 2014 | 29 février 2016
+| [1.7.1](#1.7.1) | 30 avril 2016 |--- 
+| [1.7.0](#1.7.0) | 27 avril 2016 |--- 
+| [1.6.0](#1.6.0) | 29 mars 2016 |--- 
+| [1.5.1](#1.5.1) | 31 décembre 2015 |--- 
+| [1.5.0](#1.5.0) | 4 décembre 2015 |--- 
+| [1.4.0](#1.4.0) | 5 octobre 2015 |--- 
+| [1.3.0](#1.3.0) | 5 octobre 2015 |--- 
+| [1.2.0](#1.2.0) | 5 août 2015 |--- 
+| [1.1.0](#1.1.0) | 9 juillet 2015 |--- 
+| [1.0.1](#1.0.1) | 12 mai 2015 |--- 
+| [1.0.0](#1.0.0) | 7 avril 2015 |--- 
+| Version préliminaire 0.9.5 | 9 mars 2015 | 29 février 2016 
+| Version préliminaire 0.9.4 | 17 février 2015 | 29 février 2016 
+| Version préliminaire 0.9.3 | 13 janvier 2015 | 29 février 2016 
+| Version préliminaire 0.9.2 | 19 décembre 2014 | 29 février 2016 
+| Version préliminaire 0.9.1 | 19 décembre 2014 | 29 février 2016 
 | Version préliminaire 0.9.0 | 10 décembre 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -100,4 +108,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

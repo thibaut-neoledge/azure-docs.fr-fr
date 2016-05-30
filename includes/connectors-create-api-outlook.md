@@ -1,22 +1,17 @@
-## Connect to Outlook.com
+## Connexion à Outlook.com
 
-### Prerequisites
-- An Outlook.com account
+### Composants requis
+- Un compte Outlook.com
 
-Before you can use your Outlook.com account in a Logic app, you must authorize the Logic app to connect to your Outlook.com account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Pour pouvoir utiliser votre compte Outlook.com dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure.
 
-Here are the steps to authorize your Logic app to connect to your Outlook.com account:
+Pour autoriser votre application logique à se connecter à votre compte Outlook.com, procédez comme suit :
 
-1. All Logic apps need to be started by a trigger so after you create your Logic app, the designer opens and displays a list of triggers that you can use to start your Logic app:
+1. Toutes les applications logiques doivent être démarrées par un déclencheur. Donc, une fois votre application logique créée, le concepteur s’ouvre et affiche la liste des déclencheurs que vous pouvez utiliser pour démarrer votre application logique :
 
   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Enter "outlook" in the search box. Notice the list is filtered to list all the triggers with "Outlook" in the name:
-  ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Select **Office 365 Outlook - On new email**.   
-  If you haven't created any connections to Outlook before, you'll get prompted to provide your Outlook.com credentials. These credentials will be used to authorize your Logic app to connect to, and access your Outlook.com account's data: 
-  ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Provide your credentials for Outlook and sign in:
-  ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-That's it. You've now created a connection to Outlook. This connection will be available for use in any other Logic app that you create.
+2. Dans la zone de recherche, entrez « outlook ». Remarquez que la liste est filtrée et affiche tous les déclencheurs contenant « Outlook » dans leur nom : ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
+3. Sélectionnez **Office 365 Outlook - En cas de nouveau message**. Si vous n’avez créé aucune connexion à Outlook auparavant, vous êtes invité à indiquer vos informations d’identification Outlook.com. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte Outlook.com : ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
+4. Indiquez vos informations d’identification pour Outlook et connectez-vous : ![](./media/connectors-create-api-outlook/office365-outlook-2.png). Voilà, c’est tout. Vous venez de créer une connexion à Outlook. Cette connexion sera disponible dans toutes les applications logiques que vous créerez.
 
 

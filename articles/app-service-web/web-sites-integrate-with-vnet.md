@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Intégrer une application à un réseau Azure Virtual Network #
@@ -27,24 +27,24 @@ Azure App Service se présente sous deux formes.
 
 Cet article ne décrit pas comment placer un ASE dans un réseau virtuel V2. Cette opération n’est pas encore prise en charge et n’est pas liée à cet article. Cet article concerne l’activation de vos applications pour qu’elles consomment des ressources dans un réseau virtuel V1 ou V2.
 
-Grâce à cette intégration, votre application web a accès aux ressources se trouvant dans votre réseau virtuel sans que celui-ci puisse accéder à votre application web de façon privée. Cette fonctionnalité est couramment utilisée dans le scénario suivant : vous autorisez votre application web à accéder à une base de données ou à des services web exécutés dans une machine virtuelle de votre réseau virtuel Azure. Avec l’intégration au réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle, mais vous pouvez utiliser à la place des adresses privées routables non-Internet.
+Grâce à cette intégration, votre application web a accès aux ressources se trouvant dans votre réseau virtuel sans que celui-ci puisse accéder à votre application web de façon privée. Cette fonctionnalité est couramment utilisée dans le scénario suivant : vous autorisez votre application web à accéder à une base de données ou à des services web exécutés dans une machine virtuelle de votre réseau virtuel Azure. Avec l’intégration au réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle, mais vous pouvez utiliser à la place des adresses privées routables non-Internet.
 
-La fonctionnalité d’intégration au réseau virtuel :
+La fonctionnalité d’intégration au réseau virtuel :
 
-- nécessite un plan de tarification Standard ou Premium ; 
+- nécessite un plan de tarification Standard ou Premium ; 
 - fonctionne avec un réseau virtuel V1(Classic) ou V2(Resource Manager) 
-- prend en charge les protocoles TCP et UDP ;
-- fonctionne avec les applications web, mobiles et API ;
-- permet à une application de se connecter à un seul réseau virtuel à la fois ;
-- permet d’intégrer jusqu’à 5 réseaux virtuels dans un plan App Service ; 
-- permet l’utilisation du même réseau virtuel par plusieurs applications d’un plan App Service ;
-- prend en charge un contrat SLA de 99,9 % de par sa dépendance à la passerelle de réseau virtuel.
+- prend en charge les protocoles TCP et UDP ;
+- fonctionne avec les applications web, mobiles et API ;
+- permet à une application de se connecter à un seul réseau virtuel à la fois ;
+- permet d’intégrer jusqu’à 5 réseaux virtuels dans un plan App Service ; 
+- permet l’utilisation du même réseau virtuel par plusieurs applications d’un plan App Service ;
+- prend en charge un contrat SLA de 99,9 % de par sa dépendance à la passerelle de réseau virtuel.
 
-Certains éléments ne sont pas pris en charge par l’intégration au réseau virtuel, notamment :
+Certains éléments ne sont pas pris en charge par l’intégration au réseau virtuel, notamment :
 
-- montage d’un lecteur ;
-- intégration AD ; 
-- NetBios ;
+- montage d’un lecteur ;
+- intégration AD ; 
+- NetBios ;
 - accès privé aux sites.
 
 ### Prise en main ###
@@ -59,7 +59,9 @@ Voici quelques informations à garder à l’esprit avant de connecter votre app
 
 ## Activation de l’intégration au réseau virtuel ##
 
-Vous pouvez connecter un site Web à un réseau virtuel nouveau ou existant. Si vous créez un réseau, outre la création du réseau virtuel, une passerelle de routage dynamique est préconfigurée pour vous et le réseau VPN de point à site est activé.
+Ce document se concentre principalement sur l’utilisation du portail Azure pour l’intégration au réseau virtuel. Pour activer l’intégration au réseau virtuel avec votre application à l’aide de PowerShell, suivez les instructions fournies ici : [Connecter votre application à votre réseau virtuel à l’aide de PowerShell][IntPowershell].
+
+Vous pouvez connecter votre application à un réseau virtuel nouveau ou existant. Si vous créez un réseau dans le cadre de votre intégration, outre la création du réseau virtuel, une passerelle de routage dynamique est préconfigurée pour vous et le réseau VPN de point à site est activé.
 
 >[AZURE.NOTE] La configuration d’une nouvelle intégration au réseau virtuel peut prendre plusieurs minutes.
 
@@ -71,7 +73,7 @@ Si le plan de tarification n’est pas adapté à votre application, l’interfa
 ![][1]
  
 ###Activation de l’intégration au réseau virtuel avec un réseau virtuel existant###
-L’interface utilisateur d’intégration au réseau virtuel vous permet d’effectuer vos choix dans la liste de vos réseaux virtuels. Les réseaux virtuels V1 indiquent leur type avec le terme « Classique » entre parenthèses à côté de leur nom. La liste est triée de telle façon que les réseaux virtuels V2 sont répertoriés en premier. Dans l’image ci-dessous, vous pouvez voir qu’un seul réseau virtuel peut être sélectionné. Un réseau virtuel peut être grisé pour plusieurs raisons, notamment :
+L’interface utilisateur d’intégration au réseau virtuel vous permet d’effectuer vos choix dans la liste de vos réseaux virtuels. Les réseaux virtuels V1 indiquent leur type avec le terme « Classique » entre parenthèses à côté de leur nom. La liste est triée de telle façon que les réseaux virtuels V2 sont répertoriés en premier. Dans l’image ci-dessous, vous pouvez voir qu’un seul réseau virtuel peut être sélectionné. Un réseau virtuel peut être grisé pour plusieurs raisons, notamment :
 
 - Le réseau virtuel est dans un abonnement différent de celui auquel votre compte a accès.
 - La connexion de point à site n’est pas activée pour le réseau virtuel.
@@ -83,7 +85,7 @@ L’interface utilisateur d’intégration au réseau virtuel vous permet d’ef
 Pour activer l’intégration, cliquez simplement sur le réseau virtuel souhaité. Votre application est automatiquement redémarrée, de sorte que les modifications soient appliquées.
 
 ##### Activation de la connexion point à site dans un réseau virtuel V1 #####
-Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de point à site, vous devez commencer par en configurer une. Pour effectuer cette opération pour un réseau virtuel V1, accédez au [portail Azure][AzurePortal] et affichez la liste des réseaux virtuels (classiques). Cliquez sur le réseau avec lequel vous souhaitez effectuer l’intégration, puis cliquez sur la grande zone Connexions VPN, sous Essentials. À ce stade, vous pouvez créer votre réseau VPN de point à site et, à partir de ce réseau, créer une passerelle. Une fois créée la connexion de point à site avec passerelle, le processus peut prendre environ 30 minutes.
+Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de point à site, vous devez commencer par en configurer une. Pour effectuer cette opération pour un réseau virtuel V1, accédez au [portail Azure][AzurePortal] et affichez la liste des réseaux virtuels (classiques). Cliquez sur le réseau avec lequel vous souhaitez effectuer l’intégration, puis cliquez sur la grande zone Connexions VPN, sous Essentials. À ce stade, vous pouvez créer votre réseau VPN de point à site et, à partir de ce réseau, créer une passerelle. Une fois créée la connexion de point à site avec passerelle, le processus peut prendre environ 30 minutes.
 
 ![][8]
 
@@ -94,7 +96,7 @@ Pour configurer un réseau virtuel V2 avec une passerelle et une connexion point
 ### Création d’un réseau virtuel préconfiguré ###
 Si vous souhaitez créer un réseau virtuel configuré avec une passerelle et connexion point à site, l’interface réseau Service de l’application a la possibilité de faire, mais uniquement pour un réseau virtuel V2. Si vous souhaitez créer un réseau virtuel V1 avec une passerelle et une connexion point à site, vous devez le faire manuellement via l’interface utilisateur de réseau.
 
-Pour créer un réseau virtuel V2 via l’interface utilisateur d’intégration au réseau virtuel, sélectionnez simplement **Créer un réseau virtuel** et indiquez le :
+Pour créer un réseau virtuel V2 via l’interface utilisateur d’intégration au réseau virtuel, sélectionnez simplement **Créer un réseau virtuel** et indiquez le :
 
 - Nom du réseau virtuel
 - Bloc d’adresses du réseau virtuel
@@ -103,19 +105,19 @@ Pour créer un réseau virtuel V2 via l’interface utilisateur d’intégration
 - Bloc d’adresses de la passerelle
 - Bloc d’adresses de point à site
 
-Si vous souhaitez que ce réseau virtuel puisse se connecter à vos autres réseaux, vous devez éviter de choisir un espace d’adressage IP qui chevauche celui de ces réseaux.
+Si vous souhaitez que ce réseau virtuel puisse se connecter à vos autres réseaux, vous devez éviter de choisir un espace d’adressage IP qui chevauche celui de ces réseaux.
 
->[AZURE.NOTE] La création du réseau virtuel V2 avec passerelle prend environ 30 minutes. Actuellement, le réseau virtuel ne sera pas intégré à votre application. Une fois votre réseau virtuel créé avec la passerelle, vous devez revenir à l’interface d’intégration de réseau virtuel de votre application et sélectionner votre nouveau réseau virtuel.
+>[AZURE.NOTE] La création du réseau virtuel V2 avec passerelle prend environ 30 minutes. Actuellement, le réseau virtuel ne sera pas intégré à votre application. Une fois votre réseau virtuel créé avec la passerelle, vous devez revenir à l’interface d’intégration de réseau virtuel de votre application et sélectionner votre nouveau réseau virtuel.
 
 ![][3]
 
-En règle générale, les réseaux virtuels Azure sont créés dans des plages d’adresses de réseau privées. Par défaut, la fonctionnalité d’intégration au réseau virtuel achemine tout le trafic destiné à ces plages d’adresses IP sur votre réseau virtuel. Les plages d’adresses IP privées sont les suivantes :
+En règle générale, les réseaux virtuels Azure sont créés dans des plages d’adresses de réseau privées. Par défaut, la fonctionnalité d’intégration au réseau virtuel achemine tout le trafic destiné à ces plages d’adresses IP sur votre réseau virtuel. Les plages d’adresses IP privées sont les suivantes :
 
 - 10\.0.0.0/8 - identique à 10.0.0.0 - 10.255.255.255
 - 172\.16.0.0/12 - identique à 172.16.0.0 - 172.31.255.255 
 - 192\.168.0.0/16 - identique à 192.168.0.0 - 192.168.255.255
  
-L’espace d’adressage du réseau virtuel doit être spécifié en notation CIDR. Si vous n’êtes pas familiarisé avec la notation CIDR, il s’agit d’une méthode permettant de spécifier des blocs d’adresses à l’aide d’une adresse IP et d’un entier qui représente le masque de réseau. À titre de référence rapide, considérez que 10.1.0.0/24 représenterait 256 adresses et 10.1.0.0/25 représenterait 128 adresses. Une adresse IPv4 avec /32 représenterait une seule adresse.
+L’espace d’adressage du réseau virtuel doit être spécifié en notation CIDR. Si vous n’êtes pas familiarisé avec la notation CIDR, il s’agit d’une méthode permettant de spécifier des blocs d’adresses à l’aide d’une adresse IP et d’un entier qui représente le masque de réseau. À titre de référence rapide, considérez que 10.1.0.0/24 représenterait 256 adresses et 10.1.0.0/25 représenterait 128 adresses. Une adresse IPv4 avec /32 représenterait une seule adresse.
 
 Si vous définissez les informations de serveur DNS ici, elles seront définies pour votre réseau virtuel. Après la création du réseau virtuel, vous pouvez modifier ces informations à partir des expériences utilisateur correspondantes.
 
@@ -137,21 +139,21 @@ La possibilité de se connecter à un réseau virtuel et de s’en déconnecter 
 
 Sur la page État de la fonctionnalité réseau, vous pouvez voir si votre application est connectée à votre réseau virtuel. Si votre passerelle de réseau virtuel est en panne pour une raison quelconque, votre application apparaît comme non connectée.
 
-Les informations désormais à votre disposition dans l’interface utilisateur d’intégration au réseau virtuel au niveau de l’application sont identiques aux informations détaillées que vous obtenez à partir de l’ASP. Il s’agit des informations suivantes :
+Les informations désormais à votre disposition dans l’interface utilisateur d’intégration au réseau virtuel au niveau de l’application sont identiques aux informations détaillées que vous obtenez à partir de l’ASP. Il s’agit des informations suivantes :
 
-- Nom du réseau virtuel : ce lien ouvre l’interface utilisateur du réseau.
-- Emplacement : reflète l’emplacement de votre réseau virtuel. Il est possible d’effectuer une intégration à un réseau virtuel à un autre emplacement.
-- État du certificat : certains certificats sont utilisés pour sécuriser la connexion VPN entre l’application et le réseau virtuel. Cela représente un test pour en vérifier la synchronisation.
+- Nom du réseau virtuel : ce lien ouvre l’interface utilisateur du réseau.
+- Emplacement : reflète l’emplacement de votre réseau virtuel. Il est possible d’effectuer une intégration à un réseau virtuel à un autre emplacement.
+- État du certificat : certains certificats sont utilisés pour sécuriser la connexion VPN entre l’application et le réseau virtuel. Cela représente un test pour en vérifier la synchronisation.
 - État de la passerelle - si vos passerelles sont en panne pour une raison quelconque, votre application ne peut pas accéder aux ressources du réseau virtuel.  
-- Espace d’adressage du réseau virtuel : espace d’adressage IP pour votre réseau virtuel.  
-- Espace d’adressage de point à site : espace d’adressage IP de point à site pour votre réseau virtuel. Votre application affichera la communication comme provenant de l’une des adresses IP de cet espace d’adressage.  
+- Espace d’adressage du réseau virtuel : espace d’adressage IP pour votre réseau virtuel.  
+- Espace d’adressage de point à site : espace d’adressage IP de point à site pour votre réseau virtuel. Votre application affichera la communication comme provenant de l’une des adresses IP de cet espace d’adressage.  
 - Espace d’adressage de site à site - vous pouvez utiliser des réseaux VPN de site à site pour connecter votre réseau virtuel à vos ressources locales ou à d’autres réseaux virtuels. Si vous avez effectué cette configuration, les plages IP définies avec cette connexion VPN s’affichent à cet endroit.
-- Serveurs DNS : si des serveurs DNS sont configurés avec votre réseau virtuel, ils sont répertoriés ici.
-- Adresses IP acheminées vers le réseau virtuel : une liste des adresses IP définies pour le routage vers le réseau virtuel est définie. Ces adresses sont affichées ici.  
+- Serveurs DNS : si des serveurs DNS sont configurés avec votre réseau virtuel, ils sont répertoriés ici.
+- Adresses IP acheminées vers le réseau virtuel : une liste des adresses IP définies pour le routage vers le réseau virtuel est définie. Ces adresses sont affichées ici.  
 
 La seule opération que vous pouvez effectuer dans la vue d’application de votre interface d’intégration au réseau virtuel consiste à déconnecter votre application du réseau virtuel auquel elle est actuellement connectée. Pour ce faire, cliquez simplement sur Déconnecter dans la partie supérieure. Cette action ne modifie pas votre réseau virtuel. Le réseau virtuel et sa configuration, notamment les passerelles, demeurent inchangés. Si vous souhaitez ensuite supprimer votre réseau virtuel, vous devez d’abord supprimer les ressources qu’il contient, y compris les passerelles.
 
-La vue Plan App Service offre des opérations supplémentaires. Son accès s’effectue également hors de l’application. Pour accéder à l’interface utilisateur de mise en réseau ASP, il vous suffit d’ouvrir l’interface utilisateur ASP et de faire défiler l’affichage vers le bas. L’interface utilisateur comporte l’élément État de la fonctionnalité réseau. Celui-ci offre quelques détails secondaires sur votre intégration au réseau virtuel. Si vous cliquez sur cet élément, vous ouvrez l’interface utilisateur État de la fonctionnalité réseau. Si vous cliquez ensuite sur « Cliquez ici pour gérer », une interface utilisateur qui répertorie les intégrations au réseau virtuel dans cet ASP s’ouvre.
+La vue Plan App Service offre des opérations supplémentaires. Son accès s’effectue également hors de l’application. Pour accéder à l’interface utilisateur de mise en réseau ASP, il vous suffit d’ouvrir l’interface utilisateur ASP et de faire défiler l’affichage vers le bas. L’interface utilisateur comporte l’élément État de la fonctionnalité réseau. Celui-ci offre quelques détails secondaires sur votre intégration au réseau virtuel. Si vous cliquez sur cet élément, vous ouvrez l’interface utilisateur État de la fonctionnalité réseau. Si vous cliquez ensuite sur « Cliquez ici pour gérer », une interface utilisateur qui répertorie les intégrations au réseau virtuel dans cet ASP s’ouvre.
 
 ![][6]
 
@@ -167,41 +169,41 @@ Deux actions clés sont possibles. D’une part, vous avez la possibilité d’a
 
 **Routage** Comme indiqué précédemment, les itinéraires définis dans votre réseau virtuel sont utilisés pour diriger le trafic vers votre réseau virtuel à partir de votre application. Cependant, dans certains cas, les clients veulent envoyer un trafic sortant supplémentaire à partir d’une application dans le réseau virtuel. Cette fonctionnalité leur est alors fournie. Ensuite, le traitement du trafic dépend de la façon dont le client configure son réseau virtuel.
 
-**Certificats** L’état des certificats reflète la vérification effectuée par App Service pour garantir que les certificats que nous utilisons pour la connexion VPN sont toujours valables. Lorsque l’intégration au réseau virtuel est activée, s’il s’agit de la première intégration à ce réseau virtuel à partir d’une application quelconque de cet ASP, un échange de certificats est nécessaire pour garantir la sécurité de la connexion. Avec les certificats, nous obtenons la configuration DNS, les itinéraires et d’autres éléments similaires qui décrivent le réseau. Si ces certificats ou informations réseau sont modifiés, vous devez cliquer sur « Synchronisation réseau ». **Remarque** : lorsque vous cliquez sur « Synchronisation réseau », la connectivité entre votre application et votre réseau virtuel est brièvement interrompue. Votre application ne sera pas redémarrée, et la perte de connectivité peut altérer le fonctionnement de votre site.
+**Certificats** L’état des certificats reflète la vérification effectuée par App Service pour garantir que les certificats que nous utilisons pour la connexion VPN sont toujours valables. Lorsque l’intégration au réseau virtuel est activée, s’il s’agit de la première intégration à ce réseau virtuel à partir d’une application quelconque de cet ASP, un échange de certificats est nécessaire pour garantir la sécurité de la connexion. Avec les certificats, nous obtenons la configuration DNS, les itinéraires et d’autres éléments similaires qui décrivent le réseau. Si ces certificats ou informations réseau sont modifiés, vous devez cliquer sur « Synchronisation réseau ». **Remarque** : lorsque vous cliquez sur « Synchronisation réseau », la connectivité entre votre application et votre réseau virtuel est brièvement interrompue. Votre application ne sera pas redémarrée, et la perte de connectivité peut altérer le fonctionnement de votre site.
 
 ##Accès aux ressources sur site##
 
-La fonctionnalité d’intégration au réseau virtuel offre notamment l’avantage suivant : si votre réseau virtuel est connecté à votre réseau local avec une connexion VPN de site à site, vos applications peuvent accéder à vos ressources locales à partir de votre application. Pour que cela fonctionne, vous devrez peut-être mettre à jour votre passerelle VPN locale avec les itinéraires relatifs à votre plage IP de point à site. Lorsque vous configurez le réseau VPN de site à site pour la première fois, les scripts utilisés pour le configurer doivent définir les itinéraires, y compris votre réseau VPN de point à site. Si vous ajoutez le réseau VPN de point à site après avoir créé votre réseau VPN de site à site, vous devrez mettre à jour les itinéraires manuellement. La procédure détaillée dépend de la passerelle et n’est pas décrite ici.
+La fonctionnalité d’intégration au réseau virtuel offre notamment l’avantage suivant : si votre réseau virtuel est connecté à votre réseau local avec une connexion VPN de site à site, vos applications peuvent accéder à vos ressources locales à partir de votre application. Pour que cela fonctionne, vous devrez peut-être mettre à jour votre passerelle VPN locale avec les itinéraires relatifs à votre plage IP de point à site. Lorsque vous configurez le réseau VPN de site à site pour la première fois, les scripts utilisés pour le configurer doivent définir les itinéraires, y compris votre réseau VPN de point à site. Si vous ajoutez le réseau VPN de point à site après avoir créé votre réseau VPN de site à site, vous devrez mettre à jour les itinéraires manuellement. La procédure détaillée dépend de la passerelle et n’est pas décrite ici.
 
 >[AZURE.NOTE] La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin. C’est vrai lors de l’intégration d’un réseau V1 ou V2. Si vous avez besoin d’accéder aux ressources via un VPN ExpressRoute, vous pouvez utiliser un ASE pouvant s’exécuter dans votre réseau virtuel.
 
 ##Détails de la tarification##
-Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vous devez connaître quelques nuances concernant la tarification. L’utilisation de cette fonctionnalité implique 3 coûts :
+Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vous devez connaître quelques nuances concernant la tarification. L’utilisation de cette fonctionnalité implique 3 coûts :
 
-- exigences liées au niveau tarifaire de l’ASP ;
-- coût de transfert des données ;
+- exigences liées au niveau tarifaire de l’ASP ;
+- coût de transfert des données ;
 - coûts de la passerelle VPN.
 
-Pour que vos applications puissent utiliser cette fonctionnalité, elles doivent faire partie d’un plan App Service Standard ou Premium. Pour plus d’informations sur les coûts, voir : [Tarification App Service][ASPricing].
+Pour que vos applications puissent utiliser cette fonctionnalité, elles doivent faire partie d’un plan App Service Standard ou Premium. Pour plus d’informations sur les coûts, voir : [Tarification App Service][ASPricing].
 
-En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, consultez : [Détails de la tarification de transfert de données][DataPricing].
+En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, consultez : [Détails de la tarification de transfert de données][DataPricing].
 
-Les passerelles de réseau virtuel représentent le dernier élément de coût. Si vous n’utilisez pas les passerelles à d’autres fins, par exemple pour des réseaux VPN de site à site, vous payez la prise en charge de la fonctionnalité d’intégration au réseau virtuel par les passerelles. Pour plus d’informations sur ces coûts, voir : [tarification de passerelle VPN][VNETPricing].
+Les passerelles de réseau virtuel représentent le dernier élément de coût. Si vous n’utilisez pas les passerelles à d’autres fins, par exemple pour des réseaux VPN de site à site, vous payez la prise en charge de la fonctionnalité d’intégration au réseau virtuel par les passerelles. Pour plus d’informations sur ces coûts, voir : [tarification de passerelle VPN][VNETPricing].
 
 ##Résolution de problèmes##
 
-Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console accessible à l’aide du portail Azure. Pour ouvrir la console Kudu, à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également ouvrir la page [nom\_site].scm.azurewebsites.net, puis accéder à l’onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console.
+Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console accessible à l’aide du portail Azure. Pour ouvrir la console Kudu, à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également ouvrir la page [nom\_site].scm.azurewebsites.net, puis accéder à l’onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console.
 
 
 ####Outils####
 
-Des contraintes de sécurité empêchent d’utiliser les outils ping, nslookup et tracert au moyen de la console. Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé nameresolver.exe. La syntaxe est :
+Des contraintes de sécurité empêchent d’utiliser les outils ping, nslookup et tracert au moyen de la console. Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé nameresolver.exe. La syntaxe est :
 
     nameresolver.exe hostname [optional: DNS Server]
 
 Vous pouvez utiliser nameresolver pour vérifier les noms d’hôte dont dépend votre application. De cette façon, vous pouvez tester si des éléments de votre serveur DNS sont mal configurés ou si vous n’avez pas accès à votre serveur DNS.
 
-L’outil suivant vous permet de tester la connectivité TCP avec une combinaison hôte/port. Il s’agit de l’outil tcpping.exe, dont la syntaxe est la suivante :
+L’outil suivant vous permet de tester la connectivité TCP avec une combinaison hôte/port. Il s’agit de l’outil tcpping.exe, dont la syntaxe est la suivante :
 
     tcpping.exe hostname [optional: port]
 
@@ -210,31 +212,31 @@ Cet outil vous indique si vous pouvez atteindre un hôte et un port spécifiques
 
 ####Débogage de l’accès aux ressources hébergées sur un réseau virtuel####
 
-Plusieurs choses peuvent empêcher votre application d’atteindre un hôte et un port spécifiques. Pour bien comprendre le problème, commencez par vous poser des questions simples, par exemple :
+Plusieurs choses peuvent empêcher votre application d’atteindre un hôte et un port spécifiques. Pour bien comprendre le problème, commencez par vous poser des questions simples, par exemple :
 
-- Le portail indique-t-il que la passerelle fonctionne ?
-- Les certificats s’affichent comme étant synchronisés ?
-- Un utilisateur a-t-il modifié la configuration du réseau sans effectuer de « Synchronisation réseau » dans les ASP affectés ?
+- Le portail indique-t-il que la passerelle fonctionne ?
+- Les certificats s’affichent comme étant synchronisés ?
+- Un utilisateur a-t-il modifié la configuration du réseau sans effectuer de « Synchronisation réseau » dans les ASP affectés ?
 
-Si votre passerelle est en panne, rétablissez-la. Si vos certificats ne sont pas synchronisés, accédez à la vue ASP de votre interface d’intégration au réseau virtuel et appuyez sur « Synchronisation réseau ». Si vous pensez qu’une modification a été apportée à votre configuration de réseau virtuel et qu’elle n’a pas été synchronisée avec vos ASP, accédez à la vue ASP de votre interface d’intégration au réseau virtuel et appuyez sur « Synchronisation réseau ». Pour rappel, la connexion au réseau virtuel et vos applications seront brièvement interrompues.
+Si votre passerelle est en panne, rétablissez-la. Si vos certificats ne sont pas synchronisés, accédez à la vue ASP de votre interface d’intégration au réseau virtuel et appuyez sur « Synchronisation réseau ». Si vous pensez qu’une modification a été apportée à votre configuration de réseau virtuel et qu’elle n’a pas été synchronisée avec vos ASP, accédez à la vue ASP de votre interface d’intégration au réseau virtuel et appuyez sur « Synchronisation réseau ». Pour rappel, la connexion au réseau virtuel et vos applications seront brièvement interrompues.
 
-Si tous ces aspects sont corrects, vous devez approfondir vos recherches :
+Si tous ces aspects sont corrects, vous devez approfondir vos recherches :
 
-- D’autres applications utilisant ce réseau virtuel parviennent-elles à accéder correctement à une ressource distante ? 
-- Pouvez-vous ouvrir la console de l’application et utiliser tcpping pour accéder aux ressources de votre réseau virtuel ?  
+- D’autres applications utilisant ce réseau virtuel parviennent-elles à accéder correctement à une ressource distante ? 
+- Pouvez-vous ouvrir la console de l’application et utiliser tcpping pour accéder aux ressources de votre réseau virtuel ?  
 
-Si l’un de ces aspects est vérifié, votre intégration au réseau virtuel est correcte, et le problème se situe ailleurs. Il se peut également que vous ne puissiez pas obtenir de réponse à ces deux questions parce que vous n’avez pas accès à d’autres éléments dans votre réseau virtuel. La situation est alors plus complexe car il n’existe aucun moyen simple de comprendre pourquoi vous ne pouvez pas atteindre une combinaison hôte:port. Voici quelques-unes des causes possibles :
+Si l’un de ces aspects est vérifié, votre intégration au réseau virtuel est correcte, et le problème se situe ailleurs. Il se peut également que vous ne puissiez pas obtenir de réponse à ces deux questions parce que vous n’avez pas accès à d’autres éléments dans votre réseau virtuel. La situation est alors plus complexe car il n’existe aucun moyen simple de comprendre pourquoi vous ne pouvez pas atteindre une combinaison hôte:port. Voici quelques-unes des causes possibles :
 
 - Votre hôte cible est hors-service.
 - Votre application est arrêtée.
 - L’IP ou le nom d’hôte est incorrect.
-- Votre application est à l’écoute sur un port autre que celui que vous envisagiez. Pour vérifier cela, accédez à cet hôte et utilisez la commande « netstat -aon » à partir de l’invite de commandes. Cette commande affiche l’ID de processus à l’écoute et le port correspondant.  
+- Votre application est à l’écoute sur un port autre que celui que vous envisagiez. Pour vérifier cela, accédez à cet hôte et utilisez la commande « netstat -aon » à partir de l’invite de commandes. Cette commande affiche l’ID de processus à l’écoute et le port correspondant.  
 - Un pare-feu activé sur l’hôte empêche l’accès au port de l’application à partir de votre plage d’adresses IP de point à site.
 - Les groupes de sécurité de votre réseau sont configurés de telle sorte qu’ils empêchent l’accès à l’hôte et au port de votre application à partir de votre plage d’adresses IP de point à site.
 
 N’oubliez pas que vous ne connaissez pas l’adresse IP de la plage d’adresses IP de point à site qui sera utilisée par votre application. Vous devez donc autoriser l’accès à partir de la plage entière.
 
-Étapes de débogage supplémentaires :
+Étapes de débogage supplémentaires :
 
 - Connectez-vous à une autre machine virtuelle de votre réseau virtuel et essayez d’atteindre la combinaison hôte:port de vos ressources. Vous pouvez utiliser pour cela certains utilitaires ping TCP ou Telnet. L’objectif ici consiste simplement à déterminer si la connectivité est établie à partir de cette autre machine virtuelle. 
 - Démarrez une application sur une autre machine virtuelle et testez l’accès à cet hôte et au port à partir de la console dans votre application.  
@@ -242,24 +244,24 @@ N’oubliez pas que vous ne connaissez pas l’adresse IP de la plage d’adress
 ####Ressources locales####
 Si vous ne pouvez pas accéder aux ressources locales, commencez par vérifier si vous pouvez accéder à une ressource de votre réseau virtuel. Si cela fonctionne, les étapes suivantes sont assez faciles. À partir d’une machine virtuelle de votre réseau virtuel, vous devez tenter d’accéder à l’application locale. Vous pouvez utiliser Telnet ou un utilitaire ping TCP. Si votre machine virtuelle ne peut pas accéder à votre ressource locale, commencez par vérifier que votre connexion VPN de site à site fonctionne. Si c’est le cas, vérifiez les éléments indiqués précédemment, ainsi que la configuration et l’état de la passerelle locale.
 
-Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut atteindre votre système local, mais que votre application ne le peut pas, la raison est probablement l'une des suivantes :
+Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut atteindre votre système local, mais que votre application ne le peut pas, la raison est probablement l'une des suivantes :
 - vos itinéraires ne sont pas configurés avec vos plages IP de point à site dans votre passerelle locale
 - vos groupes de sécurité réseau bloquent l'accès de votre plage IP de point à site
 - vos pare-feu local locaux bloquent le trafic à partir de votre plage IP de point à site
 - vous avez un itinéraire défini par l’utilisateur (UDR) dans votre réseau virtuel qui empêche votre trafic de point à site d'atteindre votre réseau local
 
 ## Connexions hybrides et environnements App Service##
-Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le réseau virtuel. Il s'agit de :
+Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le réseau virtuel. Il s'agit de :
 
 - Intégration au réseau virtuel
 - les connexions hybrides
 - Environnements App Service
 
-Pour les connexions hybrides, vous devez installer l’agent de relais Gestionnaire de connexion hybride (HCM, Hybrid Connection Manager) sur votre réseau. HCM doit pouvoir se connecter à Azure et à votre application. Cette solution est particulièrement efficace à partir d’un réseau distant, tel que votre réseau local ou un autre réseau hébergé dans le cloud, car elle ne nécessite pas de point de terminaison accessible sur Internet. HCM s’exécute uniquement sous Windows. Vous pouvez exécuter jusqu’à 5 instances pour bénéficier d’une haute disponibilité. Cependant, les connexions hybrides prennent en charge uniquement le protocole TCP, et chaque point de terminaison de connexion hybride doit correspondre à une combinaison hôte:port spécifique.
+Pour les connexions hybrides, vous devez installer l’agent de relais Gestionnaire de connexion hybride (HCM, Hybrid Connection Manager) sur votre réseau. HCM doit pouvoir se connecter à Azure et à votre application. Cette solution est particulièrement efficace à partir d’un réseau distant, tel que votre réseau local ou un autre réseau hébergé dans le cloud, car elle ne nécessite pas de point de terminaison accessible sur Internet. HCM s’exécute uniquement sous Windows. Vous pouvez exécuter jusqu’à 5 instances pour bénéficier d’une haute disponibilité. Cependant, les connexions hybrides prennent en charge uniquement le protocole TCP, et chaque point de terminaison de connexion hybride doit correspondre à une combinaison hôte:port spécifique.
 
-Avec un environnement App Service, vous pouvez exécuter une instance d’Azure App Service dans votre réseau virtuel. Ainsi, vos applications peuvent accéder aux ressources de votre réseau virtuel sans étapes supplémentaires. Un environnement App Service offre d’autres avantages. Par exemple, vous pouvez utiliser 8 serveurs de traitement principaux dédiés avec 14 Go de RAM. En outre, vous pouvez étendre le système selon vos besoins. Contrairement aux environnements mutualisés, avec lesquels votre ASP est limité en taille, un ASE vous permet de contrôler le nombre de ressources que vous souhaitez accorder au système. Concernant l’aspect réseau qui fait l’objet de ce document, l’un des avantages d’un ASE (que n’offre pas l’intégration au réseau virtuel) est la possibilité de l’utiliser avec un réseau VPN ExpressRoute.
+Avec un environnement App Service, vous pouvez exécuter une instance d’Azure App Service dans votre réseau virtuel. Ainsi, vos applications peuvent accéder aux ressources de votre réseau virtuel sans étapes supplémentaires. Un environnement App Service offre d’autres avantages. Par exemple, vous pouvez utiliser 8 serveurs de traitement principaux dédiés avec 14 Go de RAM. En outre, vous pouvez étendre le système selon vos besoins. Contrairement aux environnements mutualisés, avec lesquels votre ASP est limité en taille, un ASE vous permet de contrôler le nombre de ressources que vous souhaitez accorder au système. Concernant l’aspect réseau qui fait l’objet de ce document, l’un des avantages d’un ASE (que n’offre pas l’intégration au réseau virtuel) est la possibilité de l’utiliser avec un réseau VPN ExpressRoute.
 
-Même si, dans certains cas, il est possible d’utiliser ces deux fonctionnalités, l’une ne remplace pas l’autre. Le choix de la fonctionnalité à utiliser dépend de vos besoins et de son mode d’utilisation. Par exemple :
+Même si, dans certains cas, il est possible d’utiliser ces deux fonctionnalités, l’une ne remplace pas l’autre. Le choix de la fonctionnalité à utiliser dépend de vos besoins et de son mode d’utilisation. Par exemple :
 
 - Si vous êtes un développeur et que vous souhaitez simplement exécuter un site dans Azure et lui permettre d’accéder à la base de données de votre station de travail locale, la solution la plus simple consiste à utiliser des connexions hybrides.  
 - Si vous êtes une organisation de grande envergure et que vous souhaitez placer un grand nombre de propriétés web dans le cloud public et les gérer dans votre propre réseau, il est préférable de recourir à un environnement App Service.  
@@ -267,7 +269,7 @@ Même si, dans certains cas, il est possible d’utiliser ces deux fonctionnalit
 
 Au-delà de ces cas d’utilisation, certains aspects liés à la simplicité doivent être pris en compte. Si votre réseau virtuel est déjà connecté à votre réseau local, l’utilisation de l’intégration au réseau virtuel ou d’un environnement App Service est un moyen simple de consommer des ressources locales. En revanche, si votre réseau virtuel n’est pas connecté à votre réseau local, la configuration d’un réseau VPN de site à site avec votre réseau virtuel sera beaucoup plus complexe que l’installation du Gestionnaire de connexion hybride.
 
-Outre les différences fonctionnelles, il existe également des différences de tarification. L’environnement App Service est un service Premium offrant des possibilités de configuration de réseau inégalées et des fonctionnalités remarquables. L’intégration au réseau virtuel peut être utilisée avec des plans App Service Standard ou Premium. Elle est idéale pour la consommation sécurisée des ressources dans votre réseau virtuel à partir du système App Service mutualisé. Actuellement, les connexions hybrides dépendent d’un compte BizTalk dont les niveaux de tarification sont variables : une solution gratuite est proposée, puis le tarif augmente progressivement selon le nombre de connexions requises. Cependant, si vous devez utiliser de nombreux réseaux, les connexions hybrides représentent la solution idéale : elles vous permettent d’accéder aux ressources de plus de 100 réseaux distincts.
+Outre les différences fonctionnelles, il existe également des différences de tarification. L’environnement App Service est un service Premium offrant des possibilités de configuration de réseau inégalées et des fonctionnalités remarquables. L’intégration au réseau virtuel peut être utilisée avec des plans App Service Standard ou Premium. Elle est idéale pour la consommation sécurisée des ressources dans votre réseau virtuel à partir du système App Service mutualisé. Actuellement, les connexions hybrides dépendent d’un compte BizTalk dont les niveaux de tarification sont variables : une solution gratuite est proposée, puis le tarif augmente progressivement selon le nombre de connexions requises. Cependant, si vous devez utiliser de nombreux réseaux, les connexions hybrides représentent la solution idéale : elles vous permettent d’accéder aux ressources de plus de 100 réseaux distincts.
 
 
 <!--Image references-->
@@ -287,5 +289,6 @@ Outre les différences fonctionnelles, il existe également des différences de 
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

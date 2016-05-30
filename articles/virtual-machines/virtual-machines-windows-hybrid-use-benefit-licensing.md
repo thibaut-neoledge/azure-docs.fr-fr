@@ -1,0 +1,167 @@
+<properties
+   pageTitle="Azure Hybrid Use Benefit pour Windows Server | Microsoft Azure"
+   description="Découvrez comment optimiser les avantages de votre contrat Software Assurance pour Windows Server pour mettre des licences locales sur Azure."
+   services="virtual-machines-windows"
+   documentationCenter=""
+   authors="iainfoulds"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="virtual-machines-windows"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="05/03/2016"
+   ms.author="georgem"/>
+
+# Azure Hybrid Use Benefit pour Windows Server
+
+Si vous utilisez Windows Server avec Software Assurance, vous pouvez mettre vos licences Windows Server locales sur Azure et exécuter des machines virtuelles Windows Server dans Azure à moindre coût. Azure Hybrid Use Benefit vous permet d’exécuter des machines virtuelles Windows Server dans Azure et de n’être facturé que pour la vitesse de calcul de base. Pour plus d’informations, consultez la [page web de la licence d’Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Cet article explique comment déployer des machines virtuelles Windows Server dans Azure pour profiter de cette licence.
+
+> [AZURE.NOTE] Vous ne pouvez pas utiliser les images Azure Marketplace pour déployer des machines virtuelles Windows Server utilisant Azure Hybrid Use Benefit. Vous devez déployer vos machines virtuelles à l’aide de PowerShell ou de modèles Resource Manager pour désigner correctement vos machines virtuelles comme éligibles à la remise sur la vitesse de calcul de base.
+
+## Conditions préalables
+Plusieurs conditions sont requises pour utiliser Azure Hybrid Use Benefit sur des machines virtuelles Windows Server dans Azure :
+
+- Installer le module Azure PowerShell installé
+- Disque dur Windows Server que vous chargez dans Azure Storage
+
+### Installation d'Azure PowerShell
+Pour plus d’informations sur l’installation de la dernière version d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Sélectionnez l’abonnement à utiliser et connectez-vous à votre compte Azure. Même si vous vous apprêtez à déployer vos machines virtuelles à l’aide de modèles Resource Manager, Azure PowerShell doit être installé pour pouvoir télécharger votre disque dur virtuel Windows Server (voir l’étape suivante).
+
+### Téléchargement d’un disque dur virtuel Windows Server
+
+Pour déployer une machine virtuelle Windows Server dans Azure, vous devez d’abord créer un disque dur virtuel contenant votre build Windows Server de base. Ce disque dur virtuel doit être correctement préparé par Sysprep avant son téléchargement sur Azure. Pour en savoir plus sur la configuration requise du disque dur virtuel et le processus Sysprep, [cliquez ici](./virtual-machines-windows-upload-image.md). Une fois votre disque dur virtuel préparé, téléchargez-le sur votre compte Azure Storage en utilisant l’applet de commande `Add-AzureRmVhd` comme suit :
+
+```
+Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
+```
+
+Pour en savoir plus sur le téléchargement du disque dur virtuel dans Azure, [cliquez ici](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+
+> [AZURE.TIP] Cet article se concentre sur le déploiement de machines virtuelles Windows Server, mais la même procédure permet également de déployer des machines virtuelles de client Windows. Dans les exemples suivants, remplacez `Server` par `Client` en conséquence.
+
+## Déployer une machine virtuelle via le démarrage rapide de PowerShell
+Lors du déploiement de votre machine virtuelle Windows Server via PowerShell, vous disposez d’un paramètre supplémentaire pour `-LicenseType`. Une fois votre disque dur virtuel téléchargé dans Azure, vous créez une machine virtuelle en utilisant `New-AzureRmVM` et spécifiez le type de licence comme suit :
+
+```
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
+    -LicenseType Windows_Server
+```
+
+Pour en savoir plus sur le déploiement d’une machine virtuelle dans Azure via PowerShell, [cliquez ici](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough). Pour une description plus détaillée de la création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell, [cliquez ici](./virtual-machines-windows-ps-create.md).
+
+## Déployer une machine virtuelle à l’aide de Resource Manager
+Dans vos modèles Resource Manager, vous pouvez spécifier un paramètre supplémentaire pour `licenseType`. Pour en savoir plus sur la création de modèles Azure Resource Manager, [cliquez ici](../resource-group-authoring-templates.md). Une fois que votre disque dur virtuel téléchargé dans Azure, modifiez votre modèle Resource Manager pour inclure le type de licence dans le fournisseur de calcul et déployez votre modèle normalement :
+
+```
+"properties": {  
+   "licenseType": "Windows_Server",
+   "hardwareProfile": {
+        "vmSize": "[variables('vmSize')]"
+   },
+```
+ 
+## Vérifiez que votre machine virtuelle utilise l’avantage de licence
+Une fois votre machine virtuelle déployée via PowerShell ou Resource Manager, vérifiez le type de licence avec `Get-AzureRmVM` comme suit :
+ 
+```
+Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
+```
+
+Une sortie similaire à celle-ci s’affiche :
+
+```
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : westus
+LicenseType              : Windows_Server
+```
+
+Ce cas de figure est différent de celui de la machine virtuelle suivante déployée sans la licence Azure Hybrid Use Benefit, comme une machine virtuelle déployée directement depuis la Galerie Azure :
+
+```
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : westus
+LicenseType              : 
+```
+ 
+## Procédure détaillée avec PowerShell
+
+La procédure détaillée avec PowerShell montre le déploiement complet d’une machine virtuelle. Vous trouverez plus de contexte sur les applets de commande et les différents composants créés dans [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](./virtual-machines-windows-ps-create.md). Vous allez créer votre groupe de ressources, votre compte de stockage et votre réseau virtuel, puis définir et créer votre machine virtuelle.
+ 
+Tout d’abord, procurez-vous des informations d’identification de manière sécurisée, puis définissez un emplacement et le nom du groupe de ressources :
+
+```
+$cred = Get-Credential
+$location = "West US"
+$resourceGroupName = "TestLicensing"
+```
+
+Créez une adresse IP publique :
+
+```
+$publicIPName = "testlicensingpublicip"
+$publicIP = New-AzureRmPublicIpAddress -Name $publicIPName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+```
+
+Définissez votre sous-réseau, votre carte réseau et votre réseau virtuel :
+
+```
+$subnetName = "testlicensingsubnet"
+$nicName = "testlicensingnic"
+$vnetName = "testlicensingvnet"
+$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/8
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location -AddressPrefix 10.0.0.0/8 -Subnet $subnetconfig
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id
+```
+
+Nommez votre machine virtuelle et créez une configuration de machine virtuelle :
+
+```
+$vmName = "testlicensing"
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
+```
+
+Définissez votre serveur DNS :
+
+```
+$computerName = "testlicensing"
+$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+```
+
+Ajoutez votre carte réseau à la machine virtuelle :
+
+```
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+```
+
+Définissez le compte de stockage à utiliser :
+
+```
+$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName testlicensing
+```
+
+Téléchargez votre disque dur virtuel préparé convenablement et attachez-y la machine virtuelle à utiliser :
+
+```
+$osDiskName = "licensing.vhd"
+$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+$urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+```
+
+Enfin, créez votre machine virtuelle et définissez le type de licence pour utiliser Azure Hybrid Use Benefit :
+
+```
+New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType Windows_Server
+```
+
+## Étapes suivantes
+
+En savoir plus sur la [licence Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+En savoir plus sur l’[utilisation de modèles Resource Manager](../resource-group-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

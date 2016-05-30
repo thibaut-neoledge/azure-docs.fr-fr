@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
@@ -39,7 +39,7 @@ Un appareil 8600 présente des composants supplémentaires qui correspondent au 
 
 - **Composants du contrôleur 1 du boîtier EBOD** – Il s’agit des composants qui constituent le boîtier EBOD 1, similaires à ceux détaillés pour le boîtier EBOD 0.
 
->[AZURE.NOTE]**La section relative à l’état du matériel n'est pas présente dans la page de maintenance des appareils StorSimpe virtuels (1100).**
+>[AZURE.NOTE] **La section relative à l’état du matériel n'est pas présente dans la page de maintenance des appareils StorSimpe virtuels (1100).**
 
 
 ## Surveillance de l'état du matériel
@@ -136,4 +136,4 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 - Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

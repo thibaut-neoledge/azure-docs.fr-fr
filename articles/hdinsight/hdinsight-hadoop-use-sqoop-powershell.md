@@ -30,7 +30,10 @@ Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Sqoop da
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 - **Cluster Hadoop dans HDInsight**. Consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 	
@@ -174,4 +177,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

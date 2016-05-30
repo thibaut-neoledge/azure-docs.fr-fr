@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database | Microsoft Azure"
-	description="Découvrez les problèmes de blocage que vous devez résoudre avant de pouvoir activer Stretch Database."
+	pageTitle="Limites de Stretch Database | Microsoft Azure"
+	description="En savoir plus sur les limites de Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,61 +13,73 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database
+# Limites de Stretch Database
 
-Découvrez les problèmes de blocage que vous devez résoudre avant de pouvoir activer Stretch Database.
+Découvrez les limites des tables Stretch ainsi que les restrictions qui vous empêchent actuellement d’activer Stretch pour une table.
 
-## <a name="Limitations"></a>Problèmes de blocage
-Dans la version préliminaire actuelle de SQL Server 2016, les éléments suivants rendent une table inéligible pour Stretch.
+##  <a name="Caveats"></a>Limites des tables Stretch
 
-**Propriétés des tables**
--   Plus de 1 023 colonnes
+Les tables Stretch présentent les limites suivantes.
 
--   Plus de 998 index
+### Contraintes
 
--   Tables qui contiennent des données FILESTREAM
+-   L’unicité n’est pas appliquée pour les contraintes UNIQUES et de contraintes de CLÉ PRIMAIRE dans une table Azure qui contient les données migrées.
 
--   FileTables
+### Opérations DML
 
--   Tables répliquées
+-   Il est impossible de METTRE À JOUR ou SUPPRIMER des lignes d’une table Strecth ou d’une vue comprenant des tables compatibles Stretch.
 
--   Tables utilisant activement le suivi des modifications ou la capture de données modifiées
+-   Vous ne pouvez pas effectuer d’opérations INSERT sur des lignes dans une table compatible Stretch Database sur un serveur lié.
+
+### Index
+
+-   Il est impossible de créer un index pour une vue comprenant des tables compatibles Stretch.
+
+-   Les filtres sur les index SQL Server ne sont pas propagés à la table distante.
+
+##  <a name="Limitations"></a> Limites empêchant l’activation de Stretch pour une table
+
+Les limites suivantes vous empêchent actuellement d’activer Stretch Database pour une table.
+
+### Propriétés des tables
+
+-   Tables qui comportent plus de 1 023 colonnes ou plus de 998 index
+
+-   FileTables ou tables qui contiennent des données FILESTREAM
+
+-   Tables répliquées ou qui utilisent activement le suivi des modifications ou la capture de données modifiées
 
 -   Tables à mémoire optimisée
 
-**Types de données et propriétés des colonnes**
+### Types de données
+
+-   text, ntext et image
+
 -   timestamp
 
 -   sql\_variant
 
 -   XML
 
--   geometry
+-   Types de données CLR, y compris géométrie, géographie, hierarchyid et types CLR définis par l’utilisateur
 
--   Geography
+### Types de colonnes
 
--   hierarchyid
-
--   Types CLR définis par l’utilisateur (UDT)
-
-**Types de colonnes**
 -   COLUMN\_SET
 
 -   Colonnes calculées
 
-**Contraintes**
--   Contraintes CHECK
+### Contraintes
 
--   Contraintes par défaut
+-   Contraintes par défaut et contraintes de vérification
 
--   Contraintes de clés étrangères qui référencent la table
+-   Contraintes de clés étrangères qui référencent la table Dans une relation parent-enfant (par exemple, Order et Order\_Detail), vous pouvez activer Stretch pour la table enfant (Order\_Detail), mais pas pour la table parente (Order).
 
-    La table sur laquelle vous ne pouvez pas activer Stretch est celle référencée par une contrainte de clé étrangère. Dans une relation parent-enfant (par exemple, Orders et Order Details), il s’agit de la table parente (Orders).
+### Index
 
-**Index**
 -   Index en texte intégral
 
 -   Index XML
@@ -75,23 +87,6 @@ Dans la version préliminaire actuelle de SQL Server 2016, les éléments suivan
 -   Index spatiaux
 
 -   Vues indexées qui référencent la table
-
-## <a name="Caveats"></a>Limitations et inconvénients des tables Stretch
-Dans la version préliminaire actuelle de SQL Server 2016, les tables compatibles Stretch ont les limitations et les inconvénients suivants.
-
--   L’unicité n’est pas appliquée pour les contraintes UNIQUES et de contraintes de CLÉ PRIMAIRE sur une table compatible Stretch.
-
--   Vous ne pouvez pas exécuter d’opérations METTRE À JOUR ou SUPPRIMER dans une table compatible Stretch.
-
--   Vous ne pouvez pas effectuer d’opérations INSERT à distance dans une table compatible Stretch Database sur un serveur lié.
-
--   Vous ne pouvez pas utiliser la réplication avec une table compatible Stretch Database.
-
--   Il est impossible de créer un index pour une vue comprenant des tables compatibles Stretch.
-
--   Il est impossible de mettre à jour ou de supprimer une vue comprenant des tables compatibles Stretch. Cependant, vous pouvez insérer dans une vue comprenant des tables compatibles Stretch.
-
--   Les filtres sur les index ne sont pas propagés à la table distante.
 
 ## Voir aussi
 
@@ -101,4 +96,4 @@ Dans la version préliminaire actuelle de SQL Server 2016, les tables compatible
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="fashah;bradsev" />
 
 # Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
-## Introduction
-
-**Ce document** présente les options de déplacement des données à partir de fichiers plats (format CSV ou TSV) ou d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure. Ces tâches de déplacement de données vers le cloud font partie du processus d’analyse Cortana fourni par Azure.
+Cette rubrique présente les options de déplacement des données à partir de fichiers plats (format CSV ou TSV) ou d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure. Ces tâches de déplacement de données vers le cloud font partie du processus Cortana Analytics fourni par Azure.
 
 Pour la rubrique présentant les options de déplacement de données sur une base de données SQL Azure pour Machine Learning, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-Le **menu** ci-dessous pointe vers des rubriques qui décrivent comment recevoir les données dans d'autres environnements cibles où les données peuvent être stockées et traitées pendant le processus d'analyse Cortana (CAP).
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment ingérer des données dans d’autres environnements cibles où les données peuvent être stockées et traitées pendant le processus Cortana Analytics (CAP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -63,8 +61,8 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
-> [AZURE.NOTE] **Où mes données doivent-elles se trouver pour BCP ?**
-> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?**  
+> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
@@ -87,11 +85,12 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 > **Optimisation des insertions BCP** Consultez l’article [Conseils pour optimiser l’importation en bloc](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) pour optimiser ces insertions.
 
+
 ### <a name="insert-tables-bulkquery-parallel"></a>Parallélisation des insertions pour accélérer le déplacement des données
 
 Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant plusieurs commandes BCP simultanément dans un script PowerShell.
 
-> [AZURE.NOTE] **Traitement de volumes importants de données**
+> [AZURE.NOTE]**Traitement de volumes importants de données** 
 > Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
@@ -163,6 +162,7 @@ SSIS est disponible dans deux environnements Studio. Pour en savoir plus, consu
 - Pour en savoir plus sur les outils SQL Server Data Tools, consultez l’article [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx).  
 - Pour en savoir plus sur l’Assistant Importation et Exportation, consultez l’article [Assistant Importation et Exportation SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
+
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Déplacement des données à partir d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure
 
 Vous pouvez également utiliser les stratégies de migration suivantes :
@@ -227,4 +227,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

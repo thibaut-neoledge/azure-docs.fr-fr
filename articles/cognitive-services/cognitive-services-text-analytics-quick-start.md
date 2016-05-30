@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # Prise en main des API Text Analytics pour détecter le sentiment, les expressions clés et la langue
@@ -24,7 +24,7 @@ Ce document décrit comment intégrer votre service ou application pour utiliser
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
 
-Ce guide concerne la version 2 des API. Pour plus d’informations sur la version 1 des API, [consultez ce document](machine-learning-apps-text-analytics/).
+Ce guide concerne la version 2 des API. Pour plus d’informations sur la version 1 des API, [consultez ce document](../machine-learning-apps-text-analytics/).
 
 À la fin de ce didacticiel, vous serez en mesure de détecter par programmation les informations suivantes :
 
@@ -64,7 +64,7 @@ Au cours de cette tâche, vous allez vous inscrire au service Text Analytics.
 
 Vous pouvez facilement détecter le sentiment, les expressions clés et les langues de votre texte. Vous obtenez par programmation les mêmes résultats que ceux présentés dans la [démonstration de l’expérience](//go.microsoft.com/fwlink/?LinkID=759712).
 
-**Conseil** Pour l’analyse de sentiment, nous vous recommandons de fractionner le texte en phrases. Cela vous permettra généralement d’obtenir des prédictions de sentiment plus précises.
+>[AZURE.TIP] Pour l’analyse de sentiment, nous vous recommandons de fractionner le texte en phrases. Cela vous permettra généralement d’obtenir des prédictions de sentiment plus précises.
 
 1. Définissez les en-têtes comme ci-dessous. Notez que JSON est actuellement le seul format d’entrée accepté pour les API. XML n’est pas pris en charge.
 
@@ -88,7 +88,7 @@ Vous pouvez facilement détecter le sentiment, les expressions clés et les lang
 			]
 		}
 
-1. Envoyez un appel **POST** au système avec l’entrée pour le sentiment, les expressions clés et la langue. Les URL doivent se présenter comme suit :
+1. Adressez un appel **POST** au système avec l’entrée pour le sentiment, les expressions clés et la langue. Les URL doivent se présenter comme suit :
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
@@ -159,11 +159,11 @@ Vous pouvez facilement détecter le sentiment, les expressions clés et les lang
 
 Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
 
-Cette API nécessite l’envoi de **100 enregistrements texte au minimum**, mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo.
+Cette API nécessite l’envoi de **100 enregistrements texte au minimum**, mais elle est conçue pour détecter des rubriques parmi des centaines, voire des milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo.
 
 Vous pouvez utiliser deux paramètres d’entrée **facultatifs** supplémentaires pour améliorer la qualité des résultats :
 
-- **Mots exclus**. Ces mots et leurs formes dérivées proches (par exemple, les pluriels) sont exclus de l’ensemble du pipeline de détection des rubriques. Utilisez ce paramètre pour les mots courants (« problème », « erreur » et « utilisateur » sont des exemples pertinents de mots à exclure pour les plaintes des utilisateurs concernant les logiciels). Chaque chaîne doit contenir un seul mot.
+- **Mots exclus.** Ces mots et leurs formes dérivées proches (par exemple, les pluriels) sont exclus de l’ensemble du pipeline de détection des rubriques. Utilisez ce paramètre pour les mots courants (« problème », « erreur » et « utilisateur » sont des exemples pertinents de mots à exclure pour les plaintes des utilisateurs concernant les logiciels). Chaque chaîne doit contenir un seul mot.
 - **Expressions exclues**. Ces expressions sont exclues de la liste des rubriques renvoyées. Utilisez ce paramètre pour exclure les rubriques génériques que vous ne souhaitez pas voir apparaître dans les résultats. « Microsoft » et « Azure » sont des exemples pertinents de rubriques à exclure. Les chaînes peuvent contenir plusieurs mots.
 
 Suivez ces étapes pour détecter les rubriques dans votre texte.
@@ -190,7 +190,7 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 			]
 		}
 
-1. En utilisant les mêmes en-têtes que ceux définis dans la tâche 2, envoyez un appel **POST** au point de terminaison des rubriques :
+1. En utilisant les mêmes en-têtes que ceux définis dans la tâche 2, adressez un appel **POST** au point de terminaison des rubriques :
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
@@ -198,11 +198,11 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-1. Interrogez `operation-location` régulièrement à l’aide d’une demande **GET**. Nous vous recommandons de l’interroger toutes les minutes.
+1. Interrogez régulièrement le `operation-location` retourné à l’aide d’une demande **GET**. Nous vous recommandons de l’interroger toutes les minutes.
 
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
-1. Le point de terminaison renvoie une réponse contenant `{"status": "notstarted"}` avant le traitement, `{"status": "running"}` pendant le traitement et `{"status": "succeeded"}` avec le résultat à la fin du traitement. Vous pouvez ensuite utiliser le résultat qui s’affiche dans le format suivant (notez que cet exemple n’inclut pas certains détails, tels que les dates et le format d’erreur) :
+1. Le point de terminaison retourne une réponse contenant `{"status": "notstarted"}` avant le traitement, `{"status": "running"}` pendant le traitement et `{"status": "succeeded"}` avec le résultat à la fin du traitement. Vous pouvez ensuite utiliser le résultat qui s’affiche dans le format suivant (notez que cet exemple n’inclut pas certains détails, tels que les dates et le format d’erreur) :
 
 		{
 			"status": "succeeded",
@@ -236,8 +236,52 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 			}
 		}
 
+À noter que la réponse correcte pour les rubriques du point de terminaison `operations` possède le schéma suivant :
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+Les explications concernant chaque partie de la réponse sont les suivantes :
+
+**topics**
+
+| Clé | Description |
+|:-----|:----|
+| id | Identificateur unique de chaque rubrique. |
+| de votre application | Nombre de documents affectés à la rubrique. |
+| keyPhrase | Mot ou phrase résumant la rubrique. |
+
+**topicAssignments**
+
+| Clé | Description |
+|:-----|:----|
+| documentId | Identificateur du document. Équivaut à l'ID inclus dans l'entrée. |
+| topicId | ID de rubrique auquel le document a été affecté. |
+| distance | Score d’affiliation d’un document à une rubrique compris entre 0 et 1. Plus le score de distance est faible, plus l’affiliation de rubrique est forte. |
+
+**errors**
+
+| Clé | Description |
+|:-----|:----|
+| id | Identificateur unique de document d’entrée auquel l’erreur fait référence. |
+| message | Message d’erreur. |
+
 ## Étapes suivantes ##
 
-Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données, et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
+Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

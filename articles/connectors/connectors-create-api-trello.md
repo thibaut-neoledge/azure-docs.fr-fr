@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur Trello
@@ -67,6 +67,8 @@ Pour créer des applications logiques avec Trello, vous devez d’abord créer u
 | ---|---|---|
 |Jeton|Oui|Fournit les informations d’identification Trello|
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Trello](../../includes/connectors-create-api-trello.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -608,4 +610,4 @@ Obtenir une liste par ID : obtenir une liste par ID
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

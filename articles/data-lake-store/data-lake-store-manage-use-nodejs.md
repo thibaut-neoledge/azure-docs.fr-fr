@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gérer Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Azure pour Node.js | Azure" 
+   pageTitle="Gérer des magasins Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Azure pour Node.js | Microsoft Azure"
    description="Découvrez comment gérer les comptes Data Lake Store et le système de fichiers." 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="04/21/2016"
    ms.author="nitinme"/>
 
 # Gérer Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Azure pour Node.js
@@ -27,90 +27,118 @@
 - [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 - [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Le Kit de développement logiciel (SDK) Azure pour Node.js peut être utilisé pour gérer les comptes Azure Data Lake Store et le système de fichiers :
 
-- Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.
+Le Kit de développement logiciel (SDK) Azure pour Node.js permet de gérer les comptes Azure Data Lake Store ainsi que les opérations sur le système de fichiers :
+
+Pour le moment, il prend en charge :
+
+  *  **Node.js version 0.10.0 ou supérieure**
+  *  **Version de l’API REST pour le compte : 2015-10-01-preview**
+  *  **Version de l’API REST pour FileSystem : 2015-10-01-preview**
+
+## Caractéristiques
+
+- Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.
 - Gestion de système de fichiers : créer, obtenir, charger, ajouter, télécharger, lire, supprimer, répertorier.
 
-**Configuration requise**
+## Procédure d’installation
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+```bash
+npm install azure-arm-datalake-store
+```
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Un compte Azure Data Lake Store**. Pour créer un compte, consultez [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
-- **Un principal de service avec des autorisations d’accès au compte Data Lake Analytics**. Consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+## S’authentifier à l’aide d’Azure Active Directory
 
-## Installer le Kit de développement logiciel (SDK)
+ ```javascript
+ var msrestAzure = require('ms-rest-azure');
+ //user authentication
+ var credentials = new msRestAzure.UserTokenCredentials('your-client-id', 'your-domain', 'your-username', 'your-password', 'your-redirect-uri');
+ //service principal authentication
+ var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
+ ```
 
-Suivez les étapes suivantes pour installer le Kit de développement logiciel (SDK) :
+## Créer les clients Data Lake Analytics
 
-1. Installez [Node.js](https://nodejs.org/).
-2. Exécutez les commandes suivantes à partir d’une invite de commandes, d’une fenêtre de terminal ou d’un script bash :
+```javascript
+var adlsManagement = require("azure-arm-datalake-store");
+var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 'your-subscription-id');
+var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials, 'azuredatalakestore.net');
+```
 
-		npm install async
-		npm install adal-node
-		npm install azure-common
-		npm install azure-arm-datalake-store
-	
-## Exemple Node.js
+## Créer un compte Data Lake Store
 
-L’exemple suivant crée un fichier dans un compte Data Lake Store et y ajoute des données.
+```javascript
+var util = require('util');
+var resourceGroupName = 'testrg';
+var accountName = 'testadlsacct';
+var location = 'eastus2';
 
-	var async = require('async');
-	var adalNode = require('adal-node');
-	var azureCommon = require('azure-common');
-	var azureDataLakeStore = require('azure-arm-datalake-store');
-	
-	var resourceUri = 'https://management.core.windows.net/';
-	var loginUri = 'https://login.windows.net/'
-	
-	var clientId = 'application_id_(guid)';
-	var clientSecret = 'application_password';
-	
-	var tenantId = 'aad_tenant_id';
-	var subscriptionId = 'azure_subscription_id';
-	var resourceGroup = 'adls_resourcegroup_name';
-	
-	var accountName = 'adls_account_name';
-	
-	var context = new adalNode.AuthenticationContext(loginUri+tenantId);
-	
-	var client;
-	var response;
-	
-	var destinationFilePath = '/newFileName.txt';
-	var content = 'desired file contents';
-	
-	async.series([
-		function (next) {
-			context.acquireTokenWithClientCredentials(resourceUri, clientId, clientSecret, function(err, result){
-				if (err) throw err;
-				response = result;
-				next();
-			});
-		},
-		function (next) {
-			var credentials = new azureCommon.TokenCloudCredentials({
-				subscriptionId : subscriptionId,
-				authorizationScheme : response.tokenType,
-				token : response.accessToken
-			});
-		
-			client = azureDataLakeStore.createDataLakeStoreFileSystemManagementClient(credentials, 'azuredatalakestore.net');
-	
-			next();
-		},
-		function (next) {
-			client.fileSystem.directCreate(destinationFilePath, accountName, content, function(err, result){
-				if (err) throw err;
-			});
-		}
-	]);
+// account object to create
+var accountToCreate = {
+  tags: {
+    testtag1: 'testvalue1',
+    testtag2: 'testvalue2'
+  },
+  name: accountName,
+  location: location
+};
 
+client.account.create(resourceGroupName, accountName, accountToCreate, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+    /*err has reference to the actual request and response, so you can see what was sent and received on the wire.
+      The structure of err looks like this:
+      err: {
+        code: 'Error Code',
+        message: 'Error Message',
+        body: 'The response body if any',
+        request: reference to a stripped version of http request
+        response: reference to a stripped version of the response
+      }
+    */
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
 
-##Voir aussi 
+## Créez un fichier avec du contenu
+```javascript
+var util = require('util');
+var accountName = 'testadlsacct';
+var fileToCreate = '/myfolder/myfile.txt';
+var options = {
+  streamContents: new Buffer('some string content')
+}
 
-- [Kit de développement logiciel (SDK) Azure pour Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Gérer Azure Data Lake Analytics à l’aide de Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
+filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    // no result is returned, only a 201 response for success.
+    console.log('response is: ' + util.inspect(response, {depth: null}));
+  }
+});
+```
 
-<!---HONumber=AcomDC_0413_2016-->
+## Obtenir une liste de fichiers et de dossiers
+
+```javascript
+var util = require('util');
+var accountName = 'testadlsacct';
+var pathToEnumerate = '/myfolder';
+filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
+
+## Voir aussi
+
+- [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js](https://github.com/azure/azure-sdk-for-node)
+- [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js - Gestion de Data Lake Analytics](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+
+<!---HONumber=AcomDC_0518_2016-->

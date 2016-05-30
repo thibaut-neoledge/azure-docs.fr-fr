@@ -10,13 +10,13 @@ Les files d’attente Service Bus sont une technologie à usage généraliste po
 -   Communication entre les applications locales et les applications hébergées par Azure dans une solution hybride.
 -   Communication entre les composants d’une application distribuée s’exécutant en local dans différentes organisations ou dans différents services d’une organisation.
 
-L’utilisation de files d’attente permet une meilleure montée en charge de vos applications et une plus grande résilience dans votre architecture.
+L’utilisation des files d’attente permet une meilleure montée en charge de vos applications et une plus grande résilience dans votre architecture.
 
 ## Création d'un espace de noms de service
 
-Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-Pour créer un espace de noms de service :
+Pour créer un espace de noms :
 
 1.  Connectez-vous au [portail Azure Classic][].
 
@@ -51,5 +51,3 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
   [portail Azure Classic]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
-
-<!---HONumber=AcomDC_0128_2016-->

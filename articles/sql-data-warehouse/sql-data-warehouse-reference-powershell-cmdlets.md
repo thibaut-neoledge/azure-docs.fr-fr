@@ -3,7 +3,7 @@
    description="Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/02/2016"
+   ms.date="05/14/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Applets de commande PowerShell et API REST pour SQL Data Warehouse
 
-SQL Data Warehouse peut être géré à l’aide d’applets de commande Azure PowerShell ou d’API REST.
+De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Sinon, pour obtenir la liste des API REST permettant d’automatiser ces tâches, consultez [Opérations sur les bases de données SQL A][].
 
-La plupart des commandes définies pour la **base de données Azure SQL** sont également utilisées pour **SQL Data Warehouse**. Pour consulter une liste actualisée, accédez à la section [Applets de commande Azure SQL](https://msdn.microsoft.com/library/mt574084.aspx). Les applets de commande [Suspend-AzureRmSqlDatabase][] et [Resume-AzureRmSqlDatabase][] sont des ajouts spécialement conçus pour SQL Data Warehouse.
-
-De la même manière, les API REST dédiés à la **base de données SQL Azure** peuvent également être utilisés avec les instances **SQL Data Warehouse**. Pour consulter une liste actualisée, accédez à la page [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
 
 ## Prise en main des applets de commande Azure PowerShell
 
-1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://aka.ms/webpi-azps). Pour plus d’informations sur ce programme d’installation, consultez [Comment installer et configurer Azure PowerShell][].
-2. Pour démarrer PowerShell, cliquez sur **Démarrer** et tapez **Windows PowerShell**.
-3. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
+1. Ouvrez Windows PowerShell. 
+2. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
 
     ```PowerShell
     Login-AzureRmAccount
@@ -36,29 +33,7 @@ De la même manière, les API REST dédiés à la **base de données SQL Azure*
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-
-## Applets de commande PowerShell fréquemment utilisés
-
-Ces applets de commande PowerShell sont souvent utilisés avec Azure SQL Data Warehouse :
-
-
-- [Get-AzureRmSqlDatabase][]
-- [Get-AzureRmSqlDeletedDatabaseBackup][]
-- [Get-AzureRmSqlDatabaseRestorePoints][]
-- [New-AzureRmSqlDatabase][]
-- [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
-- [Resume-AzureRmSqlDatabase][]
-- [Select-AzureRmSubscription][]
-- [Set-AzureRmSqlDatabase][]
-- [Suspend-AzureRmSqlDatabase][]
-
-
-## Exemples pour SQL Data Warehouse
-
-Ces exemples s’appliquent à des fonctions qui concernent uniquement SQL Data Warehouse.
-
-### [Suspend-AzureRmSqlDatabase][]
+## Exemple : suspendre une base de données SQL Data Warehouse
 
 Une base de données appelée « Database02 » et hébergée sur un serveur appelé « Server01 » est interrompue. Le serveur est un groupe de ressources Azure appelé « ResourceGroup1 ».
 
@@ -73,7 +48,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-### [Resume-AzureRmSqlDatabase][]
+## Exemple : démarrer une base de données SQL Data Warehouse
 
 Les opérations d’une base de données appelée « Database02 » et hébergée sur un serveur « Server01 » sont reprises. Le serveur est hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
@@ -90,20 +65,41 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 > [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
 
+## Applets de commande PowerShell couramment utilisées
+
+Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data Warehouse :
+
+- [Get-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDeletedDatabaseBackup][]
+- [Get-AzureRmSqlDatabaseRestorePoints][]
+- [New-AzureRmSqlDatabase][]
+- [Remove-AzureRmSqlDatabase][]
+- [Restore-AzureRmSqlDatabase][] 
+- [Resume-AzureRmSqlDatabase][]
+- [Select-AzureRmSubscription][]
+- [Set-AzureRmSqlDatabase][]
+- [Suspend-AzureRmSqlDatabase][]
 
 ## Étapes suivantes
-Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL Data Warehouse][]. Pour plus d’exemples PowerShell, consultez :
-- [Création de SQL Data Warehouse à l’aide de Powershell](sql-data-warehouse-get-started-provision-powershell.md)
-- [Restaurer à partir d’un instantané](sql-data-warehouse-backup-and-restore-from-snapshot.md)
-- [Géo-restauration à partir d’un instantané](sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md)
+Pour plus d’exemples PowerShell, consultez :
+
+- [Création de SQL Data Warehouse à l’aide de Powershell][]
+- [Restaurer à partir d’un instantané][]
+- [Géo-restauration à partir d’un instantané][]
+
+Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Azure SQL Database Cmdlets][] (Applets de commande de la base de données SQL Azure).
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
-[Comment installer et configurer Azure PowerShell]: ../articles/powershell-install-configure.md
+[Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
+[Création de SQL Data Warehouse à l’aide de Powershell]: sql-data-warehouse-get-started-provision-powershell.md
+[Restaurer à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Géo-restauration à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
 
 <!--MSDN references-->
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
+[Opérations sur les bases de données SQL A]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
@@ -111,13 +107,12 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
-<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureRmSubscription -->
+<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
-[Suspend-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619337.aspx
-
-
+[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
 <!--Other Web references-->
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

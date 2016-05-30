@@ -47,4 +47,4 @@ Lors de la cr√©ation d'applications de fonctions, vous pouvez choisir de les ex√
 
 [AZURE.INCLUDE [Plan de service dynamique](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

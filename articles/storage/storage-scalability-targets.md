@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="robinsh" />
 
 # Objectifs de performance et évolutivité d'Azure Storage
@@ -22,8 +22,6 @@
 Cet article décrit l’extensibilité et les performances de Microsoft Azure Storage. Pour prendre connaissance des autres informations relatives aux limites Azure, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../azure-subscription-service-limits.md).
 
 >[AZURE.NOTE] Tous les comptes de stockage s’exécutent sur la nouvelle topologie de réseau plat et prennent en charge les objectifs d’extensibilité et de performances décrits ci-après, quel que soit le moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Azure Storage et sur son extensibilité, consultez le billet de blog [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
-
-<!-- -->
 
 >[AZURE.IMPORTANT] Les objectifs d’extensibilité et de performances répertoriés ici sont des objectifs haut de gamme mais réalisables. Dans tous les cas, le taux de demande et la bande passante atteints par votre compte de stockage dépendent de la taille des objets stockés, des modèles d’accès utilisés et du type de charge de travail de votre application. Veillez à tester votre service afin de déterminer si ses performances répondent à vos besoins. Dans la mesure du possible, évitez les pics soudains de trafic et assurez-vous que le trafic est bien réparti sur toutes les partitions.
 
@@ -40,8 +38,7 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-
-Pour plus d'informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md).
+Pour plus d’informations, consultez la page [Tailles des machine virtuelles dans Azure (Windows)](../virtual-machines/virtual-machines-windows-sizes.md) ou [Tailles des machines virtuelles dans Azure (Linux)](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ### Comptes de stockage standard
 
@@ -86,4 +83,4 @@ Des recommandations détaillées pour la conception d’une stratégie de partit
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

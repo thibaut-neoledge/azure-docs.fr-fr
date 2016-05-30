@@ -41,7 +41,9 @@ Mahout est une bibliothèque à [apprentissage automatique][ml] pour Apache Hado
 ##configuration requise
 
 - **Un cluster Hadoop Windows dans HDInsight**. Pour des informations sur la création de ce type de cluster, consultez [Prise en main de Hadoop dans HDInsight][getstarted].
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>Génération de recommandations avec Windows PowerShell
@@ -527,4 +529,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

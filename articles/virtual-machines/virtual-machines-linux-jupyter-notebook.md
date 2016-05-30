@@ -92,7 +92,7 @@ Voici un exemple d’installation d’Anaconda sur Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@ Vous serez invité à fournir un mot de passe et une confirmation, puis le mot d
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-Nous allons ensuite modifier le fichier de configuration du profil (fichier `jupyter_notebook_config.py` du répertoire dans lequel vous vous trouvez). Si ce fichier n’existe pas encore, vous devez le créer. Ce fichier comporte de nombreux champs, tous commentés par défaut. Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu’il a au moins le contenu suivant. Remplacez bien le mot de passe par le mot de passe sha1 fourni à l’étape précédente.
+Nous allons ensuite modifier le fichier de configuration du profil (fichier `jupyter_notebook_config.py` du répertoire dans lequel vous vous trouvez). Si ce fichier n’existe pas encore, vous devez le créer. Ce fichier comporte de nombreux champs, tous commentés par défaut. Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu’il a au moins le contenu suivant. **Remplacez bien c.NotebookApp.password par sha1 fourni à l’étape précédente**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@ Nous allons ensuite modifier le fichier de configuration du profil (fichier `jup
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -189,14 +189,14 @@ Si vous accédez au [référentiel][] de code source IPython, vous y trouverez u
 
 Grâce à son interface performante, Jupyter Notebook offre un accès interactif aux puissantes fonctionnalités de l’écosystème Python sur Azure. Il couvre une large gamme de cas d'utilisation, notamment les simples exploration et apprentissage de Python, l'analyse et la visualisation des données, le calcul de simulation et parallèle. Les documents Notebook obtenus contiennent un enregistrement complet des calculs qui sont effectués et peuvent être partagés avec d’autres utilisateurs de Jupyter. Jupyter Notebook peut être utilisé comme application locale, mais il est plus particulièrement conçu pour des déploiements cloud sur Azure.
 
-Les fonctionnalités principales de Jupyter sont également disponibles dans Visual Studio par le biais des [outils Python pour Visual Studio][] \(PTVS). PTVS est un plug-in open source gratuit de Microsoft qui transforme Visual Studio en environnement de développement Python avancé qui inclut un éditeur avancé avec IntelliSense, ainsi qu'une intégration de débogage, de profilage et de calcul parallèle.
+Les fonctionnalités principales de Jupyter sont également disponibles dans Visual Studio par le biais des [outils Python pour Visual Studio][] (PTVS). PTVS est un plug-in open source gratuit de Microsoft qui transforme Visual Studio en environnement de développement Python avancé qui inclut un éditeur avancé avec IntelliSense, ainsi qu'une intégration de débogage, de profilage et de calcul parallèle.
 
 ## Étapes suivantes
 
 Pour plus d’informations, consultez le [Centre de développement Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [référentiel]: https://github.com/ipython/ipython
 [outils Python pour Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

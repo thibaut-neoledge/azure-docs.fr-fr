@@ -37,7 +37,9 @@ Pour obtenir la liste des versions Sqoop prises en charge par les clusters HDIns
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Un poste de travail sur lequel est installé Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Présentation du scénario
 
@@ -76,9 +78,9 @@ Cette section vous montre comment créer un cluster et les schémas de base de d
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle ARM dans le portail Azure.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Le modèle ARM est situé dans un conteneur blob public, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Le modèle ARM est situé dans un conteneur blob public, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     Le modèle ARM appelle un package bacpac pour déployer les schémas de table vers la base de données SQL. Le package bacpac est lui aussi situé dans un conteneur blob public, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
     
@@ -101,13 +103,13 @@ Cette section vous montre comment créer un cluster et les schémas de base de d
     
     Veuillez noter ces valeurs. Vous en aurez besoin plus loin dans le didacticiel.
     
-3\. Cliquez sur **OK** pour enregistrer les paramètres.
+3\.Cliquez sur **OK** pour enregistrer les paramètres.
 
-4\. Dans le panneau **Déploiement personnalisé**, cliquez sur la zone de liste déroulante **Groupe de ressources**, puis cliquez sur **Nouveau** pour créer un groupe de ressources. Le groupe de ressources est un conteneur qui regroupe le cluster, le compte de stockage dépendant et une autre ressource liée.
+4\.Dans le panneau **Déploiement personnalisé**, cliquez sur la zone de liste déroulante **Groupe de ressources**, puis cliquez sur **Nouveau** pour créer un groupe de ressources. Le groupe de ressources est un conteneur qui regroupe le cluster, le compte de stockage dépendant et une autre ressource liée.
 
-5\. Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
+5\.Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
 
-6\. Cliquez sur **Créer**. Vous verrez une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle. La création du cluster et de la base de données SQL prend environ 20 minutes.
+6\.Cliquez sur **Créer**. Vous verrez une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle. La création du cluster et de la base de données SQL prend environ 20 minutes.
 
 Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL Server existante
 
@@ -127,7 +129,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
 
         * Lorsque vous utilisez SQL Server sur une machine virtuelle Azure, toute configuration du réseau virtuel peut être utilisée si la machine virtuelle qui héberge SQL Server est membre du même réseau virtuel que HDInsight.
 
-    * Pour créer un cluster HDInsight sur un réseau virtuel, consultez la rubrique [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-provision-clusters.md)
+    * Pour créer un cluster HDInsight sur un réseau virtuel, consultez la rubrique [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-provision-clusters.md).
 
     > [AZURE.NOTE] SQL Server doit également autoriser l'authentification. Vous devez utiliser une connexion SQL Server pour compléter les étapes décrites dans cet article.
 
@@ -624,7 +626,7 @@ L’exemple PowerShell effectue les étapes suivantes :
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
@@ -633,4 +635,4 @@ L’exemple PowerShell effectue les étapes suivantes :
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

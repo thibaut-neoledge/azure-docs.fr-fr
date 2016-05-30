@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Informations de référence pour les développeurs NodeJS sur Azure Functions
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 La version du nœud est actuellement verrouillée sur `5.9.1`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
 
-Vous pouvez inclure des packages dans le répertoire de votre fonction (par exemple, via `npm install`), puis les importer vers votre fonction de la manière habituelle (c’est-à-dire, via `require('packagename')`)
+Vous pouvez inclure des packages dans votre fonction en téléchargeant un fichier *package.json* vers le dossier de votre fonction dans le système de fichiers du conteneur de fonctions. Pour plus d’instructions pour le téléchargement de fichiers, consultez la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate).
+
+Vous pouvez également utiliser `npm install` dans l’interface de ligne de commande SCM (Kudu) du conteneur de fonctions :
+
+1. Accédez à : `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Cliquez sur **Console de débogage > CMD**.
+
+3. Accédez à `D:\home\site\wwwroot<function_name>`.
+
+4. Exécutez `npm install`.
+
+Une fois les packages nécessaires installés, vous pouvez les importer dans votre fonction de la façon habituelle (c'est-à-dire, via `require('packagename')`)
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -163,4 +175,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

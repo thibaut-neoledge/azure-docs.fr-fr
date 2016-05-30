@@ -37,7 +37,7 @@ Vous pouvez compiler les configurations de l’état souhaité (DSC) de deux man
 
 Une fois que vous avez choisi une méthode de compilation, vous pouvez suivre les procédures correspondantes ci-dessous pour lancer la compilation.
 
-##Compilation d’une configuration DSC avec le portail Azure en version préliminaire##
+##Compilation d’une configuration DSC avec le portail Azure##
 
 1.  À partir de votre compte Automation, cliquez sur **Configurations**.
 2.  Cliquez sur une configuration pour ouvrir son panneau.
@@ -115,7 +115,7 @@ PowerShell requiert des paramètres dans une [table de hachage](http://technet.m
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 Pour plus d’informations sur la transmission d’informations d’identification PowerShell en tant que paramètres, consultez <a href="#credential-assets">**Ressources d’informations d’identification**</a> ci-dessous.
@@ -145,7 +145,7 @@ L’exemple de configuration de l’état souhaité suivant utilise **Configurat
     	}
     }
 
-Vous pouvez compiler la configuration DSC ci-dessus avec PowerShell. La commande PowerShell ci-dessous ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
+Vous pouvez compiler la configuration DSC ci-dessus avec PowerShell. La commande PowerShell ci-dessous ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
 
     $ConfigData = @{
     	AllNodes = @(
@@ -228,4 +228,4 @@ Vous pouvez compiler la configuration DSC ci-dessus avec PowerShell. La commande
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->
