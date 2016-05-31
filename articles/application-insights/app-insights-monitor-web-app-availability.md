@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Après avoir déployé votre application web, vous pouvez configurer des tests web pour analyser sa disponibilité et sa réactivité. Application Insights envoie des demandes web à intervalles réguliers à partir de différents points dans le monde et vous alerte si votre application réagit lentement ou pas du tout.
 
@@ -258,6 +261,28 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
     Configurez votre pare-feu pour autoriser les demandes provenant des adresses IP dans la liste à la fin de cet article.
 
+* *Le chargement d’un test web multi-étapes échoue*
+
+    La limite de taille est de 300 Ko.
+
+    Les boucles ne sont pas prises en charge.
+
+    Les références à d’autres tests web ne sont pas prises en charge.
+
+    Les sources de données ne sont pas prises en charge.
+
+    
+* *Mon test à plusieurs étapes ne se termine pas.*
+
+    Chaque test possède une limite de 100 demandes.
+
+    Le test s’arrêtera si celui-ci s’exécute pendant plus de deux minutes.
+
+* *Comment puis-je exécuter un test avec des certificats clients ?*
+
+    Désolé, ce n’est pas pris en charge.
+
+
 ## <a name="video"></a>Vidéo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -396,4 +421,4 @@ Ouvrez les ports 80 (http) et 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

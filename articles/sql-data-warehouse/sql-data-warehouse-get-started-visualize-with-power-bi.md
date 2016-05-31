@@ -13,17 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/18/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualiser des données avec Power BI
 
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure Machine Learning][]
+
+Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'une base de données SQL Data Warehouse préchargée avec l’exemple de base de données AdventureWorksDW. La section [Création d’une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) vous montre comment en créer une.
 >
-> Si vous disposez déjà d’une base de données SQL Data Warehouse, mais n’avez pas d’exemple de données, vous pouvez [charger manuellement des exemples de données][].
-
-Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.
+> Si vous disposez déjà d’une base de données SQL Data Warehouse, mais que vous ne disposez pas d’exemples de données, vous pouvez [charger manuellement des exemples de données][].
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
@@ -36,7 +39,7 @@ Pour ouvrir Power BI et vous connecter à votre base de données AdventureWorksD
 
     ![Recherche de votre base de données][1]
 
-3. Cliquez sur le bouton Open in Power BI.
+3. Cliquez sur le bouton Open in Power BI.
 
     ![Bouton Power BI][2]
 
@@ -74,7 +77,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 
     ![Barre Power BI][9]
 
-3. Cette étape crée un graphique en courbes qui indique le montant des ventes par date de commande. Pour créer ce dernier, accédez à la vue développée d’AggregateSales. Cliquez sur SalesAmount et OrderDate. Dans la colonne Visualisations, cliquez sur l’icône de graphique en courbes ; il s’agit de la première icône de la deuxième ligne sous Visualisations.
+3. Cette étape crée un graphique en courbes qui indique le montant des ventes par date de commande. Pour créer ce dernier, accédez à la vue développée d’AggregateSales. Cliquez sur SalesAmount et OrderDate. Dans la colonne Visualisations, cliquez sur l’icône de graphique en courbes ; il s’agit de la première icône de la deuxième ligne sous Visualisations.
 
 	![Sélection de graphique en courbes Power BI][10]
 
@@ -85,7 +88,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 Vous pouvez enregistrer votre progression à tout moment en cliquant sur **Fichier**, puis en sélectionnant **Enregistrer**.
 
 ## Étapes suivantes
-Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][].
+Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][]. Sinon, consultez le [site web de Power BI][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,9 +109,13 @@ Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez 
 [développement]: ./sql-data-warehouse-overview-develop.md
 [chargement]: ./sql-data-warehouse-overview-load.md
 [charger manuellement des exemples de données]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[portail Azure]: https://portal.azure.com/
-[Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!--Other-->
+[portail Azure]: https://portal.azure.com/
+[site web de Power BI]: http://www.powerbi.com/
+
+<!---HONumber=AcomDC_0525_2016-->

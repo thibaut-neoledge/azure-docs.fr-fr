@@ -52,7 +52,7 @@ Le tableau suivant décrit les caractéristiques des niveaux de service de pool.
 
 [AZURE.INCLUDE [Tableau des niveaux de service de base de données SQL pour les bases de données élastiques](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Chaque base de données au sein d'un pool respecte également les caractéristiques de base de données unique pour ce niveau. Par exemple, le pool de base possède une limite de sessions maximale par pool de 2400 à 28800, mais une base de données individuelle dans ce pool a une limite de base de données de 300 sessions (limite pour une seule base de données de base comme spécifié dans la section précédente).
+Chaque base de données au sein d'un pool respecte également les caractéristiques de base de données unique pour ce niveau. Par exemple, le pool de base possède une limite de sessions maximale par pool de 4800 à 28800, mais une base de données individuelle dans ce pool a une limite de base de données de 300 sessions (limite pour une seule base de données de base comme spécifié dans la section précédente).
 
 ## Présentation des DTU
 
@@ -64,4 +64,4 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 - Découvrez comment [analyser, gérer et redimensionner des pools élastiques](sql-database-elastic-pool-manage-portal.md) et [analyser les performances des bases de données uniques](sql-database-single-database-monitor.md).
 - Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre [compte gratuit](https://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

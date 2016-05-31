@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/28/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Prise en main d’Azure AD Privileged Identity Management
@@ -35,9 +35,9 @@ Avant d'utiliser Azure AD Privileged Identity Management, vous devez ajouter l'a
 6. Cochez **Épingler au tableau de bord**, puis cliquez sur le bouton **Créer**. L’application Privileged Identity Management s’ouvre.
 
 
-Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire, l’[Assistant sécurité](active-directory-privileged-identity-management-security-wizard.md) vous guidera à travers l'expérience de l'attribution initiale. Vous deviendrez alors automatiquement le premier **Administrateur de la sécurité** du répertoire. Seul un administrateur de la sécurité peut accéder à cette application pour gérer l'accès des autres administrateurs.
+Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire, l’[Assistant sécurité](active-directory-privileged-identity-management-security-wizard.md) vous guidera à travers l'expérience de l'attribution initiale. Vous deviendrez alors automatiquement le premier **Administrateur de la sécurité** et **administrateur de rôle privilégié** du répertoire. Seul un administrateur de rôle privilégié peut accéder à cette application pour gérer l’accès des autres administrateurs.
 
-Sinon, si vous avez été affecté à un ou plusieurs rôles par un autre administrateur de la sécurité, vous aurez le choix du rôle à activer. Si vous êtes vous-même dans un rôle d'administrateur de la sécurité, vous verrez également un choix de **Gestion des identités**.
+Sinon, si vous avez été affecté à un ou plusieurs rôles par un autre administrateur de rôle privilégié, vous aurez le choix du rôle à activer. Si vous êtes vous-même dans un rôle d’administrateur de rôle privilégié, vous verrez également un choix de **Gestion des identités**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,4 +47,4 @@ La [vue d’ensemble Azure AD Privileged Identity Management](active-directory-p
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

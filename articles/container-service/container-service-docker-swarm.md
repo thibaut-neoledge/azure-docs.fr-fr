@@ -24,9 +24,9 @@ Docker Swarm fournit un environnement pour le déploiement de charges de travail
 
 Conditions préalables pour les exercices de ce document :
 
-[Création d’un cluster Swarm dans Azure Container Service](./container-service-deployment.md)
+[Création d’un cluster Swarm dans Azure Container Service](container-service-deployment.md)
 
-[Connexion avec le cluster Swarm dans Azure Container Service](./container-service-connect.md)
+[Connexion avec le cluster Swarm dans Azure Container Service](container-service-connect.md)
 
 ## Déploiement d’un nouveau conteneur
 
@@ -119,4 +119,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 [Approfondissez vos connaissances sur Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Azure"
+	pageTitle="Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Azure"
 	description="Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API."
 	services="api-management"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
@@ -163,4 +163,4 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

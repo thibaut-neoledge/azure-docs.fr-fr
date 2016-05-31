@@ -167,7 +167,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q12. Existe-t-il un moyen d’adapter la quantité de bande passante utilisée par le service Backup ?**<br/> R12. Oui, utilisez l’option **Modifier les propriétés** de l’agent Backup pour régler la bande passante. Ajuste la quantité de bande passante et les heures d’utilisation de cette bande passante. Consultez la page [Limitation de bande passante](../backup-configure-vault.md#enable-network-throttling) pour en savoir plus.
 
-**Q13. Ma bande passante Internet est limitée par rapport à la quantité de données que j’ai besoin de sauvegarder. Est-il possible de déplacer des données vers un emplacement spécifique avec un grand canal réseau et de transmettre ces données dans Azure ?** <br/> R13. Vous pouvez sauvegarder des données dans Azure via le processus de sauvegarde en ligne standard, ou vous pouvez utiliser le service Azure Import/Export pour transférer des données vers le stockage d’objets blob Azure. Il n’existe aucune autre façon de transférer les données de sauvegarde dans le stockage Azure. Pour plus d’informations sur l’utilisation du service Azure Import/Export avec Azure Backup, consultez l’article [Flux de travail de la sauvegarde hors connexion](backup-azure-backup-import-export).
+**Q13. Ma bande passante Internet est limitée par rapport à la quantité de données que j’ai besoin de sauvegarder. Est-il possible de déplacer des données vers un emplacement spécifique avec un grand canal réseau et de transmettre ces données dans Azure ?** <br/> R13. Vous pouvez sauvegarder des données dans Azure via le processus de sauvegarde en ligne standard, ou vous pouvez utiliser le service Azure Import/Export pour transférer des données vers le stockage d’objets blob Azure. Il n’existe aucune autre façon de transférer les données de sauvegarde dans le stockage Azure. Pour plus d’informations sur l’utilisation du service Azure Import/Export avec Azure Backup, consultez l’article [Flux de travail de la sauvegarde hors connexion](backup-azure-backup-import-export.md).
 
 
 ## Récupérer
@@ -205,7 +205,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
   ```PS C:\> Net start obengine```
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
-  
+
 **Q2. Où puis-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?**<br/> R2. Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
 - Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde avec la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles (tels que les lecteurs USB) ne sont pas pris en charge.
@@ -221,4 +221,4 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 Le dossier du cache et les métadonnées de disque dur virtuel ne doivent pas avoir les attributs ci-dessus pour que l’agent Azure Backup puisse fonctionner correctement.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

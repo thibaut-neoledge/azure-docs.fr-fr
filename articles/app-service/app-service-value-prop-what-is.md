@@ -20,7 +20,7 @@
 # Qu'est-ce qu'Azure App Service ?
 Azure App Service est le seul service cloud qui intègre tout ce dont vous avez besoin pour créer rapidement et facilement des applications web et mobiles pour toute plateforme et tout appareil. Conçue pour les développeurs, App Service est une plateforme entièrement gérée avec des fonctionnalités puissantes telles que la fonctionnalité intégrée d’opérations de développement, l’intégration continue avec Visual Studio Team Services et GitHub, la prise en charge des environnements intermédiaires et de production, et la mise à jour corrective automatique.
 
-Azure App Service est un service unique qui inclut toutes les fonctionnalités existantes des Sites web Azure, Azure Mobile Services et Azure Biztalk Services. Azure Functions est un exemple d’ajouts continus à l’App Service, qui rendent possible l’évolution vers la prochaine génération d’applications.
+Azure App Service est un service unique qui inclut toutes les fonctionnalités existantes d'Azure Web Sites, Azure Mobile Services et Azure Biztalk Services, ainsi que de nouvelles fonctionnalités. [Obtenez plus d’informations](https://azure.microsoft.com/documentation/services/app-service/) sur la manière dont App Service se rapporte à ces services existants.
 
 ## Pourquoi utiliser App Service ?
 Centrée sur le développement rapide d'applications web et mobiles, ainsi que sur l'automatisation des processus d'entreprise, Azure App Service fournit un ensemble de fonctionnalités d'entreprise intégrées via une expérience de gestion et de développement unique qui vous offre les avantages suivants :
@@ -31,7 +31,7 @@ Centrée sur le développement rapide d'applications web et mobiles, ainsi que s
 
 - **Intégration simplifiée** – Intégrez vos données dans des clouds et automatisez les processus métier en quelques minutes via une expérience de conception visuelle simple. Intégrez facilement votre logique à toute application mobile ou web via des API REST standard. Générez des solutions B2B d’Intégration d’Applications d’Entreprise sophistiquées à l’aide de l’échange de données informatisées (EDI, Electronic Data Interchange), de stratégies d’entreprise (moteur de règles), etc., en fonction de la plateforme BizTalk leader dans l’industrie.
 
-- **Productivité des développeurs inégalée** – Optimisé pour DevOps, avec la prise en charge d'une intégration continue pour Visual Studio Team Services et Github, qui vous permet de vous concentrer sur l'amélioration rapide de vos applications sans vous soucier de l'infrastructure. Déployez des mises à jour des applications avec des fonctionnalités intégrées de test intermédiaire, de restauration et de production.
+- **Productivité des développeurs inégalée** – Optimisé pour DevOps, avec la prise en charge d'une intégration continue pour Visual Studio Team Services et Github, qui vous permet de vous concentrer sur l'amélioration rapide de vos applications sans vous soucier de l'infrastructure. Déployez des mises à jour des applications avec des fonctionnalités intégrées de test intermédiaire, de restauration et de production.
 
 - **Prise en charge des environnements d’entreprise** - Appréciez la sérénité qu’offrent une sécurité et une gestion de niveau entreprise. Proposez une administration déléguée et basée sur les rôles, sécurisez et gérez aisément les flux de données vers vos applications mobiles, et protégez vos actifs à l'aide d'une fonctionnalité intégrée de sauvegarde et de restauration. Restez serein sachant qu'App Service est compatible PCI. Gardez le contrôle avec des environnements dédiés et la possibilité d'effectuer un déploiement dans des clouds publics et privés. Bénéficiez de plus de 25 ans d'expérience Microsoft et de notre contrat de niveau de service (SLA) de niveau entreprise.
 
@@ -44,7 +44,6 @@ App Service vous permet de créer les types d'application suivants à partir d'u
 - [**Web Apps**](../app-service-web/app-service-web-overview.md) - Créez et déployez rapidement des applications web critiques, capables d’évoluer avec votre entreprise.
 - [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) - Impliquez des employés, des partenaires et des clients sur un appareil quelconque, à tout instant.
 - [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - Créez et consommez facilement des API de cloud.
-- [**Function Apps**](../azure-functions/functions-overview.md) - Créez des fonctions légères qui répondent à des événements dans Azure, localement et via des fournisseurs SaaS.
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Automatisez l’accès et l’utilisation des données entre des clouds sans écrire de code.
 
 En tant que service intégré unique, App Service facilite l’assemblage des types d’application ci-dessus en une solution unique. Cela vous permet de créer aisément des applications qui ciblent des clients web et mobiles en utilisant un même backend, et qui s’intègrent dans des systèmes sur site et des services populaires tels qu’Office 365 et salesforce.com.
@@ -60,4 +59,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->
