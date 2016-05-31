@@ -27,9 +27,10 @@ Pour que Microsoft Monitoring Agent se connecte au service OMS et s'enregistre a
 
 |**Ressource de l'agent**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
+|*.oms.opinsights.azure.com|Port 443|
 |ods.systemcenteradvisor.com|Port 443|
-|**.blob.core.windows.net|Port 443|
+|*.blob.core.windows.net|Port 443|
 
 Vous pouvez utiliser la procédure suivante pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le Panneau de configuration. Vous devez utiliser la procédure pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Dans ce cas, suivez la procédure [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l'aide d'un script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -39,7 +40,8 @@ Vous pouvez utiliser la procédure suivante pour configurer les paramètres de p
 
 2. Ouvrez **Microsoft Monitoring Agent**.
 
-3. Cliquez sur l'onglet **Paramètres de proxy**. ![Onglet Paramètres de proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+3. Cliquez sur l'onglet **Paramètres de proxy**.  
+  ![Onglet Paramètres de proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Sélectionnez **Utiliser un serveur proxy** et tapez l'URL et le numéro de port, si nécessaire, comme indiqué dans l'exemple. Si votre serveur proxy requiert une authentification, tapez le nom d'utilisateur et le mot de passe pour accéder au serveur proxy.
 
@@ -95,25 +97,32 @@ Voici une liste des ressources et ports de l'agent :
 
 |**Ressource de l'agent**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
+|*.oms.opinsights.azure.com|Port 443|
 |ods.systemcenteradvisor.com|Port 443|
-|**.blob.core.windows.net/|Port 443|
+|*.blob.core.windows.net/|Port 443|
 
 Voici une liste des ressources et ports du serveur d’administration :
 
 |**Ressource de serveur d'administration**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
+|service.systemcenteradvisor.com|Port 443| 
+|scadvisor.accesscontrol.windows.net|Port 443| 
+|scadvisorservice.accesscontrol.windows.net|Port 443| 
+|*.blob.core.windows.net|Port 443|
 |data.systemcenteradvisor.com|Port 443|
 |ods.systemcenteradvisor.com|Port 443|
-|**.systemcenteradvisor.com|Port 443|
+|*.systemcenteradvisor.com|Port 443|
 
 Voici une liste des ressources et ports de la console OMS et Operations Manager.
 
 |**Ressource OMS et de la console Operations Manager**|**Ports**|
 |----|----|
-|*.systemcenteradvisor.com|Port 80 et 443| |*.live.com|Ports 80 et 443|
-|**.microsoftonline.com|Port 80 et 443| |login.windows.net|Port 80 et 443|
+|*.systemcenteradvisor.com|Port 80 et 443| 
+|*.live.com|Ports 80 et 443|
+|*.microsoftonline.com|Port 80 et 443| 
+|login.windows.net|Port 80 et 443|
 
 
 
@@ -129,9 +138,12 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration**.
 
-2. Développez **Operational Insights**, puis sélectionnez **Connexion à Operational Insights**. ![Connexion à Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**. ![Connexion à Operations Manager OMS, Configurer le serveur proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, ****http://myproxy:80**. ![Adresse proxy Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
+2. Développez **Operational Insights**, puis sélectionnez **Connexion à Operational Insights**.  
+    ![Connexion à Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
+3. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**.  
+    ![Connexion à Operations Manager OMS, Configurer le serveur proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
+4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, **http://myproxy:80**.  
+    ![Adresse proxy Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Pour spécifier les informations d'identification si le serveur proxy nécessite une authentification
@@ -139,17 +151,24 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration**.
 2. Sous **Configuration d'identification**, sélectionnez **Profils**.
-3. Ouvrez le profil **Proxy d'identification de System Center Advisor**. ![image du profil Proxy d'identification de System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. Dans l'Assistant Profil d'identification, cliquez sur **Ajouter** pour utiliser un compte d'identification. Vous pouvez créer un compte d'identification ou utiliser un compte existant. Ce compte doit disposer des autorisations suffisantes pour franchir le serveur proxy. ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Pour définir le compte à gérer, choisissez **Une classe, un groupe ou un objet sélectionné(e)** pour ouvrir la zone Recherche d'objets. ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Recherchez puis sélectionnez le **groupe de serveur de surveillance Microsoft System Center Advisor**. ![image de la zone Recherche d'objets](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Cliquez sur **OK** pour fermer la zone Ajouter un compte d'identification. ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Terminez l'Assistant et enregistrez les modifications. ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Ouvrez le profil **Proxy d'identification de System Center Advisor**.  
+    ![image du profil Proxy d'identification de System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. Dans l'Assistant Profil d'identification, cliquez sur **Ajouter** pour utiliser un compte d'identification. Vous pouvez créer un compte d'identification ou utiliser un compte existant. Ce compte doit disposer des autorisations suffisantes pour franchir le serveur proxy.  
+    ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Pour définir le compte à gérer, choisissez **Une classe, un groupe ou un objet sélectionné(e)** pour ouvrir la zone Recherche d'objets.  
+    ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Recherchez puis sélectionnez le **groupe de serveur de surveillance Microsoft System Center Advisor**.  
+    ![image de la zone Recherche d'objets](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Cliquez sur **OK** pour fermer la zone Ajouter un compte d'identification.  
+    ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Terminez l'Assistant et enregistrez les modifications.  
+    ![image de l'Assistant Profil d'identification](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 
 ### Pour valider que les packs d'administration OMS sont téléchargés
 
-- Si vous avez ajouté des solutions à l'aide d'OMS, vous pouvez les afficher dans la console Operations Manager en tant que packs d'administration sous **Administration**. Recherchez *System Center Advisor* pour les retrouver rapidement. ![packs d'administration téléchargés](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
+- Si vous avez ajouté des solutions à l'aide d'OMS, vous pouvez les afficher dans la console Operations Manager en tant que packs d'administration sous **Administration**. Recherchez *System Center Advisor* pour les retrouver rapidement.  
+    ![packs d'administration téléchargés](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
 - Vous pouvez également rechercher les packs d'administration OMS en utilisant les commandes Windows PowerShell suivantes sur le serveur d'administration Operations Manager :
 
         get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
@@ -160,8 +179,10 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 
 1. Sur le serveur d'administration Operations Manager, ouvrez l'Analyseur de performances (perfmon.exe), puis sélectionnez **Analyseur de performances**.
 2. Cliquez sur **Ajouter**, puis sélectionnez **Groupes d'administration du service de contrôle d'intégrité**.
-3. Ajoutez tous les compteurs commençant par **HTTP**. ![ajouter des compteurs](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Si votre configuration Operations Manager est correcte, vous verrez une activité pour les compteurs d'administration du service de contrôle d'intégrité liés à des événements et autres éléments de données, en fonction des packs d'administration que vous avez ajoutés dans OMS et de la stratégie de collecte de journaux configurée. ![Analyseur de performances indiquant une activité](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Ajoutez tous les compteurs commençant par **HTTP**.  
+    ![ajouter des compteurs](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Si votre configuration Operations Manager est correcte, vous verrez une activité pour les compteurs d'administration du service de contrôle d'intégrité liés à des événements et autres éléments de données, en fonction des packs d'administration que vous avez ajoutés dans OMS et de la stratégie de collecte de journaux configurée.  
+    ![Analyseur de performances indiquant une activité](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 
 ## Runbook Worker hybride Azure Automation

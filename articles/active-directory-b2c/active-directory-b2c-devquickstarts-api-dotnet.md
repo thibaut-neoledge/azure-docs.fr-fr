@@ -221,7 +221,10 @@ Pour terminer, générez et exécutez `TaskWebApp` et `TaskService`. Inscrivez-v
 
 ## Modifier vos stratégies
 
-Une fois que vous avez sécurisé une API avec Azure AD B2C, vous pouvez tester les stratégies de votre application et afficher le résultat (ou l’absence de résultat) sur l’API. Vous pouvez <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipuler les revendications d’application dans les stratégies et modifier les informations utilisateur qui sont disponibles dans l’API web. Toutes les revendications que vous ajoutez seront disponibles pour votre API web .NET MVC dans l’objet `ClaimsPrincipal`, comme décrit plus haut dans cet article.
+Une fois que vous avez sécurisé une API avec Azure AD B2C, vous pouvez tester les stratégies de votre application et afficher le résultat (ou l’absence de résultat) sur l’API. Vous pouvez 
+<!--add **identity providers** 
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->manipuler les revendications d’application dans les stratégies et modifier les informations utilisateur qui sont disponibles dans l’API web. Toutes les revendications que vous ajoutez seront disponibles pour votre API web .NET MVC dans l’objet `ClaimsPrincipal`, comme décrit plus haut dans cet article.
 
 <!--
 

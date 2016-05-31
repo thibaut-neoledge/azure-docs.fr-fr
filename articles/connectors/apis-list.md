@@ -54,7 +54,10 @@ Il existe deux types de déclencheurs :
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
 
 
-[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
+[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
+[Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) 
+[Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) 
+[Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connectez-vous à un objet blob Azure pour gérer les fichiers de votre conteneur d'objets blob."

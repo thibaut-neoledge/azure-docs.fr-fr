@@ -52,7 +52,7 @@ Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisa
 
 ### Configuration de votre chaîne de connexion
 
-Le mécanisme de configuration de service vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué dans l’exemple qui suit :
+Le mécanisme de configuration de service vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (**.csdef**), comme indiqué dans l’exemple qui suit :
 
 ```
 <ServiceDefinition name="Azure1">

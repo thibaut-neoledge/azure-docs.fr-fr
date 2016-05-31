@@ -191,6 +191,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 À présent que vous disposez d’un cluster opérationnel, consultez les documents suivants pour obtenir des informations supplémentaires relatives à la connexion et à la gestion du cluster.
  
-[Connexion avec un cluster Azure Container Service](container-service-connect.md) [Utilisation d’Azure Container Service et de DC/OS ](container-service-mesos-marathon-rest.md) [Utilisation avec Azure Container Service et Docker Swarm](container-service-docker-swarm.md)
+[Connexion avec un cluster Azure Container Service](container-service-connect.md) 
+[Utilisation d’Azure Container Service et de DC/OS ](container-service-mesos-marathon-rest.md) 
+[Utilisation avec Azure Container Service et Docker Swarm](container-service-docker-swarm.md)
 
 <!---HONumber=AcomDC_0525_2016-->

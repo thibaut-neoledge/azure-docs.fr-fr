@@ -28,7 +28,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?
 ## Accès à Azure et Azure Active Directory
 
 
-**** Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
+**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
 
 **R :** pour accéder au portail Azure Classic, chaque utilisateur doit disposer d’autorisations sur un abonnement Azure. Si vous détenez une licence Office 365 ou Azure AD payante, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour une étape d’activation unique, sinon vous devrez activer une [version d’essai Azure](https://azure.microsoft.com/pricing/free-trial/) complète ou un abonnement payant.
 

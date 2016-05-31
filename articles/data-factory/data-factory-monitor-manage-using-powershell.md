@@ -139,7 +139,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 		  		}
 			}
 
-	Remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
+	Remplacez **servername**, **databasename**, **username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
 
 2.	Exécutez la commande suivante pour créer un service lié :
 	

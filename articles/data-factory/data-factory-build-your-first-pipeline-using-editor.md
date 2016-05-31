@@ -83,7 +83,8 @@ Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabri
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **AzureStorageLinkedService** s’affiche dans l’arborescence sur la gauche. ![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **AzureStorageLinkedService** s’affiche dans l’arborescence sur la gauche. 
+   	![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Créer le service lié Azure HDInsight
@@ -278,7 +279,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 	1. Le fichier **input.log** existe dans le dossier **inputdata** du conteneur **adfgetstarted** dans le stockage d’objets blob Azure
 	2. Le fichier **partitionweblogs.hql** existe dans le dossier **script** du conteneur **adfgetstarted** dans le stockage d’objets blob Azure. Suivez les étapes de vérification de la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) si vous ne voyez pas ces fichiers. 
 	3. Dans le pipeline JSON, vérifiez que vous avez bien remplacé **storageaccountname** par le nom de votre compte de stockage. 
-2. Cliquez sur **Déployer** dans la barre de commandes pour déployer le pipeline. Étant donné que les valeurs pour **start** et **end ** sont définies sur des valeurs antérieures au moment actuel, et que **isPaused** est défini sur false, le pipeline (activité dans le pipeline) s’exécute immédiatement après le déploiement. 
+2. Cliquez sur **Déployer** dans la barre de commandes pour déployer le pipeline. Étant donné que les valeurs pour **start** et **end** sont définies sur des valeurs antérieures au moment actuel, et que **isPaused** est défini sur false, le pipeline (activité dans le pipeline) s’exécute immédiatement après le déploiement. 
 4. Vérifiez que le pipeline apparaît dans l’arborescence.
 
 	![Arborescence avec pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
@@ -308,6 +309,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
+
 	>[AZURE.IMPORTANT] La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
