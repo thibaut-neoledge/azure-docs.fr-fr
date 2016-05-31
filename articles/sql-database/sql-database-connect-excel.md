@@ -22,7 +22,7 @@
 # Didacticiel sur la base de données SQL : Connectez Excel à une base de données SQL Azure et créez un rapport
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
@@ -83,4 +83,4 @@ Maintenant que vous avez établi la connexion et créé le fichier avec les donn
 - En savoir plus sur les avantages des [pools élastiques](sql-database-elastic-pool.md).
 - Découvrez comment [créer une application web qui se connecte à la base de données SQL sur le serveur principal](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

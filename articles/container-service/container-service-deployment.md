@@ -20,7 +20,7 @@
 
 # Déploiement d’un cluster Azure Container Service
 
-Azure Container Service assure le déploiement rapide des principales solutions de mise en cluster et d’orchestration de containers open source. En utilisant Azure Container Service, vous pouvez déployer les clusters DC/OS et Docker Swarm à l’aide des modèles Azure Resource Manager ou du portail Azure. Vous déployez ces clusters au moyen de jeux de mise à l’échelle de machines virtuelles Azure et les clusters tirent parti des offres de mise en réseau et de stockage Azure. Pour accéder à Azure Container Service, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) dès aujourd’hui.
+Azure Container Service assure le déploiement rapide des principales solutions de mise en cluster et d’orchestration de containers open source. En utilisant Azure Container Service, vous pouvez déployer les clusters DC/OS et Docker Swarm à l’aide des modèles Azure Resource Manager ou du portail Azure. Vous déployez ces clusters au moyen de jeux de mise à l’échelle de machines virtuelles Azure et les clusters tirent parti des offres de mise en réseau et de stockage Azure. Pour accéder à Azure Container Service, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) dès aujourd’hui.
 
 Ce document vous guide lors du déploiement d’un cluster Azure Container Service à l’aide du [portail Azure](#creating-a-service-using-the-azure-portal), de l’[interface de ligne de commande (CLI) Azure](#creating-a-service-using-the-azure-cli) et du [module Azure PowerShell](#creating-a-service-using-powershell).
 
@@ -40,7 +40,7 @@ Entrez les informations suivantes :
 - Abonnement : sélectionnez un abonnement Azure.
 - Groupe de ressources : sélectionnez un groupe de ressources existant ou créez-en un.
 - Emplacement : sélectionnez une région Azure pour le déploiement d’Azure Container Service.
-- Clé publique SSH : ajoutez la clé publique qui sera utilisée pour l'authentification sur les machines virtuelles d’Azure Container Service. Vous devez absolument vérifier que cette clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Elle doit présenter le format suivant, « **ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**». Pour obtenir des conseils sur la création de clés SSH, consultez les articles pour [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) et [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- Clé publique SSH : ajoutez la clé publique qui sera utilisée pour l'authentification sur les machines virtuelles d’Azure Container Service. Vous devez absolument vérifier que cette clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Elle doit présenter le format suivant, « **ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**». Pour obtenir des conseils sur la création de clés SSH, consultez les articles pour [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) et [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Cliquez sur **OK** lorsque vous souhaitez continuer.
 
@@ -82,12 +82,12 @@ Lorsque le déploiement est terminé, le cluster Azure Container Service est pr�
 
 ## Création d’un service à l’aide de l’interface de ligne de commande (CLI) Azure
 
-Pour créer une instance d’Azure Container Service à l’aide de l’interface de ligne de commande (CLI), vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) dès aujourd’hui. Vous devez également avoir installé et configuré la CLI Azure.
+Pour créer une instance d’Azure Container Service à l’aide de l’interface de ligne de commande (CLI), vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) dès aujourd’hui. Vous devez également avoir installé et configuré la CLI Azure.
 
 Sélectionnez l’un des modèles GitHub suivants pour déployer un cluster DC/OS ou Docker Swarm. Notez que ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
 
-* [Modèle DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modèle Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modèle DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modèle Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Assurez-vous que la CLI Azure a bien été liée à un abonnement Azure. Pour ce faire, vous pouvez utiliser la commande suivante :
 
@@ -142,12 +142,12 @@ Pour voir un exemple de fichier de paramètres nommé `azuredeploy.parameters.js
 
 ## Création d’un service à l’aide de PowerShell
 
-Vous pouvez également déployer un cluster Azure Container Service avec PowerShell. Ce document est basé sur la version 1.0 du [module Azure PowerShell]( https://azure.microsoft.com/blog/azps-1-0/).
+Vous pouvez également déployer un cluster Azure Container Service avec PowerShell. Ce document est basé sur la version 1.0 du [module Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
 Sélectionnez l’un des modèles suivants pour déployer un cluster DC/OS ou Docker Swarm. Notez que ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
 
-* [Modèle DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modèle Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modèle DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modèle Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Avant de créer un cluster dans votre abonnement Azure, vérifiez que votre session PowerShell a bien été connectée à Azure. Pour cela, utilisez la commande `Get-AzureRMSubscription` :
 
@@ -191,6 +191,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 À présent que vous disposez d’un cluster opérationnel, consultez les documents suivants pour obtenir des informations supplémentaires relatives à la connexion et à la gestion du cluster.
  
-[Connexion avec un cluster Azure Container Service](./container-service-connect.md) [Utilisation d’Azure Container Service et de DC/OS ](./container-service-mesos-marathon-rest.md) [Utilisation avec Azure Container Service et Docker Swarm](./container-service-docker-swarm.md)
+[Connexion avec un cluster Azure Container Service](container-service-connect.md) [Utilisation d’Azure Container Service et de DC/OS ](container-service-mesos-marathon-rest.md) [Utilisation avec Azure Container Service et Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -62,8 +62,8 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 
 ## Étapes suivantes
 
-Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Manage DNS records and record sets using CLI](dns-operations-recordsets-portal.md) (Gestion des enregistrements et jeux d’enregistrements à l’aide de l’interface de ligne de commande).
+Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gestion des enregistrements DNS à l’aide de l’interface de ligne de commande](dns-operations-recordsets-cli.md)
 
 Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="05/23/2016"
    ms.author="shkurhek"/>
 
 # Définition de la base de données SQL Présentation de SQL Database
@@ -27,11 +27,11 @@ Cet article présente les principaux concepts et fonctionnalités de la base de 
 
 ## Ajustez les performances et la mise à l'échelle sans interruption de service
 
-Les bases de données SQL sont disponibles en différents *niveaux de service* : de base, standard et premium. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois, puis [modifier le niveau de service](sql-database-scale-up.md) manuellement ou automatiquement à tout moment quand votre application devient connue à travers le monde entier, sans temps mort pour votre application ou vos clients.
+Les bases de données SQL sont disponibles en différents *niveaux de service* : de base, standard et premium. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois, puis [modifier le niveau de service](sql-database-scale-up.md) manuellement ou automatiquement à tout moment quand votre application devient connue à travers le monde entier, sans temps mort pour votre application ou vos clients.
 
 Pour de nombreuses entreprises et applications, être en mesure de créer des bases de données et d'augmenter ou ralentir les performances d'une base de données unique à la demande est suffisant, surtout si les modèles d'utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial.
 
-Les [pools de base de données élastique](sql-database-elastic-pool.md) dans SQL Database sont une solution à ce problème. Le concept est simple. Vous allouez des performances à un pool et financez les performances collectives du pool plutôt que les performances de la base de données unique. Vous n'avez pas besoin de ralentir ou d'augmenter les performances de la base de données. Les bases de données du pool, appelées *bases de données élastiques*, évoluent automatiquement à la hausse ou à la baisse pour répondre à la demande. Les bases de données élastiques consomment mais ne dépassent pas les limites du pool. Votre coût reste prévisible, même si l'utilisation de la base de données ne l'est pas. Qui plus est, vous pouvez [ajouter et supprimer les bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout au sein d’un budget que vous contrôlez.
+Les [pools de base de données élastique](sql-database-elastic-pool.md) dans SQL Database sont une solution à ce problème. Le concept est simple. Vous allouez des performances à un pool et financez les performances collectives du pool plutôt que les performances de la base de données unique. Vous n'avez pas besoin de ralentir ou d'augmenter les performances de la base de données. Les bases de données du pool, appelées *bases de données élastiques*, évoluent automatiquement à la hausse ou à la baisse pour répondre à la demande. Les bases de données élastiques consomment mais ne dépassent pas les limites du pool. Votre coût reste prévisible, même si l'utilisation de la base de données ne l'est pas. Qui plus est, vous pouvez [ajouter et supprimer les bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout au sein d’un budget que vous contrôlez. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
 
 Dans les deux cas (base de données unique ou élastique), vous maîtrisez votre évolution. Vous pouvez fusionner des bases de données uniques avec des pools de bases de données élastiques et modifier les niveaux de service de bases de données uniques et de pools pour créer des conceptions innovantes. En outre, grâce à la puissance et à la portée d’Azure, vous pouvez mélanger les différents services Azure avec SQL Database, afin de pouvoir répondre aux besoins uniques de vos nouvelles applications en matière de conception, réduire les coûts, optimiser l’efficacité et créer de nouvelles opportunités professionnelles.
 
@@ -57,6 +57,6 @@ Maintenant que vous avez lu l’introduction à la base de données SQL et répo
 - Commencez par [créer votre première base de données](sql-database-get-started.md).
 - [Se connecter et lancer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
 - Créez votre première application en C#, Java, Node.js, PHP, Python ou Ruby : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-- Voir l’index des titres et descriptions de l’article [All topics for Azure sql-database service](sql-database-index-all-articles.md) (Ensemble des rubriques relatives au service de base de données SQL Azure).
+- Voir l’index des titres et descriptions de l’article [Toutes les rubriques pour le service de base de données SQL Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

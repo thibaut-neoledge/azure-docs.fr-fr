@@ -24,8 +24,8 @@ DC/OS offre un environnement de déploiement et de mise à l’échelle des char
 
 Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec Marathon. Avant d’étudier ces exemples, vous devez disposer d’un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, consultez les articles suivants :
 
-- [Déploiement d’un cluster Azure Container Service](./container-service-deployment.md)
-- [Connexion à un cluster Azure Container Service](./container-service-connect.md)
+- [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
+- [Connexion à un cluster Azure Container Service](container-service-connect.md)
 
 ## Exploration de l’interface utilisateur de DC/OS
 
@@ -95,6 +95,6 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 
 ## Étapes suivantes
 
-[Utilisation de DC/OS et de l’API Marathon](./container-service-mesos-marathon-rest.md)
+[Utilisation de DC/OS et de l’API Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

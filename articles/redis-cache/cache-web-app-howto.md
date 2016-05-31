@@ -18,6 +18,13 @@
 
 # Création d’une application web avec le Cache Redis
 
+> [AZURE.SELECTOR]
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
+- [Node.JS](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 Ce didacticiel montre comment créer et déployer une application web ASP.NET dans une application web dans Azure App Service en utilisant Visual Studio 2015. L’exemple d’application affiche une liste des statistiques d’équipe d’une base de données et montre les différentes façons d’utiliser le Cache Redis Azure pour stocker et récupérer des données à partir du cache. Lorsque vous aurez terminé le didacticiel, vous disposerez d’une application web, optimisée avec le Cache Redis Azure et hébergée dans Azure, effectuant des opérations de lecture et écriture sur une base de données.
 
 Vous apprendrez ce qui suit :
@@ -83,7 +90,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
     ![Ajouter une classe de modèle][cache-model-add-class-dialog]
 
-3. Remplacez les instructions `using` au début du fichier `Team.cs` par les instructions suivantes.
+3. Remplacez les instructions `using` au début du fichier `Team.cs` par les instructions using suivantes.
 
 
 		using System;
@@ -229,7 +236,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
 ### Configurer les vues
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Shared** et double-cliquez sur **\_Layout.cshtml**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** puis le dossier **Partagé** et double-cliquez sur **\_Layout.cshtml**.
 
     ![\_Layout.cshtml][cache-layout-cshtml]
 
@@ -245,7 +252,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
 
     ![Modifications du code][cache-layout-cshtml-code]
 
-4. Appuyez sur **Ctrl+F5** pour générer et exécuter l’application. Cette version de l’application lit les résultats directement à partir de la base de données. Notez les actions **Create New**, **Edit**, **Details** et **Delete** qui ont été automatiquement ajoutées à l’application par le modèle automatique **Contrôleur MVC 5 avec vues, en utilisant Entity Framework**. Dans la section suivante du didacticiel, vous allez ajouter le Cache Redis pour optimiser l’accès aux données et fournir des fonctionnalités supplémentaires à l’application.
+4. Appuyez sur **Ctrl+F5** pour générer et exécuter l’application. Cette version de l’application lit les résultats directement à partir de la base de données. Notez les actions **Créer**, **Modifier**, **Détails** et **Supprimer** qui ont été automatiquement ajoutées à l’application par le modèle automatique **Contrôleur MVC 5 avec vues, en utilisant Entity Framework**. Dans la section suivante du didacticiel, vous allez ajouter le Cache Redis pour optimiser l’accès aux données et fournir des fonctionnalités supplémentaires à l’application.
 
 ![Application de départ][cache-starter-application]
 
@@ -297,7 +304,7 @@ Dans cette section du didacticiel, vous allez configurer l’exemple d’applica
 	        }
 	    }
   
-1. Créez un fichier nommé `WebAppPlusCacheAppSecrets.config` sur votre ordinateur et placez-le dans un emplacement qui ne sera pas archivé avec le code source de votre exemple d’application au cas où vous décideriez de l’archiver à un emplacement quelconque. Dans cet exemple le fichier `AppSettingsSecrets.config` se trouve sous `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+1. Créez un fichier nommé `WebAppPlusCacheAppSecrets.config` sur votre ordinateur et placez-le dans un emplacement qui ne sera pas archivé avec le code source de votre exemple d’application au cas où vous décideriez de l’archiver à un emplacement quelconque. Dans cet exemple, le fichier `AppSettingsSecrets.config` se trouve sous `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
     Modifiez le fichier `WebAppPlusCacheAppSecrets.config` et ajoutez le contenu suivant. Si vous exécutez l’application localement, ces informations sont utilisées pour vous connecter à votre instance de Cache Redis Azure. Plus loin dans ce didacticiel, vous allez approvisionner une instance de Cache Redis Azure et mettre à jour le nom et le mot de passe du cache. Si vous ne souhaitez pas exécuter l’exemple d’application localement, vous pouvez ignorer la création de ce fichier et les étapes suivantes qui référencent le fichier. En effet, lorsque vous déployez sur Azure, l’application récupère les informations de connexion de cache à partir du paramètre d’application de l’application web et non à partir de ce fichier. Étant donné que `WebAppPlusCacheAppSecrets.config` n’est pas déployé sur Azure avec votre application, vous n’en avez pas besoin, sauf si vous souhaitez exécuter l’application localement.
 
@@ -614,7 +621,7 @@ Le code de génération de modèles automatique qui a été généré dans le ca
 
 ### Mettre à jour la vue Teams Index pour utiliser le cache
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Views** puis le dossier **Teams**, et double-cliquez sur **Index.cshtml**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** puis le dossier **Équipes**, et double-cliquez sur **Index.cshtml**.
 
     ![Index.cshtml][cache-views-teams-index-cshtml]
 
@@ -686,7 +693,7 @@ Le bouton **Déployer dans Azure** vous permet d’accéder au Portail Azure et 
 ![Déploiement sur Azure][cache-deploy-to-azure-step-1]
 
 1. Dans le panneau **Déploiement personnalisé**, sélectionnez l’abonnement Azure à utiliser, puis sélectionnez un groupe de ressources existant ou créez-en un. Spécifiez ensuite l’emplacement du groupe de ressources.
-2. Dans le panneau **Paramètres**, spécifiez un nom de compte d’administrateur (**ADMINISTRATORLOGIN** -n’utilisez pas **admin**), un mot de passe de connexion administrateur (**ADMINISTRATORLOGINPASSWORD**) et le nom de la base de données (**DATABASENAME**). Les autres paramètres sont configurés pour un plan d’hébergement Free App Service et des options moins coûteuses pour la base de données SQL et le Cache Redis Azure, qui ne sont pas fournis avec un niveau Gratuit.
+2. Dans le panneau **Paramètres**, spécifiez un nom de compte d’administrateur (**ADMINISTRATORLOGIN** ; n’utilisez pas **admin**), un mot de passe de connexion administrateur (**ADMINISTRATORLOGINPASSWORD**) et le nom de la base de données (**DATABASENAME**). Les autres paramètres sont configurés pour un plan d’hébergement Free App Service et des options moins coûteuses pour la base de données SQL et le Cache Redis Azure, qui ne sont pas fournis avec un niveau Gratuit.
 3. Modifiez les autres paramètres si nécessaire, ou conservez les valeurs par défaut, puis cliquez sur **OK**.
 
 
@@ -755,7 +762,7 @@ Lorsque vous avez terminé avec l’exemple d’application du didacticiel, vous
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 2. Tapez le nom de votre groupe de ressources dans la zone de texte **Filtrer des éléments...**.
-3. Cliquez sur **...** à droite de votre groupe de ressources.
+3. Cliquez sur **…** à droite de votre groupe de ressources.
 4. Cliquez sur **Supprimer**.
 
     ![Supprimer][cache-delete-resource-group]
@@ -839,4 +846,4 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

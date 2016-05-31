@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main du stockage d’objets blob Azure à l’aide de .NET | Microsoft Azure"
-	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
+	pageTitle="Prise en main du stockage d’objets blob Azure à l’aide de .NET | Microsoft Azure"
+	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -395,4 +395,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

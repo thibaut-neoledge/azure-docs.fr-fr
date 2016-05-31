@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/11/2016"
 	ms.author="banders"/>
 
@@ -35,7 +35,7 @@ Voici le processus :
 - Pour utiliser toutes les fonctionnalités de Log Analytics, vous devez souscrire à un abonnement Microsoft Azure payant. Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure. Vous pouvez également créer un compte OMS gratuit sur le site web [Operations Management Suite](http://microsoft.com/oms) et cliquer sur **Essai gratuit**.
 - Espace de travail OMS.
 - Chaque ordinateur Windows à partir duquel vous souhaitez collecter des données doit exécuter Windows Server 2008 SP1 ou version ultérieure.
-- Accès à travers le [Pare-feu](log-analytics-proxy-firewall) aux adresses du service web OMS.
+- Accès à travers le [Pare-feu](log-analytics-proxy-firewall.md) aux adresses du service web OMS.
 - Serveur (passerelle) [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) pour transférer le trafic des serveurs à OMS si les ordinateurs n’ont pas accès à Internet.
 - Si vous utilisez Operations Manager, Log Analytics prend en charge Operations Manager 2012 SP1 UR6 et versions ultérieures et Operations Manager 2012 R2 UR2 et versions ultérieures. La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3. Déterminez son intégration à OMS.
 - Déterminez si vos ordinateurs ont un accès direct à Internet. Dans le cas contraire, ils ont besoin d’un serveur passerelle pour accéder aux sites de service web OMS. Tous les accès s’effectuent par le biais du protocole HTTPS.
@@ -131,4 +131,4 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 - Familiarisez-vous avec les [recherches de journaux](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 - Utilisez les [tableaux de bord](log-analytics-dashboards.md) pour enregistrer et afficher des recherches personnalisées.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

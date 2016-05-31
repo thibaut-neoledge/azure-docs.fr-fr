@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Installer des applications HDInsight personnalisées
@@ -86,8 +86,25 @@ Vous pouvez vérifier l’état de l’application sur le portail Azure pour val
  
 ## Dépanner l’installation
 
-Consultez la section [Dépannage](hdinsight-apps-install-applications.md#troubleshoot) de l’article Install HDInsight Applications (Installer des applications HDInsight).
+Vous pouvez vérifier l’état de l’installation de l’application dans la notification du portail (cliquez sur l’icône en forme de cloche en haut du portail).
 
+En cas d’échec de l’installation d’une application, des messages d’erreur et des informations de débogage s’affichent à 3 emplacements différents :
+
+- Applications HDInsight : informations générales relatives à l’erreur.
+
+    Ouvrez le cluster à partir du portail, puis cliquez sur Applications dans le panneau Paramètres :
+
+    ![Erreur d’installation des applications hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- Action de script HDInsight : si le message d’erreur des applications HDInsight indique un échec d’action de script, le volet Actions de script affichera davantage de détails sur l’échec de script.
+
+    Dans le panneau Paramètres, cliquez sur Actions de script. L’historique des actions de script affiche les messages d’erreur
+
+    ![Erreur de l’action de script des applications hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Interface utilisateur web d’Ambari : si le script d’installation était à l’origine de l’échec, utilisez l’interface utilisateur web d’Ambari pour consulter les journaux complets des scripts d’installation.
+
+    Pour plus d’informations, consultez la page [Dépannage](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## Étapes suivantes
 
@@ -96,4 +113,4 @@ Consultez la section [Dépannage](hdinsight-apps-install-applications.md#trouble
 - [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 - [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles ARM pour la création de clusters HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

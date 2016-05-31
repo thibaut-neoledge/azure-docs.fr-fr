@@ -53,7 +53,9 @@ Une fois vos trois stratégies créées, vous pouvez générer votre application
 
 ## Téléchargement du code
 
-Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Vous pouvez également cloner la structure :
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Vous pouvez également cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -65,7 +67,7 @@ Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studi
 
 ## Configuration de l’application web de la tâche
 
-Quand un utilisateur interagit avec `TaskWebApp`, le client envoie des requêtes à Azure AD et reçoit des jetons de retour pouvant être utilisés pour appeler l’API web `TaskService`. Pour connecter l’utilisateur et recevoir des jetons, vous devez fournir à `TaskWebApp` des informations relatives à votre application. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine du projet et remplacez les valeurs de la section `<appSettings>` :
+Quand un utilisateur interagit avec `TaskWebApp`, le client envoie des requêtes à Azure AD et reçoit des jetons de retour pouvant être utilisés pour appeler l’API web `TaskService`. Pour connecter l’utilisateur et recevoir des jetons, vous devez fournir à `TaskWebApp` des informations relatives à votre application. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine du projet et remplacez les valeurs de la section `<appSettings>` :
 
 ```
 <appSettings>
@@ -105,11 +107,11 @@ public class TasksController : Controller
 {
 ```
 
-Pour savoir comment une application web comme `TaskWebApp` utilise Azure AD B2C, consultez [Générer une application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Pour savoir comment une application web comme `TaskWebApp` utilise Azure AD B2C, consultez [Générer une application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Sécuriser l’API
 
-Quand vous avez un client qui appelle l’API pour le compte d’utilisateurs, vous pouvez sécuriser `TaskService` à l’aide de jetons du porteur OAuth 2.0. Votre API peut accepter et valider les jetons à l’aide de la bibliothèque OWIN (Open Web Interface for .NET) de Microsoft.
+Quand vous avez un client qui appelle l’API pour le compte d’utilisateurs, vous pouvez sécuriser `TaskService` à l’aide de jetons du porteur OAuth 2.0. Votre API peut accepter et valider les jetons à l’aide de la bibliothèque OWIN (Open Web Interface for .NET) de Microsoft.
 
 ### Installer OWIN
 Commencez par installer le pipeline d’authentification OAuth OWIN :
@@ -187,7 +189,7 @@ public partial class Startup
 ```
 
 ### Sécuriser le contrôleur de tâche
-Une fois que l’application est configurée pour utiliser l’authentification OAuth 2.0, vous pouvez sécuriser votre API web en ajoutant une balise `[Authorize]` au contrôleur de tâche. Comme il s’agit du contrôleur sur lequel toutes les manipulations de liste des tâches ont lieu, vous devez sécuriser l’ensemble du contrôleur au niveau de la classe. Vous pouvez également ajouter la balise `[Authorize]` pour les actions individuelles et obtenir ainsi un contrôle plus précis.
+Une fois que l’application est configurée pour utiliser l’authentification OAuth 2.0, vous pouvez sécuriser votre API web en ajoutant une balise `[Authorize]` au contrôleur de tâche. Comme il s’agit du contrôleur sur lequel toutes les manipulations de liste des tâches ont lieu, vous devez sécuriser l’ensemble du contrôleur au niveau de la classe. Vous pouvez également ajouter la balise `[Authorize]` pour les actions individuelles et obtenir ainsi un contrôle plus précis.
 
 ```C#
 // Controllers\TasksController.cs
@@ -200,7 +202,7 @@ public class TasksController : ApiController
 ```
 
 ### Obtenir des informations utilisateur à partir du jeton
-Le `TasksController` stocke des tâches dans une base de données où chaque tâche est associée à un utilisateur qui est « propriétaire » de la tâche. Le propriétaire est identifié par l’**ID d’objet** de l’utilisateur (c’est pourquoi vous devez ajouter l’ID d’objet en tant que revendication d’application dans toutes vous stratégies).
+Le `TasksController` stocke des tâches dans une base de données où chaque tâche est associée à un utilisateur qui est « propriétaire » de la tâche. Le propriétaire est identifié par l’**ID d’objet** de l’utilisateur (c’est pourquoi vous devez ajouter l’ID d’objet en tant que revendication d’application dans toutes vous stratégies).
 
 ```C#
 // Controllers\TasksController.cs
@@ -219,10 +221,7 @@ Pour terminer, générez et exécutez `TaskWebApp` et `TaskService`. Inscrivez-v
 
 ## Modifier vos stratégies
 
-Une fois que vous avez sécurisé une API avec Azure AD B2C, vous pouvez tester les stratégies de votre application et afficher le résultat (ou l’absence de résultat) sur l’API. Vous pouvez 
-<!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->manipuler les revendications d’application dans les stratégies et modifier les informations utilisateur qui sont disponibles dans l’API web. Toutes les revendications que vous ajoutez seront disponibles pour votre API web .NET MVC dans l’objet `ClaimsPrincipal`, comme décrit plus haut dans cet article.
+Une fois que vous avez sécurisé une API avec Azure AD B2C, vous pouvez tester les stratégies de votre application et afficher le résultat (ou l’absence de résultat) sur l’API. Vous pouvez <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipuler les revendications d’application dans les stratégies et modifier les informations utilisateur qui sont disponibles dans l’API web. Toutes les revendications que vous ajoutez seront disponibles pour votre API web .NET MVC dans l’objet `ClaimsPrincipal`, comme décrit plus haut dans cet article.
 
 <!--
 
@@ -236,4 +235,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

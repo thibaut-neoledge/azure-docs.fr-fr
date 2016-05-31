@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/29/2016"
+	ms.date="05/19/2016"
 	ms.author="deonhe"/>
 
 # Liste des connecteurs gérés
@@ -27,7 +27,7 @@ Pour plus d’informations sur la tarification et une liste de ce qui est inclus
 
 Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces connecteurs pour créer des applications qui appellent ces services. Ces connecteurs peuvent servir à créer des applications logiques, des applications PowerApps et des flux.
 
-|API||||
+|Connecteurs||||
 |-----------|-----------|-----------|-----------|
 |[![Icône API][blobicon]<br/>**Objet blob Azure**][azureblobdoc]|[![Icône API][bingsearchicon]<br/>**Recherche Bing**][bingsearchdoc]|[![Icône API][boxicon]<br/>**Zone**][boxDoc]|[![Icône API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
 |[![Icône API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Icône API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icône API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icône API][githubicon]<br/>**GitHub**][githubdoc]|
@@ -35,11 +35,10 @@ Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces con
 |[![Icône API][office365icon]<br/>**Office 365**<br/>**Utilisateurs**][office365usersdoc]|[![Icône API][office365icon]<br/>**Office 365**<br/>**Vidéo**][office365videodoc]|[![Icône API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icône API][onedriveicon]<br/>** OneDrive<br/> Entreprise**][onedriveforbusinessdoc]|
 |[![Icône API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icône API][projectonlineicon]<br/>** Project<br/>Online**][projectonlinedoc]|[![Icône API][rssicon]<br/>**RSS**][rssdoc]|[![Icône API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
 |[![Icône API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icône API][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![Icône API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icône API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![Icône API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icône API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icône API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icône API][sqlicon]<br/>**SQL Mashup**][mashupsqldoc]|
-|[![Icône API][trelloicon]<br/>**Trello**][trellodoc]|[![Icône API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icône API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icône API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icône API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icône API][trelloicon]<br/>**Trello**][trellodoc]|
+[![Icône API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Si vous avez créé des applications logiques en utilisant le schéma 2014-12-01-preview, vous remarquerez que les connecteurs d’intégration d’entreprise tels que ceux de BizTalk ne sont pas répertoriés ci-dessus. Nous savons ces outils sont importants et nous travaillons dur pour vous les fournir dans les meilleurs délais. Bien que nous n’ayons pas de date de disponibilité exacte à vous communiquer, soyez sûr que vous les fournir fait partie de nos priorités. En attendant, vous avez accès à nos [API v1 et BizTalk depuis Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Merci de votre compréhension. Restez connecté !
+> [AZURE.NOTE] Si vous avez créé des applications logiques en utilisant le schéma 2014-12-01-preview, vous remarquerez que les connecteurs d’intégration d’entreprise tels que ceux de BizTalk ne sont pas répertoriés ci-dessus. Nous savons ces outils sont importants et nous travaillons dur pour vous les fournir dans les meilleurs délais. Bien que nous n’ayons pas de date de disponibilité exacte à vous communiquer, soyez sûr que vous les fournir fait partie de nos priorités. En attendant, vous avez accès à nos [API v1 et BizTalk depuis Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Merci de votre compréhension. Restez connecté !
 
 
 ### Les connecteurs peuvent être des déclencheurs
@@ -55,12 +54,9 @@ Il existe deux types de déclencheurs :
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
 
 
-[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md) 
+[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
 
-<!--API Documentation-->
+<!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connectez-vous à un objet blob Azure pour gérer les fichiers de votre conteneur d'objets blob."
 [bingsearchDoc]: ./connectors-create-api-bingsearch.md "Effectuez des recherches web, d’images, d’actualités et de vidéos dans Bing."
 [boxDoc]: ./connectors-create-api-box.md "Se connecte à Box et permet notamment de télécharger, d’obtenir, de supprimer et de répertorier des fichiers."
@@ -90,7 +86,6 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Envoyez de meilleurs e-mails."
 [smtpdoc]: ./connectors-create-api-smtp.md "Se connecte à un serveur SMTP et permet d'envoyer du courrier électronique avec des pièces jointes."
 [sqldoc]: ./connectors-create-api-sqlazure.md "Se connecte à une base de données SQL Azure. Vous pouvez créer, mettre à jour, obtenir et supprimer des entrées dans une table de base de données SQL."
-[mashupsqldoc]: ./connectors-create-api-mashupsql.md "Se connecte à SQL. Vous pouvez créer, mettre à jour, obtenir et supprimer des entrées dans une table de base de données SQL."
 [trellodoc]: ./connectors-create-api-trello.md "Trello est un outil gratuit, souple et visuel, qui vous permet d’organiser ce que vous souhaitez avec qui vous souhaitez."
 [twiliodoc]: ./connectors-create-api-twilio.md "Se connecte à Twilio et permet notamment d’envoyer et d’obtenir des messages, d’obtenir des numéros disponibles et de gérer des numéros de téléphone entrants."
 [twitterdoc]: ./connectors-create-api-twitter.md "Se connecte à Twitter et permet notamment de consulter des fils d’actualité et de publier des tweets."
@@ -124,11 +119,10 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [slackicon]: ./media/apis-list/slackicon.png
 [smtpicon]: ./media/apis-list/smtpicon.png
 [sqlicon]: ./media/apis-list/sqlicon.png
-[mashupsqlicon]: ./media/apis-list/mashupsqlicon.png
 [trelloicon]: ./media/apis-list/trelloicon.png
 [twilioicon]: ./media/apis-list/twilioicon.png
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->
