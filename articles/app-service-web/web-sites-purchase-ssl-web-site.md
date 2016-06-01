@@ -146,7 +146,7 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
             
             * Cliquez sur **Actualiser** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
                               
-            Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte ***.contosocertdemo.com** ou ***.sousdomaine.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**
+            Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte **.contosocertdemo.com** ou **.sousdomaine.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Étape 3 : Attribuer un certificat à une application App Service

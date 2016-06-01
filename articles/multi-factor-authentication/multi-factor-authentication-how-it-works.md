@@ -66,7 +66,18 @@ Application mobile comme second facteur|* | * | *
 Appel téléphonique comme second facteur|* | * | *
 SMS comme second facteur|* | * | *
 Mots de passe d'application pour les clients qui ne prennent pas en charge MFA|* | * | *
-Contrôle d'administration sur les méthodes d'authentification| **| *| * Mode du code PIN| | | * Alerte de fraude| | | * Rapports MFA| | | * Contournement à usage unique| | | * Messages de bienvenue personnalisés pour les appels téléphoniques| | | * Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | * Confirmation d’événement| | | * Adresses IP approuvées| | | * Suspendre MFA pour les appareils mémorisés (aperçu public)| | | * SDK MFA| | | * MFA pour des applications locales utilisant le serveur MFA| | | *
+Contrôle d'administration sur les méthodes d'authentification| *| *| * 
+Mode du code PIN| | | * 
+Alerte de fraude| | | * 
+Rapports MFA| | | * 
+Contournement à usage unique| | | * 
+Messages de bienvenue personnalisés pour les appels téléphoniques| | | * 
+Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | * 
+Confirmation d’événement| | | * 
+Adresses IP approuvées| | | * 
+Suspendre MFA pour les appareils mémorisés (aperçu public)| | | * 
+SDK MFA| | | * 
+MFA pour des applications locales utilisant le serveur MFA| | | *
 
 
 ##Comment obtenir Azure Multi-Factor Authentication ?
