@@ -91,15 +91,13 @@ Une condition évalue si un **champ** ou une **source** répond à certains crit
 | Dans | "in" : [ "&lt;valeur1&gt;","&lt;valeur2&gt;" ]|
 | Contient clé | "containsKey" : "&lt;nom\_clé&gt;" |
 
-### Champs et sources
+### Champs
 
 Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource. Une source représente les caractéristiques de la requête elle-même.
 
 Les sources et champs suivants sont pris en charge :
 
 Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.*** et **property alias**.
-
-Sources : **action**.
 
 ### Alias de propriété 
 L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Les alias peuvent être récupérés à l'aide de l'API REST ci-dessous (la prise en charge Powershell sera ajoutée ultérieurement) :
@@ -339,8 +337,8 @@ L’exemple ci-dessous montre comment imbriquer des opérateurs logiques pour re
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -387,7 +385,7 @@ Avec un corps de demande semblable au suivant :
     }
 
 
-La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2016-04-01*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour api-version, utilisez *2016-04-01*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Création d'une définition de stratégie à l'aide de PowerShell
 
@@ -420,7 +418,7 @@ Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2016-04-01*.
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour api-version, utilisez *2016-04-01*.
 
 Avec un corps de demande semblable au suivant :
 
@@ -464,4 +462,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouve
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -22,26 +22,26 @@ Cet article vous explique comment déployer un cluster Microsoft HPC Pack sur Az
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
-NAMD (programme Nanoscale Molecular Dynamics) est un package de dynamique moléculaire parallèle, conçu pour la simulation hautes performances des systèmes biomoléculaires étendus contenant jusqu’à plusieurs millions d’atomes, comme les virus, les structures de cellules et les protéines volumineuses. NAMD s’adapte à des centaines de cœurs pour les simulations classiques et à plus de 500 000 cœurs pour les simulations les plus étendues.
+NAMD (programme Nanoscale Molecular Dynamics) est un package de dynamique moléculaire parallèle, conçu pour la simulation hautes performances des systèmes biomoléculaires étendus contenant jusqu’à plusieurs millions d’atomes, comme les virus, les structures de cellules et les protéines volumineuses. NAMD s’adapte à des centaines de cœurs pour les simulations classiques et à plus de 500 000 cœurs pour les simulations les plus étendues.
 
-Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. Développée à l’origine comme solution pour les charges de travail Windows HPC, HPC Pack prend désormais en charge l’exécution d’applications HPC Linux sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Consultez la présentation [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. Développée à l’origine comme solution pour les charges de travail Windows HPC, HPC Pack prend désormais en charge l’exécution d’applications HPC Linux sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Consultez la présentation [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 
 ## Composants requis
 
-* **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 et de 4 nœuds de calcul CentOS 6.6 de grande taille (A3). Adaptez ces éléments à votre environnement si nécessaire.
+* **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 et de 4 nœuds de calcul CentOS 6.6 de grande taille (A3). Adaptez ces éléments à votre environnement si nécessaire.
 
 
-* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ayant pour extension .tar, vous devrez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour ce faire, suivez les instructions données plus loin dans cet article.
+* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ayant pour extension .tar, vous devrez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour ce faire, suivez les instructions données plus loin dans cet article.
 
-* **VMD** (facultatif) : pour afficher les résultats de votre tâche NAMD, téléchargez et installez le programme de visualisation moléculaire [VMD](http://www.ks.uiuc.edu/Research/vmd/) sur un ordinateur de votre choix. La version actuelle est 1.9.2. Consultez le site de téléchargement de VMD pour commencer.
+* **VMD** (facultatif) : pour afficher les résultats de votre tâche NAMD, téléchargez et installez le programme de visualisation moléculaire [VMD](http://www.ks.uiuc.edu/Research/vmd/) sur un ordinateur de votre choix. La version actuelle est 1.9.2. Consultez le site de téléchargement de VMD pour commencer.
 
 
 ## Configuration de l’approbation mutuelle entre les nœuds de calcul
 L'exécution d'une tâche de nœuds croisés sur plusieurs nœuds Linux requiert une approbation mutuelle entre les nœuds (par **rsh** ou **ssh**). Lorsque vous créez le cluster HPC Pack avec le script de déploiement IaaS Microsoft HPC Pack, le script définit automatiquement l’approbation mutuelle permanente pour le compte administrateur que vous spécifiez. Pour les utilisateurs non administrateurs que vous créez dans le domaine du cluster, vous devez configurer l’approbation mutuelle temporaire entre les nœuds lorsqu’une tâche leur est allouée, puis détruire la relation une fois la tâche terminée. Pour ce faire, pour chaque utilisateur, fournissez une paire de clés RSA au cluster que HPC Pack utilise pour établir la relation d’approbation.
 
 ### Génération d’une paire de clés RSA
-Générer une paire de clés RSA, contenant une clé publique et une clé privée, est facile : il vous suffit d'exécuter la commande Linux **ssh-keygen**.
+Générer une paire de clés RSA, contenant une clé publique et une clé privée, est facile : il vous suffit d'exécuter la commande Linux **ssh-keygen**.
 
 1.	Ouvrez une session sur un ordinateur Linux.
 
@@ -103,9 +103,9 @@ Générer une paire de clés RSA, contenant une clé publique et une clé privé
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-La première commande crée un dossier nommé /namd2 sur tous les nœuds dans le groupe LinuxNodes. La deuxième commande monte le dossier partagé //CentOS66HN/Namd/namd2 sur le dossier avec les bits dir\_mode et file\_mode définis sur 777. Les valeurs *username* et *password* dans la commande doivent être les informations d’identification d’un utilisateur du nœud principal.
+La première commande crée un dossier nommé /namd2 sur tous les nœuds dans le groupe LinuxNodes. La deuxième commande monte le dossier partagé //CentOS66HN/Namd/namd2 sur le dossier avec les bits dir\_mode et file\_mode définis sur 777. Les valeurs *username* et *password* dans la commande doivent être les informations d’identification d’un utilisateur du nœud principal.
 
->[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
+>[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
 
 
 ## Créer un script Bash pour exécuter une tâche NAMD
@@ -140,13 +140,13 @@ Voici les détails des actions du script Bash. Si vous effectuez une preuve de c
     COUNT=${#NODESCORES[@]}
     ```    
     
-    Le format de la variable $CCP\_NODES\_CORES est le suivant :
+    Le format de la variable $CCP\_NODES\_CORES est le suivant :
 
     ```
     <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
-    Ceci répertorie le nombre total de nœuds, les noms des nœuds et le nombre de cœurs sur chaque nœud qui sont alloués à la tâche. Par exemple, si la tâche requiert 10 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit ressembler à ceci :
+    Ceci répertorie le nombre total de nœuds, les noms des nœuds et le nombre de cœurs sur chaque nœud qui sont alloués à la tâche. Par exemple, si la tâche requiert 10 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit ressembler à ceci :
 
     ```
     3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
@@ -202,7 +202,7 @@ Voici les détails des actions du script Bash. Si vous effectuez une preuve de c
 
 
 
-Voici les informations contenues dans le fichier de liste de nœuds qui sera généré par le script :
+Voici les informations contenues dans le fichier de liste de nœuds qui sera généré par le script :
 
 ```
 group main
@@ -211,7 +211,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-Par exemple :
+Par exemple :
 
 ```
 group main
@@ -234,7 +234,7 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 
     ![Nouvelle tâche HPC][namd_job]
 
-4.	Sur la page **Détails de la tâche**, sous **Ressources de la tâche**, sélectionnez le type de ressource **Nœud** et définissez la valeur **Minimum** sur 3. Dans cet exemple, nous allons exécuter la tâche sur 3 nœuds Linux ; chaque nœud comporte 4 cœurs.
+4.	Sur la page **Détails de la tâche**, sous **Ressources de la tâche**, sélectionnez le type de ressource **Nœud** et définissez la valeur **Minimum** sur 3. Dans cet exemple, nous allons exécuter la tâche sur 3 nœuds Linux ; chaque nœud comporte 4 cœurs.
 
     ![Ressources de la tâche][job_resources]
 
@@ -253,7 +253,7 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 
     ![Détails de la tâche][task_details]
 
-    >[AZURE.NOTE] Vous définissez le répertoire de travail ici car **charmrun** essaie de naviguer dans le même répertoire de travail sur chaque nœud. Si le répertoire de travail n’est pas défini, HPC Pack démarre la commande dans un dossier nommé de façon aléatoire créé sur l’un des nœuds Linux. Cela provoque l’erreur suivante sur les autres nœuds : `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` Pour éviter ce problème, spécifiez un chemin d’accès du dossier accessible par tous les nœuds en tant que répertoire de travail.
+    >[AZURE.NOTE] Vous définissez le répertoire de travail ici car **charmrun** essaie de naviguer dans le même répertoire de travail sur chaque nœud. Si le répertoire de travail n’est pas défini, HPC Pack démarre la commande dans un dossier nommé de façon aléatoire créé sur l’un des nœuds Linux. Cela provoque l’erreur suivante sur les autres nœuds : `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` Pour éviter ce problème, spécifiez un chemin d’accès du dossier accessible par tous les nœuds en tant que répertoire de travail.
 
 5.	Cliquez sur **Envoyer** pour exécuter cette tâche.
 
@@ -415,4 +415,4 @@ exit ${RTNSTS}
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

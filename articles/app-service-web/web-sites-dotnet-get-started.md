@@ -241,4 +241,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Utilisation du portail Azure pour déployer et gérer vos ressources Azure](../resource-group-portal.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->

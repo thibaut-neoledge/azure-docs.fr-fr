@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 # Gestion d'Azure Service Bus à l'aide d'Azure Automation
@@ -30,14 +30,13 @@ Réduisez les coûts opérationnels et libérez du temps pour que votre équipe 
 
 ## Comment Azure Automation peut-il vous aider à gérer Azure Service Bus ?
 
-Vous pouvez gérer Service Bus avec Azure Automation à l'aide de l'[API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx). Azure Automation vous permet d'exécuter des scripts PowerShell pour effectuer la plupart de vos tâches Service Bus à l'aide des API REST. Vous pouvez également associer ces appels de l’API REST dans Azure Automation avec les applets de commande PowerShell d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+Vous pouvez gérer Service Bus avec Azure Automation à l'aide de l'[API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx). Azure Automation vous permet d’exécuter des scripts PowerShell pour effectuer la plupart de vos tâches Service Bus à l’aide de l’API REST. Vous pouvez également associer ces appels de l’API REST dans Azure Automation avec les applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Voici quelques exemples d'utilisation de PowerShell pour gérer Azure Service Bus :
-
-- [Applets de commande PowerShell personnalisées pour gérer des files d'attente Azure Service Bus](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
-- [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Créer des espaces de noms Azure Service Bus à l'aide de PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
-- [Module avec DSCResource pour ajouter des nœuds de configuration et créer Azure Service Bus](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
+* [Applets de commande PowerShell personnalisées pour gérer des files d'attente Azure Service Bus](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
+* [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Créer des espaces de noms Azure Service Bus à l'aide de PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Module avec DSCResource pour ajouter des nœuds de configuration et créer Azure Service Bus](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
 
 ## Étapes suivantes
 
@@ -46,4 +45,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 * Consultez le [Didacticiel de prise en main](https://azure.microsoft.com/documentation/learning-paths/automation/) d'Azure Automation
 * Découvrez comment [manage Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

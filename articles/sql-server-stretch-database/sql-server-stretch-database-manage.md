@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Gestion et dépannage de Stretch Database
@@ -46,7 +46,7 @@ Pour obtenir des suggestions de dépannage, consultez [Surveillance et dépannag
 ## Dépannage de la performance des requêtes
 **Les requêtes qui incluent ma table compatible Stretch sont lentes.** Les requêtes qui incluent des tables compatibles Stretch ont des performances plus lentes qu’avant leur mise en compatibilité pour Stretch. Si les performances des requêtes se dégradent considérablement, passez en revue les problèmes suivants.
 
--   Votre serveur Azure se trouve-t-il dans une autre région géographique que votre serveur SQL ? Configurez votre serveur Azure de manière à ce qu’il se trouve dans la même région géographique que votre serveur SQL Server afin de réduire la latence du réseau.
+-   Votre serveur Azure se trouve-t-il dans une autre région géographique que votre serveur SQL ? Configurez votre serveur Azure de manière à ce qu’il se trouve dans la même région géographique que votre serveur SQL Server afin de réduire la latence du réseau.
 
 -   Les conditions de votre réseau peuvent s’être dégradées. Pour plus d’informations sur les problèmes ou les défaillances récents, contactez votre administrateur réseau.
 
@@ -56,4 +56,4 @@ Pour obtenir des suggestions de dépannage, consultez [Surveillance et dépannag
 
 [Sauvegarder et restaurer des bases de données Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

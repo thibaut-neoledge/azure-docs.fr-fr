@@ -82,7 +82,7 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 	  }
 	}
 
-Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+ Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### Problème : échec de l’opération de copie hybride
 Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour savoir comment résoudre les problèmes de copie à partir de/vers un magasin de données local avec la passerelle de gestion des données.
@@ -114,7 +114,6 @@ Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure Power
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -145,4 +144,4 @@ Consultez la page [Surveiller les pipelines Data Factory à l'aide d'Azure Power
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

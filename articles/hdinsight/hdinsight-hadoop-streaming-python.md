@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/13/2016"
    ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
@@ -32,6 +32,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 * Un cluster Hadoop Linux sur HDInsight
 
 * Un éditeur de texte
+
+    > [AZURE.IMPORTANT] L’éditeur de texte doit utiliser LF comme caractère de fin de ligne. S’il utilise CRLF, des erreurs se produisent pendant l’exécution du travail MapReduce sur des clusters HDInsight basés sur Linux. En cas de doute, utilisez l’étape facultative dans la section [Exécuter MapReduce](#run-mapreduce) pour convertir tout caractère CRLF en caractère LF.
 
 * Pour les clients Windows, PuTTY et PSCP. Ces utilitaires sont disponibles à partir de la <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Page de téléchargement de PuTTY</a>.
 
@@ -53,11 +55,11 @@ Python est installé sur tous les clusters HDInsight.
 
 Hadoop vous permet de spécifier un fichier qui dispose de la logique de mappage et de réduction utilisée par un travail. Parmi les exigences spécifiques de mappage et de réduction, on retrouve les éléments suivants :
 
-* **Entrée** : les composants de mappage et de réduction doivent lire les données d’entrée depuis STDIN.
+* **Entrée** : les composants de mappage et de réduction doivent lire les données d’entrée depuis STDIN.
 
-* **Sortie** : les composants de mappage et de réduction doivent écrire les données de sortie vers STDOUT.
+* **Sortie** : les composants de mappage et de réduction doivent écrire les données de sortie vers STDOUT.
 
-* **Format de données** : les données consommées et produites doivent représenter une paire clé/valeur, séparée par un caractère de tabulation.
+* **Format de données** : les données consommées et produites doivent représenter une paire clé/valeur, séparée par un caractère de tabulation.
 
 Python peut facilement gérer ces exigences en utilisant le module **sys** pour lire depuis STDIN, et **print** pour imprimer vers STDOUT. Le travail restant consiste à disposer un caractère de tabulation (`\t`) entre la clé et la valeur pour vous permettre d’effectuer, si vous le souhaitez, le formatage de ces données.
 
@@ -154,23 +156,28 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 	> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d’accès à la clé privée, par exemple, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
+2. (Facultatif) Si vous avez employé un éditeur de texte qui utilise CRLF comme caractère de fin de ligne pendant la création des fichiers mapper.py et reducer.py, ou que vous ignorez le caractère de fin de ligne utilisé par votre éditeur, recourez aux commandes suivantes pour convertir en LF les occurrences de CRLF dans les fichiers mapper.py et reducer.py.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. Exécutez la commande suivante pour démarrer la tâche MapReduce :
 
 		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	Cette commande dispose des éléments suivants :
 
-	* **hadoop-streaming.jar** : utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
+	* **hadoop-streaming.jar** : utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
 
-	* **-files** : indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
+	* **-files** : indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
 
-	* **-mapper** : indique à Hadoop quel fichier doit être utilisé comme mappeur.
+	* **-mapper** : indique à Hadoop quel fichier doit être utilisé comme mappeur.
 
-	* **-reducer** : indique à Hadoop quel fichier doit être utilisé comme raccord de réduction.
+	* **-reducer** : indique à Hadoop quel fichier doit être utilisé comme raccord de réduction.
 
-	* **-input** : le fichier d’entrée à partir duquel nous devrions compter les mots.
+	* **-input** : le fichier d’entrée à partir duquel nous devrions compter les mots.
 
-	* **-output** : le répertoire sur lequel la sortie sera écrite
+	* **-output** : le répertoire sur lequel la sortie sera écrite
 
 		> [AZURE.NOTE] Ce répertoire sera créé par la tâche.
 
@@ -205,4 +212,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

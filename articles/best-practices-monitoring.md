@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Guide de surveillance et de diagnostic
 
-![Logo des modèles et pratiques](media/best-practices-monitoring/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 Les applications et services distribués, exécutés dans le cloud sont, par leur nature, les parties complexes des logiciels comprenant de nombreux éléments mobiles. Dans un environnement de production, il est important de pouvoir contrôler la méthode avec laquelle les utilisateurs utilisent votre système, de suivre l’utilisation des ressources et généralement de surveiller l’intégrité et les performances de votre système. Vous pouvez utiliser ces informations comme aide au diagnostic pour détecter et corriger les problèmes, et également aider à identifier des problèmes potentiels et les empêcher de se produire.
 
 ## Scénarios de surveillance et de diagnostic
@@ -664,4 +664,4 @@ Dans de nombreux cas, les traitements par lots peuvent générer des rapports en
 - [Réception de notifications d’alerte](./azure-portal/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

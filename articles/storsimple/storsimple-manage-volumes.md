@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les volumes
@@ -51,11 +51,11 @@ Un volume est constitué d’une série d’attributs :
 
 Les tâches les plus courantes associées à un volume sont les suivantes :
 
-- Ajout d’un volume 
-- Modification d’un volume 
-- Suppression d’un volume 
-- Mise hors connexion d’un volume 
-- Analyse d’un volume 
+- Ajout d’un volume
+- Modification d’un volume
+- Suppression d’un volume
+- Mise hors connexion d’un volume
+- Analyse d’un volume
 
 ## Ajout d’un volume
 
@@ -79,9 +79,9 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u1.md#step-6-crea
   5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
-   
+
 5. Sous **Paramètres supplémentaires**, ajoutez un enregistrement de contrôle d’accès (ACR) :
-  
+
   1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès (ACR). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement.
   2. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume**.
    3. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
@@ -92,10 +92,10 @@ Le nouveau volume est maintenant prêt à l’emploi.
 
 Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de modifier les hôtes qui peuvent y accéder.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 >
-> - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
-> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
+> - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également.
+> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation.
 
 ### Pour modifier un volume
 
@@ -116,7 +116,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
   - Modifier les enregistrements de contrôle d’accès, à condition que le volume soit hors connexion. Si le volume est en ligne, vous devez d’abord le mettre hors connexion. Reportez-vous à la procédure [Mise hors connexion d’un volume](#take-a-volume-offline) avant de modifier l’enregistrement de contrôle d’accès.
   - Modifiez la liste des enregistrements de contrôle d’accès une fois que le volume est hors connexion.
- 
+
     > [AZURE.NOTE] Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut pour ce volume** pour le volume en question.
 
 6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
@@ -198,6 +198,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
- 
-
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

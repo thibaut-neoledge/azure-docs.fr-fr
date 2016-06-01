@@ -20,7 +20,7 @@
 
 Cette rubrique explique comment créer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn SQL Server dans des machines virtuelles Azure en cours d’exécution dans le modèle Resource Manager. Un groupe de disponibilité AlwaysOn requiert un équilibrage de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chacune d’elles a besoin d’un équilibrage de charge.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle classique.
 
 Pour effectuer cette tâche, vous devez disposer d’un groupe de disponibilité AlwaysOn SQL Server déployé sur des machines virtuelles Azure dans le modèle Resource Manager. Les deux machines virtuelles SQL Server doivent appartenir au même groupe à haute disponibilité. Vous pouvez utiliser le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pour créer automatiquement le groupe de disponibilité AlwaysOn dans Azure Resource Manager. Ce modèle crée automatiquement l’équilibrage de charge interne.
 
@@ -267,4 +267,4 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 - Avec un équilibrage de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

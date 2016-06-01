@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="05/13/2016"
     ms.author="elizapo" />
 
 # Utilisation de la redirection dans Azure RemoteApp
@@ -104,4 +104,4 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@ Le référencement de classes issues du [Kit de développement logiciel (SDK) Az
 
 > [AZURE.NOTE] L’[extension OpenSSL](http://php.net/openssl) doit également être installée et activée dans votre installation PHP.
 
-Cet article décrit comment utiliser des fonctionnalités de service qui peuvent être appelées dans une application PHP localement ou dans le code d'un rôle web, d'un rôle de travail ou d'un site web Azure.
+Cet article décrit comment utiliser des fonctionnalités de service qui peuvent être appelées dans une application PHP localement ou dans le code d’un rôle web, d’un rôle de travail ou d’un site web Azure.
 
 ## Obtention des bibliothèques clientes Azure
 
@@ -234,7 +234,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la file d'attente est de 5 Go. Pour plus d'informations sur les quotas, consultez [Files d'attente Azure et files d'attente Service Bus][].
+Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la file d'attente est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][].
 
 ## Réception des messages d'un abonnement
 
@@ -336,6 +336,6 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
-[Files d'attente Azure et files d'attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+[Quotas Service Bus]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

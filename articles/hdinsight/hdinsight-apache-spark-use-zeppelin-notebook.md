@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -26,7 +26,7 @@ Découvrez comment installer des blocs-notes Zeppelin sur des clusters Spark et 
 **Configuration requise :**
 
 * Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+* Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Un client SSH. Pour les distributions Linux et Unix ou pour Macintosh OS X, la commande `ssh` est fournie avec le système d'exploitation. Pour Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 	> [AZURE.NOTE] Si vous souhaitez utiliser un client SSH autre que `ssh` ou PuTTY, veuillez consulter la documentation de votre client qui explique comment établir un tunnel SSH.
@@ -39,13 +39,15 @@ Découvrez comment installer des blocs-notes Zeppelin sur des clusters Spark et 
 
 ## Installez Zeppelin dans le cadre de la création de clusters
 
-Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark est disponible à l’adresse **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Vous pouvez utiliser le script personnalisé pour installer Zeppelin à partir du portail Azure, à l’aide du Kit de développement logiciel (SDK) .NET HDInsight ou à l’aide d’Azure PowerShell.
 
 ### Utilisation du portail Azure
 
 Pour connaître les instructions liées à l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET pour exécuter une action de script afin d’installer Zeppelin, consultez [Personnalisation des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Vous devez apporter quelques modifications aux instructions de cet article.
 
-* Vous devez utiliser le script pour installer Zeppelin. Le script à utiliser est **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Vous devez utiliser le script pour installer Zeppelin. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark sur HDInsight est disponible aux liens suivants :
+	* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
 * Vous devez exécuter l'action de script uniquement sur le nœud principal.
 
@@ -55,7 +57,9 @@ Pour connaître les instructions liées à l’utilisation du Kit de développem
 
 Pour connaître les instructions liées à l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET pour exécuter une action de script afin d’installer Zeppelin, consultez [Personnalisation des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). Vous devez apporter quelques modifications aux instructions de cet article.
 
-* Vous devez utiliser le script pour installer Zeppelin. Le script à utiliser est **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Vous devez utiliser le script pour installer Zeppelin. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark sur HDInsight est disponible aux liens suivants :
+	* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
 * Le script n'a pas besoin de paramètres.
 
@@ -63,7 +67,13 @@ Pour connaître les instructions liées à l’utilisation du Kit de développem
 
 ### Utilisation de Microsoft Azure PowerShell
 
-Utilisez l'extrait de code PowerShell suivant pour créer un cluster Spark sur HDInsight Linux sur lequel Zeppelin est installé. Assurez-vous que PowerShell est installé avant de continuer. Pour obtenir des instructions, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Utilisez l'extrait de code PowerShell suivant pour créer un cluster Spark sur HDInsight Linux sur lequel Zeppelin est installé. Selon la version de cluster Spark dont vous disposez, vous devez mettre à jour l’extrait de code PowerShell ci-dessous pour inclure le lien vers le script personnalisé correspondant.
+
+* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 	Login-AzureRMAccount
 	
@@ -107,21 +117,21 @@ Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-* **D 9876** : port local qui acheminera le trafic via le tunnel.
+* **D 9876** : port local qui acheminera le trafic via le tunnel.
 
-* **C** : compresse toutes les données car le trafic web est principalement du texte
+* **C** : compresse toutes les données car le trafic web est principalement du texte
 
-* **2** : force le SSH à essayer le protocole version 2 uniquement
+* **2** : force le SSH à essayer le protocole version 2 uniquement
 
-* **q** : mode silencieux
+* **q** : mode silencieux
 
-* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
+* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
 
-* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
+* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
 
-* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
+* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
 
-* **f** : s’exécute à l’arrière-plan
+* **f** : s’exécute à l’arrière-plan
 
 Si vous avez configuré le cluster avec une clé SSH, il vous faudra peut-être utiliser le paramètre `-i` et indiquer le chemin d’accès vers la clé SSH privée.
 
@@ -137,11 +147,11 @@ Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
 3. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH**.
 
-	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
+	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
 
-	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
+	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
 
-	* **Dynamique** : active le routage dynamique du proxy SOCKS.
+	* **Dynamique** : active le routage dynamique du proxy SOCKS.
 
 	![image des options de tunneling](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
 
@@ -177,21 +187,21 @@ Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour con
 
 3. Sélectionnez l’onglet **Informations du proxy** et remplissez les champs suivants :
 
-	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
+	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
 
-	* **Port** : port que vous avez utilisé pour le tunnel SSH
+	* **Port** : port que vous avez utilisé pour le tunnel SSH
 
-	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
+	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
 
-	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
+	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
 
 	![proxy foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
 
-4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
+4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
 
-	* **Nom de type** – **zeppelinnotebook** : il s’agit simplement d’un nom de type convivial.
+	* **Nom de type** – **zeppelinnotebook** : il s’agit simplement d’un nom de type convivial.
 
-	* **Modèle d’URL** – **\*hn0\*** : définit un modèle qui correspond au nom de domaine complet interne du système d’extrémité où sont hébergés les blocs-notes Zeppelin. Étant donné que les blocs-notes Zeppelin sont uniquement disponibles sur headnode0 du cluster et que le système d’extrémité est généralement `http://hn0-<string>.internal.cloudapp.net`, l'utilisation du modèle **hn0** garantit que la requête est redirigée vers le point de terminaison Zeppelin.
+	* **Modèle d’URL** – **\*hn0\*** : définit un modèle qui correspond au nom de domaine complet interne du système d’extrémité où sont hébergés les blocs-notes Zeppelin. Étant donné que les blocs-notes Zeppelin sont uniquement disponibles sur headnode0 du cluster et que le système d’extrémité est généralement `http://hn0-<string>.internal.cloudapp.net`, l'utilisation du modèle **hn0** garantit que la requête est redirigée vers le point de terminaison Zeppelin.
 
 		![type foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -212,18 +222,18 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 		http://hn0-myspar:9995
 
 	* **hn0** correspond à headnode0
-	* **myspar** correspond aux six premières lettres du nom du cluster Spark.
+	* **myspar** correspond aux six premières lettres du nom du cluster Spark.
 	* **9995** est le port sur lequel le bloc-notes Zeppelin est accessible.
 
 2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
 
-	![Créer un bloc-notes Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
+	![Créer un bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
 
 	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
 
 3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l’en-tête du bloc-notes indique l’état **Connected** dans le coin supérieur droit.
 
-	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.newnote.connected.png "État du bloc-notes Zeppelin")
+	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "État du bloc-notes Zeppelin")
 
 4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
@@ -250,7 +260,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 		
 	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Lire** pour que le paragraphe exécute l'extrait de code. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
 
-	![Créer une table temporaire à partir de données brutes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.loaddataintotable.png "Créer une table temporaire à partir de données brutes")
+	![Créer une table temporaire à partir de données brutes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Créer une table temporaire à partir de données brutes")
 
 	Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
 
@@ -265,7 +275,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 
 	La capture d’écran qui suit présente le résultat.
 
-	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
+	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
 	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Paramètres** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID** et la moyenne **temp\_diff** comme valeur.
 
@@ -279,13 +289,13 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 
 	Collez cet extrait dans un nouveau paragraphe, puis appuyez sur **MAJ + ENTRÉE**. La capture d’écran qui suit présente le résultat.
 
-	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
+	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
 	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID**, la moyenne **temp\_diff** comme valeur, et le groupe **targettemp**.
 
 7. Redémarrez l’interpréteur Spark SQL pour quitter l’application. Cliquez sur l’onglet **Interpreter** en haut de l’écran et, pour l’interpréteur Spark, cliquez sur **Restart**.
 
-	![Redémarrer l’interpréteur Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.zeppelin.restart.interpreter.png "Redémarrez l'interpréteur Zeppelin")
+	![Redémarrer l’interpréteur Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Redémarrez l'interpréteur Zeppelin")
 
 
 ## <a name="seealso"></a>Voir aussi
@@ -332,4 +342,4 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

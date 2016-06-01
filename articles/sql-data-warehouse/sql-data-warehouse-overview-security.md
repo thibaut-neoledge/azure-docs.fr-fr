@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [portail Azure Classic][]. Pour plus d’informations, consultez [Prise en main du chiffrement transparent des données (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [portail Azure][]. Pour plus d’informations, consultez [Prise en main du chiffrement transparent des données (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Audit
 
@@ -108,9 +108,9 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
 [chiffrement transparent des données]: http://go.microsoft.com/fwlink/?LinkId=526242
-[portail Azure Classic]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 # Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 
-Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server.
-
-Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les _vues et tables partitionnées_ permettent d’améliorer l’importation des données et le traitement des requêtes.
+Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les _vues et tables partitionnées_ permettent d’améliorer l’importation des données et le traitement des requêtes.
 
 
 ## Créer une base de données et un ensemble de groupes de fichiers
@@ -31,7 +29,7 @@ Dans le cas d’un chargement ou d’un transfert volumineux dans une base de do
 
 - Ajoutez un ou plusieurs fichiers (selon le cas) dans chaque groupe de fichiers de base de données.
 
- > [AZURE.NOTE] Spécifiez le groupe de fichiers cible qui contiendra les données de cette partition, ainsi que le nom du ou des fichiers physiques de la base de données qui stockeront les données du groupe de fichiers.
+ > [AZURE.NOTE] Spécifiez le groupe de fichiers cible qui contiennent les données de cette partition, ainsi que le nom du ou des fichiers physiques de base de données qui stockeront les données du groupe de fichiers.
  
 L’exemple suivant crée une base de données avec trois groupes de fichiers autres que le groupe principal et le groupe de journalisation, chacun contenant un fichier physique Les fichiers de la base de données sont créés dans le dossier de données SQL Server par défaut configuré dans l’instance SQL Server. Pour plus d’informations sur les emplacements par défaut des fichiers, consultez l’article [Emplacement des fichiers pour les instances par défaut et nommées de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -92,6 +90,7 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
 	    ON <TablePScheme>(<partition_field>)
 
 - Pour plus d’informations, consultez l’article [Créer des tables partitionnées et des index](https://msdn.microsoft.com/library/ms188730.aspx).
+
 
 ## Importer les données en bloc dans chaque table de partition
 
@@ -166,6 +165,7 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
     While (Get-Job -State "Running") { Start-Sleep 10 }
     date
 
+
 ## Créer des index pour optimiser les jointures et le traitement des requêtes
 
 - Si vous extrayez des données de plusieurs tables à des fins de modélisation, créez des index sur les clés de jointure pour améliorer les performances des jointures.
@@ -181,9 +181,10 @@ ou
 
  > [AZURE.NOTE] Vous pouvez créer les index avant d’importer les données en bloc. Mais la création des index avant l’opération d’importation ralentira le chargement des données.
 
+
 ## Exemple de processus d’analyse avancé et technologie en action
 
-Pour obtenir un exemple de procédure pas à pas complet utilisant le processus d’analyse Cortana avec un jeu de données public, consultez [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas complet utilisant le processus Cortana Analytics avec un jeu de données public, consultez [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

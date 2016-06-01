@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modèle de données Application Insights" 
+	pageTitle="Modèle de données Application Insights" 
 	description="Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,11 +15,11 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Modèle d’exportation de données Application Insights
+# Modèle d’exportation de données Application Insights
 
-Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits de développement logiciel (SDK) [Application Insights](app-insights-overview.md) au portail. Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md). Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
+Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits de développement logiciel (SDK) [Application Insights](app-insights-overview.md) au portail. Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md). Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
-Points à noter :
+Points à noter :
 
 * `[0]` dans ces tables désigne un point dans le chemin d’accès au niveau duquel vous devez insérer un index ; il ne s’agit pas toujours de 0.
 * Les durées sont énoncées en dixièmes de microsecondes, donc 10000000 = 1 seconde.
@@ -45,7 +45,7 @@ Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent c
         // Request id becomes the operation id of child events 
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
-        "count": 1, // Always 1
+        "count": 1, // 100% / sampling rate
         "durationMetric": {
           "value": 1046804.0, // 10000000 == 1 second
           // Currently the following fields are redundant:
@@ -127,23 +127,26 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.data.isSynthetic | booléenne | Requête transmise par un robot ou un test web. |
 | context.data.samplingRate | number | Pourcentage de télémétrie générée par le Kit de développement logiciel qui est envoyé vers le portail. Plage 0.0-100.0.|
 | context.device | objet | Appareil client |
+| context.device.browser | string | IE, Chrome, ... |
+| context.device.browserVersion | string | Chrome 48.0, ... |
 | context.device.deviceModel | string | |
 | context.device.deviceName | string | |
 | context.device.id | string | |
-| context.device.locale | string | par exemple, en-GB, de-DE |
+| context.device.locale | string | en-GB, de-DE, ... |
 | context.device.network | string | |
 | context.device.oemName | string | |
-| context.device.osVersion | string | |
-| context.device.roleInstance | string | |
+| context.device.osVersion | string | Système d’exploitation hôte |
+| context.device.roleInstance | string | ID de l’hôte du serveur |
 | context.device.roleName | string | |
-| context.device.type | string | |
+| context.device.type | string | PC, navigateur... |
 | context.location | objet | Dérivé de clientip. |
-| context.location.city | string | |
+| context.location.city | string | Dérivé de clientip, si connu |
 | context.location.clientip | string | Dernier octogone anonyme (0). |
 | context.location.continent | string | |
 | context.location.country | string | |
-| context.location.province | string | |
+| context.location.province | string | État ou province |
 | context.operation.id | string | Les éléments qui affichent le même ID d’opération sont représentés en tant qu’éléments associés dans le portail. Généralement l’ID de requête. |
+| context.operation.name | string | nom d’URL ou de requête |
 | context.operation.parentId | string | Autorise les éléments liés imbriqués. |
 | context.session.id | string | ID d’un groupe d’opérations de la même source. Une période de 30 minutes sans opération signale la fin d’une session. |
 | context.session.isFirst | booléenne | |
@@ -164,8 +167,8 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 
 |Chemin|Type|Remarques|
 |---|---|---|
-| event [0] count | integer | |
-| event [0] name | string | Nom de l’événement. 250ch max. |
+| event [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| event [0] name | string | Nom de l’événement. Longueur maximale 250. |
 | event [0] url | string | |
 | event [0] urlData.base | string | |
 | event [0] urlData.host | string | |
@@ -178,7 +181,7 @@ Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et d
 |Chemin|Type|Remarques|
 |---|---|---|
 | basicException [0] assembly | string | |
-| basicException [0] count | integer | |
+| basicException [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
 | basicException [0] exceptionGroup | string | |
 | basicException [0] exceptionType | string | |string | |
 | basicException [0] failedUserCodeMethod | string | |
@@ -187,7 +190,7 @@ Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et d
 | basicException [0] hasFullStack | booléenne | |
 | basicException [0] id | string | |
 | basicException [0] method | string | |
-| basicException [0] message | string | Message d’exception. 10k ch maximum.|
+| basicException [0] message | string | Message d’exception. Longueur maximale 10 000.|
 | basicException [0] outerExceptionMessage | string | |
 | basicException [0] outerExceptionThrownAtAssembly | string | |
 | basicException [0] outerExceptionThrownAtMethod | string | |
@@ -198,21 +201,21 @@ Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et d
 | basicException [0] parsedStack [0] level | integer | |
 | basicException [0] parsedStack [0] line | integer | |
 | basicException [0] parsedStack [0] method | string | |
-| basicException [0] stack | string | 10k maximum|
+| basicException [0] stack | string | Longueur maximale 10 000|
 | basicException [0] typeName | string | |
 
 
 
 ## Messages de suivi
 
-Envoyé [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et par les [adaptateurs de journalisation](app-insights-asp-net-trace-logs.md).
+Envoyé par [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et par les [adaptateurs de journalisation](app-insights-asp-net-trace-logs.md).
 
 
 |Chemin|Type|Remarques|
 |---|---|---|
 | message [0] loggerName | string ||
 | message [0] parameters | string ||
-| message [0] raw | string | Le message du fichier journal, longueur maximale 10k. Vous pouvez rechercher ces chaînes dans le portail. |
+| message [0] raw | string | Le message du fichier journal, longueur maximale 10k. |
 | message [0] severityLevel | string | |
 
 
@@ -225,19 +228,19 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 |---|---|---|
 | remoteDependency [0] async | booléenne | |
 | remoteDependency [0] baseName | string | |
-| remoteDependency [0] commandName | string | par exemple, asp home/index |
-| remoteDependency [0] count | integer | |
+| remoteDependency [0] commandName | string | Par exemple, « home/index » |
+| remoteDependency [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName | string | HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value | number | Délai de l’appel à la fin de la réponse par la dépendance |
 | remoteDependency [0] id | string | |
-| remoteDependency [0] name | string | Url. 250ch max.|
+| remoteDependency [0] name | string | Url. Longueur maximale 250.|
 | remoteDependency [0] resultCode | string | à partir de la dépendance HTTP |
 | remoteDependency [0] success | booléenne | |
 | remoteDependency [0] type | string | HTTP, SQL, ... |
-| remoteDependency [0] url | string | 2k Max |
-| remoteDependency [0] urlData.base | string | 2k Max |
+| remoteDependency [0] url | string | Longueur maximale 2 000 |
+| remoteDependency [0] urlData.base | string | Longueur maximale 2 000 |
 | remoteDependency [0] urlData.hashTag | string | |
-| remoteDependency [0] urlData.host | string | 200 max|
+| remoteDependency [0] urlData.host | string | Longueur maximale 200 |
 
 
 ## Demandes
@@ -247,12 +250,12 @@ Envoyées par [TrackRequest](app-insights-api-custom-events-metrics.md#track-req
 
 |Chemin|Type|Remarques|
 |---|---|---|
-| request [0] count | integer | |
+| request [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple : 4 =&gt; 25%. |
 | request [0] durationMetric.value | number | Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] id | string | ID d’opération |
-| request [0] name | string | GET/POST + base d’URL 250ch max. |
+| request [0] name | string | GET/POST + base d’URL Longueur maximale 250 |
 | request [0] responseCode | integer | Réponse HTTP envoyée au client |
-| request [0] success | booléenne | Par défaut = responseCode<400 |
+| request [0] success | booléenne | Par défaut == (responseCode &lt; 400) |
 | request [0] url | string | Sans hôte |
 | request [0] urlData.base | string | |
 | request [0] urlData.hashTag | string | |
@@ -282,13 +285,13 @@ Les valeurs de contexte représentent la version de système d’exploitation et
 
 ## Affichages de pages
 
-Envoyé par rackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+Envoyé par trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
 
 |Chemin|Type|Remarques|
 |---|---|---|
-| view [0] count | integer | |
-| view [0] durationMetric.value | integer | Valeur éventuellement définie dans trackPageView() ou par start/stopTrackPage. Pas identique aux valeurs clientPerformance. |
-| view [0] name | string | Titre de la page. 250ch max. |
+| view [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| view [0] durationMetric.value | integer | Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
+| view [0] name | string | Titre de la page. Longueur maximale 250 |
 | view [0] url | string | |
 | view [0] urlData.base | string | |
 | view [0] urlData.hashTag | string | |
@@ -304,11 +307,11 @@ Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availabi
 |---|---|---|
 | availability [0] availabilityMetric.name | string | availability |
 | availability [0] availabilityMetric.value | number |1\.0 ou 0.0 |
-| availability [0] count | integer | |
+| availability [0] count | integer | 100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name | string | |
 | availability [0] dataSizeMetric.value | integer | |
 | availability [0] durationMetric.name | string | |
-| availability [0] durationMetric.value | number | Longueur du test. 1e7 = 1s |
+| availability [0] durationMetric.value | number | Durée du test. 1e7 = 1s |
 | availability [0] message | string | Diagnostic de défaillance |
 | availability [0] result | string | Réussite/Échec |
 | availability [0] runLocation | string | Source géographique de la requête HTTP |
@@ -323,9 +326,9 @@ Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availabi
 
 Généré par TrackMetric().
 
-La mesure se trouve dans context.custom.metrics[0]
+La valeur de la métrique se trouve dans context.custom.metrics[0]
 
-Par exemple :
+Par exemple :
 
     {
      "metric": [ ],
@@ -352,7 +355,7 @@ Par exemple :
 
 ## À propos des valeurs de mesure
 
-Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple :
+Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple :
 
       "durationMetric": {
         "name": "contoso.org",
@@ -365,7 +368,7 @@ Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées
         "sampledValue": 468.71603053650279
       }
 
-Actuellement (cela peut changer à l’avenir), dans l’ensemble des valeurs consignées des modules standard du Kit de développement logiciel, `count==1` et uniquement les champs `name` et `value` sont utiles. Le seul cas où la situation serait différente serait une configuration où vous écririez vos propres appels TrackMetric, dans lesquels vous définiriez les autres paramètres.
+Actuellement (cela peut changer à l’avenir), dans l’ensemble des valeurs consignées des modules standard du Kit de développement logiciel (SDK), `count==1` et uniquement les champs `name` et `value` sont utiles. Le seul cas où la situation serait différente serait une configuration où vous écririez vos propres appels TrackMetric, dans lesquels vous définiriez les autres paramètres.
 
 Les autres champs ont vocation à autoriser l’agrégation des mesures dans le Kit de développement logiciel, afin de réduire le trafic dans le portail. Par exemple, vous pouvez décider d’accumuler un nombre défini de valeurs successives avant d’envoyer chaque rapport de mesure. Vous calculeriez ensuite la valeur minimale, la valeur maximale, l’écart standard et la valeur agrégée (somme ou moyenne) et définir le décompte sur le nombre de valeurs représentées par le rapport.
 
@@ -386,4 +389,4 @@ Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

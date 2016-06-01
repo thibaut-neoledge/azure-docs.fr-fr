@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Diagnostic des problèmes liés aux dépendances dans Application Insights
@@ -57,6 +57,16 @@ Pages web | [Moniteur JavaScript](app-insights-javascript.md) (sans configuratio
 Azure Cloud Services | [Utilisez une tâche de démarrage](app-insights-cloudservices.md#dependencies) ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 Status Monitor pour les serveurs IIS n’a pas besoin de régénérer votre projet source avec le Kit de développement logiciel (SDK) Application Insights.
+
+## Plan de l’application
+
+Le plan de l’application fonctionne comme une aide visuelle pour découvrir les dépendances entre les composants de votre application.
+
+![Cliquez sur Paramètres, Plan de l’application](./media/app-insights-dependencies/08.png)
+
+À partir des zones, vous pouvez accéder aux graphiques pertinents de dépendance et autres.
+
+Cliquez sur la petite [x] pour réduire une sous-arborescence.
 
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances sur le serveur web
 
@@ -140,4 +150,4 @@ Voir [Pages web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

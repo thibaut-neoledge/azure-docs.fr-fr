@@ -95,7 +95,7 @@ La sortie de la première commande **Get-ServiceFabricNode** (du module Service 
 
 L’exécution d’une action de testabilité (à l’aide de PowerShell) dans un cluster Azure est similaire à l’exécution de la même action dans un cluster local. Seule différence : avant d’exécuter l’action, au lieu de vous connecter au cluster local, vous devez vous connecter au cluster Azure.
 
-## Exécution d’une action de testabilité
+## Exécution d’une action de testabilité à l’aide de C&#35; 
 
 Pour exécuter une action de testabilité avec C#, vous devez vous connecter au cluster à l’aide de FabricClient. Obtenez ensuite les paramètres nécessaires à l’exécution de l’action. Différents paramètres peuvent être utilisés pour exécuter une même action. L’action RestartServiceFabricNode peut s’exécuter à l’aide des informations de nœud (nom de nœud et ID d’instance de nœud) dans le cluster.
 
@@ -106,8 +106,8 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 Explications de paramètres :
 
 - Le **mode d’achèvement** indique que l’action de redémarrage ne doit faire l’objet d’aucune vérification. La définition du mode d’achèvement sur « Verify » configure la vérification de l’action de redémarrage.  
-- **OperationTimeout** : définit le délai précédant la fin de l’opération, avant qu’une exception TimeoutException ne soit lancée.
-- **CancellationToken** : annule un appel en attente.
+- **OperationTimeout** : définit le délai précédant la fin de l’opération, avant qu’une exception TimeoutException ne soit lancée.
+- **CancellationToken** : annule un appel en attente.
 
 Au lieu de spécifier directement le nœud par son nom, vous pouvez effectuer la définition via une clé de partition et le type de réplica.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simuler des défaillances au cours des charges de travail de services](service-fabric-testability-workload-tests.md)
    - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

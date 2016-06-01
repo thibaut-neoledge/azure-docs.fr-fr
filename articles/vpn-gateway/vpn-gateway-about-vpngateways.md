@@ -27,7 +27,7 @@ Pour plus d’informations sur les modèles de déploiement, voir [Présentation
 
 ## <a name="gwsub"></a>Sous-réseau de passerelle
 
-Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle VPN. Tous les sous-réseaux de passerelle doivent être nommés GatewaySubnet afin de fonctionner correctement.
+Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle VPN. Les sous-réseaux de passerelle doivent être nommés *GatewaySubnet* afin de fonctionner correctement. Ce nom permet à Azure de savoir que ce sous-réseau doit être utilisé pour la passerelle.<BR>Si vous utilisez le portail classique, le sous-réseau de passerelle est automatiquement nommé *Passerelle* dans l’interface du portail. Cela se rapporte uniquement à l’affichage du sous-réseau de passerelle dans le portail classique. Dans ce cas, le sous-réseau est créé dans Azure sous le nom *GatewaySubnet* et peut ainsi être affiché dans le portail Azure ainsi que dans PowerShell.
 
 La taille minimale du sous-réseau de passerelle dépend entièrement de la configuration que vous souhaitez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29 pour certaines configurations, nous vous recommandons de créer un sous-réseau de passerelle de /28 ou plus (/28, /27, /26, etc.).
 
@@ -141,4 +141,4 @@ Pour plus d’informations avant de poursuivre avec la planification et la conce
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

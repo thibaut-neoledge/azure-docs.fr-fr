@@ -18,7 +18,7 @@
 
 # Présentation des Acteurs fiables Service Fabric
 
-Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](http://research.microsoft.com/fr-FR/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.
+Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.
 
 ## Qu’est-ce qu’un « acteur » ?
 Un acteur est une unité de calcul et d’état indépendante et isolée, associée à une exécution monothread. Le [modèle d’acteur](https://en.wikipedia.org/wiki/Actor_model) est un modèle de calcul utilisé pour les systèmes simultanés ou distribués dans lesquels un grand nombre de ces acteurs peut s’exécuter simultanément et indépendamment les uns des autres. Les acteurs peuvent communiquer entre eux et créer d’autres acteurs.
@@ -158,4 +158,4 @@ Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situatio
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

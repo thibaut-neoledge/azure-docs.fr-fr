@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,21 +14,21 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
-# Qui utilise Azure Search : études de cas et témoignages de clients
+# Qui utilise Azure Search : études de cas et témoignages de clients
 
 Découvrez comment les entreprises suivantes ont évolué en intégrant une expérience Azure Search riche dans leurs applications en ligne.
 
 ##[autoTrader](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
 
-autoTRADER.ca est en bonne voie pour créer une infrastructure informatique reposant sur les fonctionnalités PaaS (plateforme en tant que service) de la plateforme Microsoft Azure. La société a commencé à utiliser Azure pour héberger et diffuser ses millions d’images. À présent, elle déplace sa fonctionnalité de recherche d’applications vers Azure et est sur le point de migrer toutes ses propriétés web vers la plateforme. Résultat : l’entreprise est plus à même d’améliorer les services et de créer des offres, tout en éliminant le besoin de gérer sa propre infrastructure. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
+autoTRADER.ca est en bonne voie pour créer une infrastructure informatique reposant sur les fonctionnalités PaaS (plateforme en tant que service) de la plateforme Microsoft Azure. La société a commencé à utiliser Azure pour héberger et diffuser ses millions d’images. À présent, elle déplace sa fonctionnalité de recherche d’applications vers Azure et est sur le point de migrer toutes ses propriétés web vers la plateforme. Résultat : l’entreprise est plus à même d’améliorer les services et de créer des offres, tout en éliminant le besoin de gérer sa propre infrastructure. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
 
 
 ##[gjirafa](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
 
-Comment un petit moteur de recherche pour locuteurs albanais fait-il face aux géants actuels de la recherche ? En comprenant la langue locale, en créant une expérience utilisateur ciblée et en s’appuyant sur la technologie de recherche Microsoft Cloud. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
+Comment un petit moteur de recherche pour locuteurs albanais fait-il face aux géants actuels de la recherche ? En comprenant la langue locale, en créant une expérience utilisateur ciblée et en s’appuyant sur la technologie de recherche Microsoft Cloud. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
 
 
 ##[JLL](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
@@ -37,7 +37,7 @@ JLL (anciennement Jones Lang LaSalle) cherche à modifier la façon dont ses app
 
 ##[XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
 
-Histoire classique d’une start-up dans le milieu de la technologie : des développeurs ont une idée, voient un marché et veulent se lancer. Le marché ? L’engagement dans la vente au détail. L’idée ? Des services principaux pour le développement d’applications web et mobiles afin de redonner vie au marquage lors de l’expérience de vente au détail en magasin. XOMNI a utilisé Microsoft Azure pour mettre en œuvre rapidement une base de données NoSQL et un service de recherche en texte intégral. Ainsi, les clients disposent désormais d’une plateforme évolutive pour développer des applications logicielles clientes, les intégrer à des réseaux sociaux et en analyser les données afin de favoriser des expériences riches et interactives pour les consommateurs. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
+Histoire classique d’une start-up dans le milieu de la technologie : des développeurs ont une idée, voient un marché et veulent se lancer. Le marché ? L’engagement dans la vente au détail. L’idée ? Des services principaux pour le développement d’applications web et mobiles afin de redonner vie au marquage lors de l’expérience de vente au détail en magasin. XOMNI a utilisé Microsoft Azure pour mettre en œuvre rapidement une base de données NoSQL et un service de recherche en texte intégral. Ainsi, les clients disposent désormais d’une plateforme évolutive pour développer des applications logicielles clientes, les intégrer à des réseaux sociaux et en analyser les données afin de favoriser des expériences riches et interactives pour les consommateurs. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
 
 
 ##[Medihoo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540)
@@ -47,7 +47,7 @@ En tant que start-up avec de grands projets pour son site web de recherche de so
 
 ##[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-Weichert Realtors passe au cloud, modifiant ainsi en profondeur sa manière de mener ses activités. La migration vers Microsoft Azure a permis à la société de réduire ses coûts d’exploitation de 60 pour cent après avoir dit adieu aux solutions matérielles et logicielles locales coûteuses. En outre, elle a complètement repensé sa solution de CRM avec des fonctionnalités de recherche robustes et ouvert un éventail de nouveaux services de données, essentiels pour l’avenir de l’entreprise. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
+Weichert Realtors passe au cloud, modifiant ainsi en profondeur sa manière de mener ses activités. La migration vers Microsoft Azure a permis à la société de réduire ses coûts d’exploitation de 60 pour cent après avoir dit adieu aux solutions matérielles et logicielles locales coûteuses. En outre, elle a complètement repensé sa solution de CRM avec des fonctionnalités de recherche robustes et ouvert un éventail de nouveaux services de données, essentiels pour l’avenir de l’entreprise. [En savoir plus…](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
 ##[Whattopedia.com](search-dev-case-study-whattopedia.md)
 
@@ -61,4 +61,4 @@ Découvrez comment une start-up suédoise a conçu un portail d’informations m
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

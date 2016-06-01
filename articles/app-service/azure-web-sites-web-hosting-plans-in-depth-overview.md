@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/18/2016" 
 	ms.author="byvinyal"/>
 
 #Présentation détaillée des plans Azure App Service#
@@ -86,7 +86,7 @@ Il existe trois façons de mettre à l'échelle un plan :
 
 - Modifier le **niveau de tarification** du plan. Par exemple, un plan associé au niveau de tarification **De base** peut être converti en un plan de niveau **Standard** ou **Premium**. Toutes les applications associées à ce plan peuvent alors utiliser les fonctionnalités proposées par le nouveau niveau de service.
 - Modifier la **taille des instances** du plan. Par exemple, un plan associé au niveau de tarification **De base** et utilisant des **petites** instances peut être modifié pour utiliser de **grandes** instances. Toutes les applications associées à ce plan pourront tirer parti de la mémoire supplémentaire et des ressources processeur offertes par l'instance plus grande.
-- Modifier le **nombre d’instances** du plan. Par exemple, un plan **Standard** comprenant 3 instances peut voir son nombre d’instances monter jusqu’à 10. Un plan **Premium** peut voir son nombre d’instances monter jusqu’à 20. Toutes les applications associées à ce plan pourront tirer parti de la mémoire supplémentaire et des ressources processeur permises par le nombre supérieur d'instances.
+- Modifier le **nombre d’instances** du plan. Par exemple, un plan **Standard** comprenant 3 instances peut voir son nombre d’instances monter jusqu’à 10. Un plan **Premium** peut voir son nombre d’instances monter jusqu’à 20 (en fonction de la disponibilité). Toutes les applications associées à ce plan pourront tirer parti de la mémoire supplémentaire et des ressources processeur permises par le nombre supérieur d'instances.
 
 Vous pouvez modifier le niveau tarifaire et la taille de l’instance en cliquant sur l’élément **Montée en puissance** sous les paramètres du plan de l'application ou du plan App Service. Les modifications s’appliqueront au **Plan App Service** et affecteront toutes les applications hébergées par celui-ci.
  
@@ -107,4 +107,4 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

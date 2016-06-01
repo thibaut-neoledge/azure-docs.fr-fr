@@ -12,21 +12,24 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
 
-Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou peut-être voulez-vous recevoir une alerte par courrier électronique pour les événements présentant des propriétés spécifiques ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.
+Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.
 
 L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
->[AZURE.NOTE] Si vous cherchez à [explorer vos données dans Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), vous pouvez le faire sans utiliser l’exportation continue.
->
->Et si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du panneau.
+
+Avant de configurer l’exportation continue, d’autres options doivent être prises en considération :
+
+* [Le bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel. 
+* [Analytics](app-insights-analytics.md) fournit un langage de requête puissant pour la télémétrie et peut également exporter les résultats.
+* Si vous cherchez à [explorer vos données dans Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), vous pouvez le faire sans utiliser l’exportation continue.
 
 
-## Créer un compte de stockage
+## Créez un compte de stockage.
 
 Si vous ne disposez pas d'un compte de stockage classique, créez-en un maintenant.
 
@@ -41,15 +44,15 @@ Si vous ne disposez pas d'un compte de stockage classique, créez-en un maintena
 
 ## <a name="setup"></a> Configuration de l’exportation continue
 
-Dans le panneau Vue d’ensemble de votre application dans le portail Application Insights, ouvrez Exportation continue :
+Dans le panneau Vue d’ensemble de votre application dans le portail Application Insights, ouvrez Exportation continue :
 
 ![Faites défiler vers le bas, puis cliquez sur Exportation continue.](./media/app-insights-export-telemetry/01-export.png)
 
-Ajoutez une exportation, puis choisissez le [compte de stockage Azure](../storage/storage-introduction.md) dans lequel vous souhaitez placer les données :
+Ajoutez une exportation, puis choisissez le [compte de stockage Azure](../storage/storage-introduction.md) dans lequel vous souhaitez placer les données :
 
 ![Cliquez sur Ajouter, Destination de l’exportation, Compte de stockage, puis créez un nouveau magasin ou choisissez un magasin existant.](./media/app-insights-export-telemetry/02-add.png)
 
-Choisissez les types d’événement que vous souhaitez exporter :
+Choisissez les types d’événement que vous souhaitez exporter :
 
 ![Cliquez sur Choisir les types d’événements.](./media/app-insights-export-telemetry/03-types.png)
 
@@ -58,7 +61,7 @@ Une fois que vous avez créé l’exportation, elle démarre. (Vous n’obtenez 
 
 Il peut y avoir un délai d'environ une heure avant que les données n'apparaissent dans l'objet blob.
 
-Si vous souhaitez modifier les types d’événement plus tard, modifiez simplement l’exportation :
+Si vous souhaitez modifier les types d’événement plus tard, modifiez simplement l’exportation :
 
 ![Cliquez sur Choisir les types d’événements.](./media/app-insights-export-telemetry/05-edit.png)
 
@@ -66,25 +69,27 @@ Pour arrêter le flux de données, cliquez sur Désactiver. Lorsque vous cliquez
 
 Pour arrêter définitivement le flux de données, supprimez l’exportation. Cette opération ne supprime pas vos données du stockage.
 
-#### Impossible d’ajouter ou de modifier une exportation ?
+#### Impossible d’ajouter ou de modifier une exportation ?
 
 * Pour ajouter ou modifier des exportations, vous devez disposer de droits d’accès de propriétaire, de collaborateur ou de collaborateur Application Insights. [En savoir plus sur les rôles][roles].
 
-## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
+## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
 
 Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.
+
+Les données qui ont été ignorées par l’[échantillonnage](app-insights-sampling.md) ne sont pas incluses dans les données exportées.
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
 Les données incluent également les résultats de n’importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
 
-> [AZURE.NOTE] **Échantillonnage.** Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
+> [AZURE.NOTE] **Échantillonnage.** Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
 
 ## <a name="get"></a> Inspection des données
 
 Vous pouvez inspecter le stockage directement sur le portail. Cliquez sur **Parcourir**, sélectionnez votre compte de stockage, puis ouvrez **Conteneurs**.
 
-Pour examiner le stockage Azure dans Visual Studio, ouvrez **Afficher**, **Cloud Explorer**. (Si vous n’avez pas cette commande, vous devez installer le Kit de développement logiciel (SDK) Azure : ouvrez la boîte de dialogue **Nouveau projet**, développez Visual C#/Cloud et sélectionnez **Obtenir Microsoft Azure SDK pour .NET**.)
+Pour examiner le stockage Azure dans Visual Studio, ouvrez **Afficher**, **Cloud Explorer**. (Si vous n’avez pas cette commande, vous devez installer le Kit de développement logiciel (SDK) Azure : ouvrez la boîte de dialogue **Nouveau projet**, développez Visual C#/Cloud et sélectionnez **Obtenir Microsoft Azure SDK pour .NET**.)
 
 Lorsque vous ouvrez votre magasin d’objets blob, vous voyez un conteneur avec un ensemble de fichiers blob. L'URI de chaque fichier est dérivé du nom de votre ressource Application Insights, sa clé d'instrumentation, le type/la date/l'heure de télémétrie. (Le nom de la ressource est tout en minuscules et la clé d'instrumentation omet les tirets.)
 
@@ -106,12 +111,13 @@ Where
 
 ## <a name="format"></a> Format de données
 
-* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
-* Chaque ligne est un document JSON sans mise en forme. Si vous souhaitez l'examiner, ouvrez-le dans Visual Studio et choisissez Modifier, Options avancées, Formater le fichier :
+* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
+* Chaque ligne représente un point de données de télémétrie, par exemple une demande ou un affichage de page.
+* Chaque ligne est un document JSON sans mise en forme. Si vous souhaitez l'examiner, ouvrez-le dans Visual Studio et choisissez Modifier, Options avancées, Formater le fichier :
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
 
-Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par exemple, ces valeurs indiquent une durée de 10 ms pour envoyer une demande à partir du navigateur, 30 ms pour la recevoir et 1,8 s pour traiter la page dans le navigateur :
+Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par exemple, ces valeurs indiquent une durée de 10 ms pour envoyer une demande à partir du navigateur, 30 ms pour la recevoir et 1,8 s pour traiter la page dans le navigateur :
 
 	"sendRequest": {"value": 10000.0},
 	"receiveRequest": {"value": 30000.0},
@@ -121,7 +127,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
 
 ## Traitement des données
 
-À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple :
+À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple :
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -178,18 +184,18 @@ L’exportation continue redémarre.
 
 * *J’ai configuré une exportation, mais il n’y a pas de données dans mon magasin.*
 
-    Application Insights a-t-il reçu de la télémétrie de votre application depuis que vous avez configuré l’exportation ? Vous recevrez uniquement les nouvelles données.
+    Application Insights a-t-il reçu de la télémétrie de votre application depuis que vous avez configuré l’exportation ? Vous recevrez uniquement les nouvelles données.
 
 * *J’ai essayé de configurer une exportation, mais l’accès lui a été refusé.*
 
     Si le compte appartient à votre organisation, vous devez être membre du groupe des propriétaires ou des collaborateurs.
 
 
-* *Puis-je exporter directement vers mon propre magasin local ?*
+* *Puis-je exporter directement vers mon propre magasin local ?*
 
     Non. Pour le moment, notre moteur d’exportation fonctionne uniquement avec le stockage Azure.
 
-* *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?*
+* *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?*
 
     Non. Nous transmettons les données jusqu’à ce que vous supprimiez l’exportation. Nous arrêtons si nous atteignons les limites extérieures du stockage d’objets blob, mais ceci représente un volume très important. C’est à vous de contrôler la quantité de stockage vous utilisez.
 
@@ -203,7 +209,7 @@ L’exportation continue redémarre.
 
     Modifiez l’exportation et ouvrez le panneau de destination d’exportation. Conservez le même stockage que celui sélectionné auparavant, puis cliquez sur OK pour confirmer. L’exportation redémarre. Si la modification a eu lieu dans les derniers jours, vous ne perdrez pas de données.
 
-* *Est-il possible de suspendre l’exportation ?*
+* *Est-il possible de suspendre l’exportation ?*
 
     Oui. Cliquez sur Désactiver.
 
@@ -223,4 +229,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -66,25 +66,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 
 > [AZURE.TIP] Si vous disposez déjà d'un profil CDN que vous souhaitez utiliser pour ce didacticiel, passez à l'[Étape 3](#step-3-create-a-new-cdn-endpoint).
 
-**Pour créer un profil CDN**
-
-1. Dans le [portail de gestion Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l'angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
-
-    Le panneau du nouveau profil CDN s'affiche.
-
-    ![Nouveau profil CDN][new-cdn-profile]
-
-2. Entrez un nom pour votre profil CDN.
-
-3. Sélectionnez un **niveau tarifaire** ou utilisez la valeur par défaut.
-
-4. Sélectionnez ou créez un **groupe de ressources**. Il n'est pas nécessaire que ce soit le même groupe de ressources que celui de votre compte de stockage.
-
-5. Sélectionnez l'**abonnement** pour ce profil CDN. Il doit s'agir du même abonnement que celui du compte de stockage pour les besoins de ce didacticiel.
-
-6. Sélectionnez un **emplacement**. Il s'agit de l'emplacement Azure où seront stockées les informations de votre profil CDN. Cela n'a aucun impact sur les emplacements de point de terminaison CDN. Il n'est pas nécessaire que ce soit le même emplacement que celui du compte de stockage.
-
-7. Cliquez sur le bouton **Créer** pour créer le profil.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Étape 3 : Créer un point de terminaison CDN
 
@@ -148,10 +130,9 @@ Un objet déjà mis en cache dans le CDN y reste jusqu'à ce que sa durée de vi
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
-[new-cdn-profile]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

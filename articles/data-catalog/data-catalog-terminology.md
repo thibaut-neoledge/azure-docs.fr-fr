@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Terminologie d’Azure Data Catalog
@@ -51,7 +51,7 @@ Des métadonnées descriptives d'une ressource de données peuvent inclure des i
 - L'URL d'un outil de gestion des identités et des accès (comme Microsoft Identity Manager) qui peut être utilisé pour accéder à la source de données.
 - Une entrée de texte libre qui décrit la façon dont les utilisateurs peuvent accéder à la source de données.
 
-## Versions préliminaires
+## VERSION PRÉLIMINAIRE
 
 Une version préliminaire d’Azure Data Catalog est un instantané de maximum 20 enregistrements qui peuvent être extraits de la source de données pendant l'inscription et stockés dans le catalogue avec les métadonnées de ressources de données. La version préliminaire peut permettre aux utilisateurs, qui découvrent une ressource de données, de mieux comprendre son fonctionnement et son rôle. En d'autres termes, les exemples de données peuvent être plus utiles que les noms de colonnes et les types de données. Les versions préliminaires sont uniquement prises en charge par les tables et les vues et doivent être explicitement sélectionnées par l'utilisateur pendant l'inscription.
 
@@ -73,7 +73,7 @@ Un expert est un utilisateur qui a été identifié comme une personne pouvant a
 
 ## Propriétaire
 
-Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires.
+Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires. Pour plus d’informations, consultez [Gestion des ressources de données](data-catalog-how-to-manage.md).
 > [AZURE.NOTE] La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
 
 ## Inscription
@@ -86,4 +86,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

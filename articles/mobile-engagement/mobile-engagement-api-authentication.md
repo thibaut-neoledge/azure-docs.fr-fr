@@ -95,7 +95,7 @@ Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’in
 1. Appelez l’API avec les paramètres suivants et veillez à remplacer les valeurs TENANT\_ID, CLIENT\_ID et CLIENT\_SECRET :
 
 	- **URL de requête** sous la forme **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-	- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
+- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
 	- **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Voici un exemple de requête :
@@ -106,7 +106,7 @@ Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’in
 		grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
 		urce=https%3A%2F%2Fmanagement.core.windows.net%2F
 
-	Voici un exemple de réponse :
+	Voici un exemple de réponse :
 
 		HTTP/1.1 200 OK
 		Content-Type: application/json; charset=utf-8
@@ -131,7 +131,7 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 1. Dans chaque requête API, vous devez passer un jeton valide, non expiré, que vous avez obtenu dans la section précédente.
 
-2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
+2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
 
 		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
 		providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
@@ -146,7 +146,8 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 	![Paramètres URI d’API Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
->1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même. 
+>1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/>
+>2. Si vous avez créé l’application à l’aide du portail Azure Classic, vous devez utiliser le nom de ressource de l’application qui est différent du nom de l’application elle-même. Si vous avez créé l’application dans le portail Azure, vous devez utiliser le nom de l’application elle-même (il n’existe aucune distinction entre le nom de ressource de l’application et le nom de l’application pour les applications créées dans le nouveau portail).  
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -154,4 +155,4 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

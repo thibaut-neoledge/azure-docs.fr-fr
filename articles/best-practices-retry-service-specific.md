@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Guide spécifique relatif au service de nouvelle tentative
 
-![](media/best-practices-retry-service-specific/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 La plupart des services Azure et des kits de développement logiciel (SDK) client incluent un mécanisme de nouvelle tentative. Cependant, ceux-ci diffèrent, car chaque service a des exigences et des caractéristiques différentes, et donc chaque mécanisme de nouvelle tentative est réglé sur un service spécifique. Ce guide résume les fonctionnalités de mécanisme de nouvelle tentative pour la majorité des services Azure et inclut des informations pour vous aider à utiliser, adapter ou étendre le mécanisme de nouvelle tentative pour ce service.
 
@@ -227,7 +227,7 @@ La prise en charge de la fonctionnalité de nouvelle tentative est assurée lors
   * Définit les méthodes synchrones et asynchrones **Execute***.
   * Définit les classes qui peuvent être utilisées directement ou configurées sur un contexte de base de données comme une stratégie par défaut mappée sur un nom de fournisseur ou un nom de fournisseur et un nom de serveur. En cas de configuration sur un contexte, les nouvelles tentatives se produisent au niveau des opérations de base de données individuelles. Il peut y en avoir plusieurs pour une opération de contexte donnée.
   * Définit à quel moment et comment proposer une nouvelle tentative en cas d’échec de connexion.
-* Il inclut plusieurs implémentations intégrées de l’interface **IDbExecutionStrategy** :
+* Il inclut plusieurs implémentations intégrées de l’interface **IDbExecutionStrategy** :
   * Par défaut : aucune nouvelle tentative.
   * Par défaut pour la base de données SQL (automatique) : aucune nouvelle tentative, mais inspecte les exceptions et y inclut la suggestion d’utiliser la stratégie de base de données SQL.
   * Par défaut pour la base de données SQL : exponentielle (héritée de la classe de base) et logique de détection de base de données SQL.
@@ -1072,7 +1072,7 @@ Prenez en compte les éléments suivants lors de l’accès aux services Azure o
 
 Voici les types d’intervalles de stratégie de nouvelle tentative classiques :
 
-* **Exponentielle** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de tentatives en utilisant une approche de secours exponentielle répartie de manière aléatoire pour déterminer l’intervalle entre deux tentatives. Par exemple :
+* **Exponentielle** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de tentatives en utilisant une approche de secours exponentielle répartie de manière aléatoire pour déterminer l’intervalle entre deux tentatives. Par exemple :
 
 		var random = new Random();
 
@@ -1083,12 +1083,12 @@ Voici les types d’intervalles de stratégie de nouvelle tentative classiques 
 		               this.maxBackoff.TotalMilliseconds);
 		retryInterval = TimeSpan.FromMilliseconds(interval);
 
-* **Incrémentielle** : une stratégie de nouvelle tentative avec un nombre spécifié de nouvelles tentatives et un intervalle de temps incrémentiel entre deux tentatives. Par exemple :
+* **Incrémentielle** : une stratégie de nouvelle tentative avec un nombre spécifié de nouvelles tentatives et un intervalle de temps incrémentiel entre deux tentatives. Par exemple :
 
 		retryInterval = TimeSpan.FromMilliseconds(this.initialInterval.TotalMilliseconds +
 		               (this.increment.TotalMilliseconds * currentRetryCount));
 
-* **LinearRetry** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de nouvelles tentatives en utilisant un intervalle fixe spécifique entre deux tentatives. Par exemple :
+* **LinearRetry** : une stratégie de nouvelle tentative qui effectue un nombre spécifié de nouvelles tentatives en utilisant un intervalle fixe spécifique entre deux tentatives. Par exemple :
 
 		retryInterval = this.deltaBackoff;
 
@@ -1107,4 +1107,4 @@ Le bloc applicatif de gestion des erreurs temporaires comporte les stratégies p
 | **Linéaire (intervalle fixe)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 seconde<br />true | Nombre de nouvelles tentatives.<br />Délai entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erreurs temporaires, consultez les sections Exemples plus haut dans ce guide pour une base de données SQL Azure utilisant ADO.NET et Azure Active Directory.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

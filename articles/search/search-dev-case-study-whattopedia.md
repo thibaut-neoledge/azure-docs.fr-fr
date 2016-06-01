@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Étude de cas d’un développeur Azure Search : Comment WhatToPedia.com a créé un portail infomédia sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Étude de cas d’un développeur Azure Search : Comment WhatToPedia.com a créé un portail infomédia sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Apprenez à créer un portail d'information et un moteur de méta recherche à l'aide du service Azure Search, un service de recherche cloud hébergé pour les développeurs." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe"/>
+	manager="paulettm"/>
 
 <tags 
 	ms.service="search" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="02/18/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Étude de cas d’un développeur Azure Search
@@ -60,7 +60,7 @@ Le diagramme ci-dessous montre les composants de haut niveau utilisés dans l'in
 
 ### Comment nous utilisons Microsoft Azure
 
-En examinant les zones vertes du diagramme précédent, vous verrez que la solution WhatToPedia s'appuie sur les services suivants :
+En examinant les zones vertes du diagramme précédent, vous verrez que la solution WhatToPedia s'appuie sur les services suivants :
 
 - [Azure Search](https://azure.microsoft.com/services/search/)
 - [Sites Web Azure avec MVC 4](https://azure.microsoft.com/services/websites/)
@@ -69,7 +69,7 @@ En examinant les zones vertes du diagramme précédent, vous verrez que la solut
 - [Stockage Azure BLOB](https://azure.microsoft.com/services/storage/)
 - [Service de messagerie SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
-Les données et la recherche constituent le cœur de la solution. Le flux de données entre le fournisseur Revendeur et le client final est illustré ci-dessous :
+Les données et la recherche constituent le cœur de la solution. Le flux de données entre le fournisseur Revendeur et le client final est illustré ci-dessous :
 
   ![][9]
 
@@ -83,7 +83,7 @@ Le portail est un site Web Azure, implémenté dans MVC 4 et [Twitter Bootstrap]
 
 Les clients parcourent le site de façon anonyme. Par conséquent, les clients n'ont pas besoin de se connecter, et nous ne conservons aucune donnée sur le consommateur.
 
-La situation est différente avec les revendeurs. Dans ce cas, nous stockons différentes données publiques telles que les profils, les informations de facturation et le contenu multimédia qu'ils souhaitent présenter sur le site. Chaque revendeur qui s'abonne au site reçoit un identifiant utilisateur permettant d'identifier cet utilisateur avant de mettre à jour le profil de l'abonné. Nous conservons de façon sécurisée toutes les données sur l'abonné dans la base de données SQL Azure et le système de stockage Azure BLOB. Nous avons opté pour un modèle d'authentification basé sur des formulaires .NET. Nous avons choisi cette approche pour sa simplicité ; nous n'avions pas besoin des rôles, de la prise en charge de l'interface utilisateur et d'autres fonctionnalités superflues proposés par d'autres approches.
+La situation est différente avec les revendeurs. Dans ce cas, nous stockons différentes données publiques telles que les profils, les informations de facturation et le contenu multimédia qu'ils souhaitent présenter sur le site. Chaque revendeur qui s'abonne au site reçoit un identifiant utilisateur permettant d'identifier cet utilisateur avant de mettre à jour le profil de l'abonné. Nous conservons de façon sécurisée toutes les données sur l'abonné dans la base de données SQL Azure et le système de stockage Azure BLOB. Nous avons opté pour un modèle d'authentification basé sur des formulaires .NET. Nous avons choisi cette approche pour sa simplicité ; nous n'avions pas besoin des rôles, de la prise en charge de l'interface utilisateur et d'autres fonctionnalités superflues proposés par d'autres approches.
 
 Pour s'assurer que les revendeurs ne voient que les données qui leur appartiennent, nous leur avons attribué à chacun un ID, qui sera utilisé pour toutes les opérations de lecture et d'écriture impliquant des données spécifiques au revendeur. Avec cette approche, nous avons constaté que nous n'avions pas besoin d'accorder des autorisations de base de données aux revendeurs individuels. Tous les revendeurs interagissent avec le système en utilisant un rôle de base de données unique, l'ID revendeur étant notre technique d'isolation des données.
 
@@ -95,14 +95,14 @@ Nous avons également simplifié nos processus en externalisant nos opérations 
 
 Le cœur de notre solution est le moteur de recherche reposant sur le service Azure Search. Nous avions commencé par créer un moteur de recherche personnalisé, mais au cours de ce processus, nous avons réalisé la complexité et les efforts qu'un tel projet impliquait et avons donc envisagé d'autres pistes.
 
-Voici les fonctionnalités de base les plus importantes selon nous :
+Voici les fonctionnalités de base les plus importantes selon nous :
 
 - Filtres
 - Navigation à facettes
 - Amélioration des résultats
 - Pagination avec AJAX
 
-Une recherche sur Internet nous a fait découvrir la vidéo suivante, qui nous a donné l'idée de tester Azure Search : [Deep Dive at TechEd Europe](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410)
+Une recherche sur Internet nous a fait découvrir la vidéo suivante, qui nous a donné l'idée de tester Azure Search : [Deep Dive at TechEd Europe](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410)
 
 Après avoir visionné la vidéo, nous avions tous les éléments en main pour créer un prototype. Comme nous disposions déjà d'un modèle de données dans MVC, la création du prototype était simple car les données contenaient des termes pouvant faire l'objet d'une recherche, et nous avions déjà défini nos exigences concernant le tri, la création de facettes et le filtrage des données.
 
@@ -111,27 +111,27 @@ Voici comment nous avons créé le prototype.
 **Configuration du service Azure Search**
 
 1. Connexion au portail Azure Classic et ajout du service de recherche à notre abonnement. Nous avons utilisé la version partagée (fournie gratuitement avec notre abonnement).
-2. Création d'un index. Pour le prototype, nous avons utilisé l'interface utilisateur du portail pour définir les champs de recherche et pour créer les profils de score. Notre profil de score est basé sur des données de localisation : pays | ville | adresse (voir : Ajout de profils de score).
+2. Création d'un index. Pour le prototype, nous avons utilisé l'interface utilisateur du portail pour définir les champs de recherche et pour créer les profils de score. Notre profil de score est basé sur des données de localisation : pays | ville | adresse (voir : Ajout de profils de score).
 3. Copie de l'URL du service et de la clé api administrateur dans nos fichiers de configuration. Cette clé se trouve sur la page du service de recherche du portail, et sert à authentifier le service.
 	
 **Développement d'une tâche d'indexeur de recherche – Console Windows**
 
 1. Lecture de tous les revendeurs à partir de la base de données.
-2. Appel de l'API du service Azure Search pour télécharger un par un les revendeurs (voir : http://msdn.microsoft.com/library/azure/dn798930.aspx).
+2. Appel de l'API du service Azure Search pour télécharger un par un les revendeurs (voir : http://msdn.microsoft.com/library/azure/dn798930.aspx).
 3. Définition dans la base de données d'une propriété indiquant que le revendeur est configuré pour l'indexation incrémentielle. Pour cela, nous avons ajouté un champ 'indexeur' qui stocke l'état de l'index de chaque profil (indexé ou non). 
 
 Consultation de l'annexe pour connaître l'extrait de code qui constitue la tâche de l'indexeur.
 
 **Développement d'un portail Web de recherche – MVC**
 
-1. Appel au service Azure Search pour obtenir tous les documents de la recherche (voir : http://msdn.microsoft.com/library/azure/dn798927.aspx)
+1. Appel au service Azure Search pour obtenir tous les documents de la recherche (voir : http://msdn.microsoft.com/library/azure/dn798927.aspx)
 2. Extraction des éléments suivants à partir de la réponse du service de recherche (en utilisant json.net http://james.newtonking.com/json)
    - Résultats
    - Facettes
    - Nombre de résultats
    - Développement d'une interface utilisateur pour l'affichage des résultats de la recherche, des facettes et des nombres (informations déjà disponibles).
 
-Voici le code que nous avons utilisé pour obtenir les résultats d'Azure Search :
+Voici le code que nous avons utilisé pour obtenir les résultats d'Azure Search :
 
     string requestUrl = 
     string.Format("https://{0}.search.windows.net/indexes/profiles/docs?searchMode=all&$count=true&search={1}&facet=city,count:20&facet=category&$top=10&$skip={2}&api-version=2014-07-31-Preview{3}", Config.SearchServiceName, EscapeODataString(q), skip, filter);
@@ -152,13 +152,13 @@ Il nous fallait afficher les résultats de la recherche dans la langue correspon
 
 Nous avons résolu la question de la présentation en ajoutant un document pour chaque langue avec le texte localisé et une propriété de langue. Lorsqu'un utilisateur saisit un terme de recherche, nous utilisons les expressions `$filter` pour filtrer les résultats dans la langue choisie par l'utilisateur.
 
-Chacun de ces documents possède une propriété masquée appelée « cities » et basée sur le type de collection. Cette propriété stocke les noms de villes dans toutes les langues, ce qui permet d'effectuer une recherche multilingue.
+Chacun de ces documents possède une propriété masquée appelée « cities » et basée sur le type de collection. Cette propriété stocke les noms de villes dans toutes les langues, ce qui permet d'effectuer une recherche multilingue.
 
 ###Stockage des données
 
-Toutes les données (profil, abonnement et comptabilité) sont stockées dans la base de données SQL. Tous les fichiers multimédias sont stockés dans le stockage Azure BLOB, y compris les images et vidéos fournies par le revendeur. L'utilisation d'un stockage BLOB distinct isole les effets du téléchargement de fichiers ; les fichiers ne résident jamais sur le site Web et il n'est donc pas nécessaire de reconstruire le site chaque fois que nous ajoutons des fichiers.
+Toutes les données (profil, abonnement et comptabilité) sont stockées dans la base de données SQL. Tous les fichiers multimédias sont stockés dans le stockage Azure BLOB, y compris les images et vidéos fournies par le revendeur. L'utilisation d'un stockage BLOB distinct isole les effets du téléchargement de fichiers ; les fichiers ne résident jamais sur le site Web et il n'est donc pas nécessaire de reconstruire le site chaque fois que nous ajoutons des fichiers.
 
-Autre avantage important qu'offre ce type de stockage : plusieurs développeurs peuvent partager un stockage de développement unique. L'une des exigences du projet WhatToPedia était de pouvoir créer un environnement de développement en moins de 15 minutes, y compris les vidéos, les images et les données des revendeurs. La récupération des dernières données de TFS Online, l'exécution d'un script SQL et l'exécution de la tâche d'importation permettent de créer rapidement un environnement complet. Cette méthode améliore également la mise en place d'un environnement intermédiaire.
+Autre avantage important qu'offre ce type de stockage : plusieurs développeurs peuvent partager un stockage de développement unique. L'une des exigences du projet WhatToPedia était de pouvoir créer un environnement de développement en moins de 15 minutes, y compris les vidéos, les images et les données des revendeurs. La récupération des dernières données de TFS Online, l'exécution d'un script SQL et l'exécution de la tâche d'importation permettent de créer rapidement un environnement complet. Cette méthode améliore également la mise en place d'un environnement intermédiaire.
 
 ###WebJobs
 
@@ -213,7 +213,7 @@ Nous avons constaté que l'utilisation d'[Azure BLOB Storage Explorer](https://a
 
 Nous tenons à remercier l'extraordinaire équipe de WhatToPedia de nous avoir permis de raconter leur histoire.
 
-Nous espérons que cette étude de cas vous a été utile. Si vous décidez d'utiliser Azure Search, je vous recommande les quelques ressources suivantes qui faciliteront votre travail :
+Nous espérons que cette étude de cas vous a été utile. Si vous décidez d'utiliser Azure Search, je vous recommande les quelques ressources suivantes qui faciliteront votre travail :
 
 - [Forum MSDN consacré à Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
@@ -421,4 +421,4 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

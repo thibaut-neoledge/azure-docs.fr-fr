@@ -20,7 +20,7 @@
 Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, mobiles, la mise en réseau, le stockage et le web. En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions. Microsoft Azure fournit une plate-forme évolutive de cloud computing qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local. Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
  
 ## Azure Virtual Machines
-Les machines virtuelles Azure vous permettent de déployer un large éventail de solutions informatiques et ce, en toute flexibilité. Déployez une machine virtuelle Windows ou Linux à partir de la galerie d’images ou une machine virtuelle personnalisée créée par l’un de nos nombreux partenaires. Vous pouvez pratiquement déployer n’importe quelle charge de travail et n’importe quel langage sur presque tous les systèmes d’exploitation. Vous ne trouvez toujours pas ce que vous cherchez ? Ne vous inquiétez pas, vous pouvez également ajouter vos propres images en local.
+Les machines virtuelles Azure vous permettent de déployer un large éventail de solutions informatiques et ce, en toute flexibilité. Vous pouvez déployer pratiquement toute charge de travail et tout langage sur presque n’importe quel système d’exploitation : Windows, Linux ou un système personnalisé créé à partir de l’un de nos nombreux partenaires. Vous ne trouvez toujours pas ce que vous cherchez ? Ne vous inquiétez pas, vous pouvez également ajouter vos propres images en local.
  
 ## Prise en main de Microsoft Azure sur Linux
 
@@ -29,14 +29,14 @@ Combinez les machines virtuelles Microsoft Azure avec le stockage et la mise en 
 1. Un compte d’évaluation gratuit. [En obtenir un](https://azure.microsoft.com/pricing/free-trial/).
 2. L’interface de ligne de commande Azure pour Linux, Mac et Windows (Azure CLI). [L’installer](../xplat-cli-install.md).
 3. Une machine virtuelle Linux [La créer](virtual-machines-linux-quick-create-cli.md).
-4. Plus d’informations sur Linux et Azure, notamment comment bénéficier du contrat de niveau de service. **Lisez ce document, même si les documents juridiques ne vous parlent pas**.
+4. Plus d’informations sur Linux et Azure, notamment comment bénéficier du [contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). **Lisez ce document, même si les documents juridiques ne vous parlent pas**.
 
 ## Questions logistiques : régions, distributions, disponibilité, taille des machines virtuelles et quotas
 ### Régions
 Les ressources Microsoft Azure sont réparties sur plusieurs régions géographiques dans le monde. Une « région » représente plusieurs centres de données au sein d’une seule zone géographique. Au 1er janvier 2016, elles étaient au nombre de 8 en Amérique, 2 en Europe, 6 en Asie-Pacifique, 2 en Chine continentale et 3 en Inde. Si vous souhaitez obtenir la liste complète de toutes les régions Azure, nous tenons une liste des régions existantes et récemment annoncées **[ici](https://azure.microsoft.com/regions/)**.
 
 ### Distributions
-Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires. Vous trouverez des distributions comme CentOS, Debian, Red Hat Enterprise, Ubuntu, FreeBSD et plus encore dans Azure Marketplace. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des distributions approuvées. **[Découvrez les distributions actuelles](virtual-machines-linux-endorsed-distros.md)**. Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en suivant les instructions **[sur cette page.](virtual-machines-linux-create-upload-generic.md)**
+Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires. Vous trouverez des distributions comme CentOS, Debian, Red Hat Enterprise, Ubuntu, FreeBSD et plus encore dans Azure Marketplace. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des distributions approuvées. **[Découvrez les distributions actuelles](virtual-machines-linux-endorsed-distros.md)**. Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en suivant les instructions **[sur cette page.](virtual-machines-linux-create-upload-generic.md)**
 
 ## Disponibilité et contrat SLA Microsoft Azure
 Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Ainsi, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans nos centres de données et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. Pour des informations complètes sur notre contrat SLA, cliquez **[ici](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)**.
@@ -60,4 +60,4 @@ Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impac
 
 Un compte d’évaluation gratuit. **[En obtenir un](https://azure.microsoft.com/pricing/free-trial/)**. Si vous en possédez déjà un, **[installez l’interface de ligne de commande Azure](../xplat-cli-install.md)** pour l’essayer. Si c’est déjà fait, [créez votre machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

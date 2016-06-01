@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : limites et restrictions
 
-Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Azure AD) B2C qui ne sont pas encore prises en charge dans la version préliminaire. Plusieurs de ces limites seront supprimées avant qu'Azure AD B2C ne bénéficie d'une disponibilité générale, mais vous devez les garder à l'esprit si vous concevez des applications grand public à l'aide de la version préliminaire d'Azure AD B2C.
+Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Azure AD) B2C qui ne sont pas encore prises en charge dans la version préliminaire. La plupart de ces limites et problèmes connus seront supprimés avant qu’Azure AD B2C ne bénéficie d’une disponibilité générale, mais vous devez les garder à l’esprit si vous concevez des applications grand public à l’aide de la version préliminaire d’Azure AD B2C.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -92,4 +92,11 @@ Vous ne pourrez pas supprimer un client Azure AD B2C dans le portail Azure Class
 
 Actuellement, vous ne pouvez pas vérifier un domaine avec succès sur le [portail Azure Classic](https://manage.windowsazure.com/). Nous développons actuellement un correctif.
 
-<!---HONumber=AcomDC_0427_2016-->
+## Problèmes de connexion avec la stratégie d’authentification multifacteur sur les navigateurs Safari
+
+Les requêtes envoyées aux stratégies de connexion (avec l’authentification multifacteur activée) échouent par intermittence sur les navigateurs Safari avec des erreurs HTTP 400 (demande incorrecte). Cela est dû aux faibles limites de taille des cookies de Safari. Il existe deux solutions pour contourner ce problème :
+
+- Utiliser la « stratégie de connexion ou d’inscription » au lieu de la « stratégie de connexion ».
+- Réduire le nombre de requêtes de **Revendications d’application** dans votre stratégie. 
+
+<!---HONumber=AcomDC_0518_2016-->

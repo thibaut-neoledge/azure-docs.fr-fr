@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -71,67 +71,9 @@ Après avoir configuré votre groupe de ressources, vous pouvez éventuellement 
 
 2. Vous pouvez vous familiariser avec la syntaxe de modèle en regardant dans la JSON (JavaScript Object Notation) qui représente votre solution.
 
-Vous pouvez générer, au moyen du portail, un modèle qui représente l’état actuel de votre groupe de ressources ou récupérer le modèle qui a été utilisé pour un déploiement spécifique. Les deux options sont présentées dans cette rubrique.
-
-L’exportation du modèle pour un groupe de ressources est utile lorsque vous avez apporté des modifications à un groupe de ressources et que vous devez récupérer la représentation JSON de son état actuel. Toutefois, le modèle généré contient uniquement un nombre minimal de paramètres et aucune variable. La plupart des valeurs dans le modèle sont codées en dur. Avant de déployer le modèle généré, vous pouvez convertir plusieurs valeurs en paramètres afin de personnaliser le déploiement pour différents environnements.
-
-L’exportation du modèle pour un déploiement spécifique est utile lorsque vous avez besoin afficher le modèle réel qui a été utilisé pour déployer des ressources. Le modèle comprend tous les paramètres et toutes variables définis pour le déploiement d’origine. Toutefois, si un membre de votre organisation a apporté des modifications au groupe de ressources qui ne sont pas définies dans le modèle, ce dernier ne représente pas l’état actuel du groupe de ressources.
-
 > [AZURE.NOTE] La fonctionnalité Modèle d’exportation est en version préliminaire. Tous les types de ressources ne la prennent pas actuellement en charge. Lorsque vous tentez d’exporter un modèle, une erreur indiquant que certaines ressources n’ont pas été exportées peut s’afficher. Le cas échéant, vous pouvez définir manuellement ces ressources dans votre modèle après l’avoir téléchargé.
 
-### Exportation du modèle pour un groupe de ressources
-
-Dans le panneau du groupe de ressources, vous pouvez exporter le modèle qui représente l’état actuel du groupe de ressources.
-
-Pour afficher le modèle pour un groupe de ressources, sélectionnez **Exporter le modèle**.
-
-![exporter un groupe de ressources](./media/resource-group-portal/export-resource-group.png)
-
-Resource Manager génère 4 fichiers pour vous :
-
-1. le modèle définissant l’infrastructure pour votre solution ;
-
-2. un fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement ;
-
-3. un fichier de script Azure PowerShell que vous pouvez exécuter pour déployer le modèle ;
-
-4. un fichier de script de l’interface de ligne de commande Azure que vous pouvez exécuter pour déployer le modèle.
-
-Consultez tout d’abord le modèle qui représente le groupe de ressources actuel.
-
-![afficher le modèle](./media/resource-group-portal/show-rg-template.png)
-
-Dans la section **ressources**, vous pouvez voir les définitions des ressources à déployer.
-
-Dans le fichier de paramètres, vous pouvez enregistrer les valeurs de paramètre à transmettre au cours du déploiement.
-
-![afficher les paramètres](./media/resource-group-portal/show-parameters.png)
-
-Il existe un fichier de script pour le déploiement du modèle à l’aide d’Azure PowerShell.
-
-![afficher Azure PowerShell](./media/resource-group-portal/show-powershell.png)
-
-Et il existe également un fichier de script pour le déploiement du modèle à l’aide de l’interface de ligne de commande Azure.
-
-![afficher l’interface de ligne de commande Azure](./media/resource-group-portal/show-cli.png)
-
-Le portail propose trois options d’utilisation de ce modèle. Pour redéployer le modèle maintenant, sélectionnez **Déployer**. Pour télécharger tous les fichiers localement, sélectionnez **Télécharger**. Pour enregistrer les fichiers dans votre compte Azure pour une utilisation ultérieure par le biais du portail, sélectionnez **Enregistrer le modèle**.
-
-### Téléchargement du modèle depuis un déploiement
-
-Le panneau du groupe de ressources indique la date et l'état du dernier déploiement de ce groupe de ressources. Vous pouvez sélectionner le lien pour afficher l'historique des déploiements du groupe.
-
-![dernier déploiement](./media/resource-group-portal/last-deployment.png)
-
-Si vous sélectionnez un déploiement dans l'historique, les détails de ce déploiement apparaissent. Chaque fois que vous déployez des ressources, Resource Manager conserve le modèle que vous avez utilisé. Vous pouvez récupérer le modèle précisément utilisé pour le déploiement en sélectionnant **Afficher le modèle**.
-
-![exporter le modèle](./media/resource-group-portal/export-template.png)
-
-Vous obtenez alors le modèle utilisé pour ce déploiement. Il contient tous les paramètres et les variables tels que vous les avez définis.
-
-![afficher le modèle](./media/resource-group-portal/show-template.png)
-
-Comme indiqué précédemment, il est possible qu’il ne s’agisse pas d’une représentation exhaustive du groupe de ressources. Si vous avez ajouté ou supprimé des ressources en dehors de ce déploiement, ces actions ne sont pas répercutées dans le modèle. Vous pouvez afficher le modèle, le fichier de paramètres et les fichiers de script comme indiqué dans la section précédente. Vous pouvez également redéployer, télécharger ou enregistrer le modèle comme indiqué dans la section précédente.
+Pour des instructions détaillées, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](../resource-manager-export-template/).
 
 ## Gestion d'un groupe de ressources
 
@@ -241,4 +183,4 @@ Notez que les vignettes individuelles du tableau de bord appliquent leurs propre
 - Pour afficher les journaux d’audit, consultez l’article [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 - Pour résoudre des problèmes liés à un déploiement, consultez l’article [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

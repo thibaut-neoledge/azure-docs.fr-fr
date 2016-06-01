@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="04/01/2016"
@@ -52,4 +52,4 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 - Passez en revue les [instructions d’implémentation](virtual-machines-linux-infrastructure-service-guidelines.md) pour concevoir un déploiement de production ou de développement/test personnalisé dans les services d’infrastructure Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

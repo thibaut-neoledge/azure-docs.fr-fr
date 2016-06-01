@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation d’une clé secrète de coffre de clés avec un modèle Resource Manager | Microsoft Azure"
+   pageTitle="Clé secrète de coffre de clés avec un modèle Resource Manager | Microsoft Azure"
    description="Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Passage de valeurs sécurisées lors du déploiement
@@ -41,7 +41,7 @@ Vous référencez la clé secrète à partir d'un fichier de paramètres qui tra
       }
     }
 
-Un fichier de paramètres complet peut ressembler à ceci :
+Un fichier de paramètres complet peut ressembler à ceci :
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -99,8 +99,8 @@ Le paramètre qui accepte la clé secrète doit être de type**securestring**. L
 
 ## Étapes suivantes
 
-- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour plus d’informations sur l’utilisation d’un coffre de clés avec une machine virtuelle, consultez [Considérations relatives à la sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
 - Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

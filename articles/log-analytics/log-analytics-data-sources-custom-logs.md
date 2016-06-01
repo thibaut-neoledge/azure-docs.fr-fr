@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Journaux personnalisés dans Log Analytics
@@ -70,8 +70,8 @@ Le tableau suivant fournit des exemples de modèles valides pour différents fic
 |:--|:--|
 | Tous les fichiers sous *C:\\Logs* avec l’extension .txt sur l’agent Windows | C:\\Logs\\*.txt |
 | Tous les fichiers sous *C:\\Logs* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows | C:\\Logs\\log*.txt |
-| Tous les fichiers sous */var/log/audit* avec l’extension .txt sur l’agent Windows | /var/log/audit/*.txt |
-| Tous les fichiers sous */var/log/audit* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows | /var/log/audit/log*.txt |
+| Tous les fichiers sous */var/log/audit* avec l’extension .txt sur l’agent Linux | /var/log/audit/*.txt |
+| Tous les fichiers sous */var/log/audit* avec un nom commençant par log et portant l’extension .txt sur l’agent Linux | /var/log/audit/log*.txt |
   
 
 1.	Sélectionnez Windows ou Linux pour spécifier le format du chemin d’accès que vous ajoutez.
@@ -115,7 +115,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | TimeGenerated | Date et heure auxquelles l’enregistrement a été collecté par Log Analytics. Si le journal utilise un délimiteur horaire, il s’agit de l’heure collectée dans l’entrée. |
 | SourceSystem | Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br> Linux – Tous les agents Linux |
 | RawData | Texte complet de l’entrée collectée. |
-| ManagementGroupName | Nom du groupe d’administration des agents SCOM. Pour les autres agents, cette valeur est AOI-<ID de l’espace de travail>. |
+| ManagementGroupName | Nom du groupe d'administration pour les agents SCOM. Pour les autres agents, cette valeur est AOI-<ID de l’espace de travail>. |
 
 
 ## Recherches de journal avec des enregistrements de journal personnalisé
@@ -178,4 +178,4 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 - Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les entrées du journal personnalisé dans des champs individuels.
 - En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

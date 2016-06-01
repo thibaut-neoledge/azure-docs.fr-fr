@@ -34,7 +34,8 @@ Pour renforcer la sécurité de l’authentification de l’administrateur, vous
 Azure Multi-Factor Authentication contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple. Elle fournit une authentification forte par le biais de diverses options de vérification simples, notamment des appels téléphoniques, des SMS, des notifications par application mobile ou un code de vérification et des jetons OATH tiers.
 
 Pour une vue d'ensemble du fonctionnement d'Azure Multi-Factor Authentication, regardez la vidéo suivante.
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 Pour plus d’informations, consultez [MFA pour Office 365 et MFA pour Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) (en anglais).
 
@@ -50,7 +51,7 @@ Pour réduire le temps d’exposition des privilèges et augmenter votre visibil
 
 ## Détection des attaques
 
-[Azure Active Directory Identity Protection](active-directory-identityprotection.d) offre une vue consolidée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. En fonction des événements à risque, Identity Protection calcule le niveau de risque des utilisateurs pour chaque utilisateur, ce qui vous permet de configurer des stratégies basées sur les risques pour protéger automatiquement les identités de votre organisation. Ces stratégies, en plus des autres contrôles d’accès conditionnel fournis par Azure Active Directory et EMS, peuvent automatiquement bloquer l’utilisateur ou suggérer d’autres solutions incluant notamment la réinitialisation de mot de passe et la mise en œuvre l’authentification multifacteur.
+[Azure Active Directory Identity Protection](active-directory-identityprotection.md) offre une vue consolidée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. En fonction des événements à risque, Identity Protection calcule le niveau de risque des utilisateurs pour chaque utilisateur, ce qui vous permet de configurer des stratégies basées sur les risques pour protéger automatiquement les identités de votre organisation. Ces stratégies, en plus des autres contrôles d’accès conditionnel fournis par Azure Active Directory et EMS, peuvent automatiquement bloquer l’utilisateur ou suggérer d’autres solutions incluant notamment la réinitialisation de mot de passe et la mise en œuvre l’authentification multifacteur.
 
 ![Azure AD Identity Protection][3]
 
@@ -71,10 +72,10 @@ Pour réduire les risques de sécurité, vous devez réviser vos rôles et votre
 - Activation d’[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 - Activation d’[Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 - Activation d’[Azure AD Identity Protection](active-directory-identityprotection.md)
-- Activation des[contrôles d’accès conditionnel](active-directory-conditional-access.md)
+- Activation des [contrôles d’accès conditionnel](active-directory-conditional-access.md)
 
 
-Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez la section concernant les « responsabilités du client et la feuille de route » du document [Microsoft Cloud Security pour Enterprise Architects](http://aka.ms/securecustomer). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou visitez notre [page de solutions de cyber-sécurité](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez la section concernant « les responsabilités du client et la feuille de route » du document [Microsoft Cloud Security pour Enterprise Architects](http://aka.ms/securecustomer). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou visitez notre [page de solutions de cyber-sécurité](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -82,4 +83,4 @@ Pour plus d’informations sur la création d’une feuille de route de sécurit
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

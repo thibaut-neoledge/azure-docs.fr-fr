@@ -22,7 +22,7 @@ Azure Search déploie régulièrement des mises à jour de fonctionnalités. Par
 
 En règle générale, nous tentons de publier de nouvelles versions uniquement lorsque cela est nécessaire, car certains efforts peuvent être requis pour mettre à niveau votre code afin d’utiliser une nouvelle version de l’API. Nous publions uniquement une nouvelle version si nous devons modifier certains aspects de l’API d’une manière qui interrompt la compatibilité descendante. Cela peut se produire en raison de correctifs de fonctionnalités existantes ou en raison de nouvelles fonctionnalités qui modifient la surface d’exposition des API existantes.
 
-Nous suivons la même règle pour les mises à jour du Kit de développement logiciel (SDK). Le Kit de développement logiciel (SDK) Azure Search suit les règles de [contrôle de version sémantique](http://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Nous publions une nouvelle version du Kit de développement logiciel (SDK) uniquement en cas de modifications qui interrompent la compatibilité descendante. Pour les mises à jour de fonctionnalités sans rupture, nous incrémenterons la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
+Nous suivons la même règle pour les mises à jour du Kit de développement logiciel (SDK). Le Kit de développement logiciel (SDK) Azure Search suit les règles de [contrôle de version sémantique](http://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Nous publions une nouvelle version du Kit de développement logiciel (SDK) uniquement en cas de modifications qui interrompent la compatibilité descendante. Pour les mises à jour de fonctionnalités sans rupture, nous incrémenterons la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
 
 ##Instantané des versions actuelles 
 
@@ -30,12 +30,12 @@ Vous trouverez ci-dessous un instantané des versions actuelles de toutes les in
 
 Interfaces|Version majeure la plus récente|Statut
 ----------|-------------------------|------
-[KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Mise à la disposition générale en février 2016
+[KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Mise à la disposition générale en février 2016
 [API REST du service](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Mise à la disposition générale
 [Version préliminaire de l’API REST Service](search-api-2015-02-28-preview.md)|2015-02-28-Preview|VERSION PRÉLIMINAIRE
-[l’API REST de gestion ;](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Mise à la disposition générale
+[l’API REST de gestion ;](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Mise à la disposition générale
 
-Pour les API REST, il est nécessaire d’inclure la version d’API (`api-version`) sur chaque appel. Cela permet de cibler facilement une version spécifique, par exemple une API en version préliminaire. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
+Pour les API REST, il est nécessaire d’inclure la version d’API (`api-version`) sur chaque appel. Cela permet de cibler facilement une version spécifique, par exemple une API en version préliminaire. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2015-02-28
 
@@ -53,8 +53,8 @@ Le Kit de développement logiciel (SDK) .NET est désormais mis à la dispositio
 
 Version du Kit de développement logiciel (SDK) .NET|Version de l’API REST|Caractéristiques|ETA
 ----------------|----------------|--------|---
-1\.1|2015-02-28|Syntaxe de requête Lucene|Février 2016
-2\.x-preview|2015-02-28-Preview|Analyseurs personnalisés, indexeur d’objet blob Azure, mappages de champs, ETags|Les fonctionnalités seront disponibles au cours du 1er trimestre 2016
+1\.1|2015-02-28|Syntaxe de requête Lucene|Février 2016
+2\.x-preview|2015-02-28-Preview|Analyseurs personnalisés, indexeur d’objet blob Azure, mappages de champs, ETags|Les fonctionnalités seront disponibles au cours du 1er trimestre 2016
 2\.x|Nouvelle version de l’API mise à la disposition générale|Identique à la version 2.x-preview|Disponible peu après la version 2.x-preview
 
 ##À propos des versions préliminaires et mises à la disposition générale
@@ -65,9 +65,8 @@ Il se peut que les fonctionnalités en version préliminaire ne soient pas migr�
 
 Toutefois, comme les fonctionnalités en version préliminaire sont susceptibles d’être modifiées, nous vous recommandons de ne pas écrire un code de production dépendant de ces versions. Si vous utilisez une version préliminaire antérieure, nous vous recommandons de migrer vers la version mise à la disposition générale.
 
-- Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
-- Pour l’API REST, des conseils sur la migration du code sont disponibles à la page [Transition de la version préliminaire vers la version mise à la disposition générale](search-transition-from-preview.md).
+Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
 
 La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

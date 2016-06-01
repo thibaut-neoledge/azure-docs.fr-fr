@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs
@@ -32,7 +32,7 @@ Vous pouvez également utiliser la [classe Indexeur](https://msdn.microsoft.com/
 
 Une **source de données** spécifie les données à indexer, les informations d'identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d'identifier efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
 
-Un **indexeur** est une ressource qui connecte des sources de données à des index de recherche cibles. Un indexeur est utilisé pour :
+Un **indexeur** est une ressource qui connecte des sources de données à des index de recherche cibles. Un indexeur est utilisé pour :
  
 - Effectuer une copie unique des données pour remplir un index.
 - Synchroniser un index avec les modifications apportées à la source de données selon une planification donnée.
@@ -40,19 +40,19 @@ Un **indexeur** est une ressource qui connecte des sources de données à des in
 
 ## Quand utiliser l’indexeur Azure SQL
 
-Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur Azure SQL peut être ou ne pas être appropriée. Si vos données répondent aux conditions suivantes, vous pouvez utiliser l'indexeur Azure SQL :
+Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur Azure SQL peut être ou ne pas être appropriée. Si vos données répondent aux conditions suivantes, vous pouvez utiliser l'indexeur Azure SQL :
 
 - Toutes les données proviennent d'une seule table ou d’une seule vue.
 	- Si les données sont disséminées entre plusieurs tables, vous pouvez créer une vue et l'utiliser avec l'indexeur. Toutefois, sachez que si vous utilisez une vue, vous ne pourrez plus utiliser la fonction intégrée de détection des modifications de SQL Server. Pour plus d’informations, consultez cette section. 
 - L’indexeur prend en charge les types de données utilisés dans la source de données. Mais certains types SQL ne sont pas pris en charge. Pour plus d'informations, consultez la section [Mappage des types de données dans Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - Il n’est pas utile de mettre à jour l’index en quasi-temps réel, lorsqu'une ligne est modifiée. 
-	- L'indexeur peut réindexer votre table toutes les 5 minutes au plus. Si vos données changent fréquemment et si les modifications doivent être intégrées dans l'index en quelques secondes ou minutes, nous vous recommandons d'utiliser l’[API d’index Azure Search](https://msdn.microsoft.com/library/azure/dn798930.aspx) directement. 
-- Si vous avez un jeu de données important et que vous comptez exécuter l'indexeur selon une planification, votre schéma nous permet d'identifier efficacement les lignes modifiées (et éventuellement supprimées). Pour plus d’informations, consultez la section « Capture des lignes modifiées et supprimées ». 
-- La taille des champs indexés sur une ligne ne dépasse pas la taille maximale d'une requête d’indexation Azure Search, soit 16 Mo. 
+	- L'indexeur peut réindexer votre table toutes les 5 minutes au plus. Si vos données changent fréquemment et si les modifications doivent être intégrées dans l'index en quelques secondes ou minutes, nous vous recommandons d'utiliser l’[API d’index Azure Search](https://msdn.microsoft.com/library/azure/dn798930.aspx) directement. 
+- Si vous avez un jeu de données important et que vous comptez exécuter l'indexeur selon une planification, votre schéma nous permet d'identifier efficacement les lignes modifiées (et éventuellement supprimées). Pour plus d’informations, consultez la section « Capture des lignes modifiées et supprimées ». 
+- La taille des champs indexés sur une ligne ne dépasse pas la taille maximale d'une requête d’indexation Azure Search, soit 16 Mo. 
 
-## Créer et utiliser un indexeur Azure SQL
+## Créer et utiliser un indexeur Azure SQL
 
-Commencez par créer la source de données :
+Commencez par créer la source de données :
 
 	POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
 	Content-Type: application/json
@@ -70,7 +70,7 @@ Récupérez la chaîne de connexion sur le [portail Azure Classic](https://porta
 
 Ensuite, créez l’index Azure Search cible si vous n’en avez pas un. Pour ce faire, utilisez l'[interface utilisateur du portail](https://portal.azure.com) ou l’[API de création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assurez-vous que le schéma de votre index cible est compatible avec celui de la table source. Consultez le tableau suivant pour le mappage entre les types de données SQL et Azure Search.
 
-****Mappage entre les types de données SQL et les types de données Azure Search
+## Mappage entre les types de données SQL et les types de données Azure Search
 
 |Type de données SQL | Types de champs d'index cible autorisés |Remarques 
 |------|-----|----|
@@ -98,19 +98,19 @@ Enfin, créez l'indexeur en lui attribuant un nom et en référençant les sourc
 	    "targetIndexName" : "target index name"
 	}
 
-Un indexeur créé de cette façon n’a pas de planification. Il s'exécute automatiquement une fois dès qu'il est créé. Vous pouvez le réexécuter à tout moment à l'aide d’une requête **run indexer**:
+Un indexeur créé de cette façon n’a pas de planification. Il s'exécute automatiquement une fois dès qu'il est créé. Vous pouvez le réexécuter à tout moment à l'aide d’une requête **run indexer** :
 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
  
 Il se peut que vous deviez autoriser des services Azure pour vous connecter à votre base de données. Pour plus d’informations sur la marche à suivre, consultez la section [Connexion à partir de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure).
 
-Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status**:
+Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status** :
 
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key
 
-La réponse doit être semblable à ce qui suit :
+La réponse doit être semblable à ce qui suit :
 
 	{
 		"@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
@@ -143,11 +143,11 @@ La réponse doit être semblable à ce qui suit :
 		]
 	}
 
-L'historique d'exécution contient jusqu’à 50 exécutions les plus récentes, classées par ordre antichronologique (la dernière exécution apparaît en premier dans la réponse). Vous trouverez des informations supplémentaires sur la réponse dans [Obtenir l’état de l’indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528198).
+L'historique d'exécution contient jusqu’à 50 exécutions les plus récentes, classées par ordre antichronologique (la dernière exécution apparaît en premier dans la réponse). Vous trouverez des informations supplémentaires sur la réponse dans [Obtenir l’état de l’indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528198).
 
 ## Exécuter des indexeurs selon une planification
 
-Vous pouvez également configurer l'indexeur pour qu’il s’exécute à intervalles périodiques. Pour ce faire, il suffit d'ajouter la propriété **schedule** lors de la création ou de la mise à jour de l'indexeur. L'exemple ci-dessous montre une requête PUT mettant à jour l'indexeur :
+Vous pouvez également configurer l'indexeur pour qu’il s’exécute à intervalles périodiques. Pour ce faire, il suffit d'ajouter la propriété **schedule** lors de la création ou de la mise à jour de l'indexeur. L'exemple ci-dessous montre une requête PUT mettant à jour l'indexeur :
 
 	PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
 	Content-Type: application/json
@@ -159,23 +159,23 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
+Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
 Le paramètre **startTime** facultatif indique quand les exécutions planifiées doivent commencer ; s'il est omis, l'heure UTC actuelle est utilisée. Cette heure peut être passée, auquel cas la première exécution est planifiée comme si l'indexeur s’exécutait en continu depuis l'heure de début.
 
 L’indexeur ne peut s'exécuter qu’une seule fois simultanément. Si un indexeur est en cours d’exécution lorsque le suivant est censé démarrer, l'exécution est ignorée et reprend à l'intervalle suivant, en supposant qu'aucun autre indexeur est en cours d'exécution.
 
-Pour être plus clair, prenons un exemple. Supposons que nous avons configuré la planification suivante :
+Pour être plus clair, prenons un exemple. Supposons que nous avons configuré la planification suivante :
 
 	"schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
 
-Voici ce qui se passe :
+Voici ce qui se passe :
 
-1. La première exécution de l'indexeur commence à ou autour du 1er mars 2015 à 0 heure UTC.
-1. Supposons que cette exécution prend 20 minutes (ou en tout cas, moins de 1 heure).
-1. La deuxième exécution commence à ou autour du 1er mars 2015 à 1 heure. 
+1. La première exécution de l'indexeur commence à ou autour du 1er mars 2015 à 0 heure UTC.
+1. Supposons que cette exécution prend 20 minutes (ou en tout cas, moins de 1 heure).
+1. La deuxième exécution commence à ou autour du 1er mars 2015 à 1 heure. 
 1. Supposons maintenant que cette exécution dure plus d'une heure (ce qui nécessiterait un nombre important de documents, mais passons...) – par exemple, 70 minutes – de sorte qu'elle se termine à environ 2 h 10.
-1. Il est maintenant 2 h 00, heure du début de la troisième exécution. Mais, comme la deuxième exécution débutée à 1 h est toujours en cours, la troisième est ignorée. Elle commence à 3 h 00.
+1. Il est maintenant 2 h 00, heure du début de la troisième exécution. Mais, comme la deuxième exécution débutée à 1 h est toujours en cours, la troisième est ignorée. Elle commence à 3 h 00.
 
 Vous pouvez ajouter, modifier ou supprimer une planification d’indexeur en utilisant une requête **PUT indexer**.
 
@@ -185,7 +185,7 @@ Si vous utilisez une planification et que votre table contient un nombre non né
 
 ### Stratégie de suivi intégré des modifications SQL
 
-Si votre base de données SQL prend en charge le [suivi des modifications](https://msdn.microsoft.com/library/bb933875.aspx), nous recommandons d'utiliser la **stratégie de suivi intégré des modifications SQL**. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d'identifier les lignes supprimées, sans avoir à ajouter une colonne explicite à « suppression réversible » à votre table.
+Si votre base de données SQL prend en charge le [suivi des modifications](https://msdn.microsoft.com/library/bb933875.aspx), nous recommandons d'utiliser la **stratégie de suivi intégré des modifications SQL**. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d'identifier les lignes supprimées, sans avoir à ajouter une colonne explicite à « suppression réversible » à votre table.
 
 Le suivi intégré des modifications est pris en charge à partir des versions de base de données SQL Server suivantes :
  
@@ -210,7 +210,7 @@ Pour utiliser cette stratégie, créez ou mettez à jour votre source de donnée
 
 ### Stratégie de détection des modifications de limite supérieure
 
-Lorsque la stratégie de suivi intégré des modifications SQL est recommandée, vous ne pourrez pas l'utiliser si vos données sont dans une vue ou si vous utilisez une version antérieure de la base de données SQL Azure. Dans ce cas, essayez la stratégie de limite supérieure. Celle-ci est applicable si votre table contient une colonne qui répond aux critères suivants :
+Lorsque la stratégie de suivi intégré des modifications SQL est recommandée, vous ne pourrez pas l'utiliser si vos données sont dans une vue ou si vous utilisez une version antérieure de la base de données SQL Azure. Dans ce cas, essayez la stratégie de limite supérieure. Celle-ci est applicable si votre table contient une colonne qui répond aux critères suivants :
 
 - Toutes les insertions spécifient une valeur pour la colonne. 
 - Toutes les mises à jour d'un élément modifient également la valeur de la colonne. 
@@ -234,7 +234,7 @@ Par exemple, une colonne **rowversion** indexée est un candidat idéal pour la 
 
 Lorsque des lignes sont supprimées de la table source, vous devez également supprimer ces lignes de l'index de recherche. Si vous utilisez la stratégie de suivi intégré des modifications SQL, cette opération est prise en charge à votre place. Mais la stratégie de suivi des modifications de limite supérieure ne vous est d’aucune aide pour les lignes supprimées. Que faire, alors ?
 
-Si des lignes sont physiquement supprimées de la table, il n'existe aucun moyen de déduire la présence d'enregistrements qui n'existent plus. Cependant, vous pouvez utiliser la technique de « suppression réversible » pour marquer des lignes comme supprimées logiquement sans les supprimer de la table, en ajoutant une colonne et en marquant les lignes comme supprimées à l'aide d'une valeur de marqueur de cette colonne.
+Si des lignes sont physiquement supprimées de la table, il n'existe aucun moyen de déduire la présence d'enregistrements qui n'existent plus. Cependant, vous pouvez utiliser la technique de « suppression réversible » pour marquer des lignes comme supprimées logiquement sans les supprimer de la table, en ajoutant une colonne et en marquant les lignes comme supprimées à l'aide d'une valeur de marqueur de cette colonne.
 
 Lorsque vous utilisez la technique de suppression réversible, vous pouvez spécifier cette stratégie réversible comme suit lors de la création ou de la mise à jour de la source de données :
 
@@ -247,32 +247,32 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 	    }
 	}
 
-Notez que **softDeleteMarkerValue** doit être une chaîne. Utilisez la représentation au format chaîne de votre valeur. Par exemple, si vous avez une colonne d'entiers dans laquelle les lignes supprimées sont marquées avec la valeur 1, utilisez `"1"`. Si vous avez une colonne au format bit dans laquelle les lignes supprimées sont marquées avec la valeur booléenne true, utilisez `"True"`.
+Notez que **softDeleteMarkerValue** doit être une chaîne. Utilisez la représentation au format chaîne de votre valeur. Par exemple, si vous avez une colonne d'entiers dans laquelle les lignes supprimées sont marquées avec la valeur 1, utilisez `"1"`. Si vous avez une colonne au format bit dans laquelle les lignes supprimées sont marquées avec la valeur booléenne true, utilisez `"True"`.
 
 ## Personnaliser l’indexeur Azure SQL
  
-Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus de détails, consultez [Personnalisation de l'indexeur Azure Search](search-indexers-customization.md).
+Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus de détails, consultez [Personnalisation de l'indexeur Azure Search](search-indexers-customization.md).
 
 ## Forum Aux Questions
 
-**Q. :** Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?
+**Q. :** Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?
 
-R. : Oui, tant que vous autorisez des services Azure à se connecter à votre base de données en ouvrant les ports appropriés.
+R. : Oui, tant que vous autorisez des services Azure à se connecter à votre base de données en ouvrant les ports appropriés.
 
-**Q. :** Puis-je utiliser l’indexeur Azure SQL avec des bases de données SQL exécutées localement ?
+**Q. :** Puis-je utiliser l’indexeur Azure SQL avec des bases de données SQL exécutées localement ?
 
-R. : Cette opération n’est pas prise en charge, ni recommandée, car elle vous oblige à ouvrir vos bases de données au trafic Internet.
+R. : Cette opération n’est pas prise en charge, ni recommandée, car elle vous oblige à ouvrir vos bases de données au trafic Internet.
 
-**Q. :** Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?
+**Q. :** Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?
 
-R. : Ce cas de figure n’est pas pris en charge, car nous n'avons pas testé l'indexeur avec des bases de données autres que SQL Server.
+R. : Ce cas de figure n’est pas pris en charge, car nous n'avons pas testé l'indexeur avec des bases de données autres que SQL Server.
 
-**Q. :** Puis-je créer plusieurs indexeurs qui s’exécutent selon une planification ?
+**Q. :** Puis-je créer plusieurs indexeurs qui s’exécutent selon une planification ?
 
-R. : Oui. Cependant, seul un indexeur peut s'exécuter sur un nœud à la fois. Si vous avez besoin d’exécuter plusieurs indexeurs simultanément, envisagez d’ajouter d’autres unités de recherche à votre service de recherche.
+R. : Oui. Cependant, seul un indexeur peut s'exécuter sur un nœud à la fois. Si vous avez besoin d’exécuter plusieurs indexeurs simultanément, envisagez d’ajouter d’autres unités de recherche à votre service de recherche.
 
-**Q. :** L’exécution d’un indexeur affecte-t-il la charge de travail de mes requêtes ?
+**Q. :** L’exécution d’un indexeur affecte-t-il la charge de travail de mes requêtes ?
 
-R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et les ressources de ce nœud sont partagées entre l'indexation et le traitement du trafic de requêtes d’une part, et d’autres requêtes d’API d’autre part. Si vous exécutez des charges de travail intensives d'indexation et de requête et que vous rencontrez un taux élevé d'erreurs 503 ou des délais de réponse croissants, redimensionnez votre service de recherche.
+R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et les ressources de ce nœud sont partagées entre l'indexation et le traitement du trafic de requêtes d’une part, et d’autres requêtes d’API d’autre part. Si vous exécutez des charges de travail intensives d'indexation et de requête et que vous rencontrez un taux élevé d'erreurs 503 ou des délais de réponse croissants, redimensionnez votre service de recherche.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

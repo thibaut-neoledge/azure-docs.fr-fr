@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/20/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -44,7 +44,7 @@ Sample DPM scripts: Get-DPMSampleScript
 Pour commencer :
 
 1. [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.0.0)
-2. Activez les applets de commande Azure Backup en passant en mode *AzureResourceManager* via l’applet de commande **Switch-AzureMode** :
+2. Activez les applets de commande Azure Backup en passant en mode *AzureResourceManager* via l’applet de commande **Switch-AzureMode** :
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -75,7 +75,7 @@ Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement
 ### Installation de l'agent Azure Backup sur un serveur DPM
 Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](http://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre de sauvegarde. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
 
-Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges **sur le serveur DPM** :
+Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges **sur le serveur DPM** :
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -300,7 +300,10 @@ Pour terminer, les modifications doivent être validées avant que DPM puisse ef
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Affichage des points de sauvegarde
-Vous pouvez utiliser l’applet de commande [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) pour obtenir la liste de tous les points de récupération d’une source de données. Dans cet exemple, nous allons : - extraire tous les groupes de protection sur le serveur DPM qui seront stockés dans un tableau ```$PG``` - obtenir les sources de données correspondant à ```$PG[0]``` - obtenir tous les points de récupération d’une source de données.
+Vous pouvez utiliser l’applet de commande [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) pour obtenir la liste de tous les points de récupération d’une source de données. Dans cet exemple, nous allons :
+- extraire tous les groupes de protection sur le serveur DPM pour les stocker dans un tableau ```$PG``` ;
+- obtenir les sources de données correspondant à ```$PG[0]``` ;
+- obtenir tous les points de récupération pour une source de données.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -333,4 +336,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 
 - Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation des sauvegardes DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

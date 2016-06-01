@@ -60,7 +60,7 @@ L’activité de copie permet de copier des données d’un jeu de données d’
 L'activité de copie fournit les fonctionnalités suivantes :
 
 ### <a name="global"></a>Déplacement des données disponible globalement
-Même si Azure Data Factory est en soi disponible uniquement dans la région Ouest des États-Unis et dans le Nord de l’Europe, le service alimentant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant les sauts entre régions dans la plupart des cas.
+Même si Azure Data Factory est en soi disponible uniquement dans les régions Ouest des États-Unis, Est des États-Unis et Europe du Nord, le service alimentant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant les sauts entre régions dans la plupart des cas.
 
 La **passerelle de gestion des données** ou **Azure Data Factory** effectue le déplacement des données en fonction de l’emplacement des magasins de données source et de destination dans une opération de copie. Pour plus d’informations, consultez le tableau suivant :
 
@@ -195,4 +195,4 @@ Vous pouvez également configurer une variable **custom**, comme indiqué ci-des
 
 ![Utilisation de la variable custom](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

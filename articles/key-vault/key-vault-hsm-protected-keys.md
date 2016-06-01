@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -151,7 +151,7 @@ KeyVault-BYOK-Tools-Australia.zip
 
 ---
 
-[**Azure Government :**](../../../../features/gov/)
+[**Azure Government :**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -380,4 +380,4 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, voir la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main du coffre de clés Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

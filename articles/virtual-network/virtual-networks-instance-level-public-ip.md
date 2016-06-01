@@ -16,13 +16,13 @@
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
-Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel résident cette machine ou instance. Cette adresse IP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
+Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel réside cette machine ou cette instance. Elle ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
 
 Assurez-vous que vous comprenez le fonctionnement des [adresses IP](virtual-network-ip-addresses-overview-classic.md) dans Azure.
 
->[AZURE.NOTE] Auparavant, une adresse ILPIP était désignée sous le terme d’adresse PIP, qui signifie adresse IP publique.
+>[AZURE.NOTE] Auparavant, une adresse ILPIP était appelée PIP (signifiant adresse IP publique).
 
 ![Différences entre les adresses IP publiques de niveau d’instance (ILPIP) et les adresses IP virtuelles (VIP)](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -36,7 +36,9 @@ Quand vous créez un service cloud dans Azure, les enregistrements DNS A corresp
 >[AZURE.NOTE] Vous ne pouvez affecter qu’une seule adresse ILPIP par machine virtuelle ou instance de rôle. Vous pouvez utiliser jusqu’à 5 adresses ILPIP par abonnement. Pour l’instant, les adresses ILPIP ne sont pas prises en charge pour les machines virtuelles équipées de plusieurs cartes d’interface réseau.
 
 ## Pourquoi dois-je demander une adresse ILPIP ?
-Si vous souhaitez être en mesure de vous connecter à votre machine virtuelle ou instance de rôle par l’intermédiaire d’une adresse IP qui lui est directement affectée, plutôt qu’en utilisant VIP:&lt;,numéro de port&gt;, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle. - **Mode FTP passif** - Le fait de disposer d’une adresse ILPIP sur votre machine virtuelle vous permet de recevoir le trafic sur le port de votre choix sans avoir à ouvrir de point de terminaison. Cette possibilité autorise notamment le mode FTP passif, où les ports sont sélectionnés de façon dynamique. - **Adresse IP sortante** - Le trafic sortant en provenance de la machine virtuelle présente l’adresse ILPIP en guise de source, ce qui identifie de manière unique la machine virtuelle auprès des entités externes.
+Si vous souhaitez pouvoir vous connecter à votre machine virtuelle ou instance de rôle à l’aide d’une adresse IP attribuée directement, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle, au lieu d’utiliser l’adresse VIP:&lt;numéro-port&gt; du service cloud.
+- **FTP passif** : avec une adresse ILPIP sur votre machine virtuelle, vous pouvez recevoir du trafic sur n’importe quel port et vous n’avez besoin d’ouvrir aucun point de terminaison pour recevoir le trafic. Cette possibilité autorise notamment le mode FTP passif, où les ports sont sélectionnés de façon dynamique.
+- **Adresse IP sortante** : le trafic sortant de la machine virtuelle présente l’adresse ILPIP en guise de source, identifiant ainsi de manière univoque la machine virtuelle auprès des entités externes.
 
 ## Demande d’une adresse ILPIP durant la création d’une machine virtuelle
 Le script PowerShell ci-dessous crée un service cloud nommé *FTPService*, puis récupère une image à partir d’Azure et crée une machine virtuelle nommée *FTPInstance* à l’aide de l’image récupérée, configure cette machine virtuelle pour qu’elle utilise une adresse ILPIP et ajoute la machine au nouveau service :
@@ -87,14 +89,14 @@ Pour supprimer l’adresse ILPIP ajoutée à la machine virtuelle par le biais 
 	| Update-AzureVM
 
 ## Ajout d’une adresse ILPIP à une machine virtuelle existante
-Pour ajouter une adresse ILPIP à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
+Pour ajouter une adresse ILPIP à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
 	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
 	| Set-AzurePublicIP -PublicIPName ftpip2 `
 	| Update-AzureVM
 
 ## Association d’une adresse ILPIP à une machine virtuelle à l’aide d’un fichier de configuration de service
-Vous pouvez également associer une adresse ILPIP à une machine virtuelle au moyen d’un fichier de configuration de service (CSCFG). L’exemple de code xml ci-dessous indique comment configurer un service cloud pour l’utilisation d’une adresse IP réservée nommée *MyReservedIP* en tant qu’adresse ILPIP pour une instance de rôle :
+Vous pouvez également associer une adresse ILPIP à une machine virtuelle au moyen d’un fichier de configuration de service (CSCFG). L’exemple de code XML ci-dessous indique comment configurer un service cloud afin qu’il utilise une adresse ILPIP nommée *MyReservedIP* pour une instance de rôle :
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -113,7 +115,7 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 	          <Subnet name="Subnet2"/>
 	        </Subnets>
 	        <PublicIPs>
-	          <PublicIP name="MyReservedIP" domainNameLabel="MyReservedIP" />
+	          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
 	        </PublicIPs>
 	      </InstanceAddress>
 	    </AddressAssignments>
@@ -122,9 +124,9 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 
 ## Étapes suivantes
 
-- Découvrez comment l’[adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement classique.
+- Découvrez comment l’[adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement Classic.
 
-- En savoir plus sur les [adresses IP réservées](../virtual-networks-reserved-public-ip).
+- En savoir plus sur les [adresses IP réservées](../virtual-networks-reserved-public-ip).
  
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

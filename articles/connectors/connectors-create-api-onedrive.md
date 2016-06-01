@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Prendre en main l’API OneDrive
@@ -59,7 +59,7 @@ Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser 
 1. Connectez-vous à votre compte OneDrive.
 2. Autorisez vos applications logiques à se connecter à votre compte OneDrive et à l’utiliser. 
 
-Après avoir créé la connexion, vous entrez les propriétés OneDrive, telles que le chemin du dossier ou le nom du fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+>[AZURE.INCLUDE [Procédure de création d’une connexion à OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
 
@@ -112,7 +112,7 @@ Supprime un fichier de OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide du chemin
-Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileByPath```
+Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Récupère les métadonnées d’un fichier dans OneDrive à l’aide du chemin 
 
 
 ### Obtenir le contenu d’un fichier à l’aide du chemin
-Récupère le contenu d’un fichier dans OneDrive à l’aide du chemin d’accès. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier dans OneDrive à l’aide du chemin. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Revenir à la [liste des API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

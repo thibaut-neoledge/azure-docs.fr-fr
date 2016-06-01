@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Business Intelligence de SQL Server dans les machines virtuelles Azure
@@ -50,27 +50,29 @@ La galerie de machines virtuelles Microsoft Azure inclut plusieurs images qui co
 
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
 
+	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2016"
+	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2016*"} | select imagename,category, location, label, description
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-
-	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
-	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
 
 Pour plus d’informations sur les éditions et les fonctionnalités prises en charge par SQL Server, consultez les rubriques suivantes :
 
 - [Éditions de SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 
-- [Fonctionnalités prises en charge par les éditions de SQL Server 2014](https://msdn.microsoft.com/library/cc645993.aspx)
+- [Fonctionnalités prises en charge par les éditions de SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### Fonctionnalités d’aide à la décision installées sur les images de la galerie de machines virtuelles SQL Server
 
 Le tableau suivant récapitule les fonctionnalités Business Intelligence installées sur les images de la galerie de machines virtuelles Microsoft Azure pour SQL Server.
 
-- SQL Server 2014 RTM Enterprise
+- SQL Server 2016 RC3
 
-- SQL Server 2014 Standard
+- SQL Server 2014 SP1 Enterprise
+
+- SQL Server 2014 SP1 Standard
 
 - SQL Server 2012 SP2 Enterprise
 
@@ -81,7 +83,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 |**Mode natif de Reporting Services**|Oui|Installé, mais nécessite une configuration, notamment de l’URL du Gestionnaire de rapports. Consultez la section [Configurer Reporting Services](#configure-reporting-services).|
 |**Mode SharePoint de Reporting Services**|Non|L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup>|
 |**Mode multidimensionnel et d’exploration de données Analysis Services (OLAP)**|Oui|Installé et configuré comme instance par défaut de Analysis Services|
-|**Mode tabulaire Analysis Services**|Non|Pris en charge dans les images SQL Server 2012 et 2014, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique.|
+|**Mode tabulaire Analysis Services**|Non|Pris en charge dans les images SQL Server 2012, 2014 et 2016, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique.|
 |**Analysis Services Power Pivot pour SharePoint**|Non|L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup>|
 
 <sup>1</sup> Pour plus d’informations sur SharePoint et les machines virtuelles Azure, consultez [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) et [Déploiement de SharePoint dans Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -174,17 +176,17 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
 
-1. Dans **Windows Server 2012** :
+1. Dans **Windows Server 2012** :
 
 1. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
 
 1. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
-1. Dans **Windows Server 2008 R2** :
+1. Dans **Windows Server 2008 R2** :
 
 1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
 
-1. Cliquez sur **Microsoft SQL Server 2012**.
+1. Cliquez sur **Microsoft SQL Server 2016**.
 
 1. Cliquez sur **Outils de configuration**.
 
@@ -240,9 +242,9 @@ Ou
 
 1. Dans la page **État d’avancement et fin**, cliquez sur **Suivant**.
 
-**URL du Gestionnaire de rapports :**
+**URL du portail web ou URL du Gestionnaire de rapports pour 2012 et 2014 :**
 
-1. Dans le volet gauche, cliquez sur **URL du Gestionnaire de rapports**.
+1. Cliquez sur **URL du portail web** ou sur **URL du Gestionnaire de rapports** pour 2014 et 2012, dans le volet gauche.
 
 1. Cliquez sur **Apply**.
 
@@ -260,35 +262,37 @@ Pour vérifier la configuration, accédez au Gestionnaire de rapports sur la mac
 
 1. Accédez à http://localhost/reports sur la machine virtuelle.
 
-### Pour se connecter au Gestionnaire de rapports distant
+### Se connecter au portail web distant ou au Gestionnaire de rapports pour 2014 et 2012
 
-Si vous souhaitez vous connecter au Gestionnaire de rapports sur la machine virtuelle à partir d’un ordinateur distant, créez un nouveau point de terminaison TCP de machine virtuelle. Par défaut, le serveur de rapports écoute les requêtes HTTP sur le **port 80**. Si vous configurez les URL du serveur de rapports pour utiliser un autre port, vous devez spécifier ce numéro de port dans les instructions ci-après.
+Si vous souhaitez vous connecter au portail web ou au Gestionnaire de rapports pour 2014 et 2012, sur la machine virtuelle d’un ordinateur distant, créez un point de terminaison TCP de machine virtuelle. Par défaut, le serveur de rapports écoute les requêtes HTTP sur le **port 80**. Si vous configurez les URL du serveur de rapports pour utiliser un autre port, vous devez spécifier ce numéro de port dans les instructions ci-après.
 
 1. Créez un point de terminaison pour la machine virtuelle avec le port TCP 80. Pour plus d’informations, consultez la section [Points de terminaison de la machine virtuelle et ports de pare-feu](#virtual-machine-endpoints-and-firewall-ports) dans ce document.
 
 1. Ouvrez le port 80 dans le pare-feu de la machine virtuelle.
 
-1. Accédez au Gestionnaire de rapports en utilisant le **Nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple :
+1. Accédez au portail web ou au Gestionnaire de rapports en utilisant le **nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple :
 
-	**Gestionnaire de rapports** : http://uebi.cloudapp.net/reportserver **Serveur de rapports** : http://uebi.cloudapp.net/reports
+	**Serveur de rapports** : http://uebi.cloudapp.net/reportserver **Portail web** : http://uebi.cloudapp.net/reports
 
-	[Configurer un pare-feu pour accéder au serveur de rapports](https://technet.microsoft.com/library/bb934283.aspx)
+	[Configurer un pare-feu pour accéder au serveur de rapports](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### Pour créer et publier des rapports sur la machine virtuelle Azure
 
 Le tableau suivant résume certaines des options disponibles pour publier des rapports existants à partir d’un ordinateur local vers le serveur de rapports hébergé sur la machine virtuelle Microsoft Azure :
 
-- **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
+- **Générateur de rapports** : la machine virtuelle inclut la version en un clic du Générateur de rapports Microsoft SQL Server 2014 et 2012. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle avec SQL 2016 :
 
 	1. Démarrez votre navigateur avec des privilèges administratifs.
 
-	1. Accédez au Gestionnaire de rapports sur la machine virtuelle et cliquez sur **Générateur de rapports** dans le ruban.
+	1. Accédez au portail web sur la machine virtuelle, puis sélectionnez l’icône **Télécharger** dans le coin supérieur droit.
+	
+	1. Sélectionnez **Générateur de rapports**.
 
-	Pour plus d’informations, consultez la page [Installer, désinstaller et prendre en charge le Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
+	Pour plus d’informations, consultez [Démarrer le Générateur de rapports](https://msdn.microsoft.com/library/ms159221.aspx).
 
-- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
+- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 
-- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
+- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
 
 	![propriétés de projet ssdt pour un projet SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
@@ -308,11 +312,11 @@ Pour installer les services supplémentaires de SQL Server, tels que Analysis Se
 
 1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
 
-1. Cliquez sur **Microsoft SQL Server 2014** ou sur **Microsoft SQL Server 2012**, puis sur **Outils de configuration**.
+1. Cliquez sur **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** ou **Microsoft SQL Server 2012**, puis sur **Outils de configuration**.
 
 1. Cliquez sur **Centre d’installation SQL Server**.
 
-Vous pouvez également exécuter C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQLServer\_11.0\_full\\setup.exe
+Vous pouvez également exécuter C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQLServer\_11.0\_full\\setup.exe
 
 >[AZURE.NOTE] La première fois que vous exécutez l’installation de SQL Server, davantage de fichiers d’installation peuvent être téléchargés et nécessiter un redémarrage de la machine virtuelle et un redémarrage de l’installation de SQL Server.
 >
@@ -324,13 +328,13 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 - [Installer Analysis Services en mode tabulaire](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [Modélisation tabulaire (didacticiel Adventure Works)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [Modélisation tabulaire (didacticiel Adventure Works)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **Pour installer Analysis Services en mode tabulaire :**
 
 1. Dans l’Assistant Installation de SQL Server, cliquez sur **Installation** dans le volet gauche, puis cliquez sur **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
 
-	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_12.0\_full ou à c:\\SQLServer\_11.0\_full, puis cliquez sur **OK**.
+	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full ou c:\\SQLServer\_11.0\_full, puis cliquez sur **OK**.
 
 1. Dans la page des mises à jour du produit, cliquez sur **Suivant**.
 
@@ -388,8 +392,8 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 
 	|Port|Type|Description|
 |---|---|---|
-|**80**|TCP|Accès distant au serveur de rapports (*).| 
-|**1433**|TCP|SQL Server Management Studio (*).| 
+|**80**|TCP|Accès distant au serveur de rapports (*).|
+|**1433**|TCP|SQL Server Management Studio (*).|
 |**1434**|UDP|SQL Server Browser. Nécessaire lorsque la machine virtuelle est jointe à un domaine.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instance par défaut et instance en cluster nommée de SQL Server Analysis Services.|
@@ -433,4 +437,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

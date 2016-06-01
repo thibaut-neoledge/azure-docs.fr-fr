@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)
@@ -24,7 +24,7 @@ Si vous stockez des données historiques dans une table distincte, vous pouvez c
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-Dans RC3, lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat de filtre simple basé sur la date dans l'assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
+Lorsque vous exécutez l’Assistant Activer la base de données pour Stretch, vous pouvez migrer une table entière, ou vous pouvez spécifier un prédicat de filtre simple basé sur la date dans l’assistant. Si vous souhaitez utiliser un prédicat de filtre différent pour sélectionner les lignes à migrer, effectuez l'une des opérations suivantes.
 
 -   Quittez l'assistant et exécutez l'instruction ALTER TABLE pour activer Stretch pour la table et spécifier un prédicat.
 
@@ -508,4 +508,4 @@ Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de c
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

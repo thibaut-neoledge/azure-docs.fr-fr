@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
@@ -265,7 +265,7 @@ Dans l’intervalle, tous les paramètres push hérités (à l’exception notab
 
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -332,6 +332,33 @@ Si vous clonez votre service mobile migré à l’aide d’Azure PowerShell, pui
 
 Résolution : Nous travaillons actuellement à la correction de ce problème. Si vous souhaitez cloner votre site, utilisez le portail.
 
+### La modification du fichier web.config ne fonctionne pas
+
+Si vous avez un site ASP.NET, les changements au fichier `Web.config` ne fonctionneront pas. Azure App Service crée un fichier `Web.config` adapté lors du démarrage pour prendre en charge le runtime Mobile Services. Vous pouvez remplacer certains paramètres (comme les en-têtes personnalisés) à l’aide d’un fichier de transformation XML. Créez un fichier appelé `applicationHost.xdt` : ce fichier doit terminer dans le répertoire `D:\home\site` sur le Service Azure. Vous pouvez le faire avec un script de déploiement personnalisé ou en utilisant directement Kudu. Voici un exemple de document :
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+Pour plus d’informations, consultez la documentation [Exemples de transformation XDT] sur GitHub.
+
+### Vous ne pouvez pas ajouté une version migrée de Mobile Services à Traffic Manager
+
+Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir directement une version migrée de Mobile Services pour le profil. Vous devez utiliser un « système d'extrémité externe ». Le système d'extrémité externe peut uniquement être ajouté via PowerShell. Reportez-vous au [Didacticiel de Traffic Manager](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) pour plus d’informations.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 À présent que votre application a été migrée vers App Service, vous pouvez tirer parti de davantage de fonctionnalités :
@@ -354,17 +381,17 @@ Résolution : Nous travaillons actuellement à la correction de ce problème. Si
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
-[région Azure]: https://azure.microsoft.com/regions/
+[région Azure]: https://azure.microsoft.com/en-us/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [déployer en continu]: ../app-service-web/web-sites-publish-source-control.md
-[convertir vos espaces de noms mixte]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir vos espaces de noms mixte]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -381,5 +408,6 @@ Résolution : Nous travaillons actuellement à la correction de ce problème. Si
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
+[Exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

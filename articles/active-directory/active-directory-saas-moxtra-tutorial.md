@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -45,8 +45,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
  
 ## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> 
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. <br> Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Moxtra à partir de la galerie 
 2. Configuration et test de l’authentification unique Azure AD
@@ -57,17 +56,13 @@ Pour configurer l'intégration de Moxtra à Azure AD, vous devez ajouter Moxtra
 
 **Pour ajouter Moxtra à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>
-![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br>
-![Applications][2]<br>
-4. Cliquez sur **Ajouter** en bas de la page.<br><br>
-![Applications][3]<br>
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br>
-![Applications][4]<br>
+3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
+4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Moxtra**.<br><br>
 ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. Dans le volet de résultats, sélectionnez **Moxtra**, puis cliquez sur **Terminer** pour ajouter l'application.
@@ -76,8 +71,7 @@ Pour configurer l'intégration de Moxtra à Azure AD, vous devez ajouter Moxtra
 ##  Configuration et test de l’authentification unique Azure AD
 L'objectif de cette section est de vous montrer comment configurer et tester l'authentification unique Azure AD avec Moxtra avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l'authentification unique fonctionne, Azure AD doit savoir qui est l'utilisateur Moxtra équivalent dans Azure AD. En d'autres termes, il faut établir une relation entre l'utilisateur Azure AD et l'utilisateur Moxtra associé.<br>
-Pour cela, affectez la valeur du **nom d'utilisateur** dans Azure AD comme valeur du **nom d'utilisateur** dans Moxtra.
+Pour que l'authentification unique fonctionne, Azure AD doit savoir qui est l'utilisateur Moxtra équivalent dans Azure AD. En d'autres termes, il faut établir une relation entre l'utilisateur Azure AD et l'utilisateur Moxtra associé.<br> Pour cela, affectez la valeur du **nom d'utilisateur** dans Azure AD comme valeur du **nom d'utilisateur** dans Moxtra.
  
 Pour configurer et tester l'authentification unique Azure AD avec Moxtra, vous devez suivre les blocs élémentaires suivants :
 
@@ -91,18 +85,15 @@ Pour configurer et tester l'authentification unique Azure AD avec Moxtra, vous 
 
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Moxtra.
 
-Votre application Moxtra attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d'attributs personnalisés à la configuration des attributs du jeton SAML. La capture d'écran suivante en montre un exemple.
-<br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
+Votre application Moxtra attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d'attributs personnalisés à la configuration des attributs du jeton SAML. La capture d'écran suivante montre un exemple. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
 
 
 
 **Pour configurer l'authentification unique Azure AD avec Moxtra, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Moxtra**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-<br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Moxtra**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Moxtra**, sélectionnez **Authentification unique Azure AD**, puis sur **Suivant**.
-<br><br> ![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Moxtra**, sélectionnez **Authentification unique Azure AD**, puis sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
 
 3. Sur la page **Configurer les paramètres d'application**, procédez comme suit :
 <br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
@@ -148,14 +139,11 @@ Votre application Moxtra attend les assertions SAML dans un format spécifique, 
     h. Cliquez sur **Mettre à jour**.
 
 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-<br><br>![Authentification unique Azure AD][10]<br>
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
-7. Dans la page **Confirmation de l'authentification unique**, cliquez sur **Terminer**.
-<br><br>![Authentification unique Azure AD][11]
+7. Dans la page **Confirmation de l'authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
-1. Pour ajouter des mappages d'attributs personnalisés à votre configuration d'attributs de jeton SAML, cliquez sur **Attributs** dans le menu en haut pour ouvrir la boîte de dialogue **Attributs du jeton SAML**.
-<br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_general_80.png) <br>
+1. Pour ajouter des mappages d'attributs personnalisés à votre configuration d'attributs de jeton SAML, cliquez sur **Attributs** dans le menu en haut pour ouvrir la boîte de dialogue **Attributs du jeton SAML**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_general_80.png) <br>
 
 
 
@@ -187,8 +175,7 @@ Votre application Moxtra attend les assertions SAML dans un format spécifique, 
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br>
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
@@ -244,8 +231,7 @@ L'objectif de cette section est de créer un utilisateur appelé Britta Simon da
 
 1. Connectez-vous à votre site d'entreprise Moxtra en tant qu'administrateur.
 
-1. Dans la barre d'outils située à gauche, cliquez sur **Console Administrateur > Gestion des utilisateurs**, puis sur **Ajouter un utilisateur**.
-<br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) <br>
+1. Dans la barre d'outils située à gauche, cliquez sur **Console Administrateur > Gestion des utilisateurs**, puis sur **Ajouter un utilisateur**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) <br>
 
 
 
@@ -271,24 +257,20 @@ L'objectif de cette section est de créer un utilisateur appelé Britta Simon da
 
 ### Affectation de l’utilisateur de test Azure AD
 
-L'objectif de cette section est de permettre à Britta Simon d'utiliser l'authentification unique Azure en lui accordant l'accès à Moxtra.
-<br><br>![Affecter des utilisateurs][200] <br>
+L'objectif de cette section est de permettre à Britta Simon d'utiliser l'authentification unique Azure en lui accordant l'accès à Moxtra. <br><br>![Affecter des utilisateurs][200] <br>
 
 **Pour affecter Britta Simon à Moxtra, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
-<br><br>![Affecter des utilisateurs][201] <br>
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **Moxtra**.
 <br><br>![Configurer l’authentification unique](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_50.png) <br>
 
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
-<br><br>![Affecter des utilisateurs][203] <br>
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
 
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
-<br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -322,4 +304,4 @@ Lorsque vous cliquez sur la mosaïque Moxtra dans le volet d'accès, vous êtes 
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

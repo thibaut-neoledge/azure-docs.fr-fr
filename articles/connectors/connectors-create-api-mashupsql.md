@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur Sql Connector
@@ -61,6 +61,8 @@ Pour créer des applications logiques avec Sql Connector, vous devez d’abord c
 | ---|---|---|
 |SqlConnectionString|Oui|Fournir votre chaîne de connexion SQL|
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Mashup SQL](../../includes/connectors-create-api-mashupsql.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -302,4 +304,4 @@ Mettre à jour une ligne : met à jour une ligne existante dans une table SQL
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

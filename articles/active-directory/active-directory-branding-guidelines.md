@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -47,9 +47,9 @@ Dans une version antérieure de ces directives, nous recommandions d’utiliser 
 
 Votre application peut présenter des chemins distincts pour l’inscription et la connexion, et les sections suivantes fournissent des conseils visuels pour les deux scénarios.
 
-**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou scolaire de Microsoft. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
+**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou scolaire de Microsoft. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
 
-**Si votre application nécessite des autorisations auxquelles seuls les administrateurs peuvent consentir ou si votre application requiert une licence d’entreprise** : vous devez séparer l’acquisition administrateur de la connexion utilisateur. Le **bouton « obtenir cette application »** redirige les administrateurs vers la connexion, après quoi ils sont invités à donner leur consentement pour le compte des utilisateurs de leur organisation. Cela présente l’avantage supplémentaire de supprimer de votre application les invites de consentement pour les utilisateurs finaux.
+**Si votre application nécessite des autorisations auxquelles seuls les administrateurs peuvent consentir ou si votre application requiert une licence d’entreprise** : vous devez séparer l’acquisition administrateur de la connexion utilisateur. Le **bouton « obtenir cette application »** redirige les administrateurs vers la connexion, après quoi ils sont invités à donner leur consentement pour le compte des utilisateurs de leur organisation. Cela présente l’avantage supplémentaire de supprimer de votre application les invites de consentement pour les utilisateurs finaux.
 
 ## Aide visuelle pour l’acquisition de l’application
 
@@ -94,4 +94,4 @@ N’exposez **PAS** les utilisateurs finaux à la marque Azure ou Active Direct
 
 Si votre application prend en charge Azure AD et les comptes Microsoft, vous devez y inclure deux boutons de connexion distincts. Nous travaillons actuellement sur une mise à jour qui vous permettra d’effectuer une seule intégration et de prendre en charge à la fois les comptes personnels et professionnels de Microsoft. Une fois que cette fonctionnalité sera disponible, vous serez en mesure d’afficher un seul bouton « connexion avec Microsoft » dans votre application.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

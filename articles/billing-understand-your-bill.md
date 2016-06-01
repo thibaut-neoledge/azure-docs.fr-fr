@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ Pour plus d’informations sur la consommation et les formules tarifaires, consu
 
 ### Afficher ou télécharger une facture Microsoft Azure :
 
-Sur le [portail du compte Azure](https://account.windowsazure.com/subscriptions), vous pouvez consulter les factures en cours et télécharger d'anciennes factures.
+Sur le [Centre des comptes Azure](https://account.windowsazure.com/subscriptions), vous pouvez consulter les factures en cours et télécharger d’anciennes factures.
 
 Pour afficher ou télécharger une facture :
 
-1. Connectez-vous au [portail du compte](https://account.windowsazure.com/subscriptions) à l'aide de votre ID de compte Microsoft ou de votre ID de compte professionnel ou scolaire.
+1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) à l’aide de votre ID de compte Microsoft ou de votre ID de compte professionnel ou scolaire.
 
 2. Cliquez sur l'abonnement dont vous souhaitez afficher les détails et l'utilisation.
 
@@ -48,7 +48,7 @@ Pour afficher ou télécharger une facture :
     ![Résumé - historique de facturation - 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4. L'**Historique de la facturation** affiche les relevés des six dernières périodes de facturation, plus la période non facturée en cours. Le relevé de la période en cours est une estimation de vos frais à la date de génération de l'estimation. Cette information est uniquement mise à jour quotidiennement et peut ne pas inclure l'ensemble de votre utilisation engagée à ce jour. Votre facture mensuelle peut différer de l'estimation.
+4. L’**Historique de la facturation** affiche les relevés des périodes de facturation précédentes, plus la période non facturée en cours. Le relevé de la période en cours est une estimation de vos frais à la date de génération de l'estimation. Cette information est uniquement mise à jour quotidiennement et peut ne pas inclure l'ensemble de votre utilisation engagée à ce jour. Votre facture mensuelle peut différer de l'estimation.
 
     ![Résumé - historique de facturation - 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
@@ -140,7 +140,7 @@ La page des informations supplémentaires fournit les références à d'autres r
 ![informations supplémentaires](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Utilisation détaillée
-Le lien de la description qui figure sous **Utilisation détaillée** vous dirige vers le portail du compte, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure. Notez que, dans le fichier .csv version 1, il n'y a aucune information sur Azure Resource Manager. Vous trouverez des informations sur Azure Resource Manager dans le fichier .csv version 2.
+Le lien de la description qui figure sous **Utilisation détaillée** vous dirige vers le Centre des comptes, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure. Notez que, dans le fichier .csv version 1, il n'y a aucune information sur Azure Resource Manager. Vous trouverez des informations sur Azure Resource Manager dans le fichier .csv version 2.
 
 ### Informations supplémentaires et ressources utiles
 Cette section comporte des liens vers des questions simples concernant les tailles des instances de calcul et les frais des bases de données SQ, ainsi que des liens utiles pour vous aider à répondre à d'autres questions.
@@ -217,15 +217,15 @@ Informations sur le service 2 | Informations sur le service 2 | Champ hérité
 
 Outre certains nouveaux champs et changements de nom, la version 2 du fichier .csv inclut une mise en forme standardisée des données dans les champs ci-dessous :
 
-- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
+- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
-- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
+- **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :  
+- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :  
     - Machines virtuelles
     - Stockage
     - Services de mise en réseau approvisionnés à l’aide de l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -238,18 +238,19 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 - [FAQ sur la facturation et l’abonnement Azure](billing-subscription-faq.md)
 
-- [Gérer les modes de paiement pour les abonnements Azure](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md)
 
-- [Modifier les informations de paiement d’une carte bancaire existante](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
-- [Ajouter une nouvelle carte bancaire comme mode de paiement](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
-- [Modifier la carte bancaire utilisée pour payer une facture Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

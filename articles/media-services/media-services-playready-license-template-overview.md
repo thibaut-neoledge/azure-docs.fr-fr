@@ -48,7 +48,7 @@ L'exemple ci-dessous illustre le modèle le plus simple (et le plus utilisé) po
 
 Le code XML est conforme au schéma XML de modèle de licence PlayReady défini dans la section Schéma XML de modèle de licence PlayReady.
 
-Media Services définit également un ensemble de classes .NET susceptibles d'être utilisées pour sérialiser et désérialiser à destination et à partir du code XML. Pour obtenir une description des classes principales, consultez [Classes .NET de Media Services]((media-services-playready-license-template-overview.md#classes) permettant de configurer des modèles de licence.
+Media Services définit également un ensemble de classes .NET susceptibles d'être utilisées pour sérialiser et désérialiser à destination et à partir du code XML. Pour obtenir une description des classes principales, consultez [Classes .NET de Media Services permettant de configurer des modèles de licence](media-services-playready-license-template-overview.md#classes).
 
 Pour obtenir un exemple de bout en bout utilisant les classes .NET pour configurer le modèle de licence PlayReady, consultez [Utilisation du chiffrement dynamique et du service de fourniture de licence PlayReady](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
@@ -311,4 +311,4 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

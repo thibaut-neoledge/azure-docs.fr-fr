@@ -158,4 +158,4 @@ Vous pouvez vérifier votre connexion VPN dans le portail ou à l’aide de Powe
 
 - Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

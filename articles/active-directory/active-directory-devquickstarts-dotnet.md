@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -53,7 +53,8 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
 - Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Pour l’application Azure Active Directory, ajoutez l’autorisation **Accéder au répertoire de l’organisation** sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## *2. Installation et configuration de la bibliothèque ADAL*
-Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, vous devez lui fournir des informations concernant l’inscription de votre application. - Commencez par ajouter la bibliothèque ADAL au projet DirectorySearcher à l’aide de la console du gestionnaire de package.
+Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour permettre à ADAL de communiquer avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
+-	Commencez par ajouter ADAL au projet DirectorySearcher à l’aide de la console du gestionnaire de package.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -65,7 +66,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     -	`ida:RedirectUri` est l’URL de redirection que vous avez inscrite dans le portail.
 
 ## *3. Utilisation de la bibliothèque ADAL pour obtenir des jetons à partir d’AAD*
-Le principe de base de la bibliothèque ADAL consiste simplement à appeler `authContext.AcquireToken(...)` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
+Le principe de base de la bibliothèque ADAL consiste simplement à appeler `authContext.AcquireTokenAsync(...)` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
 
 -	Dans le projet `DirectorySearcher`, ouvrez `MainWindow.xaml.cs` et recherchez la méthode `MainWindow()`. La première étape est d’initialiser `AuthenticationContext` pour votre application (classe principale de la bibliothèque ADAL). C’est à ce moment-là que vous fournissez à la bibliothèque ADAL les coordonnées dont elle a besoin pour communiquer avec Azure AD et lui indiquer comment mettre en cache des jetons.
 
@@ -75,22 +76,28 @@ public MainWindow()
     InitializeComponent();
 
     authContext = new AuthenticationContext(authority, new FileCache());
-    ...
+
+    CheckForCachedToken();
 }
 ```
 
 - Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access\_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
 
 ```C#
-private void Search(object sender, RoutedEventArgs e)
+private async void Search(object sender, RoutedEventArgs e)
 {
-    ...
+    // Validate the Input String
+    if (string.IsNullOrEmpty(SearchText.Text))
+    {
+        MessageBox.Show("Please enter a value for the To Do item name");
+        return;
+    }
 
     // Get an Access Token for the Graph API
     AuthenticationResult result = null;
     try
     {
-        result = authContext.AcquireToken(graphResourceId, clientId, redirectUri);
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
         UserNameLabel.Content = result.UserInfo.DisplayableId;
         SignOutButton.Visibility = Visibility.Visible;
     }
@@ -106,10 +113,10 @@ private void Search(object sender, RoutedEventArgs e)
     ...
 }
 ```
-- Lorsque votre application demande un jeton en appelant `AcquireToken(...)`, la bibliothèque ADAL tente de renvoyer un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur et renvoie un jeton après une authentification réussie. Si la bibliothèque ADAL ne peut pas renvoyer un jeton pour une raison quelconque, `AdalException` est renvoyé.
+- Lorsque votre application demande un jeton en appelant `AcquireTokenAsync(...)`, la bibliothèque ADAL tente de renvoyer un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur et renvoie un jeton après une authentification réussie. Si la bibliothèque ADAL ne peut pas renvoyer un jeton pour une raison quelconque, `AdalException` est renvoyé.
 - Notez que l’objet `AuthenticationResult` contient un objet `UserInfo` qui peut être utilisé pour collecter des informations dont votre application peut avoir besoin. Dans DirectorySearcher, `UserInfo` est utilisé pour personnaliser l’interface utilisateur de l’application avec l’ID de l’utilisateur.
 
-- Lorsque l’utilisateur clique sur le bouton Déconnexion, nous voulons vérifier que l’appel suivant vers `AcquireToken(...)` demande à l’utilisateur de se connecter. Avec la bibliothèque ADAL, c’est aussi simple que d’effacer le cache de jeton :
+- Lorsque l’utilisateur clique sur le bouton Déconnexion, nous voulons vérifier que l’appel suivant vers `AcquireTokenAsync(...)` demande à l’utilisateur de se connecter. Avec la bibliothèque ADAL, c’est aussi simple que d’effacer le cache de jeton :
 
 ```C#
 private void SignOut(object sender = null, RoutedEventArgs args = null)
@@ -121,20 +128,16 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- Toutefois, si l’utilisateur ne clique pas sur le bouton Déconnexion, vous devez maintenir la session de l’utilisateur pour sa prochaine exécution de DirectorySearcher. Lorsque l’application démarre, vous pouvez rechercher dans le cache de jetons de la bibliothèque ADAL un jeton existant et mettre à jour l’interface utilisateur en conséquence. De retour dans `MainWindow()`, effectuez un autre appel à `AcquireToken(...)`, cette fois en transmettant le paramètre `PromptBehavior.Never`. `PromptBehavior.Never` indiquera à ADAL que l’utilisateur ne doit pas être invité à se connecter et la bibliothèque ADAL doit à la place lever une exception s’il est impossible de renvoyer un jeton.
+- Toutefois, si l’utilisateur ne clique pas sur le bouton Déconnexion, vous devez maintenir la session de l’utilisateur pour sa prochaine exécution de DirectorySearcher. Lorsque l’application démarre, vous pouvez rechercher dans le cache de jetons de la bibliothèque ADAL un jeton existant et mettre à jour l’interface utilisateur en conséquence. Dans la méthode `CheckForCachedToken()`, effectuez un autre appel à `AcquireTokenAsync(...)`, cette fois en transmettant le paramètre `PromptBehavior.Never`. `PromptBehavior.Never` indiquera à ADAL que l’utilisateur ne doit pas être invité à se connecter et que la bibliothèque ADAL doit à la place lever une exception s’il est impossible de renvoyer un jeton.
 
 ```C#
-public MainWindow()
+public async void CheckForCachedToken() 
 {
-    InitializeComponent();
-
-    authContext = new AuthenticationContext(authority, new FileCache());
-
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.
     AuthenticationResult result = null;
     try
     {
-        result = authContext.AcquireToken(graphResourceId, clientId, redirectUri, PromptBehavior.Never);
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never));
     }
     catch (AdalException ex)
     {
@@ -156,7 +159,7 @@ public MainWindow()
 
 Félicitations ! Vous disposez d’une application .NET WPF fonctionnelle capable d’authentifier les utilisateurs, d’appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et d’obtenir des informations de base concernant l’utilisateur. Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs. Exécutez votre application DirectorySearcher et connectez-vous avec l’un de ces utilisateurs. Recherchez d’autres utilisateurs en fonction de leur UPN. Fermez l’application et exécutez-la de nouveau. Observez que la session utilisateur reste identique. Déconnectez-vous et reconnectez-vous sous le nom d’un autre utilisateur.
 
-La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans votre application. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireToken(...)`.
+La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans votre application. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios. Par exemple :
 
@@ -164,4 +167,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -10,14 +10,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/29/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# Création et gestion d’enregistrements DNS et de jeux d’enregistrements à l’aide du portail Azure
+# Gérer les enregistrements et les jeux d’enregistrements DNS à l’aide du portail Azure
 
 
 > [AZURE.SELECTOR]
@@ -26,9 +26,9 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-Ce guide explique comment créer et gérer des jeux d’enregistrements et des enregistrements pour votre zone DNS à l’aide du portail Azure.
+Ce guide explique comment gérer les jeux d’enregistrements et les enregistrements pour votre zone DNS en utilisant le portail Azure.
 
-Il est important de comprendre la différence entre les jeux d'enregistrements DNS et les enregistrements DNS individuels. Un jeu d’enregistrements est une collection d’enregistrements dans une zone ayant le même nom et le même type. Pour plus d’informations, consultez [Compréhension des jeux d’enregistrements et des enregistrements](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+Il est important de comprendre la différence entre les jeux d’enregistrements DNS et les enregistrements DNS individuels. Un jeu d’enregistrements est une collection d’enregistrements dans une zone ayant le même nom et le même type. Pour plus d’informations, consultez [Présentation des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-portal.md).
 
 ## Création d’un nouveau jeu d’enregistrements et d’un enregistrement
 
@@ -44,7 +44,7 @@ Pour créer un jeu d’enregistrements dans le portail Azure, consultez [Créer 
 	![rechercher le jeu d’enregistrements](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## Ajout d’un nouvel enregistrement à un jeu d’enregistrements existant
+## Ajouter un nouvel enregistrement à un jeu d’enregistrements
 
 Vous pouvez ajouter jusqu'à 20 enregistrements à n'importe quel jeu d'enregistrements. Un jeu d’enregistrements ne peut pas contenir deux enregistrements identiques. Des jeux d'enregistrements vides (avec zéro enregistrement) peuvent être créés mais ils n'apparaîtront pas sur les serveurs de nom Azure DNS. Les jeux d’enregistrements du type CNAME peuvent contenir, au maximum, un enregistrement.
 
@@ -77,14 +77,11 @@ Lors de la mise à jour d’un enregistrement dans un jeu d’enregistrements ex
 	![modifier l’enregistrement](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres. Une notification s’affiche dans le coin supérieur droit indiquant que l’enregistrement a été sauvegardé.
-
 	
 	![sauvegarder l’enregistrement](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-
 3. Une fois que l’enregistrement a été sauvegardé, les valeurs du jeu d’enregistrements dans le panneau DNS reflètent l’enregistrement mis à jour.
-
 
 
 ## Suppression d’un enregistrement d’un jeu d’enregistrements
@@ -135,4 +132,8 @@ Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’ext
 
 Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md). Pour plus d’informations sur l’automatisation de DNS, consultez [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+Si vous voulez utiliser des enregistrements DNS inversés, consultez [Comment gérer les enregistrements DNS inversés](dns-reverse-dns-record-operations-ps.md).
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

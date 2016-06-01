@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services"
-	description="Cette rubrique fournit une vue d'ensemble d'une stratégie de mise cache CDM dans l'extension Media Services."
-	services="cdn"
+	description="Cette rubrique offre une vue d’ensemble d’une stratégie de mise cache CDN dans l’extension Media Services."
+	services="media-services,cdn"
 	documentationCenter=".NET"
 	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
 <tags
-	ms.service="cdn"
+	ms.service="media-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,7 +26,9 @@ Les points de terminaison de diffusion en continu appliquent par défaut des en-
 
 ##Intégration d’Azure CDN
 
-Azure Media Services fournit un [CDN intégré](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) aux points de terminaison de diffusion en continu. Les en-têtes de contrôle du cache s'applique aux points de terminaison de diffusion en continu de la même façon qu’aux points de terminaison de diffusion en continu fonctionnant avec CDN. Azure CDN utilise les valeurs configurées de cache de points de terminaison de diffusion en continu pour définir la durée de vie des objets mis en cache en interne, et il utilise également cette valeur pour définir les en-têtes de cache de distribution. Lors de l'utilisation des points de terminaison de diffusion en continu fonctionnant avec CDN, il est déconseillé de définir des petites valeurs de cache Définir de petites valeurs diminue les performances et réduit le profit du CDN. Il est interdit de définir des en-têtes de cache inférieure à 600 secondes pour les points de terminaison de diffusion en continu fonctionnant avec CDN.
+Azure Media Services propose un [CDN intégré](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) pour les points de terminaison de diffusion en continu. Les en-têtes de contrôle du cache s'applique aux points de terminaison de diffusion en continu de la même façon qu’aux points de terminaison de diffusion en continu fonctionnant avec CDN. Azure CDN utilise les valeurs configurées de cache de points de terminaison de diffusion en continu pour définir la durée de vie des objets mis en cache en interne, et il utilise également cette valeur pour définir les en-têtes de cache de distribution. Lors de l'utilisation des points de terminaison de diffusion en continu fonctionnant avec CDN, il est déconseillé de définir des petites valeurs de cache Définir de petites valeurs diminue les performances et réduit le profit du CDN. Il est interdit de définir des en-têtes de cache inférieure à 600 secondes pour les points de terminaison de diffusion en continu fonctionnant avec CDN.
+
+>[AZURE.IMPORTANT] L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon**. Si vous souhaitez utiliser le **CDN Azure fourni par Akamai** pour Azure Media Services, vous devez [configurer le point de terminaison manuellement](cdn-create-new-endpoint.md). Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](cdn-overview.md).
 
 ##Configuration des en-têtes de cache avec Azure Media Services
 
@@ -42,4 +44,4 @@ Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Se
 2. S'il n'existe aucune configuration manuelle, les valeurs par défaut s'appliquent.
 3. Des en-têtes de cache de 2 secondes s’appliquent par défaut aux fichiers manifestes de diffusion en continu en direct (ou sélections) quelle que soit la configuration d'Azure Media ou d’Azure Storage, et elles sont irremplaçables.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

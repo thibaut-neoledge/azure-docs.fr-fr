@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Visual Studio
@@ -210,9 +210,8 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 	
 		> [AZURE.NOTE]  
 		Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez une erreur au sujet du nom de la fabrique de données pendant la publication, modifiez le nom de la fabrique de données (par exemple, votrenomVSTutorialFactory) et renouvelez la publication. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
-		> 
-		> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
-	3. Sélectionnez l’abonnement approprié pour le champ **Abonnement**. 
+		
+	3. Sélectionnez l’abonnement approprié pour le champ **Abonnement**.
 	4. Sélectionnez le **groupe de ressources** pour la fabrique de données à créer. 
 	5. Sélectionnez la **région** pour la fabrique de données. 
 	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. 
@@ -220,16 +219,30 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
 25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
 
-Si vous recevez le message d’erreur : « **Cet abonnement n’est pas enregistré pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de publier à nouveau :
+Notez les points suivants :
 
-- Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
+- Si vous recevez le message d’erreur : « **Cet abonnement n’est pas enregistré pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de publier à nouveau : 
+
+	- Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	Vous pouvez exécuter la commande suivante pour vérifier que le fournisseur Data Factory est bien enregistré.
+		Vous pouvez exécuter la commande suivante pour vérifier que le fournisseur Data Factory est bien enregistré.
 	
-		Get-AzureRmResourceProvider
-- Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
+			Get-AzureRmResourceProvider
+	- Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
+- 	Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+- 	Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
+
+## Résumé
+Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé Visual Studio pour créer la fabrique de données, les services liés, les jeux de données et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :
+
+1.	Création d’une **fabrique de données** Azure.
+2.	Création de **services liés** :
+	1. Un service lié **Azure Storage** pour lier votre compte Azure Storage contenant des données d’entrée. 	
+	2. Un service lié **Azure SQL** pour lier votre base de données Azure contenant les données de sortie. 
+3.	Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
+4.	Création d’un **pipeline** avec une **activité de copie** avec **BlobSource** en tant que source et **SqlSink** en tant que récepteur. 
 
 
 ## Utiliser l’Explorateur de serveurs pour passer en revue la fabrique des données
@@ -248,6 +261,12 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md#monitor-pipeline) pour obtenir des instructions sur l’utilisation du portail Azure pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
 ## Voir aussi
-Pour plus d’informations sur l’**activité de copie** dans Azure Data Factory, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
+| Rubrique | Description |
+| :---- | :---- |
+| [Activités de déplacement des données](data-factory-data-movement-activities.md) | Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
+| [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory et comment les utiliser pour créer des flux de travail pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Groupes de données](data-factory-create-datasets.md) | Cet article va vous aider à comprendre les jeux de données dans Azure Data Factory.
+| [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

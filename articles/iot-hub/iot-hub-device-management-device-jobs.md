@@ -18,16 +18,19 @@
 
 # Didacticiel : Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils (version préliminaire)
 
+[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-jobs-selector.md)]
+
+## Introduction
 La gestion des appareils IoT Azure vous permet d’interagir avec les appareils physiques à l’aide de travaux d’appareil. Une fois que vous avez identifié la représentation d’appareil (la représentation de service d’un appareil physique), vous pouvez interagir avec son appareil physique correspondant à l’aide de travaux d’appareil. Les travaux d’appareil activent la coordination de processus complexes sur plusieurs appareils. Ce processus peut inclure plusieurs étapes et des opérations longues.
 
-Pour le moment, il existe six types de travaux d’appareils qui sont fournis par la gestion des appareils Azure IoT Hub (nous allons ajouter des travaux supplémentaires en fonction des besoins des clients) :
+Pour le moment, il existe six types de travaux d’appareil qui sont fournis par la gestion des appareils Azure IoT Hub (nous allons ajouter des travaux supplémentaires en fonction des besoins des clients) :
 
 - **Mise à jour du microprogramme** : met à jour le microprogramme (ou l’image de système d’exploitation) sur l’appareil physique.
 - **Redémarrage** : redémarre l’appareil physique.
 - **Réinitialisation aux paramètres d’usine** : rétablit le microprogramme (ou l’image du système d’exploitation) de l’appareil physique vers une image de sauvegarde d’usine, stockée sur l’appareil.
 - **Mise à jour de la configuration** : configure l’agent client IoT Hub en cours d’exécution sur l’appareil physique.
-- **Lecture de la propriété de l’appareil**: obtient la dernière valeur d’une propriété de l’appareil sur l’appareil physique.
-- **Écriture de la propriété de l’appareil :** modifie une propriété de l’appareil sur l’appareil physique.
+- **Lecture de la propriété de l’appareil** : obtient la dernière valeur d’une propriété de l’appareil sur l’appareil physique.
+- **Écriture de la propriété de l’appareil** : modifie une propriété de l’appareil sur l’appareil physique.
 
 Pour plus d’informations sur l’utilisation de chacun de ces travaux, consultez la [Documentation sur les API][lnk-apidocs].
 
@@ -122,7 +125,7 @@ private static async Task OutputRunningJobs()
 }
 ```
 
-Une fois le travail d’appareil parent terminé, l’exemple génère une liste de tous les travaux d’appareils, comme illustré dans la figure ci-dessous. Le travail parent se termine seulement une fois les travaux enfants associés terminés. Dans la capture d’écran ci-dessous, le travail parent est le dernier travail de la liste. Vous pouvez la voir car **ParentJobId** vaut **’’**. Le travail parent comporte également le champ **Reason** défini sur une chaîne qui indique le résultat agrégé de la requête. Dans ce cas, il indique que 6 appareils ont été mis à jour et que tous ont réussi.
+Une fois le travail d’appareil parent terminé, l’exemple génère une liste de tous les travaux d’appareils, comme illustré dans la figure ci-dessous. Le travail parent se termine seulement une fois les travaux enfants associés terminés. Dans la capture d’écran ci-dessous, le travail parent est le dernier travail de la liste. Vous pouvez la voir car **ParentJobId** vaut **''**. Le travail parent comporte également le champ **Reason** défini sur une chaîne qui indique le résultat agrégé de la requête. Dans ce cas, il indique que 6 appareils ont été mis à jour et que tous ont réussi.
 
 ![][img-output2]
 
@@ -154,7 +157,7 @@ La bibliothèque cliente de gestion des appareils Azure IoT Hub gère la communi
 
 Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure IoT Hub, vous pouvez parcourir les didacticiels suivants :
 
-- la bibliothèque cliente Azure IoT DM fournit un exemple de bout en bout à l’aide un [appareil Intel Edison][lnk-edison].
+- La bibliothèque cliente Azure IoT Hub DM fournit un exemple de bout en bout utilisant un [appareil Intel Edison][lnk-edison].
 
 - [Utilisation des représentations d’appareil physique][lnk-twin-tutorial]
 
@@ -175,4 +178,4 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -34,7 +34,7 @@ Reliable Services peut être sans état, comme la plupart des plateformes de ser
 
 Reliable Services peut également être avec état, ce qui est propre à Service Fabric, où l’état est conservé directement dans le service lui-même à l'aide de Reliable Collections. L’état est hautement disponible grâce à la réplication et distribué grâce au partitionnement, l’ensemble étant géré automatiquement par Service Fabric.
 
-[En savoir plus sur Reliable Services](service-fabric-reliable-services-introduction) ou commencez par [écrire votre premier service Reliable Services](service-fabric-reliable-services-quick-start.md).
+[En savoir plus sur Reliable Services](service-fabric-reliable-services-introduction.md) ou commencez par [écrire votre premier service Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Acteurs fiables (Reliable Actors)
 
@@ -45,4 +45,4 @@ Reposant sur Reliable Services, l'infrastructure Reliable Actor est une infrastr
 ## Étapes suivantes
 [En savoir plus sur Reliable Actors](service-fabric-reliable-actors-introduction.md) ou commencez par [écrire votre premier service Reliable Actors](service-fabric-reliable-actors-get-started.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

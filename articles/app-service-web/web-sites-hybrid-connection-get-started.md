@@ -73,17 +73,17 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 2. Dans le volet Connexions hybrides, cliquez sur **Ajouter**.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. Le volet **Ajouter une connexion hybride** s'ouvre. Comme il s'agit de votre première connexion hybride, l'option **Nouvelle connexion hybride** est présélectionnée, et le volet **Créer une connexion hybride** s'ouvre.
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le panneau **Créer une connexion hybride** :
-	- dans **Nom**, indiquez le nom de la connexion.
-	- dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource.
-	- Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut).
-	- Cliquez sur **Biz Talk Service**
+	Dans le volet **Créer une connexion hybride** :
+	- Sous **Nom**, entrez un nom pour la connexion.
+	- Sous **Nom d'hôte**, entrez le nom de l'ordinateur local qui héberge votre ressource.
+	- Sous **Port**, entrez le numéro du port utilisé par votre ressource locale (1433 pour une instance par défaut SQL Server).
+	- Cliquez sur **Service BizTalk**.
 
 
 4. Le panneau **Créer un service BizTalk** s’affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
@@ -98,7 +98,7 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	
 6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
 	<!--- TODO
-
+	
 	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
@@ -227,7 +227,7 @@ Pour Mobile Apps, vous devez également définir une chaîne de connexion pour l
 
 [Site web des connexions hybrides](https://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Création d’un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@ Pour Mobile Apps, vous devez également définir une chaîne de connexion pour l
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

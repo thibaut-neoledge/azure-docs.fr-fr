@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -137,7 +137,7 @@ Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés 
 ### Éléments d'entrée
 Les ports d'entrée permettent aux utilisateurs de transmettre des données à votre fonction R et à votre espace de travail. Les **types de données** pris en charge pour les ports d’entrée sont les suivants :
 
-**DataTable :** ce type est transmis à votre fonction R sous la forme suivante : data.frame. En réalité, tous les types (par exemple, des fichiers CSV ou des fichiers ARFF) pris en charge par Machine Learning et compatibles avec **DataTable** sont automatiquement convertis en data.frame.
+**DataTable :** ce type est transmis à votre fonction R sous la forme suivante : data.frame. En réalité, tous les types (par exemple, des fichiers CSV ou des fichiers ARFF) pris en charge par Machine Learning et compatibles avec **DataTable** sont automatiquement convertis en data.frame.
 
 		<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
         	<Description>Input Dataset 1</Description>
@@ -145,7 +145,7 @@ Les ports d'entrée permettent aux utilisateurs de transmettre des données à v
 
 L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir une valeur unique qui doit correspondre au paramètre nommé correspondant dans votre fonction R. Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée d’une expérience, la valeur **NULL** est transmise à la fonction R et les ports zip facultatifs sont ignorés si l’entrée n’est pas connectée. L’attribut **isOptional** est facultatif pour les types **DataTable** et **Zip** ; il a la valeur *false* par défaut.
 	   
-**Zip :** modules personnalisés pouvant accepter un fichier .zip en entrée. Cette entrée est décompactée et placée dans le répertoire de travail R de votre fonction.
+**Zip :** modules personnalisés pouvant accepter un fichier .zip en entrée. Cette entrée est décompactée et placée dans le répertoire de travail R de votre fonction.
 
 		<Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
         	<Description>Zip files will be extracted to the R working directory.</Description>
@@ -153,7 +153,7 @@ L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir
 
 Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément correspondre à tous les paramètres de la fonction R, dans la mesure où le fichier .zip est automatiquement extrait dans le répertoire de travail R.
 
-**Règles d'entrée :**
+**Règles d'entrée :**
 
 * La valeur de l’attribut **id** de l’élément **Input** doit être un nom de variable R valide.
 * La valeur de l’attribut **id** de l’élément **Input** ne doit pas dépasser 64 caractères.
@@ -164,7 +164,7 @@ Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément 
 
 ### Éléments d’entrée
 
-**Ports de sortie standard :** les ports de sortie sont mappés aux valeurs de retour à partir de votre fonction R, qui peut ensuite être utilisée par les modules suivants. *DataTable* est le seul type de port de sortie standard pris en charge actuellement. (Les types *Learners* et *Transformers* seront prochainement pris en charge.) Une sortie *DataTable* est définie comme suit :
+**Ports de sortie standard :** les ports de sortie sont mappés aux valeurs de retour à partir de votre fonction R, qui peut ensuite être utilisée par les modules suivants. *DataTable* est le seul type de port de sortie standard pris en charge actuellement. (Les types *Learners* et *Transformers* seront prochainement pris en charge.) Une sortie *DataTable* est définie comme suit :
 
 	<Output id="dataset" name="Dataset" type="DataTable">
 		<Description>Combined dataset</Description>
@@ -202,13 +202,13 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
     </Output>
 	
-**Règles de sortie :**
+**Règles de sortie :**
 
 * La valeur de l’attribut **id** de l’élément **Output** doit être un nom de variable R valide.
 * La valeur de l’attribut **id** de l’élément **Output** ne doit pas dépasser 32 caractères.
@@ -273,7 +273,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 * *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
 * *Propriétés facultatives* :
-	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
+	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
 		* 	Chiffre
 		* 	Boolean
 		* 	Par catégorie
@@ -362,4 +362,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

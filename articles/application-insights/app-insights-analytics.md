@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 
@@ -30,16 +30,16 @@ Par exemple, essayons de découvrir à quelle heure les citoyens de Hyderabad ac
 
 ```AIQL
 
-    requests 
-    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    requests      // Table of events that log HTTP requests.
+    | where timestamp > ago(7d) and client_City == "Hyderabad"
     | summarize clients = dcount(client_IP) 
       by tod_UTC=bin(timestamp % 1d, 1h), resultCode
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-Nous comptons des adresses IP client distinctes, en les regroupant par heure de la journée sur les 30 derniers jours.
+Nous comptons des adresses IP client distinctes, en les regroupant par heure de la journée sur les sept derniers jours.
 
-Affichons les résultats avec la présentation graphique à barres, en choisissant d’empiler les résultats issus de codes de réponse différents :
+Affichons les résultats avec la présentation graphique à barres, en choisissant d’empiler les résultats issus de codes de réponse différents :
 
 ![Sélectionnez le graphique à barres, les axes x et y, puis la segmentation](./media/app-insights-analytics/020.png)
 
@@ -53,10 +53,10 @@ Il existe également des opérations statistiques puissantes :
 
 Le langage possède de nombreuses fonctionnalités attrayantes :
 
-* [Filtrer](app-insights-analytics-queries.md) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et mesures personnalisées.
-* [Joindre](app-insights-analytics-queries.md#join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
-* [Agrégations](app-insights-analytics-aggregations.md) statistiques puissantes.
-* Toutes aussi puissantes que SQL, mais beaucoup plus facile pour les requêtes complexes : au lieu d’imbriquer des instructions, vous dirigez les données d’une opération élémentaire à l’autre.
+* [Filtrer](app-insights-analytics-reference.md#where-operator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et mesures personnalisées.
+* [Joindre](app-insights-analytics-reference.md#join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
+* [Agrégations](app-insights-analytics-reference.md#aggregations) statistiques puissantes.
+* Toutes aussi puissantes que SQL, mais beaucoup plus facile pour les requêtes complexes : au lieu d’imbriquer des instructions, vous dirigez les données d’une opération élémentaire à l’autre.
 * Visualisations immédiates et puissantes.
 
 
@@ -69,7 +69,7 @@ Le langage possède de nombreuses fonctionnalités attrayantes :
 ## Connectez-vous à vos données Application Insights
 
 
-Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
+Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics/001.png)
 
@@ -82,4 +82,4 @@ Les résultats de requête sont actuellement limités à une seule semaine de do
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

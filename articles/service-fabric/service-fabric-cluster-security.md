@@ -24,7 +24,7 @@ Un cluster Azure Service Fabric est une ressource que vous possédez. Pour évi
 
 Service Fabric assure la sécurité dans les scénarios suivants :
 
-1. **Sécurité nœud à nœud** : sécurise la communication entre les machines virtuelles et les ordinateurs du cluster. Cette sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services dans le cluster.
+1. **Sécurité nœud à nœud** : sécurise la communication entre les machines virtuelles et les ordinateurs du cluster. Cette sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services dans le cluster.
 
 	![Diagramme de communication nœud à nœud][Node-to-Node]
 
@@ -36,7 +36,7 @@ Service Fabric assure la sécurité dans les scénarios suivants :
 
 	Azure Service Fabric utilise des certificats de serveur X509 que vous spécifiez dans le cadre des configurations du type de nœud, lorsque vous créez un cluster. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
 
-3. **Contrôle d’accès en fonction du rôle (RBAC)** : cette sécurité restreint les opérations d’administration effectuées sur le cluster à un ensemble particulier de certificats.
+3. **Contrôle d’accès en fonction du rôle (RBAC)** : cette sécurité restreint les opérations d’administration effectuées sur le cluster à un ensemble particulier de certificats.
 
 ## Sécuriser un cluster Service Fabric à l’aide de certificats
 
@@ -57,11 +57,11 @@ La procédure comporte trois étapes distinctes :
 
 Comme il s’agit d’un processus complexe, nous avons chargé un module PowerShell vers un référentiel Git qui l’effectue à votre place.
 
-**Étape 2.1** : copiez ce dossier sur votre ordinateur à partir de ce [référentiel Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
+**Étape 2.1** : copiez ce dossier sur votre ordinateur à partir de ce [référentiel Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-**Étape 2.2** : assurez-vous qu’Azure PowerShell 1.0+ est installé sur votre ordinateur. Si ce n’est déjà fait, nous vous recommandons vivement de suivre les étapes décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+**Étape 2.2** : assurez-vous qu’Azure PowerShell 1.0+ est installé sur votre ordinateur. Si ce n’est déjà fait, nous vous recommandons vivement de suivre les étapes décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-**Étape 2.3** : ouvrez une fenêtre PowerShell et importez le fichier ServiceFabricRPHelpers.psm. (Il s’agit du module que vous avez téléchargé à l’étape 2.1).
+**Étape 2.3** : ouvrez une fenêtre PowerShell et importez le fichier ServiceFabricRPHelpers.psm. (Il s’agit du module que vous avez téléchargé à l’étape 2.1).
 
 ```
 Remove-Module ServiceFabricRPHelpers
@@ -73,7 +73,7 @@ Copiez l’exemple suivant et modifiez le chemin d’accès à .psm1 pour qu’i
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-**Étape 2.4** : si vous utilisez un certificat que vous avez déjà acquis, suivez la procédure indiquée dans cette étape. Sinon, passez à étape 2.5, qui explique comment créer et déployer le certificat auto-signé dans le coffre de clés.
+**Étape 2.4** : si vous utilisez un certificat que vous avez déjà acquis, suivez la procédure indiquée dans cette étape. Sinon, passez à étape 2.5, qui explique comment créer et déployer le certificat auto-signé dans le coffre de clés.
 
 Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour une raison quelconque, vous devez vérifier si Azure PowerShell est correctement installé.
 
@@ -98,7 +98,7 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 
 À l’achèvement de l’exécution du script, vous obtenez un résultat similaire à celui qui suit, dont vous avez besoin pour l’étape 3 (Configurer un cluster sécurisé).
 
-- **Empreinte de certificat** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
+- **Empreinte de certificat** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 
 - **SourceVault** /ID de ressource du coffre de clés : /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
@@ -106,7 +106,7 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 
 Vous disposez maintenant des informations nécessaires pour configurer un cluster sécurisé. Passez à l’étape 3.
 
-**Étape 2.5** : si vous *ne disposez pas* d’un certificat et que vous voulez créer un certificat auto-signé et le charger dans le coffre de clés, procédez comme suit.
+**Étape 2.5** : si vous *ne disposez pas* d’un certificat et que vous voulez créer un certificat auto-signé et le charger dans le coffre de clés, procédez comme suit.
 
 Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour une raison quelconque, vous devez vérifier si Azure PowerShell est correctement installé.
 
@@ -144,7 +144,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 À l’achèvement de l’exécution du script, vous obtenez un résultat similaire à celui qui suit. Vous en avez besoin pour l’étape 3.
 
-- **Empreinte de certificat** : 64881409F4D86498C88EEC3697310C15F8F1540F
+- **Empreinte de certificat** : 64881409F4D86498C88EEC3697310C15F8F1540F
 
 - **SourceVault** /ID de ressource du coffre de clés : /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
@@ -218,8 +218,8 @@ Voici le processus de suppression d’un ancien certificat pour que le cluster n
 
 >[AZURE.NOTE] Pour un cluster sécurisé, vous avez toujours besoin d’au moins un certificat (principal ou secondaire) valide (non révoqué ni arrivé à expiration) déployé, sinon vous ne pouvez pas accéder au cluster.
 
-
-## Types de certificats utilisés par Service Fabric
+##
+Types de certificats utilisés par Service Fabric
 
 ### Certificats X.509
 
@@ -250,6 +250,37 @@ Les certificats clients ne sont généralement pas émis par une autorité de ce
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+
+### Se connecter à un cluster sécurisé
+
+1. Exécutez la commande suivante pour configurer le certificat sur la machine que vous souhaitez utiliser pour exécuter la commande PowerShell « Connect-serviceFabricCluster »
+
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+2. Exécutez la commande PowerShell suivante pour vous connecter à un cluster sécurisé. Les détails du certificat sont les mêmes que ceux que vous avez fournis lors de la configuration du cluster.
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
+    Par exemple, la commande PowerShell ci-dessus doit ressembler à ce qui suit :
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
 ## Étapes suivantes
 
 - [Processus de mise à niveau du cluster Service Fabric et attentes à votre égard](service-fabric-cluster-upgrade.md)
@@ -263,4 +294,4 @@ Les certificats clients ne sont généralement pas émis par une autorité de ce
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

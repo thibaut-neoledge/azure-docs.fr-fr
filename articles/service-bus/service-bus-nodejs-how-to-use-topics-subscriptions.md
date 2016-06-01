@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -119,9 +119,9 @@ Après le prétraitement des options de la requête, la méthode appelle `next` 
 function (returnObject, finalCallback, next)
 ```
 
-Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
+Dans ce rappel, et après le traitement de **returnObject** (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler **finalCallback** pour terminer l’utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
@@ -261,7 +261,7 @@ Le comportement par défaut de lecture et de suppression du message dans le cadr
 
 Si le paramètre **isPeekLock** est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **deleteMessage** marque le message comme étant consommé et le supprime de l’abonnement.
 
-L’exemple suivant montre comment des messages peuvent être reçus et traités à l’aide de **receiveSubscriptionMessage**. Dans l'exemple, le message est d'abord réceptionné, puis supprimé de l'abonnement « LowMessages ». Un message envoyé par l'abonnement « HighMessages » est ensuite réceptionné en définissant **isPeekLock** sur true. La suppression du message s'effectue ensuite à l'aide de **deleteMessage** :
+L’exemple suivant montre comment des messages peuvent être reçus et traités à l’aide de **receiveSubscriptionMessage**. Dans l'exemple, le message est d'abord réceptionné, puis supprimé de l'abonnement « LowMessages ». Un message envoyé par l'abonnement « HighMessages » est ensuite réceptionné en définissant **isPeekLock** sur true. La suppression du message s'effectue ensuite à l'aide de **deleteMessage** :
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -317,7 +317,7 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
-  [portail Azure Classic]: http://manage.windowsazure.com
+  [portail Azure Classic]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Application web Node.js avec Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

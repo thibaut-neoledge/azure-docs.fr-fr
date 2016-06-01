@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, voir la section [Étapes suivantes][].
+Cet article décrit l’utilisation des files d’attente Service Bus dans Node.js. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, voir la section [Étapes suivantes][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -119,7 +119,7 @@ function (returnObject, finalCallback, next)
 
 Dans ce rappel, et après le traitement de **returnObject** (la réponse à la requête du serveur), le rappel doit appeler `next`, s’il existe, pour continuer à traiter d’autres filtres, ou appeler `finalCallback` pour terminer l’appel du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 ```
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -130,7 +130,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **sendQueueMessage** sur l’objet **ServiceBusService**. Les messages envoyés aux files d'attente Service Bus (et reçus de celles-ci) sont les objets **BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **Label** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en passant une chaîne comme message. Toutes les propriétés standard requises sont remplies avec les valeurs par défaut.
 
-L’exemple suivant indique comment envoyer un message test à la file d’attente nommée `myqueue` au moyen de la méthode **sendQueueMessage** :
+L’exemple suivant indique comment envoyer un message test à la file d’attente nommée `myqueue` au moyen de la méthode **sendQueueMessage** :
 
 ```
 var message = {
@@ -145,9 +145,9 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Files d’attente Azure et files d’attente Service Bus][].
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][].
 
-## Réception des messages d’une file d’attente
+## Réception des messages d'une file d'attente
 
 La méthode **receiveQueueMessage** de l'objet **ServiceBusService** permet de recevoir les messages d'une file d'attente. Par défaut, les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture. Cependant, vous pouvez lire et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre facultatif **isPeekLock** sur **true**.
 
@@ -155,7 +155,7 @@ Le comportement par défaut de lecture et de suppression du message dans le cadr
 
 Si le paramètre **isPeekLock** est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage** et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode **deleteMessage** marque le message comme étant consommé et le supprime de la file d’attente.
 
-L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receiveQueueMessage**. L’exemple reçoit et supprime un message, reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message à l’aide de la méthode **deleteMessage** :
+L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receiveQueueMessage**. L’exemple reçoit et supprime un message, reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message à l’aide de la méthode **deleteMessage** :
 
 ```
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -185,7 +185,7 @@ Si l’application subit un incident après le traitement du message, mais avant
 
 ## Étapes suivantes
 
-Pour en savoir plus, voir les articles suivants :
+Pour en savoir plus sur les files d’attente, consultez les ressources suivantes :
 
 -   [Files d’attente, rubriques et abonnements.][]
 -   Dépôt du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
@@ -199,7 +199,7 @@ Pour en savoir plus, voir les articles suivants :
   [Création et déploiement d’une application Node.js sur un site web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Quotas Service Bus]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

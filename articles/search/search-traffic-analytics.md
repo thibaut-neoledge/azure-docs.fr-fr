@@ -14,59 +14,50 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="04/21/2016" 
 	ms.author="betorres"
 />
 
 
 # Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic
 
-La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. Lorsque vous activez cette fonctionnalité, vos données de service de recherche sont copiées vers le compte de stockage de votre choix. Ces données incluent vos journaux du service de recherche et les mesures opérationnelles agrégées. Une fois vos données d’utilisation disponibles, vous pouvez les traiter et les manipuler à votre guise.
-
+La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. Lorsque vous activez cette fonctionnalité, vos données de service de recherche sont copiées vers le compte de stockage de votre choix. Ces données incluent vos journaux du service de recherche et les mesures opérationnelles agrégées que vous pouvez traiter et manipuler pour une analyse plus poussée.
 
 ## Activation de la fonctionnalité Rechercher l’analyse du trafic
+
+Vous aurez besoin d’un compte de stockage situé dans la même région et le même abonnement que votre service de recherche.
+
+> [AZURE.IMPORTANT] Des frais standard s’appliquent à ce compte de stockage.
+
+Une fois activé, les données commencent à circuler vers votre compte de stockage en 5 à 10 minutes dans ces 2 conteneurs d’objets blob :
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1\. Utiliser le portail
 Ouvrez votre service Azure Search dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
 
 ![][1]
 
-Sélectionnez-la pour ouvrir un nouveau panneau. Définissez l’état sur **Activé**, sélectionnez le compte Azure Storage dans lequel sont copiées vos données et choisissez les données à copier : journaux et/ou mesures. Nous vous recommandons de copier les journaux et les mesures.
+Sélectionnez-la pour ouvrir un nouveau panneau. Définissez l’état sur **Activé**, sélectionnez le compte Azure Storage dans lequel sont copiées vos données et choisissez les données à copier : journaux et/ou mesures. Nous vous recommandons de copier les journaux et les mesures. Vous pouvez définir la stratégie de rétention de vos données entre 1 et 365 jours. Si vous ne souhaitez pas appliquer de stratégie de rétention afin de conserver les données indéfiniment, définissez la durée de rétention (en jours) sur 0.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] Le compte de stockage doit être situé dans la même région et le même abonnement que votre service de recherche.
-> 
-> Des frais standard s’appliquent à ce compte de stockage.
-
 ### 2\. Utiliser PowerShell
 
-Vous pouvez également activer cette fonctionnalité en exécutant les applets de commande PowerShell suivantes.
+Tout d’abord, assurez-vous que les derniers [applets de commande Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sont installés.
+
+Puis, munissez-vous des ID de ressource de votre service de recherche et de votre compte de stockage. Vous pouvez les trouver dans le portail en accédant à Paramètres -> Propriétés -> ResourceId.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId** : ```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId** : cet élément est disponible dans le portail, sous Paramètres -> Propriétés -> ResourceId ```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```
-
-----------
-
-Une fois activé, les données commencent à circuler vers votre compte de stockage en 5 à 10 minutes. Deux nouveaux conteneurs apparaissent dans votre stockage d’objets Blob Storage :
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## Vue d’ensemble des données
 
@@ -112,6 +103,7 @@ Les objets blob de mesures contiennent des valeurs agrégées pour votre service
 Mesures disponibles :
 
 - Latence
+- SearchQueriesPerSecond (Recherches par seconde)
 
 ####Schéma de mesures
 
@@ -135,28 +127,28 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://p
 
 #### Power BI en ligne
 
-[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search) : créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-search/).
+[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search) : créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Nous fournissons ci-après une requête de démarrage pour vous aider.
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Nous fournissons ci-après une requête de démarrage pour vous aider.
 
 1. Ouvrez un nouveau rapport Power BI Desktop.
 2. Sélectionnez Obtention des données -> Plus...
 
-	![][4]
+	![][5]
 
 3. Sélectionnez Stockage d’objets blob Microsoft Azure et Se connecter.
 
-	![][5]
+	![][6]
 
 4. Entrez le nom et la clé de votre compte de stockage.
 5. Sélectionnez « insight-journaux-operationlogs » et « insights-metrics-pt1m », puis cliquez sur Modifier
 6. L’éditeur de requête s’ouvre, vérifiez que « insight-logs-operationlogs » est sélectionnée sur la gauche. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé
 
-	![][6]
+	![][7]
 
 7. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
 
@@ -211,21 +203,22 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://p
 
 10. Cliquez sur Terminé, puis sélectionnez Fermer et appliquer dans l’onglet Accueil.
 
-11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
+11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
 ## Étapes suivantes
 
 Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Pour plus d’informations, consultez la rubrique [Recherche de documents (API REST Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, consultez la rubrique [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
+En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, consultez la rubrique [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

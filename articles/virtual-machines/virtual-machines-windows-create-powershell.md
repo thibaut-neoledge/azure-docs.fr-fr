@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer une machine virtuelle avec PowerShell | Microsoft Azure"
-	description="Création et configuration d'une machine virtuelle Azure avec le modèle de déploiement Resource Manager et PowerShell."
+	description="Créez et configurez une machine virtuelle Azure avec PowerShell et le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Création et configuration d'une machine virtuelle Windows avec Resource Manager et Azure PowerShell
+# Création et configuration d’une machine virtuelle Azure à l’aide d’Azure PowerShell dans le modèle de déploiement Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portail - Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,17 +28,15 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 Ces étapes vous montrent comment construire un jeu de commandes Azure PowerShell pour créer et configurer une machine virtuelle Azure. Vous pouvez utiliser ce processus de blocs de construction pour créer un jeu de commandes pour une nouvelle machine virtuelle Windows et pour développer un déploiement existant. Vous pouvez également l’utiliser pour créer plusieurs jeux de commandes qui créent rapidement un environnement de développement/test personnalisé ou un environnement pour professionnels de l’informatique.
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Si vous êtes un utilisateur avancé de PowerShell, vous pouvez utiliser vous-même ces commandes, en y substituant vos propres valeurs aux variables (les lignes commençant par « $ »).
 
+> [AZURE.IMPORTANT] Si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez l’y ajouter lors de sa création. Il n’existe actuellement aucun moyen d’ajouter une machine virtuelle dans un groupe à haute disponibilité, une fois celle-ci créée.
+
 ## Étape 1 : installer Azure PowerShell
 
-Il existe deux options principales pour l’installation : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [WebPI](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu.
+Il existe deux options principales d’installation : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [WebPI](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu.
 
 Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
@@ -52,7 +50,7 @@ Connectez-vous à votre compte.
 
 Obtenez tous les abonnements disponibles à l’aide de la commande suivante.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Définissez votre abonnement Azure pour la session active. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
@@ -115,6 +113,7 @@ Si DNSNameAvailability a la valeur « True », c’est que le nom proposé est
 ### Groupe à haute disponibilité
 
 
+
 Si nécessaire, créez un groupe à haute disponibilité pour votre nouvelle machine virtuelle avec ces commandes.
 
 	$avName="<availability set name>"
@@ -136,7 +135,7 @@ Les machines virtuelles créées avec le modèle de déploiement Resource Manage
 	$locName="West US"
 	$frontendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix 10.0.1.0/24
 	$backendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix 10.0.2.0/24
-	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -SubnetId $frontendSubnet,$backendSubnet
+	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $frontendSubnet,$backendSubnet
 
 Utilisez ces commandes pour répertorier les réseaux virtuels existants.
 
@@ -220,7 +219,7 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 La chaîne $nicName doit être unique pour le groupe de ressources. Une meilleure pratique consiste à incorporer le nom de la machine virtuelle dans la chaîne, comme « LOB07-NIC ».
 
@@ -239,7 +238,7 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Ensuite, créez un objet de machine virtuelle locale et éventuellement, ajoutez-le à un groupe à haute disponibilité. Copiez une des deux options suivantes dans votre jeu de commandes, et spécifiez le nom, la taille et le nom du groupe à haute disponibilité.
 
@@ -293,7 +292,7 @@ Ensuite, vous devez déterminer le serveur de publication, l’offre et la réf�
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-Si l’image de machine virtuelle dont vous avez besoin n’est pas répertoriée, suivez les instructions données [ici](virtual-machines-linux-cli-ps-findimage.md#powershell) pour déterminer les noms du serveur de publication, de l’offre et de la référence (SKU).
+Si l’image de machine virtuelle dont vous avez besoin n’est pas répertoriée, suivez les instructions données [ici](virtual-machines-windows-cli-ps-findimage.md#powershell) pour déterminer les noms du serveur de publication, de l’offre et de la référence (SKU).
 
 Copiez ces commandes dans votre jeu de commandes et spécifiez les noms du serveur de publication, de l’offre et de la référence (SKU).
 
@@ -317,7 +316,7 @@ Enfin, copiez ces commandes dans votre jeu de commandes et spécifiez l’identi
 
 Passez en revue le jeu de commandes Azure PowerShell que vous avez créé à l'étape 4 dans votre éditeur de texte ou dans l'environnement d'écriture de scripts intégré de PowerShell (ISE). Vérifiez que vous avez spécifié toutes les variables et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
 
-Si vos commandes sont dans un éditeur de texte, copiez le jeu dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell. Vous envoyez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez aussi exécuter le jeu de commandes depuis l’environnement d’écriture de scripts intégré d’Azure PowerShell.
+Si vos commandes sont dans un éditeur de texte, copiez-les dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Windows PowerShell. Vous envoyez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez aussi exécuter le jeu de commandes depuis PowerShell ISE.
 
 Si vous souhaitez réutiliser ces informations pour créer des machines virtuelles supplémentaires, vous pouvez enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
 
@@ -341,7 +340,7 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
 	$nicName="LOB07-NIC"
@@ -392,4 +391,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

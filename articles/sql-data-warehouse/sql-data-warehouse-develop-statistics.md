@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gérer des statistiques dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à la gestion de statistiques dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   description="Conseils relatifs à la gestion de statistiques dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,54 +13,91 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="05/10/2016"
+   ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Gérer des statistiques dans SQL Data Warehouse
  SQL Data Warehouse s’appuie sur des statistiques pour évaluer le coût de différentes méthodes d’exécution d’une requête distribuée. Lorsque les statistiques sont précises, l’optimiseur de requête peut générer des plans de requête de haute qualité, qui améliorent les performances des requêtes.
 
-La création et la mise à jour des statistiques sont des étapes importantes pour l’amélioration des performances des requêtes prévue par la conception du logiciel SQL Data Warehouse. Ce guide présente les différentes statistiques et vous indique comment effectuer les opérations suivantes :
+La création et la mise à jour des statistiques sont des étapes importantes pour l’amélioration des performances des requêtes prévue par la conception du logiciel SQL Data Warehouse. Ce guide présente les différentes statistiques et vous indique comment effectuer les opérations suivantes :
 
-- créer des statistiques dans le cadre de la conception de la base de données ;
-- mettre à jour ces statistiques lors de la maintenance de la base de données ;
+- créer des statistiques dans le cadre de la conception de la base de données ;
+- mettre à jour ces statistiques lors de la maintenance de la base de données ;
 - afficher les statistiques grâce à des fonctions et vues système.
 
 ## Présentation des statistiques
 
 Les statistiques sur une colonne sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne unique. L’optimiseur de requête utilise cet histogramme pour estimer le nombre de lignes figurant dans le résultat de la requête. Cette évaluation a un impact direct sur le choix du mode d’optimisation associé à la requête.
 
-Les statistiques sur plusieurs colonnes sont des données créées sur un ensemble de colonnes. Elles incluent les statistiques sur une colonne sur la première colonne de cet ensemble, en ajoutant certaines informations de corrélation entre les différentes colonnes, appelées « densités ». Les statistiques sur plusieurs colonnes peuvent améliorer les performances des requêtes lors de certaines opérations, comme les clauses « group by » et les associations composites.
+Les statistiques sur plusieurs colonnes sont des données créées sur un ensemble de colonnes. Elles incluent les statistiques sur une colonne sur la première colonne de cet ensemble, en ajoutant certaines informations de corrélation entre les différentes colonnes, appelées « densités ». Les statistiques sur plusieurs colonnes peuvent améliorer les performances des requêtes lors de certaines opérations, comme les clauses « group by » et les associations composites.
 
 Pour en savoir plus, consultez la section [DBCC SHOW\_STATISTICS][] de MSDN.
 
-## Pourquoi les statistiques sont-elles nécessaires ?
-Si les statistiques utilisées ne sont pas pertinentes, vous ne pourrez pas atteindre les performances prévues par la conception de SQL Data Warehouse. Dans les tables et colonnes, les statistiques ne sont pas automatiquement générées par SQL Data Warehouse ; vous devez les créer vous-même. Il est judicieux de les créer en même temps que la table, puis de les mettre à jour une fois cette dernière remplie.
+## Pourquoi les statistiques sont-elles nécessaires ?
+Si les statistiques utilisées ne sont pas pertinentes, vous ne pourrez pas atteindre les performances prévues par la conception de SQL Data Warehouse. Dans les tables et colonnes, les statistiques ne sont pas automatiquement générées par SQL Data Warehouse ; vous devez les créer vous-même. Il est judicieux de les créer en même temps que la table, puis de les mettre à jour une fois cette dernière remplie.
 
 > [AZURE.NOTE] Si vous l’utilisez, vous pouvez demander à SQL Server de créer et de mettre à jour des statistiques sur une colonne pour vous, le cas échéant. À ce niveau, SQL Data Warehouse fonctionne différemment. Comme les données sont distribuées, SQL Data Warehouse ne rassemble pas automatiquement les statistiques sur l’ensemble des données distribuées. Il se contente de générer des statistiques agrégées lorsque vous créez et mettez ces statistiques à jour.
 
-## À quel moment faut-il créer les statistiques ?
+## À quel moment faut-il créer les statistiques ?
 SQL Data Warehouse requiert avant tout un ensemble cohérent de données à jour. Il est donc important de créer des statistiques lors de la conception de vos tables.
 
 Le processus de création de statistiques sur une colonne dans chaque colonne est un bon moyen de se familiariser avec la notion de statistiques. Toutefois, lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous créez des statistiques sur une colonne sur toutes les colonnes, avant de constater que la mise à jour de l’ensemble de ces statistiques prend trop de temps, vous pouvez toujours ignorer une partie d’entre elles ou isoler un sous-ensemble, que vous mettrez à jour plus souvent.
 
-Les statistiques sur plusieurs colonnes sont uniquement utilisées par l’optimiseur de requête lorsque les colonnes sont des associations composites ou des clauses « group by ». Actuellement, les filtres composites ne bénéficient pas de statistiques sur plusieurs colonnes.
+Les statistiques sur plusieurs colonnes sont uniquement utilisées par l’optimiseur de requête lorsque les colonnes sont des associations composites ou des clauses « group by ». Actuellement, les filtres composites ne bénéficient pas de statistiques sur plusieurs colonnes.
 
-Pour cette raison, au démarrage de votre développement SQL Data Warehouse, il peut être pertinent d’implémenter le modèle suivant :
+Pour cette raison, au démarrage de votre développement SQL Data Warehouse, il peut être pertinent d’implémenter le modèle suivant :
 - Création de statistiques sur une colonne sur chaque colonne de chaque table
-- Création de statistiques sur plusieurs colonnes sur les colonnes utilisées par les requêtes dans les clauses « join » et « group by »
+- Création de statistiques sur plusieurs colonnes sur les colonnes utilisées par les requêtes dans les clauses « join » et « group by »
 
 Lorsque vous choisissez le mode d’interrogation des données, vous pouvez être amené à affiner ce modèle, notamment en cas de tables volumineuses. Pour obtenir des informations sur une méthode plus avancée, voir [Implémentation de fonctions de gestion des statistiques](##Implémentation de fonctions de gestion des statistiques).
 
-## À quel moment doit-on mettre à jour les statistiques ?
+## À quel moment doit-on mettre à jour les statistiques ?
 Il est important d’inclure la mise à jour des statistiques dans votre routine de gestion de base de données. Lorsque la distribution des données change dans la base de données, les statistiques doivent être mises à jour. Sinon, les performances des requêtes risquent d’être moins élevées et les efforts de dépannage plus avancés de la requête, peu pertinents.
 
-Par conséquent, l’une des premières questions que vous devez vous poser lorsque vous dépannez une requête est la suivante : « Les statistiques sont-elles à jour ? »
+Une meilleure pratique consiste à mettre à jour les statistiques sur les colonnes de date à chaque fois qu’une date est ajoutée. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, vous n’aurez peut-être jamais à mettre à jour les statistiques d’une colonne de pays dans une table des clients, car la distribution des valeurs change rarement. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données indique un seul pays et si vous importez des données d’un nouveau pays, ce qui entraîne donc le stockage de données de plusieurs pays, il est indispensable de mettre à jour les statistiques de la colonne de pays.
 
-Or, vous ne pouvez pas répondre à cette question en vous appuyant sur l’âge ; en effet, un objet de statistiques à jour peut être très ancien. Lorsque le nombre de lignes change ou que la distribution des valeurs est matériellement modifiée dans une colonne donnée, *alors* il est nécessaire de mettre à jour les statistiques.
+L’une des premières questions que vous devez vous poser lorsque vous dépannez une requête est la suivante : « Les statistiques sont-elles à jour ? »
 
-Par exemple, les statistiques des colonnes de date d’un entrepôt de données doivent souvent être mises à jour. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes.
+Or, vous ne pouvez pas répondre à cette question en vous appuyant sur l’âge des données. Un objet de statistiques à jour peut être très ancien si aucune modification notable n’affecte les données sous-jacentes. Lorsque le nombre de lignes ou la distribution des valeurs change de manière substantielle dans une colonne donnée, *alors* il est temps de mettre à jour les statistiques.
 
-À l’inverse, les statistiques d’une colonne indiquant le sexe d’un client dans une table n’auront peut-être jamais besoin d’être mises à jour. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données ne fait mention que d’un seul sexe et qu’une nouvelle exigence nécessite le recours à plusieurs sexes, vous devez absolument mettre à jour les statistiques de la colonne relative au sexe.
+Pour référence, **SQL Server** (et non SQL Data Warehouse) met automatiquement à jour les statistiques dans les cas suivants :
+
+- Si votre table ne comporte aucune ligne, lorsque vous ajoutez une ou plusieurs lignes, les statistiques sont automatiquement mises à jour
+- Lorsque vous ajoutez 500 lignes ou plus à une table qui contient à l’origine moins de 500 lignes (par exemple, votre table compte initialement 499 lignes, puis vous ajoutez 500 lignes pour un total de 999 lignes), la mise à jour se fait automatiquement 
+- Dès que vous avez dépassé 500 lignes, vous devez ajouter 500 lignes supplémentaires + 20 % de la taille de la table avant d’obtenir une mise à jour automatique sur les statistiques
+
+Dans la mesure où il n’existe aucune vue de gestion dynamique pour déterminer si les données de la table ont changé depuis la dernière mise à jour des statistiques, le fait de connaître l’ancienneté de vos statistiques peut vous donner un petit aperçu. Vous pouvez utiliser la requête suivante pour déterminer la date de la dernière mise à jour des statistiques sur chaque table.
+
+> [AZURE.NOTE] N’oubliez pas que si la distribution des valeurs d’une colonne donnée a subi une modification significative, vous devez mettre à jour les statistiques, quelle que soit la date de la dernière mise à jour.
+
+```sql
+SELECT
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
+FROM
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
+WHERE
+    st.[user_created] = 1;
+```
+
+Par exemple, les statistiques des colonnes de date d’un entrepôt de données doivent souvent être mises à jour. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, les statistiques d’une colonne indiquant le sexe d’un client dans une table n’auront peut-être jamais besoin d’être mises à jour. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données ne fait mention que d’un seul sexe et qu’une nouvelle exigence nécessite le recours à plusieurs sexes, vous devez absolument mettre à jour les statistiques de la colonne relative au sexe.
 
 Pour en savoir plus, consultez la section [Statistiques][] de MSDN.
 
@@ -68,7 +105,7 @@ Pour en savoir plus, consultez la section [Statistiques][] de MSDN.
 
 Il est souvent judicieux d’étendre le processus de chargement des données, afin de vérifier que les statistiques sont mises à jour à la fin du chargement. Le chargement des données se produit lorsque la taille et/ou la distribution des valeurs sont souvent modifiées dans les tables. Par conséquent, il est logique d’implémenter certains processus de gestion à ce niveau.
 
-Certains principes généraux sont fournis ci-dessous, afin de vous aider à mettre à jour vos statistiques pendant le processus de chargement :
+Certains principes généraux sont fournis ci-dessous, afin de vous aider à mettre à jour vos statistiques pendant le processus de chargement :
 
 - Assurez-vous que chaque table chargée présente au moins un objet de statistiques mis à jour. Cela met à jour les informations sur la taille des tables (nombre de lignes et de pages) dans le cadre du processus de mise à jour des statistiques.
 - Concentrez-vous sur les colonnes participant aux clauses JOIN, GROUP BY, ORDER BY et DISTINCT.
@@ -76,7 +113,7 @@ Certains principes généraux sont fournis ci-dessous, afin de vous aider à met
 - Envisagez de mettre moins souvent à jour les colonnes de distribution statiques.
 - N’oubliez pas que chaque objet de statistiques est mis à jour à son tour. L’implémentation de l’élément `UPDATE STATISTICS <TABLE_NAME>` peut ne pas suffire, notamment lorsque les tables sont volumineuses et incluent un grand nombre d’objets de statistiques.
 
-> [AZURE.NOTE] Pour en savoir plus sur la [clé croissante], consultez le livre blanc relatif aux modèles d’évaluation de la cardinalité de SQL Server 2014.
+> [AZURE.NOTE] Pour en savoir plus sur la [clé croissante], consultez le livre blanc relatif aux modèles d’évaluation de la cardinalité de SQL Server 2014.
 
 Pour en savoir plus, consultez la section [Évaluation de la cardinalité][] de MSDN.
 
@@ -88,13 +125,13 @@ Ces exemples indiquent comment utiliser différentes options pour créer des sta
 
 Pour créer des statistiques sur une colonne, il vous suffit d’indiquer le nom de l’objet de statistiques, ainsi que celui de la colonne.
 
-Cette syntaxe a recours à toutes les options par défaut. Par défaut, le logiciel SQL Data Warehouse utilise un échantillon représentant 20 % de la table lorsqu’il crée des statistiques.
+Cette syntaxe a recours à toutes les options par défaut. Par défaut, le logiciel SQL Data Warehouse utilise un échantillon représentant 20 % de la table lorsqu’il crée des statistiques.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -102,15 +139,15 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 
 ### B. Créer des statistiques sur plusieurs colonnes en examinant chaque ligne
 
-Le taux d’échantillonnage par défaut est de 20 %, ce qui est suffisant pour la plupart des situations. Toutefois, vous pouvez l’ajuster en fonction de vos besoins.
+Le taux d’échantillonnage par défaut est de 20 %, ce qui est suffisant pour la plupart des situations. Toutefois, vous pouvez l’ajuster en fonction de vos besoins.
 
-Pour échantillonner la table entière, utilisez la syntaxe suivante :
+Pour échantillonner la table entière, utilisez la syntaxe suivante :
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -118,7 +155,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 ### C. Créer des statistiques sur une colonne en spécifiant la taille de l’échantillon
 
-Vous pouvez également spécifier cette taille sous la forme d’un pourcentage :
+Vous pouvez également spécifier cette taille sous la forme d’un pourcentage :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
@@ -126,7 +163,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 ### D. Créer des statistiques sur une colonne sur certaines lignes uniquement
 
-Vous pouvez également créer des statistiques sur une partie des lignes de votre table. On parle alors de « statistiques filtrées ».
+Vous pouvez également créer des statistiques sur une partie des lignes de votre table. On parle alors de « statistiques filtrées ».
 
 Par exemple, vous pouvez utiliser les statistiques filtrées lorsque vous prévoyez d’interroger une partition spécifique dans une table partitionnée volumineuse. En créant des statistiques sur les valeurs des partitions uniquement, vous améliorez la précision des statistiques et, par conséquent, les performances des requêtes.
 
@@ -136,17 +173,17 @@ Dans cet exemple, des statistiques sont créées sur une plage de valeurs. Les v
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE] Pour que l’optimiseur de requête envisage d’utiliser les statistiques filtrées lorsqu’il choisit le plan de requête distribuée, il faut que cette requête soit suffisamment petite pour pouvoir s’insérer dans la définition de l’objet de statistiques. Selon l’exemple précédent, la clause WHERE de la requête doit indiquer des valeurs incluses entre 2000101 et 20001231 dans la colonne col1.
+> [AZURE.NOTE] Pour que l’optimiseur de requête envisage d’utiliser les statistiques filtrées lorsqu’il choisit le plan de requête distribuée, il faut que cette requête soit suffisamment petite pour pouvoir s’insérer dans la définition de l’objet de statistiques. Selon l’exemple précédent, la clause WHERE de la requête doit indiquer des valeurs incluses entre 2000101 et 20001231 dans la colonne col1.
 
 ### E. Créer des statistiques sur une colonne en utilisant toutes les options
 
-Bien sûr, vous pouvez combiner les options. L’exemple ci-dessous permet de créer un objet de statistiques filtrées avec une taille d’échantillon personnalisée :
+Bien sûr, vous pouvez combiner les options. L’exemple ci-dessous permet de créer un objet de statistiques filtrées avec une taille d’échantillon personnalisée :
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Pour accéder à la référence complète, consultez la section [CREATE STATISTICS][] de MSDN.
+Pour accéder à la référence complète, consultez la section [CREATE STATISTICS][] de MSDN.
 
 ### F. Créer des statistiques sur plusieurs colonnes
 
@@ -279,20 +316,20 @@ prc_sqldw_create_stats;
 
 ## Exemple de mise à jour des statistiques
 
-Pour effectuer cette opération, vous avez différentes possibilités :
+Pour effectuer cette opération, vous avez différentes possibilités :
 
 1. Mettez à jour un objet de statistiques. Spécifiez le nom de l’objet de statistiques que vous souhaitez mettre à jour.
 2. Mettez à jour tous les objets de statistiques sur une table. Spécifiez le nom de la table, et non un objet de statistiques spécifique.
 
 
 ### A. Mettre à jour un objet de statistiques spécifique ###
-Pour réaliser cette opération, utilisez la syntaxe suivante :
+Pour réaliser cette opération, utilisez la syntaxe suivante :
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -308,7 +345,7 @@ Voici une méthode simple pour mettre à jour tous les objets de statistiques da
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -320,13 +357,13 @@ Cette instruction est facile à utiliser. N’oubliez pas que cette action met �
 
 Pour en savoir plus sur l’implémentation d’une procédure `UPDATE STATISTICS`, consultez l’article relatif aux [tables temporaires]. La méthode d’implémentation est légèrement différente de celle de la procédure `CREATE STATISTICS` ci-dessus, mais le résultat final est le même.
 
-Pour accéder à la syntaxe complète, consultez la section [UPDATE STATISTICS][] de MSDN.
+Pour accéder à la syntaxe complète, consultez la section [UPDATE STATISTICS][] de MSDN.
 
 ## Métadonnées de statistiques
-Vous pouvez utiliser plusieurs fonctions et vues système pour rechercher des informations sur des statistiques. Par exemple, vous pouvez voir si un objet de statistiques peut-être obsolète à l’aide de la fonction « stats-date » (qui permet de connaître la date de création ou de dernière mise à jour des statistiques).
+Vous pouvez utiliser plusieurs fonctions et vues système pour rechercher des informations sur des statistiques. Par exemple, vous pouvez voir si un objet de statistiques peut-être obsolète à l’aide de la fonction « stats-date » (qui permet de connaître la date de création ou de dernière mise à jour des statistiques).
 
 ### Vues de catalogue des statistiques
-Ces vues système fournissent des informations sur les statistiques :
+Ces vues système fournissent des informations sur les statistiques :
 
 | Vue de catalogue | Description |
 | :----------- | :---------- |
@@ -334,13 +371,13 @@ Ces vues système fournissent des informations sur les statistiques :
 | [sys.objects][] | Une ligne pour chaque objet de la base de données. | |
 | [sys.schemas][] | Une ligne pour chaque schéma de la base de données. | |
 | [sys.stats][] | Une ligne pour chaque objet de statistiques. |
-| [sys.stats\_columns][] | Une ligne pour chaque colonne de l’objet de statistiques. Paramètre lié à l’élément « sys.columns ». |
+| [sys.stats\_columns][] | Une ligne pour chaque colonne de l’objet de statistiques. Paramètre lié à l’élément « sys.columns ». |
 | [sys.tables][] | Une ligne pour chaque table (y compris les tables externes). |
 | [sys.table\_types][] | Une ligne pour chaque type de données. |
 
 
 ### Fonctions système relatives aux statistiques
-Ces fonctions système sont utiles lorsque vous gérez des statistiques :
+Ces fonctions système sont utiles lorsque vous gérez des statistiques :
 
 | Fonction système | Description |
 | :-------------- | :---------- |
@@ -405,7 +442,7 @@ Cet exemple simple illustre les trois parties d’un objet de statistiques.
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -413,28 +450,28 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 ### Afficher une ou plusieurs parties de la fonction DBCC SHOW\_STATISTICS();
 
-Si vous êtes uniquement intéressé par l’affichage de certaines parties spécifiques, utilisez la clause `WITH` et spécifiez les parties que vous voulez voir :
+Si vous êtes uniquement intéressé par l’affichage de certaines parties spécifiques, utilisez la clause `WITH` et spécifiez les parties que vous voulez voir :
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Par exemple :
+Par exemple :
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## Différences liées à la fonction DBCC SHOW\_STATISTICS()
-La fonction DBCC SHOW\_STATISTICS() est implémentée de manière plus stricte dans SQLDW que dans SQL Server.
+La fonction DBCC SHOW\_STATISTICS() est implémentée de manière plus stricte dans SQLDW que dans SQL Server.
 
 1. Les fonctions non documentées ne sont pas prises en charge.
-- Impossible d’utiliser le paramètre « Stats\_stream ».
-- Impossible de joindre les résultats de sous-ensembles spécifiques de données de statistiques, par exemple : STAT\_HEADER JOIN DENSITY\_VECTOR.
+- Impossible d’utiliser le paramètre « Stats\_stream ».
+- Impossible de joindre les résultats de sous-ensembles spécifiques de données de statistiques, par exemple : STAT\_HEADER JOIN DENSITY\_VECTOR.
 2. L’élément NO\_INFOMSGS ne peut pas être défini pour la suppression des messages.
 3. Vous ne pouvez pas placer de crochets autour des noms de statistiques.
 4. Vous ne pouvez pas utiliser les noms de colonnes pour identifier les objets de statistiques.
-5. L’erreur personnalisée 2767 n’est pas prise en charge.
+5. L’erreur personnalisée 2767 n’est pas prise en charge.
 
 
 ## Étapes suivantes
@@ -448,7 +485,7 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!-- External Links -->
 [Évaluation de la cardinalité]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Statistiques]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
@@ -459,6 +496,6 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

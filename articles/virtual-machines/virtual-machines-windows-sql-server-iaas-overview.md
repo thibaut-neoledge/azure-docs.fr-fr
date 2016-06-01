@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # Vue d’ensemble de SQL Server dans Azure Virtual Machines
 
 [SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) permet d’héberger vos bases de données SQL Server dans le cloud. Par exemple, vous pouvez migrer une base de données locale vers une machine virtuelle Azure préconfigurée avec Windows Server 2012 R2 et SQL Server 2014 Enterprise. Mais il existe de nombreux autres scénarios possibles, comme des configurations de plusieurs ordinateurs qui prennent en charge la haute disponibilité ou des architectures hybrides avec connexion à des réseaux locaux.
 
-Pour obtenir une vue d’ensemble, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure VM : Une excellente plateforme pour SQL Server 2016).
+Pour une présentation, regardez la vidéo suivante :
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## Offres SQL
 
@@ -31,8 +33,8 @@ L’exécution de SQL Server sur une machine virtuelle Azure est une option per
 |---:|---|---|
 |![SQL Server sur les machines virtuelles Azure](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Exécutez SQL Server sur les machines virtuelles Azure. Gérez directement la machine virtuelle et exécutez votre base de données sur les versions commerciales de SQL Server. |
 |![Base de données SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[Base de données SQL](https://azure.microsoft.com/services/sql-database/)|Utilisez le service Base de données SQL pour accéder à votre base de données et la faire évoluer sans avoir à gérer l’infrastructure sous-jacente.|
-|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)|Utilisez Azure SQL Data Warehouse pour traiter de grandes quantités de données relationnelles et non relationnelles. Offre des fonctionnalités évolutives d’entreposage des données en tant que service.|
-|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)|Étendez dynamiquement les données transactionnelles en local de Microsoft SQL Server 2016 vers Azure.|
+|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Utilisez Azure SQL Data Warehouse pour traiter de grandes quantités de données relationnelles et non relationnelles. Offre des fonctionnalités évolutives d’entreposage des données en tant que service.|
+|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Étendez dynamiquement les données transactionnelles en local de Microsoft SQL Server 2016 vers Azure.|
 
 >[AZURE.NOTE] Pour obtenir une comparaison détaillée entre les machines virtuelles SQL et Base de données SQL, consultez [Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
@@ -40,7 +42,7 @@ L’exécution de SQL Server sur une machine virtuelle Azure est une option per
 
 Pour créer une machine virtuelle SQL Server dans Azure, vous devez d’abord obtenir un abonnement à la plateforme Azure. Vous pouvez acheter un abonnement Azure sur la page [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/). Pour un essai gratuit, consultez la page [Évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Après avoir souscrit un abonnement, le moyen le plus simple de déployer une machine virtuelle SQL Server dans Azure consiste à [configurer une image de la galerie de machines SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
+Après avoir souscrit un abonnement, le moyen le plus simple pour déployer une machine virtuelle SQL Server dans Azure consiste à [approvisionner une image de la galerie de machines SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
 
 Il est important de noter qu’il existe deux modèles pour créer et gérer les machines virtuelles Azure : le modèle classique et Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md). Chaque rubrique doit indiquer clairement le modèle ciblé, sauf si elle s’applique à la fois à la version classique et à Resource Manager, comme cet article.
 
@@ -69,7 +71,7 @@ Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous 
 
 ## Haute disponibilité
 
-Si vous avez besoin d’une haute disponibilité, pensez à configurer les groupes de disponibilité SQL Server. Cela implique la présence de plusieurs machines virtuelles Azure dans un réseau virtuel. Le portail Azure dispose d'un modèle qui définit cette configuration pour vous. Pour plus d’informations, consultez [Configurer un groupe de disponibilité AlwaysOn dans des machines virtuelles Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+Si vous avez besoin d’une haute disponibilité, pensez à configurer les groupes de disponibilité SQL Server. Cela implique la présence de plusieurs machines virtuelles Azure dans un réseau virtuel. Le portail Azure dispose d'un modèle qui définit cette configuration pour vous. Pour plus d’informations, consultez [Configurer un groupe de disponibilité AlwaysOn dans des machines virtuelles Azure Resource Manager (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
 Si vous souhaitez configurer manuellement votre groupe de disponibilité et l’écouteur associé, consultez [Configurer des groupes de disponibilité AlwaysOn sur une machine virtuelle Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -82,10 +84,10 @@ La [sauvegarde SQL Server dans l’URL](https://msdn.microsoft.com/library/dn43
 
 ## Étapes suivantes
 
-Tout d’abord, [créez votre propre machine virtuelle SQL Server sur le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Tout d’abord, [créez votre propre machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Examinez ensuite [les meilleures pratiques pour les performances](virtual-machines-windows-sql-performance.md) et les [techniques de migration](virtual-machines-windows-migrate-sql.md) lorsque vous envisagez de déplacer vos charges de travail SQL Server vers les machines virtuelles Azure.
+Examinez ensuite les [meilleures pratiques de performance](virtual-machines-windows-sql-performance.md) et les [techniques de migration](virtual-machines-windows-migrate-sql.md) lorsque vous envisagez de déplacer vos charges de travail SQL Server vers des machines virtuelles Azure.
 
 Si vous avez d’autres questions concernant SQL Server sur les machines virtuelles Azure, consultez le [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md). Ou ajoutez vos commentaires au bas de l’une des rubriques relatives aux machines virtuelles SQL afin d’interagir avec Microsoft et la communauté.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

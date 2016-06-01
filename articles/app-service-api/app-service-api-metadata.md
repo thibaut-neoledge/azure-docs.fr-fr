@@ -56,4 +56,6 @@ Vous pouvez générer du code client pour une application API en utilisant Visua
 
 Pour obtenir un didacticiel qui vous guide dans la création, le déploiement et l’utilisation d’une application API, consultez [Prise en main des applications API dans Azure App Service](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+Si vous utilisez Gestion des API Azure avec API Apps, vous pouvez utiliser les métadonnées Swagger pour importer votre API dans Gestion des API. Pour plus d’informations, consultez [Importation de la définition d’une API avec des opérations dans Gestion des API Azure](../api-management/api-management-howto-import-api.md).
+
+<!---HONumber=AcomDC_0518_2016-->

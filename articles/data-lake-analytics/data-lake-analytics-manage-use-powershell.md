@@ -71,7 +71,7 @@ Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Da
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trouverez un modèle pour la création d'un compte Data Lake Analytics et le compte Data Lake Store dépendant dans l'[Annexe A](#appendix-a). Enregistrez le modèle dans un fichier de modèle .json, puis utilisez le script PowerShell suivant pour l'appeler :
+Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trouverez un modèle permettant de créer un compte Data Lake Analytics et le compte Data Lake Store dépendant dans l’[Annexe A](#appendix-a). Enregistrez le modèle dans un fichier de modèle .json, puis utilisez le script PowerShell suivant pour l'appeler :
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -132,7 +132,7 @@ L'applet de commande renvoie **True** ou **False**.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-Le fait de supprimer un compte Analytics ne supprime pas le compte de stockage Data Lake dépendant. L'exemple suivant supprime le compte Data Lake Analytics et le compte Data Lake Store par défaut
+Le fait de supprimer un compte Data Lake Analytics ne supprime pas le compte de stockage Data Lake dépendant. L'exemple suivant supprime le compte Data Lake Analytics et le compte Data Lake Store par défaut
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -313,7 +313,7 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
 
 ## Utilisation des groupes Azure Resource Manager
 
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
 Un service Data Lake Analytics peut inclure les composants suivants :
 
@@ -392,4 +392,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 	  }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

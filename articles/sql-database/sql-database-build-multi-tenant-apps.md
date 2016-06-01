@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer des applications mutualisées avec le service Base de données SQL Azure"
+   pageTitle="Créer des applications mutualisées isolées et efficaces avec la base de données SQL Azure"
    description="Découvrez comment créer des applications mutualisées avec le service Base de données SQL Azure"
    keywords=""
    services="sql-database"
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Créer des applications mutualisées avec le service Base de données SQL Azure
+# Créer des applications mutualisées isolées et efficaces avec la base de données SQL Azure
 
 ## Tirer parti des pools élastiques pour créer des applications mutualisées plus efficaces
 
@@ -47,12 +47,22 @@ Les pools De base, Standard et Premium vous offrent un large éventail de perfor
 
 En plus des pools élastiques, le service Base de données SQL Azure intègre des fonctionnalités qui vous aident à gérer les activités opérationnelles sur plusieurs bases de données :
 
-**Exécutez des requêtes et des rapports sur plusieurs bases de données.** Les [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
+** Exécutez des requêtes et des rapports sur plusieurs bases de données. ** Les [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
 
-**Exécutez des transactions dans plusieurs bases de données.** Les [transactions de base de données élastique](sql-database-elastic-transactions-overview.md) vous permettent d’exécuter des transactions portant sur plusieurs bases de données SQL et d’exécuter des opérations (par exemple, lors du traitement de transactions financières dans les bases de données ou de la mise à jour de l’inventaire d’une base de données et des commandes).
+** Exécutez des transactions dans plusieurs bases de données. ** Les [transactions de base de données élastique](sql-database-elastic-transactions-overview.md) vous permettent d’exécuter des transactions portant sur plusieurs bases de données SQL et d’exécuter des opérations (par exemple, lors du traitement de transactions financières dans les bases de données ou de la mise à jour de l’inventaire d’une base de données et des commandes).
 
-**Exécutez les mêmes opérations sur plusieurs bases de données.** Les [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) vous permettent d’exécuter des opérations administratives telles que la reconstruction d’index ou la mise à jour des schémas dans chaque base de données de votre pool élastique.
+** Exécutez les mêmes opérations sur plusieurs bases de données. ** Les [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) vous permettent d’exécuter des opérations administratives telles que la reconstruction d’index ou la mise à jour des schémas dans chaque base de données de votre pool élastique.
 
 Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Étapes suivantes
+
+Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
+
+## En savoir plus
+
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Connexion et déconnexion de l’application web avec Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD simplifie l’externalisation de la gestion des identités de votre application web en fournissant une authentification unique avec seulement quelques lignes de code. Dans les applications web Asp.NET, vous pouvez y parvenir en utilisant l’implémentation Microsoft de l’intergiciel communautaire OWIN inclus dans .NET Framework 4.5. Ici, nous allons utiliser OWIN pour : - Connecter l’utilisateur à l’application en utilisant Azure AD comme fournisseur d’identité. - Afficher des informations à propos de l’utilisateur. - Déconnecter l’utilisateur de l’application.
+Azure AD simplifie l’externalisation de la gestion des identités de votre application web en fournissant une authentification unique avec seulement quelques lignes de code. Dans les applications web Asp.NET, vous pouvez y parvenir en utilisant l’implémentation Microsoft de l’intergiciel communautaire OWIN inclus dans .NET Framework 4.5. Ici, nous allons utiliser OWIN pour :
+-	connecter l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
+-	afficher des informations sur l’utilisateur ;
+-	déconnecter l’utilisateur de l’application.
 
 Pour ce faire, vous devez :
 
@@ -175,4 +178,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

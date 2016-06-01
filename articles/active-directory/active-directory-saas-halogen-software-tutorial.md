@@ -118,7 +118,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 3. Sur la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit : ![Configurer les paramètres d’application][10]
  
-     a. dans la zone de texte **URL d’authentification**, tapez l’URL dont vos utilisateurs se servent pour se connecter à votre application Halogen Software selon le modèle suivant : **https://global.hgncloud.com/fabrikam/welcome.jsp*
+     a. dans la zone de texte **URL d’authentification**, tapez l’URL dont vos utilisateurs se servent pour se connecter à votre application Halogen Software selon le modèle suivant : *https://global.hgncloud.com/fabrikam/welcome.jsp*
 
      b. Cliquez sur **Next**.
  
@@ -147,7 +147,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
     d. Pour tester la configuration, cliquez sur **Run Test** (Exécuter le test).
 
-    > [AZURE.NOTE] Vous devez attendre que le message « *The SAML test is complete. Please close this window* » s’affiche. Ensuite, fermez la fenêtre du navigateur. La case à cocher **Enable SAML** (Activer SAML) est sélectionnée uniquement si le test a été effectué.
+    > [AZURE.NOTE] Vous devez attendre que le message « *The SAML test is complete. Please close this window* » s’affiche. Ensuite, fermez la fenêtre du navigateur. La case à cocher **Enable SAML** (Activer SAML) est sélectionnée uniquement si le test a été effectué.
 
     e. Sélectionnez **Enable SAML**.
     
@@ -321,4 +321,4 @@ Lorsque vous cliquez sur la vignette Halogen Software dans le volet d’accès, 
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
