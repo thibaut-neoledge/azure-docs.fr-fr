@@ -23,7 +23,7 @@
 - [Acheter un certificat SSL pour Web Apps](web-sites-purchase-ssl-web-site.md)
 - [Activer le chiffrement SSL pour votre domaine personnalisé](web-sites-configure-ssl-certificate.md)  
 
-Par défaut, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** active déjà le protocole HTTPS pour votre application web grâce à un certificat générique pour le domaine *.azurewebsites.net. Si vous ne souhaitez pas configurer de domaine personnalisé, vous pouvez utiliser le certificat HTTPS par défaut. Cependant, comme tous les* [domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), il n’est pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. Azure App Service vous fournit désormais un moyen simple d’acheter et de gérer un certificat SSL directement à partir du portail Azure sans jamais quitter le portail. Cet article explique comment acheter et configurer un certificat SSL pour votre service **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 étapes simples.
+Par défaut, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** active déjà le protocole HTTPS pour votre application web grâce à un certificat générique pour le domaine *.azurewebsites.net. Si vous ne souhaitez pas configurer de domaine personnalisé, vous pouvez utiliser le certificat HTTPS par défaut. Cependant, comme tous les *[domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), il n’est pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. Azure App Service vous fournit désormais un moyen simple d’acheter et de gérer un certificat SSL directement à partir du portail Azure sans jamais quitter le portail. Cet article explique comment acheter et configurer un certificat SSL pour votre service **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 étapes simples.
 
 > [AZURE.NOTE]
 Les certificats SSL pour les noms de domaine personnalisés ne peuvent pas être utilisés avec des applications web gratuites et partagées. Vous devez configurer votre application web pour le mode De base, Standard ou Premium, ce qui peut changer le prix facturé à votre abonnement. Pour plus d’informations, consultez **[Tarification de App Services](https://azure.microsoft.com/pricing/details/web-sites/)**.
@@ -89,7 +89,7 @@ Dans cette étape, vous allez apprendre à placer un certificat SSL que vous ave
     ![insérer une image de création d’un KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Azure Key Vault engendre très peu de frais pour le stockage de ce certificat. Le coût est d’environ 0,03 $ (USD). Pour plus d’informations, consultez **[Tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
+    Azure Key Vault engendre très peu de frais pour le stockage de ce certificat. Pour plus d'informations, consultez **[Tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
 
 4. Une fois que vous avez sélectionné le référentiel du coffre de clés dans lequel stocker ce certificat, continuez en cliquant sur le bouton **« Stocker »** en haut du panneau **« État du coffre de clés »**.
 
@@ -208,4 +208,4 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnal
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

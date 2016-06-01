@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Remplacement du comportement HTTP par défaut à l'aide du moteur de règles
 
-## Vue d’ensemble
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-Le moteur de règles vous permet de personnaliser comment sont gérées les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP. Ce didacticiel présente la création d'une règle qui modifie le comportement de mise en cache de ressources CDN. Un contenu vidéo est également disponible dans la section « [Voir aussi](#see-also) ».
+## Vue d'ensemble
 
-> [AZURE.NOTE] Le moteur de règles est une fonctionnalité du niveau CDN Premium. Pour comparer les fonctionnalités CDN Standard et Premium, consultez [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
+Le moteur de règles vous permet de personnaliser comment sont gérées les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP. Ce didacticiel présente la création d'une règle qui modifie le comportement de mise en cache de ressources CDN. Du contenu vidéo est aussi disponible dans la section « [Voir aussi](#see-also) ».
 
 ## Didacticiel
 
@@ -38,6 +38,8 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 
 	![Options de nouvelle règle CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
+	>[AZURE.IMPORTANT] L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
+	
 3. Entrez un nom dans la zone de texte **Nom / Description**.
 
 4. Identifiez le type de requêtes auxquelles la règle s'applique. Par défaut, la condition de correspondance **Toujours** est sélectionnée. Pour ce didacticiel, vous allez utiliser **Toujours**, donc conservez cette option.
@@ -58,12 +60,10 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 
 6.  Cliquez sur le bouton **Ajouter** pour enregistrer la nouvelle règle. La nouvelle règle est en attente d'approbation. Une fois qu'elle a été approuvée, l'état passe de **XML en attente** à **XML actif**.
 
-## Considérations
-
-- L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
+	>[AZURE.IMPORTANT] Les modifications de règles peuvent prendre jusqu’à 90 minutes avant d’être propagées à travers le CDN.
 
 ## Voir aussi
-* [Azure Friday : les nouvelles fonctionnalités Premium puissantes d’Azure CDN](../../videos/azure-cdns-powerful-new-premium-features/) (vidéo)
+* [Azure Friday : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
 * [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](cdn-rules-engine-details.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

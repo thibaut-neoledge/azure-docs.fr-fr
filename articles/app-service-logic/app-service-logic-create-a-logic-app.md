@@ -67,4 +67,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiqu
 [Azure portal]: https://portal.azure.com
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->

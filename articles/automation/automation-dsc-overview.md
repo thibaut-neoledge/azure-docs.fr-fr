@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name" 
    authors="coreyp-at-msft" 
    manager="stevenka" 
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="PowerShell DSC, Desired State Configuration, configuration d'état souhaité PowerShell DSC Azure"/>
 
 <tags
    ms.service="automation"
@@ -13,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="04/29/2016"
-   ms.author="coreyp"/>
+   ms.date="05/10/2016"
+   ms.author="magoedte;coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
 
@@ -98,6 +99,8 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 
 ##Pièges/Problèmes connus :##
 
+- Lors d’une mise à niveau vers WMF 5 RTM, si l’ordinateur est déjà inscrit en tant que nœud dans Azure Automation DSC, vous devez annuler son inscription dans Azure Automation DSC et l’enregistrer à nouveau après avoir effectué la mise à niveau.
+
 - Azure Automation DSC ne prend pas en charge les configurations DSC partielles ou composites pour le moment. Il est toutefois possible d’importer et utiliser les ressources DSC composites comme dans une instance PowerShell locale, ce qui permet d’en réutiliser la configuration.
 
 - La dernière version de WMF 5 doit être installée pour que l'agent PowerShell DSC pour Windows puisse communiquer avec Azure Automation. La dernière version de l’agent PowerShell DSC pour Linux doit être installée pour que Linux puisse communiquer avec Azure Automation.
@@ -112,11 +115,9 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 
 - Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d'inscription DSC PowerShell ne peut pas renouveler automatiquement les certificats lorsqu'ils approchent de l'expiration, donc vous devez réinscrire les nœuds après une année. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d'authentification d'un nœud expire et si le nœud n'est pas réinscrit, le nœud ne pourra pas communiquer avec Azure Automation et sera marqué « Ne répond pas ». La réinscription s'effectue de la même façon que l'inscription initiale du nœud. La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
 
-- Lors d’une mise à niveau vers WMF 5 RTM, si l’ordinateur est déjà inscrit en tant que nœud dans Azure Automation DSC, vous devez annuler son inscription dans Azure Automation DSC et l’enregistrer à nouveau après avoir effectué la mise à niveau. Avant le nouvel enregistrement, supprimez le fichier `$env:windir\system32\configuration\DSCEngineCache.mof`.
+- Lors d’une mise à niveau vers WMF 5 RTM, si l’ordinateur est déjà inscrit en tant que nœud dans Azure Automation DSC, vous devez annuler son inscription dans Azure Automation DSC et l’enregistrer à nouveau après avoir effectué la mise à niveau. Avant la réinscription, supprimez le fichier $env:windir\\system32\\configuration\\DSCEngineCache.mof.
 
 - Les applets de commande PowerShell DSC risquent de ne pas fonctionner si WMF 5 RTM est installé au-dessus de WMF 5 Production Preview. Pour résoudre ce problème, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges (exécuter en tant qu’administrateur) : `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
-
-- Si vous avez précédemment utilisé les fonctionnalités WMF 4 PowerShell DSC sur un ordinateur, l’extraction d’informations de configuration à partir d’Azure Automation DSC pour cet ordinateur peut échouer avec l’exception : « Échec du déchiffrement ». Pour résoudre ce problème, supprimez les fichiers suivants et enregistrez à nouveau l’ordinateur sur Azure Automation DSC : `$env:windir\system32\configuration\Current.mof`, `$env:windir\system32\configuration\DSCEngineCache.mof`, `$env:windir\system32\configuration\DSCStatusHistory.mof`
  
 
 ##Articles connexes##
@@ -127,4 +128,4 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 - [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

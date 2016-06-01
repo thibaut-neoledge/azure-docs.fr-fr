@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
@@ -26,7 +26,9 @@ Pour la plupart des ressources, vous pouvez passer à Resource Manager sans aucu
 - **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
 - **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
 
-Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Passons en revue les deux modèles pour comprendre lequel a été utilisé pour déployer vos ressources.
+Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Si vous êtes prêt à migrer vos ressources d’un déploiement classique vers un déploiement Resource Manager, consultez [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
+
+Passons en revue les deux modèles pour comprendre lequel a été utilisé pour déployer vos ressources.
 
 ## Caractéristiques de Resource Manager
 
@@ -38,7 +40,7 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d'utiliser le Gestionnaire des ressources ou le déploiement classique.Sélectionnez **Gestionnaire des ressources**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -161,7 +163,7 @@ Plusieurs points importants sont à prendre en compte lors de l’utilisation de
 - Les machines virtuelles déployées avec le modèle de déploiement de Resource Manager doivent être incluses dans un réseau virtuel.
 - Les machines virtuelles déployées avec le modèle de déploiement classique ne doivent pas être incluses dans un réseau virtuel.
 
-Si les temps d’arrêt ne pénalisent pas vos machines virtuelles, vous pouvez les faire passer du déploiement classique à Resource Manager à l’aide de [scripts PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
+Si vous êtes prêt à migrer vos ressources d’un déploiement classique vers un déploiement Resource Manager, consultez [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
 
 Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
@@ -173,4 +175,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la structure des modèles Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

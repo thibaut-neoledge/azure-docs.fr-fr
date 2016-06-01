@@ -34,7 +34,7 @@ Découvrez comment créer une base de données SQL avec des applets de commande 
 
 ## Configuration de la base de données : Créer un groupe de ressources, un serveur et une règle de pare-feu
 
-Vous disposez maintenant d’un accès pour exécuter des applets de commande pour votre abonnement Azure. L’étape suivante consiste donc à établir le groupe de ressources qui contient le serveur où la base de données sera créée. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
+Vous disposez maintenant d’un accès pour exécuter des applets de commande pour votre abonnement Azure. L’étape suivante consiste donc à établir le groupe de ressources qui contient le serveur où la base de données sera créée. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location** pour obtenir la liste des emplacements autorisés.
 
 Utilisez la commande suivante pour créer un groupe de ressources :
 
@@ -120,4 +120,4 @@ Une fois que vous avez créé une base de données SQL et effectué les tâches 
 
 - [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

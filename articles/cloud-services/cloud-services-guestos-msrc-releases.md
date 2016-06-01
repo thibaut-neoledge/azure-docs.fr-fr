@@ -20,6 +20,25 @@
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
+## SE invité mai 
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-051 | [3155533] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.32, 3.39, 2.51 | 10 mai 2016 |  
+| MS16-053 | [3156764] | Mise à jour de sécurité cumulative pour JScript et VBScript | 2\.51 | 10 mai 2016 | 
+| MS16-055 | [3156754] | Mise à jour de sécurité pour le composant graphique Microsoft | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| MS16-057 | [3156987] | Mise à jour de sécurité pour Windows Shell | 4\.32 | 10 mai 2016 | 
+| MS16-060 | [3154846] | Mise à jour de sécurité pour le noyau Windows | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| MS16-061 | [3155520] | Mise à jour de sécurité de RPC | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| MS16-062 | [3158222] | Mise à jour de sécurité pour les pilotes en mode noyau | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| MS16-065 | [3156757] | Mise à jour de sécurité pour .Net Framework | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| MS16-067 | [3155784] | Mise à jour de sécurité pour le pilote de gestionnaire de volume | 4\.32, 3.39 | 10 mai 2016 | 
+| | [3148851] | Changements de fuseau horaire pour la Russie dans Windows | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+| | [3133977] | BitLocker ne peut pas crypter les lecteurs en raison de défaillances du service dans le processus svchost.exe dans Windows 7 ou Windows Server 2008 R2 | 2\.51 | 10 mai 2016 | 
+| | [3133681] | Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2 (Les machines virtuelles ne répondent pas à votre opération dans SCVMM dans Windows Server 2012 R2) | 4\.32 | 10 mai 2016 | 
+| | [3123245] | La mise à jour améliore l’identification d’une insuffisance de ports dans Windows Server 2012 R2 | 4\.32 | 10 mai 2016 | 
+| | [Désactiver RC4] | Avis de sécurité Microsoft : mise à jour concernant la désactivation de RC4 | 4\.32, 3.39, 2.51 | 10 mai 2016 | 
+
 
 ## SE invité avril 
 
@@ -234,7 +253,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
@@ -268,6 +287,23 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [3007054][3007054] | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
+
+[3155533]: http://support.microsoft.com/kb/3155533
+[3156764]: http://support.microsoft.com/kb/3156764
+[3156754]: http://support.microsoft.com/kb/3156754
+[3156987]: http://support.microsoft.com/kb/3156987
+[3141083]: http://support.microsoft.com/kb/3141083
+[3154846]: http://support.microsoft.com/kb/3154846
+[3155520]: http://support.microsoft.com/kb/3155520
+[3158222]: http://support.microsoft.com/kb/3158222
+[3156757]: http://support.microsoft.com/kb/3156757
+[3155784]: http://support.microsoft.com/kb/3155784
+[3148851]: http://support.microsoft.com/kb/3148851
+[3133977]: http://support.microsoft.com/kb/3133977
+[3133681]: http://support.microsoft.com/kb/3133681
+[3123245]: http://support.microsoft.com/kb/3123245
+[Désactiver RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+
 
 [3148531]: http://support.microsoft.com/kb/3148531
 [3148522]: http://support.microsoft.com/kb/3148522
@@ -373,7 +409,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/fr-FR/kb/3042553/
+[3042553]: https://support.microsoft.com/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -453,4 +489,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

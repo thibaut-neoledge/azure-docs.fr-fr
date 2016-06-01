@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma" />
 
 # Déploiement d’applications avec des packages d’applications Azure Batch
@@ -56,13 +56,15 @@ Batch gère les détails de l’utilisation d’Azure Storage en arrière-plan p
 
 ## Téléchargement et gestion des applications
 
-À l’aide du portail Azure, vous pouvez ajouter, mettre à jour et supprimer des packages d’applications et configurer les versions par défaut pour chaque application. À ce stade, ces opérations sont prises en charge uniquement dans le portail Azure.
+À l’aide du portail Azure, vous pouvez ajouter, mettre à jour et supprimer des packages d’applications et configurer les versions par défaut pour chaque application.
 
 Dans les sections suivantes, nous aborderons tout d’abord l’association d’un compte de stockage avec votre compte Batch, puis nous examinerons les fonctionnalités de gestion de package disponibles sur le portail Azure. Ensuite, vous allez apprendre à déployer ces packages sur des nœuds de calcul à l’aide de la bibliothèque [Batch .NET][api_net].
 
 ### Liaison d’un compte de stockage
 
 Pour utiliser les packages d’applications, vous devez d’abord lier un compte Azure Storage à votre compte Batch. Si vous n’avez pas encore configuré de compte de stockage pour votre compte Batch, le portail Azure affiche un avertissement la première fois que vous cliquez sur la mosaïque *Applications* dans le panneau du compte Batch.
+
+> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Lorsque vous liez un compte Azure Storage à votre compte Batch, liez *uniquement* un compte de stockage à **usage général**.
 
 ![Avertissement Aucun compte de stockage configuré dans le portail Azure][9]
 
@@ -72,7 +74,7 @@ Le service Batch utilise le compte de stockage associé pour le stockage et la r
 
 Nous vous recommandons de créer un compte de stockage *spécifiquement* pour une utilisation avec votre compte Batch et de le sélectionner ici. Pour obtenir des détails sur la création d’un compte de stockage, consultez « Créer un compte de stockage » sous [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Une fois que vous avez créé un compte de stockage, vous pouvez le lier à votre compte Batch à l'aide du panneau *Compte de stockage*.
 
-> [AZURE.WARNING] Étant donné que Batch stocke vos packages d’applications à l'aide d’Azure Storage, vous êtes [facturé comme d’habitude][storage_pricing] pour les données d’objets blob de blocs. Veillez à prendre en compte la taille et le nombre de vos packages d’applications et à supprimer régulièrement les packages obsolètes pour réduire les coûts.
+> [AZURE.WARNING] Étant donné que Batch stocke vos packages d’applications à l’aide d’Azure Storage, vous êtes [facturé comme d’habitude][storage_pricing] pour les données d’objets blob de blocs. Veillez à prendre en compte la taille et le nombre de vos packages d’applications et à supprimer régulièrement les packages obsolètes pour réduire les coûts.
 
 ### Affichage des applications en cours
 
@@ -111,29 +113,6 @@ Cliquez sur **Ajouter** sur le panneau *Applications* pour ouvrir le panneau *No
 ![Panneau Nouvelle application dans le portail Azure][5]
 
 Le panneau *Nouvelle application* contient les champs suivants pour spécifier les paramètres de votre nouvelle application et du package d’application.
-
-**Metadata**
-
-Vous pouvez soit fournir manuellement les métadonnées de l’application en entrant des valeurs directement dans les zones de texte **ID d’application** et **Version**, soit télécharger un fichier JSON qui contient les métadonnées. Pour spécifier l’ID d’application et la version manuellement, il suffit de laisser le sélecteur de liste déroulante **Métadonnées** sur **Entrer des métadonnées** (la valeur par défaut) et d’entrer manuellement les valeurs dans les zones de texte **ID d’application** et **Version**.
-
-Pour spécifier un fichier de métadonnées au format JSON qui contient l’ID et la version d’un package, sélectionnez **Télécharger un fichier de métadonnées** dans la liste déroulante **Métadonnées** :
-
-![Sélecteur de liste déroulante Télécharger un fichier de métadonnées][6]
-
-Ensuite, cliquez sur l’icône de dossier en regard de la zone de texte **Fichier de métadonnées** qui s’affiche, puis accédez au fichier local contenant les données JSON. Dans cet exemple, le fichier `litware_1.1001.2b.json` a été sélectionné pour le téléchargement et les zones de texte **ID d’application** et **Version** ont été automatiquement remplies avec les informations contenues dans le fichier :
-
-![Détail de la sélection d’un fichier de métadonnées][13]
-
-Utilisez le format JSON suivant pour spécifier les métadonnées du package d’application dans un fichier :
-
-```
-{
-    "id": "litware",
-    "version": "1.1001.2b"
-}
-```
-
-> [AZURE.NOTE] Si vous téléchargez un fichier de métadonnées JSON pour l’ID et la version, vous n’avez *pas* besoin de modifier également les zones de texte « Version » ou « ID d’application ». Elles sont automatiquement remplies avec les données du fichier JSON.
 
 **ID d’application**
 
@@ -292,6 +271,7 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
@@ -308,13 +288,11 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [3]: ./media/batch-application-packages/app_pkg_03.png "Panneau Application dans le portail Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Panneau Détails de l’application dans le portail Azure"
 [5]: ./media/batch-application-packages/app_pkg_05.png "Panneau Nouvelle application dans le portail Azure"
-[6]: ./media/batch-application-packages/app_pkg_06.png "Sélecteur de liste déroulante Télécharger un fichier de métadonnées"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Liste déroulante Mettre à jour ou supprimer des packages dans le portail Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Panneau Nouveau package d’application dans le portail Azure"
 [9]: ./media/batch-application-packages/app_pkg_09.png "Alerte Aucun compte de stockage lié"
 [10]: ./media/batch-application-packages/app_pkg_10.png "Panneau Sélectionner un compte de stockage dans le portail Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Panneau Mettre à jour un package dans le portail Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le portail Azure"
-[13]: ./media/batch-application-packages/app_pkg_13.png "Détail de la sélection d’un fichier de métadonnées"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

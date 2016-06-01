@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -31,10 +31,10 @@ Pour vous aider à démarrer, examinons certaines requêtes de base.
 
 Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
 
-![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics/001.png)
+![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take) : afficher n lignes
+## [Take](app-insights-analytics-reference.md#take-operator) : afficher n lignes
 
 Les points de données qui enregistrent les opérations des utilisateurs (généralement des requêtes HTTP reçues par votre application web) sont stockés dans une table appelée `requests`. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans votre application.
 
@@ -56,7 +56,7 @@ Développez un élément pour afficher les détails :
 
 > [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour cela, vous devez utiliser l’opérateur `top` ou `sort`.
 
-## [Top](app-insights-analytics-aggregations.md#top) et [sort](app-insights-analytics-aggregations.md#sort)
+## [Top](app-insights-analytics-reference.md#top-operator) et [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` est utile pour obtenir un exemple rapide d’un résultat, mais il n’affiche pas les lignes de la table dans un ordre particulier. Pour obtenir un affichage ordonné, utilisez `top` (pour un échantillon) ou `sort` (qui porte sur la table entière).
 
@@ -84,9 +84,9 @@ Le résultat serait le même, mais l’exécution de la requête serait un peu p
 Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
 
 
-## [Project](app-insights-analytics-aggregations.md#project) : sélectionner, renommer et calculer des colonnes
+## [Project](app-insights-analytics-reference.md#project-operator) : sélectionner, renommer et calculer des colonnes
 
-Utilisez [`project`](app-insights-analytics-aggregations.md#project) pour choisir uniquement les colonnes qui vous intéressent :
+Utilisez [`project`](app-insights-analytics-reference.md#project-operator) pour choisir uniquement les colonnes qui vous intéressent :
 
 ```AIQL
 
@@ -117,11 +117,13 @@ Dans l’expression scalaire :
 * `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
 
-Les [expressions](app-insights-analytics-scalars.md) peuvent inclure tous les opérateurs habituels (`+`, `-`, ...), et il existe une gamme de fonctions utiles.
+Les [expressions](app-insights-analytics-reference.md#scalars) peuvent inclure tous les opérateurs habituels (`+`, `-`, ...), et il existe une gamme de fonctions utiles.
 
-## [Extend](app-insights-analytics-aggregations.md#extend) : calculer des colonnes
+    
 
-Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](app-insights-analytics-aggregations.md#extend) :
+## [Extend](app-insights-analytics-reference.md#extend-operator) : calculer des colonnes
+
+Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](app-insights-analytics-reference.md#extend-operator) :
 
 ```AIQL
 
@@ -130,13 +132,57 @@ Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, ut
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Utiliser [`extend`](app-insights-analytics-aggregations.md#extend) est plus concis que [`project`](app-insights-analytics-aggregations.md#project) si vous souhaitez conserver toutes les colonnes existantes.
+Utiliser [`extend`](app-insights-analytics-reference.md#extend-operator) est plus concis que [`project`](app-insights-analytics-reference.md#project-operator) si vous souhaitez conserver toutes les colonnes existantes.
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize) : agréger des groupes de lignes
+
+## Accès à des objets imbriqués
+
+Les objets imbriqués sont faciles d’accès. Par exemple, dans le flux d’exceptions, vous verrez des objets structurés comme suit :
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+Vous pouvez les aplatir en choisissant les propriétés qui vous intéressent :
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## Mesures et propriétés personnalisées
+
+Si votre application attache [des dimensions (propriétés) personnalisées et des mesures personnalisées](app-insights-api-custom-events-metrics.md#properties) à des événements, elles seront visibles dans les objets `customDimensions` et `customMeasurements`.
+
+
+Par exemple, si votre application inclut :
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+Pour extraire ces valeurs dans Analytics :
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachés à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Mais, dans Analytics, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
+
+
+## [Summarize](app-insights-analytics-reference.md#summarize-operator) : agréger des groupes de lignes
 
 `Summarize` applique une *fonction d’agrégation* sur des groupes de lignes.
 
-Par exemple, le temps que met votre application web à répondre à une demande est reportée dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
+Par exemple, le temps que met votre application web à répondre à une demande est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -162,7 +208,7 @@ Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de r
 
 ## Décompte des données échantillonnées
 
-`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. Mais lorsque l’[échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights, de sorte que pour chaque point de données que vous voyez, il existe `itemCount` événements. Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
+`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. Mais, lorsque l’[échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights, de sorte que, pour chaque point de données que vous voyez, il existe `itemCount` événements. Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -170,7 +216,7 @@ Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de r
 Il existe également une agrégation `count()`, pour les cas où vous souhaitez réellement compter le nombre de lignes dans un groupe.
 
 
-Il existe un certain nombre de [fonctions d’agrégation](app-insights-analytics-aggregations.md).
+Il existe un certain nombre de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
 
 
 ## Affichage des résultats dans un graphique
@@ -196,7 +242,7 @@ Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la
 Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’affichage de table), le graphique affiche toujours les dates dans l’ordre approprié.
 
 
-## [Where](app-insights-analytics-aggregations.md#where) : filtrer une condition
+## [Where](app-insights-analytics-reference.md#where-operator) : filtrer une condition
 
 Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines des données de télémétrie dans la base de données proviennent des navigateurs.
 
@@ -218,7 +264,7 @@ L’opérateur `where` prend une expression booléenne. Voici quelques points cl
  * `==`, `<>` : égal et non égal
  * `=~`, `!=` : chaîne ne respectant pas la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
-Tout savoir sur les [expressions scalaires](app-insights-analytics-scalars.md).
+Tout savoir sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
 
 ### Filtrage des événements
 
@@ -230,7 +276,7 @@ Rechercher les requêtes ayant échoué :
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-scalars.md#casts) pour une comparaison numérique.
+`responseCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-reference.md#casts) pour une comparaison numérique.
 
 Résumer les différentes réponses :
 
@@ -339,7 +385,7 @@ La clause `where` exclut les sessions à déclenchement unique (sessionDuration=
 
 
 
-## [Centiles](app-insights-analytics-aggregations.md#percentiles)
+## [Centiles](app-insights-analytics-reference.md#percentiles)
 
 Quelles sont les plages de durées qui couvrent différents pourcentages de sessions ?
 
@@ -385,7 +431,7 @@ Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 Nous avons accès à plusieurs tables, y compris les demandes et les exceptions.
 
@@ -404,7 +450,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let) : affecter un résultat à une variable
+## [Let](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
 
 Utilisez [let](./app-insights-analytics-syntax.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
@@ -423,4 +469,4 @@ Utilisez [let](./app-insights-analytics-syntax.md#let-statements) pour séparer 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

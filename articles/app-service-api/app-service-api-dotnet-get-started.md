@@ -533,4 +533,4 @@ Une fois que vous aurez configuré votre application web ASP.NET dans Azure App 
 
 Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code, y générer du code client et les consommer à partir de clients .NET. Le didacticiel suivant montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!------HONumber=AcomDC_0518_2016-->

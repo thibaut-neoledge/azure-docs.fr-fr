@@ -1,1 +1,1 @@
-> [AZURE.IMPORTANT] This is a feature of **Azure CDN Premium from Verizon**, and is not available with **Azure CDN Standard** products.  For a comparison of CDN features, see [Azure CDN Overview](cdn-overview.md#azure-cdn-features). 
+> [AZURE.IMPORTANT] Il s’agit d’une fonctionnalité d’**Azure CDN Premium de Verizon**, qui n’est pas disponible dans les produits **Azure CDN Standard**. Pour comparer les fonctionnalités du CDN, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md#azure-cdn-features).

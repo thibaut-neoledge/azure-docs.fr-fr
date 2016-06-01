@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Rapports dans Azure Multi-Factor Authentication
@@ -36,8 +36,8 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 1.	Connectez-vous à http://azure.microsoft.com.
 2.	Sélectionnez Active Directory à gauche.
 3.	Sélectionnez l’une des options suivantes :
-	- **Option 1** : cliquez sur l’onglet Fournisseurs d’authentification multifacteur. Sélectionnez votre fournisseur MFA et cliquez sur le bouton Gérer dans la partie inférieure.
-	- **Option 2** : sélectionnez votre annuaire et cliquez sur l’onglet Configurer. Dans la section Authentification multifacteur, sélectionnez Gérer les paramètres du service. En bas de la page Paramètres du service MFA, cliquez sur le lien Accéder au portail.
+	- **Option 1** : cliquez sur l’onglet Fournisseurs d’authentification multifacteur. Sélectionnez votre fournisseur MFA et cliquez sur le bouton Gérer dans la partie inférieure.
+	- **Option 2** : sélectionnez votre annuaire et cliquez sur l’onglet Configurer. Dans la section Authentification multifacteur, sélectionnez Gérer les paramètres du service. En bas de la page Paramètres du service MFA, cliquez sur le lien Accéder au portail.
 4.	Dans le portail de gestion Azure Multi-Factor Authentication, la section Afficher un rapport apparaît dans le volet de navigation gauche. Ici, vous pouvez sélectionner les rapports décrits ci-dessus.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
@@ -49,4 +49,4 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

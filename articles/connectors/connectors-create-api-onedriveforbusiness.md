@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur OneDrive Entreprise
@@ -69,6 +69,8 @@ Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’a
 | ---|---|---|
 |Jeton|Oui|Fournir des informations d’identification pour OneDrive Entreprise|
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à OneDrive Entreprise](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -364,4 +366,4 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

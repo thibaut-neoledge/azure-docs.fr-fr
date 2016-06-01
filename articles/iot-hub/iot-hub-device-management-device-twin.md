@@ -16,7 +16,10 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Didacticiel : Utilisation des représentations d’appareil physique (version préliminaire)
+# Didacticiel : Utilisation des représentations d’appareil physique avec C# (version préliminaire)
+
+[AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+## Introduction
 
 Gestion des appareils Azure IoT Hub présente la représentation d’appareil (qui est la représentation d’un appareil physique côté service). Voici un diagramme indiquant les différents composants de la représentation d’appareil.
 
@@ -28,15 +31,16 @@ Propriétés de l’appareil est un dictionnaire prédéfini de propriétés dé
 
 ## Synchronisation des propriétés de l’appareil
 
-L’appareil physique est la source de référence pour les propriétés de l’appareil. Les valeurs sélectionnées sur l’appareil physique sont automatiquement synchronisées avec la représentation d’appareil dans IoT Hub via le modèle *observer/informer* décrit par LWM2M.
+L’appareil physique est la source de référence pour les propriétés de l’appareil. Les valeurs sélectionnées sur l’appareil physique sont automatiquement synchronisées avec la représentation d’appareil dans IoT Hub par le biais du modèle *observer/informer* décrit par [LWM2M][lnk-lwm2m].
 
-Lorsque l’appareil physique se connecte à IoT Hub, le service lance *l’observation* sur les propriétés de l’appareil sélectionné. Ensuite, l’appareil physique *informe* IoT Hub des modifications apportées aux propriétés de l’appareil. Pour implémenter des hystérésis, **pmin** (la durée minimale entre les notifications) est défini sur 5 minutes. Cela signifie que pour chaque propriété, l’appareil physique n’informe pas IoT Hub plus d’une fois toutes les 5 minutes, même s’il y a une modification. Pour assurer l’actualisation, **pmax** (le délai maximum entre les notifications) est défini sur 6 heures. Cela signifie que pour chaque propriété, l’appareil physique informe IoT Hub une fois toutes les 6 heures, même si la propriété n’a pas changé au cours de cette période.
+Quand l’appareil physique se connecte à IoT Hub, le service lance *l’observation* sur les propriétés de l’appareil sélectionné. Ensuite, l’appareil physique *informe* IoT Hub des modifications apportées aux propriétés de l’appareil. Pour implémenter des hystérésis, **pmin** (la durée minimale entre les notifications) est défini sur 5 minutes. Cela signifie que pour chaque propriété, l’appareil physique n’informe pas IoT Hub plus d’une fois toutes les 5 minutes, même s’il y a une modification. Pour assurer l’actualisation, **pmax** (le délai maximum entre les notifications) est défini sur 6 heures. Cela signifie que pour chaque propriété, l’appareil physique informe IoT Hub une fois toutes les 6 heures, même si la propriété n’a pas changé au cours de cette période.
 
 Lorsque l’appareil physique se déconnecte, la synchronisation s’arrête. La synchronisation redémarre lorsque l’appareil se reconnecte au service. Vous pouvez toujours vérifier la dernière heure de mise à jour d’une propriété pour vérifier l’actualisation.
 
 Vous trouverez ci-dessous la liste complète des propriétés de l’appareil qui sont automatiquement observées :
 
 ![][img-observed]
+
 
 ## Exécution de l’exemple de représentation de l’appareil
 
@@ -60,9 +64,9 @@ Dans la fenêtre de ligne de commande, vous devriez voir la sortie illustrant l�
 
 2.  Lecture approfondie : lisez la propriété de l’appareil sur le niveau de batterie à partir de l’appareil physique (3 fois).
 
-3.  Écriture approfondie : écrivez la propriété de l’appareil **Fuseau horaire** sur l’appareil physique.
+3.  Écriture approfondie : écrit la propriété de l’appareil **Fuseau horaire** sur l’appareil physique.
 
-4.  Lecture approfondie : lisez la propriété de l’appareil **Fuseau horaire** à partir de l’appareil physique pour voir qu’elle a été modifiée.
+4.  Lecture approfondie : lit la propriété de l’appareil **Fuseau horaire** à partir de l’appareil physique pour voir qu’elle a été modifiée.
 
 ### Lecture partielle
 
@@ -82,7 +86,7 @@ De la même manière, vous pouvez lire les propriétés du service, qui sont sto
 
 ### Lecture approfondie
 
-Une lecture approfondie démarre un travail d’appareil pour lire la valeur de la propriété demandée à partir de l’appareil physique. Les travaux d’appareil ont été présentées dans [Vue d’ensemble de la gestion des appareils Azure IoT][lnk-dm-overview] et sont décrites en détail dans [Didacticiel : Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-dm-jobs]. La lecture approfondie vous fournit une valeur plus actualisée de la propriété de l’appareil, car l’actualisation n’est pas limitée par l’intervalle de notification. Le travail envoie un message à l’appareil physique et met à jour la représentation d’appareil avec la valeur la plus récente pour la propriété spécifiée seulement. Elle n’actualise pas l’ensemble de la représentation d’appareil.
+Une lecture approfondie démarre un travail d’appareil pour lire la valeur de la propriété demandée à partir de l’appareil physique. Les travaux d’appareil ont été présentés dans [Vue d’ensemble de la gestion des appareils Azure IoT][lnk-dm-overview] et sont décrits en détail dans [Didacticiel : Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-dm-jobs]. La lecture approfondie vous fournit une valeur plus actualisée de la propriété de l’appareil, car l’actualisation n’est pas limitée par l’intervalle de notification. Le travail envoie un message à l’appareil physique et met à jour la représentation d’appareil avec la valeur la plus récente pour la propriété spécifiée seulement. Elle n’actualise pas l’ensemble de la représentation d’appareil.
 
 ```
 JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyReadAsync(Guid.NewGuid().ToString(), deviceId, propertyToRead);
@@ -97,14 +101,14 @@ Si vous souhaitez modifier une propriété d’appareil accessible en écriture,
 Le travail envoie un message vers l’appareil physique pour mettre à jour la propriété spécifiée. La représentation d’appareil n’est pas immédiatement mise à jour lorsque le travail est terminé. Vous devez attendre jusqu’au prochain intervalle de notification. Lors de la synchronisation, vous pouvez voir la modification dans la représentation d’appareil avec une lecture partielle.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue);
+JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
 ### Détails d’implémentation d’un simulateur d’appareil
 
 Nous allons voir ce que vous devez faire côté appareil pour implémenter le modèle observer/informer et les lectures/écritures approfondies.
 
-Étant donné que la synchronisation des propriétés de l’appareil est entièrement gérée via la bibliothèque cliente Azure IoT Hub DM, il vous suffit d’appeler l’API pour définir la propriété de l’appareil (niveau de batterie dans cet exemple) à un intervalle régulier. Lorsque le service effectue une lecture approfondie, la dernière valeur définie est renvoyée. Lorsque le service effectue une écriture approfondie, cette méthode set est appelée. Dans **iotdm\_simple\_sample.c** vous pouvez en voir un exemple :
+Étant donné que la synchronisation des propriétés de l’appareil est entièrement gérée via la bibliothèque cliente Azure IoT Hub DM, il vous suffit d’appeler l’API pour définir la propriété de l’appareil (niveau de batterie dans cet exemple) à un intervalle régulier. Lorsque le service effectue une lecture approfondie, la dernière valeur définie est renvoyée. Lorsque le service effectue une écriture approfondie, cette méthode set est appelée. Dans **iotdm\_simple\_sample.c**, vous pouvez en voir un exemple :
 
 ```
 int level = get_batterylevel();  // call to platform specific code 
@@ -121,12 +125,13 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 
 - [Utilisation de travaux d’appareils pour mettre à jour le microprogramme des appareils][lnk-dm-jobs]
 
-- Les bibliothèques clientes de gestion des appareils fournissent un exemple de bout en bout à l’aide un [appareil Intel Edison][lnk-edison].
+- Les bibliothèques clientes de gestion des appareils fournissent un exemple de bout en bout utilisant un [appareil Intel Edison][lnk-edison].
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
 [img-observed]: media/iot-hub-device-management-device-twin/image2.png
 
+[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-dm-library]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -134,4 +139,4 @@ Pour en savoir plus sur les fonctionnalités de la gestion des appareils Azure I
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

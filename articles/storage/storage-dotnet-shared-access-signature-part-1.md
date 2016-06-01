@@ -69,8 +69,8 @@ Les jetons de SAP de compte et de SAP de service incluent des paramètres commun
 
 - **Version de l’API.** Paramètre facultatif qui spécifie la version du service de stockage à utiliser pour exécuter la demande.
 - **Version du service.** Paramètre obligatoire qui spécifie la version du service de stockage à utiliser pour authentifier la demande.
-- **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement.
-- **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d'expiration pour une signature d'accès partagé, soit de l'associer à une stratégie d'accès stockée (voir plus loin).
+- **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z.
+- **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d’expiration pour une signature d’accès partagé, soit de l’associer à une stratégie d’accès stockée. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z (voir détails ci-dessous).
 - **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
 - **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute).
 - **Protocole.** Paramètre facultatif qui spécifie le protocole autorisé pour une demande. Les valeurs possibles sont HTTPS et HTTP à la fois (https,http), qui est la valeur par défaut, ou HTTPS uniquement (https). Notez que HTTP uniquement n’est pas une valeur autorisée.
@@ -315,7 +315,7 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 - [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 - [Délégation de l'accès avec une signature d'accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 - [Présentation des signatures d’accès partagé de table et de file d’attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png 
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

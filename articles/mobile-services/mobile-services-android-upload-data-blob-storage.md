@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/11/2016"
 	ms.author="ricksal"/>
 
 # Télécharger des images vers Azure Storage depuis un appareil Android
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-&nbsp;
+&nbsp;&nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
@@ -31,25 +31,25 @@ Mobile Services utilise une base de données SQL pour stocker les données. Tout
 
 ## Ce dont vous avez besoin pour commencer
 
-Avant de commencer ce didacticiel, vous devez avoir terminé le démarrage rapide Mobile Services : [Prise en main de Mobile Services].
+Avant de commencer ce didacticiel, vous devez avoir terminé le démarrage rapide Mobile Services : [Prise en main de Mobile Services].
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-+ Un [compte de stockage Azure](../storage/storage-create-storage-account.md).
++ Un [compte de stockage Azure](../storage/storage-create-storage-account.md).
 + Un appareil Android avec un appareil photo
 
 ## Fonctionnement de l’application
 
-Le téléchargement de la photo est un processus en plusieurs étapes :
+Le téléchargement de la photo est un processus en plusieurs étapes :
 
 - Tout d’abord vous prenez une photo et insérez une ligne TodoItem dans la base de données SQL qui contient les nouveaux champs de métadonnées utilisées par Azure Storage.
 - Un nouveau service mobile script SQL d’**insertion** demande à Azure Storage une signature d’accès partagé (SAP).
 - Ce script renvoie la SAP et une URI vers l’objet blob au client.
 - Le client télécharge la photo, à l’aide du SAP et l’URI d’objet blob.
 
-Alors, qu’est ce qu’une SAP ?
+Alors, qu’est ce qu’une SAP ?
 
-Il n’est pas sûr de stocker les informations d’identification nécessaires au téléchargement des données Azure à l’intérieur de votre application cliente. Au lieu de cela, vous stockez ces informations d’identification dans votre service mobile et vous en servir pour générer une signature d’accès partagé (SAP) qui octroie l’autorisation de télécharger une nouvelle image. La signature d’accès partagé (SAP), information d’identification dont le délai d’expiration est de 5 minutes est renvoyée en toute sécurité par Mobile Services à l’application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Pour plus d’informations sur SAP, consultez la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md)
+Il n’est pas sûr de stocker les informations d’identification nécessaires au téléchargement des données Azure à l’intérieur de votre application cliente. Au lieu de cela, vous stockez ces informations d’identification dans votre service mobile et vous en servir pour générer une signature d’accès partagé (SAP) qui octroie l’autorisation de télécharger une nouvelle image. La signature d’accès partagé (SAP), information d’identification dont le délai d’expiration est de 5 minutes est renvoyée en toute sécurité par Mobile Services à l’application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Pour plus d’informations sur SAP, consultez la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## Exemple de code
 [Voici](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) la partie du code source client terminée de cette application. Pour l'exécuter, vous devez effectuer les étapes de ce didacticiel liées au serveur principal de Mobile Services.
@@ -63,7 +63,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Référence la bibliothèque cliente Azure Storage Android.
 
-1. Pour ajouter la référence à la bibliothèque, dans le fichier d’**application** > **build.gradle**, ajoutez cette ligne à la section `dependencies` :
+1. Pour ajouter la référence à la bibliothèque, dans le fichier d’**application** > **build.gradle**, ajoutez cette ligne à la section `dependencies` :
 
 		compile 'com.microsoft.azure.android:azure-storage-android:0.6.0@aar'
 
@@ -83,7 +83,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-	Notez que le stockage externe Android n’est pas nécessairement une carte SD : pour plus d’informations, consultez [Enregistrement des fichiers](http://developer.android.com/training/basics/data-storage/files.html).
+	Notez que le stockage externe Android n’est pas nécessairement une carte SD : pour plus d’informations, consultez [Enregistrement des fichiers](http://developer.android.com/training/basics/data-storage/files.html).
 
 ### Mettre à jour des fichiers de ressources pour la nouvelle interface utilisateur
 
@@ -101,7 +101,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
              android:onClick="takePicture"
              android:text="@string/preview_button_text" />
 
-3. Remplacez l’élément du bouton **Ajouter** par le code suivant :
+3. Remplacez l’élément du bouton **Ajouter** par le code suivant :
 
          <Button
              android:id="@+id/buttonUpload"
@@ -253,7 +253,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	        mSasQueryString = SasQueryString;
 	    }
 
-2. Remplacez le constructeur paramètre 0 par ce code :
+2. Remplacez le constructeur paramètre 0 par ce code :
 
 	    /**
 	     * ToDoItem constructor
@@ -265,7 +265,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	        mSasQueryString = "";
 	    }
 
-3. Remplacez le constructeur multi-paramètre par ce code :
+3. Remplacez le constructeur multi-paramètre par ce code :
 
 	    /**
 	     * Initializes a new ToDoItem
@@ -382,7 +382,7 @@ Ce code envoie une demande au service mobile pour insérer un nouvel élément T
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez intégré votre service mobile au service BLOB et que vous êtes en mesure de télécharger des images en toute sécurité, consultez les autres rubriques ci-dessous relatives au service backend et à l'intégration :
+Maintenant que vous avez intégré votre service mobile au service BLOB et que vous êtes en mesure de télécharger des images en toute sécurité, consultez les autres rubriques ci-dessous relatives au service backend et à l'intégration :
 
 + [Envoyer un courrier électronique à partir de Mobile Services avec SendGrid]
 
@@ -426,4 +426,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

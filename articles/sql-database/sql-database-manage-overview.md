@@ -30,6 +30,8 @@ Pour en savoir plus sur l’utilisation du portail, voir [Gérer des bases de do
 
 Les logiciels SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) de Visual Studio sont des outils clients qui s’exécutent sur votre ordinateur et vous permettent de vous connecter, de gérer et de développer votre base de données dans le cloud. Si vous êtes un développeur d'applications familiarisé avec Visual Studio ou d'autres environnements de développement intégré (IDE), [essayez la fonction SSDT de Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). De nombreux administrateurs de base de données sont familiarisés avec SSMS, qui peut être utilisé avec les bases de données SQL Azure. [Téléchargez la dernière version de SSMS](https://msdn.microsoft.com/library/mt238290) et utilisez toujours la dernière version quand vous recourez à Azure SQL Database. Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec SSMS, consultez [Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 
+> [AZURE.IMPORTANT] Vous devez utiliser les dernières versions de SQL Server Management Studio et de SQL Server Data Tools pour Visual Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. Les versions antérieures de ces outils ne fonctionneront pas correctement avec la base de données SQL.
+
 ## Outils en ligne de commande
 
 Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour gérer des bases de données et les pools de bases de données élastiques, et automatiser les déploiements de ressources Azure. Microsoft recommande cet outil pour la gestion d'un grand nombre de bases de données et l'automatisation du déploiement et des modifications apportées aux ressources dans un environnement de production.
@@ -44,4 +46,4 @@ Utilisez les outils de base de données élastique pour effectuer les actions su
 * Gestion des bases de données dans un modèle avec un seul locataire ou un modèle multi-locataire avec la [bibliothèque cliente de mise à l’échelle élastique](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

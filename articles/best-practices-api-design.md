@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,10 +19,7 @@
 
 # Guide de conception d’API
 
-![](media/best-practices-api-design/pnp-logo.png)
-
-Certaines rubriques de ce guide font l’objet de discussions et pourront être modifiées. N’hésitez pas à nous faire part de vos commentaires.
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Vue d'ensemble
 
@@ -522,4 +519,4 @@ Cette approche représente sans doute le mécanisme de contrôle de version le p
 - Le site [RESTful Cookbook](http://restcookbook.com/) (en anglais) offre une introduction à la création d’API RESTful.
 - Le site [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) (en anglais) présente une liste d’éléments à prendre en compte lors de la conception et de l’implémentation d’une API web.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

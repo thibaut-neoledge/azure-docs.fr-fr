@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="andkjell"/>
 
 # Résoudre les problèmes de connectivité liés à Azure AD Connect
@@ -26,9 +26,8 @@ Dans cet article, nous allons montrer comment Fabrikam se connecte à Azure AD 
 
 Nous devons d’abord nous assurer que le fichier [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) est correctement configuré. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] Dans certains blogs non-Microsoft, il est indiqué qu’il convient plutôt d’apporter des modifications à miiserver.exe.config. Toutefois, ce fichier est remplacé à chaque mise à niveau. Même s’il fonctionne lors de l’installation initiale, le système s’arrêtera donc de fonctionner à la première mise à niveau. C’est pourquoi, il est préférable de mettre à jour le fichier machine.config.
-
-
+>[AZURE.NOTE]
+Dans certains blogs non-Microsoft, il est indiqué qu’il convient plutôt d’apporter des modifications à miiserver.exe.config. Toutefois, ce fichier est remplacé à chaque mise à niveau. Même s’il fonctionne lors de l’installation initiale, le système s’arrêtera donc de fonctionner à la première mise à niveau. C’est pourquoi, il est préférable de mettre à jour le fichier machine.config.
 
 Les URL requises doivent également être ouvertes dans le serveur proxy. La liste officielle est documentée dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -37,8 +36,8 @@ Extrait de celle-ci, le tableau suivant indique le strict minimum pour pouvoir s
 | URL | Port | Description |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| **.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| *.trust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. |
+| *.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
+| *.entrust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. | 
 | *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. |
 | *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
@@ -126,13 +125,49 @@ Time | URL
 11/01/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 11/01/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
+## Erreurs d’authentification
+Cette section décrit les erreurs qui peuvent être retournées par la bibliothèque ADAL (la bibliothèque d’authentification utilisée par Azure AD Connect) et PowerShell. L’erreur expliquée doit vous aider à comprendre les étapes suivantes.
+
+### Licence non valide
+Nom d’utilisateur ou mot de passe non valide. Consultez [Impossible de vérifier le mot de passe](#the-password-cannot-be-verified) pour plus d’informations.
+
+### Type d’utilisateur inconnu
+Votre annuaire Azure AD est introuvable ou n’a pas pu être résolu. Vous essayez peut-être de vous connecter avec un nom d’utilisateur d’un domaine non vérifié ?
+
+### Échec de la découverte de domaine d’utilisateur
+Problèmes de configuration du réseau ou du proxy. Impossible d’accéder au réseau, Consultez [Résoudre les problèmes de connectivité dans l’Assistant Installation](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+
+### Mot de passe utilisateur expiré
+Vos informations d’identification ont expiré. Modifiez votre mot de passe.
+
+### AuthorizationFailure
+Problème inconnu.
+
+### Authentification annulée
+Le test d’authentification multifacteur (MFA) a été annulé.
+
+### ConnectToMSOnline
+L’authentification a réussi, mais Azure AD PowerShell a un problème d’authentification.
+
+### AzureRoleMissing
+L’authentification a réussi. Vous n’êtes pas administrateur global.
+
+### PrivilegedIdentityManagement
+L’authentification a réussi. Privileged Identity Management a été activé et vous n’êtes actuellement pas administrateur global. Consultez [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) pour plus d’informations.
+
+### CompanyInfoUnavailable
+L’authentification a réussi. Impossible de récupérer les informations de société à partir d’Azure AD.
+
+### RetrieveDomains
+L’authentification a réussi. Impossible de récupérer les informations de domaine à partir d’Azure AD.
+
 ## Étapes de dépannage pour les versions précédentes.
 Dans les versions commençant par le numéro de build 1.1.105.0 (publiées en février 2016), l’assistant de connexion a été supprimé. Cette section et la configuration ne sont plus requises, mais sont conservées en tant que référence.
 
 Pour que l’Assistant de connexion unique fonctionne, winhttp doit être configuré. Pour ce faire, utilisez [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### L’Assistant de connexion n’a pas été configuré correctement
-Cette erreur apparaît lorsque l’Assistant de connexion ne peut pas joindre le proxy, ou que le proxy n’autorise pas la demande. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+Cette erreur apparaît lorsque l’Assistant de connexion ne peut pas accéder au proxy, ou que le proxy n’autorise pas la demande. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
 - Si cette erreur apparaît, examinez la configuration du proxy dans [netsh](active-directory-aadconnect-prerequisites.md#connectivity) et vérifiez si elle est correcte. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 - Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
@@ -140,4 +175,4 @@ Cette erreur apparaît lorsque l’Assistant de connexion ne peut pas joindre le
 ## Étapes suivantes
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

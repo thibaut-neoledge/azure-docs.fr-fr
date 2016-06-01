@@ -22,7 +22,8 @@ Les problèmes de connexion à Azure SQL Database peuvent être classés selon l
 - [Erreurs temporaires (de courte durée ou intermittentes)](#troubleshoot-the-transient-errors)
 - [Erreurs persistantes ou non temporaires (erreurs qui se produisent régulièrement)](#troubleshoot-the-persistent-errors-non-transient-errors)
 
-Si vous rencontrez des problèmes de connexion, essayez de suivre les étapes de dépannage décrites dans cet article.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Si vous rencontrez des problèmes de connexion, essayez de suivre les étapes de dépannage décrites dans cet article.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Résoudre les erreurs temporaires
 Si votre application connaît des erreurs temporaires, consultez les rubriques suivantes pour obtenir des conseils sur la façon de les résoudre et de réduire la fréquence de ces erreurs :
@@ -44,4 +45,4 @@ Si l’application échoue de façon permanente à se connecter SQL Azure Databa
 3.	Vérifiez votre chaîne de connexion et d’autres paramètres de connexion. Consultez la section Chaîne de connexion dans la [rubrique des problèmes de connectivité](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Restauration à la suite d’une panne](sql-database-disaster-recovery.md) pour connaître les étapes de restauration vers une nouvelle zone.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

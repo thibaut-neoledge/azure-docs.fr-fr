@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor
@@ -64,6 +64,8 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 	![Nom de la fabrique de données indisponible][image-data-factory-name-not-available]
 	
 	> [AZURE.NOTE] Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+	> 
+	> Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 
 9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante :
@@ -73,7 +75,7 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 ## créer des services liés
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un compte de stockage Azure, une base de données SQL Azure ou une base de données SQL Server locale.
 
-Dans cette étape, vous allez créer deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. Le service lié AzureStorageLinkedService lie un compte de stockage Azure Storage et AzureSqlLinkedService lie une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Plus loin dans ce didacticiel, vous allez créer un pipeline qui servira à copier les données d’un conteneur d’objets blob dans AzureStorageLinkedService vers une table SQL dans AzureSqlLinkedService.
+Dans cette étape, vous allez créer deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. Le service lié AzureStorageLinkedService lie un compte de stockage Azure Storage et AzureSqlLinkedService lie une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Plus loin dans ce didacticiel, vous allez créer un pipeline qui servira à copier les données d’un conteneur d’objets blob dans AzureStorageLinkedService vers une table SQL dans AzureSqlLinkedService.
 
 ### Créer un service lié pour le compte de stockage Azure
 1.	Dans le panneau **FABRIQUE DE DONNÉES**, cliquez sur la vignette **Créer et déployer** pour lancer l'**éditeur** de la fabrique de données.
@@ -100,7 +102,7 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinked
 
 	![Éditeur - Paramètres SQL Azure][image-editor-azure-sql-settings]
 
-2. Remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
+2. Remplacez **servername**, **databasename**, **username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService. 
    
 
@@ -148,7 +150,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
      Notez les points suivants :
 	
 	- Le **type** de jeu de données est défini sur **AzureBlob**.
-	- **linkedServiceName** est défini sur la valeur **StorageLinkedService**. Vous avez créé ce service lié à l'étape 2.
+	- **linkedServiceName** est défini sur la valeur **AzureStorageLinkedService**. Vous avez créé ce service lié à l'étape 2.
 	- **folderPath** a la valeur du conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
 	- Le **type** de format a la valeur **TextFormat**.
 	- Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
@@ -371,16 +373,24 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 
 
 ## Résumé 
-Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé le portail Azure pour créer la fabrique de données, les services liés, les tables et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :
+Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé le portail Azure pour créer la fabrique de données, les services liés, les jeux de données et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :
 
-1.	Créer une **fabrique de données** Azure.
-2.	Créer des **services liés** qui lient des magasins de données et des calculs (appelés **Services liés**) à la fabrique de données.
-3.	Créer des **tables** qui décrivent les données d'entrée et de sortie des pipelines.
-4.	Créer des **pipelines**. Un pipeline comprend une ou plusieurs activités. Il traite des entrées et produit des sorties. Définir la période active pour le pipeline en spécifiant l'heure de **Début** et l'heure de **Fin**. La période active définit le délai pendant lequel les tranches de données seront créées.
+1.	Création d’une **fabrique de données** Azure.
+2.	Création de **services liés** :
+	1. Un service lié **Azure Storage** pour lier votre compte Azure Storage contenant des données d’entrée. 	
+	2. Un service lié **Azure SQL** pour lier votre base de données Azure contenant les données de sortie. 
+3.	Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
+4.	Création d’un **pipeline** avec une **activité de copie** avec **BlobSource** en tant que source et **SqlSink** en tant que récepteur.  
 
 
 ## Voir aussi
-Pour plus d’informations sur l’**activité de copie** dans Azure Data Factory, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
+| Rubrique | Description |
+| :---- | :---- |
+| [Activités de déplacement des données](data-factory-data-movement-activities.md) | Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
+| [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory et comment les utiliser pour créer des flux de travail pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Groupes de données](data-factory-create-datasets.md) | Cet article va vous aider à comprendre les jeux de données dans Azure Data Factory.
+| [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -455,4 +465,4 @@ Pour plus d’informations sur l’**activité de copie** dans Azure Data Factor
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

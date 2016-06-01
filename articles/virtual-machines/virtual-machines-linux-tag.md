@@ -19,13 +19,13 @@
 
 # Comment baliser une machine virtuelle Linux dans Azure
 
-Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Linux dans Azure à l’aide d’Azure Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via Azure Resource Manager.
+Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Linux dans Azure à l’aide du modèle de déploiement Azure Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via le modèle de déploiement Azure Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Balisage avec l’interface de ligne de commande Azure
 
-Le balisage est également pris en charge pour les ressources qui sont déjà créés via l’interface de ligne de commande Azure. Pour commencer, configurez votre [environnement CLI Azure][]. Connectez-vous à votre abonnement via l’interface de ligne de commande Azure et passez en mode ARM (`azure config mode arm`).
+Le balisage est également pris en charge pour les ressources qui sont déjà créés via l’interface de ligne de commande Azure. Pour commencer, configurez votre [environnement CLI Azure][]. Connectez-vous à votre abonnement via l’interface CLI Azure et passez en mode Azure Resource Manager (`azure config mode arm`).
 
 Vous pouvez afficher toutes les propriétés d’une machine virtuelle donnée, y compris les balises, à l’aide de cette commande :
 
@@ -42,13 +42,12 @@ Pour supprimer toutes les balises, vous pouvez utiliser le paramètre **–T** d
 
 Maintenant que nous avons appliqué des balises à nos ressources via l’interface de ligne de commande et le portail, examinons les détails d’utilisation pour afficher les balises dans le portail de facturation.
 
-
-
+[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Étapes suivantes
 
-* Pour en savoir plus sur le balisage de vos ressources Azure, consultez les articles [Présentation d’Azure Resource Manager][] et [Utilisation de balises pour organiser vos ressources Azure][].
-* Pour voir en quoi les balises peuvent vous aider à gérer l’utilisation des ressources Azure, consultez les articles [Comprendre votre facture Azure][] et [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure][].
+* Pour en savoir plus sur le balisage de vos ressources Azure, consultez [Présentation d’Azure Resource Manager][] et [Organisation des ressources Azure à l’aide de balises][].
+* Pour voir en quoi les balises peuvent vous aider à gérer votre utilisation des ressources Azure, consultez [Comprendre votre facture Azure][] et [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure][].
 
 
 
@@ -56,8 +55,8 @@ Maintenant que nous avons appliqué des balises à nos ressources via l’interf
 
 [environnement CLI Azure]: ./xplat-cli-azure-resource-manager.md
 [Présentation d’Azure Resource Manager]: ../resource-group-overview.md
-[Utilisation de balises pour organiser vos ressources Azure]: ../resource-group-using-tags.md
+[Organisation des ressources Azure à l’aide de balises]: ../resource-group-using-tags.md
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

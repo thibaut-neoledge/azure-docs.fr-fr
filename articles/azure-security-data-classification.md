@@ -135,7 +135,7 @@ Il est important d’établir de manière claire une chaîne de surveillance de 
 | Opérateur | | | X | | |
 | Administrateur | | | | | X |
 | Utilisateur* | | X | | X | |
-**** Les utilisateurs peuvent également bénéficier de droits supplémentaires, comme la modification et la suppression par un opérateur*
+**Les utilisateurs peuvent également bénéficier de droits supplémentaires, comme la modification et la suppression par un opérateur*
 
 > [AZURE.NOTE] ce tableau ne fournit pas de liste exhaustive des rôles et des droits, mais simplement un échantillon représentatif.
 
@@ -240,4 +240,4 @@ Certaines technologies DLP permettent également de remplacer la configuration D
 - [Blog de l’équipe de sécurité Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -30,14 +30,30 @@ Voici la liste des rubriques connexes :
 | Autorisations requises | Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade) |
 | Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 
+## 1\.1.180.0
+Publication : mai 2016
+
+**Nouvelles fonctionnalités :**
+
+- Vous avertit et vous permet de vérifier les domaines si vous ne l’avez pas fait avant d’exécuter Azure AD Connect.
+- Ajout de la prise en charge de [Microsoft Cloud Allemagne](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Ajout de la prise en charge de la toute dernière infrastructure [cloud Microsoft Azure Government](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) avec de nouvelles exigences d’URL.
+
+**Problèmes résolus et améliorations :**
+
+- Ajout d’un filtrage à l’éditeur de règles de synchronisation pour faciliter la recherche de règles de synchronisation.
+- Amélioration des performances lors de la suppression d’un espace connecteur.
+- Résolution d’un problème lorsqu’un même objet a été supprimé et ajouté dans la même exécution (appelé supprimer/ajouter).
+- Une règle de synchronisation désactivée ne réactivera plus les attributs et objets inclus lors d’une mise à niveau ou d’une actualisation de schéma d’annuaire.
+
 ## 1\.1.130.0
 Publication : avril 2016
 
 **Nouvelles fonctionnalités :**
 
-- Ajout de la prise en charge des attributs à valeurs multiples dans les [Extensions de répertoire](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Ajout de la prise en charge des attributs à valeurs multiples dans les [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
 - Ajout de la prise en charge de variantes de configuration supplémentaires pour que la [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) soit considérée comme éligible à la mise à niveau.
-- Ajout d’applets de commande pour [planificateur personnalisé](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
+- Ajout d’applets de commande pour le [planificateur personnalisé](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1\.1.119.0
 Publié : mars 2016
@@ -55,7 +71,7 @@ Publié : février 2016
 
 - La mise à niveau à partir de versions antérieures ne fonctionne pas si l’installation ne se trouve pas dans le dossier **C:\\Program Files** par défaut.
 - Si vous installez et désélectionnez **Démarrer le processus de synchronisation...** à la fin de l’Assistant Installation, la réexécution de ce dernier n’activera pas le planificateur.
-- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il bloque également `Get-ADSyncScheduler` le renvoi des heures correctes.
+- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas en-US. Il empêche également `Get-ADSyncScheduler` de renvoyer les heures correctes.
 - Si vous avez installé une version antérieure d'Azure AD Connect avec ADFS comme option de connexion et mise à niveau, vous ne pouvez pas réexécuter l'assistant d’installation.
 
 ## 1\.1.105.0
@@ -68,13 +84,13 @@ Publié : février 2016
     - Vous devez permettre à votre proxy d’autoriser le trafic vers https://secure.aadcdn.microsoftonline-p.com si vous utilisez l’authentification MFA.
     - Vous devez ajouter https://secure.aadcdn.microsoftonline-p.com à votre liste de sites de confiance pour que l’authentification MFA fonctionne correctement.
 - Autorisez la modification de la méthode de connexion de l’utilisateur après l’installation initiale.
-- Autorisez le [Filtrage domaine et unité organisationnelle](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) dans l’Assistant Installation. Cela permet également la connexion à des forêts dans lesquelles tous les domaines ne sont pas disponibles.
+- Autorisez le [Filtrage par domaine ou unité d’organisation](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) dans l’Assistant Installation. Cela permet également la connexion à des forêts dans lesquelles tous les domaines ne sont pas disponibles.
 - Le [planificateur](active-directory-aadconnectsync-feature-scheduler.md) est intégré au moteur de synchronisation.
 
 **Fonctionnalités promues de version préliminaire à disponibilité générale :**
 
 - [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
-- [Extensions de répertoire](active-directory-aadconnectsync-feature-directory-extensions.md).
+- [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -268,4 +284,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Personnaliser le portail des développeurs dans Gestion des API Azure
@@ -24,7 +24,7 @@ Ce guide vous montre comment modifier l’aspect du portail des développeurs da
 
 L'un des principaux aspects de la personnalisation de portail est le remplacement du texte en haut de toutes les pages par le nom ou le logo de votre société.
 
-Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure Classic. Pour accéder au portail des éditeurs d’API, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure Classic. Pour accéder au portail des éditeurs d’API, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -32,7 +32,7 @@ Le portail des développeurs s’appuie sur un système de gestion de contenu ou
 
 ![Widgets header][api-management-widgets-header]
 
-Le contenu de l'en-tête peut être modifié dans le champ **Corps**. Remplacez le texte par « Portail des développeurs Fabrikam », puis cliquez sur **Enregistrer** en bas de la page.
+Le contenu de l'en-tête peut être modifié dans le champ **Corps**. Remplacez le texte par « Portail des développeurs Fabrikam », puis cliquez sur **Enregistrer** en bas de la page.
 
 Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du portail des développeurs.
 
@@ -46,9 +46,9 @@ Votre navigateur bascule vers une page masquée du portail des développeurs, co
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-Il existe deux modes principaux de règles de style d’édition : **Modifier toutes les règles** affiche la liste de tous les styles utilisés ; **Choisir élément** vous permet de sélectionner un élément dans la page sur laquelle vous vous trouvez et affiche des styles uniquement pour cet élément.
+Il existe deux modes principaux de règles de style d’édition : **Modifier toutes les règles** affiche la liste de tous les styles utilisés ; **Choisir élément** vous permet de sélectionner un élément dans la page sur laquelle vous vous trouvez et affiche des styles uniquement pour cet élément.
 
-Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Choisir élément** dans la barre d’outils de l’éditeur de style, puis cliquez sur **Sélectionner un élément à personnaliser**. Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style.
+Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Choisir élément** dans la barre d’outils de l’éditeur de style, puis cliquez sur **Sélectionner un élément à personnaliser**. Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style.
 
 Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d'en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec des alternatives est en @headings-font-family.
 
@@ -99,4 +99,4 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

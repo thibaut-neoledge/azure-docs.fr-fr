@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Exemples de code Azure Active Directory
@@ -151,4 +151,4 @@ PHP | [Exemple d’application PHP pour l’API Azure AD Graph](http://code.msdn
 
 [Bibliothèque d’assistance de l’API Azure AD Graph](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

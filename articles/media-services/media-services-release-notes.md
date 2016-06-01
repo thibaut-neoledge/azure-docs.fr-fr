@@ -83,11 +83,17 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 
 ##<a id="apr_changes16"></a>Version d’avril 2016
 
-Dans cette version, Azure Media Services a introduit Azure Media Analytics pour offrir de puissantes fonctionnalités vidéo. Pour plus d'informations, consultez (Azure Media Services Analytics Overview)[media-services-analytics-overview.md].
+### Azure Media Analytics
 
-##<a id="feb_changes16"></a>Version de février 2016
+Azure Media Services a intégré Azure Media Analytics pour offrir des fonctionnalités vidéo performantes. Pour obtenir des informations détaillées, consultez [Vue d’ensemble d’Azure Media Analytics](media-services-analytics-overview.md).
 
-La dernière version du Kit de développement logiciel (SDK) Azure Media Services pour .NET (3.5.3) contient un correctif de bogue relatif à Widevine. Le problème était le suivant : AssetDeliveryPolicy ne pouvait pas être réutilisé pour plusieurs éléments multimédia chiffrés avec Widevine. Dans le cadre de ce correctif de bogue, la propriété suivante a été ajoutée au Kit de développement logiciel (SDK) : **WidevineBaseLicenseAcquisitionUrl**.
+### Apple FairPlay (préversion)
+
+Azure Media Services vous permet désormais de chiffrer de manière dynamique votre contenu HLS (HTTP Live Streaming) avec Apple FairPlay. Vous pouvez également utiliser le service de remise de licences AMS pour attribuer des licences FairPlay aux clients. Pour obtenir des informations détaillées, consultez [Utiliser Azure Media Services pour diffuser en continu votre contenu HLS protégé avec Apple FairPlay](media-services-protect-hls-with-fairplay.md).
+  
+##<a id="feb_changes16"></a>Version de février 2016
+
+La dernière version du Kit de développement logiciel (SDK) Azure Media Services pour .NET (3.5.3) contient un correctif de bogue relatif à Widevine. Le problème était le suivant : AssetDeliveryPolicy ne pouvait pas être réutilisé pour plusieurs éléments multimédia chiffrés avec Widevine. Dans le cadre de ce correctif de bogue, la propriété suivante a été ajoutée au SDK : **WidevineBaseLicenseAcquisitionUrl**.
 	
 	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -110,14 +116,14 @@ Pour plus d’informations, consultez :
 
 - Le blog [Kit de développement logiciel (SDK) Microsoft Azure Media Services pour PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 - Les [exemples de code](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants pour vous aider à commencer rapidement :
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
-	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
+	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
 
 
 ##<a id="nov_changes_15"></a>Version de novembre 2015
 
-Désormais, Azure Media Services propose un service de distribution de licence Widevine Google sur le cloud. Pour plus d’informations, consultez [ce blog d’annonces](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consultez également [ce didacticiel](media-services-protect-with-drm.md) et le [référentiel GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+Désormais, Azure Media Services propose un service de distribution de licence Widevine Google sur le cloud. Pour plus d’informations, consultez [ce blog d’annonces](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consultez également [ce didacticiel](media-services-protect-with-drm.md) et le [dépôt GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 Notez que les services de distribution de licences Widevine fournis par Azure Media Services sont en version préliminaire. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
@@ -200,29 +206,29 @@ Annonce les nouvelles fonctionnalités suivantes :
 
 ##<a id="april_changes_15"></a>Version d’avril 2015
 
-###Mises à jour générales de Media Services
+        ###General Media Services Updates
 
-- [Annonce d’Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-- À partir de Media Services REST 2.10, les canaux qui sont configurés pour recevoir un protocole RTMP, sont créés avec des URL de réception principale et secondaire. Pour plus d’informations, consultez la rubrique [Configurations de l'entrée (réception) des canaux](media-services-manage-channels-overview.md#channel_input)
-- Mises à jour d’Azure Media Indexer
-	- Prise en charge de l’espagnol
-	- Nouveau format de configuration xml
-	
-	Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
+        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+        - Azure Media Indexer updates
+        - Support for Spanish Language
+        - New configuration xml format
 
-La version du Kit de développement logiciel (SDK) Azure Media Services est désormais la 3.2.0.0.
+        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+        ###Media Services .NET SDK Updates
 
-Voici certaines mises à jour à destination des clients :
- 
-- **Dernière modification** : **TokenRestrictionTemplate.Issuer** et **TokenRestrictionTemplate.Audience** sont désormais de type chaîne. 
-- Mises à jour relatives à la création de stratégies personnalisées de nouvel essai. 
-- Correctifs liés au téléchargement/chargement de fichiers. 
-- La classe **MediaServicesCredentials** accepte désormais le point de terminaison de contrôle d’accès principal et secondaire d’authentification.
+        Azure Media Services .NET SDK is now version 3.2.0.0.
+
+        The following are some of the customer facing updates:
+
+        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
+        - Updates related to creating custom retry policies.
+        - Bug fixes related to uploading/downloading files.
+        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
 
 
 
-##<a id="march_changes_15"></a>Version de mars 2015
+        ##<a id="march_changes_15"></a>March 2015 Release
 
 ### Mises à jour générales de Media Services
 
@@ -296,13 +302,13 @@ Les modifications suivantes ont été apportées :
 - Refactorisation dans les classes de stratégie de nouvelles tentatives.
 - Ajout d'une chaîne d'agent utilisateur pour les en-têtes de requête http.
 - Ajout de l'étape de génération de la restauration NuGet.
-- Résolution des tests de scénario pour utiliser la certification x509 du référentiel.
+- Résolution des tests de scénario pour utiliser la certification x509 du dépôt.
 - Validation des paramètres lors de la mise à jour du canal et de la fin de la diffusion en continu.
  
 
-### Nouveau référentiel GitHub avec exemples Media Services
+### Nouveau dépôt GitHub avec exemples Media Services
 
-Ces exemples se trouvent dans le [référentiel GitHub d’exemples Azure Media Services](https://github.com/Azure/Azure-Media-Services-Samples).
+Ces exemples se trouvent dans le [dépôt GitHub d’exemples Azure Media Services](https://github.com/Azure/Azure-Media-Services-Samples).
 
 
 ##<a id="september_changes_14"></a>Version de septembre 2014
@@ -660,4 +666,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

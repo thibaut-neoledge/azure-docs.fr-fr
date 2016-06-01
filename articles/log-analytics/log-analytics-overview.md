@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Présentation de Log Analytics | Microsoft Azure"
    description="Log Analytics est un service d’Operations Management Suite (OMS) qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux. Cet article fournit une vue d'ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="bwren" />
 
 # Présentation de Log Analytics
@@ -45,7 +45,7 @@ Pour obtenir un aperçu graphique de l'intégrité de votre environnement global
 
 ![Tableau de bord](media/log-analytics-overview/dashboard.png)
 
-Pour analyser des données en dehors de Log Analytics, vous pouvez exporter les données du référentiel OMS vers des outils tels que [Power BI](log-analytics-powerbi.md) ou Excel. Vous pouvez également utiliser les [API de recherche de journaux](log-analytics-log-search-api.md) pour créer des solutions personnalisées qui exploitent les données Log Analytics, ou pour les intégrer à d'autres systèmes.
+Pour analyser des données en dehors de Log Analytics, vous pouvez exporter les données du référentiel OMS vers des outils tels que [Power BI](log-analytics-powerbi.md) ou Excel. Vous pouvez également utiliser les [API de recherche de journal](log-analytics-log-search-api.md) pour créer des solutions personnalisées qui exploitent les données Log Analytics, ou pour les intégrer à d'autres systèmes.
 
 ## Solutions
 Les solutions permettent d’ajouter des fonctionnalités à Log Analytics. Elles s'exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel OMS. Elles peuvent également définir de nouveaux types d'enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord OMS.
@@ -69,8 +69,8 @@ Lorsque vous vous [inscrivez à Log Analytics](log-analytics-get-started.md), vo
 
 ## Étapes suivantes
 
-- [Inscrivez-vous pour bénéficier d’un compte Log Analytics gratuit](log-analytics) afin de tester dans votre environnement.
-- Affichez les différentes [sources de données](log-analytics-data-sources.md) disponibles pour collecter des données dans le référentiel OMS. 
-- [Parcourez les solutions disponibles dans la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités à Log Analytics. 
+- [Inscrivez-vous pour obtenir un compte Log Analytics gratuit](log-analytics-get-started.md) que vous pouvez tester dans votre environnement.
+- Affichez les différentes [sources de données](log-analytics-data-sources.md) disponibles pour collecter des données dans le référentiel OMS.
+- [Parcourez les solutions disponibles dans la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités à Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

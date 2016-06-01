@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="05/12/2016"
 	ms.author="genli"/>
 
 # Pourquoi avez-vous reçu une notification vous informant que votre abonnement Azure présente un solde impayé ?
@@ -28,11 +28,13 @@ Le service est annulé et vos ressources ne sont plus disponibles. Toutes les do
 
 Payez votre solde en souffrance dans son intégralité.
 
-**Scénario 1** : Si vous utilisez un moyen de paiement par facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture. Si vous avez besoin d’aide, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+**Scénario 1** : Si vous utilisez un moyen de paiement par facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture. Si vous avez besoin d’aide, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Scénario 2** : Si le solde n’est pas payé car la carte de crédit enregistrée a été refusée ou a expiré, utilisez une autre carte de crédit ou un autre moyen de paiement pour les abonnements, ou contactez votre banque pour résoudre le problème. Pour obtenir des instructions sur la manière de changer de moyen de paiement dans Azure, consultez [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](./billing-how-to-change-credit-card.md). Vous devez vous connecter en tant qu’administrateur de compte pour apporter cette modification.
+**Scénario 2** : Si le solde n’est pas payé car la carte de crédit enregistrée a été refusée ou a expiré, utilisez une autre carte de crédit ou un autre moyen de paiement pour les abonnements, ou contactez votre banque pour résoudre le problème. Si vous mettez à jour le mode de paiement, tous les frais en attente sur ce mode de paiement seront automatiquement réglés de façon instantanée. Ceci concerne notamment les frais en attente associés au service Azure, ainsi qu’aux autres services Microsoft pour lesquels cette carte a été utilisée.
+
+Pour obtenir des instructions sur la manière de changer de moyen de paiement dans Azure, consultez [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](./billing-how-to-change-credit-card.md). Vous devez vous connecter en tant qu’administrateur de compte pour apporter cette modification.
 
 
-**Scénario 3** : Si vous n'avez pas reçu l'avis de paiement car l'administrateur de compte a quitté l’entreprise ou assume un autre rôle, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre le problème.
+**Scénario 3** : Si vous n'avez pas reçu l'avis de paiement car l'administrateur de compte a quitté l’entreprise ou assume un autre rôle, contactez le [support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre le problème.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

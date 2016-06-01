@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Intégration du SDK Android pour Azure Mobile Engagement"
-	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+	description="Décrit comment intégrer le SDK Azure Mobile Engagement dans les applications Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Utilisation des fonctionnalités avancées d’Azure Mobile Engagement pour les applications Android
+# Intégration du SDK Android pour Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Windows universel](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Découvrez toutes les fonctionnalités avancées d’Azure Mobile Engagement que vous pouvez intégrer à votre application Android.
+Ce document décrit toutes les options d’intégration et de configuration disponibles pour le SDK Azure Mobile Engagement pour Android.
 
 ## Composants requis
 
@@ -53,6 +52,16 @@ Vous pouvez ajouter les fonctionnalités suivantes :
 
 ## Notes de publication
 
+### 4\.2.2 (05/17/2016)
+
+- Améliorations de la stabilité.
+
+### 4\.2.1 (05/10/2016)
+
+- Sécurité : Désactivation de l’accès aux fichiers locaux dans les vues web.
+- Sécurité : Suppression de la classe `EngagementPreferenceActivity` qui étend la classe `PreferenceActivity` obsolète et non sécurisée.
+- Sécurité : Les activités Reach sont maintenant documentées pour utiliser `exported="false"`. Vous pouvez aussi utiliser cet indicateur dans les versions précédentes du SDK.
+
 ### 4\.2.0 (03/11/2016)
 
 - Le Kit de développement logiciel (SDK) est désormais sous licence MIT.
@@ -62,6 +71,6 @@ Pour toutes les versions, consultez les [notes de publication complètes](mobile
 
 ## Procédures de mise à niveau
 
-Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
+Si vous avez déjà intégré une version plus ancienne de notre SDK dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -6,7 +6,7 @@
  
 3. Choisissez ensuite le réseau virtuel sur lequel vous souhaitez déployer cette passerelle. Cliquez sur la flèche pour ouvrir le panneau **Choisir un réseau virtuel**, puis cliquez sur le réseau virtuel. Pour que le réseau virtuel apparaisse dans la liste, il doit déjà comporter un sous-réseau de passerelle valide.
 
-4. Définissez une adresse IP publique. Cliquez sur la flèche pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez ensuite sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Notez qu’il ne vous est pas demandé d’entrer une adresse IP, celle-ci étant affectée dynamiquement. Vous devez plutôt entrer le nom de l’objet d’adresse IP auquel l’adresse sera affectée. Cliquez sur **OK** pour enregistrer vos modifications.
+4. Définissez une adresse IP publique. Cliquez sur la flèche pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez ensuite sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Notez qu’il ne vous est pas demandé d’entrer une adresse IP, celle-ci étant affectée dynamiquement. Vous devez plutôt entrer le nom de l’objet d’adresse IP auquel l’adresse sera affectée. Cliquez sur **OK** pour enregistrer vos modifications.
 
 5. Dans **Type de passerelle**, sélectionnez le type de passerelle spécifié pour votre configuration.
 
@@ -25,4 +25,5 @@
 
 11. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît comme un appareil connecté. Vous pouvez cliquer sur le périphérique connecté (votre passerelle de réseau virtuel) pour afficher davantage d’informations.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

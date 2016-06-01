@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Statistiques en temps réel dans Microsoft Azure CDN
+
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Vue d'ensemble
 
 Ce document explique les statistiques en temps réel dans Microsoft Azure CDN. Cette fonctionnalité fournit des données en temps réel sur les performances de notre CDN lors de la diffusion de contenu à vos clients.
 
-> [AZURE.NOTE] Les statistiques en temps réel sont une fonctionnalité du niveau CDN Premium. Pour comparer les fonctionnalités CDN Standard et Premium, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
-
-Les graphiques suivants sont disponibles quand vous consultez les statistiques en temps réel pour les plateformes HTTP :
+Les graphiques suivants sont disponibles quand vous consultez les statistiques en temps réel pour les plateformes HTTP :
 
 * [Bande passante](#bandwidth)
 * [Codes d’état](#status-codes)
@@ -49,7 +49,7 @@ Les graphiques suivants sont disponibles quand vous consultez les statistiques e
 
 Le graphique Bande passante montre la quantité de bande passante utilisée pour la plateforme actuelle sur une période spécifiée. La partie ombrée du graphique indique l’utilisation de la bande passante. La quantité exacte de bande passante en cours d’utilisation s’affiche directement sous le graphique linéaire.
 
-> [AZURE.NOTE] Les unités utilisées pour indiquer l’utilisation de la bande passante sont les suivantes : bits par seconde (bit/s), Kilobits par seconde (Kbits/s), mégabits par seconde (Mbits/s) ou Gigabits par seconde (Gbits/s).
+> [AZURE.NOTE] Les unités utilisées pour indiquer l’utilisation de la bande passante sont les suivantes : bits par seconde (bit/s), Kilobits par seconde (Kbits/s), mégabits par seconde (Mbits/s) ou Gigabits par seconde (Gbits/s).
 
 ## Codes d’état
 
@@ -65,10 +65,10 @@ Nom | Description
 -----|------------
 Nombre total de correspondances par seconde | Détermine si le nombre total de requêtes par seconde pour la plateforme actuelle apparaît dans le graphique. Vous pouvez utiliser cette option comme indicateur de base pour déterminer le pourcentage du nombre total de correspondances que comprend un code d’état particulier.
 2xx par seconde | Détermine si le nombre total de codes d’état 2xx (par exemple, 200, 201, 202, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce type de code d’état indique que la requête a été correctement remise au client.
-304 par seconde | Détermine si le nombre total de codes d’état 304 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée n’a pas été modifiée depuis sa dernière récupération par le client HTTP.
+304 par seconde | Détermine si le nombre total de codes d’état 304 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée n’a pas été modifiée depuis sa dernière récupération par le client HTTP.
 3xx par seconde | Détermine si le nombre total de codes d’état 3xx (par exemple, 300, 301, 302, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Cette option exclut les occurrences des codes d’état 304. Ce type de code d’état indique que la requête a généré une redirection.
-403 par seconde | Détermine si le nombre total de codes d’état 403 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la requête a été considérée comme non autorisée. L’une des causes possibles de ce code d’état est liée à un utilisateur non autorisé qui demande une ressource protégée par l’authentification basée sur les jetons.
-404 par seconde | Détermine si le nombre total de codes d’état 404 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée est introuvable.
+403 par seconde | Détermine si le nombre total de codes d’état 403 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la requête a été considérée comme non autorisée. L’une des causes possibles de ce code d’état est liée à un utilisateur non autorisé qui demande une ressource protégée par l’authentification basée sur les jetons.
+404 par seconde | Détermine si le nombre total de codes d’état 404 qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Ce code d’état indique que la ressource demandée est introuvable.
 4xx par seconde | Détermine si le nombre total de codes d’état 4xx (par exemple, 400, 401, 402, 405, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique. Cette option exclut les occurrences des codes d’état 403 et 404. Ce code d’état indique que la ressource demandée n’a pas été remise au client.
 5xx par seconde | Détermine si le nombre total de codes d’état 5xx (par exemple, 500, 501, 502, etc.) qui se produisent par seconde pour la plateforme actuelle apparaît dans le graphique.
 Autre par seconde | Détermine si le nombre total d’occurrences de tous les autres codes d’état figure dans le graphique.
@@ -99,4 +99,4 @@ Cette représentation graphique du nombre moyen de connexions par minute vous pe
 * [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 * [Analyser les performances de serveurs Edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

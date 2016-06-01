@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="05/16/2016"
    ms.author="alkohli" />
 
 # Notes de publication de StorSimple série 8000 Update 1.2  
@@ -51,7 +51,7 @@ Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été
 
     Consultez le [guide de migration](http://www.microsoft.com/download/details.aspx?id=47322) pour en savoir plus sur la migration des données des appareils StorSimple série 5000-7000 vers les appareils de la série 8000.
 
-- **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d'un appareil StorSimple sur le portail d'administration d'Azure](storsimple-deployment-walkthrough-gov.md).
+- **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d’un appareil StorSimple sur le portail d’administration d’Azure](storsimple-deployment-walkthrough-gov.md).
 
 - **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
 
@@ -124,4 +124,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 - [Installer Update 1.2 sur votre appareil](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

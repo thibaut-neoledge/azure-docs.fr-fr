@@ -51,7 +51,7 @@ Après avoir configuré ou créé votre connecteur, vous pouvez modifier les val
 Procédez comme suit :
 
 1. Ouvrez votre connecteur ou l’application API. Le panneau de l’application API s’ouvre.
-2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
+2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
 
 	![][apiapphost]
 
@@ -137,4 +137,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,9 +19,9 @@
 
 # Conseils généraux sur les nouvelles tentatives
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Toutes les applications qui communiquent avec des services à distance ou des ressources distantes doivent être sensibles aux erreurs temporaires. Cela est particulièrement vrai pour les applications exécutées dans le cloud, où la nature de l’environnement et la connectivité via Internet augmentent le risque de rencontrer ce type d’erreurs. Les erreurs temporaires incluent la perte momentanée de la connectivité réseau aux composants et aux services, l’indisponibilité passagère d’un service ou les expirations de délai qui surviennent lorsqu’un service est occupé. Ces erreurs se corrigent souvent d’elles-mêmes, et si l’action est répétée après un délai approprié, il est probable qu’elle aboutisse.
 
@@ -51,7 +51,7 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
 * **Déterminez s’il existe un mécanisme de nouvelle tentative intégré :**
   * De nombreux services fournissent un kit de développement logiciel (SDK) ou une bibliothèque cliente contenant un mécanisme de gestion des erreurs temporaires intégré. La politique de nouvelle tentative utilisée est généralement adaptée à la nature et aux exigences du service cible. Les interfaces REST pour les services peuvent également renvoyer des informations utiles pour déterminer si une nouvelle tentative est appropriée et combien de temps attendre avant la tentative suivante.
   * Le cas échéant, utilisez le mécanisme de nouvelle tentative intégré, sauf si vous avez des besoins spécifiques et bien définis pour lesquels un comportement de nouvelle tentative différent serait plus approprié.
-* **Déterminez si l’opération est adaptée à de nouvelles tentatives** :
+* **Déterminez si l’opération est adaptée à de nouvelles tentatives** :
   * Vous devez uniquement retenter les opérations où les erreurs sont temporaires (ce que révèle généralement la nature de l’erreur) et si l’opération a des chances d’aboutir en cas de nouvelle tentative. Il est inutile de retenter des opérations qui indiquent une opération non valide, telle qu’une mise à jour de base de données pour un élément inexistant ou les demandes adressées à un service ou une ressource qui a subi une erreur irrécupérable.
   * En général, vous devez implémenter les nouvelles tentatives uniquement lorsque vous pouvez en déterminer le plein impact et que les conditions sont bien comprises et peuvent être validées. Si ce n’est pas le cas, laissez le code appelant implémenter les nouvelles tentatives. Gardez à l’esprit que les erreurs renvoyées par des ressources et des services que vous ne contrôlez pas peuvent évoluer au fil du temps, et qu’il vous faudra peut-être revoir votre logique de détection des erreurs temporaires.
   * Lorsque vous créez des services ou des composants, envisagez d’implémenter des codes d’erreur et des messages qui aideront les clients à déterminer s’ils doivent retenter des opérations ayant échoué. Plus particulièrement, indiquez si le client doit retenter l’opération (par exemple en renvoyant une valeur **isTransient**) et suggérez un délai approprié avant la tentative suivante. Si vous créez un service web, envisagez de renvoyer des erreurs personnalisées définies dans les contrats de service. Même s’il se peut que les clients génériques ne soient pas en mesure de les lire, elles seront utiles pour la création de clients personnalisés.
@@ -69,7 +69,7 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
   * Les stratégies de nouvelle tentative trop agressives, qui présentent des intervalles trop courts ou un trop grand nombre de nouvelles tentatives, peuvent avoir un impact négatif sur la ressource ou le service cible. Cela peut empêcher la ressource ou le service de récupérer de son état de surcharge, et les demandes continueront à être bloquées ou rejetées. Il en résulte un cercle vicieux où des demandes toujours plus nombreuses sont envoyées à la ressource ou au service, réduisant de plus en plus sa capacité de récupération.
   * Prenez en compte le délai d’expiration des opérations lorsque vous choisissez les intervalles pour éviter de lancer une nouvelle tentative immédiatement (par exemple, si le délai d’expiration est similaire à l’intervalle avant nouvelle tentative). Demandez-vous également si vous devez maintenir la période totale possible (le délai d’expiration plus les intervalles avant nouvelle tentative) en dessous d’une durée totale spécifique. Les opérations ayant des délais d’expiration exceptionnellement courts ou très longs peuvent avoir une influence sur le délai d’attente et la fréquence à laquelle retenter l’opération.
   * Utilisez le type de l’exception et les données qu’il contient ou les codes d’erreur et les messages renvoyés par le service afin d’optimiser l’intervalle et le nombre de nouvelles tentatives. Par exemple, un certain nombre d’exceptions ou de codes d’erreur (tels que le code HTTP 503 Service indisponible avec un en-tête Retry-After dans la réponse) peuvent indiquer la durée potentielle de l’erreur ou que le service a échoué et ne répondra pas aux nouvelles tentatives.
-* **Évitez les anti-modèles** :
+* **Évitez les anti-modèles** :
   * Dans la plupart des cas, vous devez éviter des implémentations qui incluent des couches dupliquées de code de nouvelle tentative. Évitez les conceptions qui incluent des mécanismes de nouvelle tentative en cascade ou qui implémentent la nouvelle tentative à chaque étape d’une opération impliquant une hiérarchie de demandes, sauf si vous avez des besoins spécifiques qui l’exigent. Dans ces circonstances exceptionnelles, utilisez des politiques qui empêchent un nombre de nouvelles tentatives et des délais excessifs, et assurez-vous que vous comprenez les répercussions. Par exemple, si un composant effectue une demande à un autre composant, qui accède ensuite au service cible, et que vous implémentez les nouvelles tentatives au nombre de trois pour les deux appels, il y aura neuf tentatives au total pour le service. Un grand nombre de services et de ressources implémentent un mécanisme de nouvelle tentative intégré et vous devez examiner comment désactiver ou modifier celui-ci si vous avez besoin d’implémenter de nouvelles tentatives à un niveau supérieur.
   *  N’implémentez jamais de mécanisme de nouvelle tentative infini. Vous risqueriez d’empêcher la ressource ou le service de récupérer des situations de surcharge, et de prolonger la limitation et le rejet des connexions. Utilisez un nombre fini de nouvelles tentatives ou implémentez un modèle tel que [Disjoncteur](http://msdn.microsoft.com/library/dn589784.aspx) pour permettre au service de récupérer.
   * N’effectuez jamais plus d’une nouvelle tentative immédiate.
@@ -115,4 +115,4 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
 * [Modèle de transaction de compensation](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modèles d’idempotence](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

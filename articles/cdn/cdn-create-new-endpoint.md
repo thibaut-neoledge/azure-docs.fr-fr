@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/11/2016" 
+	 ms.date="05/24/2016" 
 	 ms.author="casoper"/>
 
 # Utilisation d’Azure CDN  
@@ -25,7 +25,7 @@ Cette rubrique décrit l’activation d’Azure CDN en créant un nouveau profil
 
 Un profil CDN est une collection de points de terminaison CDN. Chaque profil contient un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d'autres critères.
 
-> [AZURE.NOTE] Par défaut, un abonnement Azure unique est limité à quatre profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
+> [AZURE.NOTE] Par défaut, un abonnement Azure unique est limité à huit profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
 >
 > La tarification CDN est appliquée au niveau du profil CDN. Si vous souhaitez utiliser une combinaison de niveaux de tarification Azure CDN, vous aurez besoin de plusieurs profils CDN.
 
@@ -97,4 +97,4 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

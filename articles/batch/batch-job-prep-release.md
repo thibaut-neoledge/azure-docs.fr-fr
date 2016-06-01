@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Exécution de tâches de préparation et de fin du travail sur les nœuds de calcul Azure Batch
 
-Les travaux Azure Batch nécessitent souvent une forme d'installation avant leur exécution, ainsi qu'une sorte de maintenance ultérieure une fois que les tâches du travail sont terminées. Batch fournit les mécanismes de cette préparation et cette maintenance sous la forme de tâches de *préparation du travail* et *validation du travail* facultatives.
+Les travaux Azure Batch nécessitent souvent une forme d’installation avant leur exécution, ainsi qu’une sorte de maintenance ultérieure une fois que les tâches du travail sont terminées. Batch fournit les mécanismes de cette préparation et de cette maintenance sous la forme de tâches de préparation du travail et de validation du travail facultatives.
 
-La tâche de préparation du travail s'exécute sur tous les nœuds de calcul prévus pour exécuter les tâches, avant que les autres tâches du travail ne soient exécutées. Lorsqu'un travail est terminé, la tâche de validation du travail s'exécute sur chaque nœud dans le pool ayant exécuté au moins une tâche. Pour les tâches de préparation et de validation du travail, vous pouvez spécifier une ligne de commande à invoquer lorsque la tâche est exécutée. Ces tâches spéciales offrent des fonctionnalités de tâches courantes telles que le téléchargement de fichiers, une exécution élevée, des variables d'environnement personnalisées, une durée d'exécution maximale, le nombre de tentatives et la période de rétention des fichiers.
+La **tâche de préparation du travail** s’exécute sur tous les nœuds de calcul prévus pour exécuter les tâches, avant que les autres tâches du travail ne soient exécutées. Lorsqu’un travail est terminé, la **tâche de validation du travail** s’exécute sur chaque nœud dans le pool ayant exécuté au moins une tâche. Comme avec les tâches Batch normales, vous pouvez spécifier une ligne de commande de préparation du travail ou de validation du travail à appeler lorsque cette tâche est exécutée. Ces tâches spéciales offrent d’autres fonctionnalités de tâches courantes telles que le téléchargement de fichiers, une exécution élevée, des variables d’environnement personnalisées, une durée d’exécution maximale, le nombre de tentatives et la période de rétention des fichiers.
 
 Dans les sections suivantes, vous découvrirez comment utiliser ces deux types de tâches spécifiques à l'aide de la classe [JobPreparationTask][net_job_prep] et de la classe [JobReleaseTask][net_job_release] dans l'API [.NET Batch][api_net].
 
@@ -58,7 +58,7 @@ Lorsqu'un travail est marqué comme terminé, la tâche de validation du travail
 
 ## Tâches de préparation et de validation du travail dans l'API .NET Batch
 
-Pour spécifier une tâche de préparation du travail, vous créez et configurez l'objet [JobPreparationTask][net_job_prep] et vous l'attribuez à la propriété [CloudJob.JobPreparationTask][net_job_prep_cloudjob] de votre travail. De même, initialisez la propriété [JobReleaseTask][net_job_release] et attribuez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
+Pour utiliser une tâche de préparation du travail, vous créez et configurez l’objet [JobPreparationTask][net_job_prep] et vous l’attribuez à la propriété [CloudJob.JobPreparationTask][net_job_prep_cloudjob] de votre travail. De même, initialisez la propriété [JobReleaseTask][net_job_release] et attribuez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
 
 Dans cet extrait de code, `myBatchClient` est une instance complètement initialisée de [BatchClient][net_batch_client] et `myPool` est un pool existant dans le compte Batch.
 
@@ -185,6 +185,5 @@ La capture d'écran ci-dessous met en évidence les propriétés des tâches de 
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
-[2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Vue d'ensemble de Web Apps"
-	description="En savoir plus sur App Service Web Apps"
+	pageTitle="Présentation de Web Apps | Microsoft Azure"
+	description="Découvrez comment Azure App Service vous aide à développer et héberger des applications web."
 	services="app-service\web"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,57 +13,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/09/2016"
-	ms.author="jaime.espinosa"/>
+	ms.date="05/16/2016"
+	ms.author="tdykstra"/>
 
+# Vue d'ensemble de Web Apps
 
-#Vue d'ensemble de Web Apps
+*App Service Web Apps* est une plateforme de calcul entièrement gérée, optimisée pour l’hébergement de sites et d’applications web. Cette offre [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (Plateforme en tant que service) de Microsoft Azure vous permet de donner la priorité à votre logique métier tandis qu’Azure gère l’infrastructure servant à exécuter et à faire évoluer vos applications.
 
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) est une plateforme entièrement gérée destinée aux développeurs professionnels et qui leur apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. Azure App Service vous permet de créer et de déployer des applications web stratégiques qui s'adaptent à votre entreprise.
+Pour découvrir la plateforme en 5 minutes, visualisez la vidéo [Azure App Service Web Apps with Yochay Kiriaty](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/) (Azure App Service Web Apps avec Yochay Kiriaty).
 
-Grâce à la puissance d’[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), utilisez les langages et les infrastructures que vous connaissez et desquels vous dépendez, déployez vos applications rapidement sur le cloud Azure et améliorez constamment votre code sans avoir à vous soucier de l’infrastructure.
+## Qu’est-ce qu’une application web dans App Service ?
 
-![Marketplace sur Internet](./media/app-service-web-overview/marketplace.png)
+Dans App Service, une *application web* constitue les ressources de calcul fournies par Azure pour l’hébergement d’un site ou d’une application web.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+Les ressources de calcul peuvent se trouver sur des machines virtuelles partagées ou dédiées, selon le niveau tarifaire que vous choisissez. Le code de votre application s’exécute sur une machine virtuelle isolée des autres clients.
 
-## Bien plus que de simples sites web##
+Votre code peut être écrit dans n’importe quel langage ou infrastructure pris en charge par [Azure App Service](../app-service/app-service-value-prop-what-is.md), tels que ASP.NET, Node.js, Java, PHP ou Python. Vous pouvez également exécuter des scripts utilisant [PowerShell et d’autres langages de script](web-sites-create-web-jobs.md#acceptablefiles) dans une application web.
 
-Les entreprises modernes interagissent avec leurs clients de façon de plus en plus sophistiquée. Les entreprises de tous types considèrent leur présence sur le Web comme un élément essentiel de leur activité et comme un composant majeur de leur plan commercial. En conséquence, les entreprises recherchent une plate-forme qui leur fournira souplesse, sécurité et évolutivité. En outre, elles doivent être en mesure d'établir une liaison à leur au système métier existant, de déployer rapidement de nouveau code et de réaliser une rotation des instances dans le monde entier. Grâce à Azure App Service et à Web Apps, les entreprises peuvent répondre aux besoins de leurs clients rapidement et à moindre coût.
+Pour obtenir des exemples de scénarios d’application standard pour lesquels Web Apps peut être utilisé, consultez les [Scénarios Web Apps](https://azure.microsoft.com/documentation/scenarios/web-app/).
 
-## Pourquoi Web Apps ? ##
+## Pourquoi utiliser Web Apps ?
 
-Azure App Service Web Apps est une plateforme entièrement gérée qui vous permet de générer, déployer et mettre à l'échelle des applications web professionnelles en quelques secondes. Vous pouvez vous concentrer sur le code de votre application et laisser à Azure la prise en charge de l'infrastructure pour la mise à l'échelle et une exécution sécurisée. Web Apps est un outil :
+Voici les principales fonctionnalités de Web Apps :
 
-- **Familier et rapide** : utilisez vos compétences pour écrire du code dans votre langage, votre infrastructure et votre IDE de prédilection. En quelques clics, vous pouvez ajouter le contrôle de version, la mise à jour, l'authentification unique, la gestion de l'identité, le stockage isolé et l'analyse des performances de vos applications web existantes. Accédez aux nombreux éléments de la galerie que vous pourrez utiliser comme blocs de construction pour accélérer votre développement. Faites l'expérience d'une productivité de développement inégalée grâce aux fonctionnalités de pointe telles que l'intégration continue, le débogage de site actif et l'IDE Visual Studio.
-- **Professionnel** : Web Apps est conçu pour la création et l’hébergement d’applications stratégiques sécurisées. Créez des applications d'entreprise Active Directory intégrées qui se connectent en toute sécurité aux ressources locales, puis hébergez-les sur une plateforme cloud conforme aux normes ISO, SOC2 et PCI. Tout cela, en profitant de contrats SLA de niveau entreprise.
-- **À échelle globale** : Web Apps est optimisé pour fournir une disponibilité et une mise à l’échelle automatique dans une infrastructure de centre de données globale. Procédez en toute simplicité à une montée ou descente en puissance de vos applications sur demande. Une haute disponibilité est fournie au sein des différentes régions géographiques. La réplication de données et l'hébergement de services à plusieurs emplacements sont faciles et rapides. Il suffit d'un clic pour procéder à une extension de région ou de zone géographique.  
+- **Familier et rapide** : utilisez vos compétences pour écrire du code dans votre langage, votre infrastructure et votre environnement de développement intégré (IDE) de prédilection. Configurez de nouvelles applications web et déployez du code vers celles-ci en quelques secondes.
 
-## Concepts de Web Apps ##
+- **Professionnel** : Web Apps est conçu pour la création et l’hébergement d’applications stratégiques sécurisées. Créez des applications d’entreprise Active Directory intégrées qui se connectent en toute sécurité aux ressources locales, puis hébergez-les sur une plateforme cloud conforme aux normes [ISO](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [SOC](https://www.microsoft.com/TrustCenter/Compliance/SOC) et [PCI](https://www.microsoft.com/TrustCenter/Compliance/pci). Le tout fourni avec un [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/app-service/) professionnel.
 
-- **Galerie Web Apps** : sélectionnez parmi la liste des modèles d’applications web existants qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal. Commencez votre développement d'applications sur de bonnes bases en exploitant des infrastructures telles que .NET MVC, Django et CakePHP.
-- **Mise à l’échelle automatique** : Web Apps permet de réaliser rapidement une montée ou une descente en puissance pour gérer la charge entrante des clients. Sélectionnez manuellement le nombre et la taille des machines virtuelles ou configurez la mise à l'échelle automatique pour adapter vos serveurs à la charge ou planification.
-- **Intégration continue** : configurez des flux de travail d’intégration et de déploiement continus avec VSTS, GitHub, TeamCity, Hudson ou BitBucket. Vous pouvez ainsi générer, tester et déployer automatiquement votre application web après chaque test d’intégration ou de vérification de code réussi.
-- **Emplacements de déploiement** : mettez en place un [déploiement intermédiaire][Slots] pour vérifier votre code dans un environnement de pré-production identique à celui de votre application web de production dans Azure App Service. Quand vous êtes satisfait du résultat, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d'échange. 
-- **Tests dans un environnement de production** : allez au-delà du déploiement intermédiaire en effectuant des tests A/B pour vérifier votre nouveau code avec une fraction configurable de votre trafic. 
-- **WebJobs** : exécutez n’importe quel programme ou script sur des machines virtuelles Web Apps. Exécutez des tâches en continu ou selon un planning, et effectuez une mise à l'échelle pour une exécution sur plusieurs machines virtuelles. Pour intégrer Azure Storage ou Service Bus, utilisez le [Kit de développement logiciel (SDK) WebJobs][Webjobs] Azure.
-- **Connexions hybrides** - - Accéder aux données locales à l'aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Portée mondiale** : Web Apps permet de réaliser rapidement une montée [en puissance](../app-service/app-service-scale.md) ou une [montée en charge](../azure-portal/insights-how-to-scale.md) pour gérer la charge entrante des clients. Sélectionnez manuellement le nombre et la taille des machines virtuelles ou configurez la mise à l’échelle automatique en fonction de la charge ou la planification. L’infrastructure de centre de données mondiale de Microsoft héberge vos applications web et facilite la réplication des données et l’hébergement des services dans plusieurs zones.
 
-## Mise en route ##
-Pour prendre en main Web Apps, suivez le didacticiel [Prise en main des applications web dans Azure App Service][create].
+- **Azure Marketplace** : sélectionnez parmi la [liste des modèles d’applications web](https://azure.microsoft.com/marketplace/) qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal.
 
-Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service][appservice].
+- **Intégration continue** : configurez l’[intégration et les flux de travail de déploiement continus](app-service-continous-deployment.md) avec Visual Studio Team Services, GitHub ou BitBucket. Générez, testez et déployez votre application web de manière automatique après chaque test d’intégration du code réussi.
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+- **Environnements intermédiaires et de test** : mettez en place un [déploiement intermédiaire](web-sites-staged-publishing.md) pour vérifier votre code dans un environnement de pré-production identique à votre environnement de production. Quand vous êtes prêt, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d’échange.
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+- **Tests dans un environnement de production** : allez au-delà du déploiement intermédiaire [en effectuant des tests A/B](app-service-web-test-in-production-get-start.md) pour vérifier votre nouveau code avec une fraction configurable de votre trafic.
 
-[appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: app-service-web-get-started.md
-[Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
-[Slots]: web-sites-staged-publishing.md
+- **WebJobs** [: exécutez n’importe quel programme ou script](web-sites-create-web-jobs.md) sur des machines virtuelles Web Apps. Exécutez des tâches en continu, selon une planification, ou déclenchées par des événements. Le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-get-started.md) Azure simplifie le code que vous écrivez pour l’intégration à d’autres services Azure, tels que les files d’attente de stockage, les objets blob, les tables ainsi que les files d’attente et rubriques Service Bus.
 
- 
+- **Connexions hybrides** : accédez aux données locales à l’aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels](../app-service-web/web-sites-integrate-with-vnet.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+- **Intégration Visual Studio** : les outils dédiés de Visual Studio rationalisent le travail de création, de déploiement, de consommation, de débogage et de gestion des applications web. Pour en savoir plus, consultez [Annonce du Kit de développement logiciel (SDK) Microsoft Azure version 2.8.1 pour .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
+
+En outre, une application web peut tirer parti des fonctionnalités offertes par [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (telles que la prise en charge de CORS) et [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (telles que les notifications Push). L’inverse est également vrai : vous pouvez utiliser une application API ou une application mobile pour héberger une application web et tirer parti des fonctionnalités de Web Apps, telles que la mise à l’échelle automatique et le déploiement intermédiaire. La seule différence entre les trois types d’application (API, web, mobiles) est qu’elles s’affichent avec un nom et une icône différents dans le portail Azure. Pour plus d’informations sur les types d’application dans App Service, consultez l’article [Qu’est-ce qu’Azure App Service ?](../app-service/app-service-value-prop-what-is.md)
+
+## Prise en main
+
+Pour démarrer en déployant un exemple de code vers une nouvelle application web dans App Service, suivez le didacticiel [Prise en main des applications web dans Azure App Service](app-service-web-get-started.md). Vous devrez créer un compte Azure gratuit
+
+Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+<!---HONumber=AcomDC_0525_2016-->

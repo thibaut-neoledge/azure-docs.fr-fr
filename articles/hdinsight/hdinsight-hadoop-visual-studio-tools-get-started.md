@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2016"
+	ms.date="05/25/2016"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -184,7 +184,7 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 
 HDInsight Tools utilisé pour envoyer des tâches Hive via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (également appelé Templeton). Il fallait auparavant beaucoup de temps pour renvoyer les détails d’une tâche et les informations d’erreur. Pour résoudre ce problème de performances, HDInsight Tools exécute dorénavant les tâches Hive directement dans le cluster via HiveServer2, de manière à contourner RDP/SSH. En plus de bénéficier de meilleures performances, les utilisateurs peuvent afficher Hive sur des graphiques Tez et consulter les détails de la tâche.
 
-Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
+Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
 
 ![hdinsight visual studio exécution de tools via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
@@ -229,6 +229,8 @@ Les outils HDInsight pour Visual Studio prennent en charge la création et la s
 - Actuellement, les résultats HiveServer2 sont affichés en mode texte pur, ce qui n'est pas idéal. Nous y travaillons actuellement.
 
 - Actuellement, si les résultats sont lancés avec des valeurs NULL, ils ne sont pas affichés. Nous avons résolu ce problème. Si vous êtes bloqué sur ce problème, n'hésitez pas à nous envoyer un e-mail ou à contacter l'équipe du support technique.
+
+- Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.
 
 Si vous avez des suggestions ou des commentaires, ou si vous rencontrez des problèmes lors de l'utilisation de cet outil, n'hésitez pas à nous envoyer un e-mail à microsoft point com.
 
@@ -275,4 +277,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

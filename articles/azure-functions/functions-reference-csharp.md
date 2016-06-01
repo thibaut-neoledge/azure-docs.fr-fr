@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Informations de référence pour les développeurs C# sur Azure Functions
@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importation des espaces de noms
 
-Utilisez la clause `using` si vous devez importer des espaces de noms.
+Utilisez la clause `using` si vous devez importer des espaces de noms comme vous le feriez normalement.
 
 ```csharp
 using System.Net;
@@ -100,8 +100,10 @@ Les espaces de noms suivants sont automatiquement importés et sont donc faculta
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,10 +137,12 @@ Les assemblys suivants sont ajoutés automatiquement par l’environnement hébe
 En outre, les assemblys suivants ont une casse spécifique et peuvent être référencés par simplename (par exemple, `#r "AssemblyName"`) :
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Si vous avez besoin de mentionner un assembly privé, vous pouvez charger le fichier d’assembly dans un dossier `bin` relatif à votre fonction et y faire référence à l’aide du nom de fichier (par exemple, `#r "MyAssembly.dll"`).
+Si vous avez besoin de mentionner un assembly privé, vous pouvez charger le fichier d’assembly dans un dossier `bin` relatif à votre fonction et y faire référence à l’aide du nom de fichier (par exemple, `#r "MyAssembly.dll"`). Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section suivante sur la gestion des packages.
 
 ## Gestion des packages
 
@@ -160,43 +164,13 @@ Lorsque vous chargez un fichier *project.json*, le runtime obtient les packages 
 
 ### Comment charger un fichier project.json
 
-Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
+1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. 
 
-Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service-web/web-sites-deploy.md) le sont également sur les conteneurs de fonctions. Voici les méthodes que vous pouvez utiliser.
+	Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
 
-#### Pour télécharger project.json à l’aide de Visual Studio Online (Monaco)
+2. Pour télécharger un fichier project.json, utilisez une des méthodes décrites dans la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate).
 
-1. Dans le portail Azure Functions, cliquez sur **Paramètres du conteneur de fonctions**.
-
-2. Dans la section **Paramètres avancés** cliquez sur **Accéder aux paramètres App Service**.
-
-3. Cliquez sur **Outils**.
-
-4. Sous **Développer**, cliquez sur **Visual Studio Online**.
-
-5. **Activez-le** si ce n’est pas déjà pas déjà fait, puis cliquez sur **Accéder**.
-
-6. Une fois Visual Studio Online chargé, glissez-déplacez votre fichier *project.json* dans le dossier de votre fonction (le dossier nommé après votre fonction).
-
-#### Pour charger project.json à l’aide du point de terminaison SCM (Kudu) du conteneur de fonctions
-
-1. Accédez à : `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Cliquez sur **Console de débogage > CMD**.
-
-3. Accédez à *D:\\home\\site\\wwwroot<nom\_fonction>*.
-
-4. Glissez-déplacez votre fichier *project.json* dans le dossier (sur la grille de fichiers).
-
-#### Pour charger project.json à l’aide de FTP
-
-1. Suivez les instructions [ici](../app-service-web/web-sites-deploy.md#ftp) pour configurer le FTP.
-
-2. Lorsque vous êtes connecté au site de l’application de fonction, copiez votre fichier *project.json* dans */site/wwwroot/<function_name>*.
-
-#### Journal d’installation du package 
-
-Une fois le fichier *project.json* chargé, un résultat ressemblant à l’exemple suivant s’affiche dans le journal de diffusion en continu de votre fonction :
+3. Une fois le fichier *project.json* chargé, un résultat ressemblant à l’exemple suivant s’affiche dans le journal de diffusion en continu de votre fonction :
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ Une fois le fichier *project.json* chargé, un résultat ressemblant à l’exem
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Variables d’environnement
+
+Pour obtenir une variable d’environnement ou valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Réutilisation du code .csx
@@ -258,4 +251,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

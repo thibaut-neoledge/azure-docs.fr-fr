@@ -19,7 +19,7 @@
 
 # Liste de contrôle de disponibilité
 
-![](media/best-practices-availability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Conception des applications
 
@@ -68,4 +68,4 @@
 - **Suivez la progression des longs workflows** et réessayez en cas d’échec. Les longs workflows sont souvent composés de plusieurs étapes. Veillez à ce que chaque étape soit indépendante et puisse être recommencée individuellement afin d’éviter la restauration de l’intégralité du workflow ou l’exécution de plusieurs transactions de compensation. Surveillez et gérez la progression des longs workflows en implémentant un modèle tel que [Scheduler Agent Supervisor Pattern](https://msdn.microsoft.com/library/dn589780.aspx).
 - **Plan de récupération d’urgence.** Assurez-vous de disposer d’un plan de récupération documenté, convenu et intégralement testé pour tout type de défaillance susceptible de rendre une partie ou l’intégralité du système indisponible. Testez régulièrement les procédures afin de garantir que l’ensemble du personnel opérationnel maîtrise le processus.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

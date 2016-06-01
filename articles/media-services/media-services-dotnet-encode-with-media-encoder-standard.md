@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="05/03/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -37,12 +37,15 @@ Si votre ressource de sortie est stockée sous forme chiffrée, vous devez confi
 
 Media Encoder Standard est configuré avec l’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-###Métadonnées d’entrée et de sortie MES
+###Métadonnées d’entrée et de sortie
 
-Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Quand vous encodez un ou plusieurs éléments multimédias d’entrée à l’aide de MES, vous obtenez un élément multimédia de sortie une fois cette tâche d’encodage terminée. L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite, en fonction des paramètres d’encodage prédéfinis.
 
-Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : <asset_id>\_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), où <asset_id> est la valeur AssetId de l’élément multimédia d’entrée. Le schéma de ce XML de métadonnées d’entrée est décrit [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
+L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : <source_file_name>\_manifest.xml (par exemple, BigBuckBunny\_manifest.xml). Le schéma de ce XML de métadonnées de sortie est décrit [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+
+Si vous souhaitez examiner l’un des deux fichiers de métadonnées, vous pouvez créer un localisateur SAS et télécharger le fichier sur votre ordinateur local. Vous trouverez un exemple illustrant comment créer un localisateur SAS et télécharger un fichier dans la rubrique Utilisation des extensions du SDK Media Services .NET.
 
 ##Charger l’exemple
 
@@ -147,4 +150,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

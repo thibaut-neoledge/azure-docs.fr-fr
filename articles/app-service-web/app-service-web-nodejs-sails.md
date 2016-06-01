@@ -238,4 +238,4 @@ Pour vous connecter à une base de données Azure, créez la base de données de
 - [Prise en main des applications web Node.js dans Azure App Service](app-service-web-nodejs-get-started.md)
 - [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

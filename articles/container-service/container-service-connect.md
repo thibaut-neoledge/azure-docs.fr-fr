@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, conteneurs, micro-services, Mesos, Azure"/>
+   keywords="Docker, conteneurs, micro-services, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,12 +34,14 @@ La première chose que vous faites lorsque vous créez un tunnel SSH sur Linux o
 
 Ouvrez maintenant un interpréteur de commandes et exécutez la commande suivante où :
 
-**PORT** désigne le port du point de terminaison que vous souhaitez exposer. Pour Swarm, il s’agit de 2375. Pour DC/OS, utilisez le port 80. **USERNAME** est le nom d’utilisateur fourni lors du déploiement du cluster. **DNSPREFIX** est le préfixe DNS que vous avez fourni lors du déploiement du cluster. **REGION** est la région dans laquelle se trouve le groupe de ressources.
+**PORT** désigne le port du point de terminaison que vous souhaitez exposer. Pour Swarm, il s’agit de 2375. Pour DC/OS, utilisez le port 80. **USERNAME** est le nom d’utilisateur fourni lors du déploiement du cluster. **DNSPREFIX** est le préfixe DNS que vous avez fourni lors du déploiement du cluster. **REGION** est la région dans laquelle se trouve le groupe de ressources. **PATH\_TO\_PRIVATE\_KEY** [facultatif] est le chemin d’accès à la clé privée correspondant à la clé publique que vous avez fournie lors de la création du cluster de service du conteneur. Utilisez cette option avec l’indicateur -i.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
+> Le port de connexion SSH est 2200 et non le 22 standard.
 
 ## Tunnel DC/OS
 
@@ -48,13 +50,13 @@ Pour ouvrir un tunnel vers les points de terminaison liés au cluster DC/OS, ex�
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Vous pouvez accéder maintenant les points de terminaison associés à DC/OS :
 
 - DC/OS : `http://localhost/`
-- Marathon : `http://localhost/marathon`
+- Marathon : `http://localhost/marathon`
 - Mesos : `http://localhost/mesos`
 
 De la même façon, les API REST correspondant à chaque application sont accessibles par ce tunnel.
@@ -66,7 +68,7 @@ Pour ouvrir un tunnel vers le point de terminaison Swarm, exécutez une commande
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Vous pouvez maintenant définir votre variable d’environnement DOCKER\_HOST comme suit et continuer d’utiliser normalement votre interface de ligne de commande (CLI) Docker.
@@ -115,6 +117,6 @@ Une fois que vous avez configuré le tunnel pour Docker Swarm, vous pouvez accé
 
 Déployer et gérer des conteneurs avec DC/OS ou Swarm.
 
-[Utilisation d’Azure Container Service et de DC/OS](./container-service-mesos-marathon-rest.md) [Utilisation d’Azure Container Service et de Docker Swarm](./container-service-docker-swarm.md)
+[Utilisation d’Azure Container Service et de DC/OS](container-service-mesos-marathon-rest.md) [Utilisation d’Azure Container Service et de Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

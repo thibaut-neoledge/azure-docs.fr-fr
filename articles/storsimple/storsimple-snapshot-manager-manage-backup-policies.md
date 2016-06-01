@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="05/12/2016"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
@@ -69,19 +69,19 @@ Pour créer une stratégie de sauvegarde, procédez comme suit.
 
    5. Cliquez sur **OK**.
 
-Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
+Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
 
-- **Nom** : nom de la stratégie de sauvegarde.
+- **Nom** : nom de la stratégie de sauvegarde.
 
-- **Type** : instantané local ou instantané cloud.
+- **Type** : instantané local ou instantané cloud.
 
-- **Groupe de volumes** : groupe de volumes associé à la stratégie.
+- **Groupe de volumes** : groupe de volumes associé à la stratégie.
 
-- **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
+- **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
 
-- **Créé** : date à laquelle cette stratégie a été créée.
+- **Créé** : date à laquelle cette stratégie a été créée.
 
-- **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
+- **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
 
 ## Modifier une stratégie de sauvegarde
 
@@ -120,4 +120,4 @@ Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

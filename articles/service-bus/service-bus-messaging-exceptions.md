@@ -98,7 +98,7 @@ Pour le Service Bus Relay, cette exception encapsule [System.ServiceModel.QuotaE
 
 ## TimeoutException 
 
-Une [TimeoutException][] indique qu'une opération lancée par l'utilisateur dépasse le délai d'expiration de l'opération.
+Une [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indique qu’une opération lancée par l’utilisateur dépasse le délai d’expiration de l’opération.
 
 ### Files d'attente et rubriques
 
@@ -139,4 +139,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

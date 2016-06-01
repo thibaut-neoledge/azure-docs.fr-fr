@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application métier - Phase 1 | Microsoft Azure" 
-	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de l'application métier dans Azure." 
+	pageTitle="Application métier - Phase 1 | Microsoft Azure" 
+	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de l'application métier dans Azure." 
 	documentationCenter=""
 	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
@@ -11,21 +11,21 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
-# Charge de travail des applications métier, phase 1 : configurer Azure
+# Charge de travail des applications métier, phase 1 : configurer Azure
  
 [AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
  
-Au cours de cette phase de déploiement (uniquement dans Intranet) d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-windows-ps-lob-ph2.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
+Au cours de cette phase de déploiement (uniquement dans Intranet) d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-windows-ps-lob-ph2.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
 
-Azure doit être configuré avec les composants réseau de base suivants :
+Azure doit être configuré avec les composants réseau de base suivants :
 
-- un réseau virtuel intersite avec un sous-réseau pour l'hébergement des machines virtuelles Azure ;
+- un réseau virtuel intersite avec un sous-réseau pour l'hébergement des machines virtuelles Azure ;
 - deux comptes de stockage Azure pour stocker des images de disque VHD et des disques de données supplémentaires.
 - Trois groupes à haute disponibilité
 
@@ -44,9 +44,9 @@ Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 5\. | Espace d'adressage du réseau virtuel | L'espace d'adressage (défini dans un préfixe d'adresse privé unique) pour le réseau virtuel. Consultez votre service informatique pour le déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | Le premier serveur DNS pour le réseau virtuel | La quatrième adresse IP possible pour l'espace d'adressage du second sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour la déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Le second serveur DNS pour le réseau virtuel | La cinquième adresse IP possible pour l'espace d'adressage du second sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour la déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-8\. | Clé IPsec partagée | Chaîne alphanumérique aléatoire de 32 caractères à utiliser pour authentifier les deux côtés de la connexion VPN de site à site. Consultez votre service informatique ou département de sécurité pour déterminer cette valeur de clé. Vous pouvez également consulter [Créer une chaîne aléatoire pour une clé IPsec prépartagée](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | Clé IPsec partagée | Chaîne alphanumérique aléatoire de 32 caractères à utiliser pour authentifier les deux côtés de la connexion VPN de site à site. Consultez votre service informatique ou département de sécurité pour déterminer cette valeur de clé. Vous pouvez également consulter [Créer une chaîne aléatoire pour une clé IPsec prépartagée](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Table V : configuration de réseaux virtuels intersite**
+**Table V : configuration de réseaux virtuels intersite**
 
 Remplissez la Table S pour le sous-réseau de cette solution.
 
@@ -60,18 +60,18 @@ Consultez votre service informatique afin de déterminer ces espaces d'adressage
 1\. | Sous-réseau de passerelle | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Le sous-réseau utilisé par les machines virtuelles de passerelle Azure.
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Table S : sous-réseaux du réseau virtuel**
+**Table S : sous-réseaux du réseau virtuel**
 
 > [AZURE.NOTE] Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) Azure.
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
-Élément | Adresse IP du serveur DNS 
+Élément | Adresse IP du serveur DNS 
 --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
-**Table D : serveurs DNS locaux**
+**Table D : serveurs DNS locaux**
 
 Pour router des paquets du réseau virtuel Azure vers le réseau de votre organisation par le biais de la connexion VPN de site à site, vous devez configurer le réseau virtuel avec un réseau local qui contient une liste d'espaces d'adressage (en notation CIDR) pour tous les emplacements accessibles sur le réseau local de votre organisation. La liste des espaces d'adressage qui définissent votre réseau local doit être unique et ne doit pas chevaucher l'espace d'adressage utilisé pour d'autres réseaux virtuels ou d'autres réseaux locaux.
 
@@ -83,11 +83,11 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Table L : préfixes d'adresses pour le réseau local**
+**Table L : préfixes d'adresses pour le réseau local**
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Tout d’abord, démarrez une invite Azure PowerShell et connectez-vous à votre compte.
 
@@ -119,7 +119,7 @@ Les machines virtuelles basées sur Resource Manager requièrent un compte de st
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Le compte de stockage premium utilisé par les machines virtuelles du serveur SQL.
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Le compte de stockage standard utilisé par toutes les autres machines virtuelles dans la charge de travail. 
 
-**Table ST : comptes de stockage**
+**Table ST : comptes de stockage**
 
 Vous aurez besoin de ces noms lors de la création des machines virtuelles au cours des phases 2, 3 et 4.
 
@@ -182,7 +182,7 @@ Puis utilisez ces commandes pour créer des passerelles pour la connexion VPN de
 
 Et, enfin, configurez le périphérique VPN local pour qu’il se connecte à la passerelle VPN Azure. Pour plus d’informations, consultez [Configurer votre périphérique VPN](../virtual-network/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
-Pour configurer votre périphérique VPN sur site, vous avez besoin des éléments suivants :
+Pour configurer votre périphérique VPN sur site, vous avez besoin des éléments suivants :
 
 - L’adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel, affichée à l’aide de la commande **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**.
 - la clé IPsec prépartagée pour la connexion VPN de site à site (Table V- Élément 8 – Colonne Valeur).
@@ -220,4 +220,4 @@ Vous trouverez ci-dessous la configuration résultant de l'exécution de cette p
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

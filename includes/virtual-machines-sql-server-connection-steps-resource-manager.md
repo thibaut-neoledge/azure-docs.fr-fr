@@ -1,6 +1,8 @@
-### Configurer un nom DNS pour l’adresse IP publique
+### Configurer un nom DNS pour l’adresse IP publique
 
-Pour vous connecter au moteur de base de données SQL Server à partir d’Internet, tout d’abord, configurez un nom DNS pour votre adresse IP publique. Notez que cette étape n’est pas nécessaire si vous prévoyez uniquement de vous connecter à l’instance SQL Server dans le même réseau virtuel ou localement.
+Pour vous connecter au moteur de base de données SQL Server à partir d’Internet, tout d’abord, configurez un nom DNS pour votre adresse IP publique.
+
+> [AZURE.NOTE] Les noms DNS ne sont pas nécessaires si vous prévoyez uniquement de vous connecter à l’instance SQL Server dans le même réseau virtuel ou localement.
 
 Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dans le portail. Sélectionnez votre machine virtuelle SQL Server pour afficher ses propriétés.
 
@@ -15,10 +17,10 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 	![nom dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Connexion au moteur de base de données à partir d'un autre ordinateur
- 
+
 1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio (SSMS).
 
-2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS complet de la machine virtuelle (déterminé lors de la tâche précédente).
+2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez le nom DNS complet de la machine virtuelle (déterminé lors de la tâche précédente).
 
 3. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 
@@ -29,5 +31,3 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 7. Cliquez sur **Connecter**.
 
 	![connecter ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
-
-<!---------HONumber=AcomDC_0309_2016-->

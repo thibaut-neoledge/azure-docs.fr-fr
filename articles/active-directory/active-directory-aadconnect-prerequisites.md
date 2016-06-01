@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/10/2016"
    ms.author="andkjell;billmath"/>
 
 # Conditions préalables pour Azure AD Connect
@@ -56,7 +56,8 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 - Le serveur Azure AD Connect nécessite une résolution DNS Intranet et Internet. Le serveur DNS doit pouvoir résoudre des noms sur votre domaine Active Directory local, ainsi que sur les points de terminaison Azure AD.
 - Si vous disposez de pare-feu sur votre Intranet et que vous devez ouvrir des ports entre les serveurs Azure AD Connect et vos contrôleurs de domaine, consultez l’article [Ports Azure AD Connect](active-directory-aadconnect-ports.md) pour en savoir plus.
 - Si votre proxy limite les URL accessibles, les URL documentées dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) doivent être ouvertes dans le proxy.
-- Si vous utilisez un proxy sortant pour vous connecter à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l’Assistant d’installation et Azure AD Connect Sync puissent se connecter à Internet et à Azure AD. Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente l'adresse IP réelle du proxy ou le nom d’hôte.
+    - Si vous utilisez Microsoft Cloud en Allemagne ou le cloud Microsoft Azure Government, consultez [Considérations sur les instances de service Sync Azure AD Connect](active-directory-aadconnect-instances.md) relatives aux URL.
+- Si vous utilisez un proxy sortant pour vous connecter à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l’Assistant Installation et Azure AD Connect Sync puissent se connecter à Internet et à Azure AD. Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente l'adresse IP réelle du proxy ou le nom d’hôte.
 
 ```
     <system.net>
@@ -70,7 +71,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
     </system.net>
 ```
 
-- Si votre serveur proxy requiert une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) doit se trouver dans le domaine et vous devez utiliser le chemin d'installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous avez également besoin d’un fichier machine.config différent. Avec cette modification dans le fichier machine.config, l'Assistant d’installation et le moteur de synchronisation répondront aux demandes d'authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page de **configuration**, les informations d'identification de l’utilisateur sont utilisées. Sur la page **Configurer** à la fin de l'Assistant d'installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que vous avez créé. La section machine.config doit ressembler à ceci.
+- Si votre serveur proxy requiert une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) doit se trouver dans le domaine et vous devez utiliser le chemin d’installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous avez également besoin d’un fichier machine.config différent. Avec cette modification dans le fichier machine.config, l'Assistant d’installation et le moteur de synchronisation répondront aux demandes d'authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page de **configuration**, les informations d'identification de l’utilisateur sont utilisées. Sur la page **Configurer** à la fin de l’Assistant Installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que vous avez créé. La section machine.config doit ressembler à ceci.
 
 ```
     <system.net>
@@ -86,7 +87,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 
 Pour plus d’informations sur l’[élément proxy par défaut](https://msdn.microsoft.com/library/kd3cf2ex.aspx), consultez MSDN.
 
-Si vous rencontrez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
+Si vous rencontrez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ### Autres
 - Facultatif : un compte d’utilisateur test pour vérifier la synchronisation.
@@ -98,11 +99,11 @@ Azure AD Connect repose sur Microsoft PowerShell et .NET Framework 4.5.1. Selon 
   - Microsoft PowerShell est installé par défaut ; aucune action n’est nécessaire.
   - Les versions .NET Framework 4.5.1 et ultérieures sont offertes par le biais de Windows Update. Assurez-vous que vous avez installé les dernières mises à jour de Windows Server dans le Panneau de configuration.
 - Windows Server 2008 R2 et Windows Server 2012
-  - La dernière version de Microsoft PowerShell est disponible dans **Windows Management Framework 4.0**, dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
-  - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+  - La dernière version de Microsoft PowerShell est disponible dans **Windows Management Framework 4.0**, dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+  - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 - Windows Server 2008
   - La dernière version prise en charge de PowerShell est disponible dans **Windows Management Framework 3.0**, disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
- - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+ - .NET Framework 4.5.1 et les versions ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 
 ## Configuration requise pour l'installation et la configuration de la fédération
 
@@ -172,4 +173,4 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 ## Étapes suivantes
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

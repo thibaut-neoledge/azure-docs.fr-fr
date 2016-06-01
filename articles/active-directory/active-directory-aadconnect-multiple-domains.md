@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Prise en charge de plusieurs domaines pour la fédération avec Azure AD
@@ -22,7 +22,7 @@ La documentation suivante fournit des conseils sur l’utilisation de plusieurs 
 ## Prise en charge de plusieurs domaines de niveau supérieur
 La fédération de plusieurs domaines de niveau supérieur avec Azure AD nécessite une configuration supplémentaire qui n’est pas requise lors de la fédération avec un domaine de niveau supérieur.
 
-Lorsqu’un domaine est fédéré avec Azure AD, plusieurs propriétés sont définies sur le domaine dans Azure. L’une des plus importantes est IssuerUri. Il s’agit d’un URI qui est utilisé par Azure AD pour identifier le domaine auquel le jeton est associé. L’URI n’a pas besoin de résoudre quoi que ce soit, mais il doit s’agir d’un URI valide. Par défaut, AD Azure affecte cette propriété à la valeur de l’identificateur du service de fédération dans votre configuration AD FS locale.
+Lorsqu’un domaine est fédéré avec Azure AD, plusieurs propriétés sont définies sur le domaine dans Azure. L’une des plus importantes est IssuerUri. Il s’agit d’un URI qui est utilisé par Azure AD pour identifier le domaine auquel le jeton est associé. L’URI n’a pas besoin de résoudre quoi que ce soit, mais il doit s’agir d’un URI valide. Par défaut, AD Azure affecte cette propriété à la valeur de l’identificateur du service de fédération dans votre configuration AD FS locale.
 
 >[AZURE.NOTE]L’identificateur du service de fédération est un URI qui identifie de façon unique un service de fédération. Le service de fédération est une instance d’AD FS qui fonctionne en tant que service du jeton de sécurité.
 
@@ -41,7 +41,7 @@ Lorsque nous essayons de convertir notre domaine bmfabrikam.com pour qu’il soi
 
 ### Paramètre SupportMultipleDomain
 
-Pour contourner cela, nous devons ajouter un IssuerUri différent, ce qui peut être effectué à l’aide du paramètre `-SupportMultipleDomain`. Ce paramètre est utilisé avec les applets de commande suivantes :
+Pour contourner cela, nous devons ajouter un IssuerUri différent, ce qui peut être effectué à l’aide du paramètre `-SupportMultipleDomain`. Ce paramètre est utilisé avec les applets de commande suivantes :
 	
 - `New-MsolFederatedDomain`
 - `Convert-MsolDomaintoFederated`
@@ -51,7 +51,7 @@ Ce paramètre permet à Azure AD de configurer l’IssuerUri afin qu’il soit b
 
 ![Erreur de fédération](./media/active-directory-multiple-domains/convert.png)
 
-Les paramètres du nouveau domaine bmfabrikam.com ressemblent à ce qui suit :
+Les paramètres du nouveau domaine bmfabrikam.com ressemblent à ce qui suit :
 
 ![Erreur de fédération](./media/active-directory-multiple-domains/settings.png)
 
@@ -59,11 +59,11 @@ Notez que `-SupportMultipleDomain` ne modifie pas les autres points de terminais
 
 De plus, `-SupportMultipleDomain` s’assure que le système AD FS inclut la valeur Issuer appropriée dans les jetons émis pour Azure AD. Pour cela, c’est la partie domaine de l’UPN des utilisateurs qui est prise et définie en tant que domaine dans issuerURI, c’est-à-dire https://{upn suffixe}/adfs/services/trust.
 
-Ainsi, pendant l’authentification auprès d’Azure AD ou Office 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD. Si aucune correspondance ne peut être trouvée, l’authentification échoue.
+Ainsi, pendant l’authentification auprès d’Azure AD ou Office 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD. Si aucune correspondance ne peut être trouvée, l’authentification échoue.
 
-Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur http://bmcontoso.com/adfs/services/trust. Il correspond à la configuration Azure AD et donc l’authentification réussit.
+Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur http://bmcontoso.com/adfs/services/trust. Il correspond à la configuration Azure AD et donc l’authentification réussit.
 
-Vous trouverez ci-dessous la règle de revendication personnalisée qui implémente cette logique :
+Vous trouverez ci-dessous la règle de revendication personnalisée qui implémente cette logique :
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
@@ -71,7 +71,7 @@ Vous trouverez ci-dessous la règle de revendication personnalisée qui impléme
 >[AZURE.IMPORTANT]Afin d’utiliser le commutateur -SupportMultipleDomain lors de la tentative d’ajout de nouveaux domaines ou la conversion de domaines déjà ajoutés, l’approbation fédérée doit être configurée pour les prendre en charge à l’origine.
 
 
-## Mise à jour de l’approbation entre AD FS et Azure AD
+## Mise à jour de l’approbation entre AD FS et Azure AD
 Si vous n’avez pas configuré l’approbation fédérée entre AD FS et votre instance Azure AD, vous devrez peut-être recréer cette approbation. En effet, lorsqu’elle est configurée sans le paramètre `-SupportMultipleDomain`, l’élément IssuerUri est défini sur la valeur par défaut. Dans la capture d’écran ci-dessous, vous pouvez voir que l’élément IssuerUri est défini sur https://adfs.bmcontoso.com/adfs/services/trust.
 
 Donc à présent, si nous avons ajouté un nouveau domaine dans le portail Azure AD, puis essayons de le convertir à l’aide de `Convert-MsolDomaintoFederated -DomainName <your domain>`, nous obtenons l’erreur suivante.
@@ -96,7 +96,7 @@ Utilisez les étapes suivantes pour supprimer l’approbation de Microsoft Onlin
 1.  Sur un ordinateur avec [Module Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installé, exécutez la commande suivante : `$cred=Get-Credential`.  
 2.  Entrez le nom d’utilisateur et le mot de passe d’un administrateur global pour le domaine Azure AD avec lequel vous voulez fédérer
 2.  Dans PowerShell, entrez `Connect-MsolService -Credential $cred`
-4.  Dans PowerShell, entrez `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`. Il s’agit du domaine d’origine. Donc, en utilisant les domaines ci-dessus, cela donnerait : `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
+4.  Dans PowerShell, entrez `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`. Il s’agit du domaine d’origine. Donc, en utilisant les domaines ci-dessus, cela donnerait : `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 
 Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l’aide de PowerShell
@@ -109,7 +109,7 @@ Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l�
 Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l’aide d’Azure AD Connect.
 
 1.	Lancez Azure AD Connect à partir du bureau ou du menu Démarrer
-2.	Choisissez « Ajouter un domaine Azure AD supplémentaire » ![Ajouter un domaine Azure AD supplémentaire](./media/active-directory-multiple-domains/add1.png)
+2.	Choisissez « Ajouter un domaine Azure AD supplémentaire » ![Ajouter un domaine Azure AD supplémentaire](./media/active-directory-multiple-domains/add1.png)
 3.	Entrez votre informations d’identification Azure AD et Active Directory
 4.	Sélectionnez le second domaine que vous souhaitez configurer pour la fédération. ![Ajouter un domaine Azure AD supplémentaire](./media/active-directory-multiple-domains/add2.png)
 5.	Cliquez sur Installer
@@ -128,12 +128,12 @@ Et l’IssuerUri sur notre nouveau domaine a été défini sur https://bmfabrika
 ##Prise en charge des sous-domaines
 Lorsque vous ajoutez un sous-domaine, en raison de la façon dont Azure AD a géré les domaines, il héritera des paramètres du parent. Cela signifie que l’IssuerUri doit correspondre aux parents.
 
-Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com. Cela signifie que l’IssuerUri pour un utilisateur de corp.bmcontoso.com devra être ****http://bmcontoso.com/adfs/services/trust.** Cependant, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que ****http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
+Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com. Cela signifie que l’IssuerUri pour un utilisateur de corp.bmcontoso.com devra être **http://bmcontoso.com/adfs/services/trust.** Cependant, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que **http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
 
 ### Activation de la prise en charge des sous-domaines
 Pour contourner ce problème, l’approbation de la partie de confiance AD FS de Microsoft Online doit être mise à jour. Pour cela, vous devez configurer une règle de revendication personnalisée afin qu’elle retire tous les sous-domaines du suffixe UPN de l’utilisateur pendant la construction de la valeur Issuer.
 
-La revendication suivante fait cela :
+La revendication suivante fait cela :
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
 
@@ -153,4 +153,4 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
 ![Remplacer la revendication](./media/active-directory-multiple-domains/sub2.png)
 5.	Cliquez sur OK. Cliquez sur Appliquer. Cliquez sur OK. Fermez Gestion AD FS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

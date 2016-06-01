@@ -160,17 +160,17 @@ Dans cet exemple, vous allez utiliser une recherche par mot clé. Dans **Azure D
 Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les balises correspondent à « illustration » ou les balises correspondent à « photo ».
 
 1. Accédez à https://azure.microsoft.com/services/data-catalog, cliquez sur **Prise en main**, puis connectez-vous au portail **Azure Data Catalog**.
-2. Dans la zone **Rechercher dans le catalogue de données**, entrez une requête de type **Grouping** : (tags:description OR tags:photo).
+2. Dans la zone **Rechercher dans le catalogue de données**, entrez une requête de type **Grouping** : (**tags:description OR tags:photo**).
 3. Cliquez sur l’icône de recherche ou appuyez sur Entrée. **Azure Data Catalog** affichera les ressources de données correspondant à cette requête de recherche.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
 
-Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour découvrir et afficher les ressources de données Adventure Works inscrites dans le catalogue.
+Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour découvrir et afficher les ressources de données Adventure Works inscrites dans le catalogue.
 
 <a name="annotating"/>
 ## Exercice 4 : annotation des sources de données inscrites
 
-Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour annoter des ressources de données préalablement inscrites dans le catalogue. Les annotations que vous ajouterez compléteront et amélioreront les métadonnées structurelles extraites de la source de données au cours de l’inscription et faciliteront la découverte et la compréhension des ressources de données. Comme chaque utilisateur du **catalogue de données** peut ajouter ses propres annotations, ces données sont faciles à partager par tous les utilisateurs ayant un point de vue sur celles-ci.
+Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour annoter des ressources de données préalablement inscrites dans le catalogue. Les annotations que vous ajouterez compléteront et amélioreront les métadonnées structurelles extraites de la source de données au cours de l’inscription et faciliteront la découverte et la compréhension des ressources de données. Comme chaque utilisateur du **catalogue de données** peut ajouter ses propres annotations, ces données sont faciles à partager par tous les utilisateurs ayant un point de vue sur celles-ci.
 
 ### Voici comment annoter les ressources de données
 
@@ -184,11 +184,11 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour a
 
 Dans cet exercice, vous avez ajouté des informations descriptives aux ressources de données inscrites afin que les utilisateurs du catalogue puissent découvrir les sources de données à l’aide de termes qu’ils comprennent.
 
-> [AZURE.NOTE] L’édition Standard de Data Catalog comprend un glossaire d’entreprise qui permet aux administrateurs de catalogue de définir une taxonomie commerciale centrale. Les utilisateurs du catalogue peuvent ensuite annoter les ressources de données avec la terminologie du glossaire. Pour plus d’informations, consultez [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuration du glossaire d’entreprise pour un balisage gouverné)
+> [AZURE.NOTE] L’édition Standard de Data Catalog comprend un glossaire d’entreprise qui permet aux administrateurs de catalogue de définir une taxonomie commerciale centrale. Les utilisateurs du catalogue peuvent ensuite annoter les ressources de données avec la terminologie du glossaire. Pour plus d’informations, consultez [Comment configurer le glossaire métier pour un balisage géré](data-catalog-how-to-business-glossary.md)
 
 ## Exercice 5 : métadonnées en crowdsourcing
 
-Dans cet exercice, vous allez travailler avec un autre utilisateur pour ajouter des métadonnées aux ressources de données du catalogue. L’approche des annotations basée sur le crowdsourcing d’**Azure Data Catalog** permet aux utilisateurs d’ajouter des étiquettes, des descriptions et d’autres métadonnées afin que tout utilisateur ayant un point de vue sur une ressource de données et son utilisation puisse capturer ce point de vue et le mettre à disposition des autres utilisateurs.
+Dans cet exercice, vous allez travailler avec un autre utilisateur pour ajouter des métadonnées aux ressources de données du catalogue. L’approche des annotations basée sur le crowdsourcing d’**Azure Data Catalog** permet aux utilisateurs d’ajouter des étiquettes, des descriptions et d’autres métadonnées afin que tout utilisateur ayant un point de vue sur une ressource de données et son utilisation puisse capturer ce point de vue et le mettre à disposition des autres utilisateurs.
 
 > [AZURE.NOTE] Si aucun autre utilisateur ne peut travailler avec vous sur ce didacticiel, ne vous inquiétez pas ! Tout utilisateur qui accède au catalogue de données peut ajouter son propre point de vue au moment qui lui convient. Cette approche des métadonnées basée sur le crowdsourcing permet de développer le contenu du catalogue et la richesse de ses métadonnées au fil du temps.
 
@@ -198,11 +198,11 @@ Demandez à un collègue de répéter l’exercice [Annotation des sources de do
 
 ![](media/data-catalog-get-started/data-catalog-crowdsource.png)
 
-Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur le crowdsourcing d’**Azure Data Catalog**, par laquelle chaque utilisateur du catalogue peut annoter les ressources de données qu’il découvre.
+Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur le crowdsourcing d’**Azure Data Catalog**, par laquelle chaque utilisateur du catalogue peut annoter les ressources de données qu’il découvre.
 
 ## Exercice 6 : connexion à des sources de données
 
-Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour vous connecter à des sources de données en utilisant Microsoft Excel.
+Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour vous connecter à des sources de données en utilisant Microsoft Excel.
 
 > [AZURE.NOTE] Il est important de se rappeler qu’**Azure Data Catalog** ne donne pas aux utilisateurs accès à la source de données elle-même : il leur permet simplement de découvrir et de comprendre plus facilement cette source de données. Lorsqu’un utilisateur se connecte à une source de données, l’application cliente qu’il choisit utilisera ses informations d’identification Windows ou l’invitera à saisir des informations d’identification, le cas échéant. Si l’accès à la source de données n’a pas été préalablement accordé à l’utilisateur, il devra obtenir cet accès avant de pouvoir se connecter.
 
@@ -221,7 +221,7 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour v
 
     ![](media/data-catalog-get-started/data-catalog-connect2.png)
 
-Dans cet exercice, vous vous êtes connecté aux sources de données découvertes à l’aide d’**Azure Data Catalog**. Le portail **Azure Data Catalog** permet aux utilisateurs de se connecter directement en utilisant les applications clientes intégrées à son menu **Ouvrir dans...** et de se connecter avec l’application de leur choix, en utilisant les informations d’emplacement de connexion incluses dans les métadonnées des ressources.
+Dans cet exercice, vous vous êtes connecté aux sources de données découvertes à l’aide d’**Azure Data Catalog**. Le portail **Azure Data Catalog** permet aux utilisateurs de se connecter directement en utilisant les applications clientes intégrées à son menu **Ouvrir dans...** et de se connecter avec l’application de leur choix, en utilisant les informations d’emplacement de connexion incluses dans les métadonnées des ressources.
 
 ## Exercice 7 : suppression des métadonnées des sources de données
 
@@ -229,7 +229,7 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour s
 
 > [AZURE.NOTE] Par défaut, le catalogue permet aux utilisateurs d’inscrire n’importe quelle source de données et de supprimer toutes les ressources de données préalablement inscrites. Les fonctionnalités de gestion incluses dans l’**édition Standard d’Azure Data Catalog** offrent des options supplémentaires qui permettent l’appropriation de ressources, ce qui limite les fonctions de découverte et de suppression des ressources à certains utilisateurs.
 
-Dans **Azure Data Catalog**, vous pouvez supprimer une ressource individuelle ou plusieurs ressources.
+Dans **Azure Data Catalog**, vous pouvez supprimer une ressource individuelle ou plusieurs ressources.
 
 ### Voici comment supprimer plusieurs ressources de données
 
@@ -242,9 +242,9 @@ Dans cet exercice, vous avez supprimé des ressources de données inscrites dans
 
 ## Exercice 8 : gestion des sources de données inscrites
 
-Dans cet exercice, vous allez utiliser les fonctionnalités de gestion d’**Azure Data Catalog** pour vous approprier des ressources de données, contrôler ce que les utilisateurs peuvent découvrir et comment les utilisateurs gèrent ces ressources.
+Dans cet exercice, vous allez utiliser les fonctionnalités de gestion d’**Azure Data Catalog** pour vous approprier des ressources de données, contrôler ce que les utilisateurs peuvent découvrir et comment les utilisateurs gèrent ces ressources.
 
-> [AZURE.NOTE] Les fonctionnalités de gestion décrites dans cet exercice sont disponibles uniquement dans l’**édition Standard d’Azure Data Catalog**, pas dans l’**édition gratuite**. Dans **Azure Data Catalog**, vous pouvez vous approprier des ressources de données, ajouter des copropriétaires aux ressources de données et définir la visibilité de ces ressources.
+> [AZURE.NOTE] Les fonctionnalités de gestion décrites dans cet exercice sont disponibles uniquement dans l’**édition Standard d’Azure Data Catalog**, pas dans l’**édition gratuite**. Dans **Azure Data Catalog**, vous pouvez vous approprier des ressources de données, ajouter des copropriétaires aux ressources de données et définir la visibilité de ces ressources.
 
 ### Voici comment s’approprier les ressources de données et restreindre leur visibilité
 
@@ -262,4 +262,4 @@ Dans cet exercice, vous avez exploré les fonctionnalités de gestion **Azure Da
 
 Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

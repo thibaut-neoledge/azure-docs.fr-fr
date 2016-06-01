@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Prendre en main l’API Twilio
@@ -47,17 +47,18 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs Tw
 |ID de compte|Oui|Entrez votre ID de compte Twilio|
 |Jeton d'accès|Oui|Entrez votre jeton d’accès Twilio|
 
-Consultez la section [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) pour créer un jeton d’accès.
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Twilio](../../includes/connectors-create-api-twilio.md)]
 
-Après avoir créé la connexion, vous entrez les propriétés de Twilio. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Si vous n’avez pas de jeton d’accès, consultez [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) pour savoir comment en créer un.
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion Twilio dans d'autres applications logiques.
+
+>[AZURE.TIP] Vous pouvez utiliser cette même connexion Twilio dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
 #### Cette documentation concerne la version 1.0.
 
 ### Obtenir le message.
-Renvoie un message unique spécifié par l’ID du message fourni. ```GET: /Messages/{MessageId}.json```
+Retourne un message unique spécifié par l’ID du message fourni. ```GET: /Messages/{MessageId}.json```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -74,7 +75,7 @@ Renvoie un message unique spécifié par l’ID du message fourni. ```GET: /Mess
 
 
 ### Répertorier les messages
-Renvoie une liste de messages associés à votre compte. ```GET: /Messages.json```
+Retourne une liste de messages associés à votre compte. ```GET: /Messages.json```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -95,7 +96,7 @@ Renvoie une liste de messages associés à votre compte. ```GET: /Messages.json`
 
 
 ### Envoyer un message
-Envoyez un message à un numéro de téléphone portable. ```POST: /Messages.json```
+Envoie un nouveau message à un numéro de mobile. ```POST: /Messages.json```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -247,4 +248,4 @@ Envoyez un message à un numéro de téléphone portable. ```POST: /Messages.jso
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

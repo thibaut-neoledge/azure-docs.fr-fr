@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos" />
 
 
@@ -26,7 +26,7 @@ Cette mise à jour ne modifie pas la version logicielle de l’appareil physique
 
 Veuillez consulter les informations suivantes, qui figurent dans les notes de publication de la mise à jour de janvier 2015.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT]  
 >
 >- Cette mise à jour n’est pas disponible via Windows Update et ne peut pas être installée comme les autres mises à jour. Votre appareil ne recevra pas cette mise à jour, même si vous avez appliqué les mises à jour à l’aide du portail Azure Classic. Cette mise à jour s’applique uniquement aux appareils virtuels créés après le 20 janvier 2015. 
 > 
@@ -78,4 +78,4 @@ Cette version contient une image mise à jour pour l’appareil virtuel. Tous le
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

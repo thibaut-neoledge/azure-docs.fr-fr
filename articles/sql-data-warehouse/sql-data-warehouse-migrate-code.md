@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migration de votre code SQL vers SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Migration de votre code SQL vers SQL Data Warehouse | Microsoft Azure"
+   description="Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Migration de votre code SQL vers SQL Data Warehouse
+# Migration de votre code SQL vers SQL Data Warehouse
 
-Pour vérifier la conformité de votre code avec SQL Data Warehouse, il vous faudra probablement apporter des modifications à votre base de code. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner directement selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
+Lors de la migration de votre code vers SQL Data Warehouse, il vous faudra probablement apporter des modifications à votre base de code. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
 
-## Modifications du code Transact-SQL
+## Limites courantes de T-SQL
 
-La liste suivante répertorie les fonctionnalités principales non prises en charge dans Microsoft Azure SQL Data Warehouse. Les liens vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
+La liste suivante répertorie les fonctionnalités les plus courantes qui ne sont pas prises en charge dans Azure SQL Data Warehouse. Les liens vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
 
 - [Jointures ANSI sur les opérations UPDATE][]
 - [Jointures ANSI sur les opérations DELETE][]
@@ -48,40 +48,42 @@ La liste suivante répertorie les fonctionnalités principales non prises en cha
 - [Imbrication des niveaux au-delà de 8][]
 - [Mise à jour par le biais de vues][]
 - [Utilisation de Select pour l’attribution des variables][]
-- [Type de données no MAX pour les chaînes dynamiques SQL][]
+- [Type de données no MAX pour les chaînes dynamiques SQL][]
 
 Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications sont fournies dans les articles de développement référencés ci-dessus.
 
-### Expressions de table commune
-L’implémentation actuelle des expressions de table communes (CTE) dans SQL Data Warehouse comporte les fonctionnalités et les limitations suivantes :
+## Fonctionnalités CTE prises en charge
 
-**La fonctionnalité CTE**
-+ Une CTE peut être spécifiée dans une instruction SELECT.
-+ Une CTE peut être spécifiée dans une instruction CREATE VIEW.
-+ Une CTE peut être spécifiée dans une instruction CREATE TABLE AS SELECT (CTAS).
-+ Une CTE peut être spécifiée dans une instruction CREATE REMOTE TABLE AS SELECT (CRTAS).
-+ Une CTE peut être spécifiée dans une instruction CREATE EXTERNAL TABLE AS SELECT (CETAS).
-+ Une table distante peut être référencée à partir d’une expression de table commune.
-+ Une table externe peut être référencée à partir d’une expression de table commune.
-+ Plusieurs définitions de requête CTE peuvent être définies dans une expression de table commune.
+Les expressions de table communes (CTE) sont partiellement prises en charge dans SQL Data Warehouse. Les fonctionnalités CTE actuellement prises en charge sont les suivantes :
 
-**Limitations d’une CTE**
-+ Une CTE doit être suivie d’une instruction SELECT unique. Les instructions INSERT, UPDATE, DELETE et MERGE ne sont pas prises en charge.
-+ Une expression de table commune qui inclut des références à elle-même (expression de table commune récursive) n’est pas prise en charge (voir la section ci-dessous).
-+ La spécification de plusieurs clauses WITH dans une CTE n’est pas autorisée. Par exemple, si une définition CTE\_query\_definition contient une sous-requête, celle-ci ne peut pas contenir de clause WITH imbriquée définissant une autre CTE.
-+ Une clause ORDER BY ne peut pas être utilisée dans une définition CTE\_query\_definition, sauf lorsqu’une clause TOP est spécifiée.
-+ Lorsqu’une CTE est utilisée dans une instruction qui fait partie d’un lot, l’instruction qui la précède doit être suivie d’un point-virgule.
-+ Lorsqu’une CTE est utilisée dans des instructions préparées par sp\_prepare, celle-ci se comporte de la même façon que les autres instructions SELECT dans PDW. Toutefois, si les expressions de table communes sont utilisées dans le cadre de CETAS préparées par sp\_prepare, le comportement peut différer selon qu’il s’agit d’instructions SQL Server ou PDW en raison de la façon dont la liaison est mise en œuvre pour sp\_prepare. Si l’instruction SELECT qui référence CTE utilise une colonne erronée, qui n’existe pas dans CTE, sp\_prepare transmet sans détecter l’erreur, mais l’erreur est levée pendant l’instruction sp\_execute.
+- Une CTE peut être spécifiée dans une instruction SELECT.
+- Une CTE peut être spécifiée dans une instruction CREATE VIEW.
+- Une CTE peut être spécifiée dans une instruction CREATE TABLE AS SELECT (CTAS).
+- Une CTE peut être spécifiée dans une instruction CREATE REMOTE TABLE AS SELECT (CRTAS).
+- Une CTE peut être spécifiée dans une instruction CREATE EXTERNAL TABLE AS SELECT (CETAS).
+- Une table distante peut être référencée à partir d’une expression de table commune.
+- Une table externe peut être référencée à partir d’une expression de table commune.
+- Plusieurs définitions de requête CTE peuvent être définies dans une expression de table commune.
 
-### Expressions récursives de table commune (CTE)
+## Limitations d’une CTE
 
-Il s’agit d’un scénario de migration complexe, et la meilleure procédure consiste à diviser la CTE et à la gérer en procédant par étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
+Les expressions de table communes présentent certaines restrictions dans SQL Data Warehouse, notamment :
+
+- Une CTE doit être suivie d’une instruction SELECT unique. Les instructions INSERT, UPDATE, DELETE et MERGE ne sont pas prises en charge.
+- Une expression de table commune qui inclut des références à elle-même (expression de table commune récursive) n’est pas prise en charge (voir la section ci-dessous).
+- La spécification de plusieurs clauses WITH dans une CTE n’est pas autorisée. Par exemple, si une définition CTE\_query\_definition contient une sous-requête, celle-ci ne peut pas contenir de clause WITH imbriquée définissant une autre CTE.
+- Une clause ORDER BY ne peut pas être utilisée dans une définition CTE\_query\_definition, sauf lorsqu’une clause TOP est spécifiée.
+- Lorsqu’une CTE est utilisée dans une instruction qui fait partie d’un lot, l’instruction qui la précède doit être suivie d’un point-virgule.
+- Lorsqu’une CTE est utilisée dans des instructions préparées par sp\_prepare, celle-ci se comporte de la même façon que les autres instructions SELECT dans PDW. Toutefois, si les expressions de table communes sont utilisées dans le cadre de CETAS préparées par sp\_prepare, le comportement peut différer selon qu’il s’agit d’instructions SQL Server ou PDW en raison de la façon dont la liaison est mise en œuvre pour sp\_prepare. Si l’instruction SELECT qui référence CTE utilise une colonne erronée, qui n’existe pas dans CTE, sp\_prepare transmet sans détecter l’erreur, mais l’erreur est levée pendant l’instruction sp\_execute.
+
+## CTE récursives
+
+Les expressions de table communes récursives ne sont pas prises en charge dans SQL Data Warehouse. La migration de CTE récursives peut être relativement complète ; le mieux est de décomposer le processus en plusieurs étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
 
 ### Fonctions système
 
-Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :
+Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :
 
-- NEWID()
 - NEWSEQUENTIALID()
 - @@NESTLEVEL()
 - @@IDENTITY()
@@ -91,7 +93,7 @@ Certaines fonctions système ne sont pas prises en charge. Voici les principales
 
 Là encore, nombre de ces problèmes peuvent être contournés.
 
-Par exemple, le code ci-dessous est une solution alternative permettant la récupération des informations @@ROWCOUNT :
+Par exemple, le code ci-dessous est une solution alternative permettant la récupération des informations @@ROWCOUNT :
 
 ```sql
 SELECT  SUM(row_count) AS row_count
@@ -123,11 +125,11 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 [Imbrication des niveaux au-delà de 8]: sql-data-warehouse-develop-transactions.md
 [Mise à jour par le biais de vues]: sql-data-warehouse-develop-views.md
 [Utilisation de Select pour l’attribution des variables]: sql-data-warehouse-develop-variable-assignment.md
-[Type de données no MAX pour les chaînes dynamiques SQL]: sql-data-warehouse-develop-dynamic-sql.md
+[Type de données no MAX pour les chaînes dynamiques SQL]: sql-data-warehouse-develop-dynamic-sql.md
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

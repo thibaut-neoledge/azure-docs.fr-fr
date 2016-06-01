@@ -13,58 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc"/>
 
-# Prise en main des DNS Azure avec PowerShell
+# Créer une zone DNS en utilisant PowerShell
 
 > [AZURE.SELECTOR]
 - [Portail Azure](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Interface de ligne de commande Azure](dns-getstarted-create-dnszone-cli.md)
 
-Le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web). Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier.
+Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide de l’interface de ligne de commande. Vous pouvez également créer une zone DNS à l’aide de PowerShell ou du portail Azure.
 
-Avant d’héberger votre domaine, vous devez créer une zone DNS. Les enregistrements DNS créés pour un domaine particulier sont situés dans une zone DNS pour le domaine.
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-Ces instructions utilisent Microsoft Azure PowerShell. Veillez à effectuer une mise à jour vers la version la plus récente d’Azure PowerShell pour utiliser les applets de commande Azure DNS. Vous pouvez exécuter les mêmes étapes à l’aide du portail Azure ou d’une interface de ligne de commande interplateforme.
+## <a name="tagetag"></a>À propos des ETags et des étiquettes
 
-Les étapes suivantes doivent être effectuées avant de pouvoir gérer DNS Azure à l’aide d’Azure PowerShell.
+### <a name="etags"></a>ETags
 
-Azure DNS utilise Azure Resource Manager (ARM). Suivez ces instructions pour Azure PowerShell 1.0.0 et les versions ultérieures. Des informations complémentaires sont disponibles dans la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-### Étape 1 :
-Connectez-vous à votre compte Azure (vous devrez indiquer vos informations d’identification)
-
-	PS C:\> Login-AzureRmAccount
-
-### Étape 2
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
-
-	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-
-Vous pouvez répertorier les abonnements disponibles à l’aide de « Get-AzureRmSubscription ».
-
-### Étape 3
-Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
-
-	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que toutes les ressources DNS sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure DNS.
-
-### Étape 4
-Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être inscrit auprès de ce fournisseur de ressources pour pouvoir utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
-
-	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-
-## Balises et Etags
-
-### Etags
 Supposons que deux personnes ou deux processus tentent de modifier un enregistrement DNS en même temps. Lequel gagne ? Et le gagnant sait-il qu’il vient de remplacer les modifications créées par quelqu’un d’autre ?
 
 Azure DNS utilise les Etags pour gérer les modifications simultanées de la même ressource en toute sécurité. Chaque ressource DNS (zone ou jeu d’enregistrements) est associée à un Etag. Chaque fois qu’une ressource est récupérée, son Etag l’est également. Lors de la mise à jour d’une ressource, vous pouvez transmettre l’Etag afin qu’Azure DNS vérifie que l’Etag du serveur correspond. Étant donné que chaque mise à jour d’une ressource entraîne la régénération de l’Etag, l’absence de concordance entre les Etags indique qu’une modification simultanée a eu lieu. Les ETags sont également utilisés lorsque vous créez une ressource pour vous assurer que la ressource n’existe pas déjà.
 
-Par défaut, Azure DNS PowerShell utilise les Etags pour bloquer les modifications simultanées apportées à des zones et des jeux d’enregistrements. Le commutateur « -Overwrite » facultatif peut être utilisé pour supprimer les vérifications Etag, auquel cas toutes les modifications simultanées qui se sont produites sont remplacées.
+Par défaut, Azure DNS PowerShell utilise les Etags pour bloquer les modifications simultanées apportées à des zones et des jeux d’enregistrements. Le commutateur facultatif *-Overwrite* peut être utilisé pour supprimer les vérifications d’ETags, auquel cas toutes les modifications simultanées qui se sont produites sont remplacées.
 
 Au niveau de l’API REST Azure DNS, les Etags sont spécifiés à l’aide d’en-têtes HTTP. Leur comportement est indiqué dans le tableau suivant :
 
@@ -72,32 +43,85 @@ Au niveau de l’API REST Azure DNS, les Etags sont spécifiés à l’aide d’
 |------|--------|
 |Aucun|PUT réussit toujours (aucune vérification Etag)|
 |If-match <etag>|PUT ne réussit que si la ressource existe et que l’Etag correspond|
-|If-match * |PUT réussit uniquement si des ressources existent|
-|If-none-match |* PUT réussit uniquement si aucune ressource n’existe|
+|If-match * | PUT réussit seulement si la ressource existe|
+|If-none-match * |	PUT réussit seulement si la ressource n’existe pas|
 
-### Balises
-Les balises sont différentes des Etags. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, consultez la page relative à l’utilisation de balises pour organiser vos ressources Azure. Azure DNS PowerShell prend en charge les balises dans les zones et les jeux d’enregistrements spécifiés à l’aide du paramètre « -Tag ». L’exemple suivant montre comment créer une zone DNS avec deux balises, « projet = demo » et « env = test » :
+### <a name="tags"></a>Étiquettes
 
-	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+Les balises sont différentes des Etags. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
-
-## Création d’une zone DNS
-
-Une zone DNS est créée à l'aide de l'applet de commande New-AzureRmDnsZone. Dans l’exemple ci-dessous, nous allons créer une zone DNS appelée « contoso.com » dans le groupe de ressources « MyResourceGroup » :<BR>
-
-	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-
->[AZURE.NOTE] Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin. Par exemple, spécifiez « contoso.com » plutôt que « contoso.com. ».<BR>
+Azure DNS PowerShell prend en charge les étiquettes sur les zones et sur les jeux d’enregistrements spécifiés avec le paramètre `-Tag` des options.
 
 
-Votre zone DNS vient d’être créée dans Azure DNS. La création d’une zone DNS crée également les enregistrements DNS suivants :<BR>
+## Avant de commencer
 
-- L’enregistrement « SOA » (Start of Authority). Il est présent à la racine de chaque zone DNS.
-- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).<BR>
+Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
+	
+- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+	
+- Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager (version 1.0 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
-Pour afficher ces enregistrements, utilisez Get-AzureRmDnsRecordSet :
+## Étape 1 : Connexion
 
-	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Ouvrez la console PowerShell et connectez-vous à votre compte. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+
+Utilisez l’exemple suivant pour faciliter votre connexion :
+
+	Login-AzureRmAccountt
+
+Vérifiez les abonnements associés au compte.
+
+	Get-AzureRmSubscription 
+
+Spécifiez l’abonnement à utiliser.
+
+	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+## Étape 2 : Créer un groupe de ressources
+
+Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que toutes les ressources DNS sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure DNS.
+
+Ignorez cette étape si vous utilisez un groupe de ressources existant.
+
+	New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
+
+
+## Étape 3 : S’inscrire
+
+Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être inscrit auprès de ce fournisseur de ressources pour pouvoir utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
+
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+
+
+## Étape 4 : Créer une zone DNS
+
+Une zone DNS est créée à l’aide de l’applet de commande `New-AzureRmDnsZone`. Vous pouvez trouver ci-dessous des exemples de création d’une zone DNS avec ou sans étiquettes. Pour plus d’informations sur les étiquettes, consultez la section sur les [étiquettes](#tags) de cet article.
+
+>[AZURE.NOTE] Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com**» au lieu de « **contoso.com.** ».
+
+### Création d’une zone DNS
+
+L’exemple ci-dessous crée une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+
+	New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+
+### Pour créer une zone DNS avec des étiquettes
+
+L’exemple suivant montre comment créer une zone DNS avec deux étiquettes, *projet = demo* et *env = test*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+
+	New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+
+## Affichage des enregistrements
+
+La création d’une zone DNS crée également les enregistrements DNS suivants :
+
+- Enregistrement *SOA* (Start of Authority). Il est présent à la racine de chaque zone DNS.
+
+- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez [Déléguer un domaine à Azure DNS](dns-domain-delegation.md).
+
+Pour afficher ces enregistrements, utilisez `Get-AzureRmDnsRecordSet` :
+
+	Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,33 +142,36 @@ Pour afficher ces enregistrements, utilisez Get-AzureRmDnsRecordSet :
                   ns4-01.azure-dns.info}
 	Tags              : {}
 
->[AZURE.NOTE] Les jeux d’enregistrements à la racine (ou au « sommet ») d’une zone DNS utilisent « @ » comme nom du jeu d’enregistrements.
+
+Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom de jeu d’enregistrements.
 
 
-Après avoir créé votre première zone DNS, vous pouvez la tester à l’aide d’outils DNS comme nslookup, dig ou [l’applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).<BR>
+## Test
 
-Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué par Get-AzureRmDnsRecordSet ci-dessus. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.<BR>
+Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
 
-		C:\> nslookup
-		> set type=SOA
-		> server ns1-01.azure-dns.com
-		> contoso.com
+Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, répertoriés ci-dessus par `Get-AzureRmDnsRecordSet`. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
 
-		Server: ns1-01.azure-dns.com
-		Address:  208.76.47.1
+	nslookup
+	> set type=SOA
+	> server ns1-01.azure-dns.com
+	> contoso.com
 
-		contoso.com
-        		primary name server = ns1-01.azure-dns.com
-        		responsible mail addr = msnhst.microsoft.com
-        		serial  = 1
-        		refresh = 900 (15 mins)
-        		retry   = 300 (5 mins)
-        		expire  = 604800 (7 days)
-        		default TTL = 300 (5 mins)
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
+
+	contoso.com
+        	primary name server = ns1-01.azure-dns.com
+        	responsible mail addr = msnhst.microsoft.com
+        	serial  = 1
+        	refresh = 900 (15 mins)
+        	retry   = 300 (5 mins)
+        	expire  = 604800 (7 days)
+        	default TTL = 300 (5 mins)
+
 
 ## Étapes suivantes
 
-[Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit SDK .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
- 
+Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

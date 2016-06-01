@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -21,13 +21,13 @@
 
 Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
 
-La capture d’écran suivante montre un cluster qui a deux types de nœuds : frontaux et principaux. Chaque type de nœud comporte cinq nœuds.
+La capture d’écran suivante montre un cluster qui a deux types de nœuds : frontaux et principaux. Chaque type de nœud comporte cinq nœuds.
 
 ![Capture d’écran d’un cluster qui a deux types de nœuds][NodeTypes]
 
 ## Mappage des instances du groupe de machines virtuelles identiques sur les nœuds
 
-Comme vous pouvez le constater ci-dessus, les instances du groupe de machines virtuelles identiques démarrent à l’instance 0. Les noms reflètent la numérotation. Par exemple, BackEnd\_0 représente l’instance 0 du groupe de machines virtuelles identiques principal. Ce groupe a cinq instances, nommées BackEnd\_0, BackEnd\_1, BackEnd\_2, BackEnd\_3 et BackEnd\_4.
+Comme vous pouvez le constater ci-dessus, les instances du groupe de machines virtuelles identiques démarrent à l’instance 0. Les noms reflètent la numérotation. Par exemple, BackEnd\_0 représente l’instance 0 du groupe de machines virtuelles identiques principal. Ce groupe a cinq instances, nommées BackEnd\_0, BackEnd\_1, BackEnd\_2, BackEnd\_3 et BackEnd\_4.
 
 Quand vous effectuez une montée en puissance sur un groupe de machines virtuelles identiques, une instance est créée. En règle générale, le nom de la nouvelle instance du groupe de machines virtuelles identiques est le nom du groupe de machines virtuelles identiques suivi du numéro d’instance suivant. Dans notre exemple, il s’agit de BackEnd\_5.
 
@@ -36,7 +36,7 @@ Quand vous effectuez une montée en puissance sur un groupe de machines virtuell
 
 Si vous avez déployé votre cluster à partir du portail ou que vous avez utilisé l’exemple de modèle ARM fourni, les équilibreurs de charge pour chaque type de nœud ou groupe de machines virtuelles identiques apparaissent quand vous obtenez la liste de toutes les ressources sous un groupe de ressources.
 
-Le nom ressemble à ceci : **LB-&lt;nom du type de nœud&gt;**. Par exemple, LB-sfcluster4doc-0, comme indiqué dans cette capture d’écran :
+Le nom ressemble à ceci : **LB-&lt;nom du type de nœud&gt;**. Par exemple, LB-sfcluster4doc-0, comme indiqué dans cette capture d’écran :
 
 
 ![Ressources][Resources]
@@ -47,7 +47,7 @@ Chaque type de nœud qui est défini dans un cluster est configuré comme un gro
 
 Voici la procédure à suivre pour les trouver.
 
-### Étape 1 : Rechercher l’adresse IP virtuelle du type de nœud, puis les règles NAT de trafic entrant pour RDP
+### Étape 1 : Rechercher l’adresse IP virtuelle du type de nœud, puis les règles NAT de trafic entrant pour RDP
 
 Pour ce faire, vous devez obtenir les valeurs des règles NAT de trafic entrant qui ont été établies dans le cadre de la définition des ressources pour **Microsoft.Network/loadBalancers**.
 
@@ -60,13 +60,13 @@ Dans **Paramètres**, cliquez sur **Règles NAT de trafic entrant**. Vous dispos
 
 ![Règles NAT][NATRules]
 
-### Étape 2 : Déterminer le port à utiliser pour se connecter à distance à un nœud ou à une instance du groupe de machines virtuelles identiques spécifique
+### Étape 2 : Déterminer le port à utiliser pour se connecter à distance à un nœud ou à une instance du groupe de machines virtuelles identiques spécifique
 
 Plus haut dans ce document, j’ai abordé le mappage des instances du groupe de machines virtuelles identiques sur les nœuds. Nous allons l’utiliser pour déterminer le port exact.
 
 Les ports sont alloués dans l’ordre croissant des instances du groupe de machines virtuelles identiques. Ainsi, dans mon exemple, pour le type de nœud frontal, les ports pour chacune des cinq instances sont les suivants. Vous devez maintenant effectuer le même mappage pour votre instance de groupe de machines virtuelles identiques.
 
-|**Instance de groupe de machines virtuelles identiques**|**Port**|
+|**Instance de jeu de mise à l’échelle de machine virtuelle**|**Port**|
 |-----------------------|--------------------------|
 |FrontEnd\_0|3389|
 |FrontEnd\_1|3390|
@@ -76,9 +76,9 @@ Les ports sont alloués dans l’ordre croissant des instances du groupe de mach
 |FrontEnd\_5|3394|
 
 
-### Étape 3 : Se connecter à distance à une instance spécifique du groupe de machines virtuelles identiques
+### Étape 3 : Se connecter à distance à une instance spécifique du groupe de machines virtuelles identiques
 
-Dans la capture d’écran ci-dessous, j’utilise Connexion Bureau à distance pour me connecter à l’instance FrontEnd\_1 :
+Dans la capture d’écran ci-dessous, j’utilise Connexion Bureau à distance pour me connecter à l’instance FrontEnd\_1 :
 
 ![RDP][RDP]
 
@@ -94,7 +94,7 @@ Accédez à la définition de ressource pour **Microsoft.Network/loadBalancers**
 
 
 ### Après le déploiement du cluster
-Cette procédure est un peu plus complexe et peut aboutir au recyclage des machines virtuelles. Vous devez maintenant définir de nouvelles valeurs à l’aide d’Azure PowerShell. Vérifiez qu’Azure PowerShell 1.0 ou version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, je vous recommande vivement de suivre les étapes décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Cette procédure est un peu plus complexe et peut aboutir au recyclage des machines virtuelles. Vous devez maintenant définir de nouvelles valeurs à l’aide d’Azure PowerShell. Vérifiez qu’Azure PowerShell 1.0 ou version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, je vous recommande vivement de suivre les étapes décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour une raison quelconque, vous devez vérifier si Azure PowerShell est correctement installé.
 
@@ -102,7 +102,7 @@ Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour 
 Login-AzureRmAccount
 ```
 
-Exécutez la commande suivante pour obtenir les détails de votre équilibreur de charge et découvrir les valeurs qui décrivent **inboundNatPools**:
+Exécutez la commande suivante pour obtenir les détails de votre équilibreur de charge et découvrir les valeurs qui décrivent **inboundNatPools** :
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
@@ -120,7 +120,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 
 ## Étapes suivantes
 
-- [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
+- [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
 - [Sécurité des clusters](service-fabric-cluster-security.md)
 - [Kit de développement logiciel (SDK) de Service Fabric et prise en main](service-fabric-get-started.md)
 
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

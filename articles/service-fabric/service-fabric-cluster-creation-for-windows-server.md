@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="05/12/2016"
    ms.author="chackdan"/>
 
 
@@ -53,6 +53,7 @@ Conditions préalables pour chaque ordinateur que vous souhaitez ajouter au clus
 - .NET Framework 4.5.1 ou une version ultérieure, installation complète
 - Windows PowerShell 3.0
 - L’administrateur de cluster déployant et configurant le cluster doit disposer de privilèges d’administrateur sur chaque ordinateur.
+- Le service RemoteRegistry doit être exécuté sur tous les ordinateurs.
 
 ### Étape 3 : déterminer la taille initiale du cluster
 Chaque nœud est composé d’une pile Service Fabric complète et est un membre individuel du cluster Service Fabric. Un déploiement type de Service Fabric comprend un nœud par instance du système d’exploitation (physique ou virtuel). La taille de cluster est déterminée par vos besoins métier. Toutefois, vous devez disposer d’une taille minimale de cluster de trois nœuds (ordinateurs/machines virtuelles). Notez que, à des fins de développement, vous pouvez avoir plusieurs nœuds sur un ordinateur donné. Dans un environnement de production, Service Fabric ne prend en charge qu’un seul nœud par ordinateur physique ou virtuel.
@@ -114,4 +115,4 @@ Lisez les informations suivantes pour démarrer le développement et de déploie
 En savoir plus sur les clusters Azure et les clusters autonomes :
 - [Vue d’ensemble de la création de clusters autonomes et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

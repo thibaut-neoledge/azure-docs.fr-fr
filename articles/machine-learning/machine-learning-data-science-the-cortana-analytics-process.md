@@ -21,11 +21,11 @@
 
 Le processus d’analyse Cortana est une méthode scientifique de traitement systématique des données qui présente une suite d’opérations utilisant des analyses avancées pour générer des applications intelligentes. Les opérations CAP fournissent des **conseils** sur la façon de définir une problématique, d’analyser des données pertinentes, de générer et d’évaluer les modèles prévisionnels, puis de déployer ces modèles dans des applications intelligentes.
 
-Voici les étapes du **processus d’analyse Cortana ** :
+Voici les étapes du **processus d’analyse Cortana ** :
 
 ![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 
@@ -66,7 +66,7 @@ Les analystes des données, en collaboration avec des experts du domaine, doiven
 
 ## 4\. Créer des modèles prévisionnels 
 
-Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice,md).
+Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
 
@@ -91,4 +91,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

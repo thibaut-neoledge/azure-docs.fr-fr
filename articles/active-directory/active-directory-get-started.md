@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Prise en main d’Azure AD
@@ -44,4 +44,4 @@ Azure AD fournit plusieurs rapports pour les administrateurs. Des rapports supp
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

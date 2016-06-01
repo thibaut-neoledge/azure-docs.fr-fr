@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Définir des stratégies de laboratoire
 
-> [AZURE.NOTE] Cliquez sur le lien suivant pour afficher la vidéo d’accompagnement de cet article : [Créer des artefacts personnalisés](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
-
 ## Vue d'ensemble
 
-DevTest Lab vous permet de spécifier des stratégies clés qui régissent l’utilisation de votre laboratoire et de ses machines virtuelles. Par exemple, vous pouvez définir les règles des tailles autorisées des machines virtuelles créées ainsi que le seuil du nombre de machines virtuelles pouvant être créées et planifier les tâches pour démarrer/arrêter automatiquement les machines virtuelles de laboratoire.
+DevTest Labs vous permet de spécifier des stratégies clés qui régissent l’utilisation de votre laboratoire et de ses machines virtuelles. Par exemple, vous pouvez définir les règles des tailles autorisées des machines virtuelles créées ainsi que le seuil du nombre de machines virtuelles pouvant être créées et planifier les tâches pour démarrer/arrêter automatiquement les machines virtuelles de laboratoire.
 
 ## Accès aux stratégies d’un laboratoire
 
 Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
@@ -46,19 +44,19 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
 
 	- [Tailles de machine virtuelle autorisées](#set-allowed-vm-sizes) - Sélectionnez la liste des tailles de machine virtuelle autorisées dans le laboratoire. Un utilisateur ne peut créer des machines virtuelles qu’à partir de cette liste.
 
-	- [Nombre maximal de machines virtuelles par utilisateur](#set-maximum-vms-per-user) - Spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
+	- [Nombre maximal de machines virtuelles par utilisateur](#set-maximum-vms-per-user) : spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
 
-	- [Nombre total de machines virtuelles autorisées](#set-total-vms-allowed) - Spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
+	- [Nombre total de machines virtuelles autorisées](#set-total-vms-allowed) : spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
 
 	- [Arrêt automatique](#set-auto-shutdown) - Spécifiez l’heure à laquelle les machines virtuelles du laboratoire actif doivent s’arrêter.
 
-	- [Démarrage automatique](#set-auto-start) - Spécifiez l’heure à laquelle les machines virtuelles du laboratoire actif doivent s’arrêter.
+	- [Démarrage automatique](#set-auto-start) : spécifiez l’heure à laquelle les machines virtuelles du laboratoire actuel doivent s’arrêter.
 
 ## Définir les tailles de machine virtuelle autorisées
 
 La stratégie pour définir les tailles de machine virtuelle autorisées vous permet de spécifier les tailles de machine virtuelle autorisées dans le laboratoire et contribue ainsi à réduire les pertes de laboratoire. Si cette stratégie est activée, seules les tailles de machine virtuelle de cette liste peuvent être utilisées pour créer des machines virtuelles.
 
-1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, appuyez sur **Tailles de machine virtuelle autorisées**.
+1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, cliquez sur **Tailles de machine virtuelle autorisées**.
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
  
@@ -70,7 +68,7 @@ La stratégie pour définir les tailles de machine virtuelle autorisées vous pe
 
 ## Définir le nombre maximal de machines virtuelles par utilisateur
 
-La stratégie du **Nombre maximal de machines virtuelles par utilisateur** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créés par un utilisateur individuel. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par utilisateur est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée.
+La stratégie du **Nombre maximal de machines virtuelles par utilisateur** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées par un utilisateur individuel. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par utilisateur est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée.
 
 1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, appuyez sur **Nombre maximal de machines virtuelles par utilisateur**.
 
@@ -84,15 +82,15 @@ La stratégie du **Nombre maximal de machines virtuelles par utilisateur** vous 
 
 ## Définir le nombre total de machines virtuelles autorisées
 
-La stratégie du **Nombre total de machines virtuelles autorisées** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées pour le laboratoire en cours. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par laboratoire est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée.
+La stratégie du **Nombre total de machines virtuelles autorisées** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées pour le laboratoire actuel. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par laboratoire est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée.
 
-1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, appuyez sur **ombre total de machines virtuelles autorisées**.
+1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, cliquez sur **Nombre total de machines virtuelles autorisées**.
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
 
 1. Appuyez sur **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 
-1. Si vous activez cette stratégie, dans la zone de texte **Nombre total de machines virtuelles autorisées dans ce laboratoire**, entrez une valeur numérique indiquant le nombre maximal de machines virtuelles pouvant être créées dans le laboratoire actif. Si vous entrez un nombre non valide, l’interface utilisateur affiche le nombre maximal autorisé pour ce champ.
+1. Si vous activez cette stratégie, dans la zone de texte **Nombre total de machines virtuelles autorisées dans ce laboratoire**, entrez une valeur numérique indiquant le nombre maximal de machines virtuelles pouvant être créées pour le laboratoire actuel. Si vous entrez un nombre non valide, l’interface utilisateur affiche le nombre maximal autorisé pour ce champ.
 
 1. Appuyez sur **Enregistrer**.
 
@@ -100,7 +98,7 @@ La stratégie du **Nombre total de machines virtuelles autorisées** vous permet
 
 La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laquelle les machines virtuelles du laboratoire doivent s’arrêter et contribue ainsi à réduire les pertes de laboratoire.
 
-1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, appuyez sur **Arrêt automatique**.
+1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, cliquez sur **Arrêt automatique**.
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -110,13 +108,13 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 1. Appuyez sur **Enregistrer**.
 
-1. Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre à partir d’une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Arrêt automatique**.
+1. Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Arrêt automatique**.
 
 ## Définir le démarrage automatique
 
 La stratégie de démarrage automatique vous permet de spécifier quand les machines virtuelles du laboratoire doivent être démarrées.
 
-1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, appuyez sur **Démarrage automatique**.
+1. Dans le panneau **Paramètres** du laboratoire, sous **Stratégies des machines virtuelles**, cliquez sur **Démarrage automatique**.
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -132,8 +130,9 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
 Une fois que vous avez défini et appliqué les différents paramètres de stratégies des machines virtuelles pour votre laboratoire, voici ce que vous pouvez essayer de faire :
 
+- [Configurer la gestion des coûts](./devtest-lab-configure-cost-management.md) : montre comment utiliser le graphique **Tendance des coûts mensuels estimés** pour afficher le coût estimé à ce jour pour le mois en cours, ainsi que le coût calculé par projection pour la fin du mois en cours.
 - [Créer une image personnalisée](./devtest-lab-create-template.md) - Lorsque vous créez une machine virtuelle, vous spécifiez une base, qui peut être soit une image personnalisée, soit une image Marketplace. Cet article explique comment créer une image personnalisée à partir d’un fichier VHD.
 - [Configurer des images Marketplace](./devtest-lab-configure-marketplace-images.md) - DevTest Labs prend en charge la création de nouvelles machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de nouvelles machines virtuelles dans un laboratoire.
-- [Créer une machine virtuelle dans un laboratoire](./devtest-lab-add-vm-with-artifacts.md) - Cet article montre comment créer une machine virtuelle à partir d’une image de base (personnalisé ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
+- [Créer une machine virtuelle dans un laboratoire](./devtest-lab-add-vm-with-artifacts.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

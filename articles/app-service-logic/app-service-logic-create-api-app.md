@@ -34,11 +34,11 @@ Par défaut, le moteur de l’application logique fait expirer une demande aprè
 
 Lorsque vous exécutez une étape ou une tâche de longue durée, la première chose à faire est de s’assurer le moteur sait que l’expiration n’a pas encore eu lieu. Vous devez également indiquer au moteur comment il saura que vous avez terminé la tâche, et enfin, vous devrez lui renvoyer les données pertinentes afin qu’il poursuive le workflow. Vous pouvez effectuer cette opération par le biais d’une API en suivant le flux ci-après. Ces étapes sont réalisées à partir de l’API personnalisée :
 
-1\. lorsqu’une demande est reçue, renvoyez immédiatement une réponse (avant que le travail soit effectué). Il s’agira d’une réponse `202 ACCEPTED` informant le moteur que vous avez obtenu les données, accepté la charge utile et que le processus est en cours de traitement. La méthode 202 doit contenir les en-têtes suivants :
- * En-tête `location` (requis) : il s’agit d’un chemin d’accès absolu à l’URL qu’API Apps peut utiliser pour vérifier l’état du travail.
+1. Lorsqu’une demande est reçue, renvoyez immédiatement une réponse (avant que le travail soit effectué). Il s’agira d’une réponse `202 ACCEPTED` informant le moteur que vous avez obtenu les données, accepté la charge utile et que le processus est en cours de traitement. La méthode 202 doit contenir les en-têtes suivants : 
+ * En-tête `location` (requis) : il s’agit d’un chemin d’accès absolu à l’URL que Logic Apps peut utiliser pour vérifier l’état du travail.
  * `retry-after` (facultatif, défini par défaut sur 20 pour les actions). Il s’agit du nombre de secondes pendant lequel le moteur doit attendre avant d’interroger l’URL de l’en-tête d’emplacement pour vérifier l’état.
 
-2\. Une fois l’état d’un travail vérifié, effectuez les vérifications suivantes :
+2. Une fois l’état d’un travail vérifié, effectuez les vérifications suivantes : 
  * Si le travail est effectué : renvoyez une réponse `200 OK`, avec la charge utile de réponse.
  * Si le travail est encore en cours de traitement : renvoyez une autre réponse `202 ACCEPTED`, avec les mêmes en-têtes que la réponse initiale
 
@@ -89,4 +89,4 @@ Actuellement, le concepteur d’applications logiques ne gère pas la détection
 
 Vous pouvez voir [ici](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers) un exemple de déclencheur webhook dans GitHub
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/02/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Intégration avec Azure Active Directory
@@ -38,7 +38,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 **Réutilisation des groupes Active Directory et des listes de distribution déjà gérées par votre client.** Azure AD contient les groupes que votre client utilise déjà pour la distribution d’e-mail et la gestion des accès. À l'aide de l'API Graph, réutiliser ces groupes au lieu de demander à votre client de créer et de gérer un ensemble de groupes distinct dans votre application. Les informations sur les groupes peuvent également être envoyées à votre application dans les jetons de connexion. En savoir plus sur l’[API Graph](active-directory-graph-api.md).
 
-**Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.** Les administrateurs et les propriétaires d'applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l'aide de l'API Graph, vous pouvez lire cette liste et l'utiliser pour contrôler l’attribution de privilèges d’accès et la suppression de privilèges d’accès pour les ressources et l’accès à votre application.
+**Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.** Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l'aide de l'API Graph, vous pouvez lire cette liste et l'utiliser pour contrôler l’attribution de privilèges d’accès et la suppression de privilèges d’accès pour les ressources et l’accès à votre application.
 
 **Utilisation d’Azure AD pour les rôles en fonction d’Access Control.** Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l'aide de l'API Graph. En savoir plus sur l’[utilisation d'Azure AD pour les autorisations](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
 
@@ -90,4 +90,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

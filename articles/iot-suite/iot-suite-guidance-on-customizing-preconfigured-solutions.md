@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="stevehob"/>
 
-# Personnalisation des solutions préconfigurées
+# Personnaliser une solution préconfigurée
 
 Les solutions préconfigurées fournies avec Azure IoT Suite présentent les services de la suite qui collaborent pour fournir une solution de bout en bout. À partir de ce point de départ, il existe différents endroits où vous pouvez étendre et personnaliser la solution pour des scénarios spécifiques. Les sections suivantes décrivent ces points de personnalisation courants.
 
@@ -141,4 +141,4 @@ Pour plus d’informations sur les appareils IoT, consultez le [site de dévelop
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

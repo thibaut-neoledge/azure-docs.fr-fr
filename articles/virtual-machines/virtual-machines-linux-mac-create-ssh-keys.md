@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="05/16/2016"
 	ms.author="v-livech"/>
 
 # Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure
 
-Pour créer une clé privée et une clé publique SSH protégées par mot de passe, vous devez ouvrir un terminal sur votre station de travail. Une fois que vous disposez des clés SSH, vous pouvez créer des machines virtuelles avec cette clé par défaut ou ajouter la clé publique à des machines virtuelles existantes à l'aide de la ligne de commande CLI et de modèles Azure.
+Pour créer une clé privée et une clé publique SSH protégées par mot de passe, vous devez ouvrir un terminal sur votre station de travail. Une fois que vous disposez des clés SSH, vous pouvez créer des machines virtuelles avec cette clé par défaut ou ajouter la clé publique à des machines virtuelles existantes à l'aide de la ligne de commande CLI et de modèles Azure. Cela rend possibles les connexions SSH sans mot de passe à l’aide de la méthode d’authentification avec clés SSH, beaucoup plus sécurisées que les mots de passe.
 
 ## Liste des commandes rapides
 
@@ -64,7 +64,7 @@ $
 
 ## Introduction
 
-L’utilisation de clés privées et publiques SSH est le moyen le plus simple de vous connecter à vos serveurs Linux. En outre, le [chiffrement à clé publique](https://en.wikipedia.org/wiki/Public-key_cryptography) est une méthode plus sécurisée que les mots de passe pour vous connecter à vos machines virtuelles Linux ou BSD dans Azure, puisque ceux-ci sont plus facilement sujets à des attaques par force brute. Votre clé publique peut être partagée avec n’importe qui, mais vous seul (ou votre infrastructure de sécurité locale) possédez votre clé privée. La clé privée SSH créée sera protégée par un [mot de passe sécurisé](https://www.xkcd.com/936/) qui sert uniquement à accéder à la clé SSH privée et **pas** au mot de passe du compte utilisateur. Toute personne qui possède une clé privée sans mot de passe peut accéder à n'importe quel serveur sur lequel la clé publique est installée. Sans le mot de passe, la clé privée ne peut pas être utilisée.
+L’utilisation de clés privées et publiques SSH est le moyen le plus simple de vous connecter à vos serveurs Linux. En outre, le [chiffrement à clé publique](https://en.wikipedia.org/wiki/Public-key_cryptography) est une méthode plus sécurisée que les mots de passe pour vous connecter à vos machines virtuelles Linux ou BSD dans Azure, puisque ceux-ci sont plus facilement sujets à des attaques par force brute. Votre clé publique peut être partagée avec n’importe qui, mais vous seul (ou votre infrastructure de sécurité locale) possédez votre clé privée. La clé privée SSH créée sera protégée par un [mot de passe sécurisé](https://www.xkcd.com/936/) qui sert uniquement à accéder à la clé SSH privée et **pas** au mot de passe du compte utilisateur. Lorsque vous ajoutez un mot de passe à votre clé SSH, celui-ci chiffre la clé privée ; cette dernière est ainsi inutilisable sans le mot de passe pour la déverrouiller. Si un attaquant parvient à voler votre clé privée, et si celle-ci ne contient pas de mot de passe, l’attaquant peut utiliser cette clé privée afin de se connecter à vos serveurs sur lesquels la clé publique correspondante est installée. En revanche, si la clé privée est protégée par un mot de passe, cette dernière ne peut pas être utilisée par l’attaquant. Le mot de passe fournit ainsi une couche supplémentaire de sécurité pour votre infrastructure sur Azure.
 
 
 Cet article aborde la création de fichiers de clé au format *ssh-rsa*, car ceux-ci sont recommandés pour le déploiement sur le gestionnaire de ressources et sont requis sur le [portail](https://portal.azure.com) pour le déploiement classique, ainsi que sur le gestionnaire de ressources.
@@ -76,7 +76,7 @@ Azure requiert des clés publiques et privées d’au moins 2 048 bits au format
 
 ## Utilisation de ssh-keygen
 
-Cette commande crée une paire de clés SSH protégée par un mot de passe à l’aide d’un RSA de 2048 bits, qui fera l’objet d’un commentaire pour faciliter son identification.
+Cette commande crée une paire de clés SSH (chiffrées) protégée par un mot de passe à l’aide d’un RSA de 2048 bits, qui fera l’objet d’un commentaire pour faciliter son identification.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -86,7 +86,7 @@ _Explication des commandes_
 
 `ssh-keygen` = programme utilisé pour créer les clés
 
-`-t rsa` = type de clé à créer [le format RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = type de clé à créer [le format RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = bits de la clé
 
@@ -235,4 +235,4 @@ L’étape suivante consiste à créer des machines virtuelles Linux de Azure à
 - [Créer une machine virtuelle Linux à l’aide du portail Azure](virtual-machines-linux-quick-create-portal.md)
 - [Créer une machine virtuelle Linux sécurisée à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

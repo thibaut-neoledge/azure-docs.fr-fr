@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="05/23/2016"
     ms.author="brjohnst"/>
 
 # Charger des données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
@@ -29,7 +29,7 @@ Avant de commencer cette procédure, vous devez déjà avoir [créé un index Az
 
 Notez que tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
-Afin de transmettre des documents à l’index à l’aide du Kit de développement logiciel (SDK) .NET, vous devez :
+Afin de transmettre des documents à l’index à l’aide du Kit de développement logiciel (SDK) .NET, vous devez :
 
   1. Créer un objet `SearchIndexClient` à connecter à votre index de recherche.
   2. Créer un `IndexBatch` contenant les documents à ajouter, à modifier ou à supprimer.
@@ -47,7 +47,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 `SearchIndexClient` a une propriété `Documents`. Cette propriété fournit toutes les méthodes dont vous avez besoin pour ajouter, modifier, supprimer ou interroger des documents dans l’index.
 
 ## II. Déterminer l’action d’indexation à utiliser
-Pour importer des données à l’aide du Kit de développement logiciel (SDK) .NET, vous devez empaqueter vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+Pour importer des données à l’aide du Kit de développement logiciel (SDK) .NET, vous devez empaqueter vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
 
 Action | Description | Champs requis pour chaque document | Remarques
 --- | --- | --- | ---
@@ -112,9 +112,9 @@ var batch = IndexBatch.New(actions);
 
 Dans ce cas, nous utilisons `Upload`, `MergeOrUpload` et `Delete` comme actions de recherche, tel que spécifié par les méthodes appelées sur la classe `IndexAction`.
 
-Supposons que cet exemple d’index « hotels » contient déjà un certain nombre de documents. Notez que nous n’avons pas eu à spécifier tous les champs de document possibles en utilisant `MergeOrUpload` et que nous n’avons fait que spécifier la clé de document (`HotelId`) avec la commande `Delete`.
+Supposons que cet exemple d’index « hotels » contient déjà un certain nombre de documents. Notez que nous n’avons pas eu à spécifier tous les champs de document possibles en utilisant `MergeOrUpload` et que nous n’avons fait que spécifier la clé de document (`HotelId`) avec la commande `Delete`.
 
-Notez également que chaque requête d’indexation ne peut contenir que 1 000 documents maximum.
+Notez également que chaque requête d’indexation ne peut contenir que 1 000 documents maximum.
 
 > [AZURE.NOTE] Dans cet exemple, nous appliquons différentes actions à différents documents. Si vous souhaitez effectuer ces mêmes actions sur tous les documents du lot, au lieu d’appeler `IndexBatch.New`, vous pouvez utiliser les autres méthodes statiques de `IndexBatch`. Par exemple, vous pouvez créer des lots en appelant `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ou `IndexBatch.Delete`. Ces méthodes prennent une collection de documents (objets de type `Hotel` dans cet exemple) à la place d’objets `IndexAction`.
 
@@ -182,7 +182,7 @@ public partial class Hotel
 }
 ```
 
-La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l'index, mais à une différence près : le nom de chaque champ commence par une minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]`.
+La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l'index, mais à une différence près : le nom de chaque champ commence par une minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]`.
 
 > [AZURE.NOTE] Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Mise à niveau vers le Kit de développement logiciel (SDK) Azure Search .NET version 1.1](search-dotnet-sdk-migration.md#WhatsNew). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
 
@@ -205,4 +205,4 @@ Pour cette raison, nous vous recommandons d'utiliser des types pour lesquels la 
 ## Suivant
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

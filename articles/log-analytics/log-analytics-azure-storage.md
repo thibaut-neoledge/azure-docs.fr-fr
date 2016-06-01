@@ -80,21 +80,28 @@ Pour les machines virtuelles Azure Resource Manager, utilisez l’exemple PowerS
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-Lors de la configuration à l’aide de PowerShell, vous devez fournir l’ID et la clé primaire de l’espace de travail. L'ID et la clé primaire de votre espace de travail se trouvent sur la page **Paramètres** du portail OMS.
+Lors de la configuration à l’aide de PowerShell, vous devez fournir l’ID et la clé primaire de l’espace de travail. L’ID et la clé primaire de votre espace de travail se trouvent dans la page **Paramètres** du portail OMS. Vous pouvez également les récupérer à l’aide de PowerShell, comme le montre l’exemple ci-dessus.
 
 ![ID de l'espace de travail et clé primaire](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -130,12 +137,15 @@ Syslog|Événements envoyés aux démons Syslog ou Rsyslog
 Actuellement, OMS peut analyser les éléments suivants :
 
 - Journaux IIS des rôles Web et des machines virtuelles
-- Journaux des événements Windows à partir de rôles Web, des rôles de travail et des machines virtuelles Azure exécutant un système d'exploitation Windows
+- Journaux des événements Windows et journaux ETW à partir de rôles web, des rôles de travail et des machines virtuelles Azure exécutant un système d’exploitation Windows
 - Syslog à partir des machines virtuelles Azure exécutant un système d'exploitation Linux
+- Diagnostics écrits dans un stockage d’objets blob au format json pour le groupe de sécurité réseau, Application Gateway et les ressources KeyVault
 
 Les journaux doivent se trouver dans les emplacements suivants :
 
 - WADWindowsEventLogsTable (Stockage de tables) : contient les informations des journaux des événements Windows.
+- WADETWEventTable (Table Storage) : contient les informations des journaux ETW Windows.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable (Table Storage) : contient des informations sur les événements Service Fabric Operational Actor et Service
 - wad-iis-logfiles (Stockage d’objets blob) : contient des informations sur les journaux IIS.
 - LinuxsyslogVer2v0 (Stockage de tables) : contient les événements syslog de Linux.
 
@@ -143,7 +153,7 @@ Les journaux doivent se trouver dans les emplacements suivants :
 
 Pour les machines virtuelles, vous pouvez également installer [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
-Vous pouvez nous aider à hiérarchiser d’autres journaux devant être analysés par OMS en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+Vous pouvez nous aider à hiérarchiser d’autres journaux devant être analysés par OMS en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
 
@@ -157,7 +167,7 @@ Avec les diagnostics Azure activés :
 
 ### Activation des diagnostics
 
-Pour activer les journaux d'événements Windows ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l'aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l'[Étape 2 : Ajout du fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l'[Étape 3 : Configuration des diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Activation des diagnostics dans un service cloud. L’exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l’application et du système :
+Pour activer les journaux d’événements Windows ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l’aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l’[Étape 2 : Ajout du fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l’[Étape 3 : Configuration des diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Activation des diagnostics dans un service cloud. L’exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l’application et du système :
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -254,7 +264,7 @@ Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire,
 
 ## Activation de l’analyse d’Azure Storage par OMS
 
-Vous pouvez activer l'analyse du stockage et configurer OMS pour lire à partir du compte Azure Storage avec Azure Diagnostics en utilisant les informations de la rubrique [Sources de données dans Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
+Vous pouvez activer l’analyse du stockage et configurer OMS pour lire à partir du compte Azure Storage avec Azure Diagnostics en utilisant les informations de la rubrique [Sources de données dans Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
 
 Après environ 1 heure, les données du compte de stockage sont disponibles pour analyse dans OMS.
 
@@ -263,4 +273,4 @@ Après environ 1 heure, les données du compte de stockage sont disponibles pour
 
 - [Configurez les paramètres de proxy et de pare-feu dans Log Analytics](log-analytics-proxy-firewall.md) si votre organisation utilise un serveur proxy ou un pare-feu pour que les agents puissent communiquer avec le service Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
