@@ -65,7 +65,7 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
 
