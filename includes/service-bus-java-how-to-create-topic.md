@@ -20,9 +20,11 @@ Pour créer un espace de noms :
 
 2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![][0]
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
+    ![][0]
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][2]
+4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+    ![][2]
 
 5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
@@ -39,11 +41,14 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
 
 ### Pour obtenir les informations de gestion du portail
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![][0]
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :
+    ![][0]
 
-2.  Cliquez sur l’espace de noms que vous venez de créer dans la liste affichée : ![][3]
+2.  Cliquez sur l’espace de noms que vous venez de créer dans la liste affichée :
+    ![][3]
 
-3.  Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour votre espace de noms. ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+3.  Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour votre espace de noms.
+	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
@@ -56,3 +61,5 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+
+
