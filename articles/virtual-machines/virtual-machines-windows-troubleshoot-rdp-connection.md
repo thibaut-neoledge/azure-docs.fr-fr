@@ -75,7 +75,7 @@ Cette procédure permet de résoudre la plupart des échecs de connexion Bureau 
 
 	> [AZURE.NOTE] S’il s’agit de la première réinitialisation de la connexion RDP, l’agent VMAccessAgent n’existe probablement pas encore. Dans les exemples précédents, `myVMAccessExtension` ou `MyVMAccess` est un nom que vous spécifiez pour la nouvelle extension installée dans le cadre de ce processus. Souvent, ce nom est souvent celui de la machine virtuelle. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Ensuite, examinez la section Extensions de la sortie. Comme une machine virtuelle ne peut avoir qu’un agent VMAccessAgent, vous devez également ajouter le paramètre `-ForceReRun` lors de l’utilisation de `Set-AzureRmVMExtension.`. Cela force la réinscription de l’agent.
 
-- Redémarrez la machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > * votre machine virtuelle Windows* > **Redémarrer**.
+- Redémarrez la machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Redémarrer**.
 
 - Redimensionnez la machine virtuelle pour résoudre les problèmes d’hôte. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Taille**.
 
