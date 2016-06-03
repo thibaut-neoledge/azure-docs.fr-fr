@@ -21,10 +21,12 @@ La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistremen
 
 #### Jeux d’enregistrements génériques
 
-Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
+Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.  
 
-Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
+Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « \* », ou un nom dont la première étiquette est « \* », par exemple, « \*.foo ».
 
 #### Jeux d’enregistrements CNAME
 
 Les jeux d'enregistrements CNAME ne peuvent pas coexister avec d'autres jeux d'enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, cela signifie que vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS, il ne s’agit pas de limites d’Azure DNS.
+
+
