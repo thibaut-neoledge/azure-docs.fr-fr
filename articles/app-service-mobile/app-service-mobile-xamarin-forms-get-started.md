@@ -184,4 +184,4 @@ Vous trouverez le code qui vous permet d’accéder à votre serveur principal d
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

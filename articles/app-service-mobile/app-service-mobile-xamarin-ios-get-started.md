@@ -108,4 +108,4 @@ Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous 
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!-----HONumber=AcomDC_0413_2016-->
