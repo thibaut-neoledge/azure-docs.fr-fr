@@ -34,7 +34,7 @@ Cette collection de tâches utilise le portail Azure pour :
 - Suspension du calcul
 - Reprise du calcul
 
-Pour plus d’informations, consultez l’article [Manage compute power in Azure SQL Data Warehouse (Overview)].
+Pour plus d’informations, consultez l’article [Manage compute power in Azure SQL Data Warehouse (Overview)][].
 
 
 ## Avant de commencer
