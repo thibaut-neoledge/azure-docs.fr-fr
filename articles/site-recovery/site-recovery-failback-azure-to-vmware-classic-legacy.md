@@ -223,7 +223,7 @@ Avant d’appliquer ces modifications, assurez-vous que vous avez terminé la se
 3. Connectez-vous à la machine virtuelle du serveur cible maître Linux à l’aide d’un client ssh de votre choix.
 4. Si vous êtes connecté au réseau Azure sur lequel est déployé votre serveur cible maître Linux via une connexion VPN, utilisez l’adresse IP interne du serveur que vous pouvez trouver dans l’onglet **Tableau de bord** de la machine virtuelle, ainsi que le port 22, pour vous connecter au serveur cible maître Linux à l’aide de Secure Shell.
 5. Si vous vous connectez au serveur cible maître Linux via une connexion Internet publique, utilisez l’adresse IP virtuelle publique du serveur cible maître Linux (de l’onglet **Tableau de bord** des machines virtuelles) et le point de terminaison public créé pour ssh.
-6. Extrayez les fichiers de l’archive tar du programme d’installation du serveur cible maître Linux compressée en exécutant *tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64** dans le répertoire qui contient le fichier du programme d’installation.
+6. Extrayez les fichiers de l’archive tar du programme d’installation du serveur cible maître Linux compressée en exécutant **tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64** dans le répertoire qui contient le fichier du programme d’installation.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
