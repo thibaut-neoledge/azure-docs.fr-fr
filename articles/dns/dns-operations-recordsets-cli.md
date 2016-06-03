@@ -32,7 +32,7 @@ Il est important de comprendre la différence entre les jeux d’enregistrements
 
 ## Azure DNS et l’interface CLI Azure multiplateforme
 
-Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Vous devez vérifier que l’interface CLI Azure est configurée pour utiliser le mode Resource Manager. Vous faites cela via la commande `azure config mode arm`.<BR>Si vous voyez le message «* Erreur : « dns » n’est pas une commande azure* », c’est probablement dû au fait que vous utilisez l’interface CLI Azure en mode ASM et non pas en mode Resource Manager.
+Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Vous devez vérifier que l’interface CLI Azure est configurée pour utiliser le mode Resource Manager. Vous faites cela via la commande `azure config mode arm`.<BR>Si vous voyez le message « *Erreur : « dns » n’est pas une commande azure* », c’est probablement dû au fait que vous utilisez l’interface CLI Azure en mode ASM et non pas en mode Resource Manager.
 
 ## Création d’un nouveau jeu d’enregistrements et d’un enregistrement
 

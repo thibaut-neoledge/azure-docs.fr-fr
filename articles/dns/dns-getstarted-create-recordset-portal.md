@@ -64,4 +64,4 @@ Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gé
 
 Pour plus d’informations sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->

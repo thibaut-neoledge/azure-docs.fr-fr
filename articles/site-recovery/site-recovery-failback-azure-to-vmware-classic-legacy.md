@@ -143,7 +143,7 @@ Pour obtenir l’ID SCSI de chacun des disques durs SCSI d’une machine virtu
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. Vérifiez si une ligne comportant **disk.EnableUUID** existe. Le cas échéant et si elle est définie sur **False**, définissez la sur **True **(non-respect de la casse). Si elle existe et qu’elle est définie sur true, cliquez sur **Annuler** et testez la commande SCSI dans le système d’exploitation invité après le démarrage. Si elle n’existe pas, cliquez sur **Ajouter une ligne**.
+4. Vérifiez si une ligne comportant **disk.EnableUUID** existe. Le cas échéant et si elle est définie sur **False**, définissez la sur **True** (non-respect de la casse). Si elle existe et qu’elle est définie sur true, cliquez sur **Annuler** et testez la commande SCSI dans le système d’exploitation invité après le démarrage. Si elle n’existe pas, cliquez sur **Ajouter une ligne**.
 5. Dans la colonne **Nom**, ajoutez disk.EnableUUID. Définissez la valeur sur TRUE. N’ajoutez pas les valeurs ci-dessus avec des guillemets doubles.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)

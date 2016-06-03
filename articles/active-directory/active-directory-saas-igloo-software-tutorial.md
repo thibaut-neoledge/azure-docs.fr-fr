@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Igloo Software**, tapez votre URL selon le modèle suivant "**https://company.igloocommunities.com/?signin*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Igloo Software**, tapez votre URL selon le modèle suivant "**https://company.igloocommunities.com/?signin**", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configurer l’URL de l’application")
 
