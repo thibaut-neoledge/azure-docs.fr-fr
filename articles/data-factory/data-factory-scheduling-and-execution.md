@@ -33,9 +33,11 @@ Grâce à la section **planificateur** de l’activité JSON, vous pouvez planif
 
 Comme indiqué précédemment, la spécification d’un calendrier pour l'activité crée une série de fenêtres récurrentes. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas. Ces fenêtres récurrentes logiques pour l'activité sont appelés **fenêtres d'activité**.
  
-Pour la fenêtre d’activité en cours d’exécution, l’intervalle de temps associé à la fenêtre d’activité est accessible par le biais des variables système **WindowStart** et **WindowEnd** de l’activité de JSON. Vous pouvez utiliser ces variables à d’autres fins dans votre activité JSON et les scripts associés à l’activité, notamment pour la sélection des données dans les jeux de données d’entrée et de sortie représentant les données de séries chronologiques.
+Pour la fenêtre d’activité en cours d’exécution, l’intervalle de temps associé à la fenêtre d’activité est accessible par le biais des variables système [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) et [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) de l’activité JSON. Vous pouvez utiliser ces variables à d’autres fins dans votre activité JSON et les scripts associés à l’activité, notamment pour la sélection des données dans les jeux de données d’entrée et de sortie représentant les données de séries chronologiques.
 
-La propriété **scheduler** prend en charge les mêmes sous-propriétés que la propriété **availability** dans un jeu de données. Pour en savoir plus sur les différentes propriétés disponibles pour le planificateur, notamment la programmation selon un décalage chronologique spécifique (dans le but de définir le mode de manière à faire coïncider le traitement avec le début ou la fin de l’intervalle de la fenêtre d’activité), voir [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability).
+La propriété **scheduler** prend en charge les mêmes sous-propriétés que la propriété **availability** dans un jeu de données. Pour en savoir plus sur les différentes propriétés disponibles pour le planificateur, notamment la programmation selon un décalage chronologique spécifique (dans le but de définir le mode de manière à faire coïncider le traitement avec le début ou la fin de l’intervalle de la fenêtre d’activité), consultez [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability).
+
+À ce stade, la définition des propriétés du planificateur pour une activité est facultative. Si vous définissez des propriétés, elles devront correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
 
 ## Jeux de données et tranches de données de série chronologique
 
@@ -52,9 +54,11 @@ Chaque unité de données consommée et produite pendant l’exécution d’une 
 
 ![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme ci-dessus. Le diagramme montre 3 tranches d’entrée prêtes pour le traitement et l’exécution de l’activité entre 10 et 11 h en cours, et générant la tranche de sortie de 10 à 11 h.
+Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme ci-dessus. Le diagramme montre 3 tranches d’entrée prêtes pour le traitement, ainsi que l’exécution de l’activité entre 10 et 11 h en cours qui crée la tranche de sortie de 10 à 11 h.
 
-L’intervalle de temps associé à la tranche actuelle en cours de production est accessible dans le jeu de données JSON avec des variables **SliceStart** et **SliceEnd**.
+L’intervalle de temps associé à la tranche actuelle en cours de production est accessible dans le jeu de données JSON avec des variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) et [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+
+Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Cela signifie que WindowStart, WindowEnd et SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
 
 Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, reportez-vous à l’article [Création de jeux de données](data-factory-create-datasets.md).
 
@@ -220,11 +224,11 @@ L’article [Création de Pipelines](data-factory-create-pipelines.md) a présen
  
 Vous pouvez définir la date de début de la période active de pipeline dans le passé et Data Factory calcule automatiquement (remplissage de l’arrière-plan) toutes les tranches de données du passé et commence à les traiter.
 
-Les tranches de données renseignées en arrière-plan permettent leur configuration en parallèle. Vous pouvez le faire en définissant la propriété Simultané dans la section **stratégie** de l’activité de JSON comme indiqué dans l’article [Création de pipelines](data-factory-create-pipelines.md).
+Les tranches de données renseignées en arrière-plan permettent leur configuration en parallèle. Vous pouvez le faire en définissant la propriété **concurrency** dans la section **policy** de l’activité JSON, comme indiqué dans l’article [Création de pipelines](data-factory-create-pipelines.md).
 
 ## Réexécution des tranches de données ayant échoué et suivi de la dépendance de données automatique
 
-Vous pouvez surveiller l’exécution des tranches visuellement, avec tous les détails. Consultez l’article [Surveillance et gestion des pipelines](data-factory-monitor-manage-pipelines.md) pour plus de détail.
+Vous pouvez surveiller l’exécution des tranches visuellement, avec tous les détails. Pour plus d’informations, consultez **Surveillance et gestion des pipelines à l’aide des** [panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) (ou) [de l’application Surveiller et gérer](data-factory-monitor-manage-app.md).
 
 Prenons l’exemple suivant, il montre les deux activités. Activity1 génère un jeu de données chronologique avec des tranches en sortie qui sont consommées en tant qu’entrée Activity2 pour générer le jeu de données de série de chronologie de la sortie finale.
 
@@ -235,9 +239,9 @@ Prenons l’exemple suivant, il montre les deux activités. Activity1 génère u
 Le diagramme ci-dessus montre que, parmi les 3 tranches récentes, il y a eu un échec, ce qui généré une tranche 9 à 10 h pour **Dataset2**. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données et, par conséquent, retient l’exécution de l’activité sur la tranche 9 à 10 h en aval.
 
 
-Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échouée. Pour plus d’informations sur la façon de lancer les réexécutions, comprendre les états de transition des tranches de données, consultez l’article [Analyse et gestion](data-factory-monitor-manage-pipelines.md).
+Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échouée. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez **Surveillance et gestion des pipelines à l’aide des** [panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) (ou) [de l’application Surveiller et gérer](data-factory-monitor-manage-app.md).
 
-Une fois que vous avez relancé l’exécution et que la tranche de 9-10 h pour dataset2 est prête, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final comme indiqué dans le schéma ci-dessous.
+Une fois que vous avez relancé l’exécution et que la tranche de 9-10 h pour dataset2 est prête, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final, comme indiqué dans le schéma ci-dessous.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -248,8 +252,8 @@ Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d
 
 Considérez l’exemple suivant :
  
-1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
-2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
+1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
+2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
  
 Dans ce scénario, l’activité A1 s’exécutera lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécutera lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 ne sera pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
 
@@ -622,7 +626,7 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
 
 ## Pipeline onetime
-Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (toutes les heures, tous les jours, etc.) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d’informations, consultez [Planification des activités](#scheduling-and-execution). Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime** comme indiqué dans l’exemple JSON ci-dessous. La valeur par défaut de cette propriété est **scheduled** (planifié).
+Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (toutes les heures, tous les jours, etc.) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d’informations, consultez [Planification des activités](#scheduling-and-execution). Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime**, comme indiqué dans l’exemple JSON ci-dessous. La valeur par défaut de cette propriété est **scheduled** (planifié).
 
 	{
 	    "name": "CopyPipeline",
@@ -698,4 +702,4 @@ Notez les points suivants :
 
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

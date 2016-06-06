@@ -5,7 +5,7 @@ Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS
 
 *   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
-*   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
+*   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
 *   Les machines virtuelles de la série G offrent le plus de mémoire et s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
@@ -45,13 +45,7 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| 
-|[D1-14](#standard-tier-d-series) |160 | 
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| 
-|[DS1-14](#standard-tier-ds-series) |160 | 
-|[DS1-15v2](#standard-tier-dsv2-series) |210-250 *| 
-|[G1-5](#standard-tier-g-series) |180 - 240 *| 
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-15v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -69,14 +63,14 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
-|Standard\_A0 |1|768 Mo|1| Temporaire = 20 Go |1|1 x 500| faible |
-|Standard\_A1 |1|1,75 Go|1|Temporaire = 70 Go |2|2 x 500| Modéré |
-|Standard\_A2 |2|3,5 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
-|Standard\_A3 |4|7 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
-|Standard\_A4 |8|14 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
-|Standard\_A5 |2|14 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
-|Standard\_A6 |4|28 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
-|Standard\_A7 |8|56 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
+|Standard\_A0 |1|768 Mo|1| Temporaire = 20 Go |1|1 x 500| faible |
+|Standard\_A1 |1|1,75 Go|1|Temporaire = 70 Go |2|2 x 500| Modéré |
+|Standard\_A2 |2|3,5 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
+|Standard\_A3 |4|7 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
+|Standard\_A4 |8|14 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
+|Standard\_A5 |2|14 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
+|Standard\_A6 |4|28 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
+|Standard\_A7 |8|56 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
 
 
 
@@ -86,38 +80,38 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
-|Standard\_A8|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
-|Standard\_A9|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
-|Standard\_A10|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
-|Standard\_A11|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
+|Standard\_A8|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
+|Standard\_A9|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
+|Standard\_A10|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
+|Standard\_A11|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
 
 ## Niveau standard : série D
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
-|D1 standard |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
-|D2 standard |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|D3 standard |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|D4 standard |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|D11 standard |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|D12 standard |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|D13 standard |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|D14 standard |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
+|D1 standard |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
+|D2 standard |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
+|D3 standard |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
+|D4 standard |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
+|D11 standard |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
+|D12 standard |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
+|D13 standard |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
+|D14 standard |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
 
 
 ## Niveau standard : série Dv2
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
-|Standard\_D1\_v2 |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
-|Standard\_D2\_v2 |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|Standard\_D3\_v2 |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|Standard\_D4\_v2 |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D5\_v2 |16|56 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
-|Standard\_D11\_v2 |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
+|Standard\_D1\_v2 |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
+|Standard\_D2\_v2 |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
+|Standard\_D3\_v2 |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
+|Standard\_D4\_v2 |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
+|Standard\_D5\_v2 |16|56 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
+|Standard\_D11\_v2 |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
+|Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
+|Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
+|Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
 |Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| très élevé |
 
 
@@ -125,16 +119,16 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|---|
-|Standard\_DS1 |1|3,5|1|Disque SSD local = 7 Go |2|43| 3 200 32 Mo par seconde | Modéré |
-|Standard\_DS2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 64 Mo par seconde | élevé |
-|Standard\_DS3 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 128 Mo par seconde | élevé |
-|Standard\_DS4 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 256 Mo par seconde | élevé |
-|Standard\_DS11 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 64 Mo par seconde | élevé |
-|Standard\_DS12 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 128 Mo par seconde | élevé |
-|Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
-|Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 512 Mo par seconde | très élevé |
+|Standard\_DS1 |1|3,5|1|Disque SSD local = 7 Go |2|43| 3 200 32 Mo par seconde | Modéré |
+|Standard\_DS2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 64 Mo par seconde | élevé |
+|Standard\_DS3 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 128 Mo par seconde | élevé |
+|Standard\_DS4 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 256 Mo par seconde | élevé |
+|Standard\_DS11 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 64 Mo par seconde | élevé |
+|Standard\_DS12 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 128 Mo par seconde | élevé |
+|Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
+|Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 512 Mo par seconde | très élevé |
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Niveau standard : série DSv2*
@@ -153,28 +147,28 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|62 500 960 Mo par seconde | très élevé |
 
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Niveau standard : série G
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
-|Standard\_G1 |2|28 Go|1|Disque SSD local = 384 Go |4|4 x 500| élevé |
-|Standard\_G2 |4|56 Go|2|Disque SSD local = 768 Go |8|8 x 500| élevé |
-|Standard\_G3 |8|112 Go|4|Disque SSD local = 1 536 Go |16|16 x 500| très élevé | 
-|Standard\_G4 |16|224 Go|8|Disque SSD local = 3 072 Go |32|32 x 500| extrêmement élevé |
-|Standard\_G5 |32|448 Go|8|Disque SSD local = 6 144 Go |64| 64 x 500 | extrêmement élevé |
+|Standard\_G1 |2|28 Go|1|Disque SSD local = 384 Go |4|4 x 500| élevé |
+|Standard\_G2 |4|56 Go|2|Disque SSD local = 768 Go |8|8 x 500| élevé |
+|Standard\_G3 |8|112 Go|4|Disque SSD local = 1 536 Go |16|16 x 500| très élevé | 
+|Standard\_G4 |16|224 Go|8|Disque SSD local = 3 072 Go |32|32 x 500| extrêmement élevé |
+|Standard\_G5 |32|448 Go|8|Disque SSD local = 6 144 Go |64| 64 x 500 | extrêmement élevé |
 
 ## Niveau standard : série GS
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|---|
-|Standard\_GS1|2|28|1|Disque SSD local = 56 Go |4|264| 5 000 125 Mo par seconde | élevé |
-|Standard\_GS2|4|56|2|Disque SSD local = 112 Go |8|528| 10 000 250 Mo par seconde | élevé | 
-|Standard\_GS3|8|112|4|Disque SSD local = 224 Go |16|1 056| 20 000 500 Mo par seconde | très élevé |
-|Standard\_GS4|16|224|8|Disque SSD local = 448 Go |32|2 112| 40 000 1 000 Mo par seconde | extrêmement élevé |
-|Standard\_GS5|32|448|8|Disque SSD local = 896 Go |64|4 224| 80 000 2 000 Mo par seconde | extrêmement élevé |
+|Standard\_GS1|2|28|1|Disque SSD local = 56 Go |4|264| 5 000 125 Mo par seconde | élevé |
+|Standard\_GS2|4|56|2|Disque SSD local = 112 Go |8|528| 10 000 250 Mo par seconde | élevé | 
+|Standard\_GS3|8|112|4|Disque SSD local = 224 Go |16|1 056| 20 000 500 Mo par seconde | très élevé |
+|Standard\_GS4|16|224|8|Disque SSD local = 448 Go |32|2 112| 40 000 1 000 Mo par seconde | extrêmement élevé |
+|Standard\_GS5|32|448|8|Disque SSD local = 896 Go |64|4 224| 80 000 2 000 Mo par seconde | extrêmement élevé |
 
 ## Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et Powershell 
 
@@ -193,5 +187,4 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 - En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 - En savoir plus sur l’[utilisation des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
 
-
-
+<!---HONumber=AcomDC_0525_2016-->

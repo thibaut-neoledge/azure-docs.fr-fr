@@ -1,10 +1,10 @@
 <properties
-pageTitle="Ajouter l’API Salesforce à PowerApps Enterprise et à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble de l’API Salesforce avec les paramètres de l’API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Ajouter le connecteur Salesforce à PowerApps Enterprise et à vos applications logiques | Microsoft Azure"
+description="Vue d’ensemble du connecteur Salesforce avec les paramètres de l’API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,11 +14,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/19/2016"
 ms.author="deonhe"/>
 
-# Prendre en main l’API Salesforce
-Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
+# Prise en main du connecteur Salesforce 
+Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. Le connecteur Salesforce peut être utilisé dans :
 
 - Logic Apps 
 - PowerApps
@@ -36,9 +36,9 @@ Avec Salesforce, vous pouvez effectuer les opérations suivantes :
 - Créer votre flux d’activité en fonction des données que vous obtenez de Salesforce. 
 - Utiliser des déclencheurs quand un objet est créé ou mis à jour.
 - Utiliser des actions pour créer un objet, supprimer un objet et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un objet est créé dans Salesforce, vous pouvez envoyer un message électronique à l’aide d’Office 365.
-- Ajouter l’API Salesforce à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Ajouter le connecteur Salesforce à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
 
-Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,14 +49,13 @@ L’API Salesforce inclut les déclencheurs et les actions suivants.
 | --- | --- |
 |<ul><li>Quand un objet est créé</li><li>Quand un objet est modifié</li></ul> | <ul><li>Créer un objet</li><li>Obtenir des objets</li><li>Quand un objet est créé</li><li>Quand un objet est modifié</li><li>Supprimer un objet</li><li>Obtenir un objet</li><li>Obtenir des types d’objet (SObjects)</li><li>Mettre à jour un objet</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Salesforce 
 
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Salesforce.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Salesforce.
 
-1. Connectez-vous à votre compte Salesforce.
-2. Autorisez vos applications logiques à se connecter à votre compte Salesforce et à l’utiliser. 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Salesforce](../../includes/connectors-create-api-salesforce.md)]
 
 Après avoir créé la connexion, vous entrez les propriétés Salesforce, telles que le nom de la table. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -266,4 +265,4 @@ Revenir à la [liste des API](apis-list.md)
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

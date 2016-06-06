@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/24/2016" 
 	ms.author="luisca"/>
 
-# Applications d’apprentissage automatique dans Azure Marketplace
+# Applications d’apprentissage automatique dans Azure Marketplace
 
 Azure Machine Learning fournit aux scientifiques des données un canal permettant de monétiser leur savoir et leur créativité, tout comme les développeurs d’applications pour smartphones. En publiant vos services Machine Learning dans Azure Marketplace, vous permettez aux utilisateurs du monde entier de s'abonner à vos API cloud publiées et de les utiliser dans leurs applications.
 
@@ -24,7 +24,7 @@ Azure Machine Learning fournit aux scientifiques des données un canal permettan
 
 Mais Azure Marketplace peut offrir beaucoup plus que des API d’analyse de base. Par exemple, nous avons créé un ensemble d’applications d’apprentissage automatique de bout en bout afin de répondre à des besoins métiers spécifiques. L’utilisation de ces applications d’apprentissage automatique ne requiert aucun scientifique de données ni expertise concernant Machine Learning. La science des données est déjà intégrée à nos solutions. Les utilisateurs n’ont plus qu’à alimenter ces dernières avec leurs propres données avant de commencer à utiliser les applications.
 
-Ces applications comprennent notamment :
+Ces applications comprennent notamment :
 
 ##Recommandations##
  Moteur de recommandations libre-service mais très puissant qui vous permet d’ajouter facilement des recommandations de produits personnalisées à votre site web ou à vos campagnes par courrier électronique.
@@ -52,4 +52,4 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

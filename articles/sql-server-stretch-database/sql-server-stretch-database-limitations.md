@@ -30,7 +30,7 @@ Les tables Stretch présentent les limites suivantes.
 
 ### Opérations DML
 
--   Il est impossible de METTRE À JOUR ou SUPPRIMER des lignes d’une table Strecth ou d’une vue comprenant des tables compatibles Stretch.
+-   Il est impossible de METTRE À JOUR ou SUPPRIMER des lignes ayant été migrées ou pouvant être migrées dans une table Stretch ou dans une vue comprenant des tables compatibles Stretch.
 
 -   Vous ne pouvez pas effectuer d’opérations INSERT sur des lignes dans une table compatible Stretch Database sur un serveur lié.
 
@@ -96,4 +96,4 @@ Les limites suivantes vous empêchent actuellement d’activer Stretch Database 
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

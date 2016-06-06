@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
@@ -115,6 +115,7 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 -	[Après la mise à l’échelle, dois-je modifier le nom ou les clés d’accès de mon cache ?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[Comment fonctionne la mise à l’échelle ?](#how-does-scaling-work)
 -	[Vais-je perdre mes données de cache durant la mise à l’échelle ?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[Les paramètres personnalisés de mes bases de données sont-ils affectés au cours de la mise à l’échelle ?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[Mon cache reste-t-il disponible durant la mise à l’échelle ?](#will-my-cache-be-available-during-scaling)
 -	[Quelles sont les opérations qui ne sont pas prises en charge ?](#operations-that-are-not-supported)
 -	[Quelle est la durée d’une mise à l’échelle ?](#how-long-does-scaling-take)
@@ -144,8 +145,17 @@ Non, le nom et les clés d’accès de votre cache n’ont pas à être modifié
 
 -	Lors de la mise à l’échelle d’un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n’est plus disponible pendant l’exécution de la mise à l’échelle.
 -	Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, les données qui se trouvent dans le cache sont généralement conservées.
--	Lors de la mise à l’échelle d’un cache **Standard** vers une taille ou un niveau supérieur, ou d’un cache **Premium** vers un niveau supérieur, toutes les données sont généralement conservées. Lors de la mise à l’échelle d’un cache **Standard** ou **Premium** vers une plus petite taille, il est possible que des données soient perdues si la quantité de données placée dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache). 
+-	Lors de la mise à l’échelle d’un cache **Standard** vers une taille ou un niveau supérieur, ou d’un cache **Premium** vers un niveau supérieur, toutes les données sont généralement conservées. Lors de la mise à l’échelle d’un cache **Standard** ou **Premium** vers une plus petite taille, il est possible que des données soient perdues si la quantité de données placées dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache). 
 
+### Les paramètres personnalisés de mes bases de données sont-ils affectés au cours de la mise à l’échelle ?
+
+Certains niveaux de tarification sont associés à des [limites de bases de données](cache-configure.md#databases) différentes. Certains aspects doivent donc être pris en compte lors d’une descente en puissance si vous configuré une valeur personnalisée pour le paramètre `databases` lors de la création du cache.
+
+-	Lors d’une mise à l’échelle vers un niveau de tarification associé à une limite `databases` plus faible que le niveau de tarification actuel :
+	-	Si vous utilisez le nombre par défaut de `databases`, c’est-à-dire 16 pour tous les niveaux de tarification, vous ne perdrez aucune donnée.
+	-	Si vous utilisez un nombre de `databases` personnalisé qui se situe dans les limites du niveau de tarification vers lequel vous effectuez la mise à l’échelle, ce paramètre `databases` sera conservé et vous ne perdrez aucune donnée.
+	-	Si vous utilisez un nombre de `databases` personnalisé qui dépasse les limites du nouveau niveau de tarification, le paramètre `databases` sera réduit aux limites du nouveau niveau et toutes les données contenues dans les bases de données supprimées seront perdues.
+-	Lors d’une mise à l’échelle vers un niveau de tarification associé à une limite `databases` identique ou supérieure à celle du niveau actuel, le paramètre `databases` est conservé et vous ne perdrez aucune donnée.
 
 Notez que, si les caches Standard et Premium ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
 
@@ -189,4 +199,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

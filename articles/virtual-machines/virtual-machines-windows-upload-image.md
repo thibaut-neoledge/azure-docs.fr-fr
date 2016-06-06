@@ -3,7 +3,7 @@
 	description="Apprenez à télécharger une image de machine virtuelle Windows pour l’utiliser avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager
 
@@ -261,4 +261,4 @@ Vous devez voir la machine virtuelle nouvellement créée dans le [portail Azure
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

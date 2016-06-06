@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Ajouter l’API Google Drive à PowerApps ou à des applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’API Google Drive avec les paramètres de l’API REST"
-	services=""
+    pageTitle="Ajouter le connecteur Google Drive à PowerApps ou à des applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur Google Drive avec les paramètres de l’API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,26 +15,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API Google Drive
-Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. L’API Google Drive peut être utilisée à partir de :
+# Prise en main du connecteur Google Drive
+Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. Le connecteur Google Drive peut être utilisé dans :
 
-- Logic Apps 
+- Logic Apps 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-googledrive.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
-Avec Google Drive, vous pouvez effectuer les opérations suivantes :
+Avec Google Drive, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez pendant votre recherche. 
 - Utiliser des actions pour rechercher des images, des actualités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, vous pouvez rechercher une vidéo, puis utiliser Twitter pour la publier dans un flux Twitter.
-- Ajouter l’API Google Drive à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Ajoutez le connecteur Google Drive à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
 
-Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,15 +46,14 @@ Déclencheurs | Actions
 --- | ---
 Aucun | <ul><li>Créer un fichier</li><li>Insérer une ligne</li><li>Copier le fichier</li><li>Supprimer le fichier</li><li>Supprimer la ligne</li><li>Extraire l’archive dans un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Obtenir une ligne</li><li>Mettre à jour un fichier</li><li>Mettre à jour une ligne</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 
 ## Créer la connexion à Google Drive
 
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Google Drive.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Google Drive.
 
-1. Connectez-vous à votre compte Google Drive.
-2. Autorisez vos applications logiques à se connecter à votre compte Google Drive et à l’utiliser. 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Google Drive](../../includes/connectors-create-api-googledrive.md)]
 
 Après avoir créé la connexion, vous entrez les propriétés Google Drive, telles que le chemin du dossier ou le nom du fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -62,7 +61,7 @@ Après avoir créé la connexion, vous entrez les propriétés Google Drive, tel
 
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier    
 Charge un fichier sur Google Drive. ```POST: /datasets/default/files```
@@ -103,7 +102,7 @@ Copie un fichier sur Google Drive. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|URL du fichier source|
 |destination|string|yes|query|(aucun) |Chemin de destination du fichier dans Google Drive, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -143,13 +142,13 @@ Supprime une ligne d’une feuille Google. ```DELETE: /datasets/{dataset}/tables
 
 
 ### Extraire une archive dans un dossier    
-Extrait un fichier d’archive dans un dossier Google Drive (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier Google Drive (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin dans Google Drive indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -356,4 +355,4 @@ Revenez à la [liste des API](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

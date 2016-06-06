@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="05/18/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Applets de commande PowerShell et API REST pour SQL Data Warehouse
 
-De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Sinon, pour obtenir la liste des API REST permettant d’automatiser ces tâches, consultez [Opérations sur les bases de données SQL A][].
+De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][].
 
 > [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
 
@@ -87,26 +87,27 @@ Pour plus d’exemples PowerShell, consultez :
 - [Restaurer à partir d’un instantané][]
 - [Géo-restauration à partir d’un instantané][]
 
-Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Azure SQL Database Cmdlets][] (Applets de commande de la base de données SQL Azure).
+Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Azure SQL Database Cmdlets][] (Applets de commande de la base de données SQL Azure). Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Operations for Azure SQL Databases][] (Opérations des bases de données SQL Azure).
 
 <!--Image references-->
 
 <!--Article references-->
-[Installation et configuration d’Azure PowerShell]: powershell-install-configure.md
-[Création de SQL Data Warehouse à l’aide de Powershell]: sql-data-warehouse-get-started-provision-powershell.md
-[Restaurer à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Géo-restauration à partir d’un instantané]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Installation et configuration d’Azure PowerShell]: ./powershell-install-configure.md
+[Création de SQL Data Warehouse à l’aide de Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Restaurer à partir d’un instantané]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Géo-restauration à partir d’un instantané]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
-[Opérations sur les bases de données SQL A]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
@@ -115,4 +116,4 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

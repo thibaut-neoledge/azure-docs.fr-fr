@@ -1,10 +1,10 @@
 <properties
-pageTitle="Ajouter l’API Yammer à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble de l’API Yammer avec les paramètres de l’API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Ajouter le connecteur Yammer à vos applications logiques | Microsoft Azure"
+description="Vue d’ensemble du connecteur Yammer avec les paramètres d’API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Prendre en main l’API Yammer
+# Prise en main du connecteur Yammer
 
 Connectez-vous à Yammer pour accéder aux conversations dans votre réseau d’entreprise.
 
@@ -38,10 +38,10 @@ Déclencheur | Actions
 --- | ---
 <ul><li>Quand il y a un nouveau message dans un groupe</li><li>Quand il y a un nouveau message dans le flux de mes abonnements</li></ul>| <ul><li>Obtenir tous les messages</li><li>Obtenir les messages d’un groupe</li><li>Obtenir les messages de mon flux d’abonnements</li><li>Publier un message</li><li>Quand il y a un nouveau message dans un groupe</li><li>Quand il y a un nouveau message dans le flux de mes abonnements</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Yammer
-Pour utiliser l’API Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser le connecteur Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -195,4 +195,4 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

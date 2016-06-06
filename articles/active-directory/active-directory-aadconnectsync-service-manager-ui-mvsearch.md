@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Azure"
+	pageTitle="Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Azure"
 	description="Comprendre l’onglet Recherche de métaverse dans Synchronization Service Manager pour Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
-# Synchronisation d’Azure AD Connect : Synchronization Service Manager
+# Synchronisation d’Azure AD Connect : Synchronization Service Manager
 
-| [Opérations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-L’onglet de recherche de métaverse est utile pour la résolution des problèmes liés aux données. Dans la partie supérieure, vous pouvez créer une requête basée sur une combinaison d’attributs. Lorsque vous êtes satisfait de votre requête, cliquez sur **Recherche**. Le résultat s’affiche dans la grille inférieure. Vous pouvez sélectionner les colonnes qui doivent être visibles à l’aide des **paramètres de colonne**.
+L’onglet de recherche de métaverse est utile pour la résolution des problèmes liés aux données. Dans la partie supérieure, vous pouvez créer une requête basée sur une combinaison d’attributs. Quand vous êtes satisfait de votre requête, cliquez sur **Recherche**. Le résultat s’affiche dans la grille inférieure. Vous pouvez sélectionner les colonnes qui doivent être visibles à l’aide de **Paramètres de colonne**.
 
 Dans les résultats de la recherche, sélectionnez un objet et **Propriétés** pour afficher les [propriétés de l’objet métaverse](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
 
@@ -33,4 +33,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

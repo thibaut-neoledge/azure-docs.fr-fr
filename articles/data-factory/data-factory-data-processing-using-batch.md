@@ -49,7 +49,7 @@ Les étapes de base du processus sont énoncées ci-dessous. La solution inclut 
 
 La solution compte le nombre d’occurrences d’un terme de recherche (« Microsoft ») dans les fichiers d’entrée organisés en série chronologique. Il renvoie le nombre de fichiers de sortie.
 
-**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
+**Temps** : si vous maîtrisez Azure, Data Factory et Batch et disposez des composants requis, nous estimons que cette solution vous prendra entre 1 et 2 heures.
 
 ## Composants requis
 
@@ -149,13 +149,13 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 
 -   La méthode accepte quatre paramètres :
 
-    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
+    1.  **linkedServices** : liste énumérable de services liés relie les sources de données d’entrée/sortie (par exemple, Azure Blob Storage) à la fabrique de données. Dans cet exemple, il s’agit du seul service lié de type Azure Storage utilisé à la fois pour les données d’entrée et de sortie.
 
-    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
+    2.  **datasets** : liste énumérable de jeux de données. Vous pouvez utiliser ce paramètre pour obtenir les emplacements et les schémas définis par les jeux de données d’entrée et de sortie.
 
-    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
+    3.  **activity** : ce paramètre représente l’entité de calcul actuelle (dans ce cas, un service Azure Batch).
 
-    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
+    4.  **logger** : permet d’écrire des commentaires de débogage qui apparaîtront en tant que journal « utilisateur » pour le pipeline.
 
 -   La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ultérieurement des activités personnalisées. Cette fonctionnalité n’étant pas encore implémentée, seule un dictionnaire vide est retourné par la méthode.
 
@@ -539,7 +539,7 @@ Au cours de cette étape, vous allez créer un service lié pour votre compte **
 
     2.  Remplacez **clé d’accès** avec la clé d’accès du compte Azure Batch.
 
-    3.  Entrez l’ID du pool pour la propriété **poolName**. pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
+    3.  Entrez l’ID du pool pour la propriété **poolName****. ** pour cette propriété, vous pouvez spécifier un nom de pool ou un ID de pool
 
     4.  Entrez l’URI du lot pour la propriété JSON **batchUri**.
     
@@ -754,11 +754,11 @@ Au cours de cette étape, vous allez créer un pipeline comprenant une seule act
 
 	-   Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotNetActivity.dll**.
 
-	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de \<namespace\>.\<classname\> dans votre code.
+	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de <namespace>.<classname> dans votre code.
 
 	-   **PackageLinkedService** est défini sur **StorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose que vous utilisez le même compte Azure Storage.
 
-	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format \<containerforthezip\>/\<nameofthezip.zip\>.
+	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format <containerforthezip>/<nameofthezip.zip>.
 
 	-   L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
 
@@ -834,7 +834,7 @@ Au cours de cette étape, vous allez tester le pipeline en déposant des fichier
 
     **Remarque :** si vous n’avez pas supprimé le fichier de sortie 2015-11-16-01.txt avant d’essayer avec cinq fichiers d’entrée, vous devez voir une ligne pour l’exécution de la tranche précédente, et cinq lignes pour l’exécution de la tranche actuelle. Par défaut, le contenu est ajouté au fichier de sortie s’il existe.
 
-### Déboguer le pipeline
+## Déboguer le pipeline
 
 Le débogage consiste à utiliser quelques techniques de base :
 
@@ -877,12 +877,15 @@ Le débogage consiste à utiliser quelques techniques de base :
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Remarque :** vous verrez un **conteneur** dans votre stockage d’objets Blob Azure nommé **adfjobs**. Ce conteneur n’est pas automatiquement supprimé, mais vous pouvez le supprimer en toute sécurité après avoir testé la solution. De même, la solution Data Factory crée un **travail** Azure Batch nommé **adf-<pool ID/name>:job-0000000001**. Si vous le souhaitez, vous pouvez supprimer ce travail après avoir testé la solution.
+7. L’activité personnalisée n’utilise pas le fichier **app.config** de votre package. Par conséquent, si votre code lit les chaînes de connexion du fichier de configuration, il ne fonctionnera pas au moment de l’exécution. Quand vous utilisez Azure Batch, la meilleure pratique consiste à stocker les clés secrètes dans un coffre de clés **Azure KeyVault**, à utiliser un principal de service basé sur certificat pour protéger le coffre de clés et à distribuer le certificat à un pool Azure Batch. L’activité personnalisée .NET peut alors accéder aux secrets du coffre de clés au moment de l’exécution. Cette solution est générique et peut s’adapter à n’importe quel type de clé secrète, et pas uniquement aux chaînes de connexion.
+
+	Il existe une solution plus simple (mais non recommandée) : vous pouvez créer un nouveau **service lié SQL Azure** avec des paramètres de chaîne de connexion, puis créer un jeu de données qui utilise le service lié et chaîner le jeu de données à l’activité .NET personnalisée en tant que jeu de données d’entrée factice. Vous pouvez accéder ensuite à la chaîne de connexion du service lié dans le code de l’activité personnalisée. Cette fois-ci, le code devrait fonctionner sans problème lors de l’exécution.
 
 ### Étendre l’exemple
 
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d’Azure Data Factory et d’Azure Batch. Par exemple, pour traiter des tranches d’une autre plage de temps, procédez comme suit :
 
-1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
+1.  Ajoutez au dossier **inputfolder** les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de 2015-11-16T05:00:00Z en 2015-11-16T10:00:00Z. Dans la **vue de diagramme**, double-cliquez sur **InputDataset**, et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
 
 2.  Augmentez ou réduisez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement qui se produit sur Azure Batch. (Pour plus d’informations sur le paramètre **concurrency**, voir l’étape 4 : Créer et exécuter le pipeline.)
 
@@ -894,7 +897,7 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 	Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](../batch/batch-automatic-scaling.md).
 
-	Si le pool utilise la valeur par défaut du paramètre [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), le service Batch peut mettre entre 15 et 30 minutes à préparer la machine virtuelle avant d’exécuter l’activité personnalisée. Si le pool utilise une autre valeur pour autoScaleEvaluationInterval, le service Batch peut prendre la durée d’autoScaleEvaluationInterval + 10 minutes.
+	Si le pool utilise la valeur par défaut du paramètre [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), le service Batch peut mettre entre 15 et 30 minutes à préparer la machine virtuelle avant d’exécuter l’activité personnalisée. Si le pool utilise une autre valeur pour autoScaleEvaluationInterval, le service Batch peut prendre la durée d’autoScaleEvaluationInterval + 10 minutes.
 	 
 5. Dans l’exemple de solution, la méthode **Execute** appelle la méthode **Calculate** qui traite une tranche de données d’entrée pour produire une tranche de données de sortie. Vous pouvez écrire votre propre méthode pour traiter les données d’entrée, et remplacer l’appel de la méthode Calculate dans la méthode Execute par un appel à votre méthode.
 
@@ -905,13 +908,13 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d�
 
 Après avoir traité des données, vous pouvez les employer avec des outils en ligne tels que **Microsoft Power BI**. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
--   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+-   [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-service-get-data/)
 
--   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+-   [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
 
--   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+-   [Actualisation des données dans Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-refresh-data/)
 
--   [Azure et Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+-   [Azure et Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-azure-and-power-bi/)
 
 ## Références
 
@@ -937,4 +940,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

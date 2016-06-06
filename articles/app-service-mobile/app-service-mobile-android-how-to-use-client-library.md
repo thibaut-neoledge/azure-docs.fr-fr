@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -47,7 +47,7 @@ Après ces étapes, vous devez suivre la procédure décrite dans la section de 
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
+1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
 		buildscript {
 		    repositories {
@@ -55,11 +55,11 @@ Modifiez les deux fichiers **build.gradle** :
 		    }
 		}
 
-2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	La version la plus récente est la 3.1. Les versions prises en charge sont répertoriées [ici](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	La version la plus récente est la 3.1.0. Les versions prises en charge sont répertoriées [ici](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>activer les autorisations Internet.
 Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
@@ -95,24 +95,24 @@ Si votre table SQL Azure contient davantage de colonnes, vous devez ajouter les 
 
 Pour exemple, si elle comporte une colonne d’entiers Priority, vous pouvez ajouter ce champ, ainsi que ses méthodes getter et setter :
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 Pour savoir comment créer des tables supplémentaires dans votre backend Mobile Apps, consultez [Définir un contrôleur de table](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (backend .NET) ou [Procédure : définir des tables à l’aide d’un schéma dynamique](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (backend Node.js). Pour un backend Node.js, vous pouvez également utiliser les **Easy Tables** dans le [portail Azure].
 
@@ -121,8 +121,8 @@ Pour savoir comment créer des tables supplémentaires dans votre backend Mobile
 Le code suivant permet de créer l’objet **MobileServiceClient** utilisé pour accéder à votre backend Mobile Apps. Le code est inséré dans la méthode `onCreate` de la classe **Activity** spécifiée dans le fichier *AndroidManifest.xml* comme action **MAIN** dans la catégorie **LAUNCHER**. Dans le code de démarrage rapide, il est placé dans le fichier **ToDoActivity.java**.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 Dans ce code, remplacez `MobileAppUrl` par l’URL de votre backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [portail Azure](https://portal.azure.com/). Pour pouvoir compiler cette ligne de code, vous devez également ajouter l’instruction **import** suivante :
 
@@ -132,7 +132,7 @@ Dans ce code, remplacez `MobileAppUrl` par l’URL de votre backend Mobile Apps,
 
 La façon la plus simple d’interroger des données ou de les modifier dans le backend consiste à utiliser le *modèle de programmation typé*, car Java comporte des types forts (nous aborderons plus tard le modèle *non typé*). Ce modèle fournit une sérialisation et une désérialisation transparentes de JSON en utilisant la bibliothèque [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) pendant l’envoi des données entre les objets client et les tables dans le backend Azure SQL : le développeur n’a rien à faire, tout est géré par l’infrastructure.
 
-Pour accéder à une table, vous devez d’abord créer un objet [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) en appelant la méthode **getTable** sur le [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Cette méthode comporte deux surcharges :
+Pour accéder à une table, vous devez d’abord créer un objet [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) en appelant la méthode **getTable** sur le [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Cette méthode comporte deux surcharges :
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -141,14 +141,14 @@ Pour accéder à une table, vous devez d’abord créer un objet [MobileServiceT
 
 Dans le code suivant, *mClient* est une référence à votre objet MobileServiceClient.
 
-La [première surcharge](http://go.microsoft.com/fwlink/p/?LinkId=296839) est utilisée quand le nom de la classe et le nom de la table sont identiques. Elle est reprise dans le didacticiel de démarrage rapide :
+La [première surcharge](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) est utilisée quand le nom de la classe et le nom de la table sont identiques. Elle est reprise dans le didacticiel de démarrage rapide :
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-La [deuxième surcharge](http://go.microsoft.com/fwlink/p/?LinkId=296840) est utilisée quand le nom de la table est différent du nom de la classe : le premier paramètre correspond au nom de la table.
+La [deuxième surcharge](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) est utilisée quand le nom de la table est différent du nom de la classe : le premier paramètre correspond au nom de la table.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>Liaison des données dans l’interface utilisateur
 
@@ -175,8 +175,7 @@ La mise en page est définie par plusieurs éléments de code XML. En nous basan
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
 
-
-Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Cette mise en page n’affiche pas le champ **id** ; une mise en page plus complexe spécifierait d’autres champs dans l’affichage. Le code se trouve dans le fichier **row\_list\_to\_do.xml**.
+Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Cette mise en page n’affiche pas le champ **id** ; une mise en page plus complexe spécifierait d’autres champs dans l’affichage. Le code se trouve dans le fichier **row\_list\_to\_do.xml**.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -195,7 +194,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -259,9 +258,6 @@ Pour visualiser la façon dont ces API asynchrones sont utilisées dans votre ap
 
 Vous êtes désormais prêt à utiliser la liaison des données. Le code qui suit montre comment obtenir les éléments dans la table du service mobile, nettoyer l’adaptateur, puis appeler la méthode *add* de l’adaptateur pour y placer les éléments renvoyés.
 
-
-**À déterminer** : tester ce code !
-
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
@@ -289,7 +285,7 @@ Vous êtes désormais prêt à utiliser la liaison des données. Le code qui sui
 
 Vous devez également appeler l'adaptateur à chaque fois que vous modifiez la table *ToDoItem* si vous voulez afficher les résultats de cette modification. Comme les modifications se font enregistrement par enregistrement, vous ne composez qu'avec une seule ligne, et non une collection. Lorsque vous insérez un élément, vous appelez la méthode *add* de l'adaptateur et lorsque vous supprimez un élément, vous appelez la méthode *remove*.
 
-##<a name="querying"></a>Interrogation des données à partir de votre backend Mobile Apps
+##<a name="querying"></a>Procédure : interrogation des données à partir de votre back-end Mobile Apps
 
 Cette section explique comment émettre des requêtes à destination du backend Mobile Apps, qui inclut les tâches suivantes :
 
@@ -349,7 +345,7 @@ Pour obtenir plus de détails et des exemples de filtres, consultez la page [Exp
 
 ### <a name="sorting"></a>Procédure : tri des données renvoyées
 
-Le code qui suit renvoie tous les éléments de la table *ToDoItem* triés par ordre croissant sur le champ *text*. *mToDoTable* est la référence à la table de backend créée précédemment :
+Le code qui suit renvoie tous les éléments de la table *ToDoItem* triés par ordre croissant sur le champ *text*. *mToDoTable* est la référence à la table de back-end créée précédemment :
 
 	mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
@@ -361,7 +357,7 @@ Notez que si vous filtrez avec la méthode ***where***, celle-ci doit être appe
 
 ### <a name="paging"></a>Procédure de renvoi de données dans les pages
 
-Le premier exemple présente comment sélectionner les 5 premiers éléments d'une table. Cette requête renvoie les éléments d’une table *ToDoItem*. *mToDoTable* est la référence à la table de backend créée précédemment :
+Le premier exemple présente comment sélectionner les 5 premiers éléments d'une table. Cette requête renvoie les éléments d’une table *ToDoItem*. *mToDoTable* est la référence à la table de back-end créée précédemment :
 
     List<ToDoItem> result = mToDoTable.top(5).execute().get();
 
@@ -373,7 +369,7 @@ Voici maintenant une requête qui ignore les 5 premiers éléments, puis renvoi
 
 ### <a name="selecting"></a>Procédure : sélection de colonnes spécifiques
 
-Le code qui suit illustre comment renvoyer tous les éléments d’une table *ToDoItems*, mais uniquement en affichant les champs *complete* et *text*. *mToDoTable* est la référence à la table de backend créée précédemment.
+Le code qui suit illustre comment renvoyer tous les éléments d’une table *ToDoItems*, mais uniquement en affichant les champs *complete* et *text*. *mToDoTable* est la référence à la table de back-end créée précédemment.
 
 	List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
 
@@ -400,7 +396,7 @@ Voici un exemple de code dans lequel *mToDoTable* est une référence à la tabl
 La principale exigence lors du chaînage de méthodes est que la méthode *where* et les prédicats doivent figurer en premier. Après cela, vous pouvez appeler toutes les méthodes suivantes dans l'ordre qui convient le mieux à votre application.
 
 
-##<a name="inserting"></a>Insertion de données dans le backend
+##<a name="inserting"></a>Procédure : insertion de données dans le back-end
 
 Le code suivant montre comment insérer une nouvelle ligne dans une table.
 
@@ -597,16 +593,16 @@ Vous pouvez obtenir l’ID de l’utilisateur connecté à partir d’un **Mobil
 
 Pour cela, vous devez stocker localement l'ID utilisateur et le jeton d'authentification sur l'appareil. Au prochain démarrage de l'application, vous vérifiez le cache, et si ces valeurs sont présentes, vous pouvez ignorer la procédure d'ouverture de session et rafraîchir le client avec ces données. Mais ces données sont sensibles et elles doivent être stockées sous forme chiffrée au cas où le téléphone serait volé.
 
-Vous pouvez obtenir un exemple complet illustrant la mise en cache des jetons d’authentification dans la section [Mise en cache des jetons d’authentification](app-service-mobile-android-get-started-users.md#cache-tokens).
+Vous pouvez obtenir un exemple complet illustrant la mise en cache des jetons d’authentification dans la section [Mise en cache de jetons d’authentification sur le client](app-service-mobile-android-get-started-users.md#cache-tokens).
 
-Quand vous tentez d’utiliser un jeton qui a expiré, vous obtenez un message *401 - Non autorisé*. L'utilisateur doit alors se connecter pour obtenir de nouveaux jetons. Vous pouvez éviter d’écrire du code pour gérer cette opération partout où votre application appelle votre service mobile en utilisant des filtres, ce qui vous permet d'intercepter les appels envoyés à Mobile Services ainsi que les réponses émises par ce service. Le code de filtre teste ensuite la réponse pour une erreur 401, déclenche le processus de connexion si nécessaire, puis reprend la demande qui a généré l’erreur 401. Vous pouvez également inspecter le jeton pour en vérifier la date d’expiration.
+Lorsque vous tentez d’utiliser un jeton qui a expiré, vous obtenez un message *401 -Connexion non autorisée*. L'utilisateur doit alors se connecter pour obtenir de nouveaux jetons. Vous pouvez éviter d’écrire du code pour gérer cette opération partout où votre application appelle votre service mobile en utilisant des filtres, ce qui vous permet d'intercepter les appels envoyés à Mobile Services ainsi que les réponses émises par ce service. Le code de filtre teste ensuite la réponse pour une erreur 401, déclenche le processus de connexion si nécessaire, puis reprend la demande qui a généré l’erreur 401. Vous pouvez également inspecter le jeton pour en vérifier la date d’expiration.
 
 
-## <a name="adal"></a>Authentification des utilisateurs avec la bibliothèque Active Directory Authentication Library (ADAL)
+## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque Active Directory Authentication Library
 
-Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
+Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
+1. Si vous souhaitez configurer le serveur principal de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 
 2. Installez la bibliothèque ADAL en modifiant votre fichier build.gradle pour inclure les éléments suivants :
 
@@ -616,7 +612,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 
-* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du backend de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
+* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
 
 * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
 
@@ -682,7 +678,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 ## Procédure : ajout d’une notification Push à votre application
 
-Vous pouvez [lire une présentation](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) qui explique comment Microsoft Azure Notification Hubs prend en charge un large éventail de notifications Push.
+Vous pouvez [lire une présentation](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) qui explique comment Microsoft Azure Notification Hubs prend en charge un large éventail de notifications Push.
 
 Dans [ce didacticiel](app-service-mobile-android-get-started-push.md), une notification Push est transmise à chaque fois qu’un enregistrement est inséré.
 
@@ -757,7 +753,7 @@ Vous devez sérialiser les noms du client en noms JSON correspondant aux noms de
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
-### <a name="table"></a>Mappage de noms de table différents entre le client et le backend
+### <a name="table"></a>Procédure de mappage de noms de table différents entre le client et le back-end
 
 Le mappage du nom de table client vers un autre nom de table de services mobiles est simple. Il suffit d'utiliser un des remplacements de la fonction <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a>, comme dans le code qui suit.
 
@@ -841,4 +837,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de l'authentification]: app-service-mobile-android-get-started-users.md
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

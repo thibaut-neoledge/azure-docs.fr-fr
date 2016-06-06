@@ -71,7 +71,7 @@ Pour installer le Kit de développement logiciel (SDK), cliquez sur le projet de
 
 ###<a name="server-project-setup"></a> Initialiser le projet de serveur
 
-Un projet de serveur principal .NET est initialisé de la même façon que les autres projets ASP.NET, en incluant une classe de démarrage OWIN. Assurez-vous que vous avez référencé le package NuGet `Microsoft.Owin.Host.SystemWeb`. Pour ajouter cette classe dans Visual Studio, cliquez avec le bouton droit sur votre projet de serveur et sélectionnez **Ajouter** > **Nouvel élément**, puis **web** > **Général** > **Classe de démarrage OWIN**.
+Un projet de serveur principal .NET est initialisé de la même façon que les autres projets ASP.NET, en incluant une classe de démarrage OWIN. Assurez-vous que vous avez référencé le package NuGet `Microsoft.Owin.Host.SystemWeb`. Pour ajouter cette classe dans Visual Studio, cliquez avec le bouton droit sur votre projet de serveur et sélectionnez **Ajouter** > **Nouvel élément**, puis **web** > **Général** > **Classe de démarrage OWIN**.
 
 Cette opération génère une classe avec l’attribut suivant :
 
@@ -144,7 +144,7 @@ Cette section vous explique comment publier votre projet de serveur principal .N
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. La première fois que vous publiez, vous devez définir un profil de publication. Si vous disposez déjà d’un profil défini, vous pouvez simplement le sélectionner et cliquer sur **Publier**.
 
-2. Si vous êtes invité à sélectionner une cible de publication, cliquez sur **Microsoft Azure App Service** > **Suivant**, puis (si nécessaire) connectez-vous avec vos informations d’identification Azure. Visual Studio récupère vos paramètres de publication depuis Azure et les stocke en sécurité.
+2. Si vous êtes invité à sélectionner une cible de publication, cliquez sur **Microsoft Azure App Service** > **Suivant**, puis (si nécessaire) connectez-vous avec vos informations d’identification Azure. Visual Studio récupère vos paramètres de publication depuis Azure et les stocke en sécurité.
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
@@ -180,11 +180,19 @@ L’exemple suivant initialise un contrôleur de table qui utilise Entity Framew
 
 Pour obtenir un exemple de contrôleur de table utilisant Entity Framework pour accéder aux données à partir d’une base de données SQL Azure, consultez la classe **TodoItemController** dans le projet de serveur de démarrage rapide téléchargé depuis le portail Azure.
 
+### Ajuster la taille de pagination des tables
+
+Par défaut, Azure Mobile Apps retourne 50 enregistrements par demande. Ainsi, le client n’occupe pas son thread d’interface utilisateur ni le serveur pendant trop longtemps et optimise son expérience utilisateur. Vous devez augmenter la « taille de requête autorisée » côté serveur et la taille de page côté client pour effectuer un changement dans la taille de pagination des tables. Pour augmenter la taille de pagination, ajustez votre contrôleur de table avec cette ligne :
+
+    [EnableQuery(PageSize = 500)]
+
+Vérifiez que la valeur de PageSize est supérieure ou égale à la taille qui sera demandée par le client. Reportez-vous aux procédures de la documentation destinée au client pour savoir comment modifier la taille de pagination pour le client.
+
 ## Définir un contrôleur d’API personnalisé
 
 Le contrôleur d’API personnalisé fournit les fonctionnalités de base au serveur principal de votre application mobile en exposant un point de terminaison. Vous pouvez enregistrer un contrôleur d’API mobile spécifique à l’aide de l’attribut [MobileAppController]. Cet attribut enregistre l'itinéraire et définit également le sérialiseur JSON Mobile Apps.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
 
 2. Spécifiez un **nom de contrôleur**, tel que `CustomController`, puis cliquez sur **Ajouter**. Cette opération crée une classe **CustomController** qui hérite d’**ApiController**.
 
@@ -225,7 +233,7 @@ Vous pouvez ajouter l’authentification à votre projet de serveur en étendant
 
 1. Dans Visual Studio, installez le package [Microsoft.Azure.Mobile.Server.Authentication].
 
-2. Dans le fichier de projet Startup.cs, ajoutez la ligne de code suivante au début de la méthode **Configuration** :
+2. Dans le fichier de projet Startup.cs, ajoutez la ligne de code suivante au début de la méthode **Configuration** :
 
 		app.UseAppServiceAuthentication(config);
 
@@ -241,7 +249,7 @@ Vous pouvez décider de fournir votre propre système de connexion si vous ne so
 
 Il vous faudra fournir votre propre logique pour déterminer la nécessité de connexion d’un utilisateur. Par exemple, vous pouvez définir des mots de passe salés et hachés dans une base de données. Dans l’exemple ci-dessous, la méthode `isValidAssertion()` est responsable de ces vérifications ; elle est définie à un autre endroit.
 
-L’authentification personnalisée est exposée via la création d’un élément ApiController et l’exposition des actions d’inscription et de connexion (voir ci-dessous). Le client peut essayer de se connecter en collectant les informations appropriées auprès de l’utilisateur et en soumettant une requête HTTPS POST à l’API, en plaçant les informations de l’utilisateur dans le corps. Une fois que le serveur a validé l’assertion, un jeton peut être émis via la méthode `AppServiceLoginHandler.CreateToken()`.
+L’authentification personnalisée est exposée via la création d’un élément ApiController et l’exposition des actions d’inscription et de connexion (voir ci-dessous). Le client peut essayer de se connecter en collectant les informations appropriées auprès de l’utilisateur et en soumettant une requête HTTPS POST à l’API, en plaçant les informations de l’utilisateur dans le corps. Une fois que le serveur a validé l’assertion, un jeton peut être émis par le biais de la méthode `AppServiceLoginHandler.CreateToken()`.
 
 Une action de connexion peut se présenter ainsi :
 
@@ -279,7 +287,7 @@ La méthode `AppServiceLoginHandler.CreateToken()` inclut un paramètre _audienc
 
 Vous devez également fournir une durée de vie associée au jeton émis, ainsi que les revendications que vous souhaitez inclure. Il est nécessaire que vous fournissiez une revendication d’objet, tel qu’illustré dans l’exemple de code.
 
-Vous pouvez aussi simplifier le code client de façon à utiliser la méthode `loginAsync()` (le nom peut varier d’une plateforme à une autre) à la place d’une demande HTTP POST manuelle. Vous utiliserez la surcharge qui prend un paramètre de jeton supplémentaire et qui se met en corrélation avec l’objet d’assertion faisant l’objet de la demande POST. Dans ce cas, le fournisseur doit avoir un nom personnalisé que vous lui aurez attribué. Ensuite, sur le serveur, votre action de connexion doit figurer sur le chemin _/.auth/login/{customProviderName}_ qui contient ce nom personnalisé. Pour placer votre contrôleur sur ce chemin, ajoutez un itinéraire à votre HttpConfiguration avant d’appliquer votre MobileAppConfiguration.
+Vous pouvez aussi simplifier le code client de façon à utiliser la méthode `loginAsync()` (le nom peut varier d’une plateforme à une autre) à la place d’une requête HTTP POST manuelle. Vous utiliserez la surcharge qui prend un paramètre de jeton supplémentaire et qui se met en corrélation avec l’objet d’assertion faisant l’objet de la demande POST. Dans ce cas, le fournisseur doit avoir un nom personnalisé que vous lui aurez attribué. Ensuite, sur le serveur, votre action de connexion doit figurer sur le chemin _/.auth/login/{customProviderName}_ qui contient ce nom personnalisé. Pour placer votre contrôleur sur ce chemin, ajoutez un itinéraire à votre HttpConfiguration avant d’appliquer votre MobileAppConfiguration.
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
@@ -324,10 +332,6 @@ Le code suivant appelle la méthode d’extension **GetAppServiceIdentityAsync**
     }
 
 Notez que vous devez ajouter une instruction using pour `System.Security.Principal` afin de faire fonctionner la méthode d’extension **GetAppServiceIdentityAsync**.
-
-###<a name="authorize"></a>Limiter l’accès aux données pour les utilisateurs autorisés
-
-Il est souvent nécessaire de limiter les données qui sont retournées à un utilisateur authentifié. Ce type de partitionnement des données s’effectue en ajoutant une colonne UserId à la table et en stockant le SID de l’utilisateur au moment de l’insertion des données.
 
 ## Ajouter des notifications Push à un projet de serveur
 
@@ -461,4 +465,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

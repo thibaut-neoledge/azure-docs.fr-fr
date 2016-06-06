@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/24/2016" 
 	ms.author="sdanie"/>
 
 # Création d’une application web avec le cache Redis à l’aide d’un modèle
@@ -43,7 +43,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 ## Variables pour les noms
 
-Ce modèle utilise des variables afin de créer des noms pour les ressources. Il utilise la fonction [uniqueString](../resource-group-template-functions/#uniquestring) pour construire une valeur basée sur l’ID du groupe de ressources.
+Ce modèle utilise des variables afin de créer des noms pour les ressources. Il utilise la fonction [uniqueString](../resource-group-template-functions.md#uniquestring) pour construire une valeur basée sur l’identifiant du groupe de ressources.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,4 +132,4 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

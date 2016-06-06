@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/16/2016" 
 	ms.author="johnmac"/>
 
 # Niveaux de performances dans DocumentDB
@@ -152,7 +152,7 @@ Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités
 
 
 
-> [AZURE.NOTE] Les collections dotées de moins de 10 000 unités de demande par seconde peuvent être migrées entre les offres avec un débit définis par l’utilisateur et un débit prédéfini (S1, S2, S3) à tout moment. Les collections dotées de plus de 10 000 unités de demande par seconde ne peuvent pas être converties en niveaux de débit prédéfinis.
+> [AZURE.NOTE] Les collections dotées de moins de 10 000 unités de demande par seconde peuvent être migrées entre les offres avec un débit défini par l’utilisateur et un débit prédéfini (S1, S2, S3) à tout moment. Les collections dotées de plus de 10 000 unités de demande par seconde ne peuvent pas être converties en niveaux de débit prédéfinis.
 
 Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) pour afficher des exemples supplémentaires et en savoir plus sur nos méthodes d’offre :
 
@@ -173,7 +173,9 @@ Pour en savoir plus sur la tarification et la gestion des données avec Azure Do
 
 Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.microsoft.com/documentation/services/documentdb/) Azure DocumentDB.
 
+Pour commencer avec le test des performances et de la mise à l’échelle avec DocumentDB, consultez [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md).
+
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

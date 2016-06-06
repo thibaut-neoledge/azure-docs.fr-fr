@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
 
@@ -81,4 +81,4 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0525_2016-->

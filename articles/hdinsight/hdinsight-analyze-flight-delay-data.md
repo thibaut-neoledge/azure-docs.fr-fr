@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -57,7 +57,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 **Fichiers utilisés dans ce didacticiel**
 
-Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website]0\(RITA). Une copie des données a été téléchargée dans un conteneur de stockage d’objets blob Azure avec l’autorisation d’accès aux objets blob publics. Une partie de votre script PowerShell copie les données à partir du conteneur d'objets blob public dans le conteneur d'objets blob par défaut de votre cluster. Le script HiveQL est également copié dans le même conteneur d’objets blob. Pour savoir comment obtenir/télécharger les données sur votre propre compte de stockage et comment créer/télécharger le fichier de script HiveQL, consultez l’[annexe A](#appendix-a) et l’[annexe B](#appendix-b).
+Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). Une copie des données a été téléchargée dans un conteneur de stockage d’objets blob Azure avec l’autorisation d’accès aux objets blob publics. Une partie de votre script PowerShell copie les données à partir du conteneur d'objets blob public dans le conteneur d'objets blob par défaut de votre cluster. Le script HiveQL est également copié dans le même conteneur d’objets blob. Pour savoir comment obtenir/télécharger les données sur votre propre compte de stockage et comment créer/télécharger le fichier de script HiveQL, consultez l’[annexe A](#appendix-a) et l’[annexe B](#appendix-b).
 
 Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 
@@ -139,7 +139,7 @@ Hadoop MapReduce correspond au traitement par lots. La manière la plus économi
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
 		
 		# Create the default Blob container
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 		$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 		New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext 
 		
@@ -308,7 +308,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
 		}
 		
 		# Validate the container
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		
 		if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
@@ -362,7 +362,7 @@ Le chemin d’accès tutorials/flightdelay/data correspond au dossier virtuel qu
 Le script HiveQL exécutera les opérations suivantes :
 
 1. **Il supprime la table delays\_raw**, le cas échéant.
-2. **Il crée la table externe Hive delays\_raw** pointant vers l’emplacement du stockage d’objets blob où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par « , » et les lignes se terminant par « \\n ». Cela pose un problème lorsque les valeurs des champs contiennent des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée en tant que délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN\_CITY\_NAME et DEST\_CITY\_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
+2. **Il crée la table externe Hive delays\_raw ** pointant vers l’emplacement du stockage d’objets blob où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par « , » et les lignes se terminant par « \\n ». Cela pose un problème lorsque les valeurs des champs contiennent des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée en tant que délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN\_CITY\_NAME et DEST\_CITY\_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
 3. **Il supprime la table des retards**, le cas échéant.
 4. **Il crée la table des retards**. Il est conseillé de nettoyer les données avant tout traitement plus approfondi. Cette requête crée une nouvelle table, *retards*, à partir de la table delays\_raw. Notez que les colonnes TEMP (comme indiqué précédemment) ne sont pas copiées et que la fonction **substring** est utilisée pour supprimer les guillemets présents dans les données.
 5. **Il calcule les retards moyens liés aux conditions météo et regroupe les résultats par nom de ville.** Il transmet également les résultats au stockage d’objets blob. Notez que la requête supprime les apostrophes des données et exclut les lignes dans lesquelles la valeur de **weather\_delay** est de type null. Ces mesures sont nécessaires, car Sqoop, qui est utilisé ultérieurement dans ce didacticiel, ne gère pas correctement ces valeurs par défaut.
@@ -429,7 +429,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 		}
 		
 		# Validate the container
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		
 		if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
@@ -538,7 +538,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 		Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
 		
 		# Create a storage context object
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		
 		# Upload the file from local workstation to Blob storage
@@ -742,4 +742,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

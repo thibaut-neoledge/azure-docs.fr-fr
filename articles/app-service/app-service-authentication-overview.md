@@ -26,7 +26,7 @@ App Service utilise l’identité fédérée, dans laquelle un fournisseur d’i
 
 Si vous voulez commencer tout de suite, consultez l’un des didacticiels suivants :
 
-- [Ajout de l’authentification à votre application iOS][iOS]\(ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
+- [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
 - [Authentification utilisateur pour API Apps dans Azure App Service][apia-user]
 - [Prise en main d’Azure App Services, 2e partie][web-getstarted]
 
@@ -89,7 +89,7 @@ Vous bénéficiez d’un contrôle absolu sur les requêtes pouvant accéder à 
 
 	Dans ce cas, la fonctionnalité d’authentification/d’autorisation est désactivée. Les tâches d’authentification et d’autorisation sont entièrement à la charge du code de votre application.
 
-Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Log in with provider name** (**Se connecter avec *nom du fournisseur* **), toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
+Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Log in with provider name ** (**Se connecter avec *nom du fournisseur* **), toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
 
 ## Utilisation des identités des utilisateurs dans votre application
 
@@ -102,7 +102,7 @@ App Service transmet certaines informations sur les utilisateurs à votre applic
 
 Tout code, quels que soient le langage ou l’infrastructure utilisés, peut trouver les informations qu’il recherche dans ces en-têtes. Dans le cas d’applications ASP.NET 4.6, le paramètre **ClaimsPrincipal** est automatiquement défini sur les valeurs appropriées.
 
-Votre application peut également obtenir des informations supplémentaires sur l’utilisateur en émettant la commande HTTP GET sur le point de terminaison `/.auth/me` de votre application. Un jeton valide inclus dans la requête renvoie une charge utile JSON présentant des informations sur le fournisseur utilisé, le jeton du fournisseur sous-jacent et d’autres données sur l’utilisateur. Les Kits de développement logiciel (SDK) serveur de Mobile Apps offrent des méthodes d’assistance permettant de manipuler ces données. Pour plus d’informations, voir [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity), et [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info).
+Votre application peut également obtenir des informations supplémentaires sur l’utilisateur en émettant la commande HTTP GET sur le point de terminaison `/.auth/me` de votre application. Un jeton valide inclus dans la requête renvoie une charge utile JSON présentant des informations sur le fournisseur utilisé, le jeton du fournisseur sous-jacent et d’autres données sur l’utilisateur. Les Kits de développement logiciel (SDK) serveur de Mobile Apps offrent des méthodes d’assistance permettant de manipuler ces données. Pour plus d’informations, consultez [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), et [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentation et ressources supplémentaires
 
@@ -174,8 +174,8 @@ Les didacticiels suivants expliquent comment protéger vos applications API :
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

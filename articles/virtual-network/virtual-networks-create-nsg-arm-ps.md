@@ -30,20 +30,20 @@
 Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test en déployant [ce modèle](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), cliquez sur **Déployer dans Azure**, remplacez les valeurs des paramètres par défaut si nécessaire, puis suivez les instructions dans le portail.
 
 ## Création du groupe de sécurité réseau pour le sous-réseau frontal
-Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
+Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
-3. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
+3. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
 
 		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 3389
 
-4. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 80.
+4. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 80.
 
 		$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
@@ -59,7 +59,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 
 		$nsg
 
-	La sortie affiche uniquement les règles de sécurité :
+	La sortie affiche uniquement les règles de sécurité :
 
 		SecurityRules        : [
 		                         {
@@ -100,7 +100,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-	La sortie indique seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup**:
+	La sortie indique seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
 		                      {
@@ -129,16 +129,16 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	La sortie affiche uniquement la partie NSG :
+	La sortie affiche uniquement la partie NSG :
 
 		"NetworkSecurityGroup": {
 		  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		}
 
-## Création du NSG pour le sous-réseau BackEnd
-Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
+## Création du groupe de sécurité réseau pour le sous-réseau principal
+Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
-1. Créer une règle de sécurité permettant l’accès depuis le sous-réseau frontal vers le port 1433 (port par défaut utilisé par SQL Server).
+1. Créer une règle de sécurité permettant l’accès depuis le sous-réseau frontal vers le port 1433 (port par défaut utilisé par SQL Server).
 
 		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
@@ -154,7 +154,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 5. Ajoutez les règles créées précédemment à un nouveau groupe de sécurité réseau nommé **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Associez le groupe de sécurité réseau créé précédemment au sous-réseau *BackEnd*.
@@ -162,7 +162,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-	La sortie indique seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup**:
+	La sortie indique seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
                       {
@@ -182,4 +182,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

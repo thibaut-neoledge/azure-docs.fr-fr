@@ -1,10 +1,10 @@
 <properties
-pageTitle="Utiliser l’API Slack dans vos applications logiques | Microsoft Azure"
-description="Prendre en main l’utilisation de l’API Slack (connecteur) dans vos applications logiques Microsoft Azure App Service"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Utiliser le connecteur Slack dans vos applications logiques | Microsoft Azure"
+description="Utiliser le connecteur Slack dans vos applications logiques Microsoft Azure App Service"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Prendre en main l’API Slack
+# Prise en main du connecteur Slack
 
 Slack est un outil de communication collaboratif qui centralise toutes les communications de votre équipe dans un seul emplacement que vous pouvez consulter instantanément, où que vous vous trouviez.
 
@@ -42,7 +42,7 @@ Vous pouvez effectuer les actions suivantes :
 |--- | ---|
 |PostMessage|Publier un message dans un canal spécifié.|
 ## Créer une connexion à Slack
-Pour utiliser l’API Slack, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser le connecteur Slack, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -52,17 +52,13 @@ Suivez ces étapes pour vous connecter à Slack et terminer la configuration de 
 
 1. Sélectionnez **Périodicité**.
 2. Sélectionnez une **Fréquence** et entrez un **Intervalle**
-3. Sélectionnez **Ajouter une action**.
-![Configurer Slack][1]  
+3. Sélectionnez **Ajouter une action**. ![Configurer Slack][1]  
 4. Entrez Slack dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Slack dans leur nom
 5. Sélectionnez **Slack - Publier un message**
-6. Sélectionnez **Se connecter à Slack** :
-![Configurer Slack][2]
+6. Sélectionnez **Se connecter à Slack** : ![Configurer Slack][2]
 7. Entrez vos informations d’identification Slack pour vous connecter et autoriser l’application ![Configurer Slack][3]  
-8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Slack à interagir avec votre application logique :
-![Configurer Slack][5] 
-9. Une fois l’autorisation terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la section **Slack - Obtenir tous les messages**. Ajoutez les autres déclencheurs et actions dont vous avez besoin.
-![Configurer Slack][6]
+8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Slack à interagir avec votre application logique : ![Configurer Slack][5] 
+9. Une fois l’autorisation terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la section **Slack - Obtenir tous les messages**. Ajoutez les autres déclencheurs et actions dont vous avez besoin. ![Configurer Slack][6]
 10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.
 
 
@@ -485,4 +481,4 @@ Aucune des propriétés n’est obligatoire.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

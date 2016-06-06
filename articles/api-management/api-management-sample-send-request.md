@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/19/2016"
+	ms.date="05/25/2016"
 	ms.author="v-darmi"/>
 
 
@@ -24,7 +24,7 @@ Les stratégies disponibles dans le service de gestion des API Azure permettent 
 Nous avons vu précédemment comment interagir avec le service [Azure Event Hub pour la journalisation, la surveillance et l’analyse](api-management-log-to-eventhub-sample.md). Dans cet article, nous allons décrire les stratégies qui vous permettent d’interagir avec n’importe quel service HTTP externe. Ces stratégies peuvent être utilisées pour déclencher des événements à distance ou récupérer des informations servant à manipuler la requête d’origine et la réponse d’une certaine façon.
 
 ## Send-One-Way-Request (Envoyer une requête à sens unique)
-L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. Nous pouvons utiliser la stratégie de flux de contrôle `choose` pour détecter tout type de condition qui nous intéresse et puis, si la condition est remplie, nous pouvons effectuer une requête HTTP externe à l’aide de la stratégie [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie ont des API HTTP simples que nous pouvons facilement appeler.
+L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. Nous pouvons utiliser la stratégie de flux de contrôle `choose` pour détecter tout type de condition qui nous intéresse et puis, si la condition est remplie, nous pouvons effectuer une requête HTTP externe à l’aide de la stratégie [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie ont des API HTTP simples que nous pouvons facilement appeler.
 
 ### Alerte avec Slack
 L’exemple suivant montre comment envoyer un message à une salle de conversation Slack si le code d’état de la réponse HTTP est supérieur ou égal à 500. Une erreur incluse dans la plage 500 indique un problème avec notre API principale que le client de notre API ne peut pas résoudre lui-même. Elle nécessite généralement une intervention de notre part.
@@ -56,8 +56,8 @@ Slack inclut la notion de Webhook entrant. Quand vous configurez un Webhook entr
 
 ![Webhook Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
-### Le style « fire and forget » est-il suffisant ?
-L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison ou une autre, la requête échoue, alors l’échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constitue une meilleure option.
+### Le style « fire and forget » est-il suffisant ?
+L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison ou une autre, la requête échoue, alors l’échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constitue une meilleure option.
 
 ## Send-Request (Envoyer une requête)
 La stratégie `send-request` permet d’utiliser un service externe pour exécuter des fonctions de traitement complexes et retourner des données au service Gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
@@ -66,15 +66,15 @@ La stratégie `send-request` permet d’utiliser un service externe pour exécut
 Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](http://jwt.io/) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/active-directory-aadconnect.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Toutefois, certains serveurs d’autorisation créent des [jetons de référence](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) qui ne peuvent pas être vérifiés sans rappeler le serveur d’autorisation.
 
 ### Introspection normalisée
-Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence avec un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662), qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
+Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence avec un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662), qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
 
 ### Extraction du jeton
-La première étape consiste à extraire le jeton de l’en-tête d’autorisation. La valeur d’en-tête doit être mise en forme à l’aide du modèle d’autorisation `Bearer`, d’un seul espace, puis du jeton d’autorisation conformément à la norme [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, nous fractionnons la valeur d’en-tête sur un espace et sélectionnons la dernière chaîne dans le tableau de chaînes retourné. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
+La première étape consiste à extraire le jeton de l’en-tête d’autorisation. La valeur d’en-tête doit être mise en forme à l’aide du modèle d’autorisation `Bearer`, d’un seul espace, puis du jeton d’autorisation conformément à la norme [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, nous fractionnons la valeur d’en-tête sur un espace et sélectionnons la dernière chaîne dans le tableau de chaînes retourné. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
 
     <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
 ### Requête de validation
-Une fois que nous avons le jeton d’autorisation, nous pouvons faire la requête pour valider le jeton. La norme RFC 7662 appelle ce processus « introspection » et vous oblige à appliquer une commande `POST` de formulaire HTML à la ressource d’introspection. Le formulaire HTML doit contenir au moins une paire clé/valeur avec la clé `token`. Cette requête adressée au serveur d’autorisation doit également être authentifiée pour veiller à ce qu’aucun client malveillant ne puisse obtenir des jetons valides.
+Une fois que nous avons le jeton d’autorisation, nous pouvons faire la requête pour valider le jeton. La norme RFC 7662 appelle ce processus « introspection » et vous oblige à appliquer une commande `POST` de formulaire HTML à la ressource d’introspection. Le formulaire HTML doit contenir au moins une paire clé/valeur avec la clé `token`. Cette requête adressée au serveur d’autorisation doit également être authentifiée pour veiller à ce qu’aucun client malveillant ne puisse obtenir des jetons valides.
 
     <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
       <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
@@ -91,10 +91,10 @@ Une fois que nous avons le jeton d’autorisation, nous pouvons faire la requêt
 ### Vérification de la réponse
 L’attribut `response-variable-name` est utilisé pour accéder à la réponse retournée. Le nom défini dans cette propriété peut être utilisé comme clé dans le dictionnaire `context.Variables` pour accéder à l’objet `IResponse`.
 
-À partir de l’objet réponse, nous pouvons récupérer le corps et la norme RFC 7622 nous indique que la réponse doit être un objet JSON et contenir au moins une propriété appelée `active` qui est une valeur booléenne. Quand `active` a la valeur true, alors le jeton est considéré comme valide.
+À partir de l’objet réponse, nous pouvons récupérer le corps et la norme RFC 7622 nous indique que la réponse doit être un objet JSON et contenir au moins une propriété appelée `active` qui est une valeur booléenne. Quand `active` a la valeur true, alors le jeton est considéré comme valide.
 
 ### Signalement d’un échec
-Nous utilisons une stratégie `<choose>` pour détecter si le jeton n’est pas valide et le cas échéant, retourner une réponse 401.
+Nous utilisons une stratégie `<choose>` pour détecter si le jeton n’est pas valide et le cas échéant, retourner une réponse 401.
 
     <choose>
       <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
@@ -107,10 +107,10 @@ Nous utilisons une stratégie `<choose>` pour détecter si le jeton n’est pas 
       </when>
     </choose>
 
-Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) qui décrit comment les jetons `bearer` doivent être utilisés, nous retournons également un en-tête `WWW-Authenticate` avec la réponse 401. L’élément WWW-Authenticate a pour but d’informer un client sur la manière de créer une requête dûment autorisée. En raison de la grande variété d’approches possibles avec l’infrastructure OAuth2, il est difficile de communiquer toutes les informations nécessaires. Heureusement, tous les efforts sont déployés pour aider les [clients à découvrir comment autoriser correctement les requêtes adressées à un serveur de ressources](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) qui décrit comment les jetons `bearer` doivent être utilisés, nous retournons également un en-tête `WWW-Authenticate` avec la réponse 401. L’élément WWW-Authenticate a pour but d’informer un client sur la manière de créer une requête dûment autorisée. En raison de la grande variété d’approches possibles avec l’infrastructure OAuth2, il est difficile de communiquer toutes les informations nécessaires. Heureusement, tous les efforts sont déployés pour aider les [clients à découvrir comment autoriser correctement les requêtes adressées à un serveur de ressources](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### Solution finale
-En rassemblant tous les éléments, nous obtenons la stratégie suivante :
+En rassemblant tous les éléments, nous obtenons la stratégie suivante :
 
     <inbound>
       <!-- Extract Token from Authorization header parameter -->
@@ -162,7 +162,7 @@ Une fois l’opération `dashboard` créée, nous pouvons configurer une straté
 
 ![Opération de tableau de bord](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-La première étape consiste à extraire les paramètres de requête à partir de la requête entrante, de sorte à pouvoir les transférer vers notre serveur principal. Dans cet exemple, notre tableau de bord affiche des informations selon une période ; il comporte donc un paramètre `fromDate` et `toDate`. Nous pouvons utiliser la stratégie `set-variable` pour extraire les informations de l’URL de la requête.
+La première étape consiste à extraire les paramètres de requête à partir de la requête entrante, de sorte à pouvoir les transférer vers notre serveur principal. Dans cet exemple, notre tableau de bord affiche des informations selon une période ; il comporte donc un paramètre `fromDate` et `toDate`. Nous pouvons utiliser la stratégie `set-variable` pour extraire les informations de l’URL de la requête.
 
     <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
     <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -209,7 +209,7 @@ Pour construire la réponse composite, nous pouvons utiliser la stratégie [retu
       </set-body>
     </return-response>
 
-La stratégie complète se présente comme suit :
+La stratégie complète se présente comme suit :
 
     <policies>
     	<inbound>
@@ -269,4 +269,4 @@ Pour plus d'informations sur les stratégies [send-one-way-request](https://msdn
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

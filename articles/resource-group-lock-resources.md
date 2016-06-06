@@ -22,7 +22,7 @@ En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonneme
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou.
+Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou. Le verrou le plus restrictif de l’héritage est prioritaire.
 
 ## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
@@ -30,21 +30,21 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux act
 
 ## Création d’un verrou via le portail
 
-Dans le panneau Paramètres de la ressource, du groupe de ressources ou de l’abonnement que vous souhaitez verrouiller, sélectionnez **Verrous**.
+1. Dans le panneau Paramètres de la ressource, du groupe de ressources ou de l’abonnement que vous voulez verrouiller, sélectionnez **Verrous**.
 
-![sélectionner verrou](./media/resource-group-lock-resources/select-lock.png)
+      ![sélectionner verrou](./media/resource-group-lock-resources/select-lock.png)
 
-Pour ajouter un verrou, sélectionnez **Ajouter**. Si vous souhaitez plutôt créer un verrou à un niveau parent qui sera hérité par la ressource actuellement sélectionnée, sélectionnez le parent (par exemple, l’abonnement illustré ci-dessous).
+2. Pour ajouter un verrou, sélectionnez **Ajouter**. Si vous souhaitez plutôt créer un verrou à un niveau parent qui sera hérité par la ressource actuellement sélectionnée, sélectionnez le parent (par exemple, l’abonnement illustré ci-dessous).
 
-![ajouter verrou](./media/resource-group-lock-resources/add-lock.png)
+      ![ajouter verrou](./media/resource-group-lock-resources/add-lock.png)
 
-Choisissez un nom et un niveau de verrouillage pour le verrou. Si vous le souhaitez, vous pouvez ajouter des notes décrivant la raison pour laquelle le verrou est nécessaire.
+3. Choisissez un nom et un niveau de verrouillage pour le verrou. Si vous le souhaitez, vous pouvez ajouter des notes décrivant la raison pour laquelle le verrou est nécessaire.
 
-![définir verrou](./media/resource-group-lock-resources/set-lock.png)
+      ![définir verrou](./media/resource-group-lock-resources/set-lock.png)
 
-Pour supprimer le verrou, sélectionnez les points de suspension, puis **Supprimer** parmi les options disponibles.
+4. Pour supprimer le verrou, sélectionnez les points de suspension, puis sélectionnez **Supprimer** parmi les options disponibles.
 
-![supprimer verrou](./media/resource-group-lock-resources/delete-lock.png)
+      ![supprimer verrou](./media/resource-group-lock-resources/delete-lock.png)
 
 ## Création d’un verrou dans un modèle
 
@@ -108,4 +108,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

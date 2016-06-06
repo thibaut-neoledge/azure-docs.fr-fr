@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Analyse des données Twitter avec Hive dans HDInsight
@@ -128,7 +128,7 @@ Dans ce didacticiel, vous allez utiliser Windows PowerShell pour effectuer un ap
 		Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
 
 		Write-Host "Define the Azure storage connection string ..." -ForegroundColor Green
-		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName |  %{ $_.Key1 }
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
 		Write-Host "`tThe connection string is $storageConnectionString." -ForegroundColor Yellow
 
@@ -407,7 +407,7 @@ Le script HiveQL exécutera les opérations suivantes :
 		Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 		
 		Write-Host "Define the connection string ..." -ForegroundColor Green
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName | %{$_.key1}
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 		
 		Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
@@ -474,7 +474,7 @@ Utilisez le script Windows PowerShell suivant pour exécuter le script Hive. Vou
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
@@ -509,7 +509,7 @@ Exécutez le script Windows PowerShell suivant pour vérifier la sortie de la t�
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
 	Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
@@ -568,4 +568,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

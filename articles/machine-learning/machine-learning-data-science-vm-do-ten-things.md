@@ -404,7 +404,7 @@ Si vos données se trouvent dans Azure Blob Storage, vous pouvez les lire direct
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données de stockage d’objets blob, utilisez **wasb://** ; lorsque vous référencez les données d’Azure Data Lake, utilisez **swbhdfs://**
+Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données de stockage d’objets blob, utilisez ****wasb://** ; lorsque vous référencez les données d’Azure Data Lake, utilisez ****swbhdfs://**
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -910,4 +910,4 @@ Vous pouvez tirer parti des autres services de données et d’analyse Azure pr�
 ## Résumé
 Ce sont quelques-unes des actions possibles sur la machine virtuelle pour la science des données Microsoft. Il existe bien d'autres actions que vous pouvez effectuer pour en faire un environnement d'analyse efficace.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

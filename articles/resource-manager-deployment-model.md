@@ -22,9 +22,9 @@ Dans cette rubrique, vous allez découvrir le modèle de déploiement Azure Reso
 
 Pour la plupart des ressources, vous pouvez passer à Resource Manager sans aucun problème. Cependant, certains fournisseurs de ressources offrent deux versions de la ressource (une pour le modèle classique et une pour Resource Manager) en raison des différences d’architecture entre les modèles. Les fournisseurs de ressources qui font la différence entre les deux modèles sont :
 
-- **Calcul** : il prend en charge les instances de machines virtuelles et les groupes à haute disponibilité facultatifs.
-- **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
-- **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
+- **Calcul** : il prend en charge les instances de machines virtuelles et les groupes à haute disponibilité facultatifs.
+- **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
+- **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
 
 Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Si vous êtes prêt à migrer vos ressources d’un déploiement classique vers un déploiement Resource Manager, consultez [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
 
@@ -40,7 +40,7 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d’utiliser le Gestionnaire des ressources ou le déploiement classique. Sélectionnez **Gestionnaire des ressources**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -87,7 +87,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement classique (pour les catégories Calcul, Stockage et Mise en réseau)
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -109,7 +109,7 @@ Voici les composants et leurs relations concernant Azure Service Management.
 
 ## Avantages de l’utilisation de Resource Manager et de groupes de ressources
 
-Resource Manager a ajouté le concept de groupe de ressources. Chaque ressource que vous créez via Resource Manager existe dans un groupe de ressources. Le modèle de déploiement de Resource Manager présente plusieurs avantages :
+Resource Manager a ajouté le concept de groupe de ressources. Chaque ressource que vous créez via Resource Manager existe dans un groupe de ressources. Le modèle de déploiement Resource Manager présente plusieurs avantages :
 
 - Vous pouvez déployer, gérer et surveiller tous les services de votre solution comme un groupe, plutôt que de gérer ces services individuellement.
 - Vous pouvez déployer votre application à plusieurs reprises tout au long du cycle de vie de l’application et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
@@ -175,4 +175,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la structure des modèles Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

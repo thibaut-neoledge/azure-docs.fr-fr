@@ -1,7 +1,7 @@
 <properties
    pageTitle="Meilleures pratiques en matière de mises à jour logicielles sur Microsoft Azure IaaS | Microsoft Azure"
    description="L’article offre un ensemble de meilleures pratiques pour les mises à jour logicielles dans un environnement Microsoft Azure IaaS. Il est destiné aux professionnels de l’informatique et analystes de sécurité qui s’occupent au quotidien de la gestion du changement, la mise à jour du logiciel et la gestion des actifs, et notamment, des responsables en charge de la sécurité et de la conformité de l’organisation."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
@@ -9,12 +9,12 @@
    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2016"
+   ms.date="05/23/2016"
    ms.author="yurid"/>
 
 #Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS
@@ -119,4 +119,4 @@ Outre les considérations générales expliquées dans cet article, vous devez p
 
 Utilisez les directives décrites dans cet article pour déterminer les meilleures options de mises à jour logicielles de machines virtuelles au sein d’IaaS Azure. Il existe de nombreuses similitudes entre les pratiques recommandées de mise à jour de logiciel dans un centre de données traditionnel et Azure IaaS, et il est par conséquent recommandé d’évaluer vos stratégies de mise à jour logicielle en cours pour inclure des machines virtuelles Azure et les meilleures pratiques figurant dans cet article dans votre processus de mise à jour logicielle globale.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

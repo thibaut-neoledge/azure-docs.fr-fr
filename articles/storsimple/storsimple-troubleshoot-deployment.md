@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Résolution des problèmes de déploiement d’un appareil StorSimple
@@ -21,7 +21,7 @@
 
 Cet article fournit des conseils de dépannage utiles pour votre déploiement de Microsoft Azure StorSimple. Il décrit les problèmes courants, les causes possibles et les étapes recommandées pour vous aider à résoudre les problèmes que vous pouvez rencontrer lorsque vous configurez StorSimple. Ces informations s’appliquent à l’appareil physique local StorSimple et à l’appareil virtuel StorSimple.
 
-> [AZURE.NOTE]Les problèmes liés à la configuration de l’appareil que vous êtes susceptible de rencontrer peuvent se produire lorsque vous déployez l’appareil pour la première fois ou ultérieurement, lorsque l’appareil est opérationnel. Cet article se concentre sur la résolution des problèmes qui surviennent lors du premier déploiement. Pour résoudre les problèmes d’un appareil opérationnel, consultez la page [Résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
+> [AZURE.NOTE] Les problèmes liés à la configuration de l’appareil que vous êtes susceptible de rencontrer peuvent se produire lorsque vous déployez l’appareil pour la première fois ou ultérieurement, lorsque l’appareil est opérationnel. Cet article se concentre sur la résolution des problèmes qui surviennent lors du premier déploiement. Pour résoudre les problèmes d’un appareil opérationnel, consultez la page [Résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
 
 Cet article décrit également les outils de résolution des problèmes de déploiements StorSimple et fournit un exemple pas à pas de dépannage.
 
@@ -51,7 +51,7 @@ Les étapes suivantes résument le processus de l’Assistant Installation. Pour
   - Le mot de passe Administrateur est utilisé pour ouvrir une session sur votre appareil. Le mot de passe par défaut de l’appareil est **Password1**.
   - Lorsque vous configurez un appareil pour utiliser le Gestionnaire d’instantanés StorSimple, vous devez fournir le mot de passe du gestionnaire. Vous devez tout d’abord définir le mot de passe dans l’Assistant Installation, puis vous pouvez le définir et le modifier à partir du service StorSimple Manager. Ce mot de passe authentifie l’appareil auprès du gestionnaire d’instantanés StorSimple.
  
-    > [AZURE.IMPORTANT]Les mots de passe sont collectés avant l’inscription, mais appliqués seulement après que vous avez inscrit correctement l’appareil. En cas de non-application d’un mot de passe, vous devez fournir le mot de passe à nouveau jusqu’à ce que les mots de passe requis (qui répondent aux exigences de complexité) soient collectés.
+    > [AZURE.IMPORTANT] Les mots de passe sont collectés avant l’inscription, mais appliqués seulement après que vous avez inscrit correctement l’appareil. En cas de non-application d’un mot de passe, vous devez fournir le mot de passe à nouveau jusqu’à ce que les mots de passe requis (qui répondent aux exigences de complexité) soient collectés.
 
 4. Inscrivez l’appareil : la dernière étape consiste à inscrire l’appareil auprès du service StorSimple Manager en cours d’exécution dans Microsoft Azure. L’inscription vous oblige à [obtenir la clé d’inscription](storsimple-manage-service.md#get-the-service-registration-key) à partir du portail Azure Classic et à le fournir dans l’Assistant Installation. Une fois que l’appareil est inscrit correctement, une clé de chiffrement des données du service vous est fournie. Veillez à conserver cette clé de chiffrement dans un emplacement sûr, car elle sera nécessaire pour inscrire tous les autres appareils auprès du service.
 
@@ -72,9 +72,9 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 2 | Invoke-HcsSetupWizard : l’appareil n’est pas prêt. | Il existe des problèmes liés à la connectivité réseau sur DATA 0.| Vérifiez la connectivité réseau physique sur DATA 0.|
 | 3 | Invoke-HcsSetupWizard : il existe un conflit d’adresses IP avec un autre système sur le réseau (exception de HRESULT : 0x80070263). | L’adresse IP fournie pour DATA 0 était déjà utilisée par un autre système. | Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation.|
 | 4 | Invoke-HcsSetupWizard : échec de la ressource de cluster (exception de HRESULT : 0x800713AE). | Adresse IP virtuelle en double. L’adresse IP fournie est déjà en cours d’utilisation.| Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation.|
-| 5. | Invoke-HcsSetupWizard : adresse IPv4 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
-| 6. | Invoke-HcsSetupWizard : adresse IPv6 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2].|
-| 7. | Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) | La fonctionnalité de cluster ne fonctionne pas. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
+| 5\. | Invoke-HcsSetupWizard : adresse IPv4 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
+| 6\. | Invoke-HcsSetupWizard : adresse IPv6 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2].|
+| 7 | Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) | La fonctionnalité de cluster ne fonctionne pas. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Erreurs pendant la configuration des paramètres de proxy web facultatifs
 
@@ -84,7 +84,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 2 | Invoke-HcsSetupWizard : serveur RPC non disponible (exception de HRESULT : 0x800706ba). | La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif, et la commande est exécutée à partir du contrôleur passif.</li></ol> | Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) si cette connectivité est interrompue.</li></ol> |
 | 3 | Invoke-HcsSetupWizard : l’appel RPC a échoué (exception de HRESULT : 0x800706be). | Le cluster est arrêté. | [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.|
 | 4 | Invoke-HcsSetupWizard : ressource de cluster introuvable (exception de HRESULT : 0x8007138f). | Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. | Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour créer une ressource de cluster.|
-| 5. | Invoke-HcsSetupWizard : ressource de cluster pas en ligne (exception de HRESULT : 0x8007138c).| Les ressources de cluster ne sont pas en ligne. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).|
+| 5\. | Invoke-HcsSetupWizard : ressource de cluster pas en ligne (exception de HRESULT : 0x8007138c).| Les ressources de cluster ne sont pas en ligne. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).|
 
 ## Erreurs liées aux mots de passe d’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple
 
@@ -109,15 +109,15 @@ Vous pouvez rencontrer une ou plusieurs des erreurs suivantes lorsque vous confi
 | 2 | Le mot de passe ne respecte pas la longueur requise. | Utilisez un mot de passe qui répond à ces exigences :<ul><li>Le mot de passe Administrateur de votre appareil doit comporter entre 8 et 15 caractères.</li><li>Le mot de passe du Gestionnaire d’instantanés StorSimple doit comporter 14 ou 15 caractères.</lu></ul> |
 | 3 | Le mot de passe doit contenir des caractères en minuscules. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
 | 4 | Le mot de passe doit contenir des caractères numériques. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
-| 5. | Le mot de passe doit contenir des caractères spéciaux. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
-| 6. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. | Votre mot de passe ne contient pas les types de caractères requis. Assurez-vous que votre mot de passe répond à ces exigences. |
-| 7. | Le paramètre ne correspond pas à la confirmation. | Assurez-vous que votre mot de passe répond à toutes les exigences et que vous l’avez entré correctement. |
-| 8. | Votre mot de passe ne peut pas correspondre au mot de passe par défaut. | Le mot de passe par défaut est *Password1*. Vous devez modifier ce mot de passe après votre première connexion. |
-| 9. | Le mot de passe que vous avez entré ne correspond pas au mot de passe de l’appareil. Retapez le mot de passe. | Vérifiez le mot de passe et retapez-le. |
+| 5\. | Le mot de passe doit contenir des caractères spéciaux. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
+| 6\. | Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. | Votre mot de passe ne contient pas les types de caractères requis. Assurez-vous que votre mot de passe répond à ces exigences. |
+| 7\. | Le paramètre ne correspond pas à la confirmation. | Assurez-vous que votre mot de passe répond à toutes les exigences et que vous l’avez entré correctement. |
+| 8\. | Votre mot de passe ne peut pas correspondre au mot de passe par défaut. | Le mot de passe par défaut est *Password1*. Vous devez modifier ce mot de passe après votre première connexion. |
+| 9\. | Le mot de passe que vous avez entré ne correspond pas au mot de passe de l’appareil. Retapez le mot de passe. | Vérifiez le mot de passe et retapez-le. |
 
 Les mots de passe sont collectés avant l’inscription de l’appareil, mais appliqués seulement une fois que l’inscription a réussi. Le flux de travail de récupération de mot de passe nécessite que l’appareil soit inscrit.
 
-> [AZURE.IMPORTANT]En général, si une tentative d’application d’un mot de passe échoue, le logiciel essaie à plusieurs reprises de collecter le mot de passe jusqu’à ce que son application réussisse. Dans de rares circonstances, le mot de passe ne peut pas être appliqué. Dans ce cas, vous pouvez inscrire l’appareil et continuer ; cependant, les mots de passe ne sont pas modifiés. Vous ne recevez aucune indication spécifiant quel mot de passe n’a pas été modifié : le mot de passe Administrateur ou le mot de passe du Gestionnaire d’instantanés StorSimple. Si cette situation se produit, nous vous recommandons de modifier les deux mots de passe.
+> [AZURE.IMPORTANT] En général, si une tentative d’application d’un mot de passe échoue, le logiciel essaie à plusieurs reprises de collecter le mot de passe jusqu’à ce que son application réussisse. Dans de rares circonstances, le mot de passe ne peut pas être appliqué. Dans ce cas, vous pouvez inscrire l’appareil et continuer ; cependant, les mots de passe ne sont pas modifiés. Vous ne recevez aucune indication spécifiant quel mot de passe n’a pas été modifié : le mot de passe Administrateur ou le mot de passe du Gestionnaire d’instantanés StorSimple. Si cette situation se produit, nous vous recommandons de modifier les deux mots de passe.
 
 Vous pouvez réinitialiser les mots de passe à partir du portail Azure Classic via le service Manager. Pour plus d'informations, accédez à :
 
@@ -131,14 +131,15 @@ Vous utilisez le service StorSimple Manager en cours d’exécution dans Microso
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
 | 1 | Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Manager. | | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).|
-| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](storsimple-manage-service.md#get-the-service-registration-key) |
+| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [
+Obtenir la clé d’inscription de service.](storsimple-manage-service.md#get-the-service-registration-key) |
 | 3 | Erreur 350063 : l’authentification auprès du service StorSimple Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. | Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. | Si le problème persiste, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md). |
 | 4 | Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. | Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu avec une nouvelle tentative ultérieure de l’opération. | Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md). | 
-| 5. | Erreur 350031 : L’appareil a déjà été inscrit. | | Aucune action requise. |
-| 6. | Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
-| 7. | Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md). (Erreur 350050) | Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>Adresse IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> | Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
+| 5\. | Erreur 350031 : L’appareil a déjà été inscrit. | | Aucune action requise. |
+| 6\. | Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
+| 7\. | Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md). (Erreur 350050) | Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>Adresse IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> | Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
 | 8 | Invoke-HcsSetupWizard : échec de l’opération en cours en raison d’une erreur de service interne [0x1FBE2]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. | Il s’agit d’une erreur générique levée pour toutes les erreurs du service ou de l’agent invisibles pour l’utilisateur. La raison la plus courante est un échec de l’authentification ACS. Une cause possible de l’échec est l’existence de problèmes avec la configuration du serveur NTP et un paramétrage incorrect de l’heure sur l’appareil. | Corrigez l’heure (s’il existe des problèmes), puis réessayez l’opération d’inscription. Si le problème persiste, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour les étapes suivantes. |
-| 9. | Avertissement : impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. | Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. |
+| 9\. | Avertissement : impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. | Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. |
 
 ## Outils de résolution des problèmes de déploiement de StorSimple
 
@@ -163,7 +164,7 @@ Un package de prise en charge contient tous les journaux pertinents qui peuvent 
   1. Exécutez la commande **eventvwr** sur votre client Windows. L’Observateur d’événements démarre.
   2. Dans le volet **Actions**, cliquez sur **Ouvrir le journal enregistré** et pointez sur les fichiers journaux au format etvx/etw (le package de prise en charge). Vous pouvez maintenant consulter le fichier. Après avoir ouvert le fichier, vous pouvez cliquer avec le bouton droit et enregistrer le fichier au format texte.
    
-    > [AZURE.IMPORTANT]Vous pouvez également utiliser l’applet de commande **Get-WinEvent** pour ouvrir ces fichiers dans Windows PowerShell. Pour plus d’informations, consultez la page [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) dans la documentation de référence des applets de commande Windows PowerShell.
+    > [AZURE.IMPORTANT] Vous pouvez également utiliser l’applet de commande **Get-WinEvent** pour ouvrir ces fichiers dans Windows PowerShell. Pour plus d’informations, consultez la page [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) dans la documentation de référence des applets de commande Windows PowerShell.
 
 5. Une fois les journaux ouverts dans l’Observateur d’événements, recherchez les journaux ci-dessous ; ceux-ci contiennent les problèmes liés à la configuration de l’appareil :
 
@@ -263,7 +264,7 @@ Vous devez activer la commande ping pour résoudre les problèmes de connectivit
 
 Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-Connection`.
 
-> [AZURE.NOTE]Dans le premier exemple, l’appareil est configuré avec un paramètre DNS incorrect. Dans le deuxième exemple, le paramètre DNS est correct.
+> [AZURE.NOTE] Dans le premier exemple, l’appareil est configuré avec un paramètre DNS incorrect. Dans le deuxième exemple, le paramètre DNS est correct.
  
 **Exemple de sortie – DNS incorrect**
 
@@ -330,7 +331,7 @@ Les fichiers journaux CiSCommandletLog0Curr.errlog et CiSAgentsvc0Curr.errlog co
 
 Pour plus d’informations sur l’utilisation de l’applet de commande, accédez à la page [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) dans la documentation de référence de Windows PowerShell.
 
-> [AZURE.IMPORTANT]Vous pouvez exécuter cette applet de commande pour le contrôleur passif et actif.
+> [AZURE.IMPORTANT] Vous pouvez exécuter cette applet de commande pour le contrôleur passif et actif.
  
 Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-HcsmConnection`.
 
@@ -539,11 +540,11 @@ L’erreur peut provenir des éléments suivants :
 
 1. Vérifiez la configuration de l’appareil : sur le contrôleur actif, exécutez `Invoke-HcsSetupWizard`.
 
-     >[AZURE.NOTE]L’Assistant Installation doit s’exécuter sur le contrôleur actif. Pour vérifier que vous êtes connecté au contrôleur actif, examinez la bannière présentée dans la console série. La bannière indique si vous êtes connecté au contrôleur 0 ou 1, et si le contrôleur est actif ou passif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+     > [AZURE.NOTE] L’Assistant Installation doit s’exécuter sur le contrôleur actif. Pour vérifier que vous êtes connecté au contrôleur actif, examinez la bannière présentée dans la console série. La bannière indique si vous êtes connecté au contrôleur 0 ou 1, et si le contrôleur est actif ou passif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
 2. Assurez-vous que l’appareil est câblé correctement : vérifiez le câblage sur le panneau arrière de l’appareil. Le câblage est spécifique au modèle d’appareil. Pour plus d’informations, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-     >[AZURE.NOTE]Si vous utilisez des ports réseau 10 GbE, vous devez utiliser les adaptateurs QSFP-SFP et les câbles SFP fournis. Pour plus d’informations, consultez la [liste des câbles, commutateurs et transmetteurs recommandés par le fournisseur OEM pour les ports Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     > [AZURE.NOTE] Si vous utilisez des ports réseau 10 GbE, vous devez utiliser les adaptateurs QSFP-SFP et les câbles SFP fournis. Pour plus d’informations, consultez la [liste des câbles, commutateurs et transmetteurs recommandés par le fournisseur OEM pour les ports Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
 3. Vérifiez l’intégrité de l’interface réseau :
 
@@ -561,7 +562,7 @@ L’erreur peut provenir des éléments suivants :
   - Réexécutez l’Assistant Installation (exécutez **Invoke-HcsSetupWizard**), puis entrez de nouveau les valeurs pour vous assurer qu’il n’y a pas d’erreur. 
   - Vérifiez la clé d’inscription utilisée. La même clé d’inscription peut servir à connecter plusieurs appareils à un service StorSimple Manager. Utilisez la procédure décrite dans la section [Obtenir la clé d’inscription](storsimple-manage-service.md#get-the-service-registration-key) pour vous assurer que vous utilisez la clé d’inscription correcte.
 
-    > [AZURE.IMPORTANT]Si vous avez plusieurs services en cours d’exécution, vous devez vous assurer que la clé d’inscription du service approprié est utilisée pour inscrire l’appareil. Si vous avez inscrit un appareil avec le service StorSimple Manager incorrect, vous devez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) pour connaître les étapes suivantes. Vous devrez peut-être rétablir les paramètres d’usine de l’appareil (ce qui peut entraîner une perte de données) pour le connecter ensuite au service prévu.
+    > [AZURE.IMPORTANT] Si vous avez plusieurs services en cours d’exécution, vous devez vous assurer que la clé d’inscription du service approprié est utilisée pour inscrire l’appareil. Si vous avez inscrit un appareil avec le service StorSimple Manager incorrect, vous devez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) pour connaître les étapes suivantes. Vous devrez peut-être rétablir les paramètres d’usine de l’appareil (ce qui peut entraîner une perte de données) pour le connecter ensuite au service prévu.
 
 6. Utilisez l’applet de commande Test-Connection pour vérifier que vous disposez d’une connectivité vers le réseau externe. Pour plus d’informations, consultez la section [Dépannage avec l’applet de commande Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
@@ -579,4 +580,4 @@ L’erreur peut provenir des éléments suivants :
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!------HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0525_2016-->

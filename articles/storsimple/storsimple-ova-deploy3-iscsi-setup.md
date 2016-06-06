@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli" />
 
 
@@ -43,7 +43,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 -  [Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [Étape 2 : Finalisation de la configuration requise pour l’appareil](#step-2-complete-the-required-device-setup)
 -  [Étape 3 : Ajout d’un volume](#step-3-add-a-volume)
--  [Étape 4 : Montage, initialisation et formatage d’un volume](#step-4-mount-initialize-and-format-a-volume)  
+-  [Étape 4 : Montage, initialisation et formatage d’un volume](#step-4-mount-initialize-and-format-a-volume)  
 
 ## Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil 
 
@@ -79,7 +79,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     2. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
 
-6. Sur la page **Paramètres de l’appareil** :
+6. Sur la page **Paramètres de l’appareil** :
 
     1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
 
@@ -104,17 +104,17 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![configuration du proxy web](./media/storsimple-ova-deploy3-iscsi-setup/image9.png)
 
-    Dans la page **Proxy web** :
+    Dans la page **Proxy web** :
 
-    1. Indiquez l’**URL du proxy web** au format suivant : *adressehttp://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+    1. Indiquez l’**URL du proxy web** au format suivant : *adressehttp://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
-    2. Définissez **Authentification** sur **De base**, **NTLM** ou **Aucune**.
+    2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
 
     3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
 
     4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
  
-8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
+8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
 
     ![paramètres d’heure](./media/storsimple-ova-deploy3-iscsi-setup/image10.png)
 
@@ -130,9 +130,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 9. Configurez les paramètres de cloud de votre appareil. Dans cette étape, vous allez finaliser la configuration de l’appareil local puis inscrire l'appareil auprès du service StorSimple Manager.
 
-    1. Entrez la **clé d’inscription de service** que vous avez obtenue à l’**étape 2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Entrez la **clé d’inscription de service** que vous avez obtenue à l’**étape2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’[obtenir la clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
+    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
 
     3. Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
 
@@ -144,7 +144,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 ## Étape 2 : Finalisation de la configuration requise pour l’appareil
 
-Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
+Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
 
 - Sélectionner un compte de stockage à associer à votre appareil.
 
@@ -158,11 +158,11 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le p
 
     ![Page Appareils](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
-2. Cliquez sur **terminer l’installation de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
+2. Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
 
     ![Assistant Configurer l’appareil](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. Dans l’Assistant Configurer l’appareil, dans la page **Paramètres de base**, procédez comme suit :
+3. Dans l’Assistant Configurer l’appareil, sur la page **Paramètres de base**, procédez comme suit :
 
    1. Spécifiez un compte de stockage à utiliser avec votre appareil. Dans cet abonnement, vous pouvez sélectionner un compte de stockage existant dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d’un autre abonnement.
 
@@ -202,7 +202,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
     5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-ova-deploy3-iscsi-setup/image18.png) pour passer à la page suivante.
 
-3. Dans la page **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d'accès (ACR) :
+3. Dans la page **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d'accès (ACR) :
 
     1. Saisissez un **Nom** pour votre ACR.
 
@@ -222,7 +222,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
         ![](./media/storsimple-ova-deploy3-iscsi-setup/image21.png)
 
-## Étape 4 : Montage, initialisation et formatage d’un volume
+## Étape 4 : Montage, initialisation et formatage d’un volume
 
 Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple sur un hôte Windows Server.
 
@@ -236,13 +236,13 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
 3. Dans la boîte de dialogue **Détecter un portail cible**, indiquez l’adresse IP de votre interface réseau compatible iSCSI, puis cliquez sur **OK**.
 
-    ![Adresse IP](./media/storsimple-ova-deploy3-iscsi-setup/image23.png)
+    ![Adresse IP](./media/storsimple-ova-deploy3-iscsi-setup/image23.png)
 
 4. Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Cibles**, recherchez les **cibles découvertes**. (Chaque volume sera une cible découverte). L’appareil doit apparaître comme **inactif**.
 
     ![cibles découvertes](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. (Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez la rubrique [Installation et configuration de l’initiateur Microsoft iSCSI][1].)
+5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez la rubrique [Installation et configuration de l’initiateur Microsoft iSCSI][1].
 
     ![sélectionner un appareil cible](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -284,11 +284,11 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
 ## Étapes suivantes
 
-Découvrez comment utiliser l’interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Annexe A : Obtention du nom qualifié d’un hôte Windows Server
 
-Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Windows exécutant Windows Server 2012.
+Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Windows exécutant Windows Server 2012.
 
 #### Pour obtenir le nom qualifié d’un hôte Windows
 
@@ -303,4 +303,4 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -374,7 +374,7 @@ Vous pouvez exécuter la commande suivante pour importer des entités dans une t
 
 ### Copier uniquement les données qui n’existent pas dans la destination
 
-Les paramètres `/XO` et `/XN` vous permettent d’exclure les ressources source plus anciennes ou plus récentes d’être copiées respectivement. Si vous souhaitez copier uniquement des ressources de code source qui n’existent pas dans la destination, vous pouvez spécifier les deux paramètres dans la commande AzCopy :
+Les paramètres `/XO` et `/XN` vous permettent d’exclure les ressources source plus anciennes ou plus récentes d’être copiées respectivement. Non pris en charge lorsque la source ou la destination est une table. Si vous souhaitez copier uniquement des ressources de code source qui n’existent pas dans la destination, vous pouvez spécifier les deux paramètres dans la commande AzCopy :
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -864,4 +864,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, reportez-vous aux ressou
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

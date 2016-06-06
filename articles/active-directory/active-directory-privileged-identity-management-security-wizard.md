@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Assistant Sécurité d’Azure AD Privileged Identity Management
@@ -26,10 +26,10 @@ Avant le démarrage de votre organisation à l’aide de PIM, toutes les attribu
 
 La deuxième étape de l’Assistant vous donne la possibilité de modifier les attributions du rôle d’administrateur.
 
-> [AZURE.WARNING] Il est important de disposer d’au moins un administrateur général et plusieurs administrateurs de sécurité avec un compte professionnel ou scolaire (et non un compte Microsoft). S’il n’existe qu’un seul administrateur de sécurité, l’organisation ne sera pas en mesure d’utiliser PIM si ce compte est supprimé. N’attribuez pas non plus des rôles de manière temporaire si un utilisateur possède un compte Microsoft. Si vous envisagez d’exiger une authentification multifacteur (MFA) pour l’activation de ce rôle, cet utilisateur est exclu de ce rôle.
+> [AZURE.WARNING] Il est important de disposer d’au moins un administrateur général et plusieurs administrateurs de rôle privilégié avec un compte professionnel ou scolaire (et non un compte Microsoft). S’il n’existe qu’un seul administrateur de rôle privilégié, l’organisation ne pourra pas utiliser PIM si ce compte est supprimé. N’attribuez pas non plus des rôles de manière temporaire si un utilisateur possède un compte Microsoft. Si vous envisagez d’exiger une authentification multifacteur (MFA) pour l’activation de ce rôle, cet utilisateur est exclu de ce rôle.
 
 
-Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche plus. La prochaine fois que vous ou un autre administrateur de sécurité utiliserez PIM, vous verrez le tableau de bord de PIM.
+Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche plus. La prochaine fois que vous ou un autre administrateur de rôle privilégié utiliserez PIM, vous verrez le tableau de bord de PIM.
 
 - Si vous souhaitez ajouter des utilisateurs dans des rôles ou en supprimer, ou encore modifier des affectations de l’état permanent à l’état temporaire, consultez la rubrique [Comment ajouter ou supprimer un rôle d’utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user.md) pour en savoir plus.
 - Si vous souhaitez autoriser plus d’utilisateurs à gérer PIM, consultez la rubrique expliquant [comment affecter un accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md) pour en savoir plus.
@@ -39,4 +39,4 @@ Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

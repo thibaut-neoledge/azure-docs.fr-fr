@@ -14,7 +14,7 @@
    ms.workload="data-services"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="05/16/2016"
    ms.author="neerajkh"/>
 
 # Mise à l’échelle du service web
@@ -43,4 +43,4 @@ Pour ajouter de nouveaux points de terminaison, consultez [Création de points d
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -87,9 +87,9 @@ Maintenant que vous avez eu l'occasion d'essayer certaines requêtes avec des ex
 [migration du code]: ./sql-data-warehouse-migrate-code.md
 [create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [installer bcp]: ./sql-data-warehouse-load-with-bcp.md
-[installer sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
+[installer sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Exemples de scripts Adventure Works pour SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

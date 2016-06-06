@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -35,7 +35,6 @@ Le mécanisme de tarification que vous choisissez a une incidence sur les élém
 
 * [Quota mensuel](#monthly-quota) : volume de données de télémétrie que vous pouvez analyser chaque mois.
 * [Débit de données](#data-rate) : vitesse de traitement maximale des données de votre application.
-* [Rétention](#data-retention) : durée pendant laquelle les données sont conservées dans le portail Application Insights à votre intention.
 * [Exportation continue](#continuous-export) : possibilité ou non d’exporter des données vers d’autres outils et services.
 
 Ces limites sont définies séparément pour chacune des ressources Application Insights.
@@ -86,7 +85,7 @@ Le graphique au bas du panneau de tarification illustre le volume des points de 
 
 Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier et cliquez sur (+) pour obtenir des informations sur une période.
 
-Le graphique affiche le volume de données qui arrive au niveau du service Application Insights, après l’[échantillonnage](app-insights-sampling.md).
+Le graphique montre le volume de données qui arrive au niveau du service Application Insights après l’[échantillonnage](app-insights-sampling.md).
 
 
 ## Débit de données
@@ -98,8 +97,6 @@ Il existe trois compartiments qui sont comptabilisés séparément :
 * [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
 * [exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitées à 50 points/s ;
 * toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés et résultats des tests web).
-
-
 
 
 
@@ -120,33 +117,18 @@ En cas de limitation, vous en êtes informé par un avertissement.
 Si vous rencontrez les seuils de limitation, voici quelques opérations à effectuer :
 
 * Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche.
-* [Limitez le nombre d'appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
+* [Limitez le nombre d’appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
-### Limites de nom
-
-1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les métriques comprennent les données envoyées via TrackMetric, ainsi que des mesures sur d’autres types de données tels que des événements. Les [noms de mesure et de propriété][api] sont globaux pour chaque clé d’instrumentation et ne s’étendent pas au type de données.
-2.	Les [propriétés][apiproperties] peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
-3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
-
-## Conservation des données
-
-Votre niveau de tarification détermine la durée de conservation des données dans le portail, et donc les intervalles de temps les plus éloignés dont vous pouvez consulter les données.
-
-
-* Les points de données bruts (autrement dit, les instances que vous pouvez inspecter dans Recherche de diagnostic) : 7 jours.
-* Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant 90 mois.
-
-
 ## Échantillonnage
 
-L’[échantillonnage](app-insights-sampling.md) est une méthode vous permettant de réduire les données de télémétrie conservées par votre application, tout en conservant la capacité de trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. L’échantillonnage vous permet de respecter votre quota mensuel.
+L’[échantillonnage](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. L’échantillonnage vous permet de respecter votre quota mensuel.
 
-Il existe plusieurs formes d’échantillonnage. Nous vous recommandons d’utiliser l’[échantillonnage adaptatif](app-insights-sampling.md), qui s’ajuste automatiquement au volume de télémétrie que votre application envoie. Il fonctionne dans le Kit de développement logiciel (SDL) de votre application web, afin de réduire le trafic de télémétrie sur le réseau. Vous pouvez l’utiliser si l’infrastructure de votre application web est .NET : installez la dernière version (bêta) du Kit de développement logiciel (SDK).
+Il existe plusieurs formes d’échantillonnage. Nous vous recommandons d’utiliser l’[échantillonnage adaptatif](app-insights-sampling.md), qui s’ajuste automatiquement au volume de données de télémétrie envoyées par votre application. Il fonctionne dans le Kit de développement logiciel (SDL) de votre application web, afin de réduire le trafic de télémétrie sur le réseau. Vous pouvez l’utiliser si l’infrastructure de votre application web est .NET : installez la dernière version (bêta) du Kit de développement logiciel (SDK).
 
-Comme alternative, vous pouvez définir l’*échantillonnage d’ingestion* dans le panneau Quotas et tarification. Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. Il n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service.
+En guise d’alternative, vous pouvez définir l’*échantillonnage d’ingestion* dans le panneau Quotas et tarification. Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. Il n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service.
 
 ![Dans le panneau Quotas et tarification, cliquez sur la vignette Exemples et sélectionnez une fraction d’échantillonnage.](./media/app-insights-pricing/04.png)
 
@@ -158,6 +140,15 @@ L’échantillonnage est un moyen efficace de réduire les coûts et de respecte
 Les frais liés à Application Insights sont ajoutés à votre facture Azure. Les informations relatives à votre facture Azure s’affichent dans la section Facturation du portail Azure ou sur le [portail de facturation Azure](https://account.windowsazure.com/Subscriptions).
 
 ![Dans le menu latéral, choisissez Facturation.](./media/app-insights-pricing/02-billing.png)
+
+
+
+## Limites de nom
+
+1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les métriques comprennent les données envoyées via TrackMetric, ainsi que des mesures sur d’autres types de données tels que des événements. Les [noms de mesure et de propriété][api] sont globaux pour chaque clé d’instrumentation et ne s’étendent pas au type de données.
+2.	Les [propriétés][apiproperties] peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
+3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
+
 
 ## Synthèse des limites
 
@@ -173,4 +164,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

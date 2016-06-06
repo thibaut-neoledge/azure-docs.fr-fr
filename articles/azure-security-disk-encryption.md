@@ -1,19 +1,19 @@
 <properties
    pageTitle="Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS| Microsoft Azure"
    description="Le document offre une vue d’ensemble du chiffrement de disque Microsoft Azure pour les machines virtuelles IaaS Windows et Linux."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ Azure Disk Encryption prend en charge les scénarios client suivants :
 - Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir de disques durs virtuels déjà chiffrés et de clés de chiffrement.
 - Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure. 
 - Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà sous Azure. 
-- Désactivation du chiffrement sur les machines virtuelles IaaS Windows.  
+- Désactivation du chiffrement sur les machines virtuelles IaaS Windows. 
 
 La solution prend en charge les éléments de machines virtuelles IaaS suivants lorsqu’elle est activée dans Microsoft Azure :
 
@@ -78,7 +78,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 - Chiffrement du volume du système d’exploitation pour protéger le volume de démarrage au repos dans le stockage client
 
 	- Le chiffrement du volume de système d’exploitation sur une machine virtuelle IaaS Linux déjà en cours d’exécution dans Azure n’est pas pris en charge actuellement. Le chiffrement du volume de système d’exploitation pour une machine virtuelle IaaS Linux est pris en charge uniquement pour un scénario de disque dur virtuel déjà chiffré.
-	
+
 - Chiffrement du volume de données pour protéger le volume de démarrage au repos dans le stockage client
 
 - Désactivation du chiffrement sur les machines virtuelles IaaS Windows.
@@ -91,7 +91,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 
 La solution Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux inclut l’extension de chiffrement de disque pour Windows, l’extension de chiffrement de disque pour Linux, les applets de commande CLI de chiffrement de disque et les modèles Azure Resource Manager de chiffrement de disque. Azure Disk Encryption est pris en charge sur les machines virtuelles IaaS exécutant les systèmes d’exploitation Windows ou Linux. Pour plus d’informations sur les systèmes d’exploitation pris en charge, consultez la section Conditions préalables requises ci-dessous.
 
-**Remarque : ** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
+****Remarque : ** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
 
 ### Proposition de valeur
 
@@ -169,21 +169,21 @@ Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : 
 
 	- Exemple d’URL secrète valide :
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Exemple de KEK KRK valide :
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Le chiffrement de disque Azure ne prend pas en charge les numéros de port spécifié dans le cadre du secret de coffre de clés et de secrets et des URL KEK. Voir les exemples ci-dessous pour l’URL de coffre de clés pris en charge :
 
  	- URL de coffre de clés non acceptée
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL du coffre de clés accepté :
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Pour activer la fonction de chiffrement de disque Azure, les machines virtuelles IaaS doivent répondre aux exigences de configuration du point de terminaison de réseau suivantes :
 
@@ -845,4 +845,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

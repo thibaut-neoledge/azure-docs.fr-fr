@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
@@ -51,7 +51,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java 
 
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l'emplacement du fichier jar, qui est ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments. Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -91,7 +91,7 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `
@@ -121,7 +121,7 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d�
 
 > [AZURE.NOTE] Les étapes de ce didacticiel s’appliquent uniquement aux clusters Azure HDInsight Windows. Pour obtenir un exemple de diffusion en continu pour les clusters HDInsight Linux, consultez la rubrique [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin-stdout-stderr] \(ligne par ligne), puis émettent leur résultat vers [stdout][stdin-stdout-stderr]. Le programme compte tous les mots dans le texte.
+Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin-stdout-stderr] (ligne par ligne), puis émettent leur résultat vers [stdout][stdin-stdout-stderr]. Le programme compte tous les mots dans le texte.
 
 Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit votre saisie en lignes et les utilise pour alimenter le stdin du processus.
 
@@ -1000,4 +1000,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

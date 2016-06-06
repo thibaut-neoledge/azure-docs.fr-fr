@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	documentationCenter="php"
 	services="storage"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Vue d'ensemble
+
+Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service blob Azure. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][download]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d’informations sur les objets blob, consultez la section [Étapes suivantes](#next-steps).
 
@@ -306,4 +308,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

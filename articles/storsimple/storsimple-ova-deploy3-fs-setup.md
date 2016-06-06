@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Configuration en tant que serveur de fichiers
@@ -74,7 +74,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     2.  Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
 
-2.  Sur la page **Paramètres de l’appareil** :
+2.  Sur la page **Paramètres de l’appareil** :
 
     1.  Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
 
@@ -104,9 +104,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	1.  Indiquez l’**URL du proxy web** dans ce format : *adresse ou nom de domaine complet http://&lt;host-IP &gt;Numéro de Port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
-	2.  Définissez **Authentification** sur **De base**, **NTLM** ou **Aucune**.
+	2.  Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
 
-	3.  Si vous utilisez une authentification, vous devrez également fournir un **nom d'utilisateur** et un **mot de passe**.
+	3.  Si vous utilisez une authentification, vous devrez également fournir un **nom d’utilisateur** et un **mot de passe**.
 
 	4.  Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
 
@@ -116,7 +116,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	Sur la page **Paramètres d’heure** :
 
-	1.  Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l'emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
+	1.  Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
 
 	2.  Spécifiez un **serveur NTP principal** pour votre appareil ou acceptez la valeur par défaut time.windows.com. Vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet.
 
@@ -126,9 +126,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 1.  Configurez les paramètres de cloud de votre appareil. Dans cette étape, vous allez finaliser la configuration de l’appareil local puis inscrire l'appareil auprès du service StorSimple Manager.
 
-    1.  Saisissez la **clé d’inscription de service** que vous avez obtenue à l’[étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+    1.  Saisissez la **clé d’inscription de service** que vous avez obtenue à l’[étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
 
-    2.  Si vous inscrivez pour la première fois un appareil auprès de ce service, ignorez cette étape et passez à l’étape suivante. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d'informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
+    2.  Si vous inscrivez pour la première fois un appareil auprès de ce service, ignorez cette étape et passez à l’étape suivante. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
 
     3.  Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
 
@@ -153,11 +153,11 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le [
 
 1.  Sur la page **Appareils**, sélectionnez l’appareil que vous venez de créer. Cet appareil apparaît en tant que **Actif**. Cliquez sur la flèche en regard du nom de l’appareil, puis sur **Démarrage rapide**.
 
-2.  Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l'Assistant Configurer l’appareil.
+2.  Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
 
-3.  Dans l'Assistant Configurer l’appareil, sur la page **Paramètres de base**, procédez comme suit :
+3.  Dans l’Assistant Configurer l’appareil, sur la page **Paramètres de base**, procédez comme suit :
 
-	1.  Spécifiez un compte de stockage à utiliser avec votre appareil. Vous pouvez sélectionner un compte de stockage existant de cet abonnement dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d'un autre abonnement.
+	1.  Spécifiez un compte de stockage à utiliser avec votre appareil. Vous pouvez sélectionner un compte de stockage existant de cet abonnement dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d’un autre abonnement.
 
 	2.  Définissez les paramètres de chiffrement pour toutes les données au repos (chiffrement AES) qui seront envoyées vers le cloud. Pour chiffrer vos données, cochez la case pour **activer la clé de chiffrement de stockage cloud**. Entrez une clé de chiffrement de stockage cloud contenant 32 caractères. Entrez à nouveau la clé pour la confirmer. Une clé AES de 256 bits sera utilisée avec la clé définie par l'utilisateur pour le chiffrement.
 
@@ -200,7 +200,7 @@ Pour créer un partage, procédez comme suit dans le [portail Azure Classic](htt
 
 1.  Cliquez sur l’icône en forme de flèche ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) pour passer à la page suivante.
 
-1.  Sur la page **Paramètres supplémentaires**, attribuez les autorisations à l'utilisateur ou au groupe qui aura accès à ce partage. Spécifiez le nom de l'utilisateur ou du groupe d'utilisateurs au format *<john@contoso.com>*. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué ici les autorisations, vous pouvez ensuite utiliser l'Explorateur Windows pour modifier ces autorisations.
+1.  Sur la page **Paramètres supplémentaires**, attribuez les autorisations à l’utilisateur ou au groupe qui aura accès à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format *<john@contoso.com>*. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué ici les autorisations, vous pouvez ensuite utiliser l'Explorateur Windows pour modifier ces autorisations.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
@@ -230,6 +230,6 @@ Regardez la vidéo pour découvrir comment configurer et inscrire StorSimple Vir
 
 ## Étapes suivantes
 
-Découvrez comment utiliser l'interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

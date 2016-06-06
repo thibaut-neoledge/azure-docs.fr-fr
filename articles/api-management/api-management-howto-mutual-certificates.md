@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
@@ -141,4 +141,4 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

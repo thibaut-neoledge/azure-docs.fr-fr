@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/04/2016"
+   ms.date="05/19/2016"
    ms.author="larryfr"/>
 
 
@@ -77,6 +77,12 @@ Il est vivement recommandé de créer un seul sous-réseau pour chaque cluster H
 Les clusters Windows nécessitent un réseau virtuel v1 (classique), tandis que les clusters basés sur Linux nécessitent un réseau virtuel v2 (Azure Resource Manager). Si le type de réseau est incorrect, il ne sera pas utilisable lorsque vous créerez le cluster.
 
 Si vous disposez de ressources sur un réseau virtuel qui n’est pas utilisable par le cluster que vous envisagez de créer, vous pouvez créer un nouveau réseau virtuel utilisable par le cluster et le connecter au réseau virtuel incompatible. Vous pouvez ensuite créer le cluster dans la version réseau dont il a besoin, et il sera en mesure d’accéder aux ressources de l’autre réseau puisque les deux seront reliés. Pour plus d’informations sur la connexion de réseaux virtuels classiques et nouveaux, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###DNS personnalisé
+
+Lorsque vous créez un réseau virtuel, Azure fournit la résolution de noms par défaut pour les services Azure, tels que HDInsight, installés sur le réseau. Toutefois, vous devrez peut-être utiliser votre propre système DNS (Domain Name) dans des cas de résolution de noms de domaine inter-réseaux. Par exemple, lors de la communication entre des services situés dans deux réseaux virtuels joints. HDInsight prend en charge la résolution de noms Azure par défaut, ainsi que le système DNS personnalisé lorsqu’il est utilisé avec un réseau virtuel Azure.
+
+Pour plus d’informations sur l’utilisation de votre propre serveur DNS avec un réseau virtuel Azure, consultez la section __Résolution de noms à l’aide de votre propre serveur DNS__ du document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 ###Réseaux virtuels sécurisés
 
@@ -303,4 +309,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l'API SMTP à vos applications logiques | Microsoft Azure"
-	description="Vue d'ensemble de l'API SMTP avec les paramètres de l'API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur SMTP à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur SMTP avec les paramètres d’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API SMTP
-Se connecter à un serveur SMTP pour envoyer un courrier électronique. L’API SMTP peut être utilisée à partir de :
+# Prise en main du connecteur SMTP
+Se connecter à un serveur SMTP pour envoyer un courrier électronique. Le connecteur SMTP peut être utilisé dans :
 
 - Applications logiques (abordées dans cette rubrique)
 - PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
@@ -33,22 +33,17 @@ Avec SMTP, vous pouvez effectuer les opérations suivantes :
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
-Pour l'API SMTP, l'action suivante est disponible. Il n'y a aucun déclencheur.
+Pour le connecteur SMTP, l’action suivante est disponible. Il n'y a aucun déclencheur.
 
 |Déclencheurs | Actions|
 |--- | ---|
 |Aucun | Envoi de courrier électronique|
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à SMTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
-|Propriété| Requis|Description|
-| ---|---|---|
-| Nom du serveur SMTP | Oui | Entrez le nom de domaine complet (FQDN) ou l'adresse IP du serveur SMTP.|
-| Nom d'utilisateur |Oui |Entrez le nom d'utilisateur pour vous connecter au serveur SMTP. |
-| Mot de passe | Oui|Entrez le mot de passe de l’utilisateur. |
+>[AZURE.INCLUDE [Procédure de création d’une connexion SMTP](../../includes/connectors-create-api-smtp.md)]
 
 Après avoir créé la connexion, vous entrez les propriétés SMTP, notamment les valeurs To ou CC. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -95,4 +90,4 @@ Envoie un message électronique à un ou plusieurs destinataires. ```POST: /Send
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

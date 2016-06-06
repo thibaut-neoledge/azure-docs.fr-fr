@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l'API Box à vos applications logiques | Microsoft Azure"
-	description="Vue d'ensemble de l'API Box avec les paramètres de l'API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur Box à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur Box avec les paramètres d’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API Box
-Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. L'API Box peut être utilisée à partir de :
+# Prise en main du connecteur Box
+Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. Le connecteur Box peut être utilisé dans :
 
 - Applications logiques (abordées dans cette rubrique)
 - PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
@@ -40,15 +40,14 @@ Box inclut les déclencheurs et les actions suivants.
 | --- | --- |
 |<ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire une archive dans un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Box
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à Box.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Box.
 
-1. Connectez-vous à votre compte Box.
-2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter et d’utiliser votre compte Box. 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Box](../../includes/connectors-create-api-box.md)]
 
-Après avoir créé la connexion, vous entrez les propriétés de Box. La section **Informations de référence sur l’API REST** de cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés de Box. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Box dans d'autres applications logiques.
 
@@ -117,7 +116,7 @@ Supprime un fichier de Box. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Extraire une archive dans un dossier
-Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -263,4 +262,4 @@ Déclenche un flux quand un fichier est modifié dans un dossier Box. ```GET: /d
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

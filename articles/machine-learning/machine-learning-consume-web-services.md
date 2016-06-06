@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation d’un service web Microsoft Azure Machine Learning | Microsoft Azure"
-	description="Lorsqu’un service Machine Learning est déployé, le service web RESTful qui est mis à disposition peut être exploité en tant que service requête-réponse ou d’exécution de lot."
+	pageTitle="Utilisation d’un service web Microsoft Azure Machine Learning | Microsoft Azure"
+	description="Lorsqu’un service Machine Learning est déployé, le service web RESTful qui est mis à disposition peut être exploité en tant que service requête-réponse ou d’exécution de lot."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,33 +13,33 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/21/2016"
+	ms.date="05/22/2016"
 	ms.author="garye" />
 
 
-# Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning
+# Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning
 
 ## Introduction
 
-Lors de leur déploiement en tant que services web, les expériences Azure Machine Learning proposent une API REST, qui peut être exploitée par divers périphériques et plateformes. En effet, l’API REST, très simple, accepte et répond au moyen de messages présentant le format JSON. Le portail Microsoft Azure Machine Learning propose du code que vous pouvez utiliser pour appeler le service web, en R, C# et Python. Cependant, ces services peuvent être appelés via n’importe quel langage de programmation et depuis n’importe quel périphérique répondant aux exigences suivantes :
+Lors de leur déploiement en tant que services web, les expériences Azure Machine Learning proposent une API REST, qui peut être exploitée par divers périphériques et plateformes. En effet, l’API REST, très simple, accepte et répond au moyen de messages présentant le format JSON. Le portail Microsoft Azure Machine Learning propose du code que vous pouvez utiliser pour appeler le service web, en R, C# et Python. Cependant, ces services peuvent être appelés via n’importe quel langage de programmation et depuis n’importe quel périphérique répondant aux exigences suivantes :
 
 * Il présente une connexion réseau.
-* Il présente des fonctions SSL prévues pour exécuter les demandes HTTPS.
+* Il présente des fonctions SSL prévues pour exécuter les demandes HTTPS.
 * Il présente une fonctionnalité d’analyse des données JSON (à la main ou via des bibliothèques de prise en charge).
 
-Cela signifie que les services peuvent être utilisés à partir d’applications web, d’applications mobiles ou d’applications d’ordinateur client, voire à partir de Microsoft Excel.
+Cela signifie que les services peuvent être utilisés à partir d’applications web, d’applications mobiles ou d’applications d’ordinateur client, voire à partir de Microsoft Excel.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un service web Microsoft Azure Machine Learning peut être utilisé de deux manières différentes : en tant que service de requête-réponse ou comme service d’exécution de lot. Dans chaque scénario, la fonctionnalité est fournie par le biais du service web RESTful, qui peut être utilisé une fois l’expérience déployée. En déployant un service web ML dans Microsoft Azure avec un point de terminaison de service web Microsoft Azure, où le service est automatiquement mis à l’échelle en fonction de l’utilisation, vous pouvez éviter les coûts initiaux et permanents liés aux ressources matérielles.
+Un service web Microsoft Azure Machine Learning peut être utilisé de deux manières différentes : en tant que service de requête-réponse ou comme service d’exécution de lot. Dans chaque scénario, la fonctionnalité est fournie par le biais du service web RESTful, qui peut être utilisé une fois l’expérience déployée. En déployant un service web ML dans Microsoft Azure avec un point de terminaison de service web Microsoft Azure, où le service est automatiquement mis à l’échelle en fonction de l’utilisation, vous pouvez éviter les coûts initiaux et permanents liés aux ressources matérielles.
 
-> [AZURE.TIP] Pour obtenir un moyen simple de créer une application web pour accéder à votre service web prédictif, consultez [Utilisation d'un service web Microsoft Azure Machine Learning avec un modèle d'application web](machine-learning-consume-web-service-with-web-app-template.md).
+> [AZURE.TIP] Pour obtenir un moyen simple de créer une application web pour accéder à votre service web prédictif, consultez [Utilisation d'un service web Microsoft Azure Machine Learning avec un modèle d'application web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-Pour plus d'informations sur la création et le déploiement d’un service web Azure Machine Learning, consultez la page [Déploiement d’un service web Azure Machine Learning][publish]. Pour obtenir une procédure pas à pas portant sur la création d'une expérience Machine Learning et son déploiement, consultez la page [Développement d'une solution prédictive avec Azure Machine Learning][walkthrough].
+Pour plus d'informations sur la création et le déploiement d’un service web Azure Machine Learning, consultez la page [Déploiement d’un service web Azure Machine Learning][publish]. Pour obtenir une procédure pas à pas portant sur la création d'une expérience Machine Learning et son déploiement, consultez la page [Développement d'une solution prédictive avec Azure Machine Learning][walkthrough].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -47,32 +47,32 @@ Pour plus d'informations sur la création et le déploiement d’un service web 
 
 ## Service de requête-réponse (RRS, Request-Response Service)
 
-Un service de requête-réponse (RRS) est un service web hautement évolutif, qui présente une latence faible et propose une interface pour les modèles sans état qui ont été créés et déployés à partir d’une expérience Azure Machine Learning Studio. Il permet de mettre en place des scénarios où l'application attend une réponse en temps réel.
+Un service de requête-réponse (RRS) est un service web hautement évolutif, qui présente une latence faible et propose une interface pour les modèles sans état qui ont été créés et déployés à partir d’une expérience Azure Machine Learning Studio. Il permet de mettre en place des scénarios où l'application attend une réponse en temps réel.
 
 RRS accepte une seule ligne ou plusieurs lignes de paramètres d'entrée et produit une seule ligne ou plusieurs lignes en sortie. La ou les ligne(s) obtenue(s) en sortie peuvent contenir plusieurs colonnes.
 
-La fonction de validation de l’authenticité d’une application est un exemple de RSS. Des centaines, voire des millions d’installations d’une application sont alors attendues. Lorsque l’application démarre, elle effectue un appel au service RRS avec l’entrée pertinente. L’application reçoit une réponse de validation du service du service, qui autorise ou bloque l’exécution de l’application.
+La fonction de validation de l’authenticité d’une application est un exemple de RSS. Des centaines, voire des millions d’installations d’une application sont alors attendues. Lorsque l’application démarre, elle effectue un appel au service RRS avec l’entrée pertinente. L’application reçoit une réponse de validation du service du service, qui autorise ou bloque l’exécution de l’application.
 
 
 ## Service d’exécution de lots (BES, Batch Execution Service)
 
-Un service d’exécution de lots (BES) est un service qui gère la notation asynchrone, portant sur des volumes élevés, d’un lot d’enregistrements de données. L’entrée du service BES contient un lot d’enregistrements provenant de diverses sources, telles que les objets blob, les tables dans Microsoft Azure, SQL Azure, HDInsight (résultats d’une requête Hive, par exemple) et les sources HTTP. La sortie du service BES contient les résultats de la notation. Les résultats sont envoyés vers un fichier dans Azure Blob Storage tandis que les données du point de terminaison de stockage sont renvoyées dans la réponse.
+Un service d’exécution de lots (BES) est un service qui gère la notation asynchrone, portant sur des volumes élevés, d’un lot d’enregistrements de données. L’entrée du service BES contient un lot d’enregistrements provenant de diverses sources, telles que les objets blob, les tables dans Microsoft Azure, SQL Azure, HDInsight (résultats d’une requête Hive, par exemple) et les sources HTTP. La sortie du service BES contient les résultats de la notation. Les résultats sont envoyés vers un fichier dans Azure Blob Storage tandis que les données du point de terminaison de stockage sont renvoyées dans la réponse.
 
-Un service BES peut être utile lorsque les réponses ne sont pas nécessaires immédiatement, comme dans le cas de la notation prévue à intervalles réguliers pour les individus ou les périphériques IoT (Internet of Things).
+Un service BES peut être utile lorsque les réponses ne sont pas nécessaires immédiatement, comme dans le cas de la notation prévue à intervalles réguliers pour les individus ou les périphériques IoT (Internet of Things).
 
 ## Exemples
-Pour savoir comment fonctionnent les services RRS et BES, nous utilisons un exemple de service web Microsoft Azure. Ce service est utilisé dans un scénario IoT (Internet of Things). Pour faire simple, notre périphérique n'envoie qu'une seule valeur, `cog_speed`, et récupère une réponse unique.
+Pour savoir comment fonctionnent les services RRS et BES, nous utilisons un exemple de service web Microsoft Azure. Ce service est utilisé dans un scénario IoT (Internet of Things). Pour faire simple, notre périphérique n'envoie qu'une seule valeur, `cog_speed`, et récupère une réponse unique.
 
-Quatre éléments d’information sont nécessaires pour appeler le service BES ou RRS. Ces informations sont accessibles dans [Azure Machine Learning Studio](https://studio.azureml.net) une fois que l’expérience a été déployée. Cliquez sur l’onglet SERVICES WEB, sur la gauche de l’écran, pour faire apparaître les services déployés. Cliquez sur un service pour obtenir les liens et les informations suivants au sujet des services RRS et BES :
+Quatre éléments d’information sont nécessaires pour appeler le service BES ou RRS. Ces informations sont accessibles dans [Azure Machine Learning Studio](https://studio.azureml.net) une fois que l’expérience a été déployée. Cliquez sur l’onglet SERVICES WEB, sur la gauche de l’écran, pour faire apparaître les services déployés. Cliquez sur un service pour obtenir les liens et les informations suivants au sujet des services RRS et BES :
 
 1.	La **clé d’API** de service est disponible dans le tableau de bord.
 2.	L’**URI de demande** de service est disponible dans la page d’aide de l’API pour le service voulu.
 3.	Les **en-têtes de demande** et **corps** d’API attendus sont disponibles dans la page d’aide de l’API pour le service voulu.
 4.	Les **en-têtes de réponse** et **corps** d’API attendus sont disponibles dans la page d’aide de l’API pour le service voulu.
 
-Dans les deux exemples ci-dessous, nous utilisons le langage C# pour illustrer le code requis et la plate-forme ciblée est une version de Windows 8 pour ordinateur de bureau.
+Dans les deux exemples ci-dessous, nous utilisons le langage C# pour illustrer le code requis et la plate-forme ciblée est une version de Windows 8 pour ordinateur de bureau.
 
-### Exemple de service RRS
+### Exemple de service RRS
 Cliquez sur **DEMANDE/RÉPONSE** sous **PAGE D’AIDE DE L’API** sur le tableau de bord du service pour afficher la page d’aide de l’API. Hormis l’URI, cette page contient des définitions d’entrée et de sortie, ainsi que des exemples de code. L’entrée de l’API, pour ce service en particulier, est illustrée ci-dessous et constitue la charge utile de l’appel d’API.
 
 **Exemple de demande**
@@ -251,8 +251,8 @@ L’exemple de code suivant montre comment construire une demande d’API REST d
     	
  
 
-### Exemple de service BES
-Contrairement au service RRS, le service BES est asynchrone. Cela signifie que l’API BES met simplement en file d'attente un travail à exécuter, et l’appelant interroge l’état du travail pour voir quand il s’est terminé. Voici les opérations actuellement pris en charge pour les traitements par lots :
+### Exemple de service BES
+Contrairement au service RRS, le service BES est asynchrone. Cela signifie que l’API BES met simplement en file d'attente un travail à exécuter, et l’appelant interroge l’état du travail pour voir quand il s’est terminé. Voici les opérations actuellement pris en charge pour les traitements par lots :
 
 1. Créer (envoyer) un traitement par lots
 1. Lancer ce traitement par lots
@@ -261,19 +261,19 @@ Contrairement au service RRS, le service BES est asynchrone. Cela signifie que l
 
 **1. Créer un travail d’exécution de lots**
 
-Quand vous créez un traitement par lots pour votre point de terminaison de service Microsoft Azure Machine Learning, vous pouvez spécifier plusieurs paramètres qui définissent l’exécution du traitement par lots :
+Quand vous créez un traitement par lots pour votre point de terminaison de service Microsoft Azure Machine Learning, vous pouvez spécifier plusieurs paramètres qui définissent l’exécution du traitement par lots :
 
-* **Input**: représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
-* **GlobalParameters**: représente l’ensemble des paramètres que vous pouvez définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
-* **Outputs**: si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire. 
+* **Input** : représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
+* **GlobalParameters** : représente l’ensemble des paramètres que vous pouvez définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
+* **Outputs** : si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire. 
 
-    Notez que le service s’attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
-  - Sorties de jeu de données : peuvent être enregistrées en tant que **.csv, .tsv, .arff**
-  - Sorties de modèle formé : peuvent être enregistrées en tant que **.ilearner**
+    Notez que le service s’attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
+  - Sorties de jeu de données : peuvent être enregistrées en tant que **.csv, .tsv, .arff**
+  - Sorties de modèle formé : peuvent être enregistrées en tant que **.ilearner**
 
   Les remplacements d’emplacement de sortie sont spécifiés comme une collection de paires *<output name  blob reference>*, où le *nom de sortie* est le nom défini par l’utilisateur pour un nœud de sortie spécifique (également indiqué dans la page d’aide de l’API du service) et la *référence d’objet blob* est une référence à un emplacement d’objet blob Azure vers lequel la sortie doit être redirigée.
 
-Tous ces paramètres de création de travail peuvent être facultatifs en fonction de la nature de votre service. Par exemple, les services sans nœud d’entrée défini n’exigent pas la transmission d’un paramètre *Input*. De même, la fonctionnalité de remplacement d’emplacement de sortie est entièrement facultative ; sinon, les sorties sont stockées dans le compte de stockage par défaut qui a été configuré pour votre espace de travail Microsoft Azure Machine Learning. Le code ci-dessus présente un exemple de demande de charge utile transmise à l’API REST pour un service où seules les informations d’entrée sont fournies :
+Tous ces paramètres de création de travail peuvent être facultatifs en fonction de la nature de votre service. Par exemple, les services sans nœud d’entrée défini n’exigent pas la transmission d’un paramètre *Input*. De même, la fonctionnalité de remplacement d’emplacement de sortie est entièrement facultative ; sinon, les sorties sont stockées dans le compte de stockage par défaut qui a été configuré pour votre espace de travail Microsoft Azure Machine Learning. Le code ci-dessus présente un exemple de demande de charge utile transmise à l’API REST pour un service où seules les informations d’entrée sont fournies :
 
 **Exemple de demande**
 
@@ -301,7 +301,7 @@ Quand vous créez un traitement par lots, il est enregistré dans le système et
 
 **3. Obtenir l’état d’une tâche d’exécution de lots**
 
-Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d’erreur, plus d’informations sur les raisons réelles de l’échec sont retournées dans la propriété *Details*, comme illustré ici :
+Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d’erreur, plus d’informations sur les raisons réelles de l’échec sont retournées dans la propriété *Details*, comme illustré ici :
 
 **Charge utile de réponse**
 
@@ -311,7 +311,7 @@ Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout
 	    "Details": DETAILS
 	}
 
-*StatusCode* peut avoir l'une des valeurs suivantes :
+*StatusCode* peut avoir l'une des valeurs suivantes :
 
 * Not started
 * Exécution
@@ -357,7 +357,7 @@ Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/p
 
 Les expériences Azure Machine Learning déployées en tant que services web peuvent inclure des modules d’entrée de service web. Cela signifie que l’entrée est censée être fournie par le biais de l’appel de service web sous la forme d’une référence à un emplacement d’objet blob. Il est également possible de ne pas utiliser de module d’entrée de service web et d’utiliser plutôt un module **Reader**. Dans ce cas, le module **Reader** lit généralement à partir d’une base de données SQL avec une requête au moment de l’exécution pour obtenir les données. Les paramètres de service web peuvent être utilisés pour pointer dynamiquement vers d’autres serveurs ou tables, etc. Le Kit de développement logiciel (SDK) prend en charge ces deux modèles.
 
-L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller un traitement par lots sur un point de terminaison de service Microsoft Azure Machine Learning à l’aide du Kit de développement logiciel BES. Notez les commentaires pour plus d’informations sur les paramètres et les appels.
+L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller un traitement par lots sur un point de terminaison de service Microsoft Azure Machine Learning à l’aide du Kit de développement logiciel BES. Notez les commentaires pour plus d’informations sur les paramètres et les appels.
 
 #### **Exemple de Code**
 
@@ -634,7 +634,7 @@ L’API REST BES (Batch Execution Service) traite le code JSON composé d’une 
 ###Autres environnements de programmation
 Vous pouvez également générer le code dans de nombreux autres langages à l’aide d’un document Swagger à partir de la page d’aide de l’API et en suivant les instructions fournies sur le site [swagger.io](http://swagger.io/). Accédez à [swagger.io](http://swagger.io/swagger-codegen/) et suivez les instructions pour télécharger le code Swagger, Java et Apache mvn. Voici le résumé des instructions pour configurer Swagger pour d’autres environnements de programmation.
 
-* Vérifiez que Java 7 ou version ultérieure est installé.
+* Vérifiez que Java 7 ou version ultérieure est installé.
 * Installez Apache mvn (sur Ubuntu, vous pouvez utiliser *apt-get install mvn*).
 * Accédez à la page Swagger sur Github et téléchargez le projet Swagger en tant que fichier zip.
 * Décompressez Swagger.
@@ -685,4 +685,4 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="05/19/2016" 
 	ms.author="robb"/>
 
 #Architecture d’application sur Microsoft Azure
@@ -36,7 +36,7 @@ Microsoft vient de publier un nouveau cours d'architecture prenant en charge l'e
 
 Microsoft publie un ensemble de [plans d'architecture](http://aka.ms/azblueprints) de haut niveau qui montrent comment créer des types spécifiques de systèmes à l'aide des produits Microsoft.
 
-Chaque plan inclut les éléments suivants :
+Chaque plan inclut les éléments suivants :
 
 - Fichier **2D Visio** 2003 plat que vous pouvez télécharger et modifier. 
 - Fichier **PDF de perspective 3D** en couleur pour présenter le plan à un public moins technique.
@@ -50,7 +50,7 @@ Les plans utilisent le [jeu de symboles Cloud et Enterprise](#symbol-and-icon-se
 
 ##Modèle 3D Blueprint Visio
 
-Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 et versions ultéreieures) a été publié le 5 août 2015 dans le cadre d'un [cours de certification d'architecture Microsoft distribué sur EDX.ORG](#microsoft-architecture-certification-course).
+Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 et versions ultéreieures) a été publié le 5 août 2015 dans le cadre d'un [cours de certification d'architecture Microsoft distribué sur EDX.ORG](#microsoft-architecture-certification-course).
 
 Le modèle est également disponible en dehors du cours.
 
@@ -72,9 +72,9 @@ Les symboles CnE sont aux formats Visio et PNG. Vous trouverez des instructions 
 
 Le jeu de symboles est fourni tous les trimestres et est mis à jour à chaque publication de nouveaux services.
 
-D’autres symboles utilisables avec Microsoft Office et des technologies associées sont disponibles dans le [gabarit Microsoft Office Visio](http://www.microsoft.com/fr-FR/download/details.aspx?id=35772), même s’ils ne sont pas optimisés pour des plans d’architecture comme le jeu CnE.
+D’autres symboles utilisables avec Microsoft Office et des technologies associées sont disponibles dans le [gabarit Microsoft Office Visio](http://www.microsoft.com/fr-FR/download/details.aspx?id=35772), même s’ils ne sont pas optimisés pour des plans d’architecture comme le jeu CnE.
 
-**Commentaires :** si vous avez utilisé les symboles CnE, répondez à l'[enquête](http://aka.ms/azuresymbolssurveyv2) qui ne contient que 5 questions ou envoyez-nous un message à l'adresse [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) concernant des questions et des problèmes spécifiques. Nous aimerions connaître votre avis, y compris les commentaires positifs, afin de décider de continuer dans cette voie ou non.
+**Commentaires :** si vous avez utilisé les symboles CnE, répondez à l'[enquête](http://aka.ms/azuresymbolssurveyv2) qui ne contient que 5 questions ou envoyez-nous un message à l'adresse [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) concernant des questions et des problèmes spécifiques. Nous aimerions connaître votre avis, y compris les commentaires positifs, afin de décider de continuer dans cette voie ou non.
 
 ![Jeu de symboles/icônes Cloud et Enterprise](./media/architecture-overview/CnESymbols.png)
 
@@ -85,4 +85,4 @@ Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'archi
 
 ![Éléments d’infographie relatifs à l’architecture Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Prise en main de la sécurité de Microsoft Azure | Microsoft Azure"
    description="Cet article présente les fonctionnalités de sécurité de Microsoft Azure et des considérations générales pour les organisations qui migrent leurs ressources vers un fournisseur de cloud."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 #Prise en main de la sécurité de Microsoft Azure
@@ -241,4 +241,4 @@ Azure dispose de contrôles de sécurité en place pour implémenter l’atténu
 
 [Blog Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

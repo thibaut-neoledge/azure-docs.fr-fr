@@ -1,10 +1,10 @@
 <properties
-pageTitle="Ajouter l’API OneDrive à PowerApps Enterprise et à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble de l’API OneDrive avec les paramètres de l’API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Ajouter le connecteur OneDrive à PowerApps Enterprise et à vos applications logiques | Microsoft Azure"
+description="Vue d’ensemble du connecteur OneDrive avec les paramètres de l’API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Prendre en main l’API OneDrive
+# Prise en main du connecteur OneDrive
 
-Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
+Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Le connecteur OneDrive peut être utilisé dans :
 
 - Logic Apps 
 - PowerApps
@@ -37,24 +37,24 @@ Avec OneDrive, vous pouvez effectuer les opérations suivantes :
 - Créer votre flux d’activité en fonction des données que vous obtenez de OneDrive. 
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
 - Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
-- Ajouter l’API OneDrive à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Ajoutez le connecteur OneDrive à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
 
-Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
-L’API OneDrive inclut les déclencheurs et les actions suivants.
+Le connecteur OneDrive inclut le déclencheur et les actions suivants.
 
 | Déclencheurs | Actions|
 | --- | --- |
 |<ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Lister des fichiers dans un dossier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Lister des dossiers racines</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à OneDrive
 
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte OneDrive.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte OneDrive.
 
 1. Connectez-vous à votre compte OneDrive.
 2. Autorisez vos applications logiques à se connecter à votre compte OneDrive et à l’utiliser. 
@@ -312,4 +312,4 @@ Revenir à la [liste des API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="05/25/2016"
     ms.author="v-darmi"/>
 
 # Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope
@@ -24,13 +24,13 @@ En utilisant la [stratégie](api-management-howto-policies.md) [log-to-eventhub]
 
 Cet article montre comment recueillir l’ensemble du message de demande et de réponse HTTP, l’envoyer à un hub d’événements, puis relayer le message vers un service tiers fournissant des services de journalisation et de surveillance HTTP.
 
-## Pourquoi effectuer l’envoi depuis un service de gestion d’API ?
+## Pourquoi effectuer l’envoi depuis un service de gestion d’API ?
 Il est possible d’écrire un intergiciel (middleware) HTTP pouvant s’intégrer à des infrastructures d’API HTTP pour capturer les requêtes et réponses HTTP et les introduire dans la journalisation et la surveillance des systèmes. L’inconvénient de cette approche est que l’intergiciel HTTP doit être intégré dans l’API de serveur principal et doit correspondre à la plate-forme de l’API. S’il existe plusieurs API, chacune d’elle ne doit déployer l’intergiciel. Il existe souvent des raisons pour lesquelles les API de serveur principal ne peuvent pas être mises à jour.
 
 L’utilisation du service de gestion des API Azure à intégrer à l’infrastructure de journalisation fournit une solution centralisée et indépendante de la plate-forme. Ce service est également évolutif, en partie en raison des fonctionnalités de [géo-réplication](api-management-howto-deploy-multi-region.md) de la gestion des API Azure.
 
-## Pourquoi envoyer à un hub d’événements Azure ?
-Il est judicieux de se demander pourquoi créer une stratégie spécifique aux hubs d’événements Azure ? Il existe plusieurs endroits où je souhaite consigner mes demandes. Pourquoi ne pas simplement envoyer les demandes directement à la destination finale ? C’est une option. Toutefois, lors des demandes de connexion depuis un service de gestion des API, il est nécessaire de prendre en compte l’impact de messages de journalisation sur les performances de l’API. L’augmentation progressive de charge peut être traitées par l’augmentation du nombre d’instances disponibles de composants système ou par le biais de la géo-réplication. Cependant, de courts pics de trafic peuvent entraîner des retards de demandes significatifs si les demandes d’infrastructures de journalisation commencent à ralentir en raison de la charge.
+## Pourquoi envoyer à un hub d’événements Azure ?
+Il est judicieux de se demander pourquoi créer une stratégie spécifique aux hubs d’événements Azure ? Il existe plusieurs endroits où je souhaite consigner mes demandes. Pourquoi ne pas simplement envoyer les demandes directement à la destination finale ? C’est une option. Toutefois, lors des demandes de connexion depuis un service de gestion des API, il est nécessaire de prendre en compte l’impact de messages de journalisation sur les performances de l’API. L’augmentation progressive de charge peut être traitées par l’augmentation du nombre d’instances disponibles de composants système ou par le biais de la géo-réplication. Cependant, de courts pics de trafic peuvent entraîner des retards de demandes significatifs si les demandes d’infrastructures de journalisation commencent à ralentir en raison de la charge.
 
 Les hubs d’événements Azure sont conçus pour accepter d’énormes volumes de données en entre, avec la possibilité de gérer un nombre d’événements bien plus élevé que le nombre de requêtes HTTP des processus de l’API. Le hub d’événements agit comme une sorte de tampon sophistiqué entre votre service de gestion des API et de l’infrastructure qui stocke et traite les messages. Cela garantit que les performances de votre API ne seront pas diminuées à cause de l’infrastructure de journalisation.
 
@@ -41,7 +41,7 @@ Les hubs d’événements ont la possibilité de faire circuler les événements
 ## Une stratégie pour envoyer des messages d’application/http
 Un hub d’événements accepte des données d’événement en tant que chaîne simple. C’est vous qui décidez du contenu de cette chaîne pour vous. Pour empaqueter une requête HTTP et l’envoyer aux hubs d’événements, nous devons mettre en forme la chaîne avec les informations de demande ou la réponse. Dans de telles situations, s’il existe un format que nous pouvons réutiliser, nous n’avons pas à rédiger notre propre code d’analyse. Au départ, j’ai envisagé d’utiliser le [HAR](http://www.softwareishard.com/blog/har-12-spec/) pour envoyer des requêtes et des réponses HTTP. Cependant, ce format est optimisé pour stocker une séquence de requêtes HTTP dans un format basé sur JSON. Il contenait un certain nombre d’éléments obligatoires qui ajoutait un degré de complexité inutile pour le scénario de transfert du message HTTP sur le réseau.
 
-Une alternative consistait à utiliser le type de support `application/http`, comme décrit dans la spécification HTTP [RFC 7230](http://tools.ietf.org/html/rfc7230). Ce type de média utilise le même format que celui qui est utilisé pour envoyer des messages HTTP sur le réseau, mais l’intégralité du message peut être placée dans le corps d’une autre requête HTTP. Dans ce cas, nous allons simplement utiliser le corps comme notre message à envoyer aux hubs d’événements. Heureusement, il existe un analyseur dans les bibliothèques [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) qui peuvent analyser ce format et le convertir en objets `HttpRequestMessage` et `HttpResponseMessage` natifs.
+Une alternative consistait à utiliser le type de support `application/http`, comme décrit dans la spécification HTTP [RFC 7230](http://tools.ietf.org/html/rfc7230). Ce type de média utilise le même format que celui qui est utilisé pour envoyer des messages HTTP sur le réseau, mais l’intégralité du message peut être placée dans le corps d’une autre requête HTTP. Dans ce cas, nous allons simplement utiliser le corps comme notre message à envoyer aux hubs d’événements. Heureusement, il existe un analyseur dans les bibliothèques [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) qui peuvent analyser ce format et le convertir en objets `HttpRequestMessage` et `HttpResponseMessage` natifs.
 
 Pour être en mesure de créer ce message, nous devons utiliser des [expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx) en langage C# dans les API de gestion API Azure. Voici la stratégie qui envoie un message de requête HTTP aux hubs d’événements Azure.
 
@@ -76,18 +76,18 @@ Il y a quelques éléments particuliers à examiner sur cette expression de stra
 Pour vérifier que nos messages sont remis aux consommateurs dans l’ordre et tirer parti de la fonctionnalité de distribution de charge des partitions, j’ai choisi d’envoyer des messages de demande HTTP à une partition et les messages de réponse HTTP sur une deuxième partition. Cela garantit une distribution régulière de charge et nous pouvons garantir que toutes les demandes seront consommées dans l’ordre, de même que toutes les réponses. Il est possible à une réponse d’être consommé avant la demande correspondante, mais ce n’est pas un problème, car nous avons un mécanisme différent pour mettre en corrélation des demandes et des réponses et nous savons que les demandes viennent toujours avant les réponses.
 
 ### Charges utiles HTTP
-Après la génération du `requestLine`, nous vérifions si le corps de la requête doit être tronqué. Le corps de la demande est tronqué à 1024 uniquement. Cela peut être augmenté, mais cependant, les messages de hub d’événements individuels sont limités à 256 Ko, il est probable que certains corps des messages HTTP ne tiennent pas dans un seul message. Lors de la journalisation et de l’analyse, une quantité significative d’informations peut être dérivée de la ligne et des en-têtes de requête HTTP. Certaines demandes d’API ne renvoient qu’un corps de petite taille, et donc, la perte de valeur d’informations obtenue lorsqu’on tronque les corps volumineux est minime par rapport à la réduction des coûts de transfert, de traitement et de stockage pour garder tous les contenus du corps. Dernière remarque sur le traitement du corps : nous devons transmettre `true` à la méthode As<string>(), car nous lisons le contenu du corps, mais souhaitons également que l’API de serveur principal soit en mesure de lire le corps. En mettant cette méthode sur true, nous faisons en sorte que le corps soit mis en mémoire cache et puisse être lu une seconde fois. Il est important de savoir si l’API qui réalise le téléchargement des fichiers très volumineux ou utilise l’interrogation longue. Dans ces cas, il est préférable d’éviter carrément la lecture du corps.
+Après la génération du `requestLine`, nous vérifions si le corps de la requête doit être tronqué. Le corps de la demande est tronqué à 1024 uniquement. Cela peut être augmenté, mais cependant, les messages de hub d’événements individuels sont limités à 256 Ko, il est probable que certains corps des messages HTTP ne tiennent pas dans un seul message. Lors de la journalisation et de l’analyse, une quantité significative d’informations peut être dérivée de la ligne et des en-têtes de requête HTTP. Certaines demandes d’API ne renvoient qu’un corps de petite taille, et donc, la perte de valeur d’informations obtenue lorsqu’on tronque les corps volumineux est minime par rapport à la réduction des coûts de transfert, de traitement et de stockage pour garder tous les contenus du corps. Dernière remarque sur le traitement du corps : nous devons transmettre `true` à la méthode As<string>(), car nous lisons le contenu du corps, mais souhaitons également que l’API de serveur principal soit en mesure de lire le corps. En mettant cette méthode sur true, nous faisons en sorte que le corps soit mis en mémoire cache et puisse être lu une seconde fois. Il est important de savoir si l’API qui réalise le téléchargement des fichiers très volumineux ou utilise l’interrogation longue. Dans ces cas, il est préférable d’éviter carrément la lecture du corps.
 
 ### En-têtes HTTP
 Les en-têtes HTTP peuvent être simplement transférés au format du message sous forme de paire clé/valeur simple. Nous avons choisi de supprimer certains champs de sécurité sensibles, pour éviter la fuite inutile des informations d’identification. Il est peu probable que les clés d’API et les autres informations d’identification à utiliser à des fins d’analyse. Si nous souhaitons effectuer une analyse sur l’utilisateur et le produit qu’il utilise, nous pouvons le faire à partir de l’objet `context` et l’ajouter au message.
 ### Métadonnées de message
-Lorsque vous créez un message complet à envoyer au hub d’événements, la première ligne ne fait par vraiment partie du message `application/http`. La première ligne est composée de métadonnées supplémentaires pour déterminer si le message est une demande ou un message de réponse et un id de message qui est utilisé pour corréler des demandes et les réponses. L’ID de message est créé à l’aide d’une autre stratégie qui ressemble à ceci :
+Lorsque vous créez un message complet à envoyer au hub d’événements, la première ligne ne fait par vraiment partie du message `application/http`. La première ligne est composée de métadonnées supplémentaires pour déterminer si le message est une demande ou un message de réponse et un id de message qui est utilisé pour corréler des demandes et les réponses. L’ID de message est créé à l’aide d’une autre stratégie qui ressemble à ceci :
 
     <set-variable name="message-id" value="@(Guid.NewGuid())" />
 
 Il est possible de créer le message de requête, de le stocker dans une variable jusqu’à ce que la réponse soit renvoyée, puis envoyer simplement la requête et la réponse sous forme de message unique. Toutefois, en envoyant la demande et la réponse indépendamment l’une de l’autre et en utilisant un id de message pour mettre les deux en corrélation, nous obtenons un davantage de flexibilité en matière de taille du message, la possibilité de tirer parti de plusieurs partitions tout en conservant l’ordre des messages et la demande s’affichera plus tôt dans notre tableau de bord de journalisation. Dans certains scénarios, aucune réponse valide n’est jamais envoyée au hub d’événements, probablement en raison d’une erreur de demande irrécupérable dans le service de gestion des API, mais nous allons conserver un enregistrement de la demande.
 
-La stratégie d’envoi du message de réponse HTTP est très similaire à la demande et par conséquent, la configuration de la stratégie terminée ressemble à ce qui suit :
+La stratégie d’envoi du message de réponse HTTP est très similaire à la demande et par conséquent, la configuration de la stratégie terminée ressemble à ce qui suit :
 
       <policies>
       	<inbound>
@@ -154,7 +154,7 @@ Des événements sont reçus du hub d’événements Azure à l’aide du [proto
 Dans cet exemple, nous allons utiliser `EventProcessorHost` par souci de simplicité, cependant, cela n’est peut-être pas le meilleur choix dans ce scénario particulier. `EventProcessorHost` effectue le travail difficile qui consiste à s’assurer que n’avez pas à vous soucier des problèmes de threading dans une classe particulière de processeur d’événements. Cependant, dans notre scénario, nous nous contentons de convertir le message vers un autre format, et de le transférer vers un autre service à l’aide d’une méthode asynchrone. Il est inutile de mettre à jour l’état partagé et par conséquent, il n’y a aucun risque de problème lié aux threads. Pour la plupart des scénarios, `EventProcessorHost` est probablement le meilleur choix et c’est certainement l’option la plus facile.
 
 ### IEventProcessor
-Le concept central lors de l’utilisation `EventProcessorHost` consiste à créer une implémentation de l’interface `IEventProcessor` qui contient la méthode `ProcessEventAsync`. La fondation de cette méthode est indiquée ici :
+Le concept central lors de l’utilisation `EventProcessorHost` consiste à créer une implémentation de l’interface `IEventProcessor` qui contient la méthode `ProcessEventAsync`. La fondation de cette méthode est indiquée ici :
 
   async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 
@@ -178,7 +178,7 @@ Le concept central lors de l’utilisation `EventProcessorHost` consiste à cré
 Une liste d’objets EventData est transmise à la méthode et nous exécutons une itération sur cette liste. Les octets de chaque méthode sont analysés dans un objet HttpMessage et cet objet est transmis à une instance de IHttpMessageProcessor.
 
 ### HttpMessage
-L’instance de `HttpMessage` contient trois éléments de données :
+L’instance de `HttpMessage` contient trois éléments de données :
 
       public class HttpMessage
        {
@@ -268,4 +268,4 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

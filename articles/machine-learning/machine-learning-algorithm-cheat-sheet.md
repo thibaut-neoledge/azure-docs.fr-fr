@@ -20,22 +20,22 @@
 
 # Aide-mémoire d'algorithme d'apprentissage automatique pour Microsoft Azure Machine Learning Studio
 
-L'**aide-mémoire d'algorithme Microsoft Azure Machine Learning** vous aide à choisir l'algorithme d'apprentissage automatique adapté à vos solutions d'analyse prédictive dans la bibliothèque d'algorithmes Microsoft Azure Machine Learning.
+L’**Aide-mémoire d’algorithme Microsoft Azure Machine Learning Studio** vous permet de choisir l’algorithme adapté à un modèle d’analyse prédictif.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre d'algorithmes d'apprentissage automatique pour vos solutions d'analyse prédictive. Ces algorithmes appartiennent aux catégories générales d’apprentissage automatique de ***régression***, de ***classification***, de ***clustering*** et de ***détection d’anomalie***. Chacun d’eux est conçu pour résoudre un type de problème d’apprentissage automatique différent.
+[Azure Machine Learning Studio](https://studio.azureml.net/) a une grande bibliothèque d’algorithmes allant de la ***régression***, de la ***classification***, du***clustering***, à la ***détection des anomalies***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
 
-> [AZURE.NOTE] Consultez l’article [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) pour effectuer une visite guidée avec cet aide-mémoire.
 
-## Télécharger l'aide-mémoire d'algorithme d'apprentissage automatique
+## Télécharger l’aide-mémoire d’algorithme Machine Learning
 
-Téléchargez l'aide-mémoire d'algorithme d'apprentissage automatique qui peut vous aider à déterminer comment choisir un algorithme d'apprentissage automatique pour votre solution. Imprimez l'aide-mémoire au format tabloïd (11 x 17 pouces) pour le conserver à portée de main.
-
-**Téléchargez l’aide-mémoire ici : [Aide-mémoire d’algorithme Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Téléchargez l’aide-mémoire ici : [Aide-mémoire d’algorithme Machine Learning (11x17 pouces)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Aide-mémoire d'algorithme d'apprentissage automatique : découvrez comment choisir un algorithme d'apprentissage automatique.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning au format tabloïd pour l’avoir à portée de main et obtenir de l’aide lors du choix d’un algorithme.
+
+> [AZURE.NOTE] Consultez l’article [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) pour effectuer une visite guidée avec cet aide-mémoire.
 
 ## Aide supplémentaire sur les algorithmes
 
@@ -79,7 +79,7 @@ Téléchargez l'aide-mémoire d'algorithme d'apprentissage automatique qui peut 
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@ Téléchargez l'aide-mémoire d'algorithme d'apprentissage automatique qui peut 
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

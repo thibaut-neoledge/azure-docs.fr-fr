@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Remplacer un contrôleur EBOD StorSimple | Microsoft Azure"
-   description="Explique comment retirer et remplacer un contrôleur ou les deux contrôleurs EBOD sur votre appareil StorSimple 8600."
+   pageTitle="Remplacer un contrôleur EBOD StorSimple | Microsoft Azure"
+   description="Explique comment retirer et remplacer un contrôleur ou les deux contrôleurs EBOD sur votre appareil StorSimple 8600."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,19 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/22/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Remplacer un contrôleur EBOD sur votre appareil StorSimple
 
 ## Vue d'ensemble
 
-Ce didacticiel explique comment remplacer un module de contrôleur EBOD défectueux sur votre appareil Microsoft Azure StorSimple. Pour remplacer un module de contrôleur EBOD, vous devez :
+Ce didacticiel explique comment remplacer un module de contrôleur EBOD défectueux sur votre appareil Microsoft Azure StorSimple. Pour remplacer un module de contrôleur EBOD, vous devez :
 
 - Retirer le contrôleur EBOD défectueux
 - Installer un nouveau contrôleur EBOD
 
-Avant de commencer, tenez compte des informations suivantes :
+Avant de commencer, tenez compte des informations suivantes :
 
 - Des modules EBOD vides doivent être insérés dans tous les emplacements non utilisés. Le boîtier ne se refroidit pas correctement si un emplacement est laissé ouvert.
 
@@ -52,7 +52,7 @@ Avant de retirer le module de contrôleur EBOD défectueux de votre appareil Sto
 
     ![Fond de panier du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
-     **Figure 1** : Arrière du module EBOD
+     **Figure 1** : Arrière du module EBOD
 
     |Étiquette|Description|
     |:----|:----------|
@@ -77,29 +77,29 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
     ![Installation du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-    **Figure 2** : Installation du module de contrôleur EBOD
+    **Figure 2** : Installation du module de contrôleur EBOD
 
 3. Fermez le verrou. Vous devez entendre un clic quand le verrou s’engage.
 
     ![Libération du verrou EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-    **Figure 3** : Fermeture du verrou du module EBOD
+    **Figure 3** : Fermeture du verrou du module EBOD
 
 4. Rebranchez les câbles. Utilisez la configuration exacte qui existait avant le remplacement. Consultez le diagramme et le tableau suivants pour des informations sur la façon de connecter les câbles.
 
     ![Raccorder votre appareil à l’alimentation électrique](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figure 4** : Reconnexion des câbles
+    **Figure 4** : Reconnexion des câbles
 
     |Étiquette|Description|
     |:----|:----------|
     |1|Boîtier principal|
-    |2|PCM 0|
-    |3|PCM 1|
-    |4|Contrôleur 0|
-    |5|Contrôleur 1|
-    |6|Contrôleur 0 du boîtier EBOD|
-    |7|Contrôleur 1 du boîtier EBOD|
+    |2|PCM 0|
+    |3|PCM 1|
+    |4|Contrôleur 0|
+    |5|Contrôleur 1|
+    |6|Contrôleur 0 du boîtier EBOD|
+    |7|Contrôleur 1 du boîtier EBOD|
     |8|Boîtier EBOD|
     |9|Unités de distribution de l’alimentation|
 
@@ -107,4 +107,4 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

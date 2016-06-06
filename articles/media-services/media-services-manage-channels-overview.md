@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="juliako"/>
 
 #Vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services
@@ -23,14 +23,14 @@
 La diffusion d’événements en flux continu avec Azure Media Services implique généralement les composants suivants :
 
 - Une caméra utilisée pour diffuser un événement.
-- Un encodeur vidéo live qui convertit les signaux de la caméra en flux de données qui sont envoyés vers un service de vidéo en flux continu.
+- Un encodeur vidéo dynamique qui convertit les signaux de la caméra en flux de données qui sont envoyés vers un service de vidéo en flux continu.
 
 	Éventuellement, plusieurs encodeurs live synchronisés. Pour certains événements en direct critiques qui exigent une disponibilité et une qualité d’expérience très élevées, nous vous recommandons d’utiliser des encodeurs redondants en mode actif-actif avec synchronisation date/heure pour obtenir un basculement transparent sans perte de données.
 - Service de vidéo en flux continu qui vous permet d’effectuer les opérations suivantes :
 	
-	- Recevoir du contenu en direct à l’aide de différents protocoles de diffusion de vidéo en flux continu (par exemple RTMP ou Smooth Streaming)
+	- Recevoir du contenu en direct à l’aide de différents protocoles de diffusion de vidéo en flux continu (par exemple RTMP ou Smooth Streaming),
 	- Encoder votre flux en flux à débit adaptatif (facultatif)
-	- Afficher un aperçu de votre flux live
+	- Afficher un aperçu de votre flux en direct
 	- Enregistrer et stocker le contenu ingéré pour le diffuser ultérieurement (vidéo à la demande)
 	- Fournir le contenu via des protocoles de diffusion communs (par exemple, MPEG DASH, Smooth, TLS, HDS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire
 
@@ -55,7 +55,7 @@ Un **canal** représente un pipeline de traitement du contenu vidéo en flux con
 
 - **Aucun** (pass-through) : indiquez cette valeur si vous envisagez d’utiliser un encodeur live local qui produira des flux à débit binaire multiple (un flux pass-through). Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10.  
 
-- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit binaire unique en flux à débit binaire multiple. Cette méthode est plus économique pour une mise à l’échelle rapide pour les événements peu fréquents. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
+- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit binaire unique en flux à débit binaire multiple. Cette méthode est plus économique pour une mise à l’échelle rapide pour les événements peu fréquents. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
 ##Comparaison des types de canaux
 
@@ -88,7 +88,7 @@ Pour plus d’informations, consultez [Utilisation de canaux recevant un flux co
 
 Le schéma suivant illustre les principales parties de la plateforme AMS impliquées dans le flux de travail de vidéo en flux continu où un canal est activé pour effectuer un encodage live avec Media Services.
 
-![Flux de travail live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
+![Flux de travail en direct](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
 Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -116,11 +116,13 @@ Un canal prend en charge jusqu’à trois programmes exécutés simultanément, 
 
 ##Implications de facturation
 
-La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API.
+La facturation d’un canal commence dès que son état passe à « En cours d’exécution » via l’API.
 
-Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure Classic. Notez que les états sont légèrement différentes entre l'API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure Classic, la facturation est active.
+Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure Classic. Notez que les états sont légèrement différents entre l'API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure Classic, la facturation est active.
 
-Pour arrêter la facturation, vous devez arrêter le canal par le biais de l’API ou du portail Azure Classic. Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel. Ne pas arrêter un canal d'encodage provoque la facturation continue.
+Pour arrêter la facturation, vous devez arrêter le canal par le biais de l’API ou du portail Azure Classic. Vous êtes responsable de l’arrêt de vos canaux lorsque vous avez terminé d’utiliser le canal. Ne pas arrêter un canal provoque la facturation continue.
+
+>[AZURE.NOTE]Lorsque vous travaillez avec des canaux Standard, AMS ferme automatiquement les canaux « en cours d’exécution » 12 heures après la perte du flux d’entrée et l’absence de programmes en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle le canal était en cours d’exécution.
 
 ###<a id="states"></a>États du canal et mappage au mode de facturation 
 
@@ -128,7 +130,7 @@ Pour arrêter la facturation, vous devez arrêter le canal par le biais de l’A
 
 - **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
 - **Démarrage en cours**. Le canal est en cours de démarrage. Aucune facturation ne survient dans cet état. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
-- **Exécution en cours**. Le canal est capable de traiter des flux live. Il facture désormais l'utilisation. Vous devez arrêter le canal pour empêcher toute facturation supplémentaire. 
+- **Exécution en cours**. Le canal est capable de traiter des flux dynamiques. Il facture désormais l'utilisation. Vous devez arrêter le canal pour empêcher toute facturation supplémentaire. 
 - **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
 - **Suppression en cours**. Le canal est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
 
@@ -158,10 +160,10 @@ Arrêté|Arrêté|Non
 
 [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 
-[Utilisation des canaux recevant un flux live à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
+[Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
 
 [Quotas et limitations](media-services-quotas-and-limitations.md)
 
 [Concepts Azure Media Services](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

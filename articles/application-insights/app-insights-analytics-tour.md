@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/20/2016" 
 	ms.author="awills"/>
 
 
@@ -103,18 +103,18 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 
     requests 
     | top 10 by timestamp desc 
-    | project timestamp, 
-               timeOfDay = floor(timestamp % 1d, 1s), 
-               name, 
-               response = resultCode
+    | project  
+            name, 
+            response = resultCode,
+            timestamp, 
+            ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-Dans l’expression scalaire :
-
+* Les [noms de colonnes](app-insights-analytics-reference.md#names) peuvent contenir des espaces ou des symboles s’ils sont placés entre crochets comme suit : `['...']` ou `["..."]`
 * `%` est l’opérateur modulo habituel. 
-* `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
+* `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
 
 Les [expressions](app-insights-analytics-reference.md#scalars) peuvent inclure tous les opérateurs habituels (`+`, `-`, ...), et il existe une gamme de fonctions utiles.
@@ -175,7 +175,7 @@ Pour extraire ces valeurs dans Analytics :
 
 ``` 
 
-> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachés à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Mais, dans Analytics, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
+> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachés à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Dans Analytics, en revanche, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
 
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator) : agréger des groupes de lignes
@@ -197,7 +197,7 @@ Nous pouvons également regrouper les résultats par heure :
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes, et `bin` (qui représente simplement la fonction `floor` d’arrondi vers le bas habituelle) est le plus simple moyen d’y arriver.
+Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes, et `bin` (qui représente simplement la fonction `floor` d’arrondi vers le bas habituelle) est le plus simple moyen d’y parvenir.
 
 Nous pouvons utiliser la même technique pour réduire les plages de chaînes :
 
@@ -208,7 +208,7 @@ Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de r
 
 ## Décompte des données échantillonnées
 
-`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. Mais, lorsque l’[échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights, de sorte que, pour chaque point de données que vous voyez, il existe `itemCount` événements. Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
+`sum(itemCount)` est l’agrégation recommandée pour compter les événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand l’[échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements. Par conséquent, le fait de résumer itemCount donne une bonne estimation du nombre d’événements d’origine.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -469,4 +469,4 @@ Utilisez [let](./app-insights-analytics-syntax.md#let-statements) pour séparer 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

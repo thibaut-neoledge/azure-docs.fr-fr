@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Description d’un cluster Service Fabric
@@ -157,6 +157,8 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Les contraintes de placement (ainsi que de nombreuses autres propriétés dont nous allons parler) sont spécifiées pour chaque instance de service individuelle. Les mises à jour prennent toujours la place (remplacent) de ce qui a été précédemment spécifié.
 
+Il est également important de noter qu’à ce stade les propriétés d’un nœud sont définies via la définition du cluster et, par conséquent, ne peuvent pas être mises à jour sans une mise à niveau du cluster.
+
 ## Capacité
 L’une des principales tâches de n’importe quel orchestrateur consiste à vous aider à gérer la consommation de ressources du cluster. Si vous tentez d’exécuter efficacement des services, vous ne voudrez certainement pas qu’un ensemble de nœuds soit actif (entraînant des conflits de ressources et des performances médiocres) tandis que d’autres sont froids (gaspillage de ressources). Mais prenons un exemple encore plus simple que l’équilibrage de charge (que nous examinerons dans une minute) : et si vous vous assuriez en premier lieu que les nœuds ne soient pas à cours de ressources ?
 
@@ -202,13 +204,14 @@ ClusterManifest.xml
 
 Il est également possible que la charge d’un service évolue de manière dynamique. Dans ce cas, il est possible que l’emplacement actuel d’un réplica ou d’une instance devienne non valide, étant donné que l’utilisation combinée de tous les réplicas et de toutes les instances de ce nœud dépasse les capacités du nœud. Nous étudierons ultérieurement ce scénario, dans lequel la charge peut être modifiée de manière dynamique, mais où, en termes de capacité, elle est gérée de la même façon : la gestion des ressources de Service Fabric intervient automatiquement et ramène le nœud au-dessous de la capacité en déplaçant un ou plusieurs réplicas ou instances de ce nœud vers des nœuds différents. Ce faisant, le Gestionnaire de ressources essaie de réduire le coût de tous les mouvements (nous reviendrons sur la notion de coût ultérieurement).
 
-##Capacité de cluster
+## Capacité de cluster
 Par conséquent, comment faire en sorte que l’ensemble du cluster ne soit pas saturé ? Avec la charge dynamique, nous ne pouvons en réalité pas faire grand-chose (étant donné que les services peuvent avoir un pic de charge indépendamment des actions effectuées par le Gestionnaire de ressources : un cluster ayant beaucoup de marge aujourd’hui pourra manquer de puissance demain), mais il existe certains contrôles conçus pour éviter les erreurs de base. La première chose que nous pouvons faire est d’empêcher la création de nouvelles charges de travail qui risquent de saturer le cluster.
 
 Supposons que vous créez un service sans état simple et qu’une charge y est associée (nous reviendrons plus tard sur les rapports de charge par défaut et dynamique). Supposons que ce service ait besoin de certaines ressources (par exemple l’espace disque) et qu’il consomme par défaut 5 unités d’espace disque pour chaque instance du service. Vous souhaitez créer 3 instances du service. Parfait ! Cela signifie que nous avons besoin de 15 unités d’espace disque dans le cluster pour être en mesure de créer ces instances de service. Service Fabric calcule en continu la capacité globale et la consommation de chaque métrique, pour que nous puissions facilement effectuer cette détermination et rejeter l’appel de création de service si l’espace est insuffisant.
 
 Notez que dans la mesure où la spécification est uniquement que 15 unités soient disponibles, cet espace peut être alloué de différentes façons. Il peut s’agir d’une seule unité restante sur 15 nœuds différents, par exemple, ou de trois unités restantes sur 5 nœuds différents, etc. S’il ne trouve pas la capacité suffisante sur trois nœuds différents, Service Fabric réorganise les services déjà dans le cluster afin de libérer de l’espace sur les trois nœuds nécessaires. Cette réorganisation est presque toujours possible à moins que le cluster dans son ensemble soit presque entièrement complet.
 
+## Capacité de mise en mémoire tampon
 Pour aider les utilisateurs à gérer la capacité globale du cluster, nous avons ajouté un système de mémoire tampon réservée à la capacité spécifiée sur chaque nœud. Ce paramètre est facultatif, mais il permet aux utilisateurs de réserver une partie de la capacité globale du nœud afin qu’elle soit uniquement utilisée pour placer des services au cours des mises à niveau et des échecs, c’est-à-dire dans les cas où la capacité du cluster est réduite. Aujourd’hui, la mémoire tampon est indiquée de manière globale par métrique pour tous les nœuds via le manifeste de cluster. La valeur que vous choisissez pour la capacité de réserve sera une fonction des ressources sur lesquelles vos services sont soumis au plus grand nombre de contraintes, ainsi que du nombre de domaines d’erreur et de mise à niveau dont vous disposez dans le cluster. Généralement, un plus grand nombre de domaines d’erreur et de mise à niveau signifie que vous pouvez choisir une capacité de mémoire tampon inférieure, dans la mesure où vous pouvez vous attendre à ce qu’une plus petite portion de votre cluster soit indisponible lors des défaillances et des mises à niveau. Notez que l’indication du pourcentage de mémoire tampon est pertinente uniquement si vous avez également spécifié la capacité du nœud pour une métrique.
 
 ClusterManifest.xml
@@ -262,4 +265,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->
