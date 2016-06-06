@@ -406,7 +406,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IsEmpty
 
-**Description : ** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description :** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 

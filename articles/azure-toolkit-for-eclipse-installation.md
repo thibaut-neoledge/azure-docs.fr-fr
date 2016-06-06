@@ -36,7 +36,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
     ![Installation du kit de ressources Azure pour Eclipse][01]
 
-1. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez ****http://dl.microsoft.com/eclipse** suivi de la touche **Entrée**.
+1. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez **http://dl.microsoft.com/eclipse** suivi de la touche **Entrée**.
 
 1. Dans le volet **Name** (Nom), cochez **Azure Toolkit for Eclipse** (Kit de ressources Azure pour Eclipse) et décochez **Contact all update sites during install to find required software** (Contacter tous les sites de mise à jour durant l’installation pour trouver le logiciel requis). Votre écran doit se présenter comme suit :
 

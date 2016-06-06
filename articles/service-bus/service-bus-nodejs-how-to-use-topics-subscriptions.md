@@ -27,7 +27,7 @@ Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus de
 
 ## Création d’une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou Site Web avec WebMatrix.
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] \(avec Windows PowerShell) ou Site Web avec WebMatrix.
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 

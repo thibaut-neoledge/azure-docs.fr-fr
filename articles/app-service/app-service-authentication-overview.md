@@ -26,7 +26,7 @@ App Service utilise l’identité fédérée, dans laquelle un fournisseur d’i
 
 Si vous voulez commencer tout de suite, consultez l’un des didacticiels suivants :
 
-- [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
+- [Ajout de l’authentification à votre application iOS][iOS] \(ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
 - [Authentification utilisateur pour API Apps dans Azure App Service][apia-user]
 - [Prise en main d’Azure App Services, 2e partie][web-getstarted]
 
@@ -89,7 +89,7 @@ Vous bénéficiez d’un contrôle absolu sur les requêtes pouvant accéder à 
 
 	Dans ce cas, la fonctionnalité d’authentification/d’autorisation est désactivée. Les tâches d’authentification et d’autorisation sont entièrement à la charge du code de votre application.
 
-Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Log in with provider name ** (**Se connecter avec *nom du fournisseur* **), toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
+Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Log in with provider name** (**Se connecter avec *nom du fournisseur* **), toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
 
 ## Utilisation des identités des utilisateurs dans votre application
 

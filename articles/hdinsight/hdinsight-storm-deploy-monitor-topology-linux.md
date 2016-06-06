@@ -145,7 +145,7 @@ Pour plus d’informations, consultez la rubrique [API REST de l’interface uti
 
 ### URI de base
 
-L’URI de base de l’API REST sur les clusters HDInsight basés sur Linux est disponible sur le nœud principal à l’adresse ****https://HEADNODEFQDN:8744/api/v1/** ; en revanche, le nom de domaine du nœud principal est généré lors de la création du cluster et il n’est pas statique.
+L’URI de base de l’API REST sur les clusters HDInsight basés sur Linux est disponible sur le nœud principal à l’adresse **https://HEADNODEFQDN:8744/api/v1/** ; en revanche, le nom de domaine du nœud principal est généré lors de la création du cluster et il n’est pas statique.
 
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 

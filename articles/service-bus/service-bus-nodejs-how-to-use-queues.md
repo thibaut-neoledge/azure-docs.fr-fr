@@ -26,7 +26,7 @@ Cet article décrit l’utilisation des files d’attente Service Bus dans Node.
 
 ## Création d’une application Node.js
 
-Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, voir les pages [Création et déploiement d’une application Node.js sur un site web Azure][] ou [Service cloud Node.js][] (avec Windows PowerShell).
+Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, voir les pages [Création et déploiement d’une application Node.js sur un site web Azure][] ou [Service cloud Node.js][] \(avec Windows PowerShell).
 
 ## Configuration de votre application pour l’utilisation de Service Bus
 

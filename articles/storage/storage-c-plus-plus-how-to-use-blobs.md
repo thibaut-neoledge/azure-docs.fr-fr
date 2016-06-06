@@ -239,6 +239,6 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+-	[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
 <!---HONumber=AcomDC_0525_2016-->

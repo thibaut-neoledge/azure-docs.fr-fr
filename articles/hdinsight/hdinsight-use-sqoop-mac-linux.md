@@ -108,7 +108,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Sqoop doit se connecter à la base de données SQL, à la base de données **sqooptest**, puis exporter des données à partir de ****wasb:///hive/warehouse/hivesampletable** (fichiers physiques de *hivesampletable*,) vers la table **mobiledata**.
+    Sqoop doit se connecter à la base de données SQL, à la base de données **sqooptest**, puis exporter des données à partir de **wasb:///hive/warehouse/hivesampletable** (fichiers physiques de *hivesampletable*,) vers la table **mobiledata**.
 
 5. Une fois la commande terminée, utilisez les éléments suivants pour vous connecter à la base de données à l’aide de TSQL :
 
@@ -123,7 +123,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ##Importation de Sqoop
 
-1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire ****wasb:///tutorials/usesqoop/importeddata** sur HDInsight :
+1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire **wasb:///tutorials/usesqoop/importeddata** sur HDInsight :
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 

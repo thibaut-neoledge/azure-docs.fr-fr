@@ -54,7 +54,7 @@ Cette erreur s’affiche quand l’Assistant ne peut pas joindre le proxy. ![nom
 - Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
 ### Impossible d’atteindre le point de terminaison de l’authentification MFA
-Cette erreur s’affiche si le point de terminaison ****https://secure.aadcdn.microsoftonline-p.com** ne peut pas être atteint et que l’authentification MFA est activée chez votre administrateur général. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** ne peut pas être atteint et que l’authentification MFA est activée chez votre administrateur général. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Dans ce cas, vérifiez que le point de terminaison secure.aadcdn.microsoftonline-p.com a été ajouté au serveur proxy.
 

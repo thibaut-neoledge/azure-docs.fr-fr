@@ -52,7 +52,7 @@ MSDN est actuellement forum principal d’AMS.
 
 ## Contactez l’équipe
 
-L’adresse e-mail principale d’Azure Media Services est la suivante : ****mediaservices@microsoft.com**.
+L’adresse e-mail principale d’Azure Media Services est la suivante : **mediaservices@microsoft.com**.
 
 Le tableau suivant répertorie les adresses de messagerie des sous-équipes chargées des fonctionnalités :
 

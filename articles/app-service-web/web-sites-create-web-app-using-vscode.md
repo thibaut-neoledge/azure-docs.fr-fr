@@ -127,7 +127,7 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 2. Ouvrez un navigateur et accédez à l'URL suivante.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	La page par défaut de l’application Web apparaîtra comme suit.
 

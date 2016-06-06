@@ -91,7 +91,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 
 La solution Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux inclut l’extension de chiffrement de disque pour Windows, l’extension de chiffrement de disque pour Linux, les applets de commande CLI de chiffrement de disque et les modèles Azure Resource Manager de chiffrement de disque. Azure Disk Encryption est pris en charge sur les machines virtuelles IaaS exécutant les systèmes d’exploitation Windows ou Linux. Pour plus d’informations sur les systèmes d’exploitation pris en charge, consultez la section Conditions préalables requises ci-dessous.
 
-****Remarque : ** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
+**Remarque :** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
 
 ### Proposition de valeur
 

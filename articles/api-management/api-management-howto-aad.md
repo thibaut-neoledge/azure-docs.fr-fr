@@ -50,7 +50,7 @@ Entrez le nom de l’application, sélectionnez **Application web et/ou API web*
 
 Dans **URL de connexion**, copiez l’**URL de redirection** dans la section **Azure Active Directory** de l’onglet **Identités externes** du portail des éditeurs et supprimez le suffixe **-aad** à la fin de l’URL. Dans cet exemple, la valeur de **URL de connexion** est `https://aad03.portal.current.int-azure-api.net/signin`.
 
-Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut ****https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
+Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut **https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
 
 ![Propriétés de la nouvelle application Azure Active Directory][api-management-new-aad-application-2]
 

@@ -57,7 +57,8 @@ Les symboles de l’espace de noms Microsoft.Azure.Mobile sont disponibles sur [
 
 Le code suivant permet de créer l’objet [MobileServiceClient] utilisé pour accéder à votre backend Mobile Apps.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+	"MOBILE_APP_URL");
 
 Dans le code ci-dessus, remplacez `MOBILE_APP_URL` par l’URL du backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [portail Azure]. Il est normal et recommandé que l’instance du client soit un Singleton.
 
@@ -84,7 +85,8 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 
 L’ensemble du code permettant d’accéder aux données d’une table du backend ou de les modifier appelle des fonctions sur l’objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la méthode [GetTable] sur une instance du `MobileServiceClient`, comme suit :
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = 
+		client.GetTable<TodoItem>();
 
 Il s'agit du modèle de sérialisation typé. Les modèles de sérialisation non typés sont également pris en charge. Le code suivant [crée une référence à une table non typée] \:
 
@@ -128,7 +130,8 @@ La fonction transmise à la méthode `Where` peut avoir un nombre de conditions 
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false 
+	   	&& todoItem.Text != null)
 	   .ToListAsync();
 
 Serait traduite en requête SQL par le Kit de développement logiciel (SDK) de serveur qui est similaire à ceci :
