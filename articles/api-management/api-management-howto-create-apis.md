@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Création d'API dans Gestion des API Azure
 
 Une API du service Gestion des API représente un ensemble d'opérations qui peuvent être appelées par des applications clientes. Les nouvelles API sont créées dans le portail des éditeurs, puis les opérations souhaitées sont ajoutées. Une fois les opérations ajoutées, l'API est ajoutée à un produit et peut être publiée. Une fois l'API publiée, les développeurs peuvent s'y abonner et l'utiliser.
 
-Ce guide présente la première étape du processus : comment créer et configurer une nouvelle API dans Gestion des API. Pour plus d'informations sur l'ajout d'opérations et la publication d'un produit, consultez les rubriques [Ajout d'opérations à une API][] et [Création et publication d'un produit][].
+Ce guide présente la première étape du processus : comment créer et configurer une nouvelle API dans Gestion des API. Pour plus d'informations sur l'ajout d'opérations et la publication d'un produit, consultez les rubriques [Ajout d'opérations à une API][] et [Création et publication d'un produit][].
 
 ## <a name="create-new-api"> </a>Création d’une API
 
-Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -58,7 +58,7 @@ L'onglet **Paramètres** permet de vérifier et de modifier la configuration d'u
 
 Pour configurer l'authentification de la passerelle pour le service principal avec mise en œuvre de l'API, sélectionnez l’onglet **Sécurité**. La liste déroulante **Avec informations d'identification** peut servir à configurer l'authentification **HTTP de base** ou par **Certificats client**. Pour utiliser l'authentification HTTP de base, entrez simplement les informations d'identification de votre choix. Pour plus d'informations sur l'utilisation de l'authentification avec certificats client, consultez la page [Comment sécuriser les services principaux à l’aide d’une authentification de certificat client dans la Gestion des API Azure][].
 
-L’onglet **Sécurité** peut également être utilisé pour configurer **Autorisation utilisateur** avec OAuth 2.0. Pour plus d’informations, consultez la page [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure][].
+L’onglet **Sécurité** peut également être utilisé pour configurer **Autorisation utilisateur** avec OAuth 2.0. Pour plus d’informations, consultez la page [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure][].
 
 ![Basic authentication settings][api-management-api-settings-credentials]
 
@@ -97,6 +97,6 @@ Une fois l'API créée et les paramètres configurés, l'étape suivante consist
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Comment sécuriser les services principaux à l’aide d’une authentification de certificat client dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
-[Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
+[Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

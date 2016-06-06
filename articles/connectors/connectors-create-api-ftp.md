@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l'API FTP à vos applications logiques | Microsoft Azure"
-	description="Vue d'ensemble de l'API FTP avec les paramètres de l'API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur FTP à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur FTP avec les paramètres d’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API FTP
-Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
+# Prise en main du connecteur FTP
+Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Le connecteur FTP peut être utilisé dans :
 
 - Applications logiques (abordées dans cette rubrique)
 - PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
@@ -41,18 +41,14 @@ Déclencheurs | Actions
 --- | ---
 <ul><li>Obtenir un fichier mis à jour</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Obtenir un fichier mis à jour</li><li>Mettre à jour un fichier</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à FTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
-|Propriété| Requis|Description|
-| ---|---|---|
-|Adresse du serveur| Oui | Entrez le nom de domaine complet (FQDN) ou l'adresse IP du serveur FTP.|
-|Nom d'utilisateur| Oui | Entrez le nom d'utilisateur pour vous connecter au serveur FTP.|
-|Mot de passe | Oui | Entrez le mot de passe de l’utilisateur.|
 
-Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l’API REST** de cette rubrique décrit ces propriétés.
+>[AZURE.INCLUDE [Procédure de création d’une connexion FTP](../../includes/connectors-create-api-ftp.md)]
+
+Après avoir créé la connexion, vous entrez les propriétés FTP, telles que le fichier source ou le dossier de destination. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion FTP dans d'autres applications logiques.
 
@@ -103,7 +99,7 @@ Supprime un fichier du serveur FTP. ```DELETE: /datasets/default/files/{id}```
 |default|L’opération a échoué.|
 
 ### Extraire un dossier
-Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -248,4 +244,4 @@ Met à jour un fichier sur le serveur FTP. ```PUT: /datasets/default/files/{id}`
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Installation du kit de ressources Azure pour Eclipse"
+	pageTitle="Installation du kit de ressources Azure pour Eclipse | Microsoft Azure"
 	description="Apprenez à installer le Kit de ressources Azure pour Eclipse."
 	services=""
 	documentationCenter="java"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-    ms.date="03/28/2016" 
+	ms.date="05/19/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
 # Installation du kit de ressources Azure pour Eclipse
 
-Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l'environnement de développement Eclipse. Ce projet Open Source possède un code source disponible sous licence Apache 2.0 sur le site du projet sur GitHub à l'adresse suivante :
+Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l’environnement de développement Eclipse. Le kit de ressources Azure pour Eclipse est un projet Open Source, dont le code source est disponible sous licence MIT sur le site du projet sur GitHub à l’adresse suivante :
 
 <https://github.com/microsoft/azure-tools-for-java>
 
@@ -31,27 +31,52 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 ## Pour installer le Kit de ressources Azure pour Eclipse
 
 1. Démarrez Eclipse.
-2. Dans le menu d'Eclipse, cliquez sur <strong>Aide</strong>, puis cliquez sur <strong>Install New Software</strong> (Installer nouveau logiciel), comme illustré dans le diagramme suivant. ![Installation du kit de ressources Azure pour Eclipse][ic590123]
-3. Dans la boîte de dialogue <strong>Available Software</strong> (Logiciels disponibles), dans la zone de texte <strong>Work With</strong> (Fonctionnement avec), tapez <strong>http://dl.microsoft.com/eclipse</strong> suivis de la touche <strong>Entrée</strong>.
-4. Dans le volet <strong>Name</strong> (Nom), cochez <strong>Azure Toolkit for Eclipse</strong> (Kit de ressources Azure pour Eclipse) et décochez <strong>Contact all update sites during install to find required software</strong> (Contacter tous les sites de mise à jour durant l'installation pour trouver le logiciel requis). Votre écran doit se présenter comme suit : ![Installation du kit de ressources Azure pour Eclipse][ic719482]
-5. Si vous développez le <strong>Kit de ressources Azure pour Eclipse</strong>, vous verrez les éléments suivants :
-    * **Azure Access Control Services Filter** : ce composant prend en charge l'authentification des utilisateurs d'application avec Azure ACS.
-    * **Azure Common Plugin** : ce composant contient la fonctionnalité partagée dont dépendent les autres composants.
-    * **Kit de ressources Azure pour Eclipse** : ce composant contient la logique de configuration de projet, l'Assistant de publication sur le cloud et l'interface utilisateur.
-    * **Microsoft JDBC Driver 4.0 for SQL Server** : ce composant simplifie le développement d'application à l'aide de la base de données SQL.
-    * **Package for Apache Qpid Client Libraries for JMS** : ce composant fournit la bibliothèque cliente JMS du projet Apache Qpid pour permettre à votre application d'utiliser la messagerie Advanced Messaging Queuing Protocol (AMQP) dans Azure
-    * **Package for Azure Libraries for Java** : ce composant vous permet de créer des applications Azure dans Java qui vous permettent de tirer parti des ressources cloud computing évolutives d'Azure.
-    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
-6. Cliquez sur **Next**. (Si vous rencontrez des délais d'attente inhabituels lors de l'installation du kit de ressources, assurez-vous que l'option **Contact all update sites during install to find required software** est désactivée.)
-7. Dans la boîte de dialogue **Install Details** (Détails d'installation), cliquez sur **Next** (Suivant).
-8. Dans la boîte de dialogue **Review Licenses** (Vérifier les licences), passez en revue les termes des contrats de licence. Si vous acceptez les termes des contrats de licence, cliquez sur **I accept the terms of the license agreements** (J'accepte les termes des contrats de licence), puis sur **Finish** (Terminer). (Les étapes restantes supposent que vous acceptez les termes des contrats de licence. Si vous n'acceptez pas les termes des contrats de licence, quittez le processus d'installation.)
-9. Si vous êtes invité à redémarrer Eclipse pour terminer l'installation, cliquez sur **Restart Now** (Redémarrer maintenant).
+
+1. Dans le menu d’Eclipse, cliquez sur **Aide**, puis cliquez sur **Install New Software** (Installer nouveau logiciel), comme illustré dans le diagramme suivant.
+
+    ![Installation du kit de ressources Azure pour Eclipse][01]
+
+1. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez **http://dl.microsoft.com/eclipse** suivi de la touche **Entrée**.
+
+1. Dans le volet **Name** (Nom), cochez **Azure Toolkit for Eclipse** (Kit de ressources Azure pour Eclipse) et décochez **Contact all update sites during install to find required software** (Contacter tous les sites de mise à jour durant l’installation pour trouver le logiciel requis). Votre écran doit se présenter comme suit :
+
+    ![Installation du kit de ressources Azure pour Eclipse][02]
+
+1. Si vous développez le **Kit de ressources Azure pour Eclipse**, les éléments suivants apparaissent :
+
+    * **Application Insights Plugin for Java** : ce composant vous permet d'utiliser les services de journalisation et d'analyse de télémétrie d'Azure pour vos applications et instances de serveur.
+    * **Azure Access Control Services Filter** : ce composant prend en charge l’authentification des utilisateurs de l’application avec Azure ACS, permettant les scénarios d’authentification unique et l’externalisation de la logique d’identité hors de l’application.
+    * **Azure Common Plugin** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
+    * **Azure Explorer for Eclipse** : ce composant fournit les fonctionnalités communes nécessaires aux autres composants du kit de ressources.
+    * **Azure Plugin for Eclipse with Java** : ce composant prend en charge le développement de projets qui aident à générer, tester et déployer des applications Java pour le cloud Microsoft Azure dans Eclipse et par le biais de la ligne de commande.
+    * **Azure Web Apps Plugin with Java** : ce composant prend en charge le déploiement d’applications web Java sur des conteneurs d’application web Microsoft Azure.
+    * **Microsoft JDBC Driver 4.2 for SQL Server** : ce composant fournit l’API JDBC pour SQL Server et Microsoft Azure SQL Database pour Java Platform Enterprise Edition 8.
+    * **Package for Apache Qpid Client Libraries for JMS** : ce composant fournit le composant client JMS du projet Apache Qpid pour permettre à votre application d’utiliser la messagerie AMQP dans Microsoft Azure.
+    * **Package for Microsoft Azure Libraries for Java** : ce composant fournit des API pour accéder aux services Microsoft Azure, tels que Storage, Service Bus, le runtime de service, etc.
+
+1. Cliquez sur **Next**. (Si vous rencontrez des délais d'attente inhabituels lors de l'installation du kit de ressources, assurez-vous que l'option **Contact all update sites during install to find required software** est désactivée.)
+
+1. Dans la boîte de dialogue **Install Details** (Détails d'installation), cliquez sur **Next** (Suivant).
+
+    ![Passer en revue les détails de l’installation][03]
+
+1. Dans la boîte de dialogue **Review Licenses** (Vérifier les licences), passez en revue les termes des contrats de licence. Si vous acceptez les termes des contrats de licence, cliquez sur **I accept the terms of the license agreements** (J'accepte les termes des contrats de licence), puis sur **Finish** (Terminer). (Les étapes restantes supposent que vous acceptez les termes des contrats de licence. Si vous n'acceptez pas les termes des contrats de licence, quittez le processus d'installation.)
+
+    ![Réviser les licences][04]
+
+    Eclipse télécharge et installe les packages requis.
+
+    ![Progression de l’installation][05]
+
+1. Si vous êtes invité à redémarrer Eclipse pour terminer l’installation, cliquez sur **Yes** (Oui).
+
+    ![Invite de redémarrage][06]
 
 ## Voir aussi
 
-[Kit de ressources Azure pour Eclipse]
+[Kit de ressources Azure pour Eclipse]
 
-[Création d'une application Hello World pour Azure dans Eclipse]
+[Créer une application web « Hello World » pour Azure dans Eclipse]
 
 [Nouveautés du kit de ressources Azure pour Eclipse]
 
@@ -59,15 +84,18 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Nouveautés du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
+[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- IMG List -->
 
-[ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
-[ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
+[01]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-01.png
+[02]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-02.png
+[03]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-03.png
+[04]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-04.png
+[05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
+[06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

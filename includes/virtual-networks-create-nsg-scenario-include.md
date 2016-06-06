@@ -13,7 +13,7 @@ Dans ce scénario, vous allez créer un NSG pour chaque sous-réseau du réseau 
 	- **sql-rule**. Cette règle autorise le trafic SQL uniquement à partir du sous-réseau *FrontEnd*.
 	- **web-rule**. Cette règle refuse tout trafic lié à Internet à partir du sous-réseau *BackEnd*.
 
-La combinaison de ces règles crée un scénario de type DMZ, où le sous-réseau principal peut recevoir uniquement du trafic entrant pour le trafic SQL en provenance du sous-réseau frontal, et n’a pas accès à Internet, tandis que le sous-réseau frontal peut communiquer avec Internet et recevoir uniquement des requêtes HTTP entrantes.
+La combinaison de ces règles crée un scénario de type DMZ, où le sous-réseau principal peut recevoir uniquement du trafic entrant pour SQL en provenance du sous-réseau frontal, et n’a pas accès à Internet, tandis que le sous-réseau frontal peut communiquer avec Internet et recevoir uniquement des requêtes HTTP entrantes.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0525_2016-->

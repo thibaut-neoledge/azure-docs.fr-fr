@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main d’Azure Search | Microsoft Azure"
+   pageTitle="Vue d’ensemble de la sécurité Azure | Microsoft Azure"
    description="Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# Prise en main – Vue d’ensemble
+# Vue d’ensemble de la sécurité d’Azure
 
 Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure. Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, veuillez consulter le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
@@ -30,6 +30,7 @@ Si vous regardez sur le côté gauche de la page, vous voyez une collection de c
 À chaque catégorie correspond un article Vue d’ensemble. L’objectif de cet article est de vous fournir un résumé de ce qu’Azure peut offrir en termes de sécurité pour cette catégorie. Les articles Vue d’ensemble vous aideront à comprendre les produits, services et fonctionnalités disponibles dans Azure que vous pouvez utiliser pour améliorer la sécurité de vos déploiements. Ces articles Vue d’ensemble contiennent de nombreux liens vers du contenu technique qui vous permettra d’en savoir plus sur les rubriques et de découvrir comment les implémenter.
 
 Le site d’informations sur la sécurité Azure traite actuellement des catégories suivantes :
+
 - Ressources
 - Sécurité du réseau
 - Sécurité du stockage
@@ -45,4 +46,4 @@ Le site d’informations sur la sécurité Azure traite actuellement des catégo
 
 Donnez-nous votre avis ! S’il existe des catégories que vous souhaitez ajouter, faites-le-nous savoir ! S’il existe des articles que vous souhaitez ajouter à une catégorie existante, faites-le nous-savoir également ! Vous pouvez utiliser la section Commentaires ci-dessous ou nous écrire à [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) et nous prenons en compte vos recommandations.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

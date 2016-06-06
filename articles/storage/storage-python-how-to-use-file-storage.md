@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de fichiers Azure à partir de Python | Microsoft Azure"
+	pageTitle="Utilisation du stockage de fichiers Azure à partir de Python | Microsoft Azure"
 	description="Découvrez comment utiliser le stockage de fichiers Azure à partir de Python pour charger, répertorier, télécharger et supprimer des fichiers."
 	services="storage"
 	documentationCenter="python"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/23/2016"
 	ms.author="emgerner"/>
 
 # Utilisation du stockage de fichiers Azure à partir de Python
@@ -34,7 +34,7 @@ L’objet **FileService** permet d'utiliser des partages, des répertoires et de
 
 	from azure.storage.file import FileService
 
-Le code suivant permet de créer un objet **FileService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
+Le code suivant permet de créer un objet **FileService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
 
 	file_service = **FileService** (account_name='myaccount', account_key='mykey')
 
@@ -46,7 +46,7 @@ Dans l’exemple de code suivant, vous pouvez utiliser un objet **FileService** 
 
 Un partage de fichiers de stockage Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
 
-Pour créer un fichier et télécharger des données, utilisez la méthode **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** ou **create\_file\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour créer un fichier et télécharger des données, utilisez la méthode **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** ou **create\_file\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
 **create\_file\_from\_path** télécharge le contenu d’un fichier à partir du chemin spécifié. **create\_file\_from\_stream** télécharge le contenu à partir d’un fichier/flux déjà ouvert. **create\_file\_from\_bytes** télécharge un tableau d’octets. **create\_file\_from\_text** télécharge la valeur de texte spécifiée à l’aide du codage indiqué (UTF-8 par défaut).
 
@@ -55,7 +55,7 @@ L’exemple suivant charge le contenu du fichier **sunset.png** dans le fichier 
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
         'myshare',
-				None, # We want to create this blob in the root directory, so we specify None for the directory_name
+        None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
@@ -76,7 +76,7 @@ Pour répertorier les fichiers et répertoires d'un partage, utilisez la méthod
 
 ## Téléchargement de fichiers
 
-Pour télécharger des données à partir d'un fichier, utilisez **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes** ou **get\_file\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour télécharger des données à partir d'un fichier, utilisez **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes** ou **get\_file\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
 L’exemple suivant illustre l’utilisation de **get\_file\_to\_path** pour télécharger le contenu du fichier **myfile** et le stocker dans le fichier **out-sunset.png**.
 
@@ -95,10 +95,10 @@ Maintenant que vous connaissez les bases du stockage de fichiers, consultez les 
 - [Centre de développement Python](/develop/python/)
 - [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
 - [Blog de l'équipe Azure Storage]
-- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
+- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
 
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
-[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
+[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

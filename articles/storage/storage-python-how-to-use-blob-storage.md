@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Python | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Python | Microsoft Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="python"
@@ -22,6 +22,8 @@
 
 ## Vue d'ensemble
 
+Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
+
 Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob. Les exemples sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -30,7 +32,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 ## Création d'un conteneur
 
-Selon le type d'objet blob que vous souhaitez utiliser, créez un objet **BlockBlobService**, **AppendBlobService** ou **PageBlobService**. Le code suivant utilise un objet **BlockBlobService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder au stockage d’objet blob de blocs Azure par programme.
+Selon le type d’objet blob que vous souhaitez utiliser, créez un objet **BlockBlobService**, **AppendBlobService** ou **PageBlobService**. Le code suivant utilise un objet **BlockBlobService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder au stockage d’objet blob de blocs Azure par programme.
 
 	from azure.storage.blob import BlockBlobService
 
@@ -126,4 +128,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

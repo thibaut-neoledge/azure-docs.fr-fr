@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory
@@ -136,9 +136,9 @@ Si vous avez besoin d’aide avec ce script d’interface de ligne de commande, 
         -type Standard_LRS `
         -Location $location 
 
-    $destStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
         -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName |  %{ $_.Key1 }
+        -Name $destStorageAccountName)[0].Value
 
     $sourceContext = New-AzureStorageContext `
         -StorageAccountName $sourceStorageAccountName `
@@ -322,7 +322,7 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle ARM dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
@@ -438,4 +438,4 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

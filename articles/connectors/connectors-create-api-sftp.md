@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l’API SFTP à vos applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’API SFTP avec les paramètres de l’API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur SFTP à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur SFTP avec les paramètres d’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API SFTP
-Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers. L’API SFTP peut être utilisée à partir de :
+# Prise en main du connecteur SFTP 
+Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers. Le connecteur SFTP peut être utilisé dans :
 
 - Logic Apps
 
@@ -34,17 +34,17 @@ Pour ajouter une opération aux applications logiques, consultez [Créer une app
 
 
 ## Déclencheurs et actions
-L’API SFTP propose les déclencheurs et les actions suivants.
+Le connecteur SFTP propose les déclencheurs et les actions suivants :
 
 Déclencheurs | Actions
 --- | ---
 <ul><li>Quand un fichier est créé ou modifié</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est créé ou modifié</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 
 ## Créer une connexion à SFTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez ce connecteur à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -52,6 +52,10 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs su
 |Nom d'utilisateur| Oui | Entrez le nom d’utilisateur pour vous connecter au serveur SFTP.|
 |Mot de passe | Oui | Entrez le mot de passe de l’utilisateur.|
 |Empreinte de la clé d’hôte du serveur SSH | Oui | Entrez l’empreinte de la clé d’hôte publique du serveur SSH. <br/><br/>En règle générale, l’administrateur du serveur peut vous fournir cette clé. Vous pouvez également utiliser les outils ```WinSCP``` ou ```ssh-keygen-g3 -F``` pour obtenir l’empreinte de la clé. | 
+
+Voici une procédure pas à pas pour créer la connexion :
+
+>[AZURE.INCLUDE [Procédure de création d’une connexion à SFTP](../../includes/connectors-create-api-sftp.md)]
 
 Après avoir créé la connexion, vous entrez les propriétés SFTP, telles que le chemin du dossier ou le fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -105,7 +109,7 @@ Supprime un fichier dans SFTP. ```DELETE: /datasets/default/files/{id}```
 |default|L’opération a échoué.|
 
 ### Extraire un dossier
-Extrait un fichier d’archive dans un dossier à l’aide de SFTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier à l’aide de SFTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -248,6 +252,6 @@ Déclenche un flux quand un fichier est modifié dans SFTP. ```GET: /datasets/de
 
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

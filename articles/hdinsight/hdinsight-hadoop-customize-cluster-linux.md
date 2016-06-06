@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Personnalisation de clusters HDInsight basés sur Linux à l'aide d'une action de script
@@ -27,11 +27,19 @@ HDInsight fournit une option de configuration intitulée **Action de script**, q
 
 Une action de script est tout simplement un script Bash auquel vous apportez une URL et des paramètres. Il est ensuite exécuté sur les nœuds du cluster HDInsight. Les éléments suivants constituent les caractéristiques et les fonctionnalités des actions de script.
 
-* Peuvent être limitées à __l’exécution sur certains types de nœud__, par exemple sur les nœuds principaux ou les nœuds de travail.
+* Elles doivent être stockées sur un URI accessible à partir du cluster HDInsight. Voici les emplacements de stockage possibles :
 
-* Peuvent être __persistantes__ ou __ad hoc__.
+    * Un compte de stockage d’objets blob considéré comme compte de stockage principal ou supplémentaire pour le cluster HDInsight. Dans la mesure où HDInsight peut accéder à ces deux types de comptes de stockage lors de la création du cluster, une action de script de non publique peut être utilisée.
+    
+    * Un URI lisible publiquement, comme un objet blob Azure, GitHub, OneDrive, Dropbox, etc..
+    
+    Pour obtenir des exemples d’URI pour les scripts stockés dans le conteneur d’objets blob (lisibles publiquement), consultez la section [Exemple de script d’action de script](#example-script-action-scripts).
 
-    Les scripts __persistants__ sont appliqués aux nœuds de travail et sont automatiquement exécutés sur les nœuds créés lors de la montée en charge d’un cluster.
+* Peuvent être limités de manière à s’__exécuter sur certains types de nœuds uniquement__, par exemple des nœuds principaux ou des nœuds Worker.
+
+* Peuvent être __persistants__ ou __ad hoc__.
+
+    Les scripts __persistants__ sont appliqués aux nœuds Worker et sont automatiquement exécutés sur les nœuds créés lors de la montée en charge d’un cluster.
 
     Un script persistant peut également apporter des modifications à un autre type de nœud, tel que le nœud principal. Cependant, la seule raison d’utiliser un script persistant, d’un point de vue fonctionnel, est de l’appliquer aux nœuds de travail créés lorsqu’un cluster est monté en charge.
 
@@ -47,7 +55,7 @@ Une action de script est tout simplement un script Bash auquel vous apportez une
 
 * Sont exécutés avec des __privilèges root__ sur les nœuds du cluster.
 
-* Peuvent être utilisés par le biais du __portail Azure__, d’__Azure PowerShell__, de l'__interface de ligne de commande Azure (CLI)__ ou du __Kit de développement logiciel (SDK) HDInsight .NET__
+* Peuvent être utilisés par le biais du __portail Azure__, d’__Azure PowerShell__, de l’__interface de ligne de commande Azure (CLI)__ ou du __Kit de développement logiciel (SDK) HDInsight .NET__
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -100,11 +108,11 @@ Les scripts d’action de script peuvent être utilisés à partir du portail Az
 
 Nom | Script
 ----- | -----
-**Installez Hue**. | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Consultez [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md).
+**Installez Hue.** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Consultez [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 **Installation de R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Consultez [Installer et utiliser R sur les clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Installation de Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consultez [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Installation de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consultez [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Précharger les bibliothèques Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consultez [Ajouter les bibliothèques Hive sur des clusters HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| **Précharger les bibliothèques Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consultez [Ajouter les bibliothèques Hive sur des clusters HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Utiliser une action de script lors de la création du cluster
 
@@ -426,13 +434,11 @@ Cette section fournit des exemples sur les différentes façons d’appliquer de
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre cluster HDInsight.
 
-2. Dans le panneau de cluster HDInsight, sélectionnez __Paramètres__.
+2. Dans le panneau de cluster HDInsight, sélectionnez la vignette __Actions de script__.
 
-    ![Icône Paramètres](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Vignette Actions de script](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. Dans le panneau Paramètres, sélectionnez __Actions de script__.
-
-    ![Lien Actions de script](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] Vous pouvez également sélectionner __Tous les paramètres__, puis __Actions de script__ dans le panneau Paramètres.
 
 4. En haut du panneau Actions de script, sélectionnez __Envoyer__.
 
@@ -442,9 +448,9 @@ Cette section fournit des exemples sur les différentes façons d’appliquer de
 
     * __Nom__ : le nom convivial à utiliser pour cette action de script. Cet exemple utilise `R`.
     * __URI de SCRIPT__ : l’URI du script. Cet exemple utilise `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`.
-    * __En-tête__, __Collaborateur__ et __Zookeeper__ : cochez les nœuds auxquels ce script doit être appliqué. Dans cet exemple, Head et Worker sont cochés.
+    * __Head__, __Worker__ et __Zookeeper__ : cochez les nœuds auxquels ce script doit être appliqué. Dans cet exemple, Head et Worker sont cochés.
     * __PARAMÈTRES__ : si le script accepte des paramètres, entrez-les ici.
-    * __PERSISTANTE__ : cochez cette entrée si vous souhaitez rendre le script persistant afin de l’appliquer aux nœuds de travail créés quand vous faites monter en puissance le cluster.
+    * __PERSISTANTE__ : cochez cette entrée si vous souhaitez rendre le script persistant afin de l’appliquer aux nœuds Worker créés lors de la montée en charge du cluster.
 
 6. Pour finir, cliquez sur le bouton __Créer__ afin d’appliquer le script au cluster.
 
@@ -550,7 +556,7 @@ Pour obtenir un exemple d’utilisation du Kit de développement logiciel (SDK) 
 | Set-AzureRmHDInsightPersistedScriptAction | Promouvoir une action de script ad hoc en action de script persistante |
 | Remove-AzureRmHDInsightPersistedScriptAction | Abaisser une action de script persistante en action ad hoc |
 
-> [AZURE.IMPORTANT] La commande `Remove-AzureRmHDInsightPersistedScriptAction` n’annule pas les actions d’un script ; elle supprime uniquement l’indicateur persistant pour que le script ne soit pas exécuté sur les nouveaux nœuds de travail ajoutés au cluster.
+> [AZURE.IMPORTANT] La commande `Remove-AzureRmHDInsightPersistedScriptAction` n’annule pas les actions d’un script ; elle supprime uniquement l’indicateur persistant pour que le script ne soit pas exécuté sur les nouveaux nœuds Worker ajoutés au cluster.
 
 L’exemple de script suivant illustre l’utilisation des applets de commande pour promouvoir, puis pour abaisser un script.
 
@@ -581,7 +587,7 @@ L’exemple de script suivant illustre l’utilisation des applets de commande p
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Promouvoir une action de script ad hoc en action de script persistante |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Abaisser une action de script persistante en action ad hoc |
 
-> [AZURE.IMPORTANT] La commande `azure hdinsight script-action persisted delete` n’annule pas les actions d’un script ; elle supprime uniquement l’indicateur persistant pour que le script ne soit pas exécuté sur les nouveaux nœuds de travail ajoutés au cluster.
+> [AZURE.IMPORTANT] La commande `azure hdinsight script-action persisted delete` n’annule pas les actions d’un script ; elle supprime uniquement l’indicateur persistant pour que le script ne soit pas exécuté sur les nouveaux nœuds Worker ajoutés au cluster.
 
 ### Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
 
@@ -611,13 +617,13 @@ Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les i
 
 Si la création du cluster a échoué en raison d'une erreur dans l'action de script, les journaux des actions de script restent accessibles directement à partir du compte de stockage par défaut associé au cluster.
 
-* Les journaux de stockage sont disponibles dans `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. 
+* Les journaux de stockage sont disponibles dans `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
 	![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
 	Ici, les journaux sont classés séparément selon les nœuds headnode, workdernode et zookeeper. Voici quelques exemples :
-	* **Nœud En-tête** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nœud Collaborateur** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nœud principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **Nœud de travail** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Nœud Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Toutes les valeurs stdout et stderr de l'hôte correspondant sont téléchargées vers le compte de stockage. Il existe un fichier **output-*.txt** et un fichier  **errors-\*.txt** pour chaque action de script. Le fichier output-*.txt contient des informations sur l'URI du script que vous avez exécuté sur l'ordinateur hôte. Par exemple :
@@ -641,13 +647,13 @@ Le service Microsoft Azure HDInsight est une plateforme flexible qui vous permet
 
 Deux types de composant open source sont disponibles dans le service HDInsight :
 
-- **Composants intégrés** : ces composants sont préinstallés sur les clusters HDInsight et fournissent la fonctionnalité principale du cluster. Par exemple, YARN ResourceManager, le langage de requête Hive (HiveQL) et la bibliothèque Mahout appartiennent à cette catégorie. Une liste complète des composants de cluster est disponible sur la page [Nouveautés des versions de cluster Hadoop fournies par HDInsight](hdinsight-component-versioning.md).
+- **Composants intégrés** : ces composants sont préinstallés sur les clusters HDInsight et fournissent la fonctionnalité principale du cluster. Par exemple, YARN ResourceManager, le langage de requête Hive (HiveQL) et la bibliothèque Mahout appartiennent à cette catégorie. Une liste complète des composants de cluster est disponible sur la page [Nouveautés des versions de cluster Hadoop fournies par HDInsight](hdinsight-component-versioning.md).
 
-- **Composants personnalisés** : en tant qu’utilisateur du cluster, vous pouvez installer ou utiliser, dans votre charge de travail, tout composant qui est disponible dans la communauté ou que vous avez créé.
+- **Composants personnalisés** : en tant qu’utilisateur du cluster, vous pouvez installer ou utiliser, dans votre charge de travail, tout composant qui est disponible dans la communauté ou que vous avez créé.
 
 > [AZURE.WARNING] Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) ou [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple : [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=hdinsight) ou [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple : [Hadoop](http://hadoop.apache.org/).
 
 Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composants personnalisés. Quel que soit le mode d’utilisation ou d’installation du composant sur le cluster, le même niveau de support s’applique. Vous trouverez, ci-dessous, la liste des méthodes les plus courantes d’utilisation des composants personnalisés sur des clusters HDInsight.
 
@@ -684,4 +690,4 @@ Consultez la rubrique suivante pour obtenir des informations et des exemples sur
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

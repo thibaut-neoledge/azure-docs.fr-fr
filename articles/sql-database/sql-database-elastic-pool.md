@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/28/2016"
+	ms.date="05/23/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@ Les pools élastiques offrent une solution simple et économique pour gérer les
 
 ## Fonctionnement
 
-Un modèle d’application SaaS courant est un modèle de base de données avec un seul client : chaque client se voit attribuer une base de données. Les besoins en ressources de chaque client (base de données) en matière de mémoire, d’E/S et de processeur sont imprévisibles. Avec ces pics et creux de demande, comment allouer des ressources ? En règle générale, vous avez deux options : (1) le sur-approvisionnement de ressources en fonction des pics d’utilisation et des coûts trop élevés ou (2) le sous-approvisionnement pour réduire les coûts, au détriment des performances et de la satisfaction client pendant les pics. Grâce aux pools de base de données élastiques, les bases de données obtiennent les ressources de performances dont elles ont besoin, quand elles en ont besoin, dans le cadre d’un mécanisme d’allocation de ressources simple et d’un budget prévisible.
+Un modèle d’application SaaS courant est un modèle de base de données avec un seul client : chaque client se voit attribuer une base de données. Les besoins en ressources de chaque client (base de données) en matière de mémoire, d’E/S et de processeur sont imprévisibles. Avec ces pics et creux de demande, comment allouer des ressources ? En règle générale, vous avez deux options : (1) le sur-approvisionnement de ressources en fonction des pics d’utilisation et des coûts trop élevés ou (2) le sous-approvisionnement pour réduire les coûts, au détriment des performances et de la satisfaction client pendant les pics. Grâce aux pools de base de données élastiques, les bases de données obtiennent les ressources de performances dont elles ont besoin, quand elles en ont besoin, dans le cadre d’un mécanisme d’allocation de ressources simple et d’un budget prévisible. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
@@ -104,4 +104,4 @@ Pour les applications qui ont des exigences de récupération extrêmement stric
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

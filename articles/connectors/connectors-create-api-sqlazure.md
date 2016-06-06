@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l'API SQL Azure à vos applications logiques | Microsoft Azure"
-	description="Vue d'ensemble de l'API SQL Azure avec les paramètres de l'API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur SQL Azure à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur SQL Azure avec les paramètres de l’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 
-# Prise en main de l'API SQL Azure
+# Prise en main du connecteur SQL Azure
 Connectez-vous à Base de données SQL Azure pour gérer vos tables et vos lignes, par exemple pour insérer des lignes, obtenir des tables, et bien plus encore.
 
-L’API Base de données SQL Azure peut être utilisée à partir de :
+Le connecteur de la base de données SQL Azure peut être utilisé dans :
 
 - Applications logiques (abordées dans cette rubrique)
 - PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
@@ -43,16 +43,14 @@ Déclencheurs | Actions
 --- | ---
 Aucun | <ul><li>Obtenir une ligne</li><li>Obtenir des lignes</li><li>Insérer une ligne</li><li>Supprimer une ligne</li><li>Obtenir des tables</li><li>Mettre à jour une ligne</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer la connexion à SQL
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
-|Propriété| Requis|Description|
-| ---|---|---|
-|SQL Connection String|Oui|Entrer votre chaîne de connexion Base de données SQL Azure|
+>[AZURE.INCLUDE [Procédure de création d’une connexion à SQL](../../includes/connectors-create-api-sqlazure.md)]
 
-Après avoir créé la connexion, vous entrez vos propriétés SQL, telles que le nom de la table. La section **Informations de référence sur l’API REST** de cette rubrique décrit ces propriétés.
+
+Après avoir créé la connexion, vous entrez les propriétés SQL, telles que le nom de la table. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
@@ -123,7 +121,7 @@ Supprime une ligne d’une table SQL. ```DELETE: /datasets/default/tables/{table
 
 
 ### Obtenir des tables 
-Récupère les tables d’une base de données SQL. ```GET: /datasets/default/tables```
+Extrait des tables à partir d’une base de données SQL. ```GET: /datasets/default/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -228,4 +226,4 @@ Met à jour une ligne existante dans une table SQL. ```PATCH: /datasets/default/
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

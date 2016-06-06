@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="03/08/2016" 
+	ms.date="05/23/2016" 
 	ms.author="seasa"/>
 
 # Gérer votre service Azure Search avec PowerShell
@@ -27,10 +27,10 @@ Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plup
 
 ## Composants requis
  
-- Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
+- Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 - Vous devez être connecté à votre abonnement Azure dans PowerShell, comme décrit ci-dessous.
 
-Tout d’abord, vous devez vous connecter à Azure avec cette commande :
+Tout d’abord, vous devez vous connecter à Azure avec cette commande :
 
 	Login-AzureRmAccount
 
@@ -103,6 +103,9 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19 `
 		-Action $queryKeyDescription).Key
+	
+	# View your query key
+	$queryKey
 
 	# Delete query key
 	Remove-AzureRmResource `
@@ -124,9 +127,9 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	
 ## Étapes suivantes
 	
-Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Azure Search.
+Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Azure Search.
 
-- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
+- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
 
 - [Interrogation d’un index Azure Search à l’aide de Search Explorer dans le portail Azure](search-explorer.md)
 
@@ -136,4 +139,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 
 - [Analyse du trafic Azure Search](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

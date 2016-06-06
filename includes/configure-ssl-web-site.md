@@ -175,7 +175,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application d
 
 	> [AZURE.NOTE] Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
 	>
-	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
+	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
 	>
 	`````
@@ -203,7 +203,7 @@ Si vous maîtrisez le Gestionnaire des services Internet, vous pouvez l’utilis
 
 	> [AZURE.NOTE] Au cours de l’exportation, veillez à sélectionner l’option <strong>Oui, exporter la clé privée</strong>, qui permet d’inclure la clé privée dans le certificat exporté.
 
-	> [AZURE.NOTE] Lors de l’exportation, veillez à sélectionner les options **Inclure tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Ainsi, les certificats intermédiaires seront inclus dans le certificat exporté.
+	> Lors de l’exportation, veillez à sélectionner les options **Inclure tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Ainsi, les certificats intermédiaires seront inclus dans le certificat exporté.
 
 <a name="bkmk_subjectaltname"></a>
 ### Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL
@@ -295,7 +295,7 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 
 	> [AZURE.NOTE] Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
 	>
-	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
+	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
 	>
 	`````
@@ -447,7 +447,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 > [AZURE.NOTE] Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 >
-> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
+> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
 >    
 >     ![Adresse IP virtuelle](./media/configure-ssl-web-site/staticip.png)
 >    
@@ -455,7 +455,9 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 >
 > 2. À l’aide des outils fournis par votre bureau d’enregistrement, modifiez l’enregistrement A de votre nom de domaine personnalisé de manière à ce qu’il pointe vers l’adresse IP spécifiée lors de l’étape précédente.
 
-> [AZURE.NOTE] Si vous ajoutez une adresse **SSL basée sur IP** à une application web ayant déjà une **liaison SNI** à un certificat différent, dès que cette adresse SSL IP est activée pour l’application web, nous associons à nouveau le nom d’hôte du site à cette adresse IP. Donc si un autre hôte possède le nom d’hôte CNAME de ce site, il recevra également le trafic transitant sur cette adresse IP SSL. Pour ce genre de situations, nous avons créé une entrée DNS supplémentaire : sni.&lt;nomdevotreapplicationweb&gt;.azurewebsites.net où &lt;nomdevotre applicationweb&gt; est le nom de votre application web Azure App Service. Par conséquent, vous devez modifier les enregistrements DNS qui pointent vers le nom utilisé dans votre liaison SNI et les rediriger vers sni.&lt;nomdevotreapplicationweb&gt;.azurewebsites.net.
+<br> Si vous ajoutez une **adresse SSL basée sur IP** à une application web ayant déjà une **liaison SNI** à un certificat différent, dès que cette adresse SSL IP est activée pour l’application web, nous associons à nouveau le nom d’hôte du site à cette adresse IP. Donc si un autre hôte possède le nom d’hôte CNAME de ce site, il recevra également le trafic transitant sur cette adresse IP SSL.
+
+Pour ce genre de situations, nous avons créé une entrée DNS supplémentaire : sni.&lt;nomdevotreapplicationweb&gt;.azurewebsites.net où &lt;nomdevotre applicationweb&gt; est le nom de votre application web Azure App Service. Par conséquent, vous devez modifier les enregistrements DNS qui pointent vers le nom utilisé dans votre liaison SNI et les rediriger vers sni.&lt;nomdevotreapplicationweb&gt;.azurewebsites.net.
 
 À ce stade, vous devez être en mesure de visiter votre application en utilisant `HTTPS://` à la place de `HTTP://` pour vérifier que le certificat a été configuré correctement.
 
@@ -505,7 +507,7 @@ Pour les applications PHP, enregistrez simplement l’[exemple](#example) comme 
 
 ###Node.js, Python Django et Java
 
-Un fichier web.config est automatiquement créé pour les applications Node.js, Python Django et Java s'ils n'en fournissent pas déjà un, mais il existe uniquement sur le serveur puisqu'il est créé pendant le déploiement. Le fichier généré automatiquement contient des paramètres qui disent à Azure comment héberger votre application.
+Un fichier web.config est automatiquement créé pour les applications Node.js, Python Django et Java s’ils n’en fournissent pas déjà un, mais il existe uniquement sur le serveur puisqu’il est créé pendant le déploiement. Le fichier généré automatiquement contient des paramètres qui disent à Azure comment héberger votre application.
 
 Pour récupérer et modifier le fichier auto-généré à partir de l’application, procédez comme suit :
 
@@ -523,7 +525,7 @@ Pour récupérer et modifier le fichier auto-généré à partir de l’applicat
 
 		Comme le fichier web.config des applications Java utilisant Apache Tomcat ne contient pas de section **&lt;rewrite>**, vous devez ajouter la section **&lt;rewrite>** de l’exemple à la section **&lt;system.webServer>**.
 
-4. Redéployez le projet (en incluant le fichier web.config mis à jour) vers Azure
+4. Remettez-le dans le dossier /site/wwwroot.
 
 Une fois que vous avez déployé un fichier web.config avec une règle de réécriture pour forcer HTTPS, il doit prendre effet immédiatement et rediriger toutes les demandes vers HTTPS.
 
@@ -564,3 +566,5 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
+
+<!---HONumber=AcomDC_0525_2016-->

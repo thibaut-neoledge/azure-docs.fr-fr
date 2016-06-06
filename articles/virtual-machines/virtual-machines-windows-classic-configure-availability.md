@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurer un groupe à haute disponibilité pour des machines virtuelles classiques | Microsoft Azure"
-	description="Configurez un groupe à haute disponibilité pour une machine virtuelle nouvelle ou existante dans le modèle de déploiement classique à l’aide du portail Azure Classic et d’Azure PowerShell."
+	description="Configuration d'un groupe à haute disponibilité pour une machine virtuelle nouvelle ou existante dans le modèle de déploiement classique à l’aide du portail Azure et d'Azure PowerShell"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

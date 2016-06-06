@@ -352,9 +352,20 @@ Avant d'utiliser le magasin GE Historian dans une solution Data Factory, vérifi
 
 Lisez l'article depuis le début pour une présentation détaillée de l'utilisation de magasins de données ODBC en tant que magasins de données sources dans une opération de copie.
 
-[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+## Résoudre les problèmes de connectivité
+Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** du **Gestionnaire de configuration de la passerelle de gestion des données**.
+
+1. Lancez le **Gestionnaire de configuration de la passerelle de gestion des données**. Vous pouvez exécuter directement « C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe » (ou) rechercher **Passerelle** pour trouver un lien vers l’application **Passerelle de gestion des données de Microsoft**, comme l’illustre l’image suivante. 
+
+	![Rechercher la passerelle](./media/data-factory-odbc-connector/search-gateway.png)
+2. Basculez vers l’onglet **Diagnostics**.
+
+	![Diagnostics de la passerelle](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. Sélectionnez le **type** de magasin de données (service lié). 
+4. Spécifiez l’**authentification** et entrez les **informations d’identification** (ou) entrez la **chaîne de connexion** pour vous connecter au magasin de données. 
+5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données. 
 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

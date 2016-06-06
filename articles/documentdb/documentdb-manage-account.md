@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Gestion d'un compte DocumentDB
@@ -116,4 +116,4 @@ Découvrez comment [prendre en main votre compte DocumentDB](http://go.microsoft
 
 Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB sur [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

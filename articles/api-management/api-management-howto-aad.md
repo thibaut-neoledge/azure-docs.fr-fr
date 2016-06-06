@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
@@ -50,7 +50,7 @@ Entrez le nom de l’application, sélectionnez **Application web et/ou API web*
 
 Dans **URL de connexion**, copiez l’**URL de redirection** dans la section **Azure Active Directory** de l’onglet **Identités externes** du portail des éditeurs et supprimez le suffixe **-aad** à la fin de l’URL. Dans cet exemple, la valeur de **URL de connexion** est `https://aad03.portal.current.int-azure-api.net/signin`.
 
-Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut ****https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
+Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut **https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
 
 ![Propriétés de la nouvelle application Azure Active Directory][api-management-new-aad-application-2]
 
@@ -84,7 +84,7 @@ Revenez au portail des éditeurs et collez l’**ID de client** copié dans la c
 
 ![ID de client][api-management-client-id]
 
-Revenez à la configuration d’Azure Active Directory, puis cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur **1 an** est utilisée.
+Revenez à la configuration d’Azure Active Directory, puis cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur **1 an** est utilisée.
 
 ![Clé][api-management-aad-key-before-save]
 
@@ -228,4 +228,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/18/2016" 
 	ms.author="spelluru"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -82,7 +82,7 @@ Si vous déplacez le curseur sur les icônes/messages de notification de la barr
 ## Pour activer/désactiver une fonctionnalité de mise à jour automatique
 Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique de la manière suivante :
 
-1. Lancez Windows PowerShell sur l’ordinateur de passerelle. 
+1. Lancez Windows **PowerShell** sur l’ordinateur de passerelle en tant qu’administrateur (**Exécuter en tant qu’administrateur**). 
 2. Accédez au dossier C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
 
@@ -93,7 +93,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique d
 		.\GatewayAutoUpdateToggle.ps1  -on  
 
 ## Considérations liées aux ports et à la sécurité
-Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entreprise** en cours d’exécution sur le routeur central de l’entreprise et le **pare-feu Windows** configuré en tant que démon sur l’ordinateur local sur lequel la passerelle est installée.
+Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entreprise**, exécuté sur le routeur central de l’entreprise, et le **pare-feu Windows**, configuré en tant que démon sur l’ordinateur local sur lequel la passerelle est installée.
 
 ![Pare-feu](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
@@ -104,10 +104,10 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 | Noms de domaine | Ports | Description |
 | ------ | --------- | ------------ |
-| *. servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
-| *. servicebus.windows.net | 9350 à 9354 | Système Service Bus Relay facultatif via TCP |
-| *. core.windows.net | 443 | HTTPS |
-| *. clouddatahub.net | 443 | HTTPS |
+| *.servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
+| *.servicebus.windows.net | 9350-9354, 5671 | Système Service Bus Relay facultatif via TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
 | Graph.Windows.NET | 443 | HTTPS |
 | Login.Windows.NET | 443 | HTTPS | 
 
@@ -120,7 +120,7 @@ En cas d’utilisation d’un pare-feu tiers, vous pouvez ouvrir manuellement le
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur de passerelle et que vous souhaitez configurer un service lié local, vous devez utiliser d’autres mécanismes que l’application de **configuration des informations d’identification** pour pouvoir configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#set-credentials-and-securityy) pour savoir comment configurer les informations d’identification du magasin de données.
+Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur de passerelle et souhaitez configurer un service lié local, vous devez utiliser d’autres mécanismes que l’application de **configuration des informations d’identification** pour pouvoir configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#set-credentials-and-securityy) pour savoir comment configurer les informations d’identification du magasin de données.
 
 **Pour copier des données d’un magasin de données source vers un magasin de données récepteur :**
 
@@ -150,7 +150,7 @@ Par défaut, la passerelle de gestion des données utilisera les paramètres de 
 
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 
-3. Enregistrez le fichier de configuration à l’emplacement d’origine, puis redémarrez le service de passerelle de gestion des données pour relever les modifications. Pour cela, utilisez le menu **Démarrer** > **Services.msc**. Sinon, à partir du **Gestionnaire de configuration de la passerelle de gestion des données**, cliquez sur le bouton **Arrêter le service**, puis sur **Démarrer le service**. Si le service ne démarre pas, il est probable qu’une syntaxe de balise XML incorrecte ait été ajoutée dans le fichier de configuration d’application que vous avez modifié.
+3. Enregistrez le fichier de configuration à l’emplacement d’origine, puis redémarrez le service de passerelle de gestion des données pour relever les modifications. Pour cela, utilisez le menu **Démarrer** > **Services.msc**. Sinon, à partir du **Gestionnaire de configuration de la passerelle de gestion des données**, cliquez sur le bouton **Arrêter le service**, puis sur **Démarrer le service**. Si le service ne démarre pas, il est probable qu’une syntaxe de balise XML incorrecte ait été ajoutée dans le fichier de configuration d’application que vous avez modifié.
 
 Outre les points ci-dessus, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -179,7 +179,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 
 	![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Saisissez **ADFTutorialOnPremDF** dans le champ **Nom**.
 	2. Cliquez sur **RESOURCE GROUP NAME** et sélectionnez **ADFTutorialResourceGroup**. Vous pouvez sélectionner un groupe de ressources existant ou en créer un. Pour créer un groupe de ressources :
 		1. Cliquez sur **Créer un groupe de ressources**.
@@ -217,9 +217,9 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 	> [AZURE.NOTE] 
 	Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
 	> 
-	> Si vous utilisez Chrome, accédez à [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot-clé « ClickOnce», choisissez l’une des extensions ClickOnce, puis installez-la.
+	> Si vous utilisez Chrome, accédez au [Chrome Web Store](https://chrome.google.com/webstore/), faites une recherche sur le mot-clé « ClickOnce », choisissez l’une des extensions ClickOnce, puis installez-la.
 	>  
-	> Vous devez en faire autant pour Firefox (installez un complément). Cliquez sur le bouton du **menu** dans la barre d’outils (**trois lignes horizontales** en haut à droite), cliquez sur **Modules complémentaires**, effectuez une recherche avec le mot-clé « ClickOnce », choisissez l’une des extensions de ClickOnce et installez le programme.
+	> Vous devez en faire autant pour Firefox (installez un complément). Cliquez sur le **bouton du menu** dans la barre d’outils (**trois lignes horizontales** en haut à droite), cliquez sur **Modules complémentaires**, effectuez une recherche avec le mot clé « ClickOnce », choisissez l’une des extensions de ClickOnce et installez le programme.
 
 	![Passerelle - Panneau Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -264,7 +264,7 @@ Dans cette étape, vous allez créer deux services liés, **AzureStorageLinkedSe
 3.	Dans l’**éditeur JSON**, procédez comme suit : 
 	1. Pour **gatewayName**, spécifiez **adftutorialgateway**.	
 	2. Si vous utilisez l’authentification Windows, procédez comme suit :
-		1. Pour **connectionString** : 
+		1. Pour **connectionString** : 
 			1. Définissez le paramètre **Sécurité intégrée** sur **true**.
 			2. Spécifiez le **nom du serveur** et le **nom de la base de données**. 
 			2. Supprimez **ID utilisateur** et **Mot de passe**. 
@@ -276,6 +276,8 @@ Dans cette étape, vous allez créer deux services liés, **AzureStorageLinkedSe
             		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
+                
+            > [AZURE.NOTE] Si vous utilisez l’authentification Windows (IntegratedSecurity=true), la spécification du nom d’utilisateur et du mot de passe est facultative. Si vous ne spécifiez pas ces propriétés, la passerelle de gestion des données utilise les informations d’identification de l’utilisateur connecté à l’ordinateur de passerelle pour accéder à la base de données. Si vous voulez que la passerelle utilise d’autres informations d’identification pour accéder à la base de données, spécifiez explicitement le nom d’utilisateur et le mot de passe.
 
 	4. Si vous utilisez l’authentification SQL, procédez comme suit :
 		1. Spécifiez le **nom du serveur**, le **nom de la base de données**, ainsi que les paramètres **User ID** et **Password** de la base de données dans **connectionString**.       
@@ -287,7 +289,7 @@ Dans cette étape, vous allez créer deux services liés, **AzureStorageLinkedSe
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
 	
-		Les informations d’identification sont **chiffrées** à l’aide d’un certificat détenu par le service Data Factory. Si vous voulez plutôt utiliser le certificat qui est associé à la passerelle de gestion des données, consultez [Définir les informations d’identification de manière sécurisée](#set-credentials-and-security).
+		Les informations d’identification sont **chiffrées** à l’aide d’un certificat détenu par le service Data Factory. Si vous voulez plutôt utiliser le certificat qui est associé à la passerelle de gestion des données, consultez [Configuration des informations d’identification et de la sécurité](#set-credentials-and-security).
     
 2.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié SQL Server.
 
@@ -395,7 +397,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	Notez les points suivants :
 	
 	- **type** est défini sur **AzureBlob**.
-	- Le paramètre **linkedServiceName** est défini sur **AzureStorageLinkedService** (vous avez créé ce service lié à l’étape 2).
+	- Le paramètre **linkedServiceName** est défini sur **AzureStorageLinkedService** (que vous avez créé à l’étape 2).
 	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
 	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
@@ -484,7 +486,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
 	En spécifiant la période active pour un pipeline, vous définissez la durée pendant laquelle les tranches de données seront traitées, selon les propriétés de **disponibilité** qui ont été définies pour chaque table Azure Data Factory.
 	
@@ -618,7 +620,7 @@ Si vous accédez au portail à partir d’un ordinateur différent de l’ordina
 
 Quand vous utilisez l’application **Configuration des informations d’identification** lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet **Certificat** du **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur de la passerelle.
 
-Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez alors chiffrer les informations d’identification retournées par cette applet de commande et les ajouter à l’élément **EncryptedCredential** de **connectionString** dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor dans le portail.
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez alors chiffrer les informations d’identification retournées par cette applet de commande et les ajouter à l’élément **EncryptedCredential** de **connectionString** dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor dans le portail.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -636,7 +638,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Exemple de commande et de sortie** :
+	**Exemple de commande et de sortie** :
 
 
 		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
@@ -691,4 +693,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Meilleures pratiques en matière de sécurité réseau | Microsoft Azure"
    description="Cet article détaille les meilleures pratiques en matière de sécurité réseau, sur la base de capacités Azure intégrées."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="swadhwa"
    editor="TomShinder"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
+   ms.date="05/23/2016"
    ms.author="TomSh"/>
 
 # Meilleures pratiques en matière de sécurité réseau - Azure
@@ -21,7 +21,7 @@
 Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction de réseau virtuel qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines Microsoft Azure Virtual Machines reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.
 
 Dans cet article, nous aborderons différentes meilleures pratiques en matière de sécurité réseau sur Azure. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
- 
+
 Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
 
 - Nature de la meilleure pratique
@@ -34,16 +34,16 @@ Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensem
 
 Les meilleures pratiques en matière de sécurité réseau sur Azure qui sont abordées dans le cadre de cet article sont les suivantes :
 
-- Segmentation logique des sous-réseaux 
-- Contrôle du comportement de routage 
-- Activation du tunneling forcé 
-- Utilisation d’appliances de réseau virtuel 
+- Segmentation logique des sous-réseaux
+- Contrôle du comportement de routage
+- Activation du tunneling forcé
+- Utilisation d’appliances de réseau virtuel
 - Déploiement de zones DMZ pour la segmentation de sécurité
 - Suppression de toute exposition à Internet grâce à des liaisons réseau étendu dédiées
-- Optimisation de la durée active et des performances 
+- Optimisation de la durée active et des performances
 - Utilisation de l’équilibrage de charge global
 - Désactivation de l’accès RDP à Microsoft Azure Virtual Machines
-- Activation d’Azure Security Center 
+- Activation d’Azure Security Center
 - Extension de votre centre de données dans Azure
 
 
@@ -77,7 +77,7 @@ Nous vous recommandons de configurer des itinéraires définis par l’utilisate
 
 Pour en savoir plus sur les itinéraires définis par l’utilisateur et leur configuration, consultez l’article [Présentation des itinéraires définis par l’utilisateur et du transfert IP](./virtual-network/virtual-networks-udr-overview.md).
 
-## Activation du tunneling forcé 
+## Activation du tunneling forcé
 
 Pour mieux appréhender le concept de « tunneling forcé », il peut être utile de comprendre le fonctionnement du « tunneling fractionné ». L’exemple le plus courant de tunneling fractionné est associé aux connexions VPN. Prenons un exemple : vous établissez une connexion VPN entre votre chambre d’hôtel et votre réseau d’entreprise. Cette connexion vous permet d’accéder aux ressources de votre réseau d’entreprise ; toutes les communications vers ces ressources transitent via le tunnel VPN.
 
@@ -94,7 +94,7 @@ Pour en savoir plus sur le tunneling forcé et son activation, consultez l’art
 Les groupes de sécurité réseau et les itinéraires définis par l’utilisateur peuvent contribuer à renforcer la sécurité au niveau des couches transport et réseau du [modèle OSI](https://en.wikipedia.org/wiki/OSI_model), dans une certaine mesure. Toutefois, dans certains cas, vous souhaiterez ou serez contraint d’activer la sécurité à des niveaux élevés de la pile. Le cas échéant, nous vous recommandons de déployer les appliances de sécurité de réseau virtuel fournies par les partenaires d’Azure.
 
 Ces appliances peuvent offrir des niveaux de sécurité nettement plus élevés que ceux des contrôles appliqués au niveau du réseau. Voici quelques-unes des fonctionnalités de sécurité réseau fournies par les appliances de sécurité de réseau virtuel :
- 
+
 - Installation de pare-feu
 - Détection et prévention des intrusions
 - Gestion des vulnérabilités
@@ -110,7 +110,7 @@ Pour connaître les appliances de sécurité de réseau virtuel Azure disponible
 
 ##Déploiement de zones DMZ pour la segmentation de sécurité
 Une zone DMZ, ou « réseau de périmètre », est un segment de réseau logique ou physique conçu pour fournir une couche de sécurité supplémentaire entre vos ressources et Internet. L’objectif de la zone DMZ est de placer les appareils de contrôle d’accès réseau spécialisés sur le périmètre du réseau DMZ, afin que seul le trafic souhaité puisse transiter via l’appareil de gestion de la sécurité réseau et accéder au réseau virtuel Azure.
- 
+
 Les zones DMZ sont utiles, car vous pouvez concentrer la gestion des contrôles d’accès réseau, la surveillance, la journalisation et la création de rapports sur les appareils situés à la périphérie de votre réseau virtuel Azure. Ici, vous devez généralement activer la prévention des DDoS, les systèmes de détection et de prévention des intrusions (IDS/IPS), les règles et stratégies de pare-feu, le filtrage web, les fonctions anti-programme malveillant du réseau, etc. Les appareils dédiés à la sécurité réseau se trouvent entre Internet et le réseau virtuel Azure et disposent d’une interface sur les deux réseaux.
 
 Il s’agit là de la conception de base d’une zone DMZ. Cependant, il existe plusieurs autres conceptions (configurations « dos à dos », à triple hébergement, multirésidentes, etc.).
@@ -135,7 +135,7 @@ Si, dans le cadre de vos connexions entre locaux, il vous faut un niveau de séc
 
 Pour en savoir plus sur le fonctionnement d’Azure ExpressRoute et son déploiement, consultez l’article [Présentation technique d’ExpressRoute](./expressroute/expressroute-introduction.md).
 
-## Optimisation de la durée active et des performances 
+## Optimisation de la durée active et des performances
 La confidentialité, l’intégrité et la disponibilité sont les trois facteurs principaux du modèle de sécurité le plus en vogue actuellement. La vérification de la confidentialité repose sur le chiffrement et la protection de la vie privée ; la vérification de l’intégrité vise à garantir que les données ne sont pas modifiées par des utilisateurs non autorisés. Enfin, la vérification de la disponibilité a pour objectif de garantir que les utilisateurs autorisés peuvent accéder aux informations prévues. Un manquement dans l’un ou l’autre de ces domaines peut constituer une faille de sécurité potentielle.
 
 La notion de disponibilité peut être rapprochée de la durée active et des performances. Si un service est défaillant, les informations sont inaccessibles. Si les performances sont tellement médiocres que les données deviennent inutilisables, nous pouvons considérer que ces dernières sont inaccessibles. Par conséquent, dans une perspective de sécurité, nous devons faire tout ce qui est en notre pouvoir pour garantir des performances et une durée active optimales pour nos services. Pour optimiser cette durée active et ces performances, une méthode bien connue pour son efficacité est l’équilibrage de charge. L’équilibrage de charge est une méthode de répartition du trafic réseau entre les serveurs qui font partie d’un service. Ainsi, si votre service inclut plusieurs serveurs web frontaux, vous pouvez utiliser l’équilibrage de charge pour répartir le trafic entre ces derniers.
@@ -150,7 +150,7 @@ Nous vous recommandons de tirer parti aussi souvent que possible de l’équilib
 
 ## Équilibrage de charge basé sur HTTP
 L’équilibrage de charge basé sur HTTP détermine à quel serveur envoyer des connexions en fonction des caractéristiques du protocole HTTP. Azure propose un équilibreur de charge HTTP appelé Application Gateway.
- 
+
 Nous vous recommandons de tirer parti d’Azure Application Gateway dans les cas suivants :
 
 - Les applications pour lesquelles les requêtes provenant d’une même session utilisateur/client doivent atteindre la même machine virtuelle back-end. Exemples : applications de panier d’achat et serveurs de messagerie.
@@ -161,9 +161,9 @@ Pour en savoir plus sur le fonctionnement d’Azure Application Gateway et son u
 
 ## Équilibrage de charge externe
 L’équilibrage de charge externe intervient lorsque la charge des connexions entrantes en provenance d’Internet est équilibrée entre vos serveurs situés au sein d’un réseau virtuel Azure. L’équilibreur de charge externe Azure peut vous fournir cette fonctionnalité. Nous vous recommandons de l’utiliser lorsque vous n’avez pas besoin de sessions temporaires ou du déchargement SSL.
- 
+
 Contrairement à l’équilibrage de charge basé sur HTTP, l’équilibrage de charge externe utilise les informations fournies par les couches réseau et transport du modèle de mise en réseau OSI pour choisir le serveur dont la charge de connexion doit être équilibrée.
- 
+
 Nous vous invitons à recourir à l’équilibrage de charge externe lorsque vous disposez d’[applications sans état](http://whatis.techtarget.com/definition/stateless-app) qui acceptent les requêtes entrantes en provenance d’Internet.
 
 Pour en savoir plus sur le fonctionnement de l’équilibreur de charge externe Azure et son déploiement, consultez l’article [Création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell](./load-balancer/load-balancer-get-started-internet-arm-ps.md).
@@ -179,11 +179,11 @@ Pour en savoir plus sur le fonctionnement de l’équilibreur de charge interne 
 Le cloud computing public permet de déployer des applications réparties au niveau global et dotées de composants situés sur des centres de données aux quatre coins du monde. Cette opération est possible sur Microsoft Azure, grâce à la présence de centres de données Azure au niveau mondial. Contrairement aux technologies d’équilibrage de charge détaillées précédemment, l’équilibrage de charge global permet d’assurer la disponibilité des services et ce, même lorsque des centres de données dans leur ensemble ne sont plus disponibles.
 
 [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/) propose ce type d’équilibrage de charge dans Azure. Grâce à ce logiciel, vous pouvez équilibrer la charge des connexions vers vos services en fonction de l’emplacement de l’utilisateur.
- 
+
 Par exemple, si l’utilisateur qui envoie une requête à votre service se trouve dans un pays de l’Union européenne, la connexion est redirigée vers vos services qui se trouvent au sein d’un centre de données de cette zone. Cette étape de l’équilibrage de charge global assuré par Traffic Manager permet d’optimiser les performances, car la connexion au centre de données le plus proche est plus rapide que dans le cas de centres de données éloignés.
 
 Du point de vue de la disponibilité, ce type d’équilibrage permet de garantir que votre service reste disponible, même si le centre de données est défaillant.
- 
+
 Ainsi, si un centre de données Azure est indisponible en raison d’une catastrophe naturelle ou d’une panne (défaillance de réseau, par exemple), les connexions à votre service sont redirigées vers le centre de données actif le plus proche. Cet équilibrage de charge global s’effectue sur la base de stratégies DNS, que vous pouvez créer dans Traffic Manager.
 
 Nous vous recommandons d’utiliser Traffic Manager pour toute solution cloud que vous développez, dont la portée touche plusieurs régions et qui requiert la durée active la plus longue possible.
@@ -209,7 +209,7 @@ Un [VPN de site à site](./vpn-gateway/vpn-gateway-site-to-site-create.md) conne
 
 Pour proposer une fonctionnalité similaire à la connexion VPN de site à site, vous pouvez également utiliser une liaison réseau étendu dédiée. Il existe cependant quelques différences : premièrement, la liaison réseau étendu dédiée ne passe pas par Internet ; deuxièmement, ce type de liaison est généralement plus stable et plus performant. Azure fournit une solution de liaison réseau étendu dédiée sous la forme de son logiciel [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Activation d’Azure Security Center 
+## Activation d’Azure Security Center
 Azure Security Center vous aide à prévenir, détecter et résoudre les menaces, en vous apportant une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 Azure Security Center vous permet d’optimiser et de surveiller la sécurité réseau grâce aux opérations suivantes :
@@ -226,9 +226,9 @@ Pour en savoir plus sur Azure Security Center et son activation pour vos déploi
 De nombreux départements informatiques cherchent à étendre leur infrastructure dans le cloud plutôt que de développer leurs centres de données locaux. Ce faisant, ils étendent l’infrastructure informatique existante dans le cloud public. En tirant parti de différentes options de connectivité entre locaux, il est possible de considérer vos réseaux virtuels Azure comme de simples sous-réseaux au sein de votre infrastructure de réseau local.
 
 Toutefois, cela implique le traitement préalable de divers problèmes liés à la planification et à la conception. Ce traitement est particulièrement important dès lors qu’on parle de sécurité réseau. L’un des meilleurs moyens de comprendre comment aborder ce type de conception consiste à étudier de près un exemple spécifique.
- 
+
 Microsoft a créé le [diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) et la documentation associée pour vous aider à comprendre à quoi ressemble une extension de centre de données de ce type. Il fournit un exemple d’implémentation de référence, que vous pouvez utiliser pour planifier et concevoir une extension de centre de données d’entreprise sécurisée dans le cloud. Nous vous recommandons de consulter ce document pour vous familiariser avec les composants clés d’une solution sécurisée.
 
 Pour en savoir plus sur l’extension sécurisée de votre centre de données dans Azure, consultez notre vidéo portant sur [l’extension de votre centre de données dans Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

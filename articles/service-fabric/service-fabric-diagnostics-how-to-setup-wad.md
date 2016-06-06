@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/08/2016"
+   ms.date="05/20/2016"
    ms.author="toddabel"/>
 
 
@@ -59,11 +59,11 @@ Après avoir exporté les fichiers, une modification est nécessaire. Modifiez l
 ### Déploiement de l’extension Diagnostics dans le cadre de la création d’un cluster via Azure Resource Manager
 Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fichier de configuration Diagnostics JSON au modèle Resource Manager du cluster complet, avant de créer le cluster. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples d’Azure : [cluster à cinq nœuds avec exemple de modèle Diagnostics Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Pour voir les paramètres de diagnostic dans le modèle Resource Manager, ouvrez le fichier **azuredeploy.json** et recherchez **IaaSDiagnostics**. Pour créer un cluster à partir de ce modèle, cliquez simplement sur le bouton **Déployer sur Azure**, disponible via le lien ci-dessus.
 
-Vous pouvez également télécharger l’exemple Resource Manager, y apporter des modifications et créer un cluster à partir du modèle modifié en utilisant la commande `New-AzureResourceGroupDeployment` dans une fenêtre Azure PowerShell. Consultez les informations ci-dessous pour connaître les paramètres nécessaires à la commande. Pour plus d’informations sur le déploiement d’un groupe de ressources à l’aide de PowerShell, consultez l’article [Déployer un groupe de ressources avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
+Vous pouvez également télécharger l’exemple Resource Manager, y apporter des modifications et créer un cluster à partir du modèle modifié en utilisant la commande `New-AzureRmResourceGroupDeployment` dans une fenêtre Azure PowerShell. Consultez les informations ci-dessous pour connaître les paramètres nécessaires à la commande. Pour plus d’informations sur le déploiement d’un groupe de ressources à l’aide de PowerShell, consultez l’article [Déployer un groupe de ressources avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
 
 ```powershell
 
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
 ### Déployer l’extension Diagnostics sur un cluster existant
@@ -173,10 +173,10 @@ Après avoir modifié le fichier **template.json** comme décrit, republiez le m
 
 
 ## Mise à jour de Diagnostics pour collecter et charger des journaux depuis de nouveaux canaux EventSource
-Pour mettre à jour Diagnostics de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, vous devez simplement exécuter les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration de Diagnostics pour un cluster existant. Vous devrez mettre à jour la section *EtwEventSourceProviderConfiguration* dans le fichier **template.json** pour ajouter des entrées pour les nouveaux EventSources avant d’appliquer la mise à jour de la configuration via la commande PowerShell *New-AzureResourceGroupDeployment*.
+Pour mettre à jour Diagnostics de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, vous devez simplement exécuter les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration de Diagnostics pour un cluster existant. Vous devrez mettre à jour la section *EtwEventSourceProviderConfiguration* dans le fichier **template.json** pour ajouter des entrées pour les nouveaux EventSources avant d’appliquer la mise à jour de la configuration via la commande PowerShell *New-AzureRmResourceGroupDeployment*.
 
 
 ## Étapes suivantes
 Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md) pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

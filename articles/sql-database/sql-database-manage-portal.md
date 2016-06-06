@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gérer les bases de données SQL Azure au moyen du portail Azure Classic"
-	description="Découvrez comment utiliser le portail Azure Classic pour gérer une base de données relationnelle dans le cloud."
+	pageTitle="Gérer des bases de données SQL Azure au moyen du portail Azure"
+	description="Découvrez comment utiliser le portail Azure pour gérer une base de données relationnelle dans le cloud."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
 
 - [Base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

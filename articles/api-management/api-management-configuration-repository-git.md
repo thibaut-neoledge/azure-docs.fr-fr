@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 
@@ -21,11 +21,11 @@
 
 >[AZURE.IMPORTANT] La configuration Git du service Gestion des API est actuellement disponible en version préliminaire. Cette fonctionnalité est complète et opérationnelle, mais elle est en version préliminaire pour nous permettre de collecter activement les commentaires client à son sujet. En fonction des commentaires client reçus, nous serons peut-être amenés à apporter des modifications avec rupture. Nous vous recommandons donc de ne pas utiliser cette fonctionnalité comme composant essentiel dans votre environnement de production. N’hésitez pas à nous faire part de vos commentaires ou questions à l’adresse `apimgmt@microsoft.com`.
 
-Chaque instance du service Gestion des API gère une base de données de configuration qui contient des informations sur la configuration et les métadonnées de cette instance de service. Vous pouvez modifier l’instance de service en ajustant un paramètre dans le portail de publication, en utilisant une applet de commande PowerShell ou en effectuant un appel API REST. Outre ces méthodes, vous pouvez gérer votre configuration d’instance de service à l’aide de Git, notamment dans le cadre des scénarios de gestion de service suivants :
+Chaque instance du service Gestion des API gère une base de données de configuration qui contient des informations sur la configuration et les métadonnées de cette instance de service. Vous pouvez modifier l’instance de service en ajustant un paramètre dans le portail de publication, en utilisant une applet de commande PowerShell ou en effectuant un appel API REST. Outre ces méthodes, vous pouvez gérer votre configuration d’instance de service à l’aide de Git, notamment dans le cadre des scénarios de gestion de service suivants :
 
--	Contrôle de version de la configuration : téléchargez et stockez différentes versions de votre configuration de service
--	Modifications en bloc de la configuration : apportez des modifications à plusieurs parties de votre configuration de service dans votre dépôt local et intégrez les modifications au serveur en une seule opération
--	Chaîne d’outils et flux de travail Git familiers : utilisez les flux de travail et les outils Git qui vous sont déjà familiers
+-	Contrôle de version de la configuration : téléchargez et stockez différentes versions de votre configuration de service
+-	Modifications en bloc de la configuration : apportez des modifications à plusieurs parties de votre configuration de service dans votre dépôt local et intégrez les modifications au serveur en une seule opération
+-	Chaîne d’outils et flux de travail Git familiers : utilisez les flux de travail et les outils Git qui vous sont déjà familiers
 
 Le diagramme suivant montre une vue d’ensemble des différentes façons de configurer votre instance du service Gestion des API.
 
@@ -59,7 +59,7 @@ Après quelques instants, la modification est enregistrée et un message de conf
 
 ![Git activé][api-management-git-enabled]
 
->[AZURE.IMPORTANT] Tous les secrets qui ne sont pas définis en tant que propriétés sont stockés dans le dépôt et demeurent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les propriétés fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations de l’API ; vous n’êtes donc pas obligé de les stocker directement dans les instructions de votre stratégie. Pour plus d’informations, consultez [Utilisation des propriétés dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
+>[AZURE.IMPORTANT] Tous les secrets qui ne sont pas définis en tant que propriétés sont stockés dans le dépôt et demeurent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les propriétés fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations de l’API ; vous n’êtes donc pas obligé de les stocker directement dans les instructions de votre stratégie. Pour plus d’informations, consultez [Utilisation des propriétés dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
 
 Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -226,52 +226,52 @@ Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de 
 
 Le dossier `apis` contient un dossier pour chaque API dans l’instance de service qui renferme les éléments suivants.
 
--	`apis<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) avec `export=true` au format `application/json`.
--	`apis<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de l’[entité API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
--	`apis<api name>\operations` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de l’[entité opération](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) dans l’API REST.
+-	`apis<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) avec `export=true` au format `application/json`.
+-	`apis<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de l’[entité API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
+-	`apis<api name>\operations` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de l’[entité opération](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) dans l’API REST.
 
 ### Dossier groups
 
 Le dossier `groups` contient un dossier pour chaque groupe défini dans l’instance de service.
 
--	`groups<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup).
--	`groups<group name>\description.html` : cet élément décrit le groupe et correspond à la propriété `description` de l’[entité groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+-	`groups<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup).
+-	`groups<group name>\description.html` : cet élément décrit le groupe et correspond à la propriété `description` de l’[entité groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### Dossier policies
 
 Le dossier `policies` contient les instructions de stratégie pour votre instance de service.
 
--	`policies\global.xml` : contient les stratégies définies dans l’étendue globale de votre instance de service.
--	`policies\apis<api name>` : si des stratégies sont définies à l’échelle de l’API, elles se trouvent dans ce dossier.
--	`policies\apis<api name><operation name>` : si des stratégies sont définies à l’échelle des opérations, elles se trouvent dans ce dossier, qui contient des fichiers `<operation name>.xml` correspondant aux instructions de stratégie pour chaque opération.
--	`policies\products` : si des stratégies sont définies à l’échelle des produits, elles se trouvent dans ce dossier, qui contient des fichiers `<product name>.xml` correspondant aux instructions de stratégie pour chaque produit.
+-	`policies\global.xml` : contient les stratégies définies dans l’étendue globale de votre instance de service.
+-	`policies\apis<api name>` : si des stratégies sont définies à l’échelle de l’API, elles se trouvent dans ce dossier.
+-	`policies\apis<api name><operation name>` : si des stratégies sont définies à l’échelle des opérations, elles se trouvent dans ce dossier, qui contient des fichiers `<operation name>.xml` correspondant aux instructions de stratégie pour chaque opération.
+-	`policies\products` : si des stratégies sont définies à l’échelle des produits, elles se trouvent dans ce dossier, qui contient des fichiers `<product name>.xml` correspondant aux instructions de stratégie pour chaque produit.
 
 ### Dossier portalStyles
 
 Le dossier `portalStyles` contient la configuration et les feuilles de style pour les personnalisations du portail des développeurs pour l’instance de service.
 
--	`portalStyles\configuration.json` : contient les noms des feuilles de style utilisées par le portail des développeurs.
--	`portalStyles<style name>.css` : chaque fichier `<style name>.css` contient des styles pour le portail des développeurs (`Preview.css` et `Production.css` par défaut).
+-	`portalStyles\configuration.json` : contient les noms des feuilles de style utilisées par le portail des développeurs.
+-	`portalStyles<style name>.css` : chaque fichier `<style name>.css` contient des styles pour le portail des développeurs (`Preview.css` et `Production.css` par défaut).
 
 ### Dossier products
 
 Le dossier `products` contient un dossier pour chaque produit défini dans l’instance de service.
 
--	`products<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct).
--	`products<product name>\product.description.html` : cet élément décrit le produit et correspond à la propriété `description` de l’[entité produit](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) dans l’API REST.
+-	`products<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct).
+-	`products<product name>\product.description.html` : cet élément décrit le produit et correspond à la propriété `description` de l’[entité produit](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) dans l’API REST.
 
 ### modèles
 
 Le dossier `templates` contient la configuration des [modèles d’e-mail](api-management-howto-configure-notifications.md) dans l’instance de service.
 
--	`<template name>\configuration.json` : cet élément correspond à la configuration du modèle d’e-mail.
--	`<template name>\body.html` : il s’agit du corps du modèle d’e-mail.
+-	`<template name>\configuration.json` : cet élément correspond à la configuration du modèle d’e-mail.
+-	`<template name>\body.html` : il s’agit du corps du modèle d’e-mail.
 
 ## Étapes suivantes
 
-Pour plus d’informations sur d’autres méthodes pour gérer votre instance de service, consultez les sources suivantes :
+Pour plus d’informations sur d’autres méthodes pour gérer votre instance de service, consultez les sources suivantes :
 
--	Gérer votre instance de service à l’aide des applets de commande PowerShell suivante :
+-	Gérer votre instance de service à l’aide des applets de commande PowerShell suivante :
 	-	[Référence sur les applets de commande PowerShell de déploiement des services](https://msdn.microsoft.com/library/azure/mt619282.aspx)
 	-	[Référence sur les applets de commande PowerShell de gestion des services](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 -	Gérer votre instance de service dans le portail de publication
@@ -297,4 +297,4 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

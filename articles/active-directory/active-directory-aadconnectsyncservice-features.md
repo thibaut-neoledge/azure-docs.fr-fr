@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Fonctionnalités de service de synchronisation d’Azure AD Connect
@@ -33,23 +33,23 @@ Plusieurs de ces paramètres peuvent uniquement être modifiés par Azure AD Con
 
 Les paramètres suivants peuvent être configurés par `Set-MsolDirSyncFeature` :
 
-| DirSyncFeature | Commentaire |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Permet à un attribut d’être mis en quarantaine s’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Permet aux objets d’être joints sur userPrincipalName en plus de l’adresse SMTP principale. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName pour les utilisateurs gérés/licenciés(non fédérés). |
+DirSyncFeature | Commentaire
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Permet à un attribut d’être mis en quarantaine s’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Permet aux objets d’être joints sur userPrincipalName en plus de l’adresse SMTP principale.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName pour les utilisateurs gérés/licenciés(non fédérés).
 
 Lorsqu’une fonctionnalité a été activée, vous ne pouvez plus la désactiver.
 
 Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas être modifiés par `Set-MsolDirSyncFeature` :
 
-| DirSyncFeature | Commentaire |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Azure AD Connect Sync : extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | Non pris en charge pour le moment. |
+DirSyncFeature | Commentaire
+--- | ---
+DeviceWriteback | [Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Azure AD Connect Sync : extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | Non pris en charge pour le moment.
 
 ## Résilience d’attribut en double
 Au lieu de rencontrer des problèmes lors de l’approvisionnement des UPN/proxyAddresses en double, l’attribut en double est « mis en quarantaine » et une valeur temporaire lui est attribuée, si nécessaire. Lorsque le conflit est résolu, l’UPN temporaire reprend automatiquement la valeur correcte. Ce comportement peut être activé pour l’UPN et proxyAddress séparément. Pour plus d’informations, voir [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
@@ -100,4 +100,4 @@ Ces paramètres seront activés pour tous les répertoires Azure AD à l’aveni
 
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -3,7 +3,7 @@
 	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Windows, créée avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/13/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager
 
@@ -210,4 +210,4 @@ Vous pouvez afficher la machine virtuelle créée, soit dans le [portail Azure](
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery (hérité) | Microsoft Azure" 
-	description="Décrit un déploiement hérité pour orchestrer la réplication, le basculement et la récupération de machines virtuelles VMware ou des serveurs physiques Windows/Linux locaux vers Azure." 
+	description="Décrit la réplication des machines virtuelles VMware locales et des serveurs physiques Windows/Linux sur Azure à l’aide d’Azure Site Recovery dans le cadre d’un déploiement hérité sur le portail classique." 
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/22/2016"
 	ms.author="raynew"/>
 
-# Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery (version héritée)
+# Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery à l’aide du portail classique (hérité)
 
 > [AZURE.SELECTOR]
 - [Portail Azure](site-recovery-vmware-to-azure.md)
@@ -24,56 +24,57 @@
 - [Portail Classic (version héritée)](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un aperçu rapide, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
+Bienvenue dans Azure Site Recovery ! Cet article décrit le déploiement hérité de réplication des machines virtuelles VMware locales ou des serveurs physiques Windows/Linux sur Azure à l’aide d’Azure Site Recovery sur le portail classique.
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Cet article explique comment :
+Les organisations ont besoin d’une stratégie BCDR qui détermine la façon dont les applications, les charges de travail et les données demeurent opérationnelles et disponibles pendant les temps d’arrêt prévus et imprévus, et qui précise comment rétablir au plus vite des conditions de travail normales. Votre stratégie BCDR doit assurer la sécurisation et la récupération des données d’entreprise, ainsi que la disponibilité continue des charges de travail suite à un sinistre.
 
-- **Répliquer les machines virtuelles VMware dans Azure** : déployez Site Recovery pour coordonner la réplication, le basculement et la récupération des machines virtuelles VMware locales vers Azure Storage.
-- **Répliquer les serveurs physiques dans Azure** : déployez Azure Site Recovery pour coordonner la réplication, le basculement et la récupération des serveurs physiques Windows et Linux locaux vers Azure.
+Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence en orchestrant la réplication des machines virtuelles et des serveurs physiques locaux dans le cloud (Azure) ou sur un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Site Recovery ?](site-recovery-overview.md)
 
->[AZURE.NOTE] Le scénario décrit dans cet article contient des **instructions sur les versions héritées**. Ne suivez pas cet article pour les nouveaux déploiements. Au lieu de cela, utilisez les instructions de [déploiement amélioré](site-recovery-vmware-to-azure-classic.md) pour le portail classique. Si vous avez déjà exécuté le déploiement à l'aide de la méthode décrite dans cet article, nous vous recommandons de migrer vers la nouvelle version comme décrit ci-dessous.
+
+>[AZURE.WARNING] Cet article contient des **instructions héritées**. Il ne concerne pas les nouveaux déploiements. [Suivez ces instructions](site-recovery-vmware-to-azure.md) pour déployer Site Recovery sur le portail Azure, ou [suivez ces instructions](site-recovery-vmware-to-azure-classic.md) pour configurer le déploiement amélioré sur le portail classique. Si vous avez déjà exécuté le déploiement à l’aide de la méthode décrite dans cet article, nous vous recommandons de migrer vers le déploiement amélioré sur le portail classique.
 
 
 ## Migrer vers le déploiement amélioré
 
-Cette section n'est utile que si vous avez déjà déployé la réplication des machines virtuelles VMware ou serveurs physiques Windows/Linux vers Azure en suivant les instructions de cet article.
+Cette section n’est utile que si vous avez déjà déployé Site Recovery en suivant les instructions de cet article.
 
 Pour migrer votre déploiement existant, vous devrez :
 
-1. Déployer de nouveaux composants Site Recovery sur le site local.
-2. Configurer les informations d'identification pour les ordinateurs source et de serveur vCenter sur le nouveau serveur de configuration.
-3. Détecter le serveur vCenter existant avec le nouveau serveur de configuration.
+1. Déployez de nouveaux composants Site Recovery sur votre site local.
+2. Configurez les informations d’identification pour la découverte automatique des machines virtuelles VMware sur le nouveau serveur de configuration.
+3. Découvrez les serveurs VMware avec le nouveau serveur de configuration.
 3. Créer un nouveau groupe de protection avec le nouveau serveur de configuration.
 
 
-Avant de commencer, notez les points suivants :
+Avant de commencer :
 
-- Nous vous recommandons de planifier une fenêtre de maintenance pour la migration vers le déploiement amélioré.
+- Nous vous recommandons de définir une fenêtre de maintenance pour la migration.
 - L’option **Migrer des machines** n’est disponible que si des groupes de protection existants ont été créés au cours d’un déploiement hérité.
-- Après avoir terminé les étapes de migration, l'actualisation des informations d'identification peut prendre 15 minutes ou plus, ainsi que pour la découverte et l'actualisation des machines virtuelles afin que vous puissiez les ajouter à un groupe de protection. Vous pouvez actualiser manuellement au lieu d'attendre. 
+- Après avoir terminé les étapes de migration, l’actualisation des informations d’identification peut prendre 15 minutes ou plus. Il en va de même pour la découverte et l’actualisation des machines virtuelles afin que vous puissiez les ajouter à un groupe de protection. Vous pouvez procéder à une actualisation manuelle au lieu d’attendre. 
 
 Exécutez la migration comme suit :
 
-1. Découvrez les [fonctionnalités améliorées](site-recovery-vmware-to-azure-classic.md#enhanced-deployment), assurez-vous que vous comprenez la nouvelle [architecture](site-recovery-vmware-to-azure-classic.md#scenario-architecture) et vérifiez la [configuration requise](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) pour le déploiement amélioré.
-2. Désinstallez le service de mobilité des ordinateurs en cours de protection. Une nouvelle version du service de mobilité sera installée sur les ordinateurs quand vous les ajouterez au nouveau groupe de protection.
-3. Obtenez une [clé d’inscription du coffre](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) et [exécutez l’Assistant Installation unifiée](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) pour installer le serveur de configuration, le serveur de processus et les composants du serveur cible maître sur le serveur d’administration. Apprenez-en plus sur la [planification de la capacité](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. Si vous avez un serveur VMware vCenter, [configurez les informations d’identification](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) pour y accéder afin que Site Recovery puisse découvrir automatiquement les machines virtuelles qu’il gère. Apprenez-en plus sur les [autorisations requises](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-5. Ajoutez des [serveurs vCenter ou des hôtes ESXi](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). L'actualisation du portail peut prendre jusqu'à 15 minutes afin que les informations d'identification s'affichent.
+1. Découvrez le [déploiement amélioré sur le portail classique](site-recovery-vmware-to-azure-classic.md#enhanced-deployment). Passez en revue l’[architecture](site-recovery-vmware-to-azure-classic.md#scenario-architecture) améliorée et les [conditions préalables](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
+2. Désinstallez le service Mobilité des machines en cours de réplication. Une nouvelle version du service sera installée sur les machines quand vous les ajouterez au nouveau groupe de protection.
+3. Téléchargez une [clé d’inscription du coffre](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) et [exécutez l’Assistant Installation unifiée](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) pour installer les composants du serveur de configuration, du serveur de processus et du serveur cible maître. Apprenez-en plus sur la [planification de la capacité](site-recovery-vmware-to-azure-classic.md#capacity-planning).
+4. [Configurez des informations d’identification](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) que Site Recovery peut utiliser pour accéder au serveur VMware afin de découvrir automatiquement les machines virtuelles VMware. Découvrez les [autorisations requises](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+5. Ajoutez des [serveurs vCenter ou des hôtes vSphere](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). Il peut s’écouler 15 minutes ou plus avant que les serveurs n’apparaissent sur le portail Site Recovery.
 6. Créez un [groupe de protection](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). L'actualisation du portail peut prendre jusqu'à 15 minutes afin que les machines virtuelles soient découvertes et s'affichent. Si vous ne souhaitez pas attendre, vous pouvez mettre en surbrillance le nom du serveur d’administration (ne cliquez pas dessus) > **Actualiser**.
 7. Sous le nouveau groupe de protection, cliquez sur **Migrer des machines**.
 
 	![Ajouter un compte](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
 
-8. Sous **Sélectionner des machines**, sélectionnez le groupe de protection à partir duquel vous souhaitez exécuter la migration, ainsi que les machines à migrer.
+8. Sous **Sélectionner des machines**, sélectionnez le groupe de protection à partir duquel vous souhaitez exécuter la migration et les machines à migrer.
 
 	![Ajouter un compte](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-9. Sous **Configurer les paramètres cibles**, indiquez si vous souhaitez utiliser les mêmes paramètres pour toutes les machines, puis sélectionnez le serveur de processus et le compte de stockage Azure. Si vous avez configuré un seul serveur d'administration, alors le serveur de traitement correspond à l'adresse IP de celui-ci.
+
+9. Sous **Configurer les paramètres cibles**, indiquez si vous souhaitez utiliser les mêmes paramètres pour toutes les machines, puis sélectionnez le serveur de traitement et le compte de stockage Azure. Si vous n’avez pas de serveur de processus distinct, il s’agit de l’adresse IP du serveur de configuration.
 
 	![Ajouter un compte](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-10. Sous **Spécifier des comptes**, sélectionnez le compte que vous avez créé pour transmettre automatiquement la nouvelle version du service Mobilité aux machines protégées.
+10. Sous **Spécifier des comptes**, sélectionnez le compte que vous avez créé pour que le serveur de processus accède à la machine afin de permettre l’installation Push de la nouvelle version du service Mobilité.
 
 	![Ajouter un compte](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
@@ -85,7 +86,7 @@ Exécutez la migration comme suit :
 
 	![Ajouter un compte](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
->[AZURE.NOTE] Une fois que vous avez terminé les étapes de migration, vous devez passer à la [version améliorée de l’article](site-recovery-vmware-to-azure-classic.md). Après la migration, le reste de cet article hérité n’est plus pertinent et vous n’avez besoin de suivre aucune autre étape y figurant.
+>[AZURE.NOTE] Une fois que vous avez terminé la migration, poursuivez avec l’[article amélioré](site-recovery-vmware-to-azure-classic.md). La suite de cet article hérité n’est plus pertinente et vous n’avez pas besoin de suivre les autres étapes y figurant**.
 
 
 
@@ -100,30 +101,30 @@ Voici ce dont vous aurez besoin :
 
 **Composant** | **Déploiement** | **Détails**
 --- | --- | ---
-**Serveur de configuration** | <p>Vous le déployez comme une machine virtuelle A3 standard Azure dans le même abonnement que Site Recovery.</p> <p>Vous configurez dans le portail Site Recovery</p> | Ce serveur coordonne la communication entre les ordinateurs protégés, le serveur de traitement et les serveurs cibles maîtres dans Azure. Il configure la réplication et coordonne la récupération dans Azure lors du basculement.
-**Serveur cible maître** | <p>Vous le déployez comme une machine virtuelle Azure — comme serveur Windows basé sur une image de la galerie Windows Server 2012 R2 (pour protéger les ordinateurs Windows) ou comme serveur Linux basé sur une image de la galerie OpenLogic CentOS 6.6 (pour protéger les ordinateurs Linux).</p> <p>Trois options de dimensionnement sont disponibles : A4 standard, D14 standard et DS4 standard.<p><p>Le serveur est connecté au même réseau Azure que le serveur de configuration.</p><p>Vous le configurez dans le portail Site Recovery</p> | <p>Il reçoit et stocke les données répliquées à partir de vos ordinateurs protégés à l'aide de disques durs virtuels attachés créés sur le stockage d'objets blob dans votre compte de stockage Azure.</p> <p>Sélectionnez spécifiquement DS4 standard pour configurer la protection des charges de travail nécessitant des performances élevées et cohérentes, et une faible latence à l'aide d’un compte de stockage Premium.</p>
-**Serveur de traitement** | <p>Vous le déployez comme un serveur virtuel ou physique local exécutant Windows Server 2012 R2</p> <p>Nous vous recommandons de le placer sur le même réseau et le même segment de réseau local que les ordinateurs que vous souhaitez protéger, mais vous pouvez l'exécuter sur un autre réseau tant que les ordinateurs protégés disposent d'une visibilité de réseau L3.<p>Vous le configurez et l’enregistrer sur le serveur de configuration dans le portail Site Recovery.</p> | <p>Les ordinateurs protégés envoient des données de réplication au serveur de traitement local. Il possède un cache disque pour mettre en cache les données de réplication qu'il reçoit. Il exécute un certain nombre d’actions sur ces données.</p><p>Il optimise les données en les mettant en cache, en les comprimant et en les chiffrant avant de les envoyer au serveur cible maître.</p><p>Il gère l’installation Push du service de mobilité.</p><p>Il effectue la détection automatique des machines virtuelles VMware.</p>
-**Ordinateurs locaux** | Il s’agit soit de machines virtuelles exécutée sur un hyperviseur VMWare, soit de serveurs physiques exécutant Windows ou Linux. | Vous définissez les paramètres de réplication qui s'appliquent aux machines virtuelles et serveurs. Vous pouvez basculer un ordinateur individuel ou plus fréquemment dans le cadre d'un plan de récupération contenant plusieurs machines virtuelles qui basculent ensemble.
-**Service de mobilité** | <p>S’installe sur chaque machine virtuelle ou serveur physique que vous souhaitez protéger</p><p>Peut être installé manuellement ou transmis et installé automatiquement par le serveur de traitement lorsque la protection est activée sur le serveur. | Le service de mobilité envoie des données au serveur de traitement dans le cadre de la réplication initiale (resync). Une fois que le serveur a atteint un état protégé (une fois la resynchronisation terminée), le service de mobilité effectue une capture en mémoire des écritures sur le disque et l'envoie au serveur de traitement. L'infrastructure VSS permet d'obtenir la cohérence des applications pour les serveurs Windows.
-**Coffre Azure Site Recovery** | Il se configure après avoir souscrit au service Site Recovery. | Vous enregistrez des serveurs dans un coffre Site Recovery. Le coffre coordonne et orchestre la réplication, le basculement et la récupération des données entre votre site local et Azure.
-**Mécanisme de réplication** | <p>**Via Internet** : communique et réplique les données à partir de serveurs locaux protégés et d'Azure à l’aide d’un canal de communication SSL/TLS sécurisé via une connexion Internet publique. Il s’agit de l’option par défaut. </p><p>**VPN/ExpressRoute** : communique et réplique les données entre les serveurs locaux et Azure via une connexion VPN. Vous allez devoir configurer un VPN de site à site ou une connexion ExpressRoute entre le site local et votre réseau Azure.</p><p>Vous allez sélectionner la manière dont vous souhaitez procéder à la réplication au cours du déploiement de Site Recovery. Vous ne pouvez pas modifier le mécanisme une fois qu'il est configuré sans compromettre la protection sur les serveurs déjà protégés.| <p>Aucune de ces options ne vous oblige à ouvrir des ports réseau entrants sur les ordinateurs protégés. Toutes les communications réseau sont initiées à partir du site local.</p> 
+**Serveur de configuration** | Une machine virtuelle A3 standard Azure dans le même abonnement que Site Recovery. | Le serveur de configuration coordonne la communication entre les machines protégées, le serveur de processus et les serveurs cible maîtres dans Azure. Il configure la réplication et coordonne la récupération dans Azure lors du basculement.
+**Serveur cible maître** | Une machine virtuelle Azure, par exemple un serveur Windows basé sur une image de la galerie Windows Server 2012 R2 (pour protéger les ordinateurs Windows), ou un serveur Linux basé sur une image de la galerie OpenLogic CentOS 6.6 (pour protéger les ordinateurs Linux).<br/><br/> Trois options de dimensionnement sont disponibles : A4 standard, D14 standard et DS4 standard.<br/><br/> Le serveur est connecté au même réseau Azure que le serveur de configuration.<br/><br/> Vous effectuez la configuration sur le portail Site Recovery | Il reçoit et stocke les données répliquées à partir de vos machines protégées à l’aide de disques durs virtuels attachés créés sur le stockage d’objets blob dans votre compte Azure Storage.<br/><br/> Sélectionnez DS4 standard pour configurer la protection des charges de travail nécessitant des performances élevées et cohérentes ainsi qu’une faible latence à l’aide d’un compte Premium Storage.
+**Serveur de traitement** | Un serveur virtuel ou physique local exécutant Windows Server 2012 R2<br/><br/> Nous vous recommandons de le placer sur le même réseau et le même segment de réseau local que les machines à protéger, mais vous pouvez l’exécuter sur un autre réseau tant que les machines protégées disposent d’une visibilité de réseau L3.<br/><br/> Vous le configurez et l’enregistrez sur le serveur de configuration du portail Site Recovery. | Les machines protégées envoient des données de réplication au serveur de processus local. Il possède un cache disque pour mettre en cache les données de réplication qu'il reçoit. Il exécute un certain nombre d’actions sur les données.<br/><br/> Il optimise les données par la mise en cache, la compression et le chiffrement avant de les envoyer sur le serveur cible maître.<br/><br/> Il gère l’installation Push du service Mobilité.<br/><br/> Il procède à la découverte automatisée des machines virtuelles VMWare.
+**Ordinateurs locaux** | Machines virtuelles VMware locales ou serveurs physiques exécutant Windows ou Linux. | Vous configurez les paramètres de réplication qui s’appliquent à une ou plusieurs machines. Vous pouvez basculer une machine individuelle ou, plus fréquemment, plusieurs machines virtuelles rassemblées dans un plan de récupération. 
+**Service de mobilité** | Installé sur chaque machine virtuelle ou serveur physique que vous souhaitez protéger<br/><br/> Peut être installé manuellement ou transmis et installé automatiquement par le serveur de processus lorsque vous activez la réplication d’une machine. | Le service Mobilité envoie des données au serveur de processus dans le cadre de la réplication initiale (resynchronisation). Une fois que la machine est protégée (après resynchronisation), le service Mobilité capture les écritures sur disque en mémoire et les envoie au serveur de processus. Le service VSS apporte la cohérence des applications pour les serveurs Windows.
+**Coffre Azure Site Recovery** | Vous créez un coffre Site Recovery avec un abonnement Azure et vous inscrivez les serveurs dans le coffre. | Le coffre coordonne et orchestre la réplication, le basculement et la récupération des données entre votre site local et Azure.
+**Mécanisme de réplication** | **Via Internet** : communique et réplique les données à partir de serveurs locaux protégés sur Azure à l’aide d’un canal de communication SSL/TLS sécurisé par le biais d’Internet. Il s’agit de l’option par défaut.<br/><br/> **VPN/ExpressRoute** : communique et réplique les données entre les serveurs locaux et Azure par le biais d’une connexion VPN. Vous devez configurer un VPN de site à site ou une connexion ExpressRoute entre votre site local et le réseau Azure.<br/><br/> Vous devez sélectionner votre méthode de réplication pendant le déploiement de Site Recovery. Une fois cette méthode configurée, vous ne pouvez pas la modifier sans compromettre la réplication des machines existantes. | Aucune de ces options ne vous oblige à ouvrir des ports réseau entrants sur les machines protégées. Toutes les communications réseau sont initiées à partir du site local. 
 
 ## Planification de la capacité
 
-Les principaux domaines à prendre en considération sont les suivants :
+Les principaux domaines à prendre en considération sont les suivants :
 
-- **Environnement source** : l’infrastructure VMware, les paramètres de l'ordinateur source et la configuration requise.
-- **Serveurs de composants** : le serveur de traitement, le serveur de configuration et le serveur cible maître 
+- **Environnement source** : l’infrastructure VMware, les paramètres de l'ordinateur source et la configuration requise.
+- **Serveurs de composants** : le serveur de traitement, le serveur de configuration et le serveur cible maître 
 
 ### Considérations relatives à l'environnement source
 
-- **Taille de disque maximale** : la taille maximale actuelle du disque qui peut être attaché à une machine virtuelle est de 1 To. Par conséquent, la taille maximale d'un disque source qui peut être répliqué est également limitée à 1 To.
-- **Taille maximale par source** : la taille maximale d'un seul ordinateur source est de 31 To (avec 31 disques) et avec une instance D14 configurée pour le serveur cible maître. 
-- **Nombre de sources par serveur cible maître** : plusieurs ordinateurs source peuvent être protégés avec un seul serveur cible maître. Cependant, un seul ordinateur source ne peut pas être protégé sur plusieurs serveurs cibles maîtres, car à mesure que les disques sont répliqués, un disque dur virtuel qui reflète le volume du disque est créé dans le stockage d'objets blob Azure et attaché en tant que disque de données au serveur cible maître.  
-- **Taux de modification quotidien maximum par source** : il y a trois facteurs à prendre en considération lorsque vous envisagez le taux de modification par source recommandé. Pour les considérations basées sur la cible, deux IOPS sont requises sur le disque cible pour chaque opération sur la source. Cela est dû au fait qu’il y aura une lecture d’anciennes données et une écriture de nouvelles données sur le disque cible. 
-	- **Taux de modification quotidien pris en charge par le serveur de traitement** : un ordinateur source ne peut pas couvrir plusieurs serveurs de traitement. Un seul serveur de traitement peut prendre en charge jusqu'à 1 To de taux de modification quotidien. Par conséquent, 1 To est le taux de modification quotidien maximal des données pris en charge pour un ordinateur source. 
-	- **Débit maximal pris en charge par le disque cible** : l’attrition maximale par disque source ne peut pas dépasser 144 Go/jour (avec une taille d'écriture de 8 Ko). Reportez-vous au tableau dans la section cible principale pour le débit et les IOPS de la cible pour différentes tailles d’écriture. Ce nombre doit être divisé en deux, car chaque IOP source génère 2 IOPS sur le disque cible. Consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) quand vous configurez la cible pour les comptes Premium Storage.
-	- **Débit maximal pris en charge par le compte de stockage** : une source ne peut pas couvrir plusieurs comptes de stockage. Étant donné qu'un compte de stockage prend un maximum de 20 000 requêtes par seconde et que chaque IOP source génère 2 IOPS sur le serveur cible maître, nous vous recommandons de maintenir le nombre d'IOPS sur la source à 10 000. Consultez [Objectifs de performance et évolutivité d’Azure Storage](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) quand vous configurez la source pour les comptes Premium Storage.
+- **Taille de disque maximale** : la taille maximale actuelle du disque qui peut être attaché à une machine virtuelle est de 1 To. Par conséquent, la taille maximale d'un disque source qui peut être répliqué est également limitée à 1 To.
+- **Taille maximale par source** : la taille maximale d'un seul ordinateur source est de 31 To (avec 31 disques) et avec une instance D14 configurée pour le serveur cible maître. 
+- **Nombre de sources par serveur cible maître** : plusieurs ordinateurs source peuvent être protégés avec un seul serveur cible maître. Cependant, un seul ordinateur source ne peut pas être protégé sur plusieurs serveurs cibles maîtres, car à mesure que les disques sont répliqués, un disque dur virtuel qui reflète le volume du disque est créé dans le stockage d'objets blob Azure et attaché en tant que disque de données au serveur cible maître.  
+- **Taux de modification quotidien maximum par source** : il y a trois facteurs à prendre en considération lorsque vous envisagez le taux de modification par source recommandé. Pour les considérations basées sur la cible, deux IOPS sont requises sur le disque cible pour chaque opération sur la source. Cela est dû au fait qu’il y aura une lecture d’anciennes données et une écriture de nouvelles données sur le disque cible. 
+	- **Taux de modification quotidien pris en charge par le serveur de traitement** : un ordinateur source ne peut pas couvrir plusieurs serveurs de traitement. Un seul serveur de traitement peut prendre en charge jusqu'à 1 To de taux de modification quotidien. Par conséquent, 1 To est le taux de modification quotidien maximal des données pris en charge pour un ordinateur source. 
+	- **Débit maximal pris en charge par le disque cible** : l’attrition maximale par disque source ne peut pas dépasser 144 Go/jour (avec une taille d'écriture de 8 Ko). Reportez-vous au tableau dans la section cible principale pour le débit et les IOPS de la cible pour différentes tailles d’écriture. Ce nombre doit être divisé en deux, car chaque IOP source génère 2 IOPS sur le disque cible. Consultez la rubrique [Objectifs d’extensibilité et de performances d’Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) quand vous configurez la cible pour les comptes de stockage premium.
+	- **Débit maximal pris en charge par le compte de stockage** : une source ne peut pas couvrir plusieurs comptes de stockage. Étant donné qu'un compte de stockage prend un maximum de 20 000 requêtes par seconde et que chaque IOP source génère 2 IOPS sur le serveur cible maître, nous vous recommandons de maintenir le nombre d'IOPS sur la source à 10 000. Consultez la rubrique [Objectifs d’extensibilité et de performances d’Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) quand vous configurez la source pour les comptes de stockage premium.
 
 ### Considérations relatives aux serveurs de composants
 
@@ -140,11 +141,12 @@ Serveur cible maître | A4 standard | 8 | 14 Go | 16 | 1 023 Go
 
 #### Considérations relatives aux serveurs de traitement
 
-Le dimensionnement du serveur de traitement dépend généralement du taux de modification quotidien pour toutes les charges de travail protégées. Les considérations principales sont les suivantes :
+Le dimensionnement du serveur de traitement dépend généralement du taux de modification quotidien pour toutes les charges de travail protégées.
 
--	Vous avez besoin d’une puissance de calcul suffisante pour effectuer des tâches telles que le chiffrement et la compression en ligne.
--	Le serveur de traitement utilise le cache disque. Assurez-vous que le débit de disque et d’espace cache recommandé est disponible pour faciliter les modifications de données stockées en cas de panne ou de goulot d'étranglement du réseau. 
--	Veillez à avoir une bande passante suffisante pour que le serveur de traitement puisse télécharger les données vers le serveur cible maître afin de fournir une protection continue des données. 
+
+- Vous avez besoin d’une puissance de calcul suffisante pour effectuer des tâches telles que le chiffrement et la compression en ligne.
+- Le serveur de traitement utilise le cache disque. Assurez-vous que le débit de disque et d’espace cache recommandé est disponible pour faciliter les modifications de données stockées en cas de panne ou de goulot d'étranglement du réseau. 
+- Veillez à avoir une bande passante suffisante pour que le serveur de traitement puisse télécharger les données vers le serveur cible maître afin de fournir une protection continue des données. 
 
 Le tableau 2 fournit un résumé des instructions relatives au serveur de traitement.
 
@@ -166,11 +168,11 @@ Où :
 
 #### Considérations relatives aux serveurs de configuration
 
-Chaque serveur de configuration peut prendre en charge jusqu'à 100 ordinateurs source avec 3-4 volumes. Si ces chiffres sont dépassés, nous vous recommandons de déployer un autre serveur de configuration. Reportez-vous au tableau 1 pour les propriétés de machine virtuelle par défaut du serveur de configuration.
+Chaque serveur de configuration peut prendre en charge jusqu'à 100 ordinateurs source avec 3-4 volumes. Si votre déploiement est plus étendu, nous vous recommandons de déployer un autre serveur de configuration. Reportez-vous au tableau 1 pour les propriétés de machine virtuelle par défaut du serveur de configuration.
 
 #### Considérations relatives aux comptes de stockage et serveurs cibles maîtres
 
-Le stockage pour chaque serveur cible maître se compose d'un disque de système d'exploitation, d'un volume de rétention et de disques de données. Le lecteur de rétention conserve le journal des modifications de disque pendant la durée de la fenêtre de rétention définie dans le portail Site Recovery. Reportez-vous au tableau 1 pour les propriétés de machine virtuelle du serveur cible maître. Le tableau 3 montre comme les disques de A4 sont utilisés.
+Le stockage pour chaque serveur cible maître inclut un disque de système d’exploitation, un volume de rétention et des disques de données. Le lecteur de rétention conserve le journal des modifications de disque pendant la durée de la fenêtre de rétention définie dans le portail Site Recovery. Reportez-vous au tableau 1 pour les propriétés de machine virtuelle du serveur cible maître. Le tableau 3 montre comme les disques de A4 sont utilisés.
 
 **Instance** | **Disque de système d’exploitation** | **Rétention** | **Disques de données**
 --- | --- | --- | ---
@@ -184,7 +186,7 @@ DS4 standard | 1 disque (1 * 1 023 Go) | 1 disque (1 * 1 023 Go) | 15 disqu
 La planification de la capacité pour le serveur cible maître dépend des points suivants :
 
 - Limitations et performances de stockage Azure
-	- Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d'environ 40 (20 000/500 IOPS par disque) dans un seul compte de stockage. Consultez les [objectifs d’évolutivité pour les comptes Standard Storage](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) et les [comptes Premium Storage](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
+	- Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d'environ 40 (20 000/500 IOPS par disque) dans un seul compte de stockage. En savoir plus sur les [objectifs d’évolutivité pour les comptes de stockage standard](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) et les [comptes de stockage premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 -	Taux de modification quotidien 
 -	Stockage de volume de rétention.
 
@@ -204,30 +206,25 @@ Notez les points suivants :
 
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | --- 
-**Compte Azure** | Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](pricing/free-trial/).
-**Stockage Azure** | <p>Vous devez posséder un compte de stockage Azure pour stocker les données répliquées</p><p>Le compte doit être un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage) ou un [compte Premium Storage](../storage/storage-premium-storage.md).</p><p>Il doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.</p><p>Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md)</p>
+**Compte Azure** | Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+**Stockage Azure** | Vous aurez besoin d’un compte Azure Storage pour stocker les données répliquées<br/><br/> Ce compte doit être un [compte Standard Storage géoredondant](../storage/storage-redundancy.md#geo-redundant-storage) ou un [compte Premium Storage](../storage/storage-premium-storage.md).<br/><br/> Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.<br/><br/> Pour en savoir plus, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md)
 **Réseau virtuel Azure** | Vous aurez besoin d'un réseau virtuel Azure sur lequel le serveur de configuration et le serveur cible maître seront déployés. Il doit être dans le même abonnement et la même région que le coffre Azure Site Recovery. Si vous souhaitez répliquer des données avec une connexion ExpressRoute ou VPN, le réseau virtuel Azure doit être connecté à votre réseau local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site.
 **Ressources Azure** | Assurez-vous d'avoir suffisamment de ressources Azure pour déployer tous les composants. Découvrez plus d’informations dans [Limites d’abonnement Azure](../azure-subscription-service-limits.md).
-**Machines virtuelles Azure** | <p>Les machines virtuelles que vous souhaitez protéger doivent être conformes aux [conditions préalables Azure](site-recovery-best-practices.md).</p><p>** Nombre de disques** : un maximum de 31 disques peut être pris en charge sur un seul serveur protégé</p><p>** Tailles de disque** : la capacité d’un disque ne doit pas être supérieure à 1 023 Go</p><p>** Clustering ** : les serveurs en cluster ne sont pas pris en charge</p><p>** Démarrage ** : le démarrage Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface (EFI) n'est pas pris en charge</p><p>** Volumes ** : les volumes chiffrés Bitlocker ne sont pas pris en charge</p><p> **Noms de serveur** : les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure.</p>
-**Serveur de configuration** | <p>Une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous sélectionnez Internet public comme type de connectivité pour le serveur de configuration, le service cloud est créé avec une adresse IP publique réservée.</p><p>Le chemin d’installation doit contenir uniquement des caractères anglais.</p>
-**Serveur cible maître** | <p>Machine virtuelle Azure A4, D14 ou DS4 standard.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais. Par exemple, le chemin d'accès doit être **/usr/local/ASR** pour un serveur cible maître exécutant Linux.</p></p>
-**Serveur de traitement** | <p>Vous pouvez déployer le serveur de traitement sur un ordinateur physique ou virtuel exécutant Windows Server 2012 R2 avec les dernières mises à jour. Effectuez l’installation sur C:/.</p><p>Nous vous recommandons de placer le serveur sur le même réseau et sous-réseau que les ordinateurs que vous souhaitez protéger.</p><p>Installez VMware vSphere CLI 5.5.0 sur le serveur de traitement. Le composant VMware vSphere CLI est requis sur le serveur de traitement pour pouvoir détecter les machines virtuelles gérées par un serveur vCenter ou les machines virtuelles exécutées sur un hôte ESXi.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais.</p><p>Le système de fichiers ReFS n'est pas pris en charge.</p>
-**VMware** | <p>Un serveur VMware vCenter qui gère vos hyperviseurs VMware vSphere. Il doit exécuter vCenter version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Un ou plusieurs hyperviseurs vSphere contenant les machines virtuelles VMware que vous souhaitez protéger. L'hyperviseur doit exécuter ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Des outils VMware doivent être installés et exécutés sur les machines virtuelles VMware.</p>  
-**Ordinateurs Windows** | <p>Les machines virtuelles VMware ou serveurs physiques protégés sous Windows ont un certain nombre d'exigences.</p><p>Un système d'exploitation 64 bits pris en charge : **Windows Server 2012 R2**, **Windows Server 2012** ou **Windows Server 2008 R2 avec au moins SP1**.</p><p>Le nom d'hôte, les points de montage, le nom des périphériques, le chemin d'accès au système Windows (par exemple, C:\\Windows) doivent uniquement être en anglais.</p><p>Le système d'exploitation doit être installé sur le lecteur C:\\.</p><p>Seuls les disques de base sont pris en charge. Les disques dynamiques ne sont pas pris en charge.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Vous devez fournir un compte administrateur (vous devez être un administrateur local sur l'ordinateur Windows) pour effectuer l'installation Push du service de mobilité sur les serveurs Windows. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Pour ajouter l'entrée de registre à partir d'une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [En savoir plus](https://msdn.microsoft.com/library/aa826699.aspx) sur le contrôle d'accès.</p><p>Après un basculement, si vous voulez vous connecter à des machines virtuelles Windows dans Azure avec le Bureau à distance, assurez-vous que le Bureau à distance soit activé pour l'ordinateur local. Si vous ne vous connectez pas via un VPN, les règles de pare-feu doivent autoriser les connexions Bureau à distance via Internet.</p>
-**Ordinateurs Linux** | <p> Un système d'exploitation 64 bits pris en charge : **Centos 6.4, 6.5, 6.6** ; **Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Les règles de pare-feu sur les ordinateurs protégés doivent leur permettre de joindre les serveurs de configuration et les serveurs cibles maîtres dans Azure.</p><p>Les fichiers /etc/hosts sur des ordinateurs protégés doivent contenir des entrées qui mappent le nom d'hôte local aux adresses IP associées à toutes les cartes réseau </p><p>Si vous souhaitez vous connecter à une machine virtuelle Azure exécutant Linux après un basculement à l'aide d'un client Secure Shell (ssh), assurez-vous que le service Secure Shell sur l'ordinateur protégé est configuré pour démarrer automatiquement au démarrage du système et que les règles de pare-feu autorisent une connexion ssh à celui-ci.</p><p>Le nom d'hôte, les points de montage, les noms de périphériques et les chemins d'accès système et noms de fichier Linux (par ex : /etc/ ; /usr) doivent uniquement être en anglais.</p><p>La protection peut être activée pour les ordinateurs locaux avec le stockage suivant : - <br>système de fichiers : EXT3, ETX4, ReiserFS, XFS<br>Mappeur périphérique-logiciel (multichemin)<br>Gestionnaire de volume : LVM2<br>Les serveurs physiques avec le stockage contrôleur HP CCISS ne sont pas pris en charge.</p>
+**Machines virtuelles Azure** | Les machines virtuelles à protéger doivent répondre aux [conditions préalables requises pour Azure](site-recovery-best-practices.md).<br/><br/> **Nombre de disques** : un maximum de 31 disques peut être pris en charge sur un seul serveur protégé<br/><br/> **Tailles de disque** : la capacité d’un disque ne doit pas être supérieure à 1 023 Go<br/><br/> **Clustering** : les serveurs en cluster ne sont pas pris en charge<br/><br/> **Démarrage** : le démarrage Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface (EFI) n’est pas pris en charge<br/><br/> **Volumes** : les volumes chiffrés BitLocker ne sont pas pris en charge<br/><br/> **Noms des serveurs** : les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure.
+**Serveur de configuration** | Une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous sélectionnez Internet public comme type de connectivité pour le serveur de configuration, le service cloud est créé avec une adresse IP publique réservée.<br/><br/> Le chemin d’installation doit contenir uniquement des caractères anglais.
+**Serveur cible maître** | Machine virtuelle Azure, A4 standard, D14 standard ou DS4 standard.<br/><br/> Le chemin d’installation doit contenir uniquement des caractères anglais. Par exemple, le chemin d’accès doit être **/usr/local/ASR** pour un serveur cible maître exécutant Linux.
+**Serveur de traitement** | Vous pouvez déployer le serveur de traitement sur un ordinateur physique ou virtuel exécutant Windows Server 2012 R2 avec les dernières mises à jour. Installez-le sur C:/.<br/><br/> Nous vous recommandons de placer le serveur sur les mêmes réseau et sous-réseau que les machines à protéger.<br/><br/> Installez VMware vSphere CLI 5.5.0 sur le serveur de processus. Le composant VMware vSphere CLI est requis sur le serveur de processus pour permettre la découverte des machines virtuelles gérées par un serveur vCenter ou exécutées sur un hôte ESXi.<br/><br/> Le chemin d’installation doit uniquement comprendre des caractères anglais.<br/><br/> Le système de fichiers ReFS n’est pas pris en charge.
+**VMware** | Un serveur VMware vCenter qui gère vos hyperviseurs VMware vSphere. Il doit exécuter vCenter version 5.1 ou 5.5 avec les dernières mises à jour.<br/><br/> Un ou plusieurs hyperviseurs vSphere contenant des machines virtuelles VMWare que vous souhaitez protéger. L’hyperviseur doit exécuter ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.<br/><br/> Les outils VMware doivent être installés et en cours d’exécution sur les machines virtuelles VMware. 
+**Ordinateurs Windows** | Les serveurs physiques ou les machines virtuelles VMware protégés exécutant Windows sont associés à plusieurs prérequis.<br/><br/> Un système d’exploitation 64 bits pris en charge : **Windows Server 2012 R2**, **Windows Server 2012** ou **Windows Server 2008 R2 avec au moins SP1**.<br/><br/> Le nom d’hôte, les points de montage, les noms d’appareils, les chemin d’accès système Windows (par exemple : C:\\Windows) doivent être en anglais uniquement.<br/><br/> Le système d’exploitation doit être installé sur le lecteur C:\\.<br/><br/> Seuls les disques de base sont pris en charge. Les disques dynamiques ne sont pas pris en charge.<br/><br/> Les règles de pare-feu sur les machines protégées doivent leur permettre de joindre les serveurs de configuration et les serveurs cible maîtres dans Azure.<p>Vous devez fournir un compte d’administrateur (administrateur local sur la machine Windows) pour l’installation Push du service Mobilité sur les serveurs Windows. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Pour ajouter l'entrée de registre à partir d'une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [En savoir plus](https://msdn.microsoft.com/library/aa826699.aspx) sur le contrôle d’accès.<br/><br/> Après un basculement, si vous voulez vous connecter à des ordinateurs virtuels Windows dans Azure avec le Bureau à distance, assurez-vous que le Bureau à distance est activé pour l'ordinateur local. Si vous ne vous connectez pas par le biais d’un VPN, les règles de pare-feu doivent autoriser les connexions Bureau à distance par le biais d’Internet.
+**Ordinateurs Linux** | Un système d’exploitation 64 bits pris en charge : **Centos 6.4, 6.5 ou 6.6** ; **Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.<br/><br/> Les règles de pare-feu sur les machines protégées doivent leur permettre de joindre les serveurs de configuration et les serveurs cible maîtres dans Azure.<br/><br/> Les fichiers /etc/hosts sur les machines protégées doivent contenir des entrées qui mappent le nom d’hôte local aux adresses IP associées à toutes les cartes réseau.<br/><br/> Si vous voulez vous connecter à une machine virtuelle Azure exécutant Linux après le basculement à l’aide d’un client Secure Shell (SSH), vérifiez que le service Secure Shell de la machine protégée est configuré pour démarrer automatiquement au démarrage du système, et que les règles de pare-feu autorisent la connexion SSH à ce dernier.<br/><br/> Le nom d’hôte, les points de montage, les noms d’appareils ainsi que les chemins d’accès système et les noms de fichiers Linux (par exemple : /etc/ ; /usr) doivent uniquement être en anglais.<br/><br/> La protection peut être activée pour des ordinateurs locaux avec le stockage suivant : -<br>système de fichiers : EXT3, ETX4, ReiserFS, XFS<br>logiciel Multipath - Mappeur d’appareil (multivoie)<br>gestionnaire de volume : (LVM2)<br>Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge.
 **Tiers** | Le fonctionnement correct de certains composants de déploiement de ce scénario dépend de logiciels tiers. Pour obtenir la liste complète, consultez la rubrique [Informations et remarques relatives aux logiciels tiers](#third-party)
 
-## Déploiement
 
-Le graphique résume les étapes du déploiement.
-
-![Étapes du déploiement](./media/site-recovery-vmware-to-azure-classic-legacy/deployment-steps.png)
-
-## Connectivité réseau
+### Connectivité réseau
 
 Vous disposez de deux options quand vous configurez la connectivité réseau entre votre site local et le réseau virtuel Azure sur lequel les composants de l’infrastructure (serveur de configuration, serveurs cibles maîtres) sont déployés. Vous devez choisir l’option de connectivité réseau à utiliser avant de déployer votre serveur de configuration. Vous devez effectuer votre choix au moment du déploiement. Ce ne sera pas possible ultérieurement.
 
-**Internet public :** la communication et la réplication des données entre les serveurs locaux (serveur de processus, machines protégées) et les serveurs composant l’infrastructure Azure (serveur de configuration, serveur cible maître) se produisent par le biais d’une connexion SSL/TLS sécurisée à partir de l’emplacement local vers les points de terminaison publics sur les serveurs cible de configuration et maître. La seule exception est la connexion entre le serveur de traitement et le serveur cible maître sur le port TCP 9080 qui est non chiffrée. Cette connexion n’est utilisée que pour l’échange d’informations de contrôle relatives au protocole de réplication pour la configuration de la réplication.
+**Internet :** la communication et la réplication des données entre les serveurs locaux (serveur de processus, machines protégées) et les serveurs composant l’infrastructure Azure (serveur de configuration, serveur cible maître) se produisent par le biais d’une connexion SSL/TLS sécurisée à partir de l’emplacement local vers les points de terminaison publics sur le serveur de configuration et les serveurs cible maîtres. La seule exception est la connexion entre le serveur de traitement et le serveur cible maître sur le port TCP 9080 qui est non chiffrée. Cette connexion n’est utilisée que pour l’échange d’informations de contrôle relatives au protocole de réplication pour la configuration de la réplication.
 
 ![Diagramme de déploiement Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
@@ -241,14 +238,14 @@ Vous disposez de deux options quand vous configurez la connectivité réseau ent
 1. Connectez-vous au [portail de gestion](https://portal.azure.com).
 
 
-2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
+2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
 
 
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 
-5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](pricing/details/site-recovery/)
+5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 
 6. Cliquez sur **Create vault**.
 
@@ -272,34 +269,33 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 4. Dans **Détails du nouveau serveur de configuration**, spécifiez :
 
 	- un nom pour le serveur de configuration et les informations d'identification pour s’y connecter.
-	- Dans la liste déroulante pour le type de connectivité réseau, sélectionnez Internet public ou VPN.[AZURE.NOTE] Ce choix doit se faire au moment du déploiement et ne peut pas être modifié ultérieurement.  
-	- Sélectionnez le réseau Azure sur lequel le serveur doit se trouver. Si vous avez spécifié VPN comme type de connectivité réseau, assurez-vous que ce réseau virtuel Azure est connecté à votre site local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site.
-	- Spécifiez le sous-réseau et l'adresse IP interne à affecter au serveur. Notez que les quatre premières adresses IP d’un sous-réseau sont réservées à un usage interne Azure. Utilisez une autre adresse IP disponible.
+	- Dans la liste déroulante dédiée au type de connectivité réseau, sélectionnez **Internet public** ou **VPN**. Vous ne pouvez pas modifier ce paramètre une fois qu’il est appliqué.
+	- Sélectionnez le réseau Azure sur lequel le serveur doit se trouver. Si vous utilisez un VPN, assurez-vous que le réseau Azure est connecté à votre réseau local comme prévu. 
+	- Spécifiez le sous-réseau et l’adresse IP interne à affecter au serveur. Notez que les quatre premières adresses IP d’un sous-réseau sont réservées à un usage interne Azure. Utilisez une autre adresse IP disponible.
 	
 	![Déployer un serveur de configuration](./media/site-recovery-vmware-to-azure-classic-legacy/cs-details.png)
 
-5. Lorsque vous cliquez sur **OK**, une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous avez spécifié Internet Public comme type de connectivité réseau, le service cloud est créé avec une adresse IP publique réservée. Vous pouvez surveiller la progression dans l'onglet **Tâches**.
+5. Lorsque vous cliquez sur **OK**, une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous avez choisi une connexion Internet, le service cloud est créé avec une adresse IP publique réservée. Vous pouvez surveiller la progression dans l'onglet **Tâches**.
 
 	![Surveiller la progression](./media/site-recovery-vmware-to-azure-classic-legacy/monitor-cs.png)
 
-6.  **Cette étape s'applique uniquement si votre type de connectivité est Internet public.** Une fois le serveur de configuration déployé, notez l'adresse IP publique qui lui est affectée sur la page **Machines virtuelles** du portail Azure. Ensuite, sous l'onglet **Points de terminaison**, notez le port HTTPS public mappé au port privé 443. Vous aurez besoin de ces informations ultérieurement, lors de l'inscription du serveur cible maître et du serveur de traitement auprès du serveur de configuration. Le serveur de configuration est déployé avec ces points de terminaison :
+6.  Si vous vous connectez par le biais d’Internet, une fois le serveur de configuration déployé, notez l’adresse IP publique qui lui est affectée sur la page **Machines virtuelles** du portail Azure. Ensuite, sous l'onglet **Points de terminaison**, notez le port HTTPS public mappé au port privé 443. Vous aurez besoin de ces informations ultérieurement, lors de l'inscription du serveur cible maître et du serveur de traitement auprès du serveur de configuration. Le serveur de configuration est déployé avec ces points de terminaison :
 
-	- HTTPS : le port public est utilisé pour coordonner les communications entre les serveurs de composants et Azure via Internet. Le port privé 443 est utilisé pour coordonner les communications entre les serveurs de composants et Azur via VPN.
-	- Personnalisé : le port public est utilisé pour la communication des outils de restauration automatique via
-	- Internet. Le port privé 9443 est utilisé pour la communication des outils de restauration automatique via VPN.
+	- HTTPS : un port public est utilisé pour coordonner les communications entre les serveurs de composants et Azure sur Internet. Le port privé 443 est utilisé pour coordonner les communications entre les serveurs de composants et Azur via VPN.
+	- Personnalisé : un port public est utilisé pour la communication des outils de restauration automatique sur Internet. Le port privé 9443 est utilisé pour la communication des outils de restauration automatique via VPN.
 	- PowerShell : port privé 5986
 	- Bureau à distance : port privé 3389
 	
 	![Points de terminaison de MV](./media/site-recovery-vmware-to-azure-classic-legacy/vm-endpoints.png)
 
-    >[AZURE.WARNING] Ne supprimez ou ne modifiez pas le numéro de port public ou privé des points de terminaison créés lors du déploiement du serveur de configuration.
+    >[AZURE.WARNING] Ne supprimez et ne modifiez pas le numéro de port public ou privé des points de terminaison créés lors du déploiement du serveur de configuration.
 
-Le serveur de configuration est déployé dans un service cloud Azure créé automatiquement avec une adresse IP réservée. L'adresse réservée est nécessaire pour s'assurer que l'adresse IP du service cloud du serveur de configuration reste la même pour tous les redémarrages des machines virtuelles (y compris le serveur de configuration) sur le service cloud. La réservation de l'adresse IP publique réservée doit être annulée manuellement lorsque le serveur de configuration est désactivé ou cette adresse restera réservée. Il existe une limite par défaut de 20 adresses IP publiques réservées par abonnement. [En savoir plus](../virtual-network/virtual-networks-reserved-private-ip.md) sur les adresses IP réservées.
+Le serveur de configuration est déployé dans un service cloud Azure créé automatiquement avec une adresse IP réservée. L’adresse réservée permet de s’assurer que l’adresse IP du service cloud du serveur de configuration reste la même pour tous les redémarrages des machines virtuelles (y compris le serveur de configuration) sur le service cloud. La réservation de l'adresse IP publique réservée doit être annulée manuellement lorsque le serveur de configuration est désactivé ou cette adresse restera réservée. Il existe une limite par défaut de 20 adresses IP publiques réservées par abonnement. [En savoir plus](../virtual-network/virtual-networks-reserved-private-ip.md) sur les adresses IP réservées.
 
 ### inscrire le serveur de configuration dans le coffre
 
 1. À la page **Démarrage rapide**, cliquez sur **Préparer les ressources cibles** > **Télécharger une clé d'inscription**. Le fichier de clé est généré automatiquement. Il est valide pendant cinq jours après sa création. Copiez-le sur le serveur de configuration.
-2. Dans **Machines virtuelles**, sélectionner le serveur de configuration dans la liste des machines virtuelles. Ouvrez l'onglet **Tableau de bord** et cliquez sur **Connexion**. **Ouvrez** le fichier RDP téléchargé pour vous connecter au serveur de configuration avec le Bureau à distance. Si votre serveur de configuration est déployé sur un réseau VPN, utilisez l'adresse IP interne (il s'agit de l'adresse IP spécifiée lorsque vous avez déployé le serveur de configuration et vous pouvez également la trouver sur la page du tableau de bord des machines virtuelles pour la machine virtuelle du serveur configuration) du serveur de configuration pour vous y connecter par le biais du Bureau à distance à partir de votre réseau local. Quand vous vous connectez pour la première fois, l'Assistant Installation du serveur de configuration Azure Site Recovery s'exécute automatiquement.
+2. Dans **Machines virtuelles**, sélectionner le serveur de configuration dans la liste des machines virtuelles. Ouvrez l'onglet **Tableau de bord** et cliquez sur **Connexion**. **Ouvrez** le fichier RDP téléchargé pour vous connecter au serveur de configuration avec le Bureau à distance. Si vous utilisez un VPN, servez-vous de l’adresse IP interne (adresse que vous avez spécifiée lors du déploiement du serveur de configuration) pour une connexion Bureau à distance à partir du site local. Quand vous vous connectez pour la première fois, l'Assistant Installation du serveur de configuration Azure Site Recovery s'exécute automatiquement.
 
 	![Inscription](./media/site-recovery-vmware-to-azure-classic-legacy/splash.png)
 
@@ -317,12 +313,12 @@ Le serveur de configuration est déployé dans un service cloud Azure créé aut
 	- Lorsque vous cliquez sur **Suivant**, un test est exécuté pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy, le port et les informations d’identification.
 	- Les URL suivantes doivent être accessibles via le proxy :
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	![Inscription de proxy](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -351,7 +347,7 @@ Après l'inscription, le serveur de configuration est répertorié sur la page *
 
 Lors du déploiement, Site Recovery demande des informations d'identification pour les actions suivantes :
 
-- Lorsque vous ajoutez un serveur vCenter pour la découverte automatique des machines virtuelles gérées par le serveur vCenter. Un compte vCenter est requis pour la découverte automatique des machines virtuelles.
+- Un compte VMware afin que Site Recovery puisse découvrir automatiquement les machines virtuelles sur les serveurs vCenter ou les hôtes vSphere. 
 - Lorsque vous ajoutez des ordinateurs à protéger, afin que Site Recovery puisse installer le service de mobilité sur ces derniers.
 
 Après avoir inscrit le serveur de configuration, vous pouvez ouvrir la boîte de dialogue **Gérer les comptes** pour ajouter et gérer des comptes qui doivent être utilisés pour ces actions. Il existe plusieurs manières de procéder :
@@ -383,66 +379,65 @@ Notez les points suivants :
 
 ## Étape 3 : déployer le serveur cible maître
 
-1. Dans **Préparer les ressources (Azure) cibles**, cliquez sur **Déployer le serveur cible maître**.
-2. Spécifiez les détails du serveur cible maître et les informations d'identification. Le serveur sera déployé sur le même réseau Azure que le serveur de configuration auprès duquel vous l'inscrivez. Quand vous cliquez sur Terminer, une machine virtuelle Azure est créée avec une image de la galerie Windows ou Linux.
+1. Cliquez sur **Préparer des ressources cibles (Azure)** > **Déployer le serveur cible maître**.
+2. Spécifiez les détails du serveur cible maître et les informations d'identification. Le serveur sera déployé sur le même réseau Azure que le serveur de configuration. Quand vous cliquez sur Terminer, une machine virtuelle Azure est créée avec une image de la galerie Windows ou Linux.
 
 	![Paramètres du serveur cible](./media/site-recovery-vmware-to-azure-classic-legacy/target-details.png)
 
 Notez que les quatre premières adresses IP d’un sous-réseau sont réservées à un usage interne Azure. Indiquez une autre adresse IP disponible.
 
->[AZURE.NOTE] Sélectionnez DS4 standard lors de la configuration de la protection des charges de travail qui nécessitent des performances d'E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S à l'aide du [Compte de stockage Premium](../storage/storage-premium-storage.md).
+>[AZURE.NOTE] Sélectionnez DS4 standard lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S à l’aide du [compte Premium Storage](../storage/storage-premium-storage.md).
 
 
-3. Une machine virtuelle de serveur cible maître Windows est créée avec ces points de terminaison (les points de terminaison publics sont créés uniquement si votre déploiement est de type Internet public) :
+3. Une machine virtuelle de serveur cible maître Windows est créée avec les points de terminaison suivants : Les points de terminaison publics sont créés uniquement si vous vous connectez par Internet.
 
-	- Personnalisé : le port public est utilisé par le serveur de traitement pour envoyer des données de réplication via internet. Le port privé 9443 est utilisé par le serveur de traitement pour envoyer des données de réplication au serveur cible maître via VPN.
-	- Personnalisé1 : le port public est utilisé par le serveur de traitement pour envoyer des métadonnées de contrôle via internet. Le port privé 9080 est utilisé par le serveur de traitement pour envoyer des métadonnées de contrôle au serveur cible maître via VPN.
+	- Personnalisé : port public utilisé par le serveur de processus pour envoyer des données de réplication par le biais d’Internet. Le port privé 9443 est utilisé par le serveur de traitement pour envoyer des données de réplication au serveur cible maître via VPN.
+	- Pesonnalisé1 : port public utilisé par le serveur de processus pour envoyer des métadonnées par le biais d’Internet. Le port privé 9080 est utilisé par le serveur de processus pour envoyer des métadonnées au serveur cible maître par le biais d’un VPN.
 	- PowerShell : port privé 5986
 	- Bureau à distance : port privé 3389
 
-4. Une machine virtuelle de serveur cible maître Linux est créée avec ces points de terminaison (les points de terminaison publics sont créés uniquement si votre déploiement est de type Internet public) :
+4. Une machine virtuelle de serveur cible maître Linux est créée avec les points de terminaison suivants. Les points de terminaison publics sont créés uniquement si vous vous connectez par Internet.
 
-	- Personnalisé : le port public est utilisé par le serveur de traitement pour envoyer des données de réplication via internet. Le port privé 9443 est utilisé par le serveur de traitement pour envoyer des données de réplication au serveur cible maître via VPN.
-	- Personnalisé1 : le port public est utilisé par le serveur de traitement pour envoyer des métadonnées de contrôle via internet. Le port privé 9080 est utilisé par le serveur de traitement pour envoyer des données de contrôle au serveur cible maître via VPN.
+	- Personnalisé : port public utilisé par le serveur de processus pour envoyer des données de réplication par le biais d’Internet. Le port privé 9443 est utilisé par le serveur de traitement pour envoyer des données de réplication au serveur cible maître via VPN.
+	- Personnalisé1 : port public utilisé par le serveur de processus pour envoyer des métadonnées par le biais d’Internet. Le port privé 9080 est utilisé par le serveur de processus pour envoyer des métadonnées au serveur cible maître par le biais d’un VPN
 	- SSH : port privé 22
 
     >[AZURE.WARNING] Ne supprimez ou ne modifiez pas le numéro de port public ou privé des points de terminaison créés lors du déploiement du serveur cible maître.
 
 5. Dans **Machines virtuelles**, attendez que la machine virtuelle démarre.
 
-	- Si vous avez configuré le serveur avec Windows, notez les détails du Bureau à distance.
-	- Si vous avez configuré le serveur avec Linux et que vous vous connectez via VPN, notez l'adresse IP interne de la machine virtuelle. Si vous vous connectez via internet, notez l'adresse IP publique.
+	- S’il s’agit d’un serveur Windows, notez les détails du Bureau à distance.
+	- S’il s’agit d’un serveur Linux et si vous vous connectez par le biais d’un VPN, notez l’adresse IP interne de la machine virtuelle. Si vous vous connectez via internet, notez l'adresse IP publique.
 
 6.  Ouvrez une session sur le serveur pour terminer l'installation et l'inscrire auprès du serveur de configuration.
 7.  Si vous exécutez Windows :
 
 	1. Initiez une connexion Bureau à distance à la machine virtuelle. La première fois que vous ouvrez une session, un script s'exécute dans une fenêtre PowerShell. Ne la fermez pas. Une fois terminé, l'outil de configuration de l'agent hôte s'ouvre automatiquement pour inscrire le serveur.
-	2. Dans **Configuration de l'agent hôte**, spécifiez l'adresse IP interne du serveur de configuration et le port 443. Vous pouvez utiliser l'adresse interne et le port privé 443 même si vous ne vous connectez pas avec VPN, car la machine virtuelle est associée au même réseau Azure que le serveur de configuration. Laissez l'option **Utiliser HTTPS** activée. Entrez la phrase secrète pour le serveur de configuration que vous avez notée précédemment. Cliquez sur **OK** pour inscrire le serveur. Notez que vous pouvez ignorer les options NAT. Elles ne sont pas utilisées.
+	2. Dans **Configuration de l'agent hôte**, spécifiez l'adresse IP interne du serveur de configuration et le port 443. Vous pouvez utiliser l'adresse interne et le port privé 443 même si vous ne vous connectez pas avec VPN, car la machine virtuelle est associée au même réseau Azure que le serveur de configuration. Laissez l'option **Utiliser HTTPS** activée. Entrez la phrase secrète pour le serveur de configuration que vous avez notée précédemment. Cliquez sur **OK** pour inscrire le serveur. Vous pouvez ignorer les options NAT. Elles ne sont pas utilisées.
 	3. Si le lecteur de rétention estimé doit être supérieur à 1 To, vous pouvez configurer le volume de rétention (R:) à l'aide d'un disque virtuel et d'[espaces de stockage](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx)
 	
 	![Serveur cible maître Windows](./media/site-recovery-vmware-to-azure-classic-legacy/target-register.png)
 
 8. Si vous exécutez Linux :
-	1. Assurez-vous que vous avez installé les derniers services d'intégration Linux (LIS) avant d'installer le logiciel du serveur cible maître. Vous trouverez la dernière version de LIS, ainsi que des instructions d'installation [ici](https://www.microsoft.com/download/details.aspx?id=46842). Redémarrez la machine après l'installation de LIS.
-	2. Dans **Préparer les ressources (Azure) cibles**, cliquez sur **Télécharger et installer des logiciels supplémentaires (uniquement pour le serveur cible maître Linux)** pour télécharger le package du serveur cible maître Linux. Copiez le fichier tar téléchargé sur l'ordinateur virtuel à l'aide d'un client sftp. Ou vous pouvez aussi vous connecter au serveur cible maître Linux déployé et utiliser *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* pour télécharger le fichier.
-	2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
-	3. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
+	1. Assurez-vous que vous avez installé les derniers services d’intégration Linux (LIS) avant d’installer le serveur cible maître. Vous trouverez la dernière version de LIS, ainsi que des instructions d'installation [ici](https://www.microsoft.com/download/details.aspx?id=46842). Redémarrez la machine après l'installation de LIS.
+	2. Dans **Préparer des ressources cibles (Azure)**, cliquez sur **Télécharger et installer un logiciel supplémentaire (uniquement pour le serveur cible maître Linux)**. Copiez le fichier tar téléchargé sur l'ordinateur virtuel à l'aide d'un client sftp. Vous pouvez aussi vous connecter au serveur cible maître Linux déployé et utiliser *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* pour télécharger le fichier.
+2. Ouvrez une session sur le serveur à l’aide d’un client Secure Shell. Si vous êtes connecté au réseau Azure par le biais d’un VPN, vous devez utiliser l’adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
+	3. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
 	5. Copiez la phrase secrète du serveur de configuration dans un fichier local à l'aide de la commande **echo*`<passphrase>`* > passphrase.txt**
-	6. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
+	6. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
 
 	![Inscrire un serveur cible](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
 
-9. Patientez 10 à 15 minutes et, sur la page **Serveurs** > **Serveurs de configuration**, vérifiez que le serveur cible maître est répertorié comme inscrit sous l’onglet **Détails du serveur**. Si vous exécuté Linux et que l'inscription n'a pas été effectué, réexécutez l'outil de configuration d'hôte à partir de /usr/local/ASR/Vx/bin/hostconfigcli. Vous devrez définir des autorisations d'accès en exécutant chmod en tant qu’utilisateur racine.
+9. Patientez 10 à 15 minutes et, sur la page **Serveurs** > **Serveurs de configuration**, vérifiez que le serveur cible maître est répertorié comme inscrit dans l’onglet **Détails du serveur**. Si vous exécuté Linux et que l'inscription n'a pas été effectué, réexécutez l'outil de configuration d'hôte à partir de /usr/local/ASR/Vx/bin/hostconfigcli. Vous devrez définir des autorisations d'accès en exécutant chmod en tant qu’utilisateur racine.
 
 	![Vérifier le serveur cible](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
->[AZURE.NOTE] Une fois l’inscription terminée, notez que cela peut prendre jusqu’à 15 minutes avant que le serveur cible maître ne soit répertorié sous le serveur de configuration. Pour mettre à jour immédiatement, actualisez le serveur de configuration en cliquant sur le bouton Actualiser en bas de la page Serveurs de configuration.
+>[AZURE.NOTE] Une fois l’inscription terminée, cela peut prendre jusqu’à 15 minutes avant que le serveur cible maître ne soit répertorié sur le portail. Pour procéder à une mise à jour immédiate, cliquez sur **Actualiser** sur la page **Serveurs de configuration**.
 
 ## Étape 4 : déployer le serveur de traitement local
 
->[AZURE.NOTE] Nous vous recommandons de configurer une adresse IP statique sur le serveur de traitement afin de garantir son caractère permanent pour tous les redémarrages.
+Avant de commencer, nous vous recommandons de configurer une adresse IP statique sur le serveur de processus afin de garantir son caractère permanent pour tous les redémarrages.
 
 1. Cliquez sur Démarrage rapide > **Installer un serveur de traitement local** > **Télécharger et installer le serveur de traitement**.
 
@@ -473,7 +468,7 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 
 	![Sélectionner une carte](./media/site-recovery-vmware-to-azure-classic-legacy/ps-nic.png)
 
-10.	Dans **Détails du serveur de configuration** :
+10.	Dans **Détails du serveur de configuration** :
 
 	- Pour l’adresse IP et le port, si vous vous connectez via un VPN, spécifiez l'adresse IP interne du serveur de configuration et le port 443. Sinon, spécifiez l'adresse IP virtuelle publique et un point de terminaison HTTP public mappé.
 	- Tapez la phrase secrète du serveur de configuration.
@@ -499,62 +494,67 @@ Si vous n'avez pas désactivé la vérification de la signature pour le service 
 2. Redémarrez le service InMage PushInstall.
 
 
-## Étape 5 : installer les dernières mises à jour
+## Étape 5 : Mettre à jour les composants de Site Recovery
 
-Avant de poursuivre, vérifiez que les dernières mises à jour sont installées. N'oubliez pas d'installer les mises à jour dans l'ordre suivant :
+Les composants de Site Recovery sont régulièrement mis à jour. Lorsque de nouvelles mises à jour sont disponibles, vous devez les installer dans l’ordre suivant :
 
 1. Serveur de configuration
 2. Serveur de traitement
 3. Serveur cible maître
 4. Outil de restauration automatique (vContinuum)
 
-Vous pouvez obtenir les mises à jour sur le **Tableau de bord** de Site Recovery. Pour l’installation Linux, extrayez les fichiers du programme d’installation compressé avec gzip et exécutez la commande « sudo ./install » pour installer la mise à jour
+### Obtenir et installer les mises à jour
 
-Téléchargez la dernière mise à jour de l’**outil de restauration automatique (vContinuum)** [ici](http://go.microsoft.com/fwlink/?LinkID=533813)
 
-Si vous exécutez des ordinateurs virtuels ou des serveurs physiques sur lesquels le service de mobilité est déjà installé, vous pouvez obtenir les mises à jour de ce service comme suit :
+1. Vous pouvez obtenir les mises à jour pour les serveurs de configuration, les serveurs de processus et les serveurs cible maîtres dans le **Tableau de bord** Site Recovery. Pour l’installation Linux, extrayez les fichiers du programme d’installation compressé avec gzip et exécutez la commande sudo ./install pour installer la mise à jour.
+2. [Téléchargez](http://go.microsoft.com/fwlink/?LinkID=533813) la dernière mise à jour de l’outil de restauration automatique (vContinuum).
+3. Si vous exécutez des ordinateurs virtuels ou des serveurs physiques sur lesquels le service de mobilité est déjà installé, vous pouvez obtenir les mises à jour de ce service comme suit :
 
-- Téléchargez les mises à jour de ce service comme suit :
-	- [Windows Server (64 bits uniquement)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
-	- [CentOS 6.4,6.5,6.6 (64 bits uniquement)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
-	- [Oracle Enterprise Linux 6.4,6.5 (64 bits uniquement)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
-	- [SUSE Linux Enterprise Server SP3 (64 bits uniquement)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
-- Vous pouvez également obtenir la version mise à jour du service de mobilité à partir du dossier C:\\pushinstallsvc\\repository sur le serveur de traitement après avoir mis à jour ce dernier.
-- Si vous avez une machine déjà protégée avec une version antérieure du service mobilité installé, vous pouvez également mettre à niveau automatiquement le service de mobilité sur les machines protégées à partir du portail de gestion. Pour ce faire, sélectionnez le groupe de protection auquel appartient la machine, mettez en surbrillance la machine protégée et cliquez sur le bouton Mettre à jour le service de mobilité en bas. Le bouton Mettre à jour le service de mobilité est activé uniquement si une version plus récente du service de mobilité est disponible. Assurez-vous que le serveur de traitement exécute la dernière version du logiciel du serveur de traitement avant la mise à jour du service de mobilité. Le serveur protégé doit remplir toutes les [conditions préalables d'installation push automatique](#install-the-mobility-service-automatically) pour que la mise à jour du service de mobilité fonctionne.
+	- **Option 1** : Télécharger les mises à jour :
+		- [Windows Server (64 bits uniquement)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+		- [CentOS 6.4,6.5,6.6 (64 bits uniquement)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
+		- [Oracle Enterprise Linux 6.4,6.5 (64 bits uniquement)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
+		- [SUSE Linux Enterprise Server SP3 (64 bits uniquement)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
+		- Vous pouvez obtenir la version mise à jour du service Mobilité à partir du dossier C:\\pushinstallsvc\\repository sur le serveur de processus après avoir mis à jour ce dernier.
+	- **Option 2** : si vous avez une machine déjà protégée avec une version antérieure du service Mobilité installé, vous pouvez mettre à niveau automatiquement le service Mobilité sur la machine à partir du portail de gestion.
 
-![Sélectionnez un serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)
+		1. Assurez-vous que le serveur de processus est mis à jour.
+		2. Assurez-vous que la machine protégée est compatible avec les [conditions préalables](#install-the-mobility-service-automatically) pour permettre l’installation Push du service Mobilité, afin que la mise à jour fonctionne comme prévu.
+		2. Sélectionnez le groupe de protection, mettez en surbrillance la machine protégée, puis cliquez sur **Mettre à jour le service Mobilité**. Ce bouton est uniquement disponible s’il existe une version plus récente du service Mobilité. 
+
+			![Sélectionnez un serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)
 
 Dans Sélectionnez les comptes, spécifiez le compte administrateur à utiliser pour mettre à jour le service de mobilité sur le serveur protégé. Cliquez sur OK et attendez que la tâche déclenchée se termine.
 
 
-## Étape 6 : ajouter des serveurs vCenter ou hôtes ESXi
+## Étape 6 : Ajouter des serveurs vCenter ou des hôtes vSphere
 
-1. Sous l’onglet **Serveurs** > **Serveurs de configuration**, sélectionnez le serveur de configuration et cliquez sur **AJOUTER UN SERVEUR VCENTER** pour ajouter un serveur vCenter ou un hôte ESXi.
+1. Cliquez sur **Serveurs** > **Serveurs de configuration** > serveur de configuration > **Ajouter un serveur vCenter** pour ajouter un serveur vCenter ou un hôte vSphere.
 
 	![Sélectionnez un serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter.png)
 
-2. Spécifiez les détails du serveur vCenter ou hôte ESXi et sélectionnez le serveur de traitement qui sera utilisé pour le détecter.
+2. Spécifiez les détails du serveur ou de l’hôte et sélectionnez le serveur de processus qui sera utilisé pour le découvrir.
 
 	- Si le serveur vCenter n'est pas exécuté sur le port 443 par défaut, indiquez le numéro de port sur lequel il est exécuté.
-	- Le serveur de traitement doit se trouver sur le même réseau que le serveur vCenter ou hôte ESXi et l’outil VMware vSphere CLI 5.5.0 doit être installé dessus.
+	- Le serveur de processus doit se trouver sur le même réseau que le serveur vCenter ou l’hôte vSphere, et l’outil VMware vSphere CLI 5.5.0 doit être installé dessus.
 
 	![Paramètres du serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter4.png)
 
 
-3. Une fois la détection terminée, le serveur vCenter apparaît sous les détails du serveur de configuration.
+3. Une fois la découverte terminée, le serveur vCenter apparaît sous les détails du serveur de configuration.
 
 	![Paramètres du serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter2.png)
 
-4. Si vous utilisez un compte non administrateur pour ajouter le serveur vCenter ou hôte ESXi, assurez-vous que le compte possède les privilèges suivants :
+4. Si vous utilisez un compte non administrateur pour ajouter le serveur ou l’hôte, assurez-vous que le compte possède les privilèges suivants :
 
 	- Les privilèges Centre de données, Magasin de données, Dossier, Hôte, Réseau, Ressource, Stockage, Ordinateur virtuel et vSphere Distributed Switch doivent être activés pour les comptes vCenter.
-	- Les privilèges Centre de données, Magasin de données, Dossier, Hôte, Réseau, Ressource, Vues de stockage, Ordinateur virtuel et vSphere Distributed Switch doivent être activés pour les comptes vCenter.
+	- Les privilèges Centre de données, Magasin de données, Dossier, Hôte, Réseau, Ressource, Machine virtuelle et Commutateur distribué vSphere doivent être activés pour les comptes d’hôte vSphere.
 
 
 
 ## Étape 7 : créer un groupe de protection
 
-1. Ouvrez **Éléments protégés** > **Groupe de protection** et cliquez pour ajouter un groupe de protection.
+1. Ouvrez **Éléments protégés** > **Groupe de protection** > **Créer un groupe de protection**.
 
 	![Créer un groupe de protection](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg1.png)
 
@@ -567,10 +567,10 @@ Dans Sélectionnez les comptes, spécifiez le compte administrateur à utiliser 
 	![Réplication du groupe de protection](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg3.png)
 
 4. Paramètres :
-	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Disponible uniquement pour les serveurs Windows.
-	- **Seuil de RPO** : des alertes sont générées quand la valeur du RPO (objectif de point de récupération) de réplication de la protection continue des données dépasse la valeur du seuil de RPO configurée.
-	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
-	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
+	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Disponible uniquement pour les serveurs Windows.
+	- **Seuil de RPO** : des alertes sont générées quand la valeur du RPO (objectif de point de récupération) de réplication de la protection continue des données dépasse la valeur du seuil de RPO configurée.
+	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
+	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
 
 Vous pouvez surveiller le groupe de protection à mesure que les points de récupération sont créés sur la page **Éléments protégés**.
 
@@ -655,7 +655,7 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
-**Installer le service de mobilité manuellement sur un serveur Linux** :
+**Installer le service de mobilité manuellement sur un serveur Linux** :
 
 1. Copiez l'archive tar appropriée selon le tableau ci-dessus, depuis le serveur de traitement vers l'ordinateur source.
 2. Ouvrez un interpréteur de commandes et décompressez l’archive tar vers un chemin d’accès local en exécutant `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`
@@ -666,7 +666,7 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 	- Si vous vous connectez au serveur de configuration via Internet, spécifiez l’adresse IP publique virtuelle et le point de terminaison HTTPS public du serveur de configuration dans `<IP address>` et `<port>`.
 	- Si vous vous connectez via une connexion VPN, spécifiez l'adresse IP interne et le port 443.
 
-**Pour exécuter depuis la ligne de commande** :
+**Pour exécuter depuis la ligne de commande** :
 
 1. Copiez la phrase secrète depuis le CX vers le fichier « passphrase.txt » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
 
@@ -696,7 +696,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 
 Ajoutez des ordinateurs comme suit :
 
-1. **Éléments protégés** > **Groupe de protection** > onglet **Machines**. Cliquez sur **AJOUTER DES MACHINES**. Il est recommandé que les groupes de protection reflètent vos charges de travail, afin que vous ajoutiez des ordinateurs qui exécutent une application spécifique au même groupe.
+1. Cliquez sur **Éléments protégés** > **Groupe de protection** > **Machines** > **Ajouter des machines**. Il est recommandé que les groupes de protection reflètent vos charges de travail, afin que vous ajoutiez des ordinateurs qui exécutent une application spécifique au même groupe.
 2. Dans **Sélectionner les machines virtuelles** si vous protégez des serveurs physiques, dans l’assistant **Ajouter des machines physiques**, entrez l’adresse IP et un nom convivial. Sélectionnez ensuite la famille de systèmes d'exploitation.
 
 	![Ajouter un serveur V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/physical-protect.png)
@@ -787,8 +787,8 @@ Le serveur de traitement envoie des données de réplication au serveur cible ma
 
 Si nécessaire, vous pouvez déplacer la réplication de quelques-uns ou l’ensemble de vos serveurs physiques ou ordinateurs virtuels VMware locaux vers un autre serveur de traitement. Par exemple :
 
-- **Échec** : si un serveur de traitement tombe en panne ou n’est pas disponible, vous pouvez déplacer la réplication des ordinateurs protégés vers un autre serveur de traitement. Les métadonnées de l'ordinateur source et de l'ordinateur de réplication seront déplacées vers le nouveau serveur de traitement et les données sont resynchronisées. Le nouveau serveur de traitement se connecte automatiquement au serveur vCenter pour effectuer la détection automatique. Vous pouvez surveiller l'état des serveurs de traitement sur le tableau de bord de Site Recovery.
-- **Équilibrage de la charge pour ajuster le RPO** : pour améliorer l’équilibrage de la charge, vous pouvez sélectionner un autre serveur de traitement dans le portail de Site Recovery et y déplacer la réplication d’un ou plusieurs ordinateurs en vue d’un équilibrage de charge manuel. Dans ce cas, les métadonnées de l’ordinateur source et de l’ordinateur de réplication sélectionnés sont déplacées vers le nouveau serveur de traitement. Le serveur de traitement d'origine reste connecté au serveur vCenter. 
+- **Échec** : si un serveur de traitement tombe en panne ou n’est pas disponible, vous pouvez déplacer la réplication des ordinateurs protégés vers un autre serveur de traitement. Les métadonnées de l'ordinateur source et de l'ordinateur de réplication seront déplacées vers le nouveau serveur de traitement et les données sont resynchronisées. Le nouveau serveur de traitement se connecte automatiquement au serveur vCenter pour effectuer la détection automatique. Vous pouvez surveiller l'état des serveurs de traitement sur le tableau de bord de Site Recovery.
+- **Équilibrage de la charge pour ajuster le RPO** : pour améliorer l’équilibrage de la charge, vous pouvez sélectionner un autre serveur de traitement dans le portail de Site Recovery et y déplacer la réplication d’un ou plusieurs ordinateurs en vue d’un équilibrage de charge manuel. Dans ce cas, les métadonnées de l’ordinateur source et de l’ordinateur de réplication sélectionnés sont déplacées vers le nouveau serveur de traitement. Le serveur de traitement d'origine reste connecté au serveur vCenter. 
 
 ### Surveiller le serveur de traitement.
 
@@ -796,11 +796,16 @@ Si un serveur de traitement est dans un état critique, un avertissement d'état
 
 ### Modifier le serveur de traitement utilisé pour la réplication
 
-1. Accédez à la page **SERVEURS DE CONFIGURATION** sous **SERVEURS**
-2. Cliquez sur le nom du serveur de configuration et accédez aux **Détails du serveur**.
-3. Dans la liste **Serveurs de traitement**, cliquez sur **Modifier le serveur de traitement** à côté du serveur que vous souhaitez modifier. ![Modifier le serveur de traitement 1](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)
-4. Dans la boîte de dialogue **Modifier le serveur de traitement**, sélectionnez le nouveau serveur dans **Serveur de traitement cible**, puis sélectionnez les machines virtuelles que vous souhaitez répliquer vers le nouveau serveur. Cliquez sur l’icône d’informations à côté du nom de serveur pour obtenir des informations le concernant, telles que l’espace libre ou la mémoire utilisée. L’espace moyen requis pour répliquer chaque machine virtuelle sélectionnée vers le nouveau serveur de traitement s’affiche pour vous aider à prendre des décisions quant à la charge. ![Modifier le serveur de traitement 2](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)
-5. Cliquez sur la coche pour commencer la réplication vers le nouveau serveur de traitement. Si vous supprimez tous les ordinateurs virtuels d'un serveur de traitement qui était essentiel, il ne doit plus afficher un avertissement critique dans le tableau de bord.
+1. Cliquez sur **Serveurs** > **Serveurs de configuration** > serveur de configuration > **Détails du serveur**.
+2. Cliquez sur **Serveurs de processus** > **Modifier le serveur de processus** en regard du serveur que vous souhaitez modifier.
+
+	![Modifier le serveur de traitement 1](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)
+
+3. Dans **Modifier le serveur de processus** > **Serveur de processus cible**, sélectionnez le nouveau serveur à utiliser, puis sélectionnez les machines virtuelles à répliquer sur le nouveau serveur. Cliquez sur l’icône d’informations en regard du nom du serveur pour en savoir plus sur l’espace libre et la mémoire utilisée. L'espace moyen requis pour répliquer chaque ordinateur virtuel sélectionné vers le nouveau serveur de traitement s'affiche pour vous aider à prendre des décisions quant à la charge.
+
+	![Modifier le serveur de traitement 2](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)
+
+4. Cliquez sur la coche pour commencer la réplication vers le nouveau serveur de traitement. Si vous supprimez toutes les machines virtuelles d’un serveur de traitement qui était essentiel, ce dernier ne doit plus afficher d’avertissement critique dans le tableau de bord.
 
 
 ## Informations et remarques relatives aux logiciels tiers
@@ -815,4 +820,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

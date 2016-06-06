@@ -13,7 +13,7 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="support-article"
   ms.date="05/06/2016"
   ms.author="cjiang"/>
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collecte de journaux d’audit
+## Collecter des journaux d’audit
 
 Pour commencer la résolution des problèmes, collectez les journaux d’audit afin d’identifier l’erreur associée au problème.
 
@@ -37,9 +37,9 @@ Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *
 
 [AZURE.INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**O :** si le système d’exploitation est de type Linux généralisé et s’il est téléchargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et s’il est téléchargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
+**O :** si le système d’exploitation est de type Linux généralisé et qu’il est chargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et qu’il est chargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
 
-**Erreurs de chargement :**
+**Erreurs de chargement :**
 
 **N<sup>1</sup> :** si le système d’exploitation est de type Linux généralisé et s’il est chargé avec le paramètre spécialisé, vous obtiendrez une erreur de délai d’attente de déploiement car la machine virtuelle est bloquée à l’étape de déploiement.
 
@@ -64,21 +64,21 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
 
 Selon les contraintes du service cloud que vous utilisez pour créer la machine virtuelle, vous pouvez rencontrer une erreur provoquée par deux situations distinctes.
 
-**Cause 1 :** le service Cloud est épinglé à un cluster spécifique ou il est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Ainsi, les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont tentées dans le même cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
+**Cause 1 :** le service Cloud est épinglé à un cluster spécifique ou il est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Ainsi, les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
 
-**Résolution 1 :**
+**Résolution 1 :**
 
-- Créez un service Cloud et associez-le à une région ou à un réseau virtuel basé sur une région.
-- Créez une machine virtuelle dans le nouveau service Cloud. Si vous obtenez une erreur lorsque vous tentez de créer un service Cloud, vous pouvez soit réessayer ultérieurement, soit modifier la région du service Cloud.
+- Créez un service cloud et associez-le à une région ou à un réseau virtuel basé sur une région.
+- Créez une machine virtuelle dans le nouveau service cloud. Si vous obtenez une erreur lorsque vous tentez de créer un service cloud, vous pouvez soit réessayer ultérieurement, soit modifier la région du service cloud.
 
-> [AZURE.IMPORTANT] Si vous avez essayé de créer une machine virtuelle dans un service Cloud existant, mais que vous n’avez pas réussi, et que vous avez donc dû créer un service Cloud pour votre nouvelle machine virtuelle, vous pouvez décider de consolider toutes vos machines virtuelles dans le même service Cloud. Pour ce faire, supprimez les machines virtuelles dans le service Cloud existant et recapturez-les à partir de leurs disques dans le nouveau service Cloud. Cependant, il est important de se rappeler que le nouveau service Cloud aura un nouveau nom et une nouvelle adresse IP virtuelle. Vous devrez donc mettre à jour ces valeurs pour toutes les dépendances qui utilisent actuellement ces informations pour leur service Cloud existant.
+> [AZURE.IMPORTANT] Si vous avez essayé de créer une machine virtuelle dans un service Cloud existant, mais que vous n’avez pas réussi, et que vous avez donc dû créer un service Cloud pour votre nouvelle machine virtuelle, vous pouvez décider de consolider toutes vos machines virtuelles dans le même service Cloud. Pour ce faire, supprimez les machines virtuelles du service cloud existant, puis recapturez-les à partir de leurs disques dans le nouveau service cloud. Toutefois, il est important de se rappeler que le nouveau service cloud aura un nouveau nom et une nouvelle adresse IP virtuelle. Vous devrez donc mettre à jour ces valeurs pour toutes les dépendances qui utilisent actuellement ces informations pour le service cloud existant.
 
-**Cause 2 :** le service Cloud est associé à un réseau virtuel qui est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Toutes les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont donc tentées dans le même cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
+**Cause 2 :** le service Cloud est associé à un réseau virtuel qui est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Toutes les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont donc tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
 
-**Résolution 2 :**
+**Résolution 2 :**
 
-- Créez un nouveau réseau virtuel régional.
+- Créez un réseau virtuel régional.
 - Créez la machine virtuelle dans le nouveau réseau virtuel.
-- [Connectez votre réseau virtuel existant](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) vers le nouveau réseau virtuel. Consultez plus d’informations sur les [réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Vous pouvez également [migrer votre réseau virtuel basé sur un groupe d’affinités vers un réseau virtuel régional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), puis créer la nouvelle machine virtuelle.
+- [Connectez votre réseau virtuel existant](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) au nouveau réseau virtuel. Consultez plus d’informations sur les [réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Vous pouvez également [migrer votre réseau virtuel basé sur un groupe d’affinités vers un réseau virtuel régional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), puis créer la nouvelle machine virtuelle.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

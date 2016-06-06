@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric sur Linux
 
 Service Fabric est actuellement disponible en version préliminaire limitée sur Linux. Il vous permet de créer, déployer et gérer des applications à haut niveau de disponibilité et d’extensibilité dans l’environnement Linux de la même manière que sur Windows. De plus, les infrastructures générales de Service Fabric (Reliable Services et Reliable Actors) peuvent désormais être conçues dans Java.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Systèmes d’exploitation et langages de programmation pris en charge
 
@@ -38,4 +40,4 @@ Notez que Service Fabric sur Linux sera semblable du point de vue conceptuel à 
 
 Se familiariser avec les infrastructures de programmation [Reliable Actors](service-fabric-reliable-actors-introduction.md) et [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

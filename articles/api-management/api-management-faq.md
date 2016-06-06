@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # FAQ sur la gestion des API Azure
@@ -137,4 +137,4 @@ La gestion des API utilise la [méthode de routage du trafic basé sur les perfo
 
 Oui, consultez les modèles de démarrage rapide [Service de gestion des API Azure](http://aka.ms/apimtemplate).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

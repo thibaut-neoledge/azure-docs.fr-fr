@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Comment configurer le clustering Redis pour un Cache Redis Azure Premium
@@ -60,7 +60,7 @@ Pour accéder à un exemple de code relatif à l’utilisation du clustering ave
 
 <a name="move-exceptions"></a>
 
->[AZURE.IMPORTANT] Lorsque vous vous connectez à un Cache Redis Azure avec le clustering activé à l’aide de StackExchange.Redis, vous pouvez rencontrer un problème et recevoir des exceptions `MOVE`. Cela se produit il faut un peu de temps au client de cache StackExchange.Redis pour collecter des informations sur les nœuds du cluster de cache. Ces exceptions peuvent se produire si vous vous connectez au cache pour la première fois et effectuez immédiatement des appels vers le cache avant que le client ait terminé la collecte de ces informations. Pour résoudre ce problème dans votre application, le plus simple consiste à vous connecter au cache et attendre une seconde avant de lancer des appels vers le cache. Pour cela, ajoutez un `Thread.Sleep(1000)` comme indiqué dans l’exemple de code suivant. Notez que le `Thread.Sleep(1000)` se produit uniquement lors de la connexion initiale au cache. Pour plus d’informations, consultez [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Un correctif pour résoudre ce problème est en cours de développement et les mises à jour seront publiées ici. **Mise à jour** : ce problème est résolu dans la dernière build [1\.1.572-alpha préliminaire](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) de StackExchange.Redis. Consultez la [page StackExchange.Redis sur NuGet](https://www.nuget.org/packages/StackExchange.Redis/) pour connaître la build la plus récente.
+>[AZURE.IMPORTANT] Lorsque vous vous connectez à un Cache Redis Azure avec le clustering activé à l’aide de StackExchange.Redis, vous pouvez rencontrer un problème et recevoir des exceptions `MOVE`. Cela se produit il faut un peu de temps au client de cache StackExchange.Redis pour collecter des informations sur les nœuds du cluster de cache. Ces exceptions peuvent se produire si vous vous connectez au cache pour la première fois et effectuez immédiatement des appels vers le cache avant que le client ait terminé la collecte de ces informations. Pour résoudre ce problème dans votre application, le plus simple consiste à vous connecter au cache et attendre une seconde avant de lancer des appels vers le cache. Pour cela, ajoutez un `Thread.Sleep(1000)` comme indiqué dans l’exemple de code suivant. Notez que le `Thread.Sleep(1000)` se produit uniquement lors de la connexion initiale au cache. Pour plus d’informations, consultez [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Un correctif pour résoudre ce problème est en cours de développement et les mises à jour seront publiées ici. **Mise à jour** : ce problème est résolu dans la dernière build [1\.1.572-alpha préliminaire](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) de StackExchange.Redis. Consultez la [page StackExchange.Redis sur NuGet](https://www.nuget.org/packages/StackExchange.Redis/) pour connaître la build la plus récente.
 
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -111,6 +111,9 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 ### Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?
 
 -	Lorsque le clustering est activé, seule la base de données 0 est disponible. Si votre application cliente utilise plusieurs bases de données et qu'elle essaie de lire ou d'écrire dans une base de données autre que 0, l'exception suivante est levée. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+
+    Pour plus d’informations, consultez [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset) (Spécification de cluster Redis - Implémentation de jeu de données).
+
 -	Si vous utilisez [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), vous devez utiliser la version 1.0.481 ou une version ultérieure. Vous vous connectez au cache à l’aide des [points de terminaison, ports et clés](cache-configure.md#properties) que vous utilisez pour vous connecter à un cache pour lequel le clustering n’est pas activé. La seule différence est que toutes les lectures et les écritures doivent être effectuées sur la base de données 0.
 	-	D’autres clients peuvent avoir des exigences différentes. Consultez [Tous les clients Redis prennent-ils en charge le clustering ?](#do-all-redis-clients-support-clustering).
 -	Si votre application utilise plusieurs opérations sur les clés traitées par lot dans une seule commande, toutes les clés doivent se trouver dans la même partition. Pour ce faire, consultez [Comment les clés sont-elles distribuées dans un cluster ?](#how-are-keys-distributed-in-a-cluster).
@@ -167,8 +170,8 @@ Le clustering est disponible uniquement pour les caches de niveau Premium.
 
 ### Puis-je utiliser le clustering avec les fournisseurs d’état de session ASP.NET Redis et de mise en cache de la sortie ?
 
--	**Fournisseur de caches de sortie Redis** : aucune modification requise.
--	**Fournisseur d’état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Fournisseur de caches de sortie Redis** : aucune modification requise.
+-	**Fournisseur d’état de session Redis** : pour utiliser le clustering, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ## Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
@@ -196,4 +199,4 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

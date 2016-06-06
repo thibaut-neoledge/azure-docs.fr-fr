@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Installer Update 2.1 sur votre appareil StorSimple
@@ -42,7 +42,7 @@ Si vous appliquez Update 2 ou version ultérieure (y compris Update 2.1), Micros
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 2.1 (6.3.9600.17704)**. Le paramètre **Dernière date de mise à jour** doit également être modifié. 
+12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 2.1 (6.3.9600.17705)**. Le paramètre **Dernière date de mise à jour** doit également être modifié. 
 
 	Si vous effectuez une mise à jour à partir d’une version antérieure à Update 2, vous verrez également que les mises à jour en mode de maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour).
 
@@ -78,25 +78,27 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 
 #### Télécharger les mises à jour pour un appareil exécutant le logiciel Update 2
 
-Si votre appareil exécute Update 2, vous devez télécharger et installer les correctifs suivants dans l’ordre indiqué :
+**Si votre appareil exécute Update 2**, vous devez télécharger et installer les correctifs suivants dans l’ordre indiqué :
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3162954 | Mise à jour logicielle | Normal | ~ 45 minutes |
+| 1\. | KB3162954 | Mise à jour logicielle &#42; | Normal | ~ 45 minutes |
 | 2\. | KB3146621 | Package iSCSI | Normal | ~ 20 minutes |
 | 3\. | KB3103616 | Package WMI | Normal | ~ 12 minutes |
 
 
+ & #42 ; *Sachez que la mise à jour logicielle se compose de deux fichiers binaires : `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` et `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La mise à jour du logiciel de l’appareil `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` doit être installée avant l’agent CIS et MDS `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+
 #### Télécharger les mises à jour pour un appareil exécutant une version du logiciel antérieure à Update 2
 
-Si votre appareil utilise les versions 0.2, 0.3, 1.0 et 1.1, vous devez télécharger et installer la mise à jour du pilote LSI et du microprogramme. Cette mise à jour est déjà installée si vous exécutez Update 1.2 ou 2.
+**Si votre appareil utilise les versions 0.2, 0.3, 1.0 et 1.1**, vous devez télécharger et installer la mise à jour du pilote LSI et du microprogramme. Cette mise à jour est déjà installée si vous exécutez Update 1.2 ou 2.
  
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |
 |--------|-----------|-------------------------|------------- |-------------|
 | 4\. | KB3121900 | Pilote LSI et microprogramme | Normal | ~ 20 minutes |
 
 
-<br></br> Si votre appareil utilise les versions 0.2, 0.3, 1.0, 1.1 et 1.2, vous devez télécharger et installer les correctifs Spaceport et Storport. Ces correctifs sont déjà installés si vous exécutez Update 2.
+<br></br> **Si votre appareil utilise les versions 0.2, 0.3, 1.0, 1.1 et 1.2**, vous devez télécharger et installer les correctifs Spaceport et Storport. Ces correctifs sont déjà installés si vous exécutez Update 2.
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -128,6 +130,6 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 ## Étapes suivantes
 
-En savoir plus sur la [version Update 2.1](storsimple-update21-release-notes.md).
+En savoir plus sur la [version Update 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

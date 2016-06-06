@@ -47,17 +47,19 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 |---|---|---|---|
 |Version de système d’exploitation|Oui|Oui|Oui
 |Niveau de confiance .NET|Oui|Oui|Oui|
-|Taille de machine virtuelle|Oui*|Oui|Oui|
-|Paramètres de stockage locaux|Augmentation uniquement*|Oui|Oui|
+|Taille de la machine virtuelle<sup>1</sup>|Oui<sup>2</sup>|Oui|Oui|
+|Paramètres de stockage locaux|Augmentation uniquement<sup>2</sup>|Oui|Oui|
 |Ajouter et supprimer les rôles dans un service|Oui|Oui|Oui|
 |Nombre d’instances d’un rôle particulier|Oui|Oui|Oui|
-|Nombre ou type de points de terminaison pour un service|Oui*|Non|Oui|
+|Nombre ou type de points de terminaison pour un service|Oui<sup>2</sup>|Non|Oui|
 |Noms et valeurs de paramètres de configuration|Oui|Oui|Oui|
 |Valeurs (et non noms) des paramètres de configuration|Oui|Oui|Oui|
 |Ajouter de nouveau certificats|Oui|Oui|Oui|
 |Modifier les certificats existants|Oui|Oui|Oui|
 |Déployer un nouveau code|Oui|Oui|Oui|
-*Nécessite le kit de développement logiciel Azure 1.5 ou versions ultérieures.
+<sup>1</sup>Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
+
+<sup>2</sup>Nécessite le kit de développement logiciel (SDK) Azure 1.5 ou versions ultérieures.
 
 > [AZURE.WARNING] La modification de la taille de machine virtuelle détruira les données locales.
 
@@ -180,4 +182,4 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 ## Étapes suivantes
 [Gestion de Cloud Services](cloud-services-how-to-manage.md)<br> [Surveiller Cloud Services](cloud-services-how-to-monitor.md)<br> [Configurer Cloud Services](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

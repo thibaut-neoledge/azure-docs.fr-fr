@@ -148,7 +148,10 @@ La version Windows de l’application **iothub\_client\_sample\_ampq** contient 
 
 Cette solution inclut un seul projet : Il est important de noter que cette solution installe quatre packages NuGet :
 
-  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.uamqp
 
 Quand vous travaillez avec le kit de développement logiciel (SDK), vous devez toujours utiliser le package **Microsoft.Azure.C.SharedUtility**. Étant donné que cet exemple s’appuie sur AMQP, vous devez également inclure les packages **Microsoft.Azure.uamqp** et **Microsoft.Azure.IoTHub.AmqpTransport** (il existe des packages équivalents pour HTTP et MQTT). Comme l’exemple utilise la bibliothèque **IoTHubClient**, vous devez également inclure le package **Microsoft.Azure.IoTHub.IoTHubClient** dans votre solution.
 
@@ -158,7 +161,7 @@ Nous allons utiliser cet exemple d’application pour vous montrer les élément
 
 ### Initialisation de la bibliothèque
 
-> [AZURE.NOTE] Avant d’utiliser les bibliothèques, vous devrez peut-être procéder à une initialisation spécifique à la plateforme. Par exemple, si vous prévoyez d’utiliser AMQPS sur Linux, vous devez initialiser la bibliothèque OpenSSL. Les exemples du [dépôt GitHub](https://github.com/Azure/azure-iot-sdks) appellent la fonction de l’utilitaire **platform\_init** quand le client démarre et appellent la fonction **platform\_deinit** avant de se fermer. Ces fonctions sont déclarées dans le fichier d’en-tête « platform.h ». Nous vous conseillons d’examiner les définitions de ces fonctions pour votre plateforme cible dans le [dépôt](https://github.com/Azure/azure-iot-sdks) pour déterminer si vous devez inclure du code d’initialisation de la plateforme dans votre client.
+> [AZURE.NOTE] Avant d’utiliser les bibliothèques, vous devrez peut-être procéder à une initialisation spécifique à la plateforme. Par exemple, si vous prévoyez d’utiliser AMQPS sur Linux, vous devez initialiser la bibliothèque OpenSSL. Les exemples du [référentiel GitHub](https://github.com/Azure/azure-iot-sdks) appellent la fonction de l’utilitaire **platform\_init** quand le client démarre et appelle la fonction **platform\_deinit** avant de se fermer. Ces fonctions sont déclarées dans le fichier d’en-tête « platform.h ». Nous vous conseillons d’examiner les définitions de ces fonctions pour votre plateforme cible dans le [référentiel](https://github.com/Azure/azure-iot-sdks) pour déterminer si vous devez inclure du code d’initialisation de la plateforme dans votre client.
 
 Pour commencer à travailler avec les bibliothèques, vous devez d’abord attribuer un pointeur client IoT Hub :
 
@@ -260,7 +263,11 @@ Le dossier **serializer** du référentiel azure-iot-sdks est un dossier d’**e
 
 Comme l’exemple précédent, celui-ci contient plusieurs packages NuGet :
 
-  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.IoTHub.Serializer
+- Microsoft.Azure.uamqp
 
 Nous avons vu la plupart de ces éléments dans l’exemple précédent, mais **Microsoft.Azure.IoTHub.Serializer** est nouveau. Ceci est obligatoire lorsque nous utilisons la bibliothèque **serializer**.
 
@@ -286,7 +293,7 @@ Enfin, appelez la fonction **CREATE\_MODEL\_INSTANCE**. Notez que **WeatherStati
 
 ### Définition du modèle
 
-Un modèle de la bibliothèque **serializer** définit les événements que votre appareil peut envoyer à IoT Hub et les messages, appelés *actions* dans le langage de la modélisation qu’il peut recevoir. Un modèle se définit avec un ensemble de macros C comme dans l’exemple d’application **simplesample\_amqp** :
+Un modèle de la bibliothèque **serializer** définit les événements que votre appareil peut envoyer à IoT Hub et les messages, appelés *actions* dans le langage de la modélisation qu’il peut recevoir. Un modèle se définit avec un ensemble de macros C comme dans l’exemple d’application **simplesample\_amqp** :
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -462,6 +469,6 @@ Chacune de ces trois fonctions s’aligne sur les trois fonctions d’initialisa
 
 Cet article a abordé les principes fondamentaux de l’utilisation des bibliothèques dans le **Kit de développement logiciel Azure IoT device SDK pour C**. Il vous a fourni suffisamment d’informations pour comprendre ce qui est inclus dans le Kit de développement logiciel (SDK), son architecture et la manière d’utiliser les exemples Windows. Le prochain article poursuit la description du kit de développement logiciel en approfondissant les explications relatives à [la bibliothèque IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-Pour savoir comment utiliser les fonctionnalités de gestion des appareils dans le **Kit de développement logiciel Azure IoT device SDK pour C**, consultez [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md) (Présentation de la bibliothèque de gestion des appareils Azure IoT Hub).
+Pour savoir comment utiliser les fonctionnalités de gestion des appareils dans le **Kit de développement logiciel Azure IoT device SDK pour C**, consultez [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md) (Présentation de la bibliothèque de gestion des appareils Azure IoT Hub pour C).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

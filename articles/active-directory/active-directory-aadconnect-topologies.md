@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -21,16 +21,16 @@ L’objectif de cette rubrique est de décrire différentes topologies locales e
 
 Légende des images dans le document :
 
-| Description | Icône |
-|-----|-----|
-| Forêt Active Directory locale | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory avec importation filtrée | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Serveur Azure AD Connect Sync | ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| « Mode intermédiaire » du serveur Azure AD Connect Sync | ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync avec FIM2010 ou MIM2016 | ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Serveur Azure AD Connect Sync, détaillé |![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Annuaire Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Scénario non pris en charge | ![Non pris en charge](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Description | Icône
+-----|-----
+Forêt Active Directory locale| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory avec importation filtrée| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Serveur Azure AD Connect Sync| ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+« Mode intermédiaire » du serveur Azure AD Connect Sync| ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync avec FIM2010 ou MIM2016| ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Serveur Azure AD Connect Sync, détaillé| ![Synchronisation](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Annuaire Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Scénario non pris en charge | ![Non pris en charge](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Une seule forêt, un seul annuaire Azure AD
@@ -116,10 +116,10 @@ Dans ce scénario, une (ou plusieurs) **forêt de ressources** approuve toutes l
 ## Considérations sur Office 365 et la topologie
 Certaines charges de travail Office 365 ont certaines restrictions quant aux topologies prises en charge. Si vous souhaitez utiliser l’une d’elles, consultez la rubrique sur les topologies prises en charge pour la charge de travail.
 
-| Charge de travail | |
-| --------- | --------- |
-| Exchange Online |	S’il existe plusieurs organisations Exchange locales (c’est-à-dire si Exchange a été déployé sur plusieurs forêts), vous devez utiliser Exchange 2013 SP1 ou ultérieur. Vous pouvez trouver des détails ici : [Déploiements hybrides avec plusieurs forêts Active Directory](https://technet.microsoft.com/fr-FR/library/jj873754.aspx) |
-| Skype Entreprise | Lors de l’utilisation de plusieurs forêts locales, seule la topologie de forêt comptes-ressources est prise en charge. Vous pouvez trouver des détails sur les topologies prises en charge ici : [Configuration requise de l’environnement pour Skype Entreprise Server 2015](https://technet.microsoft.com/fr-FR/library/dn933910.aspx) |
+Charge de travail |  
+--------- | ---------
+Exchange Online | S’il existe plusieurs organisations Exchange locales (c’est-à-dire si Exchange a été déployé sur plusieurs forêts), vous devez utiliser Exchange 2013 SP1 ou ultérieur. Vous pouvez trouver des détails ici : [Déploiements hybrides avec plusieurs forêts Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
+Skype Entreprise | Lors de l’utilisation de plusieurs forêts locales, seule la topologie de forêt comptes-ressources est prise en charge. Vous pouvez trouver des détails sur les topologies prises en charge ici : [Configuration requise de l’environnement pour Skype Entreprise Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
 
 ## Serveur intermédiaire
 ![Serveur intermédiaire](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -135,9 +135,9 @@ Il est possible d’avoir plusieurs serveurs intermédiaires si vous voulez disp
 ## Plusieurs annuaires Azure AD
 Microsoft recommande d’avoir un seul annuaire dans Azure AD pour une organisation. Avant d’envisager d’utiliser plusieurs annuaires Azure AD, lisez ces rubriques qui couvrent des scénarios courants et qui vous permettront de n’utiliser qu’un seul annuaire.
 
-| Rubrique | |
-| --------- | --------- |
-| Délégation à l’aide d’unités administratives | [Gestion des unités administratives dans Azure AD](active-directory-administrative-units-management.md)
+Rubrique |  
+--------- | ---------
+Délégation à l’aide d’unités administratives | [Gestion des unités administratives dans Azure AD](active-directory-administrative-units-management.md)
 
 ![Plusieurs forêts, plusieurs annuaires](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

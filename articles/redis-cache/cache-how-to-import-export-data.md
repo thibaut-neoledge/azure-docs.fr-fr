@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Importer et exporter des données dans le Cache Redis Azure
@@ -94,9 +94,10 @@ Cette section contient les questions fréquemment posées sur la fonctionnalité
 -	[Puis-je importer des données à partir de n’importe quel serveur Redis ?](#can-i-import-data-from-any-redis-server)
 -	[Mon cache est-il disponible pendant une opération d’Importation/Exportation ?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[Puis-je utiliser l’Importation/Exportation avec le cluster Redis ?](#can-i-use-importexport-with-redis-cluster)
+-	[Comment l’importation/exportation fonctionne avec un paramètre de base de données personnalisé ?](#how-does-importexport-work-with-a-custom-databases-setting)
 -	[En quoi l’Importation/Exportation est-elle différente de la persistance Redis ?](#how-is-importexport-different-from-redis-persistence)
 -	[Puis-je automatiser l’Importation/Exportation à l’aide de PowerShell, de CLI ou d’autres clients de gestion ?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
--	[J’ai reçu une erreur de délai d’attente pendant mon opération d’Importation/Exportation. Qu’est-ce que cela signifie ?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
+-	[J’ai reçu une erreur de délai d’attente pendant mon opération d’importation/exportation. Qu’est-ce que cela signifie ?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
 -	[J’ai obtenu une erreur en exportant mes données vers un stockage d’objets blob Azure. Que s’est-il passé ?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
 
 
@@ -116,11 +117,20 @@ Oui, en plus des données exportées à partir d’instances de Cache Redis Azur
 
 ### Puis-je utiliser l’Importation/Exportation avec le cluster Redis ?
 
-Oui, et vous pouvez importer/exporter des données entre un cache en cluster et un cache hors cluster. Puisque le cluster Redis ne prend en charge que la base de données 0, vous ne pouvez pas importer de données stockées dans une base de données autre que 0. Lorsque vous importez des données d’un cache en cluster, les clés sont redistribuées entre les partitions du cluster.
+Oui, et vous pouvez importer/exporter des données entre un cache en cluster et un cache hors cluster. Depuis que le cluster Redis [ne prend en charge que la base de données 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), toutes les données de bases de données différentes de 0 ne sont pas importées. Lorsque vous importez des données d’un cache en cluster, les clés sont redistribuées entre les partitions du cluster.
+
+### Comment l’importation/exportation fonctionne avec un paramètre de base de données personnalisé ?
+
+Certains niveaux tarifaires sont associés à des [limites de bases de données](cache-configure.md#databases) différentes. Certains aspects doivent donc être pris en compte lors d’une importation si vous avez configuré une valeur personnalisée pour le paramètre `databases` lors de la création du cache.
+
+-	Lorsque vous procédez à une importation vers un niveau tarifaire avec une priorité inférieure à `databases` par rapport au niveau à partir duquel vous effectuez l’exportation :
+	-	Si vous utilisez le nombre par défaut de `databases`, c’est-à-dire 16 pour tous les niveaux tarifaires, vous ne perdrez aucune donnée.
+	-	Si vous utilisez un nombre de `databases` personnalisé qui se situe dans les limites du niveau tarifaire vers lequel vous effectuez l’importation, vous ne perdrez aucune donnée.
+	-	Si vos données exportées contenaient des données dans une base de données dépassant les limites du nouveau niveau, les données de ces bases de données plus élevées ne sont pas importées.
 
 ### En quoi l’Importation/Exportation est-elle différente de la persistance Redis ?
 
-La persistance du Cache Redis Azure vous permet de conserver dans Azure Storage les données stockées dans Redis. Quand la persistance est configurée, le Cache Redis Azure conserve un instantané du cache Redis dans un format binaire Redis sur le disque selon une fréquence de sauvegarde configurable. Si un événement catastrophique se produit et provoque la désactivation du cache principal et du réplica, les données du cache sont automatiquement rétablies à l’aide de l’instantané le plus récent. Pour plus d’informations, consultez [Comment configurer la persistance des données pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md).
+La persistance du Cache Redis Azure vous permet de conserver dans Azure Storage les données stockées dans Redis. Quand la persistance est configurée, le Cache Redis Azure conserve un instantané du cache Redis dans un format binaire Redis sur le disque selon une fréquence de sauvegarde configurable. Si un événement catastrophique se produit et provoque la désactivation du cache principal et du réplica, les données du cache sont automatiquement rétablies à l’aide de l’instantané le plus récent. Pour plus d’informations, voir [Comment configurer la persistance des données pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md).
 
 L’Importation/Exportation vous permet d’importer ou d’exporter des données vers ou depuis le Cache Redis Azure. Elle ne configure pas la sauvegarde et restauration à l’aide de la persistance Redis.
 
@@ -158,4 +168,4 @@ L’Importation/Exportation ne fonctionne qu’avec les fichiers RDB stockés so
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

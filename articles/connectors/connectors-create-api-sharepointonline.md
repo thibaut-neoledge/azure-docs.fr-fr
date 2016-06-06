@@ -1,10 +1,10 @@
 <properties
-pageTitle="Utiliser l’API SharePoint Online dans vos applications logiques ou applications PowerApps | Microsoft Azure"
-description="Prenez en main l’utilisation de l’API SharePoint Online Azure App Service dans vos applications logiques et vos applications PowerApps."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Utiliser le connecteur SharePoint Online dans vos applications logiques ou applications PowerApps | Microsoft Azure"
+description="Commencez à utiliser le connecteur SharePoint Online Azure App Service dans vos applications logiques et vos applications PowerApps."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Prise en main de l’API SharePoint Online
+# Prise en main du connecteur SharePoint Online 
 
-Le fournisseur de connexions SharePoint met à votre disposition une API pour utiliser des listes dans SharePoint.
+Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
@@ -32,9 +32,9 @@ Pour ajouter une opération aux applications logiques, consultez [Créer une app
 
 ## À propos des déclencheurs et des actions
 
-L’API SharePoint peut être utilisée en tant qu’action ; elle possède un ou plusieurs déclencheurs. Toutes les API prennent en charge les données aux formats JSON et XML.
+Le connecteur SharePoint peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
-L’API SharePoint met à votre disposition les actions et/ou les déclencheurs ci-après.
+Le connecteur SharePoint met à votre disposition les actions et/ou les déclencheurs ci-après.
 
 ### Actions SharePoint
 Vous pouvez effectuer les actions suivantes :
@@ -66,24 +66,21 @@ Vous pouvez écouter les événements suivants :
 
 
 ## Créer une connexion à SharePoint
-Pour utiliser l’API SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser le connecteur SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
 |Propriété| Requis|Description|
 | ---|---|---|
 |Jeton|Oui|Fournir les informations d’identification SharePoint|
 
-Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.) à SharePoint Online. Une fois que vous avez été authentifié, vous pouvez alors utiliser l’API SharePoint Online dans votre application logique.
+Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.) à SharePoint Online. Une fois que vous avez été authentifié, vous pouvez alors utiliser le connecteur SharePoint Online dans votre application logique.
 
 Dans le concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
 
-1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint :
-![Configurer SharePoint][1]  
+1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées dont le nom contient SharePoint : ![Configurer SharePoint][1]  
 2. Sélectionnez **SharePoint Online - Quand un fichier est créé**   
-3. Sélectionnez **Connexion à SharePoint Online** :
-![Configurer SharePoint][2]    
+3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]    
 4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint ![Configurer SharePoint][3]     
-5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint.
-![Configurer SharePoint][4]  
+5. Une fois l’authentification terminée, vous êtes redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint. ![Configurer SharePoint][4]  
 6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.   
 7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.  
 
@@ -600,7 +597,7 @@ Propriétés requises pour DataSetsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -627,7 +624,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table** :
 
 Propriétés requises pour Table :
 
@@ -635,7 +632,7 @@ Propriétés requises pour Table :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -704,4 +701,4 @@ Aucune des propriétés n’est obligatoire.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

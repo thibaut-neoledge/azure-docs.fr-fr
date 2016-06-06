@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
@@ -129,7 +129,7 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
 [Entité de certificat API REST de gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -141,4 +141,4 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

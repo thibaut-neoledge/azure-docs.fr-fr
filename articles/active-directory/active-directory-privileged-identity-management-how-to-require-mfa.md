@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Comment exiger l’authentification MFA dans Azure AD Privileged Identity Management
@@ -26,7 +26,7 @@ Vous pouvez également exiger que les utilisateurs effectuent une demande d'auth
 
 ## Exigence d’application de la solution MFA dans Azure AD Privileged Identity Management
 
-Lorsque vous gérez des identités dans PIM en tant qu'administrateur de la sécurité, vous pouvez voir des alertes qui recommandent l'authentification MFA pour des comptes privilégiés. Cliquez sur l’alerte de sécurité dans le tableau de bord PIM. Un nouveau panneau s’ouvre, affichant la liste des comptes administrateur qui doivent exiger l’authentification MFA. Vous pouvez exiger l’authentification MFA en sélectionnant plusieurs rôles, puis en cliquant sur le bouton **Corriger**. Vous pouvez également cliquer sur les points de suspension en regard d’un rôle, puis sur le bouton **Corriger**.
+Quand vous gérez des identités dans PIM en tant qu’administrateur de rôle privilégié, vous pouvez voir des alertes qui recommandent l’authentification MFA pour des comptes privilégiés. Cliquez sur l’alerte de sécurité dans le tableau de bord PIM. Un nouveau panneau s’ouvre, affichant la liste des comptes administrateur qui doivent exiger l’authentification MFA. Vous pouvez exiger l’authentification MFA en sélectionnant plusieurs rôles, puis en cliquant sur le bouton **Corriger**. Vous pouvez également cliquer sur les points de suspension en regard d’un rôle, puis sur le bouton **Corriger**.
 
 > [AZURE.IMPORTANT] Étant donné que les comptes Microsoft (par exemple, @outlook.com, @live.com ou @hotmail.com) ne sont actuellement pas pris en charge pour l’inscription à Azure MFA, ils ne seront pas autorisés en tant qu’administrateurs temporaires pour les rôles à privilèges élevés. Si les utilisateurs doivent continuer à gérer les charges de travail à l’aide d’un compte Microsoft, convertissez-les en administrateurs permanents pour l’instant.
 
@@ -45,4 +45,4 @@ Si les utilisateurs s’authentifient en local, vous pouvez également faire en 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # Questions : Application Insights pour ASP.NET
@@ -39,7 +39,7 @@
 * Vous devez fournir les données de votre carte de crédit pour vous enregistrer auprès de Microsoft Azure, mais aucun service ne vous sera facturé, sauf si vous utilisez un autre service Azure payant, ou si vous mettez explicitement à niveau vers un niveau payant.
 * Si votre application envoie plus de données que le quota mensuel autorisé pour le niveau gratuit, les données ne sont plus consignées. Si cela se produit, vous pouvez choisir de commencer à payer ou d'attendre jusqu'à ce que le quota soit réinitialisé à la fin du mois.
 * Les données de session et l'utilisation de base ne sont pas soumises à un quota.
-* Il existe aussi une version d'évaluation gratuite de 30 jours qui vous permet d'obtenir les fonctionnalités du niveau Premium gratuitement.
+* Il existe aussi une version d’évaluation gratuite qui vous permet d’obtenir les fonctionnalités payantes gratuitement pendant 30 jours.
 * Chaque ressource d'application possède un quota distinct, et vous définissez son niveau de tarification indépendamment des autres.
 
 #### Que vais-je obtenir si je paye ?
@@ -126,7 +126,6 @@ Voir [Rétention de données et confidentialité][data].
 <tr><td>Mesures personnalisées des serveurs</td><td><a href="../app-insights-api-custom-events-metrics/">Appels de suivi dans le code serveur</a></td><td>Décisionnel</td></tr>
 </table>
 
-Si votre service web est exécuté dans une machine virtuelle Azure, vous pouvez également [obtenir des diagnostics][azurediagnostic] ici.
 
 ## Automation
 
@@ -139,7 +138,6 @@ Vous pouvez [écrire des scripts PowerShell](app-insights-powershell.md) pour cr
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
@@ -147,4 +145,4 @@ Vous pouvez [écrire des scripts PowerShell](app-insights-powershell.md) pour cr
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

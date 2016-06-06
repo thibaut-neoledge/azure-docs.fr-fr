@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Vue d’ensemble de SQL Server dans Azure Virtual Machines
@@ -33,8 +33,8 @@ L’exécution de SQL Server sur une machine virtuelle Azure est une option per
 |---:|---|---|
 |![SQL Server sur les machines virtuelles Azure](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Exécutez SQL Server sur les machines virtuelles Azure. Gérez directement la machine virtuelle et exécutez votre base de données sur les versions commerciales de SQL Server. |
 |![Base de données SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[Base de données SQL](https://azure.microsoft.com/services/sql-database/)|Utilisez le service Base de données SQL pour accéder à votre base de données et la faire évoluer sans avoir à gérer l’infrastructure sous-jacente.|
-|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Utilisez Azure SQL Data Warehouse pour traiter de grandes quantités de données relationnelles et non relationnelles. Offre des fonctionnalités évolutives d’entreposage des données en tant que service.|
-|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Étendez dynamiquement les données transactionnelles en local de Microsoft SQL Server 2016 vers Azure.|
+|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)|Utilisez Azure SQL Data Warehouse pour traiter de grandes quantités de données relationnelles et non relationnelles. Offre des fonctionnalités évolutives d’entreposage des données en tant que service.|
+|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)|Étendez dynamiquement les données transactionnelles en local de Microsoft SQL Server 2016 vers Azure.|
 
 >[AZURE.NOTE] Pour obtenir une comparaison détaillée entre les machines virtuelles SQL et Base de données SQL, consultez [Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
@@ -47,7 +47,7 @@ Après avoir souscrit un abonnement, le moyen le plus simple pour déployer une 
 Il est important de noter qu’il existe deux modèles pour créer et gérer les machines virtuelles Azure : le modèle classique et Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md). Chaque rubrique doit indiquer clairement le modèle ciblé, sauf si elle s’applique à la fois à la version classique et à Resource Manager, comme cet article.
 
 ## Choisir une image de machine virtuelle SQL
-Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure. Cliquez sur l’un des liens présents dans le tableau pour créer une machine virtuelle correspondant à cette version, cette édition et ce système d’exploitation.
+Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure. Cliquez sur l’un des liens présents dans le tableau en fonction de la version, de l’édition et du système d’exploitation. Ensuite, cliquez sur le bouton **Créer une machine virtuelle** sur la page Marketplace.
 
 |Version de SQL Server|Système d’exploitation|Édition SQL Server|
 |---|---|---|
@@ -61,9 +61,11 @@ Le tableau suivant récapitule les images liées à SQL Server actuellement disp
 
 >[AZURE.NOTE] Le Programme d’amélioration du produit est activé par défaut. Si nécessaire, vous pouvez personnaliser ou désactiver le Programme d’amélioration du produit après la configuration de la machine virtuelle. Connectez-vous à la machine virtuelle avec le Bureau à distance et exécutez l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server**.
 
+Vous avez besoin d’aide pour créer une machine virtuelle SQL ? Consultez la procédure pas à pas détaillée dans le [didacticiel d’approvisionnement](virtual-machines-windows-portal-sql-server-provision.md).
+
 En plus de ces images pré-configurées, vous pouvez également [créer une machine virtuelle Azure](virtual-machines-windows-hero-tutorial.md) sans que SQL Server soit pré-installé. Vous pouvez installer n’importe quelle instance de SQL Server pour laquelle vous disposez d’une licence. Vous migrez votre licence vers Azure pour exécuter SQL Server dans une machine virtuelle Azure en utilisant [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Dans ce scénario, vous ne payez que pour les [coûts](https://azure.microsoft.com/pricing/details/virtual-machines/) de stockage et de calcul Azure associés à la machine virtuelle.
 
-Pour déterminer les meilleurs paramètres de configuration de machine virtuelle pour votre image SQL Server, consultez les [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-performance.md). Pour les charges de travail de production, **DS3** est la taille de machine virtuelle minimale recommandée pour SQL Server Enterprise Edition, et **DS2** est la taille de machine virtuelle minimale recommandée pour Standard Edition.
+Pour déterminer les meilleurs paramètres de configuration de machine virtuelle pour votre image SQL Server, consultez les [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles](virtual-machines-windows-sql-performance.md). Pour les charges de travail de production, **DS3** est la taille minimale recommandée pour les machines virtuelles pour l’édition Enterprise de SQL Server. **DS2** est la taille minimale recommandée pour les machines virtuelles pour les charges de travail de production avec l’édition Standard.
 
 ## Migration de vos données
 
@@ -88,6 +90,6 @@ Tout d’abord, [créez votre propre machine virtuelle SQL Server dans le portai
 
 Examinez ensuite les [meilleures pratiques de performance](virtual-machines-windows-sql-performance.md) et les [techniques de migration](virtual-machines-windows-migrate-sql.md) lorsque vous envisagez de déplacer vos charges de travail SQL Server vers des machines virtuelles Azure.
 
-Si vous avez d’autres questions concernant SQL Server sur les machines virtuelles Azure, consultez le [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md). Ou ajoutez vos commentaires au bas de l’une des rubriques relatives aux machines virtuelles SQL afin d’interagir avec Microsoft et la communauté.
+Vous avez d’autres questions sur SQL Server sur les machines virtuelles Azure ? Tout d’abord, consultez le [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md). Vous devez également ajouter vos questions ou commentaires au bas de l’une des rubriques relatives aux machines virtuelles SQL afin d’interagir avec Microsoft et la communauté.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Déployer le service StorSimple Manager pour StorSimple Virtual Array
@@ -38,7 +38,7 @@ Les tâches courantes qui peuvent être effectuées via la page StorSimple Manag
 - Obtenir la clé d’inscription du service
 - Régénérer la clé d’inscription du service
 
-Le didacticiel explique comment effectuer chacune de ces tâches.
+Le didacticiel explique comment effectuer chacune de ces tâches. Les informations contenues dans cet article s’appliquent uniquement aux tableaux virtuels StorSimple. Pour plus d’informations sur la gamme StorSimple 8000, consultez la page [déployer un service StorSimple Manager](storsimple-manage-service.md).
 
 ## Créer un service
 
@@ -51,6 +51,8 @@ Utilisez l’option **Création rapide** pour créer un service StorSimple Manag
 Vous pouvez également choisir de générer un compte de stockage par défaut lorsque vous créez le service.
 
 Un seul service peut gérer plusieurs appareils. Cependant, un appareil ne peut pas couvrir plusieurs services. Une grande entreprise peut avoir plusieurs instances de service pour utiliser différents abonnements, organisations ou même emplacements de déploiement.
+
+> [AZURE.NOTE] Vous devez créer des instances distinctes du service StorSimple Manager pour gérer les appareils de la gamme StorSimple 8000 et les tableaux virtuels StorSimple.
 
 Procédez comme suit pour créer un service.
 
@@ -111,4 +113,4 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

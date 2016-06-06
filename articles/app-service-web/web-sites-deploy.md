@@ -126,9 +126,9 @@ Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer un dé
 * [Publication vers Web Apps à partir de n’importe quel référentiel git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html) (en anglais).  
 
 ## Déployer avec un IDE
-Si vous utilisez déjà [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) avec un [kit de développement logiciel Azure](https://azure.microsoft.com/downloads/) ou d’autres suites IDE comme [Xcode](https://developer.apple.com/xcode/) et [Eclipse](https://www.eclipse.org), vous pouvez assurer un déploiement sur Azure directement depuis l’intérieur de votre IDE. Cette option est idéale pour un développeur individuel.
+Si vous utilisez déjà [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) avec un [Kit de développement logiciel Azure](https://azure.microsoft.com/downloads/) ou d’autres suites IDE comme [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org) et [IntelliJ IDEA](https://www.jetbrains.com/idea/), vous pouvez assurer un déploiement sur Azure directement depuis votre IDE. Cette option est idéale pour un développeur individuel.
 
-Visual Studio prend en charge les trois processus de déploiement (FTP, Git et Web Deploy), selon votre préférence, tandis que les autres IDE peuvent déployer App Service s’ils sont dotés de l’intégration de FTP ou de Git (voir [Vue d’ensemble du processus de déploiement](#overview)).
+Visual Studio prend en charge les trois processus de déploiement (FTP, Git et Web Deploy), selon votre préférence, tandis que les autres IDE peuvent déployer App Service s’ils sont dotés de l’intégration de FTP ou de Git (voir [Vue d’ensemble du déploiement d’Azure App Service](#overview)).
 
 Les avantages du déploiement à l’aide d’un IDE sont :
 
@@ -139,9 +139,9 @@ Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
 - Une complexité accrue des outils.
 - Nécessite toujours un système de contrôle de code source en cas de projet d’équipe.
 
-<a name="vspros"></a> Voici d’autres avantages du déploiement à l’aide de Visual Studio avec le kit de développement logiciel Azure :
+<a name="vspros"></a> Voici d’autres avantages du déploiement à l’aide de Visual Studio avec le SDK Azure :
 
-- Le kit de développement logiciel Azure favorise nettement les ressources Azure dans Visual Studio. Créer, supprimer, modifier, démarrer et arrêter les applications, interroger la base de données SQL du serveur principal, déboguer l’application Azure en direct, entre autres. 
+- Le SDK Azure favorise nettement les ressources Azure dans Visual Studio. Créer, supprimer, modifier, démarrer et arrêter les applications, interroger la base de données SQL du serveur principal, déboguer l’application Azure en direct, entre autres. 
 - Modification en direct des fichiers de code sur Azure.
 - Débogage en direct des applications sur Azure.
 - Explorateur Azure intégré.
@@ -155,7 +155,15 @@ Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
 * [Déploiement Web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste. Certaines fonctionnalités de déploiement Azure ont été ajoutées depuis la rédaction de ce didacticiel. Cependant, les notes ajoutées par la suite expliquent les éléments manquants.
 * [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git. À partir de Visual Studio 2013, la prise en charge Git est intégrée et ne nécessite pas l’installation d’un plug-in.
 
-## <a name="automate"></a>Automatiser le déploiement à l’aide d’outils de ligne de commande
+###<a name="aztk"></a>Déploiement à l’aide des boîtes à outils Azure pour Eclipse et IntelliJ IDEA
+
+Microsoft permet de déployer des applications web sur Azure directement à partir d’Eclipse et d’IntelliJ via la [boîte à outils Azure pour Eclipse](../azure-toolkit-for-eclipse.md) et la [boîte à outils Azure pour IntelliJ](../azure-toolkit-for-intellij.md). Les didacticiels suivants illustrent les étapes impliquées dans le déploiement d’une simple application web « Hello World » sur Azure à l’aide de l’IDE :
+
+*  [Créer une application web « Hello World » pour Azure dans Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md). Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application web Hello World pour Azure.
+*  [Créer une application web « Hello World » pour Azure dans IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md). Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application web Hello World pour Azure.
+
+
+## <a name="automate"></a>Automatiser le déploiement à l’aide d’outils en ligne de commande
 
 * [Automatiser le déploiement avec MSBuild](#msbuild)
 * [Copier des fichiers avec des scripts et des outils FTP](#ftp)
@@ -219,11 +227,11 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 Dans certains cas, vous souhaiterez probablement pouvoir basculer facilement entre une version intermédiaire et de production de votre application. Pour plus d’informations, consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
 
-Posséder un programme de sauvegarde et de restauration établi représente une partie essentielle de tout flux de travail de déploiement. Pour plus d’informations concernant la fonctionnalité de sauvegarde et de restauration d’App Service, consultez [Sauvegarder une application Web dans Azure App Service](web-sites-backup.md).
+Posséder un programme de sauvegarde et de restauration établi représente une partie essentielle de tout flux de travail de déploiement. Pour plus d’informations sur la fonctionnalité de sauvegarde et de restauration d’App Service, consultez [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
 
-Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement App Service, consultez [RBAC et publication Web Apps](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/) (en anglais).
+Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement App Service, consultez [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/) (RBAC et publication Web Apps).
 
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->
