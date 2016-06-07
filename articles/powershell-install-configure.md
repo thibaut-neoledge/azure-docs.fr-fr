@@ -32,7 +32,7 @@ Voici les deux méthodes d’installation d’Azure PowerShell. Vous pouvez proc
 
 L’installation d’Azure PowerShell 1.0 et version ultérieure depuis WebPI est similaire à celle de la version 0.9.x. Téléchargez [Azure PowerShell](http://aka.ms/webpi-azps) et lancez l’installation. Si vous avez Azure PowerShell 0.9.x installé, la version 0.9.x sera désinstallée dans le cadre de la mise à niveau. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, l’installateur supprime automatiquement les modules avant l’installation afin de garantir un environnement Azure PowerShell cohérent.
 
-> [AZURE.NOTE] Si vous aviez précédemment installé les modules Azure à partir de PowerShell Gallery, le programme d’installation les supprimera automatiquement. Vous éviterez ainsi toute confusion au sujet des versions des modules que vous avez installés et de l’endroit où ils se trouvent. Les modules PowerShell Gallery s’installent généralement dans le répertoire **%ProgramFiles%\\WindowsPowerShell\\Modules**. En revanche, le programme d’installation WebPI installe les modules Azure dans **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\PowerShell**. Si une erreur se produit lors de l’installation, vous pouvez supprimer manuellement les dossiers Azure* de votre dossier **%ProgramFiles%\\WindowsPowerShell\\Modules** et retenter l’installation.
+> [AZURE.NOTE] Si vous aviez précédemment installé les modules Azure à partir de PowerShell Gallery, le programme d’installation les supprimera automatiquement. Vous éviterez ainsi toute confusion au sujet des versions des modules que vous avez installés et de l’endroit où ils se trouvent. Les modules PowerShell Gallery s’installent généralement dans le répertoire **%ProgramFiles%\WindowsPowerShell\Modules**. En revanche, le programme d’installation WebPI installe les modules Azure dans **%ProgramFiles(x86)%\Microsoft SDKs\Azure\PowerShell**. Si une erreur se produit lors de l’installation, vous pouvez supprimer manuellement les dossiers Azure* de votre dossier **%ProgramFiles%\WindowsPowerShell\Modules** et retenter l’installation.
 
 Une fois l’installation terminée, votre paramètre ```$env:PSModulePath``` doit inclure les répertoires contenant les applets de commande Azure PowerShell.
 
@@ -52,9 +52,11 @@ Si vous recevez un message similaire à ce qui suit lorsque vous tentez de charg
         + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-This can be corrected by restarting the machine or importing the cmdlets from C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ as following (where XXXX is the version of PowerShell installed:
+Ce problème peut être corrigé par le redémarrage de l’ordinateur ou par l’importation des applets de commande à partir de C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ comme suit (où XXXX correspond à la version de PowerShell installée :
 ```
-import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure.psd1" import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\expressroute\\expressroute.psd1" ```
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
+```
 
 ###Installation d’Azure PowerShell depuis PowerShell Gallery
 
@@ -76,7 +78,7 @@ Vous pouvez exécuter les applets de commande depuis la console Windows PowerShe
 
 - Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran **Démarrer**, commencez par taper power. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran **Démarrer**, cliquez avec le bouton droit sur l’icône.)
 
-- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu **Démarrer**. À partir du menu **Démarrer**, cliquez sur **Tous les programmes**, cliquez sur **Accessoires**, cliquez sur le dossier **Windows PowerShell**, puis cliquez sur **Windows PowerShell**.
+- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le **menu Démarrer**. À partir du menu **Démarrer**, cliquez sur **Tous les programmes**, cliquez sur **Accessoires**, cliquez sur le dossier **Windows PowerShell**, puis cliquez sur **Windows PowerShell**.
 
 Vous pouvez également exécuter **Windows PowerShell ISE** pour utiliser des éléments de menu et des raccourcis clavier pour effectuer la plupart des tâches que vous exécuteriez avec la console Windows PowerShell. Pour utiliser l’ISE, dans la console Windows PowerShell, Cmd.exe ou dans la zone **Exécuter** saisissez **powershell\_ise.exe**.
 
