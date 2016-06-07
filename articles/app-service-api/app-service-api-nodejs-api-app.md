@@ -159,15 +159,15 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
 
         node server.js
 
-1. Quand vous accédez à ****http://localhost:8000/contacts**, vous verrez la sortie JSON de la liste de contacts (ou vous êtes invité à la télécharger, en fonction de votre navigateur).
+1. Quand vous accédez à **http://localhost:8000/contacts**, vous verrez la sortie JSON de la liste de contacts (ou vous êtes invité à la télécharger, en fonction de votre navigateur).
 
     ![Appel d’API de tous les contacts](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Quand vous accédez à ****http://localhost:8000/contacts/2**, vous pouvez voir le contact représenté par cette valeur d’ID.
+1. Quand vous accédez à **http://localhost:8000/contacts/2**, vous pouvez voir le contact représenté par cette valeur d’ID.
 
     ![Appel d’API de contact spécifique](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
-1. Les données JSON Swagger sont fournies par le biais du point de terminaison **/swagger** :
+1. Les données JSON Swagger sont fournies par le biais du point de terminaison **/swagger** :
 
     ![Contacts Swagger Json](media/app-service-api-nodejs-api-app/contacts-swagger-json.png)
 

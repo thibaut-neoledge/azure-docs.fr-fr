@@ -111,7 +111,7 @@ Le volet des détails de l’appareil affiche toutes les commandes prises en cha
 
     ![][img-pingcommand]
 
-La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat est défini sur **Réussite** :
+La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat est défini sur **Réussite** :
 
 ## Ajouter un nouvel appareil simulé
 
@@ -147,7 +147,7 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
 1.  Retournez à la liste des appareils.
 
-2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d'un appareil** :
+2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d'un appareil** :
 
     ![][img-editdevice]
 
@@ -177,7 +177,7 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
     ![][img-adddevicerule2]
 
-6.  Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Cliquez ensuite sur **Envoyer la commande** :
+6.  Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Cliquez ensuite sur **Envoyer la commande** :
 
     ![][img-adddevicerule3]
 
@@ -185,11 +185,11 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
     ![][img-adddevicerule4]
 
-8. Vous pouvez consulter et modifier toutes les règles sur le tableau de bord **Règles** :
+8. Vous pouvez consulter et modifier toutes les règles sur le tableau de bord **Règles** :
 
     ![][img-rules]
 
-9. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
+9. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
 
     ![][img-actions]
 

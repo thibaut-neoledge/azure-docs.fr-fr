@@ -36,7 +36,8 @@ Sélectionnez une icône afin d’apprendre rapidement à tirer parti de ces con
 |[![Icône API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icône API][rssicon]<br/>**RSS**][rssdoc]|[![Icône API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icône API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![Icône API][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![Icône API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icône API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icône API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Icône API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icône API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icône API][trelloicon]<br/>**Trello**][trellodoc]|[![Icône API][twilioicon]<br/>**Twilio**][twiliodoc]|
-|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icône API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icône API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
+[![Icône API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] Si vous avez créé des applications logiques en utilisant le schéma 2014-12-01-preview, vous remarquerez que les connecteurs d’intégration d’entreprise tels que ceux de BizTalk ne sont pas répertoriés ci-dessus. Nous savons ces outils sont importants et nous travaillons dur pour vous les fournir dans les meilleurs délais. Bien que nous n’ayons pas de date de disponibilité exacte à vous communiquer, soyez sûr que vous les fournir fait partie de nos priorités. En attendant, vous avez accès à nos [API v1 et BizTalk depuis Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Merci de votre compréhension. Restez connecté !
 
@@ -54,7 +55,10 @@ Il existe deux types de déclencheurs :
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
 
 
-[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md)
+[Nouveautés](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Générer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Prise en main de PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migrer les applications logiques existantes vers la dernière version du schéma](connectors-schema-migration.md) 
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connectez-vous à un objet blob Azure pour gérer les fichiers de votre conteneur d'objets blob."

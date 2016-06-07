@@ -42,7 +42,7 @@ Pour activer ce scénario, vous avez besoin des éléments suivants :
 
 7. Vous allez maintenant taper le mot-clé que vous souhaitez rechercher dans Twitter. ![Recherche Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-5. Sélectionnez le signe plus (+), puis choisissez **Ajouter une action** ou **Ajouter une condition** : ![Plus](./media/app-service-logic-create-a-logic-app/plus.png)
+5. Sélectionnez le signe plus (+), puis choisissez **Ajouter une action** ou **Ajouter une condition** : ![Plus](./media/app-service-logic-create-a-logic-app/plus.png)
 6. Si vous sélectionnez **Ajouter une action**, tous les connecteurs accompagnés des actions disponibles sont répertoriés. Vous pouvez alors choisir le connecteur et l’action à ajouter à votre application logique. Par exemple, vous pouvez sélectionner **Office 365 - Envoyer un message électronique** ainsi que d’autres actions Office 365 : ![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
 
 7. À présent, vous devez renseigner les paramètres du message électronique : ![Paramètres](./media/app-service-logic-create-a-logic-app/parameters.png)
