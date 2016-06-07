@@ -100,7 +100,7 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 
 ![Travail de restauration terminé](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](virtual-machines-set-up-endpoints) de la machine virtuelle dans le portail Azure.
+Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) de la machine virtuelle dans le portail Azure.
 
 ## Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.
@@ -142,7 +142,7 @@ PowerShell ne peut restaurer que des disques de machine virtuelle à partir d'un
 
 Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, procédez comme suit :
 
-1. Restaurez les disques à partir de l’archivage de sauvegarde à l’aide d’[Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restaurez les disques à partir de l’archivage de sauvegarde à l’aide d’[Azure Backup PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Créer la configuration de machine virtuelle requise pour l'équilibreur de charge/plusieurs cartes réseau/plusieurs adresse IP réservée à l'aide des applets de commande PowerShell et utilisez-la pour créer la machine virtuelle avec la configuration souhaitée.
 	- Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
@@ -155,4 +155,4 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

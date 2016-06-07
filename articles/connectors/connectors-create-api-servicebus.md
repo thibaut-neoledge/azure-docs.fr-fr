@@ -1,10 +1,10 @@
 <properties
-pageTitle="Utiliser l'API Azure Service Bus dans vos applications logiques | Microsoft Azure"
-description="Prendre en main l’utilisation de l’API Azure Service Bus (connecteur) dans vos applications logiques Microsoft Azure App Service"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Utiliser le connecteur Azure Service Bus dans vos applications logiques | Microsoft Azure"
+description="Utiliser le connecteur Azure Service Bus dans vos applications logiques Microsoft Azure App Service"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/23/2016"
 ms.author="deonhe"/>
 
-# Prise en main de l’API Azure Service Bus
+# Prise en main du connecteur Azure Service Bus 
 
 Connectez-vous à Azure Service Bus pour envoyer et recevoir des messages. Vous pouvez effectuer des actions comme envoyer vers une file d'attente, envoyer vers une rubrique, recevoir d’une file d'attente, recevoir d'un abonnement, etc.
 
@@ -31,9 +31,9 @@ Pour ajouter une opération à des applications logiques, consultez [Créer une 
 
 ## À propos des déclencheurs et des actions
 
-L'API Azure Service Bus peut être utilisée en tant qu'action ; elle possède un ou plusieurs déclencheurs. Toutes les API prennent en charge les données aux formats JSON et XML.
+Le connecteur Azure Service Bus peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
- L'API Azure Service Bus met à votre disposition les actions et/ou les déclencheurs ci-après.
+ Le connecteur Azure Service Bus met à votre disposition les actions et/ou les déclencheurs ci-après.
 
 ### Actions Azure Service Bus
 Vous pouvez effectuer les actions suivantes :
@@ -51,27 +51,9 @@ Vous pouvez écouter les événements suivants :
 
 
 ## Créer une connexion à Azure Service Bus
-Pour utiliser l’API Azure Service Bus, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser le connecteur Azure Service Bus, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
-|Propriété| Requis|Description|
-| ---|---|---|
-|ConnectionString|Oui|Fournir une chaîne de connexion Azure Service Bus|  
-
-Suivez ces étapes pour créer une **connexion** à Service Bus que vous pourrez ensuite utiliser dans votre application logique :
-
-1. Sélectionnez **Périodicité**.
-2. Sélectionnez une **Fréquence** et entrez un **Intervalle**.
-![Configurer Service Bus][1] 
-3. Sélectionnez **Ajouter une action**.
-![Configurer Service Bus][2]   
-4. Entrez **Service Bus** dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Service Bus dans le nom.
-5. Sélectionnez **Service Bus - Envoyer un message**.
-![Configurer Service Bus][3]
-7. Entrez un **nom de connexion** et une **chaîne de connexion**, puis sélectionnez **Créer une connexion** :
-![Configurer Service Bus][4]
-7. Une fois la connexion créée, la boîte de dialogue **Envoyer un message** s’affiche. Entrez les informations nécessaires pour envoyer un message.
-![Configurer Service Bus][5]
-8. Utilisez le bouton **Enregistrer** dans le menu supérieur pour enregistrer votre travail.    
+>[AZURE.INCLUDE [Procédure de création d’une connexion à ServiceBus](../../includes/connectors-create-api-servicebus.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -143,13 +125,13 @@ Suivez ces étapes pour créer une **connexion** à Service Bus que vous pourrez
 
 ## Définition(s) d'objet : 
 
- **ServiceBusMessage** : message composé de contenu et de propriétés
+ **ServiceBusMessage** : message composé de contenu et de propriétés
 
 Propriétés requises pour ServiceBusMessage :
 
 ContentTransferEncoding
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -161,13 +143,6 @@ ContentTransferEncoding
 
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
-[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png
-[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
-[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
-[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
-[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Comment activer ou désactiver des rôles dans Azure AD Privileged Identity Management
@@ -22,7 +22,7 @@ Le service Azure Active Directory (AD) Privileged Identity Management simplifie 
 
 Cet article est destiné aux administrateurs qui doivent activer leur rôle dans Azure AD Privileged Identity Management (PIM). Il vous guidera à travers les étapes pour activer un rôle lorsque vous avez besoin des autorisations et désactivez le rôle lorsque vous avez terminé.
 
-Si vous avez été affecté à un rôle d'administrateur, vous pouvez activer ce rôle lorsque vous devez effectuer une tâche qui nécessite ce rôle. Par exemple, si vous devez parfois uniquement gérer Office 365, les administrateurs de sécurité de votre organisation ne souhaitent pas faire de vous un administrateur permanent. Au lieu de cela, ils font de vous un candidat pour les rôles d'administrateur général ou Exchange Online dans Azure AD. Cela signifie que vous pouvez demander une attribution de rôle temporaire lorsque vous avez besoin de ces privilèges, et que vous aurez le contrôle d'administration pour Office 365 pendant une période prédéterminée.
+Si vous avez été affecté à un rôle d'administrateur, vous pouvez activer ce rôle lorsque vous devez effectuer une tâche qui nécessite ce rôle. Par exemple, si vous devez parfois uniquement gérer Office 365, les administrateurs de rôle privilégié de votre organisation ne souhaitent pas faire de vous un administrateur permanent. Au lieu de cela, ils font de vous un candidat pour les rôles d'administrateur général ou Exchange Online dans Azure AD. Cela signifie que vous pouvez demander une attribution de rôle temporaire lorsque vous avez besoin de ces privilèges, et que vous aurez le contrôle d'administration pour Office 365 pendant une période prédéterminée.
 
 
 ## Ajout de l’application Privileged Identity Management
@@ -46,7 +46,7 @@ Lorsque vous avez besoin prendre un rôle, vous pouvez demander une activation a
 3. Sélectionnez le rôle que vous souhaitez activer.
 4. Sélectionnez **Activer**. Le panneau **Demande d’activation du rôle** s’affiche.
 5. Pour certains rôles, comme administrateur général, l'authentification multifacteur (MFA) est requise pour activer le rôle. Si vous n'avez pas effectué l'authentification MFA lors de la connexion, vous devrez peut-être le faire avant de pouvoir activer le rôle.
-6. Entrez le motif de la demande d’activation dans le champ de texte. L'administrateur de la sécurité peut également exiger que vous fournissiez un numéro de ticket d'incident.
+6. Entrez le motif de la demande d’activation dans le champ de texte. L’administrateur de rôle privilégié peut également exiger que vous fournissiez un numéro de ticket d’incident.
 7. Sélectionnez **OK**. Le rôle sera maintenant activé et la modification de rôle sera visible dans Microsoft Online Services.
 
 ## Désactiver un rôle
@@ -63,4 +63,4 @@ Si vous souhaitez en savoir plus sur Azure AD Privileged Identity Management, le
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

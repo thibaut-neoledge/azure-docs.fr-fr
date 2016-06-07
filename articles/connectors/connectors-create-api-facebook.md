@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajouter l’API Facebook à vos applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’API Facebook avec les paramètres de l’API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Ajouter le connecteur Facebook à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur Facebook avec les paramètres d’API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API Facebook
-Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. L’API Facebook peut être utilisée à partir de :
+# Prise en main du connecteur Facebook
+Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. Le connecteur Facebook peut être utilisé dans :
 
 - Applications logiques (abordées dans cette rubrique)
 - PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
@@ -35,16 +35,16 @@ Avec Facebook, vous pouvez effectuer les opérations suivantes :
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
-L’API Facebook inclut les déclencheurs et les actions suivants.
+Le connecteur Facebook inclut le déclencheur et les actions suivants.
 
 | Déclencheurs | Actions|
 | --- | --- |
 | <ul><li>Quand il y a une nouvelle publication dans mon journal</li></ul> |<ul><li>Obtenir un flux à partir de mon journal</li><li>Publier dans mon journal</li><li>Quand il y a une nouvelle publication dans mon journal</li><li>Obtenir un flux de page</li><li>Obtenir le journal d’un utilisateur</li><li>Publier dans une page</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Facebook
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Facebook.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Facebook.
 
 1. Connectez-vous à votre compte Facebook.
 2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Facebook et de l’utiliser. 
@@ -436,4 +436,4 @@ Tout membre de ces groupes est susceptible de voir cette publication, à la diff
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

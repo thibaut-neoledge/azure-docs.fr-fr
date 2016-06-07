@@ -67,7 +67,7 @@ Ouvrez la console PowerShell et connectez-vous à votre compte. Pour plus d'info
 
 Utilisez l’exemple suivant pour faciliter votre connexion :
 
-	Login-AzureRmAccountt
+	Login-AzureRmAccount
 
 Vérifiez les abonnements associés au compte.
 
@@ -174,4 +174,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 
 Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

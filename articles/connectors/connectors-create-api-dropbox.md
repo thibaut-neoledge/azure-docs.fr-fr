@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Ajouter l’API Dropbox à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’API Dropbox avec les paramètres de l’API REST"
-	services=""
+    pageTitle="Ajouter le connecteur Dropbox à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur Dropbox avec les paramètres d’API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
-# Prendre en main l’API Dropbox 
-Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers. L’API Dropbox peut être utilisée à partir de :
+# Prise en main du connecteur Dropbox 
+Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers. Le connecteur Dropbox peut être utilisé dans :
 
 - Logic Apps 
 - PowerApps
@@ -38,9 +38,9 @@ Avec Dropbox, vous pouvez effectuer les opérations suivantes :
 - Créer votre flux d’activité en fonction des données que vous obtenez de Dropbox. 
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
 - Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans Dropbox, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
-- Ajouter l’API Dropbox à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Ajoutez le connecteur Dropbox à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
 
-Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,14 +51,13 @@ Déclencheurs | Actions
 --- | ---
 <ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire une archive dans un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
 
-Toutes les API prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
 ## Créer la connexion à Dropbox
 
-Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Dropbox.
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Dropbox.
 
-1. Connectez-vous à votre compte Dropbox.
-2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Dropbox et de l’utiliser. 
+>[AZURE.INCLUDE [Procédure de création d’une connexion à Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
 Après avoir créé la connexion, vous entrez les propriétés Dropbox, telles que le chemin du dossier ou le nom du fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
@@ -128,7 +127,7 @@ Supprime un fichier de Dropbox. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Extraire une archive dans un dossier    
-Extrait un fichier d’archive dans un dossier de Dropbox (exemple : .zip). **```POST: /datasets/default/extractFolderV2```**
+Extrait un fichier d’archive dans un dossier de Dropbox (exemple : .zip). **```POST: /datasets/default/extractFolderV2```**
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -272,9 +271,9 @@ Déclenche un flux quand un fichier est modifié dans un dossier Dropbox. ```GET
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Revenir à la [liste des API](apis-list.md)
+Revenir à la [liste des API](apis-list.md).
 
 
 <!--References-->
@@ -286,4 +285,4 @@ Revenir à la [liste des API](apis-list.md)
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

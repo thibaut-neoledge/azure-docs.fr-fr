@@ -204,7 +204,7 @@ Reportez-vous à l’article sur les [jetons de sécurité IoT Hub][lnk-sas-toke
 
 Chaque protocole pris en charge (par exemple, AMQP, MQTT et HTTP) transporte des jetons de différentes façons.
 
-Le protocole HTTP implémente l’authentification en incluant un jeton valide dans l’en-tête de demande **Authorization**. Un paramètre de demande appelé **Authorization** peut également transporter le jeton.
+Le protocole HTTP implémente l’authentification en incluant un jeton valide dans l’en-tête de demande **Authorization**.
 
 Lorsque vous utilisez [AMQP][lnk-amqp], IoT Hub prend en charge [SASL PLAIN][lnk-sasl-plain] et la [sécurité basée sur des revendications AMQP][lnk-cbs].
 
@@ -295,12 +295,12 @@ IoT Hub prend en charge les protocoles [AMQP][lnk-amqp], AMQP sur WebSockets, MQ
 #### Remarques sur la prise en charge MQTT
 IoT Hub implémente le protocole MQTT v3.1.1 avec le comportement spécifique et les limitations suivantes :
 
-  * **QoS 2 n’est pas pris en charge** : quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
-  * **Retain** : si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+  * **QoS 2 n’est pas pris en charge** : quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
+  * **Retain** : si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
   
 Consultez l’article [Prise en charge de MQTT au niveau d’IoT Hub][lnk-mqtt-support] pour plus de détails.
 
-Enfin, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Le principal inconvénient de cette approche est la nécessité d’héberger et de gérer soi-même une passerelle de protocole personnalisé.
+Enfin, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Le principal inconvénient de cette approche est la nécessité d’héberger et de gérer soi-même une passerelle de protocole personnalisé.
 
 ### Appareil vers cloud <a id="d2c"></a>
 
@@ -387,10 +387,10 @@ Quand le service envoie un message, celui-ci est considéré comme *en file d’
 
 Un appareil peut également :
 
-- *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (lettre morte) ;
+- *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (Lettre morte) ;
 - *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued** (En file attente).
 
-Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai de visibilité (ou de verrouillage)* dont la valeur par défaut est d’une minute. Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété *Nombre maximal de diffusions* sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
+Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai de visibilité (ou de verrouillage)* dont la valeur par défaut est d’une minute. Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété *Nombre maximal de remises* sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
 
 Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité Cloud vers appareil entre les API et le kit de développement logiciel, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-apis-sdks].
 
@@ -494,11 +494,11 @@ Il est important de préciser que la limitation des *connexions d’appareil* r�
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
 
-Le billet de blog [Limitation d’IoT Hub et vous][lnk-throttle-blog] fournit une présentation détaillée du comportement de limitation d’IoT Hub.
+Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitation d’IoT Hub et vous) fournit une présentation détaillée du comportement de limitation d’IoT Hub.
 
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 
-**Important** : les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils sont prises en charge via les [tâches d’importation/exportation](#importexport).
+**Important** : les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils est prise en charge via les [travaux d’importation/exportation](#importexport).
 
 ## Étapes suivantes
 
@@ -557,4 +557,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

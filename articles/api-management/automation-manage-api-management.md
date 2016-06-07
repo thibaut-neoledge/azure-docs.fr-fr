@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/24/2016"
 	ms.author="csand"/>
 
 
@@ -42,6 +42,6 @@ Voici quelques exemples de gestion d’API avec Automation :
 
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour la gestion des API Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
-* Consultez le [Didacticiel de prise en main](../automation/automation-first-runbook-graphical) d’Azure Automation.
+* Consultez le [Didacticiel de prise en main](../automation/automation-first-runbook-graphical.md) d’Azure Automation.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

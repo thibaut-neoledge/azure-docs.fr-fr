@@ -177,4 +177,4 @@ Pour plus d’informations sur le développement d’applications web WordPress 
 [WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

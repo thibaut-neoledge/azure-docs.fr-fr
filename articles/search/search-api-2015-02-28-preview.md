@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
@@ -134,7 +134,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom d'index s
 
 La création d'un index détermine la structure des documents stockés et utilisés dans les opérations de recherche. Le remplissage de l'index est une opération distincte. Pour cette étape, vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponible pour les sources de données prises en charge) ou une opération [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'index inversé est généré lors de la publication des documents.
 
-**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 **Requête**
 
@@ -250,7 +250,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `searchable` : indique que le champ peut faire l'objet d'une recherche en texte intégral. Cela signifie qu'il fera l'objet d'une analyse, par exemple lexicale, lors de l'indexation. Si vous définissez un champ `searchable` avec une valeur telle que « journée ensoleillée », cette valeur est fractionnée au niveau interne en jetons individuels « journée » et « ensoleillée ». Cela permet d'effectuer des recherches en texte intégral de ces termes. Les champs de type `Edm.String` ou `Collection(Edm.String)` sont `searchable` par défaut. Les autres types de champs ne peuvent pas être `searchable`.
 
-  - **Remarque** : les champs `searchable` nécessitent davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
+  - **Remarque** : les champs `searchable` nécessitent davantage d'espace dans votre index, car Azure Search stocke une version supplémentaire tokenisée de la valeur du champ pour les recherches en texte intégral. Si vous voulez économiser de l'espace dans votre index et que vous n'avez pas besoin d'inclure un champ dans les recherches, définissez `searchable` avec la valeur `false`.
 
 `filterable` : permet au champ d'être référencé dans les requêtes `$filter`. `filterable` diffère de `searchable` dans la manière dont sont gérées les chaînes. Les champs de type `Edm.String` ou `Collection(Edm.String)` qui sont `filterable` ne font pas l'objet d'une analyse lexicale, les comparaisons ne concernent donc que les correspondances exactes. Par exemple, si vous définissez un champ de type `f` avec la valeur « journée ensoleillée », `$filter=f eq 'sunny'` ne trouvera aucune correspondance, contrairement à `$filter=f eq 'sunny day'`. Tous les champs sont `filterable` par défaut.
 
@@ -258,9 +258,9 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `facetable` : généralement utilisé dans une présentation des résultats de recherche qui inclut le nombre d'accès par catégorie (par exemple, vous recherchez des appareils photo numériques et regardez le nombre d'accès par marque, mégapixels, prix, etc.). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Tous les autres champs sont `facetable` par défaut.
 
-  - **Remarque** : les champs de type `Edm.String` qui sont `filterable`, `sortable` ou `facetable` ne doivent pas dépasser 32 Ko de longueur. En effet, ces champs sont traités en tant que terme de recherche unique, et la longueur maximale d'un terme dans Azure Search est 32 Ko. Si vous devez stocker plus de texte dans un champ de chaîne unique, définissez explicitement `filterable`, `sortable` et `facetable` avec la valeur `false` dans votre définition d'index.
+  - **Remarque** : les champs de type `Edm.String` qui sont `filterable`, `sortable` ou `facetable` ne doivent pas dépasser 32 Ko de longueur. En effet, ces champs sont traités en tant que terme de recherche unique, et la longueur maximale d'un terme dans Azure Search est 32 Ko. Si vous devez stocker plus de texte dans un champ de chaîne unique, définissez explicitement `filterable`, `sortable` et `facetable` avec la valeur `false` dans votre définition d'index.
 
-  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
+  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
 
 `key` : indique que le champ contient des identificateurs uniques pour les documents de l'index. Un seul champ doit être choisi comme champ `key` et il doit être de type `Edm.String`. Les champs de clés peuvent servir à rechercher des documents directement via l'[API de recherche](#LookupAPI).
 
@@ -1056,35 +1056,112 @@ Le corps de la requête contient un ou plusieurs documents à indexer. Les docum
 
 **Réponse**
 
-Code d'état : 200 OK est retourné pour une réponse correcte, ce qui signifie que tous les éléments ont été indexés (comme indiqué par le champ « status » défini avec la valeur true pour tous les éléments) :
+Code d’état : 200 (OK) est retourné pour une réponse correcte, ce qui signifie que tous les éléments ont été indexés. La propriété `status` est alors définie sur true pour tous les éléments, et la propriété `statusCode` est définie soit sur 201 (pour les documents nouvellement chargés) soit sur 200 (pour les documents fusionnés ou supprimés) :
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-Code d'état : 207 est retourné quand au moins un élément n'a pas été indexé (comme indiqué par le champ « status » avec la valeur false pour les éléments qui n'ont pas été indexés) :
+Un code d’état 207 (Multi-état) est renvoyé lorsqu’au moins un élément n’a pas été correctement indexé. Le champ `status` des éléments qui n’ont pas été indexés prend alors la valeur false. Les propriété `errorMessage` et `statusCode` indiquent la raison de l’erreur d’indexation :
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-La propriété `errorMessage` indique la raison de l'erreur d'indexation, si possible.
+Le tableau suivant décrit, par document, les différents codes d’état pouvant être retournés dans la réponse. Notez que certains codes indiquent des problèmes au niveau de la requête proprement dite, tandis que d’autres indiquent des conditions d’erreur temporaires. Dans ce dernier cas, il est recommandé de réessayer l’opération après un certain délai.
 
-**Remarque** : si votre code client rencontre fréquemment une réponse 207, le système est peut-être en cours de chargement. Vous pouvez vous en assurer en vérifiant la propriété `errorMessage`. Si tel est le cas, nous vous recommandons de ***limiter les requêtes d'indexation***. Sinon, si le trafic d'indexation ne diminue pas, le système peut commencer à rejeter toutes les requêtes avec des erreurs 503.
+<table style="font-size:12">
+    <tr>
+		<th>Code d’état</th>
+		<th>Signification</th>
+		<th>Nouvelle tentative possible</th>
+		<th>Remarques</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>Le document a été correctement modifié ou supprimé.</td>
+		<td>n/a</td>
+		<td>Les opérations de suppression sont <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>. Autrement dit, même si une clé de document n’existe pas dans l’index, une tentative d’opération de suppression avec cette clé générera le code d’état 200.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>Le document a été créé avec succès.</td>
+		<td>n/a</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>Le document a rencontré une erreur qui a empêché son indexation.</td>
+		<td>Non</td>
+		<td>Le message d’erreur dans la réponse indique le problème survenu au niveau du document.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>Le document n’a pas pu être fusionné, car la clé spécifiée n’existe pas dans l’index.</td>
+		<td>Non</td>
+		<td>Cette erreur ne s’applique pas aux téléchargements dans la mesure où ils créent de nouveaux documents, de même qu’elle ne se produit pas pour les suppressions, car elles sont <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>Un conflit de version a été détecté lors de la tentative d’indexation d’un document.</td>
+		<td>Oui</td>
+		<td>Cela peut se produire lorsque vous essayez d’indexer le même document plusieurs fois simultanément.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>L’index est temporairement indisponible car il a été mis à jour avec l’indicateur « allowIndexDowntime » défini sur « true ».</td>
+		<td>Oui</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>Votre service de recherche est temporairement indisponible, probablement en raison d’une charge importante.</td>
+		<td>Oui</td>
+		<td>Votre code doit attendre avant d’effectuer une nouvelle tentative, au risque de prolonger l’indisponibilité du service.</td>
+	</tr>
+</table> 
 
-Code d'état : 429 indique que vous avez dépassé votre quota du nombre de documents par index. Vous devez créer un autre index ou effectuer une mise à niveau pour bénéficier de limites de capacité supérieures.
+**Remarque** : si votre code client rencontre fréquemment une réponse 207, le système est peut-être en cours de chargement. Vous pouvez vous en assurer en vérifiant la propriété `statusCode` pour 503. Si tel est le cas, nous vous recommandons de ***limiter les requêtes d'indexation***. Sinon, si le trafic d'indexation ne diminue pas, le système peut commencer à rejeter toutes les requêtes avec des erreurs 503.
+
+Le code d’état 429 indique que vous avez dépassé votre quota du nombre de documents par index. Vous devez créer un autre index ou effectuer une mise à niveau pour bénéficier de limites de capacité supérieures.
 
 **Exemple :**
 
@@ -1175,7 +1252,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (ce qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
-  - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
+  - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
 
 `searchMode=any|all` (facultatif, la valeur par défaut est `any`) : indique si certains ou l'ensemble des termes de recherche doivent correspondre pour que le document soit considéré comme une correspondance.
 
@@ -1211,7 +1288,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 - `count` (nombre maximal de termes de facette ; la valeur par défaut est 10). Il n'y a pas de valeur maximale, mais les valeurs supérieures ont un impact négatif sur les performances, en particulier si le champ à facettes contient un grand nombre de termes uniques.
   - Par exemple : `facet=category,count:5` obtient les cinq premières catégories des résultats de facette.  
-  - **Remarque** : si le paramètre `count` est inférieur au nombre de termes uniques, les résultats seront peut-être inexacts. Cela s'explique par la manière dont les requêtes de facettes sont distribuées entre les partitions. L'attribution d'une valeur supérieure pour `count` augmente généralement la précision du nombre de termes, mais au détriment des performances.
+  - **Remarque** : si le paramètre `count` est inférieur au nombre de termes uniques, les résultats seront peut-être inexacts. Cela s'explique par la manière dont les requêtes de facettes sont distribuées entre les partitions. L'attribution d'une valeur supérieure pour `count` augmente généralement la précision du nombre de termes, mais au détriment des performances.
 - `sort` (`count` pour effectuer un tri par nombre par ordre *décroissant*, `-count` pour effectuer un tri par nombre par ordre *croissant*, `value` pour effectuer un tri par valeur par ordre *croissant* ou `-value` pour effectuer un tri par valeur par ordre *décroissant*)
   - Par exemple : `facet=category,count:3,sort:count` obtient les trois premières catégories des résultats de facette triées par ordre décroissant du nombre de documents de chaque ville. Par exemple, si les trois premières catégories sont Budget, Motel et Luxe, que Budget a 5 accès, Motel en a 6 et Luxe en a 4, les compartiments apparaîtront dans l'ordre Motel, Budget et Luxe.
   - Par exemple : `facet=rating,sort:-value` génère des compartiments pour tous les classements possibles, triés par ordre décroissant des valeurs. Par exemple, si les classements vont de 1 à 5, les compartiments apparaissent dans l'ordre 5, 4, 3, 2, 1, quel que soit le nombre de documents qui correspond à chaque classement.
@@ -1223,7 +1300,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
 - `timeoffset` ([+-]hh:mm, [+-]hhmm, ou [+-]hh) `timeoffset` est facultatif. Il peut uniquement être associé à l’option `interval` et uniquement lorsqu’il est appliqué à un champ de type `Edm.DateTimeOffset`. La valeur spécifie le décalage horaire UTC à prendre en compte lors de la définition des limites de temps.
   - Par exemple : `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utilise la limite de la journée qui commence à 01:00:00 UTC (minuit dans le fuseau horaire cible).
-- **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
+- **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 - **Remarque** : les facettes d’intervalle de date et d’heure sont calculées en fonction de l’heure UTC si `timeoffset` n’est pas spécifié. Par exemple : pour `facet=lastRenovationDate,interval:day`, la limite de la journée commence à 00:00:00 UTC. 
 
 > [AZURE.NOTE] Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
@@ -1244,9 +1321,13 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `scoringProfile=[string]` (facultatif) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
 
-`scoringParameter=[string]` (zéro ou plus) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score (par exemple, `referencePointParameter`) au format nom:valeur. Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l’option de chaîne de requête est &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zéro ou plus) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score (par exemple, `referencePointParameter`) au format `name-value1,value2,...`.
 
-> [AZURE.NOTE] Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire nom:valeur distincte.
+- Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l’option de chaîne de requête est `&scoringParameter=mylocation--122.2,44.8`. Le premier tiret sépare le nom de la liste de valeurs, tandis que le second tiret fait partie de la première valeur (la longitude dans cet exemple).
+- Pour les paramètres de score, par exemple pour le renforcement des balises, qui peuvent contenir des virgules, vous pouvez ignorer ces valeurs dans la liste à l’aide de guillemets simples. Si les valeurs elles-mêmes contiennent des guillemets simples, vous pouvez les ignorer en les doublant.
+  - Par exemple, si vous avez un paramètre de renforcement des balises appelé « mytag » et que vous souhaitez renforcer les valeurs de balise « Hello, O’Brien » et « Smith », l’option de la chaîne de requête serait `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Notez que les guillemets sont uniquement requis pour les valeurs qui contiennent des virgules.
+
+> [AZURE.NOTE] Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire `name-values` distincte.
 
 `minimumCoverage` (facultatif, valeur par défaut 100) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de recherche afin que la requête soit déclarée comme un succès. Par défaut, la totalité de l’index doit être disponible ou `Search` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Search` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1492,13 +1573,13 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
 13) Effectuer une recherche dans l'index en supposant qu'il existe un profil de calcul de score appelé « geo » avec deux fonctions de calcul de score de distance : l'une définit un paramètre appelé « currentLocation » et l'autre un paramètre appelé « lastLocation »
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Rechercher des documents dans l’index à l’aide d’une [syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx). Cette requête renvoie les hôtels où les champs pouvant faire l'objet d'une recherche contiennent les termes « confort » et « emplacement », mais pas « motel » :
@@ -1772,4 +1853,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

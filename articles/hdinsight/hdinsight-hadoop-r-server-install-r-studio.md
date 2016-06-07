@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 
 ## Composants requis
 
-* Un cluster Azure HDInsight avec R Server installé. Pour obtenir des instructions, consultez la page [Prise en main de R Server sur les clusters HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Un cluster Azure HDInsight avec R Server installé. Pour obtenir des instructions, consultez la page [Prise en main de R Server sur les clusters HDInsight](hdinsight-hadoop-r-server-get-started.md).
 * Un client SSH. Pour les distributions Linux et Unix ou pour Macintosh OS X, la commande `ssh` est fournie avec le système d'exploitation. Pour Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -36,7 +36,7 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 1. Identifiez le nœud de périmètre du cluster. Concernant le cluster HDInsight avec R Server, voici la convention d’affectation de noms pour le nœud principal et le nœud de périmètre.
 
 	* Nœud principal - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Nœud de périmètre - `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Nœud de périmètre - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. Utilisez SSH dans le nœud de périmètre du cluster à l’aide du modèle d’affectation de noms ci-dessus.
  
@@ -75,7 +75,7 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 
 	* Sur un client Linux ou un client Windows (à l’aide de [Cygwin](http://www.redhat.com/services/custom/cygwin/)), ouvrez une session de terminal et utilisez la commande suivante :
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Remplacez **USERNAME** par un utilisateur SSH de votre cluster HDInsight et **CLUSTERNAME** par le nom de votre cluster HDInsight
 
@@ -124,4 +124,4 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

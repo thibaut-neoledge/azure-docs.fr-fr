@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Didacticiel .NET sur la messagerie répartie Service Bus | Microsoft Azure"
-   description="Didacticiel .NET sur la messagerie répartie"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Didacticiel .NET sur la messagerie répartie Service Bus | Microsoft Azure"
+    description="Didacticiel .NET sur la messagerie répartie"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/14/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/25/2016"
+    ms.author="sethm" />
 
 # Didacticiel .NET sur la messagerie répartie Service Bus
 
@@ -27,17 +27,17 @@ Ce didacticiel vise à vous donner un aperçu et une expérience pratique des fi
 
 Les files d’attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du premier entré, premier sorti (FIFO). Avec le principe FIFO, les messages sont généralement reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message sera reçu et traité par un seul consommateur de message uniquement. Un des principaux avantages de l'utilisation de files d'attente est la possibilité d’effectuer un *découplage temporel* des composants d'application : en d'autres termes, les producteurs et les consommateurs n’ont pas besoin de s’échanger des messages en même temps, puisque les messages sont stockés durablement dans la file d'attente. Un des avantages associés est le *nivellement de charge*, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes.
 
-Voici quelques étapes d'administration et conditions préalables que vous devez suivre avant de commencer ce didacticiel : La première étape consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms de service fournit une limite d'application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d'un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+Voici quelques étapes d'administration et conditions préalables que vous devez suivre avant de commencer ce didacticiel : La première étape consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
 ### Créer un espace de noms de service et obtenir une clé SAP
 
 1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
-1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom de l’espace de noms que vous avez créé à l’étape précédente.
+1. Dans la fenêtre principale du portail, cliquez sur le nom d'espace de noms que vous avez créé à l'étape précédente.
 
 1. Cliquez sur **Configurer**.
 
-1. Dans la section du **générateur de signature d'accès partagé**, notez la clé primaire associée à la stratégie **RootManagerSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
+1. Notez la clé primaire associée à la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
 L’étape suivante consiste à créer un projet Visual Studio et à écrire deux fonctions d’assistance qui chargent une liste délimitée par des virgules de messages dans un objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortement typé.
 
@@ -48,14 +48,14 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 1. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), cliquez sur le modèle **Application console** et nommez-le **QueueSample**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
 
 1. Utilisez le gestionnaire de package NuGet pour ajouter les bibliothèques Service Bus à votre projet :
-	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier du projet, puis sélectionnez **Gérer les packages NuGet**.
-	2. Dans la boîte de dialogue **Gérer les paquets Nuget**, recherchez en ligne **Service Bus** puis cliquez sur **Installer**. <br />
+	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **QueueSample**, puis cliquez sur **Gérer les packages NuGet**.
+	2. Dans la boîte de dialogue **Gérer les packages NuGet**, cliquez sur l’onglet **Parcourir** et recherchez **Azure Service Bus**, puis cliquez sur **Installer**. <br />
 1. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le nom par défaut de l’espace de noms `QueueSample` par `Microsoft.ServiceBus.Samples`.
 
 	```
 	Microsoft.ServiceBus.Samples
 	{
-	    …
+	    ...
 	```
 
 1. Modifiez les instructions `using` comme indiqué dans le code suivant.
@@ -66,6 +66,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	using System.Data;
 	using System.IO;
 	using System.Threading;
+	using System.Threading.Tasks;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
@@ -90,20 +91,20 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	15,Product defective,6,2,Premium,5,5,FALSE
 	```
 
-	Enregistrez et fermez le fichier Data.csv, puis mémorisez l'emplacement dans lequel vous l'avez enregistré.
+	Enregistrez et fermez le fichier Data.csv, puis mémorisez l’emplacement dans lequel vous l’avez enregistré.
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom de votre projet (dans cet exemple, **QueueSample**), cliquez sur **Ajouter**, puis sur **Élément existant**.
 
 1. Accédez au fichier Data.csv que vous avez créé à l’étape 6. Cliquez sur le fichier, puis sur **Ajouter**. Vérifiez que l’option **Tous les fichiers (*.*)** est sélectionnée dans la liste des types de fichiers.
 
-### Créer une fonction qui analyse une liste de messages
+### Créer une méthode qui analyse une liste de messages
 
-1. Avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L’autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
+1. Dans la classe `Program` avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L’autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
 
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    public class Program
+	    class Program
 	    {
 	
 	        private static DataTable issues;
@@ -159,7 +160,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	}
 	```
 
-### Créer une fonction qui charge la liste des messages
+### Créer une méthode qui charge la liste des messages
 
 1. En dehors de `Main()`, définissez une méthode `GenerateMessages()` qui prend l’objet **DataTable** renvoyé par `ParseCSVFile()` puis charge la table dans une liste fortement typée de messages répartis. La méthode renvoie alors l’objet **List**, comme dans l'exemple suivant. 
 
@@ -183,7 +184,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	}
 	```
 
-1. Dans `Main()`, directement sous l’appel à `ParseCSVFile()`, ajoutez une instruction qui appelle la méthode `GenerateMessages()` avec la valeur renvoyée à partir de `ParseCSVFile()` comme argument :
+1. Dans `Main()`, directement après l’appel à `ParseCSVFile()`, ajoutez une instruction qui appelle la méthode `GenerateMessages()` avec la valeur renvoyée à partir de `ParseCSVFile()` comme argument :
 
 	```
 	public static void Main(string[] args)
@@ -230,7 +231,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 	}
 	```
 
-1. Dans `Main()`, directement sous l'appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
+1. Dans `Main()`, directement après l’appel à `GenerateMessages()`, ajoutez une instruction qui appelle la méthode `CollectUserInput()` :
 
 	```
 	public static void Main(string[] args)
@@ -247,20 +248,20 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 
 ### Générez la solution.
 
-Dans le menu **Générer** de Visual Studio, vous pouvez cliquer sur **Générer la solution** ou appuyer sur F6 pour confirmer si votre travail est correct.
+Dans le menu **Générer** de Visual Studio, vous pouvez cliquer sur **Générer la solution** ou appuyer sur **Ctrl+Maj+B** pour confirmer si votre travail est correct.
 
 ## Créer des informations d’identification d’administration
 
 Dans cette étape, vous définissez les opérations de gestion que vous allez utiliser pour créer les informations d'identification de signature d’accès partagé (SAP) qui serviront à autoriser votre application.
 
-1. Pour plus de clarté, ce didacticiel place toutes les opérations de la file d'attente dans une méthode distincte. Créez une méthode `Queue()` dans la classe `Program`, sous la méthode `Main()`. Par exemple :
+1. Pour plus de clarté, ce didacticiel place toutes les opérations de la file d'attente dans une méthode distincte. Créer une méthode `Queue()` async dans la classe `Program` après la méthode `Main()`. Par exemple :
  
 	```
 	public static void Main(string[] args)
 	{
 	…
 	}
-	static void Queue()
+	static async Task Queue()
 	{
 	}
 	```
@@ -268,18 +269,17 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
 1. L’étape suivante consiste à créer des informations d’identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
 
 	```
-	static void Queue()
+	static async Task Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
 	}
 	```
-### Créer le gestionnaire d’espace de noms
 
-1. Créez un objet de gestion de l'espace de noms, avec un URI contenant l'espace de noms et les informations d'identification de gestion obtenues à l'étape précédente, en tant qu'arguments. Ajoutez ce code suivant directement sous le code que vous avez ajouté à l'étape précédente :
+2. Créez un objet de gestion de l'espace de noms, avec un URI contenant l'espace de noms et les informations d'identification de gestion obtenues à l'étape précédente, en tant qu'arguments. Ajoutez ce code suivant directement après le code que vous avez ajouté à l’étape précédente. Assurez-vous de remplacer `<yourNamespace>` par le nom de votre espace de noms de service :
 	
 	```
-	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
+	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
 	```
 
 ### Exemple
@@ -292,11 +292,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 
 namespace Microsoft.ServiceBus.Samples
 {
-  class Program
+  public class Program
   {
     private static DataTable issues;
     private static List<BrokeredMessage> MessageList;
@@ -314,14 +315,14 @@ namespace Microsoft.ServiceBus.Samples
       CollectUserInput();
 
       // Add this call
-      Queue();
+      Task.WaitAll(Queue());
     }
 
-    static void Queue()
+    static async Task Queue()
     {
       // Create management credentials
       TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
-      NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
+      NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     }
 
     static DataTable ParseCSVFile()
@@ -389,25 +390,29 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-Dans l'étape suivante, vous créez la file d'attente à laquelle vous allez envoyer des messages.
-
-## Envoyer des messages à la file d'attente
+## Envoyez des messages à la file d'attente
 
 Dans cette étape, vous créez une file d'attente, puis envoyez les messages contenus dans la liste des messages répartis vers cette file d'attente.
 
 ### Créer une file d’attente et envoyer des messages vers cette file d’attente
 
-1. Tout d’abord, créez la file d'attente. Par exemple, appelez-la `myQueue`, puis déclarez-la directement après les opérations de gestion que vous avez ajoutées à l’étape précédente :
+1. Tout d’abord, créez la file d'attente. Par exemple, appelez-la `myQueue`, puis déclarez-la directement après les opérations de gestion que vous avez ajoutées à la méthode `Queue()` lors de l’étape précédente :
 
 	```
-	QueueDescription myQueue;
-	myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
+    QueueDescription myQueue;
+
+    if (namespaceClient.QueueExists("IssueTrackingQueue"))
+    {
+        namespaceClient.DeleteQueue("IssueTrackingQueue");
+    }
+
+    myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
 	```
 
-1. Dans la méthode `Queue()`, créez un objet de fabrique de messagerie avec un URI Bus de Service nouvellement créé en tant qu’argument. Ajoutez le code suivant directement après les opérations de gestion que vous avez ajoutées à l'étape précédente :
+1. Dans la méthode `Queue()`, créez un objet de fabrique de messagerie avec un URI Bus de Service nouvellement créé en tant qu’argument. Ajoutez le code suivant directement après les opérations de gestion que vous avez ajoutées à l’étape précédente : Assurez-vous de remplacer `<yourNamespace>` par le nom de votre espace de noms de service :
 
 	```
-	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
+	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
 	```
 
 1. Puis créez l’objet de file d’attente en utilisant la classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Ajoutez le code suivant directement après le code que vous avez ajouté à la dernière étape :
@@ -425,7 +430,7 @@ Dans cette étape, vous créez une file d'attente, puis envoyez les messages con
 	{
 	    var issue = MessageList[count];
 	    issue.Label = issue.Properties["IssueTitle"].ToString();
-	    myQueueClient.Send(issue);
+	    await myQueueClient.SendAsync(issue);
 	    Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
 	}
 	```
@@ -436,49 +441,51 @@ Dans cette étape, vous obtenez la liste des messages provenant de la file d'att
 
 ### Créer un récepteur et recevoir les messages de la file d'attente
 
-Dans la méthode `Queue()`, effectuez une itération dans la file d’attente et recevez les messages à l’aide de la méthode [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx), en imprimant chaque message sur la console. Ajoutez le code suivant directement sous le code que vous avez ajouté à l'étape précédente :
+Dans la méthode `Queue()`, effectuez une itération dans la file d’attente et recevez les messages à l’aide de la méthode [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx), en imprimant chaque message sur la console. Ajoutez le code suivant directement après le code que vous avez ajouté à l’étape précédente :
 
-	```
-	Console.WriteLine("Now receiving messages from Queue.");
-	BrokeredMessage message;
-	while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
-	    {
-	        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
-	        message.Complete();
+```
+Console.WriteLine("Now receiving messages from Queue.");
+BrokeredMessage message;
+while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+    {
+        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
+        message.Complete();
 	
-	        Console.WriteLine("Processing message (sleeping...)");
-	        Thread.Sleep(1000);
-	    }
-	```
+        Console.WriteLine("Processing message (sleeping...)");
+        Thread.Sleep(1000);
+    }
+```
 
-### Terminer la méthode `Queue()` et nettoyer les ressources
+Notez que la méthode `Thread.Sleep` est utilisée uniquement pour simuler le traitement du message et qu’elle sera probablement inutile dans une application de messagerie réelle.
+
+### Terminer la méthode Queue et nettoyer les ressources
 
 Directement sous le code précédent, ajoutez le code suivant pour nettoyer la fabrique de messages et les ressources de la file d'attente :
 
-	```
-	factory.Close();
-	myQueueClient.Close();
-	namespaceClient.DeleteQueue("IssueTrackingQueue");
-	```
+```
+factory.Close();
+myQueueClient.Close();
+namespaceClient.DeleteQueue("IssueTrackingQueue");
+```
 
-### Appeler la méthode `Queue()`
+### Appeler la méthode Queue
 
 La dernière étape consiste à ajouter une instruction qui appelle la méthode `Queue()` à partir de `Main()`. Ajoutez la ligne de code en surbrillance suivante à la fin de Main() :
 	
-	```
-	public static void Main(string[] args)
-	{
-	    // Collect user input
-	    CollectUserInput();
+```
+public static void Main(string[] args)
+{
+    // Collect user input
+    CollectUserInput();
 	
-	    // Populate test data
-	    issues = ParseCSVFile();
-	    MessageList = GenerateMessages(issues);
+    // Populate test data
+    issues = ParseCSVFile();
+    MessageList = GenerateMessages(issues);
 	
-	    // Add this call
-	    Queue();
-	}
-	```
+    // Add this call
+    Queue();
+}
+```
 
 ### Exemple
 
@@ -490,131 +497,144 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 
 namespace Microsoft.ServiceBus.Samples
 {
-  class Program
-  {
-    private static DataTable issues;
-    private static List<BrokeredMessage> MessageList;
-    private static string ServiceNamespace;
-    private static string sasKeyName = "RootManageSharedAccessKey";
-    private static string sasKeyValue;
-
-    static void Main(string[] args)
+    public class Program
     {
-      // Populate test data
-      issues = ParseCSVFile();
-      MessageList = GenerateMessages(issues);
+        private static DataTable issues;
+        private static List<BrokeredMessage> MessageList;
 
-      // Collect user input
-      CollectUserInput();
+        // Add these variables
+        private static string ServiceNamespace;
+        private static string sasKeyName = "RootManageSharedAccessKey";
+        private static string sasKeyValue;
 
-      // Add this call
-      Queue();
-    }
-
-    static void Queue()
-    {
-      // Create management credentials
-      TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
-      NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
-
-      QueueDescription myQueue;
-      myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
-
-      MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
-      QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
-
-      // Send messages
-      Console.WriteLine("Now sending messages to the Queue.");
-      for (int count = 0; count < 6; count++)
-      {
-        var issue = MessageList[count];
-        issue.Label = issue.Properties["IssueTitle"].ToString();
-        myQueueClient.Send(issue);
-        Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
-      }
-
-      Console.WriteLine("Now receiving messages from Queue.");
-      BrokeredMessage message;
-      while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
-      {
-        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
-        message.Complete();
-
-        Console.WriteLine("Processing message (sleeping...)");
-        Thread.Sleep(1000);
-      }
-
-      factory.Close();
-      myQueueClient.Close();
-      namespaceClient.DeleteQueue("IssueTrackingQueue");
-    }
-
-    static DataTable ParseCSVFile()
-    {
-      DataTable tableIssues = new DataTable("Issues");
-      string path = @"..\..\data.csv";
-      try
-      {
-        using (StreamReader readFile = new StreamReader(path))
+        static void Main(string[] args)
         {
-          string line;
-          string[] row;
 
-          // create the columns
-          line = readFile.ReadLine();
-          foreach (string columnTitle in line.Split(','))
-          {
-            tableIssues.Columns.Add(columnTitle);
-          }
+            // Populate test data
+            issues = ParseCSVFile();
+            MessageList = GenerateMessages(issues);
 
-          while ((line = readFile.ReadLine()) != null)
-          {
-            row = line.Split(',');
-            tableIssues.Rows.Add(row);
-          }
+            // Collect user input
+            CollectUserInput();
+
+            Queue();
+
         }
-      }
-      catch (Exception e)
-      {
-        Console.WriteLine("Error:" + e.ToString());
-      }
 
-      return tableIssues;
-    }
-
-    static List<BrokeredMessage> GenerateMessages(DataTable issues)
-    {
-      // Instantiate the brokered list object
-      List<BrokeredMessage> result = new List<BrokeredMessage>();
-
-      // Iterate through the table and create a brokered message for each row
-      foreach (DataRow item in issues.Rows)
-      {
-        BrokeredMessage message = new BrokeredMessage();
-        foreach (DataColumn property in issues.Columns)
+        static async Task Queue()
         {
-          message.Properties.Add(property.ColumnName, item[property]);
+            // Create management credentials
+            TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
+            NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
+
+            QueueDescription myQueue;
+
+            if (namespaceClient.QueueExists("IssueTrackingQueue"))
+            {
+                namespaceClient.DeleteQueue("IssueTrackingQueue");
+            }
+            
+            myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
+            
+            MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
+
+            QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
+
+            // Send messages
+            Console.WriteLine("Now sending messages to the queue.");
+            for (int count = 0; count < 6; count++)
+            {
+                var issue = MessageList[count];
+                issue.Label = issue.Properties["IssueTitle"].ToString();
+                await myQueueClient.SendAsync(issue);
+                Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
+            }
+
+            Console.WriteLine("Now receiving messages from Queue.");
+            BrokeredMessage message;
+            while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+            {
+                Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
+                message.Complete();
+
+                Console.WriteLine("Processing message (sleeping...)");
+                Thread.Sleep(1000);
+            }
+
+            factory.Close();
+            myQueueClient.Close();
+            namespaceClient.DeleteQueue("IssueTrackingQueue");
+
+
         }
-        result.Add(message);
-      }
-      return result;
-    }
 
-    static void CollectUserInput()
-    {
-      // User service namespace
-      Console.Write("Please enter the service namespace to use: ");
-      ServiceNamespace = Console.ReadLine();
+        static void CollectUserInput()
+        {
+            // User service namespace
+            Console.Write("Please enter the namespace to use: ");
+            ServiceNamespace = Console.ReadLine();
 
-      // Issuer key
-      Console.Write("Please enter the issuer key to use: ");
-      sasKeyValue = Console.ReadLine();
+            // Issuer key
+            Console.Write("Enter the SAS key to use: ");
+            sasKeyValue = Console.ReadLine();
+        }
+
+        static List<BrokeredMessage> GenerateMessages(DataTable issues)
+        {
+            // Instantiate the brokered list object
+            List<BrokeredMessage> result = new List<BrokeredMessage>();
+
+            // Iterate through the table and create a brokered message for each row
+            foreach (DataRow item in issues.Rows)
+            {
+                BrokeredMessage message = new BrokeredMessage();
+                foreach (DataColumn property in issues.Columns)
+                {
+                    message.Properties.Add(property.ColumnName, item[property]);
+                }
+                result.Add(message);
+            }
+            return result;
+        }
+
+        static DataTable ParseCSVFile()
+        {
+            DataTable tableIssues = new DataTable("Issues");
+            string path = @"..\..\data.csv";
+            try
+            {
+                using (StreamReader readFile = new StreamReader(path))
+                {
+                    string line;
+                    string[] row;
+
+                    // create the columns
+                    line = readFile.ReadLine();
+                    foreach (string columnTitle in line.Split(','))
+                    {
+                        tableIssues.Columns.Add(columnTitle);
+                    }
+
+                    while ((line = readFile.ReadLine()) != null)
+                    {
+                        row = line.Split(',');
+                        tableIssues.Rows.Add(row);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:" + e.ToString());
+            }
+
+            return tableIssues;
+        }
     }
-  }
 }
 ```
 
@@ -624,19 +644,7 @@ Maintenant que vous avez effectué les étapes ci-dessus, vous pouvez générer 
 
 ### Générer l’application QueueSample
 
-Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution**, ou appuyez sur F6. Si vous rencontrez des erreurs, vérifiez que votre code est correct en fonction de l'exemple complet présenté à la fin de l'étape précédente.
-
-### Exécuter l’application QueueSample
-
-1. Avant d’exécuter l’application, vous devez vous assurer que vous avez créé un espace de noms de service et obtenu une clé SAP, comme décrit dans la rubrique [Introduction et conditions préalables](#introduction-and-prerequisites).
-
-1. Ouvrez un navigateur et accédez au [portail Azure Classic][].
-
-1. Cliquez sur **Service Bus** dans l’arborescence à gauche.
-
-1. Cliquez sur le nom de l’espace de noms que vous souhaitez utiliser. En bas de la page, cliquez sur **Informations de connexion**. Notez la chaîne de connexion contenant la clé SAP ou copiez-la dans le Presse-papiers.
-
-1. Dans le menu **Déboguer** de Visual Studio, cliquez sur **Démarrer le débogage**, ou appuyez sur F5. Lorsque vous y êtes invité, entrez le nom de l'espace de noms et la clé que vous avez obtenus à l'étape précédente.
+Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution**, ou appuyez sur **Ctrl+Maj+B**. Si vous rencontrez des erreurs, vérifiez que votre code est correct en fonction de l'exemple complet présenté à la fin de l'étape précédente.
 
 ## Étapes suivantes
 
@@ -650,4 +658,4 @@ Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/servi
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

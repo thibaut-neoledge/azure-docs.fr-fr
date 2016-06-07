@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Création et publication d'un produit dans Gestion des API Azure
@@ -22,7 +22,7 @@ Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu�
 
 ## <a name="create-product"> </a>Création d’un produit
 
-Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -46,7 +46,7 @@ Pour autoriser les comptes de développeur à s’abonner plusieurs fois au prod
 
 Pour limiter le nombre d’abonnements simultanés, cochez la case **Limiter le nombre d’abonnements simultanés à** et entrez le nombre limite d’abonnements. Dans l’exemple suivant, les abonnements simultanés sont limités à quatre par compte de développeur.
 
-![Quatre abonnements multiples][api-management-four-multiple-subscriptions]
+![Quatre abonnements multiples][api-management-four-multiple-subscriptions]
 
 Une fois que toutes les nouvelles options du produit sont configurées, cliquez sur **Enregistrer** pour créer ce dernier.
 
@@ -58,7 +58,7 @@ Pour configurer un produit, cliquez sur son nom dans l'onglet **Produits**.
 
 ## <a name="add-apis"> </a>Ajout d’API à un produit
 
-La page **Produits** contient quatre liens de configuration : **Résumé**, **Paramètres**, **visibilité**, et **Abonnés**. L’onglet **Résumé** est celui dans lequel vous pouvez ajouter des API et publier un produit, ou en annuler la publication.
+La page **Produits** contient quatre liens de configuration : **Résumé**, **Paramètres**, **visibilité**, et **Abonnés**. L’onglet **Résumé** est celui dans lequel vous pouvez ajouter des API et publier un produit, ou en annuler la publication.
 
 ![Résumé][api-management-new-product-summary]
 
@@ -148,4 +148,4 @@ Pour plus d’informations sur l’utilisation des produits, consultez la vidéo
 [Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure]: api-management-howto-create-groups.md
 [Création et configuration de paramètres de produit avancés dans Gestion des API Azure]: api-management-howto-product-with-rules.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

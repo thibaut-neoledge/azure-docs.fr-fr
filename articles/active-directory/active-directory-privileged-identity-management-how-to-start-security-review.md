@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Comment démarrer une révision de sécurité dans Azure AD Privileged Identity Management
 
-Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Afin de réduire les risques associés à ces affectations de rôles « obsolètes », les administrateurs de la sécurité doivent régulièrement réviser les rôles qui ont été donnés aux utilisateurs. Ce document décrit les étapes de démarrage d’une révision de la sécurité dans Azure AD Privileged Identity Management (PIM).
+Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Pour réduire les risques associés à ces affectations de rôles « obsolètes », les administrateurs de rôle privilégié doivent régulièrement réviser les rôles qui ont été donnés aux utilisateurs. Ce document décrit les étapes de démarrage d’une révision de la sécurité dans Azure AD Privileged Identity Management (PIM).
 
 ## Démarrer une révision de sécurité
 > [AZURE.NOTE] Si vous n’avez pas ajouté l’application PIM à votre tableau de bord dans le portail Azure, consultez les étapes dans [Prise en main d’Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
@@ -64,4 +64,4 @@ Vous pouvez suivre la progression des révisions des réviseurs dans le tableau 
 ## Sommaire PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

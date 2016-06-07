@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/18/16-->
+<!--author=alkohli last changed: 05/19/16-->
 
 #### Pour télécharger des correctifs logiciels
 
@@ -95,9 +95,9 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
     Vous devez voir les versions suivantes :
 
-    - HcsSoftwareVersion : 6.3.9600.17704
-    - CisAgentVersion : 1.0.9299.0
-    - MdsAgentVersion : 330.0.4698.13
+    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `CisAgentVersion: 1.0.9299.0`
+    - `MdsAgentVersion: 30.0.4698.16` 
 
 	Si les numéros de version ne changent pas après la mise à jour, cela indique que le correctif n'a pas pu s'appliquer. Dans ce cas, contactez le [Support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
 
@@ -184,7 +184,7 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17704
+    	Software Version: 6.3.9600.17705
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
@@ -238,3 +238,5 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
     `Exit-HcsMaintenanceMode`
 
 1. Les contrôleurs redémarrent quand vous quittez le mode Maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode Maintenance pendant 24 heures.
+
+<!---HONumber=AcomDC_0525_2016-->

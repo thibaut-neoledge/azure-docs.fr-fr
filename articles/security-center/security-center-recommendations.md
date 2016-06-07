@@ -51,16 +51,16 @@ Pour afficher les détails de chaque recommandation :
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
-- **DESCRIPTION** : explication de la recommandation et de la procédure à suivre pour résoudre le problème.
-- **RESSOURCES** : ressources auxquelles s’appliquent les recommandations.
-- **ÉTAT** : décrit l’état actuel de la recommandation :
-    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
-    - **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-    - **Résolue** : la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
-- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
-    - **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-    - **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-    - **Faible** :existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+- **DESCRIPTION** : explication de la recommandation et de la procédure à suivre pour résoudre le problème.
+- **RESSOURCES** : ressources auxquelles s’appliquent les recommandations.
+- **ÉTAT** : décrit l’état actuel de la recommandation :
+    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
+    - **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+    - **Résolue** : la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
+- **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+    - **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
+    - **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
+    - **Faible** :existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
 
@@ -104,7 +104,7 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**.
 5. Saisissez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. ![][6]
 
-[Microsoft Antimalware](../azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
 
 
 ## Étapes suivantes
@@ -124,4 +124,4 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

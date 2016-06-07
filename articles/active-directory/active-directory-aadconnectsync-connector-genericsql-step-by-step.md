@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect Sync : connecteur SQL générique - Guide pas à pas | Microsoft Azure"
+   pageTitle="Azure AD Connect Sync : connecteur SQL générique - Guide pas à pas | Microsoft Azure"
    description="Cet article vous guide dans une procédure pas à pas pour créer un simple système de base de données Ressources humaines à l’aide du connecteur SQL générique."
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Connecteur SQL générique - Guide pas à pas
 Cette rubrique est un guide pas à pas. Elle explique comment créer un simple exemple de base de données Ressources humaines et l’utiliser pour importer certains utilisateurs et leur appartenance à un groupe.
 
 ## Préparer l’exemple de base de données
-Sur un serveur exécutant SQL Server, exécutez le script SQL disponible dans l’[Annexe A](#appendix-a). Un exemple de base de données portant le nom GSQLDEMO est créé. Le modèle objet pour la base de données créée a l’aspect suivant :
+Sur un serveur exécutant SQL Server, exécutez le script SQL disponible dans l’[Annexe A](#appendix-a). Un exemple de base de données portant le nom GSQLDEMO est créé. Le modèle objet pour la base de données créée a l’aspect suivant :
 
 ![Modèle objet](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\objectmodel.png)
 
@@ -29,7 +29,7 @@ Créez également l’utilisateur que vous souhaitez utiliser pour vous connecte
 ## Créer le fichier de connexion ODBC
 Le connecteur SQL générique utilise ODBC pour se connecter au serveur distant. Nous devons tout d’abord créer un fichier avec les informations de connexion ODBC.
 
-1. Démarrez l’utilitaire de gestion ODBC sur votre serveur : ![ODBC](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc.png)
+1. Démarrez l’utilitaire de gestion ODBC sur votre serveur : ![ODBC](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc.png)
 2. Sélectionnez l’onglet **Fichier DSN**. Cliquez sur **Ajouter...**. ![ODBC1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc1.png)
 3. Le pilote prêt à l’emploi fonctionne parfaitement. Par conséquent, sélectionnez-le, puis cliquez sur **Suivant>**. ![ODBC2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc2.png)
 4. Nommez le fichier, par exemple **GenericSQL**. ![ODBC3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc3.png)
@@ -48,7 +48,7 @@ Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à 
 
 1. Dans l’interface Synchronization Service Manager, cliquez sur **Connecteurs**, puis sur **Créer**. Sélectionnez **SQL générique (Microsoft)** et donnez-lui un nom descriptif. ![Connecteur1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector1.png)
 2. Recherchez le fichier DSN que vous avez créé dans la section précédente et téléchargez-le sur le serveur. Entrez les informations de connexion à la base de données. ![Connecteur2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector2.png)
-3. Dans cette procédure pas à pas, pour faciliter la procédure, disons qu’il existe deux types d’objet : **Utilisateur** et **Groupe**. ![Connecteur3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector3.png)
+3. Dans cette procédure pas à pas, pour faciliter la procédure, disons qu’il existe deux types d’objet : **Utilisateur** et **Groupe**. ![Connecteur3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector3.png)
 4. Pour rechercher les attributs, nous voulons que le connecteur les détecte en examinant la table elle-même. Étant donné que **Utilisateurs** est un mot réservé dans SQL, nous devons l’indiquer entre crochets [ ]. ![Connecteur4](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector4.png)
 5. Il est temps de définir l’attribut d’ancrage et l’attribut de nom de domaine. Pour **Utilisateurs**, nous allons utiliser la combinaison des deux attributs username et EmployeeID. Pour **Groupe**, nous allons utiliser GroupName (rappelons qu’il ne s’agit ici que d’un exemple). ![Connecteur5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector5.png)
 6. Tous les types d’attribut ne peuvent pas être détectés dans une base de données SQL, le type d’attribut de référence en particulier. Pour le type d’objet de groupe, nous devons modifier OwnerID et MemberID en attributs de référence. ![Connecteur6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
@@ -73,7 +73,7 @@ Remplissez quelques données de test dans votre exemple de base de données. Lor
 
 Voici un utilisateur avec deux numéros de téléphone et un groupe avec quelques membres. ![cs1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\cs1.png) ![cs2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\cs2.png)
 
-## annexe A
+## annexe A
 **Script SQL pour créer l’exemple de base de données**
 
 ```SQL
@@ -173,4 +173,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -20,8 +20,8 @@ Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP
 
 >[AZURE.NOTE] Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
-## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
+## Vérification de la disponibilité d'une adresse IP particulière
+Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
 
 	Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -45,7 +45,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, ext
 	| New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
 ## Récupération des informations d’adresse IP interne statique pour une machine virtuelle
-Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
+Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
 
 	Get-AzureVM -Name TestVM -ServiceName TestService
 
@@ -77,14 +77,14 @@ Pour visualiser les informations d’adresse interne statique concernant la mach
 	OperationStatus             : OK
 
 ## Suppression d’une adresse IP interne statique d'une machine virtuelle
-Pour supprimer l’adresse IP interne statique ajoutée à la machine virtuelle par le biais du script ci-dessus, exécutez la commande PowerShell suivante :
+Pour supprimer l’adresse IP interne statique ajoutée à la machine virtuelle par le biais du script ci-dessus, exécutez la commande PowerShell suivante :
 	
 	Get-AzureVM -ServiceName TestService -Name TestVM `
 	| Remove-AzureStaticVNetIP `
 	| Update-AzureVM
 
 ## Ajout d’une adresse IP interne statique à une machine virtuelle existante
-Pour ajouter une adresse IP interne statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
+Pour ajouter une adresse IP interne statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
 	Get-AzureVM -ServiceName TestService000 -Name TestVM `
 	| Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
@@ -92,11 +92,11 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 
 ## Étapes suivantes
 
-[Adresse IP réservée](virtual-networks-reserved-public-ip)
+[Adresse IP réservée](virtual-networks-reserved-public-ip.md)
 
-[Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip)
+[Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
-[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

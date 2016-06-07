@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Création d’un index Azure Search à l’aide de l’API REST
@@ -37,7 +37,7 @@ Maintenant que vous avez configuré un service Azure Search, vous pouvez émettr
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
-3. Cliquez sur l’icône « Clés »
+3. Cliquez sur l’icône « Clés »
 
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
@@ -50,11 +50,11 @@ Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’
 Une simple requête HTTP POST transmise à votre service vous permet de créer votre index. Le corps de votre requête HTTP POST doit contenir un seul objet JSON qui définit votre index Azure Search.
 
 1. La première propriété de cet objet JSON correspond au nom de l’index.
-2. La deuxième propriété de cet objet JSON est un tableau JSON nommé `fields`, qui contient un objet JSON distinct pour chaque champ de votre index. Chacun de ces objets JSON contient plusieurs paires nom/valeur pour chacun des attributs de champ, à savoir « nom », « type », etc.
+2. La deuxième propriété de cet objet JSON est un tableau JSON nommé `fields`, qui contient un objet JSON distinct pour chaque champ de votre index. Chacun de ces objets JSON contient plusieurs paires nom/valeur pour chacun des attributs de champ, à savoir « nom », « type », etc.
 
 Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque champ devant être associé à des [attributs corrects](https://msdn.microsoft.com/library/azure/dn798941.aspx). Ces attributs déterminent les fonctionnalités de recherche (filtrage, facettes, tri de recherche en texte intégral, etc.) qui s’appliqueront à chaque champ. Si vous ne spécifiez pas d’attribut, le paramètre par défaut consistera à activer la fonctionnalité de recherche correspondante à moins que vous ne la désactiviez spécifiquement.
 
-Dans notre exemple, nous avons nommé notre index « hotels » et défini ses champs de la manière suivante :
+Dans notre exemple, nous avons nommé notre index « hotels » et défini ses champs de la manière suivante :
 
 ```JSON
 {
@@ -95,9 +95,9 @@ Vous devrez fournir vos propres nom de service et clé d’API pour émettre la 
     api-key: [api-key]
 
 
-Pour que votre requête aboutisse, vous devez voir le code d’état « 201 créé ». Pour plus d’informations sur la création d’un index via l’API REST, consultez la référence d’API sur [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Pour que votre requête aboutisse, vous devez voir le code d’état « 201 créé ». Pour plus d’informations sur la création d’un index via l’API REST, consultez la référence d’API sur [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-Pour supprimer un index, il vous suffit de générer une requête HTTP DELETE. Voici, par exemple, la requête à utiliser pour supprimer l’index « hotels » :
+Pour supprimer un index, il vous suffit de générer une requête HTTP DELETE. Voici, par exemple, la requête à utiliser pour supprimer l’index « hotels » :
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
@@ -106,4 +106,4 @@ Pour supprimer un index, il vous suffit de générer une requête HTTP DELETE. V
 ## Suivant
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

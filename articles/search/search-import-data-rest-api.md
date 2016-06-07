@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Charger des données dans Azure Search à l’aide de l’API REST
@@ -34,7 +34,7 @@ Lors de l’émission de requêtes HTTP sur votre service à l’aide de l’API
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
-3. Cliquez sur l’icône « Clés »
+3. Cliquez sur l’icône « Clés »
 
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
@@ -44,15 +44,15 @@ Votre service comporte à la fois des *clés d’administration* et des *clés d
 Pour importer des données dans un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 
 ## II. Déterminer l’action d’indexation à utiliser
-Lorsque vous utilisez l’API REST, vous allez émettre des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Azure Search. L’objet JSON contenu dans le corps de la requête HTTP comporte un seul tableau JSON nommé « value », qui renferme les objets JSON représentant les documents que vous allez ajouter à votre index, mettre à jour ou supprimer.
+Lorsque vous utilisez l’API REST, vous allez émettre des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Azure Search. L’objet JSON contenu dans le corps de la requête HTTP comporte un seul tableau JSON nommé « value », qui renferme les objets JSON représentant les documents que vous allez ajouter à votre index, mettre à jour ou supprimer.
 
-Chaque objet JSON du tableau « value » représente un document à indexer. Chacun de ces objets contient les clés du document et spécifie l’action d’indexation souhaitée (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+Chaque objet JSON du tableau « value » représente un document à indexer. Chacun de ces objets contient les clés du document et spécifie l’action d’indexation souhaitée (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
 
 @search.action | Description | Champs requis pour chaque document | Remarques
 --- | --- | --- | ---
 `upload` | Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null.
 `merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |- 
+`mergeOrUpload` | Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |-
 `delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite sur la valeur null.
 
 ## III. Construire votre requête HTTP et le corps de la requête
@@ -116,13 +116,13 @@ Dans l’URL, vous devez fournir le nom de votre service, le nom de l’index (�
 
 Dans ce cas, nous utilisons `upload`, `mergeOrUpload` et `delete` comme actions de recherche.
 
-Supposons que cet exemple d’index « hotels » contient déjà un certain nombre de documents. Notez que nous n’avons pas eu à spécifier tous les champs de document possibles en utilisant `mergeOrUpload` et que nous n’avons fait que spécifier la clé de document (`hotelId`) avec la commande `delete`.
+Supposons que cet exemple d’index « hotels » contient déjà un certain nombre de documents. Notez que nous n’avons pas eu à spécifier tous les champs de document possibles en utilisant `mergeOrUpload` et que nous n’avons fait que spécifier la clé de document (`hotelId`) avec la commande `delete`.
 
-Notez également que chaque requête d’indexation ne peut contenir que 1 000  documents (ou 16 Mo) maximum.
+Notez également que chaque requête d’indexation ne peut contenir que 1 000  documents (ou 16 Mo) maximum.
 
 ## IV. Comprendre votre code de réponse HTTP
 #### 200
-Lorsque votre demande d’indexation aboutit, vous recevez une réponse HTTP avec le code d’état `200 OK`. Le corps JSON de la réponse HTTP se présentera comme suit :
+Lorsque votre demande d’indexation aboutit, vous recevez une réponse HTTP avec le code d’état `200 OK`. Le corps JSON de la réponse HTTP se présentera comme suit :
 
 ```JSON
 {
@@ -168,4 +168,4 @@ Pour plus d’informations sur les actions de document et les réponses de réus
 ## Suivant
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

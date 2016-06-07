@@ -44,13 +44,13 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
 
 	- [Tailles de machine virtuelle autorisées](#set-allowed-vm-sizes) - Sélectionnez la liste des tailles de machine virtuelle autorisées dans le laboratoire. Un utilisateur ne peut créer des machines virtuelles qu’à partir de cette liste.
 
-	- [Nombre maximal de machines virtuelles par utilisateur](#set-maximum-vms-per-user) : spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
+	- [Nombre maximal de machines virtuelles par utilisateur.](#set-maximum-vms-per-user) - Spécifiez le nombre maximal de machines virtuelles qui peuvent être créées par un utilisateur.
 
-	- [Nombre total de machines virtuelles autorisées](#set-total-vms-allowed) : spécifiez le nombre maximal de machines virtuelles pouvant être créées pour un laboratoire, ainsi que le nombre maximal de machines virtuelles qu’un utilisateur peut créer.
+	- [Nombre total de machines virtuelles autorisées](#set-total-vms-allowed) - Spécifiez le nombre maximal de machines virtuelles qui peuvent être créées pour un laboratoire.
 
-	- [Arrêt automatique](#set-auto-shutdown) - Spécifiez l’heure à laquelle les machines virtuelles du laboratoire actif doivent s’arrêter.
+	- [Arrêt automatique](#set-auto-shutdown) - Spécifiez l’heure à laquelle les machines virtuelles du laboratoire actif doivent s’arrêter automatiquement.
 
-	- [Démarrage automatique](#set-auto-start) : spécifiez l’heure à laquelle les machines virtuelles du laboratoire actuel doivent s’arrêter.
+	- [Démarrage automatique](#set-auto-start) - Spécifiez l’heure à laquelle les machines virtuelles du laboratoire actif doivent démarrer automatiquement.
 
 ## Définir les tailles de machine virtuelle autorisées
 
@@ -135,4 +135,4 @@ Une fois que vous avez défini et appliqué les différents paramètres de strat
 - [Configurer des images Marketplace](./devtest-lab-configure-marketplace-images.md) - DevTest Labs prend en charge la création de nouvelles machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de nouvelles machines virtuelles dans un laboratoire.
 - [Créer une machine virtuelle dans un laboratoire](./devtest-lab-add-vm-with-artifacts.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

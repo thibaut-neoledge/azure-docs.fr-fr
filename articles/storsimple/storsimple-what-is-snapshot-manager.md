@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/07/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?
@@ -25,7 +25,7 @@ Cette vue d'ensemble présente le Gestionnaire d'instantanés StorSimple, décri
 
 Pour avoir une vue d’ensemble de l’ensemble du système de Microsoft Azure StorSimple, et notamment de l’unité StorSimple, du service StorSimple Manager, du Gestionnaire d’instantanés StorSimple et de l’adaptateur StorSimple pour SharePoint, consultez [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md).
  
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
 >
@@ -38,9 +38,9 @@ Le gestionnaire d’instantanés StorSimple met à votre disposition une console
 - Configurer, sauvegarder et supprimer des volumes.
 - Configurer des groupes de volumes pour garantir que les données sauvegardées sont cohérentes pour l’application.
 - Gérer les stratégies de sauvegarde afin que les données soient sauvegardées selon un calendrier prédéterminé.
-- Créer des copies indépendantes de données pouvant être stockées dans le cloud et utilisées pour la récupération d’urgence.
+- Créer des instantanés de Cloud et locaux pouvant être stockés dans le cloud et utilisés pour la récupération d’urgence.
 
-Avec le Gestionnaire d’instantanés StorSimple, vous pouvez monter des volumes, puis les configurer dans-les groupes de volumes, généralement par application. Le Gestionnaire d’instantanés StorSimple utilise ces groupes de volumes pour générer des copies de sauvegarde cohérentes avec les applications. (On parle de cohérence des applications lorsque tous les fichiers et bases de données associés sont synchronisés et reflètent l’état réel de l’application à un moment précis dans le temps.)
+StorSimple Snapshot Manager récupère la liste des applications inscrites auprès du fournisseur VSS sur l’hôte. Ensuite, pour créer des sauvegardes cohérentes avec les applications, il vérifie les volumes utilisés par une application et suggère des groupes de volumes à configurer. Le Gestionnaire d’instantanés StorSimple utilise ces groupes de volumes pour générer des copies de sauvegarde cohérentes avec les applications. (On parle de cohérence des applications lorsque tous les fichiers et bases de données associés sont synchronisés et reflètent l’état réel de l’application à un moment précis dans le temps.)
 
 Les sauvegardes de Gestionnaire d’instantanés StorSimple prennent la forme d’instantanés incrémentiels, qui capturent uniquement les modifications apportées depuis la dernière sauvegarde. Par conséquent, les sauvegardes nécessitent moins d’espace de stockage et peuvent être créées et restaurées rapidement. Le Gestionnaire d’instantanés StorSimple utilise le service Windows Volume Shadow Copy Service (VSS) garantir que les instantanés contiennent des données cohérentes avec les applications. (Pour plus d’informations, consultez la section Intégration à Windows Volume Shadow Copy Service). Avec le Gestionnaire d’instantanés StorSimple, vous pouvez créer des planifications de sauvegarde ou effectuer des sauvegardes immédiates en fonction des besoins. Si vous avez besoin de restaurer des données à partir d’une sauvegarde par la suite, le gestionnaire d’instantanés StorSimple vous permet de choisir dans le catalogue d’instantanés locaux ou de cloud. StorSimple Azure restaure uniquement les données nécessaires quand elles sont utiles, ce qui permet d’éviter des retards de disponibilité des données pendant les opérations de restauration.
 
@@ -62,7 +62,7 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour configurer
 
 - **Volumes partagés de cluster** : avec les volumes partagés de cluster (CSV), plusieurs nœuds dans un cluster de basculement peuvent lire ou écrire simultanément sur le même disque. Le basculement d’un nœud sur un autre nœud peut se produire rapidement, sans nécessiter la modification de propriété du lecteur ou le montage, démontage et la suppression d’un volume.
 
->[AZURE.IMPORTANT]Ne mélangez pas les volumes partagés de cluster et les volumes non partagés de cluster dans le même instantané. Le mélange de volumes partagés de cluster et de volumes non partagés de cluster dans un instantané n’est pas pris en charge.
+>[AZURE.IMPORTANT] Ne mélangez pas les volumes partagés de cluster et les volumes non partagés de cluster dans le même instantané. Le mélange de volumes partagés de cluster et de volumes non partagés de cluster dans un instantané n’est pas pris en charge.
  
 Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour restaurer des groupes de volume complets ou cloner et récupérer des fichiers individuels.
 
@@ -79,7 +79,7 @@ Le Gestionnaire d’instantanés StorSimple utilise des groupes de volumes pour 
 
 Les groupes de volumes ne sont pas équivalents aux conteneurs de volumes. Un conteneur de volume contient un ou plusieurs volumes qui partagent un compte de stockage cloud et d’autres attributs, tels que le chiffrement et la consommation de bande passante. Un conteneur de volumes peut contenir jusqu’à 256 volumes StorSimple alloués de façon dynamique. Pour plus d’informations sur les conteneurs de volumes, consultez la page [Gérer vos conteneurs de volumes](storsimple-manage-volume-containers.md). Les groupes de volumes sont des ensembles de volumes que vous configurez pour faciliter les opérations de sauvegarde. Si vous sélectionnez deux volumes appartenant à des conteneurs de volumes distincts, placez-les dans un seul groupe de volumes, puis créez une stratégie de sauvegarde pour ce groupe de volumes. Chaque volume sera sauvegardé dans le conteneur de volumes approprié à l’aide du compte de stockage approprié.
 
->[AZURE.NOTE]Tous les volumes d’un groupe de volumes doivent provenir d’un fournisseur de services cloud unique.
+>[AZURE.NOTE] Tous les volumes d’un groupe de volumes doivent provenir d’un fournisseur de services cloud unique.
 
 ## Intégration à Windows Volume Shadow Copy Service
 
@@ -156,4 +156,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 - [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0525_2016-->

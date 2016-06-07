@@ -22,7 +22,51 @@
 
 Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][]. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
+## Présentation des rubriques et des abonnements Service Bus
+
+Les rubriques et les abonnements Service Bus prennent en charge un modèle de communication de messagerie *de publication et d'abonnement*. Lors de l’utilisation de rubriques et d’abonnements, les composants d’une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une rubrique, qui fait office d’intermédiaire.
+
+![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+Contrairement aux files d’attente Service Bus, où chaque message est traité par un seul consommateur, les rubriques et les abonnements fournissent une forme de communication « un-à-plusieurs », à l'aide d'un modèle de publication et d'abonnement. Il est possible d’inscrire plusieurs abonnements à une rubrique. Lorsqu’un message est envoyé à une rubrique, il est alors mis à disposition de chaque abonnement pour être géré ou traité indépendamment.
+
+Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique. Vous pouvez éventuellement inscrire des règles de filtre pour une rubrique par abonnement, ce qui vous permet de filtrer et de restreindre les messages d’une rubrique reçus en fonction des abonnements à une rubrique.
+
+Les rubriques et les abonnements Service Bus vous permettent de mettre votre infrastructure à l’échelle pour traiter de très nombreux messages parmi un très grand nombre d’utilisateurs et d’applications.
+
+## Création d'un espace de noms de service
+
+Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azure, vous devez d’abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+
+Pour créer un espace de noms :
+
+1.  Connectez-vous au [portail Azure Classic][].
+
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
+
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![][0]
+
+4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][2]
+
+5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
+
+	IMPORTANT : choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+
+6. 	Gardez les valeurs par défaut des autres champs de la boîte de dialogue (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+
+## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
+
+Afin d’effectuer des opérations de gestion, comme la création d’une rubrique ou d’un abonnement, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail.
+
+### Pour obtenir les informations de gestion du portail
+
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![][0]
+
+2.  Cliquez sur l’espace de noms que vous venez de créer dans la liste affichée : ![][3]
+
+3.  Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour votre espace de noms. ![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
+
+4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
@@ -67,7 +111,7 @@ La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et
 		System.exit(-1);
 	}
 
-Il existe des méthodes sur **TopicInfo** qui permettent de paramétrer des propriétés de la rubrique, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la rubrique. L’exemple suivant montre comment créer une rubrique nommée `TestTopic` avec une taille maximale de 5 Go :
+Il existe des méthodes sur **TopicInfo** qui permettent de paramétrer des propriétés de la rubrique, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la rubrique. L’exemple suivant montre comment créer une rubrique nommée `TestTopic` avec une taille maximale de 5 Go :
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -146,7 +190,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Mo (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Mo). Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
 ## Réception des messages d’un abonnement
 
@@ -239,10 +283,14 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 
   [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
   [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.com/
+  [portail Azure Classic]: http://manage.windowsazure.com/
   [Files d’attente, rubriques et abonnements Service Bus]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  
+  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

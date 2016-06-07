@@ -34,20 +34,28 @@ L’extension Agent IaaS SQL Server prend en charge les tâches d’administrati
 
 | Fonction d’administration | Description |
 |---------------------|-------------------------------|
-| **Sauvegarde automatisée SQL** | Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle.|
-| **Mise à jour corrective automatisée SQL** | Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail.|
+| **Sauvegarde automatisée SQL** | Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations, consultez [Automated backup for SQL Server in Azure Virtual Machines (Resource Manager) (Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Resources Manager))](virtual-machines-windows-sql-automated-backup.md).|
+| **Mise à jour corrective automatisée SQL** | Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md).|
 | **Intégration du coffre de clés Azure** | Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).|
 
 ## Composants requis
 
 Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votre machine virtuelle :
 
-- Windows Server 2012, Windows Server 2012 R2, ou version ultérieure.
-- SQL Server 2012, SQL Server 2014, ou version ultérieure.
+**Système d’exploitation** :
 
-Configuration requise pour l’utilisation des applets de commande PowerShell :
+- Windows Server 2012
+- Windows Server 2012 R2
 
-- Dernière version d’Azure PowerShell [disponible ici](../powershell-install-configure.md).
+**Versions de SQL Server** :
+
+- SQL Server 2012
+- SQL Server 2014
+- SQL Server 2016
+
+**Azure PowerShell** :
+
+- [Télécharger et configurer les dernières commandes Azure PowerShell](../powershell-install-configure.md)
 
 ## Installation
 
@@ -56,6 +64,8 @@ L’Extension Agent IaaS SQL Server s’installe automatiquement lorsque vous ap
 Si vous créez une machine virtuelle Windows Server, vous pouvez installer l’extension manuellement à l’aide de l’applet de commande PowerShell **Set-AzureVMSqlServerExtension**. Par exemple, la commande suivante installe l’extension sur une machine virtuelle Windows Server pour système d’exploitation uniquement, et la nomme SQLIaaSExtension.
 
 	Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2"
+
+Si vous mettez à jour l’extension de l’agent IaaS SQL vers la dernière version, vous devez ensuite redémarrer votre machine virtuelle.
 
 ## Statut
 
@@ -89,4 +99,4 @@ Commencez par utiliser l’un des services pris en charge par l’extension. Pou
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

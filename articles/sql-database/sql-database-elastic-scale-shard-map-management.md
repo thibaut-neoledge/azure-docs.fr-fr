@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/25/2016" 
+	ms.author="ddove"/>
 
 # Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 
@@ -339,4 +339,4 @@ Cependant, pour les scénarios requérant le déplacement de données, l’outil
 [2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
 [3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

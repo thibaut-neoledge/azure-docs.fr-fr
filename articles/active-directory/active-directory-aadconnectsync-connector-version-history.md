@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synchronisation d’Azure AD Connect : historique de publication des versions du connecteur | Microsoft Azure"
+   pageTitle="Synchronisation d’Azure AD Connect : historique de publication des versions du connecteur | Microsoft Azure"
    description="Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM)."
    services="active-directory"
    documentationCenter=""
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
-# Synchronisation d’Azure AD Connect : historique de publication des versions du connecteur
+# Synchronisation d’Azure AD Connect : historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
 
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
-Liens connexes :
+Liens connexes :
 
 - [Télécharger les derniers connecteurs](http://go.microsoft.com/fwlink/?LinkId=717495)
 - Documentation de référence sur le [connecteur LDAP générique](active-directory-aadconnectsync-connector-genericldap.md)
@@ -31,11 +31,11 @@ Liens connexes :
 - Documentation de référence sur le [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
 ## 1\.1.117.0
-Publié : mars 2016
+Publié : mars 2016
 
 **Nouveau connecteur** Version initiale du [connecteur SQL générique](active-directory-aadconnectsync-connector-genericsql.md).
 
-**Nouvelles fonctionnalités :**
+**Nouvelles fonctionnalités :**
 
 - Connecteur LDAP générique :
     - Prise en charge supplémentaire pour l’importation delta avec Isode.
@@ -45,7 +45,7 @@ Publié : mars 2016
 - Connecteur Lotus Domino :
     - Lors de l’exportation, vous avez besoin d’une autorité de certification par carnet d’adresses. Vous pouvez désormais utiliser le même mot de passe pour toutes les autorités de certification pour simplifier la gestion.
 
-**Problèmes résolus :**
+**Problèmes résolus :**
 
 - Connecteur LDAP générique :
     - Pour IBM Tivoli DS, certains attributs de référence n’étaient pas été détectés correctement.
@@ -91,4 +91,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

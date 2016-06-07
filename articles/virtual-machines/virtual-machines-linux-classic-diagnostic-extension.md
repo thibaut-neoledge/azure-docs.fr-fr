@@ -108,12 +108,14 @@ Cette section décrit comment collecter et charger des fichiers journaux spécif
 Étape 2. Exécutez **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions ’2.*’ --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Scénario 4 Désactiver l’extension de surveillance Linux
+###   Scénario 4 Empêcher l’extension de collecter des journaux
+Cette section décrit comment empêcher l’extension de collecter des journaux. Notez que le processus de l’agent d’analyse sera toujours exécuté, même si cette reconfiguration est effectuée. Par conséquent, si vous voulez arrêter complètement le processus de l’agent d’analyse, vous devez désinstaller l’extension. À l’avenir, nous ajouterons peut-être une propriété de configuration permettant de simplement désactiver l’extension (en arrêtant ainsi entièrement le processus de l’agent d’analyse), sans avoir à désinstaller l’intégralité de l’extension.
+
 Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu décrit dans le scénario 1. Créez un autre fichier nommé PublicConfig.json avec le contenu suivant.
 
 	{
      	"perfCfg":[],
-     	"enableSyslog":”False”
+     	"enableSyslog":"false"
 	}
 
 
@@ -137,4 +139,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 ## Problèmes connus
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

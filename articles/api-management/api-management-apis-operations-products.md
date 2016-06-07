@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Création d'API, d'opérations et de produits dans le service Gestion des API Azure
@@ -62,4 +62,4 @@ Dans Gestion des API, un produit contient une ou plusieurs API, ainsi qu'un quot
 [Importation de la définition d’une API avec des opérations]: api-management-howto-import-api.md
 [Création et configuration de paramètres de produit avancés]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

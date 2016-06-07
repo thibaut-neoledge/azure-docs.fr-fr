@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -28,18 +28,18 @@ L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accè
 ## Documentation connexe
 Si vous n’avez pas lu la documentation sur l’[Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md), le tableau suivant fournit des liens vers des rubriques connexes.
 
-| Rubrique | |
-| --------- | --------- |
-| Installation à l’aide de la configuration rapide | [Installation rapide pour Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
-| Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Effectuer une mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+Rubrique |  
+--------- | ---------
+Installation à l’aide de la configuration rapide | [Installation rapide pour Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Effectuer une mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 ## Installation à l’aide de la configuration rapide
 Dans la configuration rapide, l’Assistant d’installation demande des informations d’identification d’administrateur d’entreprise AD DS pour que votre annuaire Active Directory local puisse être configuré avec les autorisations nécessaires pour Azure AD Connect. Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous aurez également besoin de vos informations d’identification d’administrateur général Azure AD.
 
 Page de l’Assistant | Informations d’identification collectées | Autorisations requises| Utilisation
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |-------------
 N/A|Utilisateur exécutant l’Assistant d’installation| Administrateur du serveur local| <li>Crée le compte local à utiliser comme [compte de service de moteur de synchronisation](#azure-ad-connect-sync-service-account).
 Se connecter à Azure AD| Informations d’identification Azure Active Directory | Rôle Administrateur général dans Azure AD | <li>Activation de la synchronisation dans l’annuaire Azure AD.</li> <li>Création du [compte Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li>
 Connexion à AD DS | Informations d’identification Active Directory locales | Membre du groupe Administrateurs de l’entreprise dans Active Directory| <li>Crée un [compte](#active-directory-account) dans Active Directory et lui octroie des autorisations. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li>
@@ -51,16 +51,16 @@ Ces informations d’identification ne sont utilisées que pendant l’installat
 Ces informations d’identification ne sont utilisées que pendant l’installation. Elles permettent de créer le [compte Azure AD](#azure-ad-service-account) utilisé pour synchroniser les modifications apportées à Azure AD. En outre, le compte active la synchronisation en tant que fonctionnalité dans Azure AD.
 
 ### Autorisations pour le compte AD DS créé pour la configuration rapide
-Le [compte](#active-directory-account) destiné à la lecture et à l’écriture sur les services AD DS disposera des autorisations suivantes s’il a été créé via la configuration rapide :
+Le [compte](#active-directory-account) destiné à la lecture et à l’écriture sur les services AD DS disposera des autorisations suivantes s’il a été créé par le biais de la configuration rapide :
 
-| Autorisation | Utilisé pour |
-| ---- | ---- |
-| <li>Répliquer les changements d’annuaire</li> <li>Répliquer les changements d’annuaire Tout | Synchronisation de mot de passe |
-| Toutes les propriétés en lecture/écriture Utilisateur | Importation et Exchange hybride |
-| Toutes les propriétés en lecture/écriture iNetOrgPerson | Importation et Exchange hybride |
-| Toutes les propriétés en lecture/écriture Groupe | Importation et Exchange hybride |
-| Toutes les propriétés en lecture/écriture Contact | Importation et Exchange hybride |
-| Réinitialiser le mot de passe | Préparation pour l’activation de l’écriture différée du mot de passe |
+Autorisation | Utilisé pour
+---- | ----
+<li>Répliquer les changements d’annuaire</li><li>Répliquer les changements d’annuaire Tout | Synchronisation de mot de passe
+Toutes les propriétés en lecture/écriture Utilisateur | Importation et Exchange hybride
+Toutes les propriétés en lecture/écriture iNetOrgPerson | Importation et Exchange hybride
+Toutes les propriétés en lecture/écriture Groupe | Importation et Exchange hybride
+Toutes les propriétés en lecture/écriture Contact | Importation et Exchange hybride
+Réinitialiser le mot de passe | Préparation pour l’activation de l’écriture différée du mot de passe
 
 ## Installation à l’aide des paramètres personnalisés
 Quand vous recourez à des paramètres personnalisés, le compte utilisé pour la connexion à Active Directory doit être créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account).
@@ -81,22 +81,22 @@ Quand vous installez Azure AD Connect, le compte que vous spécifiez dans la pag
 
 Les autorisations dont vous avez besoin dépendent des fonctionnalités facultatives que vous activez. Si vous avez plusieurs domaines, les autorisations doivent être accordées pour tous les domaines de la forêt. Si vous n’activez pas ces fonctionnalités, les autorisations **Utilisateur de domaine** par défaut sont suffisantes.
 
-| Fonctionnalité | Autorisations |
-| ------ | ------ |
-| Synchronisation de mot de passe | <li>Répliquer les changements d’annuaire</li> <li>Répliquer les changements d’annuaire Tout |
-| Déploiement Exchange hybride | Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
-| Écriture différée du mot de passe | Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) pour les utilisateurs. |
-| Écriture différée des appareils | Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).|
-| Écriture différée de groupe | Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver.|
+Fonctionnalité | Autorisations
+------ | ------
+Synchronisation de mot de passe | <li>Répliquer les changements d’annuaire</li> <li>Répliquer les changements d’annuaire Tout
+Déploiement Exchange hybride | Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts.
+Écriture différée du mot de passe | Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) pour les utilisateurs.
+Écriture différée des appareils | Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
+Écriture différée de groupe | Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver.
 
 ## Mise à niveau
 Lors de la mise à niveau vers une nouvelle version d'Azure AD Connect, vous devez disposer des autorisations suivantes :
 
-| Principal | Autorisations requises | Utilisé pour |
-| ---- | ---- | ---- |
-| Utilisateur exécutant l’Assistant d’installation | Administrateur du serveur local | Mettre à jour des fichiers binaires. |
-| Utilisateur exécutant l’Assistant d’installation | Membre d'ADSyncAdmins | Modifier les règles de synchronisation et d'autre configurations. |
-| Utilisateur exécutant l’Assistant d’installation | Si vous utilisez un serveur SQL complet : propriétaire (DBO, ou rôle similaire) de la base de données du moteur de synchronisation | Apporter des modifications au niveau de la base de données, telles que la mise à jour des tables avec de nouvelles colonnes. |
+Principal | Autorisations requises | Utilisé pour
+---- | ---- | ----
+Utilisateur exécutant l’Assistant d’installation | Administrateur du serveur local | Mettre à jour des fichiers binaires.
+Utilisateur exécutant l’Assistant d’installation | Membre d'ADSyncAdmins | Modifier les règles de synchronisation et d'autre configurations.
+Utilisateur exécutant l’Assistant d’installation | Si vous utilisez un serveur SQL complet : propriétaire (DBO, ou rôle similaire) de la base de données du moteur de synchronisation | Apporter des modifications au niveau de la base de données, telles que la mise à jour des tables avec de nouvelles colonnes.
 
 ## Plus d’informations sur les comptes créés
 
@@ -107,7 +107,7 @@ Si vous utilisez la configuration rapide, un compte à utiliser pour la synchron
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Comptes de service de synchronisation d'Azure AD Connect
-Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD\_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui requiert une authentification, le compte de service **AAD\_** doit se trouver dans le domaine.
+Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD\_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui nécessite une authentification, le compte de service **AAD\_** doit se trouver dans le domaine.
 
 ![Compte de service de synchronisation](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

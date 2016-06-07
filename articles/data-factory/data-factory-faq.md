@@ -114,17 +114,47 @@ Dans l'exemple ci-dessus, otherLinkedServiceName1 et otherLinkedServiceName2 rep
 
 ## Tranches - Forum Aux Questions
 
+### Pourquoi mes tranches d’entrée ne sont-elles pas à l’état Prêt ? 
+L’une des erreurs les plus courantes est de ne pas définir la propriété **external** sur **true** dans le jeu de données d’entrée quand les données d’entrée sont externes à la fabrique de données (c’est-à-dire qu’elles n’ont pas été générées par celle-ci).
+
+Dans l’exemple suivant, vous devez uniquement définir **external** sur true pour **dataset1**.
+
+**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+
+Si vous avez une autre fabrique de données avec un pipeline qui prend dataset4 (généré par le pipeline 2 dans DataFactory1), vous devez marquer dataset4 comme un jeu de données externe, car il a été généré par une autre fabrique de données (DataFactory1, et non DataFactory2).
+
+**DataFactory2** Pipeline 1: dataset4->activity4->dataset5
+
+Si la propriété « external » est définie correctement, vérifiez que les données d’entrée se trouvent bien dans l’emplacement spécifié dans la définition du jeu de données d’entrée.
+
+### Comment choisir une heure d’exécution autre que minuit pour une tranche qui est générée quotidiennement ?
+Utilisez la propriété **offset** pour spécifier l’heure à laquelle la tranche doit être générée. Pour plus d’informations sur cette propriété, consultez la section [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability). Voici un exemple rapide :
+
+	"availability":
+	{
+	    "frequency": "Day",
+	    "interval": 1,
+	    "offset": "06:00:00"
+	}
+
+Les tranches quotidiennes sont générées à **6 h** au lieu de minuit, qui est l’heure par défaut.
+
 ### Comment puis-je réexécuter une tranche ?
 Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
-- Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail. 
-- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état du segment.   
+- Utilisez l’application Surveiller et gérer pour réexécuter une fenêtre d’activité ou une tranche. Pour obtenir des instructions, consultez [Réexécuter les fenêtres d’activité sélectionnées](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).   
+- Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail.
+- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état de la tranche.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Consultez [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] pour plus d’informations sur l’applet de commande.
 
 ### Combien de temps dure le traitement d'une tranche ?
+Utilisez l’Explorateur de fenêtres d’activité dans l’application Surveiller et gérer pour connaître la durée du traitement d’une tranche de données. Pour plus d’informations, consultez [Explorateur de fenêtres d’activité](data-factory-monitor-manage-app.md#activity-window-explorer).
+
+Vous pouvez également faire ce qui suit dans le portail Azure :
+
 1. Cliquez sur la vignette **Jeux de données** dans le panneau **DATA FACTORY** de votre fabrique de données.
 2. Cliquez sur le jeu de données spécifique dans le panneau **Jeux de données**.
 3. Sélectionnez la tranche qui vous intéresse dans la liste **Tranches récentes** située dans le panneau **TABLE**.
@@ -152,4 +182,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

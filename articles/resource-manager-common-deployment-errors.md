@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Erreurs courantes lors du déploiement Azure | Microsoft Azure"
+   pageTitle="Résolution des erreurs courantes lors du déploiement Azure | Microsoft Azure"
    description="Décrit comment résoudre les erreurs courantes lors du déploiement avec Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
-   tags=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"/>
@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
 # Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager
 
-Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Pour plus d’informations sur la résolution de problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources](resource-manager-troubleshoot-deployments-portal.md).
-
-Vous pouvez éviter certaines erreurs en validant votre modèle et vos paramètres avant le déploiement. Pour obtenir des exemples de validation de votre modèle, consultez [Déployer un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Elle part du principe qu’un message d’erreur s’est affiché. Pour plus d’informations sur la raison de l’échec de votre déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
 
 ## Modèle ou ressource non valide
 
@@ -60,7 +58,7 @@ Lorsque vous spécifiez l’emplacement d’une ressource, vous devez utiliser u
 
 ### PowerShell
 
-Utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements et les types pris en charge d’un fournisseur de ressources particulier.
+Utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements et les types pris en charge pour un fournisseur de ressources particulier.
 
     Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -156,9 +154,9 @@ Dans ce cas, vous devez accéder au portail et signaler un problème de support 
 
 Vous pouvez recevoir une erreur lors du déploiement, car le compte ou le principal du service qui tente de déployer les ressources n’a pas accès à ces actions. Azure Active Directory permet à votre administrateur ou à vous-même de contrôler très précisément quelles identités peuvent accéder à quelles ressources. Par exemple, si votre compte est affecté au rôle de lecteur, il ne peut pas créer de ressources. Dans ce cas, vous devriez voir un message erreur indiquant que l’autorisation a échoué.
 
-Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](./active-directory/role-based-access-control-configure.md).
 
-En plus du contrôle d’accès en fonction du rôle, vos actions de déploiement peuvent être limitées par des stratégies sur l’abonnement. Par le biais de stratégies, l’administrateur peut appliquer les conventions sur toutes les ressources déployées dans l’abonnement. Par exemple, un administrateur peut exiger qu’une valeur de balise particulière soit fournie pour un type de ressource. Si vous n’avez pas rempli les critères de la stratégie, vous recevez une erreur pendant le déploiement. Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
+En plus du contrôle d’accès en fonction du rôle, vos actions de déploiement peuvent être limitées par les stratégies appliquées à l’abonnement. Par le biais de stratégies, l’administrateur peut appliquer les conventions sur toutes les ressources déployées dans l’abonnement. Par exemple, un administrateur peut exiger qu’une valeur de balise particulière soit fournie pour un type de ressource. Si vous n’avez pas rempli les critères de la stratégie, vous recevez une erreur pendant le déploiement. Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
 ## Vérifier l’inscription du fournisseur de ressources
 
@@ -178,7 +176,7 @@ Tous les fournisseurs de ressources disponibles et l’état de votre inscriptio
     Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
     Microsoft.Batch                 Registered        {batchAccounts}
 
-Pour inscrire un fournisseur, utilisez **Register-AzureRmResourceProvider** et indiquez le nom du fournisseur de ressources que vous souhaitez inscrire.
+Pour inscrire un fournisseur, utilisez **Register-AzureRmResourceProvider** et indiquez le nom du fournisseur de ressources que vous voulez inscrire.
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
@@ -225,6 +223,10 @@ Pour inscrire un fournisseur, consultez [Inscription d'un abonnement auprès d'u
 
 Si vous rencontrez une erreur au niveau d’une extension de script personnalisé lors du déploiement d’une machine virtuelle, consultez [Dépannage des échecs d’extension de machine virtuelle Windows dans Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) ou [Dépannage des échecs d’extension de machine virtuelle Azure Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
+## Échecs d’approvisionnement et d’allocation des machines virtuelles
+
+Si vous avez rencontré une erreur d’allocation ou d’approvisionnement d’une image de système d’exploitation pendant le déploiement d’une machine virtuelle, consultez [Troubleshoot creating a new VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) (Résoudre les problèmes de création d’une machine virtuelle) et [Résoudre des échecs d’allocation](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+
 ## Déterminer quand un déploiement est prêt 
 
 Azure Resource Manager indique qu’un déploiement a réussi quand celui-ci retourne tous les fournisseurs avec succès. Toutefois, cela ne signifie pas nécessairement que votre groupe de ressources est « actif et prêt pour vos utilisateurs ». Par exemple, un déploiement peut nécessiter le téléchargement de mises à niveau, l’attente de ressources sans modèle, ou encore l’installation de scripts complexes ou d’une autre activité exécutable qu’Azure ne connaît pas, car il ne s’agit pas d’une activité suivie par un fournisseur. Dans ce cas, cela peut prendre un moment avant que vos ressources soient prêtes pour une utilisation concrète. Par conséquent, il est normal que l'état du déploiement indique la réussite un certain temps avant que votre déploiement puisse être utilisé.
@@ -234,6 +236,8 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 ## Étapes suivantes
 
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources](resource-manager-troubleshoot-deployments-portal.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
+- Pour résoudre les erreurs liées au protocole RDP (Remote Desktop Protocol) sur votre machine virtuelle Windows, consultez [Connexions Bureau à distance](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Pour résoudre les erreurs liées à Secure Shell sur votre machine virtuelle Linux, consultez [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

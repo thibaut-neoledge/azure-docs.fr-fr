@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma" />
 
 # Déploiement d’applications avec des packages d’applications Azure Batch
@@ -29,6 +29,8 @@ Dans cet article, vous allez apprendre à télécharger et à gérer des package
 La fonctionnalité de packages d’applications abordée dans cet article est compatible *uniquement* avec les pools Batch créés après le 10 mars 2016. Les packages d’applications ne seront pas déployés sur les nœuds de calcul dans des pools créés avant cette date.
 
 Cette fonctionnalité a été introduite dans l’[API REST Batch][api_rest] version 2015-12-01.2.2 et la version 3.1.0 de la bibliothèque [Batch .NET][api_net] correspondante. Nous vous recommandons de toujours utiliser la dernière version de l’API lorsque vous utilisez Batch.
+
+> [AZURE.IMPORTANT] Actuellement, les packages d’applications ne sont pris en charge que par les pools créés avec **CloudServiceConfiguration**. Vous ne pouvez pas utiliser de packages d’applications dans des pools créés avec des images VirtualMachineConfiguration. Pour plus d’informations sur les deux configurations, consultez la section [Configuration de la machine virtuelle](batch-linux-nodes.md#virtual-machine-configuration) dans [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md).
 
 ## Concernant les applications et les packages d’applications
 
@@ -50,7 +52,7 @@ Un package d’application est un fichier ZIP contenant les fichiers binaires de
 
 Les packages d’applications peuvent simplifier le code dans votre solution Batch, mais aussi réduire les coûts requis par la gestion des applications exécutées par vos tâches.
 
-Avec les packages d’applications, la tâche de démarrage de votre pool ne doit pas nécessairement spécifier une longue liste de fichiers de ressources individuels à installer sur les nœuds. Vous n’êtes pas obligé de gérer manuellement plusieurs versions de ces fichiers dans Azure Storage ou sur vos nœuds. Et inutile de vous soucier de la génération d’[URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) pour fournir l’accès aux fichiers dans votre compte Azure Storage.
+Avec les packages d’applications, la tâche de démarrage de votre pool ne doit pas nécessairement spécifier une longue liste de fichiers de ressources individuels à installer sur les nœuds. Vous n’êtes pas obligé de gérer manuellement plusieurs versions de ces fichiers dans Azure Storage ou sur vos nœuds. Et inutile de vous soucier de la génération d’[URL SAP](../storage/storage-dotnet-shared-access-signature-part-1.md) pour fournir l’accès aux fichiers dans votre compte Azure Storage.
 
 Batch gère les détails de l’utilisation d’Azure Storage en arrière-plan pour stocker et déployer les packages d’applications pour le calcul des nœuds, donc votre code et vos frais de gestion peuvent être simplifiés.
 
@@ -62,9 +64,9 @@ Dans les sections suivantes, nous aborderons tout d’abord l’association d’
 
 ### Liaison d’un compte de stockage
 
-Pour utiliser les packages d’applications, vous devez d’abord lier un compte Azure Storage à votre compte Batch. Si vous n’avez pas encore configuré de compte de stockage pour votre compte Batch, le portail Azure affiche un avertissement la première fois que vous cliquez sur la mosaïque *Applications* dans le panneau du compte Batch.
+Pour utiliser les packages d’applications, vous devez d’abord lier un compte Azure Storage à votre compte Batch. Si vous n’avez pas encore configuré de compte de stockage pour votre compte Batch, le portail Azure affiche un avertissement la première fois que vous cliquez sur la vignette *Applications* dans le panneau du compte Batch.
 
-> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Lorsque vous liez un compte Azure Storage à votre compte Batch, liez *uniquement* un compte de stockage à **usage général**.
+> [AZURE.IMPORTANT] Le service Batch prend actuellement en charge *uniquement* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account), de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Quand vous liez un compte Azure Storage à votre compte Batch, liez *uniquement* un compte de stockage à **usage général**.
 
 ![Avertissement Aucun compte de stockage configuré dans le portail Azure][9]
 
@@ -72,13 +74,13 @@ Le service Batch utilise le compte de stockage associé pour le stockage et la r
 
 ![Panneau Sélectionner un compte de stockage dans le portail Azure][10]
 
-Nous vous recommandons de créer un compte de stockage *spécifiquement* pour une utilisation avec votre compte Batch et de le sélectionner ici. Pour obtenir des détails sur la création d’un compte de stockage, consultez « Créer un compte de stockage » sous [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Une fois que vous avez créé un compte de stockage, vous pouvez le lier à votre compte Batch à l'aide du panneau *Compte de stockage*.
+Nous vous recommandons de créer un compte de stockage *spécifiquement* pour une utilisation avec votre compte Batch et de le sélectionner ici. Pour obtenir des détails sur la création d’un compte de stockage, consultez « Créer un compte de stockage » sous [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Une fois que vous avez créé un compte de stockage, vous pouvez le lier à votre compte Batch à l’aide du panneau *Compte de stockage*.
 
 > [AZURE.WARNING] Étant donné que Batch stocke vos packages d’applications à l’aide d’Azure Storage, vous êtes [facturé comme d’habitude][storage_pricing] pour les données d’objets blob de blocs. Veillez à prendre en compte la taille et le nombre de vos packages d’applications et à supprimer régulièrement les packages obsolètes pour réduire les coûts.
 
 ### Affichage des applications en cours
 
-Pour afficher les applications dans votre compte Batch, cliquez sur la mosaïque **Applications** dans le panneau du compte Batch.
+Pour afficher les applications dans votre compte Batch, cliquez sur la vignette **Applications** dans le panneau du compte Batch.
 
 ![Mosaïque Applications][2]
 
@@ -89,7 +91,7 @@ Cette opération ouvre le panneau *Applications* :
 Le panneau *Applications* affiche l’ID de chaque application dans votre compte, ainsi que les propriétés suivantes :
 
 * **Packages** : le nombre de versions associées à cette application.
-* **Version par défaut** : si vous ne spécifiez pas de version lors de la définition de l’application pour un pool, cette version sera installée. Ce paramètre est facultatif.
+* **Version par défaut** : si vous ne spécifiez pas de version au moment de la définition de l’application pour un pool, cette version est installée. Ce paramètre est facultatif.
 * **Autoriser les mises à jour** : si cette valeur est définie sur *Non*, les mises à jour et les suppressions de package sont désactivées pour l’application. Seules de nouvelles versions du package d’application peuvent être ajoutées. La valeur par défaut est *Oui*.
 
 ### Affichage des détails de l’application
@@ -102,7 +104,7 @@ Dans le panneau des détails de l’application, vous pouvez configurer les para
 
 * **Autoriser les mises à jour** : permet de spécifier si ses packages d’applications peuvent être mis à jour ou supprimés (voir « Mise à jour ou suppression d’un package d’application » ci-dessous).
 * **Version par défaut** : permet de spécifier un package d’application par défaut à déployer sur les nœuds de calcul.
-* **Nom d’affichage** : il s’agit d’un nom « convivial » que votre solution Batch peut utiliser lors de l’affichage d’informations sur l’application, comme dans l’interface utilisateur d’un service que vous fournissez à vos clients via Batch.
+* **Nom d’affichage** : il s’agit d’un nom « convivial » que votre solution Batch peut utiliser pendant l’affichage d’informations sur l’application, comme dans l’interface utilisateur d’un service que vous fournissez à vos clients via Batch.
 
 ### Ajout d’une application
 
@@ -136,9 +138,9 @@ Spécifie la version du package d’application que vous téléchargez. Les cha�
 
 Spécifie le fichier ZIP contenant les fichiers binaires de l’application et les fichiers de prise en charge requis pour l’exécution de l’application. Cliquez sur la zone de texte **Sélectionner un fichier** ou sur l’icône de dossier pour rechercher et sélectionner un fichier ZIP contenant les fichiers de votre application.
 
-Une fois que vous avez sélectionné un fichier, cliquez sur **OK** pour commencer le téléchargement vers Azure Storage. Lorsque l’opération de téléchargement est terminée, vous êtes averti et le panneau se ferme. Notez que, selon la taille du fichier que vous téléchargez et la vitesse de votre connexion réseau, cette opération peut prendre du temps.
+Une fois que vous avez sélectionné un fichier, cliquez sur **OK** pour commencer le chargement sur Azure Storage. Lorsque l’opération de téléchargement est terminée, vous êtes averti et le panneau se ferme. Notez que, selon la taille du fichier que vous téléchargez et la vitesse de votre connexion réseau, cette opération peut prendre du temps.
 
-> [AZURE.WARNING] Ne fermez pas le panneau *Nouvelle application* avant que l’opération de téléchargement soit terminée. Cela interrompt le processus de téléchargement.
+> [AZURE.WARNING] Ne fermez pas le panneau *Nouvelle application* avant que l’opération de chargement soit terminée. Cela interrompt le processus de téléchargement.
 
 ### Ajout d’un package d’application
 
@@ -146,7 +148,7 @@ Pour ajouter une nouvelle version de package d’application pour une applicatio
 
 ![Panneau Ajouter un package d’application dans le portail Azure][8]
 
-Comme vous pouvez le voir, les champs correspondent à ceux du panneau *Nouvelle application*, à l’exception de la zone de texte « ID d’application » qui est désactivée. Comme précédemment, spécifiez la **Version** pour votre nouveau package, accédez au fichier ZIP de votre **package d’application**, puis cliquez sur **OK** pour télécharger le package.
+Comme vous pouvez le voir, les champs correspondent à ceux du panneau *Nouvelle application*, à l’exception de la zone de texte « ID d’application » qui est désactivée. Comme précédemment, spécifiez la **Version** pour votre nouveau package, accédez au fichier ZIP de votre **package d’application**, puis cliquez sur **OK** pour charger le package.
 
 ### Mise à jour ou suppression d’un package d’application
 
@@ -156,13 +158,13 @@ Pour mettre à jour ou supprimer un package d’application, ouvrez le panneau d
 
 **Mettre à jour**
 
-Lorsque vous cliquez sur **Mettre à jour**, le panneau *Mettre à jour le package* s’affiche. Ce panneau est similaire au panneau *Nouveau package d’application*, toutefois seul le champ de sélection du package est activé, ce qui vous permet de spécifier un nouveau fichier ZIP à télécharger.
+Quand vous cliquez sur **Mettre à jour**, le panneau *Mettre à jour le package* s’affiche. Ce panneau est similaire au panneau *Nouveau package d’application* ; toutefois, seul le champ de sélection du package est activé, ce qui vous permet de spécifier un nouveau fichier ZIP à charger.
 
 ![Panneau Mettre à jour un package dans le portail Azure][11]
 
 **Supprimer**
 
-Lorsque vous cliquez sur **Supprimer**, vous êtes invité à confirmer la suppression de la version du package. Batch supprime le package dans Azure Storage. Si vous supprimez la version par défaut d’une application, le paramètre de version par défaut est supprimé de l’application.
+Quand vous cliquez sur **Supprimer**, vous êtes invité à confirmer la suppression de la version du package. Batch supprime le package dans Azure Storage. Si vous supprimez la version par défaut d’une application, le paramètre de version par défaut est supprimé de l’application.
 
 ![Supprimer l’application][12]
 
@@ -198,7 +200,7 @@ await myCloudPool.CommitAsync();
 
 ## Exécution des applications installées
 
-Lorsque chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
+Quand chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
 
 `AZ_BATCH_APP_PACKAGE_appid#version`
 
@@ -222,7 +224,11 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## Mise à jour des packages d’applications d’un pool
 
-Si un pool existant a déjà été configuré avec un package d’application, vous pouvez spécifier un nouveau package pour le pool. Tous les nouveaux nœuds formant le pool installeront le package nouvellement spécifié, ainsi que n’importe quel nœud existant qui est redémarré ou reconfiguré. Les nœuds de calcul qui sont déjà dans le pool lorsque vous mettez à jour les références du package n’installent pas automatiquement le nouveau package d’application.
+Si un pool existant a déjà été configuré avec un package d’application, vous pouvez spécifier un nouveau package pour le pool. Si vous spécifiez une nouvelle référence de package pour un pool, les points suivants s’appliquent :
+
+* Tous les nouveaux nœuds formant le pool installeront le package nouvellement spécifié, ainsi que n’importe quel nœud existant qui est redémarré ou reconfiguré.
+* Les nœuds de calcul qui sont déjà dans le pool quand vous mettez à jour les références du package n’installent pas automatiquement le nouveau package d’application ; ils doivent être redémarrés ou réinitialisés pour recevoir le nouveau package.
+* Quand un nouveau package est déployé, les variables d’environnement créées reflètent les nouvelles références du package d’application.
 
 Dans cet exemple, le pool existant dispose de la version 2.7 de l’application *blender* configurée comme l’une de ses classes [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Pour mettre à jour les nœuds du pool avec la version 2.76b, spécifiez une nouvelle classe [ApplicationPackageReference][net_pkgref] avec la nouvelle version, puis validez la modification.
 
@@ -238,7 +244,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Maintenant que la nouvelle version (version 2.76b) a été configurée, elle sera déployée sur les *nouveaux* nœuds qui rejoignent le pool. Pour installer la version 2.76b sur les nœuds qui sont *déjà* dans le pool, redémarrez-les (ou réinitialisez-les). Notez que les nœuds redémarrés conservent les fichiers des déploiements précédents du package.
+La nouvelle version (version 2.76b) étant configurée, elle sera déployée sur les *nouveaux* nœuds qui rejoignent le pool. Pour installer la version 2.76b sur les nœuds qui sont *déjà* dans le pool, redémarrez-les (ou réinitialisez-les). Notez que les nœuds redémarrés conservent les fichiers des déploiements précédents du package.
 
 ## Liste des applications dans un compte Batch
 
@@ -266,7 +272,7 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 
 * L’[API REST Batch][api_rest] prend également en charge l’utilisation de packages d’applications. Par exemple, consultez l’élément [applicationPackageReferences][rest_add_pool_with_packages] dans [Ajouter un pool à un compte][rest_add_pool] pour spécifier les packages à installer à l’aide de l’API REST. Consultez la page [Applications][rest_applications] pour plus de détails sur l’obtention d’informations sur l’application à l’aide de l’API REST Batch.
 
-* Découvrez comment [gérer les quotas et les comptes Azure Batch avec Batch Management .NET](batch-management-dotnet.md) par programme. La bibliothèque [Batch Management .NET][api_net_mgmt] peut activer les fonctionnalités de création et de suppression de compte pour votre application ou service Batch.
+* Découvrez comment [gérer les quotas et les comptes Azure Batch avec Batch Management .NET](batch-management-dotnet.md) par programmation. La bibliothèque [Batch Management .NET][api_net_mgmt] peut activer les fonctionnalités de création et de suppression de compte pour votre application ou service Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -295,4 +301,4 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [11]: ./media/batch-application-packages/app_pkg_11.png "Panneau Mettre à jour un package dans le portail Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le portail Azure"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

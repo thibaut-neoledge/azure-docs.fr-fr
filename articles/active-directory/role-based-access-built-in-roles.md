@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #RBAC : rôles intégrés
 
-## Rôles intégrés
+Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier les définitions des rôles intégrés. Toutefois, vous pouvez créer des [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md) en fonction des besoins spécifiques de votre entreprise.
 
-Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier les définitions des rôles intégrés. Toutefois, vous pouvez créer des [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md) en fonction des besoins spécifiques de votre organisation.
+## Rôles dans Azure
 
-Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom de rôle pour afficher la liste détaillée des **actions** et des **non-actions** pour le rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **not actions** spécifie les actions qui sont exclues des actions autorisées.
+Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom de rôle pour afficher la liste détaillée des propriétés **actions** et **notactions** du rôle. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **notactions** spécifie les actions qui sont exclues des actions autorisées.
 
 >[AZURE.NOTE] Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez les applets de commande `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas.
 
@@ -57,6 +57,9 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Collaborateur de réseau classique](#classic-network-contributor) | Gérer les réseaux virtuels classiques et les adresses IP réservées |
 | [Collaborateur de plan web](#web-plan-contributor) | Gérer les plans web |
 | [Collaborateur de site web](#website-contributor) | Gérer les sites web, mais pas les plans web auxquels ils sont connectés |
+
+## Autorisations des rôles
+Les tableaux suivants décrivent les autorisations spécifiques à chaque rôle. Cela peut inclure des propriétés **Actions** qui accordent des autorisations et **NotActions** qui restreignent les autorisations.
 
 ### Collaborateur du service de gestion des API
 Gérer les services de gestion des API
@@ -142,7 +145,7 @@ Gérer tout sauf les accès
 | ------- | ------ |
 | * | Créer et gérer les ressources de tous les types |
 
-| **Non-actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles |
 | Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
@@ -153,7 +156,7 @@ Gérer les fabriques de données
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-| Microsoft.DataFactory/dataFactories/* | Créer et gérer les fabriques de données |
+| Microsoft.DataFactory/dataFactories/* | Gérer les fabriques de données |
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
@@ -324,7 +327,7 @@ Gérer les bases de données SQL, mais pas leurs stratégies de sécurité
 | Microsoft.Sql/servers/read | Lire les serveurs SQL |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-| **Non-actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit |
@@ -370,7 +373,7 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 | Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Sql/servers/* | Créer et gérer les serveurs SQL |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-| **Non-actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Impossible de modifier les stratégies d’audit de serveur SQL |
 | Microsoft.Sql/servers/auditingSettings/* | Impossible de modifier les paramètres d’audit de serveur SQL |
@@ -510,9 +513,9 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 | Microsoft.Web/sites/* | Créer et gérer les sites web |
 
 ## Voir aussi
-- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
-- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins d’accès.
-- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d’affection de rôle dans RBAC.
-- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
+- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins en matière d’accès.
+- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d’affection de rôle dans RBAC.
+- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

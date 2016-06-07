@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/19/2016"
 	ms.author="genemi"/>
 
 
@@ -54,6 +54,23 @@ Un objectif clé de SQL Database V12 était d’améliorer la compatibilité ave
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
+
+
+### Niveau de compatibilité 130
+
+
+> [AZURE.IMPORTANT] À compter de **juin 2016**, le niveau de compatibilité des bases de données *créées* sur la base de données SQL Azure V12 commence à 130, ce qui correspond à Microsoft SQL Server 2016 GA.
+> 
+> Bien sûr, vous pouvez utiliser `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` si vous préférez.
+> 
+> Le niveau de compatibilité des bases de données créées avant juin 2016 ne sera pas modifié par ce changement de valeur par défaut. Le niveau des bases de données mises à niveau de V11 à V12 ne sera pas non plus modifié.
+
+
+
+Pour savoir comment comparer vos requêtes les plus importantes entre le dernier niveau de compatibilité et le précédent, consultez :
+
+- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Amélioration des performances des requêtes avec le niveau de compatibilité 130 dans la base de données SQL Azure)
+
 
 
 ## Plus de performances pour le niveau Premium, nouveaux niveaux de performances
@@ -166,4 +183,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

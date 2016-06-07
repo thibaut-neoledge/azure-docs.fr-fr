@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Performances et stockage de DocumentDB | Microsoft Azure" 
+	pageTitle="Performances et stockage de DocumentDB | Microsoft Azure" 
 	description="Obtenez plus d’informations sur le stockage de données et le stockage de documents dans DocumentDB, et découvrez comment faire évoluer DocumentDB pour répondre aux besoins de capacité de votre application." 
 	keywords="stockage de documents"
 	services="documentdb" 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/24/2016" 
 	ms.author="mimig"/>
 
 # En savoir plus sur le stockage et l’approvisionnement des performances prévisibles dans DocumentDB
-DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et évolutif pour les documents JSON. Avec DocumentDB, il n'est pas nécessaire de louer des machines virtuelles, de déployer des logiciels, de surveiller les bases de données ou de se soucier de la récupération d'urgence. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales.
+DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et évolutif pour les documents JSON. Avec DocumentDB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales.
 
-Vous pouvez prendre en main DocumentDB en [créant un compte de base de données](documentdb-create-account.md) via le [portail Azure](https://portal.azure.com/). DocumentDB est proposé sous forme d’unités de stockage et de débit SSD. Ces unités sont configurées en créant des collections de base de données dans votre compte de base de données. Chaque collection avec un débit réservé. Si les exigences de débit de votre application changent, vous pouvez le modifier de façon dynamique en définissant le [niveau de performances](documentdb-performance-levels.md) pour chaque collection.
+Vous pouvez prendre en main DocumentDB en [créant un compte de base de données](documentdb-create-account.md) via le [portail Azure](https://portal.azure.com/). DocumentDB est proposé sous forme d’unités de stockage et de débit SSD. Ces unités sont configurées en créant des collections de base de données dans votre compte de base de données. Chaque collection avec un débit réservé. Si les exigences de débit de votre application changent, vous pouvez le modifier de façon dynamique en définissant le [niveau de performances](documentdb-performance-levels.md) pour chaque collection.
 
 Lorsque votre application dépasse les niveaux de performances d'une ou plusieurs collections, les demandes sont limitées en fonction de chaque collection. Cela signifie que certaines demandes d'application peuvent réussir tandis que d'autres peuvent être limitées.
 
@@ -32,7 +32,7 @@ En tant qu'abonné Azure, vous pouvez approvisionner un ou plusieurs comptes de 
 Le portail Azure fournit des métriques d'utilisation pour surveiller des comptes de base de données, des bases de données et des collections. Pour plus d'informations, consultez [Surveillance d'un compte DocumentDB](documentdb-monitor-accounts.md).
 
 ## Bases de données
-Une seule base de données DocumentDB peut contenir un volume presque illimité de stockage de documents regroupés en collections. Les collections assurent l’isolement des performances : chaque collection peut être configurée avec un débit qui n’est pas partagé avec les autres collections dans la même base de données ou le même compte. La taille d’une base de données DocumentDB est flexible : elle peut aller de quelques Go à plusieurs téraoctets de stockage de documents SSD et de débit configuré. Contrairement à une base de données de SGBDR classique, une base de données DocumentDB n’est pas étendue à un seul ordinateur et peut s’étaler sur plusieurs machines.
+Une seule base de données DocumentDB peut contenir un volume presque illimité de stockage de documents regroupés en collections. Les collections assurent l’isolement des performances : chaque collection peut être configurée avec un débit qui n’est pas partagé avec les autres collections dans la même base de données ou le même compte. La taille d’une base de données DocumentDB est flexible : elle peut aller de quelques Go à plusieurs téraoctets de stockage de documents SSD et de débit configuré. Contrairement à une base de données de SGBDR classique, une base de données DocumentDB n’est pas étendue à un seul ordinateur et peut s’étaler sur plusieurs machines.
 
 Avec DocumentDB, lorsque vous devez mettre à l’échelle vos applications, vous pouvez créer d’autres collections et/ou bases de données.
 
@@ -45,17 +45,17 @@ Les collections peuvent être créées via le [portail Azure](https://portal.azu
  
 ## Unités de demande et opérations de base de données
 
-Lorsque vous créez une collection, vous réservez du débit en termes d’unités de demande (RU) par seconde. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une **unité de demande** comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données et à la réponse à une demande de l’application. Une lecture de 1 Ko consomme 1 RU, quel que soit le nombre d’éléments stockés dans la collection ou le nombre de demandes simultanées en cours d’exécution. Toutes les demandes DocumentDB, y compris les opérations complexes comme les requêtes SQL, ont une valeur RU prévisible qui peut être déterminée au moment du développement. Si vous connaissez la taille de vos documents et la fréquence de chaque opération (lecture, écriture et requête) à prendre en charge pour votre application, vous pouvez configurer la quantité exacte de débit nécessaire pour répondre aux besoins de votre application et adapter la taille de votre base de données en fonction des performances.
+Lorsque vous créez une collection, vous réservez du débit en termes d’unités de demande (RU) par seconde. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une **unité de demande** comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données et à la réponse à une demande de l’application. Une lecture de 1 Ko consomme 1 RU, quel que soit le nombre d’éléments stockés dans la collection ou le nombre de demandes simultanées en cours d’exécution. Toutes les demandes DocumentDB, y compris les opérations complexes comme les requêtes SQL, ont une valeur RU prévisible qui peut être déterminée au moment du développement. Si vous connaissez la taille de vos documents et la fréquence de chaque opération (lecture, écriture et requête) à prendre en charge pour votre application, vous pouvez configurer la quantité exacte de débit nécessaire pour répondre aux besoins de votre application et adapter la taille de votre base de données en fonction des performances.
 
-Chaque collection peut être réservée avec un débit par blocs de 100 unités de demande (RU) par seconde, quelques centaines ou plusieurs millions d’unités de demande par seconde. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+Chaque collection peut être réservée avec un débit par blocs de 100 unités de demande (RU) par seconde, quelques centaines ou plusieurs millions d’unités de demande par seconde. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
 >[AZURE.IMPORTANT] Les collections sont des entités facturables. Le coût est déterminé par le débit défini pour la collection mesuré en unités de demande par seconde, avec le stockage total consommé en gigaoctets.
 
-Combien d’unités de demande une opération comme l’insertion, la suppression, la requête ou l’exécution d’une procédure stockée consomme-t-elle ? Une unité de demande est une mesure normalisée du coût de traitement de la demande. La lecture d’un document de 1 ko correspond à une 1 RU, mais une demande d’insertion, de remplacement ou de suppression du même document nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de demande. Chaque réponse du service inclut un en-tête personnalisé (`x-ms-request-charge`) qui indique le nombre d’unités de demande consommées pour la demande. Cet en-tête est également accessible via les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md). Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.
+Combien d’unités de demande une opération comme l’insertion, la suppression, la requête ou l’exécution d’une procédure stockée consomme-t-elle ? Une unité de demande est une mesure normalisée du coût de traitement de la demande. La lecture d’un document de 1 ko correspond à une 1 RU, mais une demande d’insertion, de remplacement ou de suppression du même document nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de demande. Chaque réponse du service inclut un en-tête personnalisé (`x-ms-request-charge`) qui indique le nombre d’unités de demande consommées pour la demande. Cet en-tête est également accessible via les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md). Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.
 
->[AZURE.NOTE] La base d’une unité de demande pour un document de 1 Ko correspond à une opération GET simple du document avec cohérence de session.
+>[AZURE.NOTE] La base d’une unité de demande pour un document de 1 Ko correspond à une opération GET simple du document avec cohérence de session.
 
-Plusieurs facteurs déterminent le nombre d'unités de demande consommées par une opération effectuée dans un compte de base de données DocumentDB. Exemples de facteurs :
+Plusieurs facteurs déterminent le nombre d'unités de demande consommées par une opération effectuée dans un compte de base de données DocumentDB. Exemples de facteurs :
 
 - Taille du document. Plus la taille du document est grande, plus le nombre d'unités consommées pour lire ou écrire des données augmente.
 - Nombre de propriétés. En supposant que toutes les propriétés sont indexées par défaut, le nombre d'unités consommées pour écrire un document augmente parallèlement au nombre de propriétés.
@@ -65,7 +65,7 @@ Plusieurs facteurs déterminent le nombre d'unités de demande consommées par u
 
 Pour plus d’informations, consultez [Unités de demande DocumentDB](documentdb-request-units.md).
 
-Par exemple, voici un tableau qui indique le nombre d’unités de demande à fournir pour trois tailles de documents (1 Ko, 4 Ko et 64 Ko) et à deux niveaux de performances (500 lectures par seconde + 100 écritures par seconde et 500 lectures par seconde + 500 écritures par seconde). La cohérence des données a été configurée au niveau de la session et la stratégie d’indexation a été définie sur None.
+Par exemple, voici un tableau qui indique le nombre d’unités de demande à fournir pour trois tailles de documents (1 Ko, 4 Ko et 64 Ko) et à deux niveaux de performances (500 lectures par seconde + 100 écritures par seconde et 500 lectures par seconde + 500 écritures par seconde). La cohérence des données a été configurée au niveau de la session et la stratégie d’indexation a été définie sur None.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -123,13 +123,13 @@ Le choix du niveau de cohérence par défaut a une incidence sur le débit et la
 Pour obtenir des instructions sur la modification de votre niveau de cohérence dans le portail Azure, consultez la section [Gestion d'un compte DocumentDB](documentdb-manage-account.md#consistency). Ou, pour plus d'informations sur les niveaux de cohérence, consultez la rubrique [Utilisation des niveaux de cohérence](documentdb-consistency-levels.md).
 
 ## Stockage de documents approvisionné et surcharge d'index
-DocumentDB prend en charge la création de partitions uniques et de collections partitionnées. Chaque partition de DocumentDB prend en charge jusqu’à 10 Go de stockage SSD. Ce stockage inclut les documents, plus le stockage pour l'index. Par défaut, une collection DocumentDB est configurée de manière à indexer automatiquement tous les documents sans demander explicitement d'index ou de schémas secondaires. En fonction des applications utilisant DocumentDB, la surcharge d’index standard est comprise entre 2 et 20 %. La technologie d'indexation utilisée par DocumentDB permet de garantir que, indépendamment des valeurs des propriétés, la surcharge d'index ne dépasse pas 80 % de la taille des documents avec les paramètres par défaut.
+DocumentDB prend en charge la création de partitions uniques et de collections partitionnées. Chaque partition de DocumentDB prend en charge jusqu’à 10 Go de stockage SSD. Ce stockage inclut les documents, plus le stockage pour l'index. Par défaut, une collection DocumentDB est configurée de manière à indexer automatiquement tous les documents sans demander explicitement d'index ou de schémas secondaires. En fonction des applications utilisant DocumentDB, la surcharge d’index standard est comprise entre 2 et 20 %. La technologie d'indexation utilisée par DocumentDB permet de garantir que, indépendamment des valeurs des propriétés, la surcharge d'index ne dépasse pas 80 % de la taille des documents avec les paramètres par défaut.
 
 Par défaut, tous les documents sont automatiquement indexés par DocumentDB. Toutefois, si vous voulez affiner le réglage de la surcharge d'index, vous pouvez choisir de supprimer certains documents de l'indexation au moment de l'insertion ou du remplacement d'un document, comme décrit dans la rubrique [Stratégies d’indexation de DocumentDB](documentdb-indexing-policies.md). Vous pouvez configurer une collection DocumentDB de manière à exclure tous les documents de la collection de l'indexation. Vous pouvez également configurer une collection DocumentDB de manière à ce qu'elle indexe de manière sélective uniquement certaines propriétés ou certains chemins d'accès avec des caractères génériques de vos documents JSON, comme décrit dans la rubrique [Configuration de la stratégie d'indexation d'une collection](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). L'exclusion de propriétés ou documents permet également d'améliorer le débit en écriture, ce qui signifie que vous allez consommer moins d'unités de demande.
 ## Étapes suivantes
 Pour obtenir des instructions sur la surveillance des niveaux de performances dans le portail Azure, consultez la rubrique [Surveillance d’un compte DocumentDB](documentdb-monitor-accounts.md).
 
-Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

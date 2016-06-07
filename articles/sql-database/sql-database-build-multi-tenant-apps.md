@@ -21,7 +21,7 @@
 
 ## Tirer parti des pools élastiques pour créer des applications mutualisées plus efficaces
 
-En tant que développeur SaaS, si vous écrivez une application mutualisée avec de nombreux clients à gérer, vous devez souvent faire des compromis entre les performances, la gestion et la sécurité. Avec les pools de bases de données élastiques du service Base de données SQL Azure, ce n’est plus le cas. Ces pools vous permettent de gérer et de surveiller les applications mutualisées, tout en bénéficiant d’avantages d’avantages en termes d’isolation, avec un client par base de données.
+En tant que développeur SaaS, si vous écrivez une application mutualisée avec de nombreux clients à gérer, vous devez souvent faire des compromis entre les performances, la gestion et la sécurité. Avec les pools de bases de données élastiques du service Base de données SQL Azure, ce n’est plus le cas. Ces pools vous permettent de gérer et de surveiller les applications mutualisées, tout en bénéficiant de plus d’avantages en termes d’isolation, avec un client par base de données. Consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -47,11 +47,11 @@ Les pools De base, Standard et Premium vous offrent un large éventail de perfor
 
 En plus des pools élastiques, le service Base de données SQL Azure intègre des fonctionnalités qui vous aident à gérer les activités opérationnelles sur plusieurs bases de données :
 
-** Exécutez des requêtes et des rapports sur plusieurs bases de données. ** Les [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
+**Exécutez des requêtes et des rapports sur plusieurs bases de données.** Les [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
 
-** Exécutez des transactions dans plusieurs bases de données. ** Les [transactions de base de données élastique](sql-database-elastic-transactions-overview.md) vous permettent d’exécuter des transactions portant sur plusieurs bases de données SQL et d’exécuter des opérations (par exemple, lors du traitement de transactions financières dans les bases de données ou de la mise à jour de l’inventaire d’une base de données et des commandes).
+**Exécutez des transactions dans plusieurs bases de données.** Les [transactions de base de données élastique](sql-database-elastic-transactions-overview.md) vous permettent d’exécuter des transactions portant sur plusieurs bases de données SQL et d’exécuter des opérations (par exemple, lors du traitement de transactions financières dans les bases de données ou de la mise à jour de l’inventaire d’une base de données et des commandes).
 
-** Exécutez les mêmes opérations sur plusieurs bases de données. ** Les [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) vous permettent d’exécuter des opérations administratives telles que la reconstruction d’index ou la mise à jour des schémas dans chaque base de données de votre pool élastique.
+**Exécutez les mêmes opérations sur plusieurs bases de données.** Les [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) vous permettent d’exécuter des opérations administratives telles que la reconstruction d’index ou la mise à jour des schémas dans chaque base de données de votre pool élastique.
 
 Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
@@ -65,4 +65,4 @@ Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.
  
 Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -21,7 +21,7 @@
 
 La mise à l’échelle automatique des machines virtuelles dans un jeu de mise à l’échelle correspond à la création ou à la suppression de machines dans le jeu en fonction des besoins d’une application pour répondre aux exigences de performances et aux contrats de niveau de service (SLA). Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches de manière efficace.
 
-La mise à l’échelle automatique est un processus automatisé qui allège les contraintes de gestion. Grâce à la réduction de la surcharge, il devient inutile de surveiller en continu les performances du système et de décider d’ajouter ou de supprimer des ressources. La mise à l’échelle est un processus élastique : lorsque la charge sur le système augmente, il est possible d’allouer davantage de ressources, et lorsque la demande diminue, des ressources peuvent être libérées pour réduire les coûts tout en conservant des performances adéquates et en respectant les contrats de niveau de service.
+La mise à l’échelle automatique est un processus automatisé qui facilite la gestion des surcharges en analysant en continu les performances du système, et en prenant des décisions sur l’ajout ou la suppression de ressources qui ne sont pas nécessaires. La mise à l’échelle est un processus élastique : lorsque la charge sur le système augmente, il est possible d’allouer davantage de ressources, et lorsque la demande diminue, des ressources peuvent être libérées pour réduire les coûts tout en conservant des performances adéquates et en respectant les contrats de niveau de service.
 
 Configurez la mise à l’échelle automatique dans un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager, à l’aide d’Azure PowerShell ou à l’aide de l’interface de ligne de commande Azure.
 
@@ -209,4 +209,4 @@ Après une période de refroidissement de cinq minutes, si le nombre moyen de th
 1. Commencez par créer votre premier jeu de mise à l’échelle en utilisant les informations contenues dans [Créer un jeu de mise à l’échelle de machine virtuelle Windows](virtual-machine-scale-sets-windows-create.md).
 2. Consultez [Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Windows](virtual-machine-scale-sets-windows-autoscale.md) ou [Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Linux](virtual-machine-scale-sets-linux-autoscale.md) pour voir un exemple montrant comment créer un jeu de mise à l’échelle une fois la mise à l’échelle automatique configurée.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,12 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/20/2016"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
+
+## Nouveautés de la version de la semaine du 20 mai 2016
+
+À partir de la semaine du 20 mai 2016, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+
+- Améliorations du glossaire métier Data Catalog qui permet de mettre à jour plusieurs termes du glossaire en une seule opération. Les utilisateurs peuvent sélectionner plusieurs termes pour modifier les champs suivants :
+    - Terme parent : l’utilisateur peut sélectionner un nouveau terme parent, ainsi que tous les termes qui doivent être des enfants du nouveau terme parent. Si les termes sélectionnés ont tous le même parent, alors ce dernier s’affichera dans la zone de texte. Sinon, le champ parent du terme sera vide.   
+    - Balises et experts : les utilisateurs peuvent ajouter et supprimer des balises et des experts pour plusieurs termes du glossaire, en utilisant la même méthode que pour baliser plusieurs ressources de données.
+
+Pour plus d’informations sur le glossaire métier, consultez [Comment configurer le glossaire métier pour un balisage géré](data-catalog-how-to-business-glossary.md)
 
 ## Nouveautés de la version de la semaine du 6 mai 2016
 
@@ -41,7 +51,7 @@ Depuis la semaine du 19 février 2016, les fonctionnalités suivantes ont été 
 
 - Une nouvelle expérience de sélection de sources de données dans l’outil d’inscription de sources de données Azure Data Catalog. L’outil d’inscription de sources de données a été mis à jour pour faciliter la localisation et la sélection à partir des sources de données prises en charge par Azure Data Catalog.
 - Prise en charge de dix langues supplémentaires dans le portail Azure Data Catalog et l’outil d’inscription de sources de données. Outre l’anglais, l’expérience Azure Data Catalog est désormais disponible en allemand, chinois simplifié, chinois traditionnel, coréen, espagnol, français, italien, japonais, portugais (Brésil) et russe. L’expérience utilisateur Azure Data Catalog est localisée en fonction des préférences de langue définies dans Windows ou dans le navigateur web de l’utilisateur.
-- Prise en charge de la géo-réplication des données Azure Data Catalog pour garantir la continuité de l’activité et la récupération d’urgence. Tous les contenus Azure Data Catalog, notamment les métadonnées de source de données et les annotations de crowdsourcing, sont désormais répliqués entre deux régions Azure sans frais supplémentaires pour les clients. Les régions Azure sont préalablement jumelées et distantes d’au moins 500 miles, et suivent le mappage décrit dans [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](../best-practices-availability-paired-regions.md).
+- Prise en charge de la géo-réplication des données Azure Data Catalog pour garantir la continuité de l’activité et la récupération d’urgence. Tous les contenus Azure Data Catalog, notamment les métadonnées de source de données et les annotations de crowdsourcing, sont désormais répliqués entre deux régions Azure sans frais supplémentaires pour les clients. Les régions Azure sont préalablement jumelées et distantes d’au moins 500 miles, et suivent le mappage décrit dans [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](../best-practices-availability-paired-regions.md).
 
 
 ## Nouveautés de la version de la semaine du 5 février 2016
@@ -65,7 +75,7 @@ Depuis la semaine du 29 janvier 2016, les fonctionnalités suivantes ont été a
    + PostgreSQL : table, vue et base de données
 - Prise en charge de la fonction « Ouvrir dans SQL Server Data Tools » pour les sources de données SQL Server (y compris Base de données SQL Azure et Azure SQL Data Warehouse).  
 
-> [AZURE.NOTE] L’installation de la fonction « Ouvrir dans SQL Server Data Tools » requiert Visual Studio 2013 avec Update 4 et les outils SQL Server. Pour installer la dernière version de SQL Server Data Tools, visitez [Télécharger SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+> [AZURE.NOTE] L’installation de la fonction « Ouvrir dans SQL Server Data Tools » requiert Visual Studio 2013 avec Update 4 et les outils SQL Server. Pour installer la dernière version de SQL Server Data Tools, rendez-vous sur la page [Télécharger SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
 ## Nouveautés de la version de la semaine du 22 janvier 2016
 
@@ -225,4 +235,4 @@ Depuis la semaine du 4 septembre 2015, les fonctionnalités suivantes ont été 
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, Azure Data Catalog prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

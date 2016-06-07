@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -33,7 +33,7 @@ Les connexions à votre SQL Data Warehouse peuvent être chiffrées en définiss
 
 Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. SQL Data Warehouse prend actuellement en charge l’authentification SQL Server avec un nom d’utilisateur et un mot de passe, ainsi que la version d’évaluation d’Azure Active Directory.
 
-Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo ».
+Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo » via l’authentification SQL Server.
 
 Toutefois, au titre de meilleure pratique, il est recommandé que les utilisateurs de votre organisation utilisent un compte différent pour s’authentifier. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Pour plus d’informations sur l’authentification auprès d’une base de données SQL, consultez les pages [Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données][] et [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Connexion à SQL Data Warehouse à l’aide de l’authentification Azure Active Directory.
+Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus d’informations sur l’utilisation de la version préliminaire d’Azure AD pour SQL Data Warehouse, consultez la page [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
 
 
 ## Autorisation
@@ -101,12 +101,12 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 [Se connecter à SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Prise en main de l’audit de base de données SQL]: ./sql-data-warehouse-overview-auditing.md
 [Prise en main du chiffrement transparent des données (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-aad-authentication.md
+[Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
 
 <!--MSDN references-->
 [Pare-feu de base de données SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
 [rôles de base de données]: https://msdn.microsoft.com/library/ms189121.aspx
-[Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données]: https://msdn.microsoft.com/library/ee336235.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
 [chiffrement transparent des données]: https://go.microsoft.com/fwlink/?LinkId=526242
@@ -115,4 +115,4 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

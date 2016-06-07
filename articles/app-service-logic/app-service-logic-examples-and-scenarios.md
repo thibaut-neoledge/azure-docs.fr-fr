@@ -24,10 +24,40 @@ Ce document présente des scénarios courants et des exemples afin de vous aider
 
 Il existe plusieurs moyens de déclencher une application logique à partir d’une autre application. En voici quelques-uns :
 
-- [Utiliser des raccordements Web](https://azure.microsoft.com/updates/webhooks-available-for-logic-apps/)
-- [Avec l’API REST](app-service-logic-http-endpoint.md)
+- [Requête HTTP (POST)](app-service-logic-http-endpoint.md)
+- [Réception d’un webhook](app-service-logic-create-api-app.md)
+- [Interrogation d’un point de terminaison](app-service-logic-create-api-app.md)
+
+### Scénarios
+
+- [Réponse synchrone à une demande d’une application logique](app-service-logic-http-endpoint.md)
+
+## Types de contenu, conversions et transformations
+
+Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) des applications logiques contient de nombreuses fonctions permettant de convertir et d’utiliser différents types de contenu. Le moteur fait aussi tout son possible pour conserver les types de contenu comme flux de données tout au long du flux de travail.
+
+- [Gestion des types de contenu](app-service-logic-content-type.md) comme application/json, application/xml et plain/text
+- [Langage de définition de flux de travail](http://aka.ms/logicappsdocs)
+
+## Actions de longue durée
+
+- [Création d’une action de longue durée](app-service-logic-create-api-app.md)
+
+## Lots et boucles
+
+- [SplitOn](app-service-logic-loops-and-scopes.md)
+- [ForEach](app-service-logic-loops-and-scopes.md)
+- [Until](app-service-logic-loops-and-scopes.md)
+
+## Intégration aux flux de travail imbriqués et aux fonctions Azure
+
+- [Intégration aux fonctions Azure](app-service-logic-azure-functions.md)
+
+## HTTP, REST et SOAP
+
+ - [Appel de SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
 Nous continuerons à ajouter des exemples et des scénarios dans ce document. Utilisez la section de commentaires ci-dessous pour nous faire savoir quels exemples ou scénarios vous aimeriez découvrir.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

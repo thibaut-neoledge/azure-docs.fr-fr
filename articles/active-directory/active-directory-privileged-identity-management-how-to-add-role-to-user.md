@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/18/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur
 
 Avec Azure Active Directory (AD), un administrateur général (ou un administrateur d’entreprise) peut mettre à jour les utilisateurs auxquels des rôles sont **définitivement** affectés dans Azure AD. Cette opération s’effectue avec les applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`. Il peut également utiliser le portail Azure Classic comme décrit dans [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md).
 
-L’application Azure AD Privileged Identity Management permet aux administrateurs de sécurité de rendre les affectations de rôle permanentes. Cependant, il permet également aux administrateurs d’ajouter ou de supprimer des candidats pour les affectations **temporaires** à ces rôles. Un candidat peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
+L’application Azure AD Privileged Identity Management permet aux administrateurs de rôle privilégié de rendre les affectations de rôle permanentes. Cependant, il permet également aux administrateurs d’ajouter ou de supprimer des candidats pour les affectations **temporaires** à ces rôles. Un candidat peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
 
 ## Gérer des rôles avec PIM dans le portail Azure
 
@@ -64,4 +64,4 @@ Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attribution
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

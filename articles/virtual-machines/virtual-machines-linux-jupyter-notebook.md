@@ -41,7 +41,7 @@ La première étape consiste à créer une machine virtuelle s’exécutant sur 
 
 Suivez les instructions fournies [ici][portal-vm-linux] pour créer une machine virtuelle de la distribution *Ubuntu*. Ce didacticiel utilise Ubuntu Server 14.04 LTS. Nous présumerons que le nom d’utilisateur est *azureuser*.
 
-Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail Azure, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, ***** pour le port source (public) et **9999** pour le port de destination (privé).
+Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail Azure, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, **\*** pour le port source (public) et **9999** pour le port de destination (privé).
 
 ![Capture d'écran](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 

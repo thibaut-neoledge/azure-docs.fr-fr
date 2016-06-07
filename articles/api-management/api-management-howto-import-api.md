@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Importation de la définition d'une API avec des opérations dans Gestion des API Azure
@@ -29,7 +29,7 @@ Ce guide vous présente comment créer une API et importer des opérations en un
 
 ## <a name="import-api"> </a>Importation d’une API
 
-Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -68,7 +68,7 @@ Les API peuvent être exportées avec WADL ou Swagger. Sélectionnez le format s
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Une fois l'API créée et les opérations importées, vous pouvez vérifier et configurer les paramètres complémentaires, ajouter l'API à un produit et la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
+Une fois l'API créée et les opérations importées, vous pouvez vérifier et configurer les paramètres complémentaires, ajouter l'API à un produit et la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
 
 -	[Configuration des paramètres de l’API][]
 -	[Création et publication d’un produit][]
@@ -95,4 +95,4 @@ Une fois l'API créée et les opérations importées, vous pouvez vérifier et c
 [Création d'API]: api-management-howto-create-apis.md
 [Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

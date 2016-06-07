@@ -20,17 +20,17 @@
 
 # Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
 
-Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour identifier les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des liens vers des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
+Téléchargez cette vue d’ensemble infographique facile à comprendre des principes de base de Machine Learning. Découvrez les algorithmes populaires utilisés pour répondre aux questions courantes sur le Machine Learning. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
 
 ## Algorithmes populaires disponibles dans Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre d’algorithmes d’apprentissage automatique que vous pouvez utiliser pour résoudre vos problèmes d’analyse prédictive. L’infographie téléchargeable ci-dessous illustre comment utiliser les quatre types d’algorithmes d’apprentissage (**régression**, **détection des anomalies**, **clustering** et **classification**) pour répondre à vos questions sur l’apprentissage automatique.
+[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. L’infographie montre les familles d’algorithmes courantes : **régression**, **détection des anomalies**, **clustering**, et **classification**.
 
-La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) contient de nombreux exemples qui montrent comment ces algorithmes peuvent être appliqués dans des solutions réelles. Des liens incorporés dans l’infographie mènent à des exemples fonctionnels pour chaque algorithme.
+La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) montre comment ces algorithmes peuvent être appliqués dans de nombreuses solutions réelles. Suivez les liens de l’infographie pour voir des exemples d’utilisation.
 
-## Télécharger l’infographie sur les principes fondamentaux de l’apprentissage automatique
+## Téléchargez la vue infographique avec des exemples d’algorithmes
 
-**[Téléchargement : Infographie sur les principes de base de l’apprentissage automatique avec des liens vers des exemples d’algorithmes](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Téléchargement : Infographie sur les principes de base de Machine Learning avec des liens vers des exemples d’algorithmes (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infographie : Principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
@@ -52,4 +52,4 @@ La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) cont
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

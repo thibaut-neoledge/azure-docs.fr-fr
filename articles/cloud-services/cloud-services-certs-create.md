@@ -57,10 +57,15 @@ Vous disposez de deux méthodes simples pour créer un certificat sur Windows :
 
 ### Makecert.exe
 
-Cet utilitaire est installé avec Visual Studio 2013/2015. Il s’agit d’un utilitaire de console qui vous permet de créer et d’installer des certificats. Si vous lancez le raccourci **Invite de commandes développeur pour VS2015** créé au moment de l’installation de Visual Studio, une invite de commandes s’affiche avec cet outil dans le chemin d’accès.
+Cet utilitaire a été déconseillé et n’est plus documenté ici. Pour plus d’informations, consultez [cet article MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
-    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
+### PowerShell
 
+```
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
 
 ### Internet Information Services (IIS)
 
@@ -74,10 +79,10 @@ Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-cr
 
 ## Étapes suivantes
 
-[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
+[Chargez votre certificat de service sur le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou sur le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
 
 >[AZURE.NOTE] Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

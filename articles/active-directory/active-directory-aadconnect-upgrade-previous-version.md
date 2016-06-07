@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="05/12/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : effectuer une mise à niveau vers la dernière version
@@ -23,11 +23,11 @@ Si vous souhaitez effectuer une mise à niveau à partir de DirSync, consultez p
 
 Il existe plusieurs stratégies pour mettre à niveau Azure AD Connect.
 
-| Méthode | Description |
-| --- | --- |
-| [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) | Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple. |
-| [Mise à niveau sur place](#in-place-upgrade) | Si vous avez un seul serveur, mettez à niveau l’installation sur place sur le même serveur. |
-| [Migration « swing »](#swing-migration) | Avec deux serveurs, vous pouvez en préparer un avec la nouvelle version et changer de serveur actif quand vous êtes prêt.
+Méthode | Description
+--- | ---
+[Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) | Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple.
+[Mise à niveau sur place](#in-place-upgrade) | Si vous avez un seul serveur, mettez à niveau l’installation sur place sur le même serveur.
+[Migration « swing »](#swing-migration) | Avec deux serveurs, vous pouvez en préparer un avec la nouvelle version et changer de serveur actif quand vous êtes prêt.
 
 Pour connaître les autorisations requises, consultez [Autorisations requises pour la mise à niveau](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
@@ -85,4 +85,4 @@ Voici les éléments qui doivent être configurés de la même façon sur les de
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

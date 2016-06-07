@@ -24,14 +24,14 @@ Cet article vous indique comment déployer un jeu de mise à l’échelle de mac
 
 Les [jeux de mise à l’échelle de machines virtuelles Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) représentent une ressource de calcul Azure qui permet de déployer et de gérer une collection de machines virtuelles similaires via des options de mise à l'échelle automatique et d'équilibrage de charge facilement intégrées. Vous pouvez configurer et déployer des jeux de mise à l'échelle de machines virtuelles à l'aide de [modèles Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates). Les modèles ARM peuvent être déployés à l'aide de l’interface de ligne de commande (CLI) Azure, de PowerShell, de REST et directement à partir de Visual Studio. Visual Studio fournit des exemples de modèles qui peuvent être déployés dans le cadre d'un projet de déploiement de groupe de ressources Azure.
 
-Les déploiements de groupe de ressources Azure vous permettent de regrouper et de publier un ensemble de ressources Azure connexes dans une même opération de déploiement. Pour en savoir plus, consultez la rubrique [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/)
+Les déploiements de groupe de ressources Azure vous permettent de regrouper et de publier un ensemble de ressources Azure connexes dans une même opération de déploiement. Pour en savoir plus, consultez la rubrique [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 ## Conditions préalables
 
 Pour commencer le déploiement de jeux de mise à l'échelle de machines virtuelles dans Visual Studio, vous devez disposer des éléments suivants :
 
 - Visual Studio 2013 ou 2015
-- Kit de développement logiciel (SDK) Azure 2.7 ou 2.8
+- Kit de développement logiciel (SDK) Azure 2.7, 2.8 ou 2.9
 
 Remarque : ces instructions partent du principe que vous utilisez Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -85,7 +85,7 @@ Vous pouvez modifier dès à présent le modèle pour le personnaliser en foncti
 
 ## Exploration de votre jeu de mise à l’échelle de machines virtuelles
 
-Une fois le déploiement terminé, vous pouvez afficher le nouveau jeu de mise à l'échelle de machines virtuelles dans le **Cloud Explorer** de Visual Studio (actualisez la liste). Cloud Explorer vous permet de gérer des ressources Azure dans Visual Studio lors du développement d'applications. Vous pouvez également afficher votre jeu de mise à l’échelle de machines virtuelles dans le portail Azure et Azure Resource Explorer.
+Une fois le déploiement terminé, vous pouvez afficher le nouveau jeu de mise à l'échelle de machines virtuelles dans le **Cloud Explorer** de Visual Studio (actualisez la liste). Cloud Explorer vous permet de gérer des ressources Azure dans Visual Studio lors du développement d'applications. Vous pouvez également afficher votre jeu de mise à l’échelle de machines virtuelles dans le [portail Azure](https://portal.azure.com) et [Azure Resource Explorer](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Une fois les jeux de mise à l'échelle de machines virtuelles déployés avec s
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

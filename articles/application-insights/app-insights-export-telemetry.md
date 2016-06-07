@@ -117,7 +117,7 @@ Where
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
 
-Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par exemple, ces valeurs indiquent une durée de 10 ms pour envoyer une demande à partir du navigateur, 30 ms pour la recevoir et 1,8 s pour traiter la page dans le navigateur :
+Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par exemple, ces valeurs indiquent une durée de 1 ms pour envoyer une demande à partir du navigateur, 3 ms pour la recevoir et 1,8 s pour traiter la page dans le navigateur :
 
 	"sendRequest": {"value": 10000.0},
 	"receiveRequest": {"value": 30000.0},
@@ -229,4 +229,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

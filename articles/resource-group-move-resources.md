@@ -32,7 +32,7 @@ Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d�
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
 
 1. Le service doit prendre en charge le déplacement de ressources. Consultez la liste ci-dessous pour plus d’informations sur les [services qui prennent en charge le déplacement des ressources](#services-that-support-move).
-2. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevrez une erreur indiquant que l'**abonnement n'est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Pour savoir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../resource-manager-supported-services/#resource-providers-and-types).
+2. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevrez une erreur indiquant que l'**abonnement n'est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Pour savoir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Si vous utilisez Azure PowerShell ou Azure CLI, utilisez la version la plus récente. Pour mettre à jour votre version, exécutez Microsoft Web Platform Installer et vérifiez si une nouvelle version est disponible. Pour plus d’informations, consultez [Comment installer et configurer Azure PowerShell](powershell-install-configure.md) et [Installer Azure CLI](xplat-cli-install.md).
 4. Si vous déplacez une application App Service, vous avez lu attentivement les [limitations App Service](#app-service-limitations).
 5. Si vous déplacez des ressources déployées via le modèle classique, vous avez consulté les [Limitations relatives au déploiement classique](#classic-deployment-limitations).
@@ -48,7 +48,8 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - CDN
 - Cloud Services : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 - Data Factory
-- DocumentDB
+- DNS
+- Base de données de documents
 - Clusters HDInsight
 - Key Vault
 - Mobile Engagement
@@ -57,9 +58,9 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Cache Redis
 - Scheduler
 - Search
-- Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+- Storage (Classic) : consultez [Classic deployment limitations](#classic-deployment-limitations) (Limitations relatives au déploiement Classic)
 - Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
-- Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+- Virtual Machines (Classic) : consultez [Classic deployment limitations](#classic-deployment-limitations) (Limitations relatives au déploiement Classic)
 
 ## Services qui prennent partiellement en charge le déplacement
 
@@ -74,8 +75,8 @@ Les services qui ne prennent actuellement pas en charge le déplacement d’une 
 - Application Insights
 - ExpressRoute
 - Storage
-- Machines virtuelles
-- Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+- Virtual Machines
+- Virtual Networks (Classic) : consultez [Classic deployment limitations](#classic-deployment-limitations) (Limitations relatives au déploiement Classic)
 
 ## Limitations d’App Service
 
@@ -88,8 +89,8 @@ Si votre groupe de ressources d’origine inclut également une ressource Applic
 
 Par exemple, si votre groupe de ressources contient :
 
-- **web-a**, qui est associé à **plan-a** et **app-insights-a**
-- **web-b**, qui est associé à **plan-b** et **app-insights-b**
+- **web-a**, qui est associé à **plan-a** et à **app-insights-a**
+- **web-b**, qui est associé à **plan-b** et à **app-insights-b**
 
 Vos options sont :
 
@@ -104,7 +105,7 @@ Si votre application web réside dans un autre groupe de ressources que son plan
 
 - **web-a** réside dans **web-group**
 - **plan-a** réside dans **plan-group**
-- Vous souhaitez que **web-a** et **plan-a** résident dans **combined-group**
+- Vous voulez que **web-a** et **plan-a** résident dans **combined-group**
 
 Pour effectuer ce déplacement, effectuez deux opérations de déplacement distinctes dans l’ordre suivant :
 
@@ -115,7 +116,7 @@ Pour effectuer ce déplacement, effectuez deux opérations de déplacement disti
 
 Les options de déplacement des ressources déployées avec le modèle classique diffèrent selon que vous déplaciez les ressources au sein d’un abonnement ou vers un nouvel abonnement.
 
-Lors du déplacement de ressources d’un groupe de ressources vers un autre **au sein du même abonnement**, les restrictions suivantes s’appliquent :
+Lors du déplacement de ressources d’un groupe de ressources vers un autre **au sein du même abonnement**, les restrictions suivantes s’appliquent :
 
 - Les réseaux virtuels (classiques) ne peuvent pas être déplacés.
 - Les machines virtuelles (classiques) doivent être déplacées avec le service cloud. 
@@ -124,7 +125,7 @@ Lors du déplacement de ressources d’un groupe de ressources vers un autre **a
 - Un seul compte de stockage (classique) peut être déplacé à la fois.
 - Vous ne pouvez pas déplacer un compte de stockage (classique) dans la même opération avec une machine virtuelle ou un service cloud.
 
-Lors du déplacement de ressources pour un **nouvel abonnement**, les restrictions suivantes s’appliquent :
+Lors du déplacement de ressources vers un **nouvel abonnement**, les restrictions suivantes s’appliquent :
 
 - Toutes les ressources classiques de l’abonnement doivent être déplacées au cours de la même opération.
 - Le déplacement peut uniquement être demandé par le biais du portail ou via une API REST distincte pour les déplacements classiques. Les commandes de déplacement standard de Resource Manager ne fonctionnent pas lors du déplacement de ressources classiques vers un nouvel abonnement. Les étapes d’utilisation du portail ou de l’API REST sont décrites dans les sections ci-dessous.
@@ -133,7 +134,7 @@ Lors du déplacement de ressources pour un **nouvel abonnement**, les restrictio
 
 Vous pouvez déplacer des ressources via le portail ; cependant, tous les fournisseurs de ressources qui prennent en charge l’opération de déplacement ne fournissent pas cette fonctionnalité via le portail.
 
-Pour déplacer une ressource, sélectionnez la ressource, puis cliquez sur le bouton **Déplacer**.
+Pour déplacer une ressource, sélectionnez-la, puis cliquez sur le bouton **Déplacer**.
 
 ![Déplacer la ressource](./media/resource-group-move-resources/move-resources.png)
 
@@ -157,7 +158,7 @@ Sélectionnez ses **Propriétés**.
 
 ![sélectionner les propriétés](./media/resource-group-move-resources/select-properties.png)
 
-Si elle est disponible pour ce type de ressource, sélectionnez **Modifier le groupe de ressources**.
+Si l’option est disponible pour ce type de ressource, sélectionnez **Modifier le groupe de ressources**.
 
 ![modifier le groupe de ressources](./media/resource-group-move-resources/change-resource-group.png)
 
@@ -169,7 +170,7 @@ Lorsque vous déplacez des ressources déployées via le modèle classique vers 
 
 ![déplacer des ressources classiques](./media/resource-group-move-resources/edit-rg-icon.png)
 
-Sélectionnez les ressources à déplacer tout en gardant à l’esprit les [Limitations relatives au déploiement classique](#classic-deployment-limitations). Sélectionnez **OK** pour lancer le déplacement.
+Sélectionnez les ressources à déplacer tout en gardant à l’esprit les [Limitations relatives au déploiement Classic](#classic-deployment-limitations). Sélectionnez **OK** pour lancer le déplacement.
 
  ![sélectionner des ressources classiques](./media/resource-group-move-resources/select-classic-resources.png)
  
@@ -266,9 +267,9 @@ Avec le corps de requête :
 
 
 ## Étapes suivantes
-- Pour plus d'informations sur les applets de commande PowerShell afin de gérer votre abonnement, consultez la rubrique [Utilisation d'Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
-- Pour plus d'informations sur les commandes Azure CLU afin de gérer votre abonnement, consultez la rubrique [Utilisation d'Azure CLI avec Resource Manager](xplat-cli-azure-resource-manager.md).
-- Pour plus d'informations sur les fonctionnalités du portail afin de gérer votre abonnement, consultez la rubrique [Utilisation du portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
-- Pour plus d'informations sur l'application d'une organisation logique à vos ressources, consultez la rubrique [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
+- Pour plus d’informations sur les applets de commande PowerShell afin de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
+- Pour plus d’informations sur les commandes Azure CLI permettant de gérer votre abonnement, consultez [Utilisation d’Azure CLI avec Resource Manager](xplat-cli-azure-resource-manager.md).
+- Pour plus d’informations sur les fonctionnalités du Portail permettant de gérer votre abonnement, consultez [Utilisation du portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
+- Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

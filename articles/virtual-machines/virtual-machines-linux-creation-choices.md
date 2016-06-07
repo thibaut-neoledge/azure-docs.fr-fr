@@ -21,8 +21,6 @@
 
 Microsoft Azure propose différents moyens de créer une machine virtuelle à l’aide du modèle de déploiement Azure Resource Manager, suivant les utilisateurs et les applications. Cet article résume ces différences et les options dont vous disposez pour créer vos machines virtuelles Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 ## Choix des outils
 
 ### Interface de commande : interface de ligne de commande Azure 
@@ -67,4 +65,4 @@ Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une 
 
 * Étapes rapides pour [réinitialiser un mot de passe ou des clés SSH et gérer les utilisateurs](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

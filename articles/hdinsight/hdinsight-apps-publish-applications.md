@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="06/01/2016"
    	ms.author="jgao"/>
 
 # Publier des applications HDInsight dans Azure Marketplace
@@ -63,6 +63,19 @@ Créez un fichier zip qui contient tous les fichiers requis pour l’installatio
 
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. Voir un exemple dans l’article [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Installer des applications HDInsight personnalisées).
+
+	>[AZURE.IMPORTANT] L’appellation des noms des scripts d’installation d’application doit être unique pour un cluster particulier, au format suivant.
+	
+	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+		
+	>Notez que le nom du script se compose de trois parties :
+		
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
+
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+
 - Tous les scripts nécessaires.
 
 > [AZURE.NOTE] Les fichiers d’application (y compris les fichiers d’application web, le cas échéant) peuvent se trouver sur n’importe quel point de terminaison accessible publiquement.
@@ -81,8 +94,8 @@ Suivez ces étapes pour publier une application HDInsight :
 
 ## Étapes suivantes
 
-- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Installer des applications HDInsight personnalisées) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.
+- [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 - [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 - [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles ARM pour la création de clusters HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

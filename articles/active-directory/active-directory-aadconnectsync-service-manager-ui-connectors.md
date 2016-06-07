@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Synchronisation d’Azure AD Connect : Synchronization Service Manager
 
-| [Opérations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -28,19 +28,19 @@ L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de s
 
 ## Actions du connecteur
 
-| Action | Commentaire |
-| --- | --- |
-| Créer | Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation. |
-| Propriétés | Permet le filtrage de domaine et d’unité organisationnelle. |
-| [Supprimer](#delete) | Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt. |
-| [Configurer les profils d’exécution](#configure-run-profiles) | À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous en servir pour voir des profils d’exécution déjà configurés. |
-| Exécuter | Permet de lancer l’exécution unique d’un profil. |
-| Arrêter | Arrête un connecteur qui exécute un profil. |
-| Exporter le connecteur | Ne pas utiliser. |
-| Importer le connecteur | Ne pas utiliser. |
-| Mettre à jour le connecteur | Ne pas utiliser. |
-| Actualiser le schéma | Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l'Assistant Installation, car les règles de synchronisation sont également mises à jour.
-| [Espace de connecteur de recherche](#search-connector-space) | Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system). |
+Action | Commentaire
+--- | ---
+Créer | Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation.
+Propriétés | Permet le filtrage de domaine et d’unité organisationnelle.
+[Supprimer](#delete) | Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt.
+[Configurer les profils d’exécution](#configure-run-profiles) | À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous en servir pour voir des profils d’exécution déjà configurés.
+Exécuter | Permet de lancer l’exécution unique d’un profil.
+Arrêter | Arrête un connecteur qui exécute un profil.
+Exporter le connecteur | Ne pas utiliser.
+Importer le connecteur | Ne pas utiliser.
+Mettre à jour le connecteur | Ne pas utiliser.
+Actualiser le schéma | Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l'Assistant Installation, car les règles de synchronisation sont également mises à jour.
+[Espace de connecteur de recherche](#search-connector-space) | Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system).
 
 ### Supprimer
 L’action de suppression est utilisée dans deux cas. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
@@ -67,26 +67,26 @@ Commencez par sélectionner une **portée**. Vous pouvez rechercher des données
 Lorsque vous résolvez un problème avec les données, suivre un objet à partir de l’espace connecteur source, vers le métaverse et vers l’espace connecteur cible est une procédure essentielle pour comprendre pourquoi les données n’ont pas les valeurs attendues.
 
 ### Propriétés de l’objet espace connecteur
-**Importer** Lorsque vous ouvrez un objet cs, celui-ci inclut plusieurs onglets situés en haut. L’onglet **Importer** affiche les données mises en lot après une importation. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) L’**Ancienne valeur** montre ce qui est actuellement stocké dans le système, et la **Nouvelle valeur** ce qui a été reçu à partir du système source et n’a pas encore été appliqué. Dans ce cas, comme il existe une erreur de synchronisation, la modification ne peut pas être appliquée.
+**Importer** Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) L’**Ancienne valeur** montre ce qui est actuellement stocké dans le système, et la **Nouvelle valeur** ce qui a été reçu à partir du système source et n’a pas encore été appliqué. Dans ce cas, comme il existe une erreur de synchronisation, la modification ne peut pas être appliquée.
 
-**Erreur** : la page d’erreur est visible uniquement si un problème existe avec l’objet. Consultez les détails sur la page d’opérations pour plus d'informations sur la [résolution des erreurs de synchronisation](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
+**Erreur** : la page d’erreur est visible uniquement s’il existe un problème au niveau de l’objet. Pour plus d’informations sur la [résolution des erreurs de synchronisation](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab), consultez les détails dans la page sur les opérations.
 
-**Lignage** : l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Nous pouvons voir à quel moment nous avons importé pour la dernière fois une modification dans le système connecté, ainsi que les règles appliquées pour remplir les données dans le métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) Dans la colonne **Action**, nous pouvons voir une règle de synchronisation **Entrante** avec l’action **Approvisionner**. Cela signifie que tant que cet objet espace connecteur est présent, l’objet métaverse est conservé. Si la liste des règles de synchronisation affiche à la place une règle de synchronisation avec la direction **Sortante** et **Approvisionner**, cela indique que cet objet sera supprimé en même temps que l’objet métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) Nous pouvons également voir dans la colonne **PasswordSync** que l’espace connecteur entrant peut modifier le mot de passe, car une règle de synchronisation a la valeur **True**. Ce mot de passe est ensuite envoyé à Azure AD au moyen de la règle sortante.
+**Lignage** : l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Nous pouvons voir à quel moment nous avons importé pour la dernière fois une modification dans le système connecté, ainsi que les règles appliquées pour remplir les données dans le métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) Dans la colonne **Action**, nous pouvons voir une règle de synchronisation **Entrante** avec l’action **Approvisionner**. Cela signifie que tant que cet objet espace connecteur est présent, l’objet métaverse est conservé. Si la liste des règles de synchronisation affiche à la place une règle de synchronisation avec la direction **Sortante** et **Approvisionner**, cela indique que cet objet sera supprimé en même temps que l’objet métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) Nous pouvons également voir dans la colonne **PasswordSync** que l’espace connecteur entrant peut modifier le mot de passe, car une règle de synchronisation a la valeur **True**. Ce mot de passe est ensuite envoyé à Azure AD au moyen de la règle sortante.
 
 Sous l’onglet Lignage, vous pouvez accéder au métaverse en cliquant sur [Propriétés de l’objet métaverse](#metaverse-object-properties).
 
-Deux boutons apparaissent en bas de tous les onglets : **Aperçu** et **Journal**.
+Deux boutons apparaissent en bas de tous les onglets : **Aperçu** et **Journal**.
 
-**Aperçu** : la page d’aperçu est utilisée pour synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation du client et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet uniquement de conserver la modification en mémoire, et **Valider l’aperçu** qui implémente toutes les modifications dans les espaces connecteur cibles. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Vous pouvez inspecter l’objet et la règle appliquée pour un flux d’attribut particulier. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
+**Aperçu** : la page d’aperçu sert à synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation du client et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet de conserver uniquement la modification en mémoire, et **Valider l’aperçu**, qui implémente toutes les modifications dans les espaces connecteur cibles. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Vous pouvez inspecter l’objet et la règle appliquée pour un flux d’attribut particulier. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
-**Journal** : la page Journal permet d’afficher le statut et l’historique de synchronisation du mot de passe. Pour plus d’informations, consultez [Résoudre les problèmes de synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+**Journal** : la page Journal permet d’afficher le statut et l’historique de synchronisation du mot de passe. Pour plus d’informations, consultez [Résoudre les problèmes de synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 
 ### Propriétés de l’objet métaverse
-**Attributs** : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png) **Connecteurs** : l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties).
+**Attributs** : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png) **Connecteurs** : l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties).
 
 ## Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

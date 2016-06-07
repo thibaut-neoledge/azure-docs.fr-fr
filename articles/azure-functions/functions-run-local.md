@@ -142,6 +142,8 @@ Si votre objectif est de contribuer au projet WebJobs.SDK, vous devez satisfaire
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	Quand vous démarrez le projet WebHost, vous obtenez une page de navigateur vide, car l’URL de base du projet ne comprend aucun contenu. Reportez-vous à la section [Clés API](#apikeys) pour plus d’informations sur les URL à utiliser pour les fonctions de déclencheur HTTP.
+
 ## Affichage de la sortie de fonction
 
 Accédez au tableau de bord de votre conteneur de fonctions pour voir les appels de fonction et les sorties de journaux correspondants.
@@ -172,7 +174,7 @@ Les clés API sont stockées dans les fichiers `.json` du dossier [App\_Data/sec
 
 ### Clés API qui s’appliquent à toutes les fonctions HTTP et WebHook
 
-Le fichier *host.json* dans le dossier *App\_Data/secrets* comporte deux clés :
+Le fichier *host.json* dans le dossier *App\_Data/secrets* comporte deux clés :
 
 ```json
 {
@@ -183,7 +185,7 @@ Le fichier *host.json* dans le dossier *App\_Data/secrets* comporte deux clés :
 
 La propriété `functionKey` stocke une clé qui peut être utilisée pour n’importe quelle fonction HTTP ou WebHook si aucun remplacement de cette fonction donnée n’est défini. Cette fonctionnalité élimine la nécessité de toujours définir de nouvelles clés API pour chaque fonction que vous créez.
 
-La propriété `masterKey` stocke une clé qui est utile dans certains scénarios de test :
+La propriété `masterKey` stocke une clé qui est utile dans certains scénarios de test :
 
 * Si vous appelez une fonction WebHook avec une clé principale, le SDK WebJobs ignore la validation de la signature du fournisseur WebHook.
 
@@ -191,7 +193,7 @@ La propriété `masterKey` stocke une clé qui est utile dans certains scénario
  
 ### Clés API qui s’appliquent à des fonctions individuelles
 
-Les fichiers nommés *{function name}.json* contiennent la clé API d’une fonction donnée. Par exemple, l’exemple de contenu JSON suivant dans *App\_Data/secrets/HttpTrigger.json* définit la clé API pour la fonction `HttpTrigger`.
+Les fichiers nommés *{nom\_fonction}.json* contiennent la clé API d’une fonction donnée. Par exemple, l’exemple de contenu JSON suivant dans *App\_Data/secrets/HttpTrigger.json* définit la clé API pour la fonction `HttpTrigger`.
 
 ```json
 {
@@ -199,7 +201,11 @@ Les fichiers nommés *{function name}.json* contiennent la clé API d’une fonc
 }
 ```
 
-## Résolution des problèmes
+## Utilisation des références du package NuGet dans les fonctions  
+
+En raison de la façon dont les références NuGet sont actuellement traitées, assurez-vous de « toucher » le fichier *project.json* pendant que l’ordinateur hôte est en cours d’exécution. L’hôte surveille les modifications de fichier et lance une restauration quand il détecte des modifications. En outre, *NuGet.exe* (version 3.3.0 recommandée) doit être compris dans le chemin. Sinon, vous devez définir une variable d’environnement nommée AzureWebJobs\_NuGetPath, dont le chemin est défini sur *NuGet.exe*.
+
+## Résolution de problèmes
 
 Les modifications de variable d’environnement effectuées pendant l’exécution de Visual Studio ne sont pas récupérées automatiquement. Si vous avez ajouté ou modifié une variable d’environnement après le démarrage de Visual Studio, arrêtez Visual Studio et redémarrez-le pour vous assurer qu’il récupère les valeurs actuelles.
 
@@ -211,9 +217,9 @@ Pour obtenir plus d’informations sur les exceptions pendant le débogage, vous
 
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Functions developer reference](functions-reference.md) (Référence pour les développeurs Azure Functions)
-* [Azure Functions C# developer reference](functions-reference-csharp.md) (Référence pour les développeurs C# Azure Functions)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md) (Référence pour les développeurs NodeJS Azure Functions)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md) (Déclencheurs et liaisons Azure Functions)
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
+* [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
+* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

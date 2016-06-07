@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Comment effectuer une révision de la sécurité dans Azure AD Privileged Identity Management
 
 Le service Azure Active Directory (AD) Privileged Identity Management simplifie la gestion des identités privilégiées par les entreprises et l’accès aux ressources dans Azure AD et dans d’autres services en ligne Microsoft tels qu’Office 365 ou Microsoft Intune.
 
-Si vous avez été affecté à un rôle d'administrateur, l'administrateur de la sécurité de votre organisation peut vous demander de vérifier et confirmer régulièrement que vous avez toujours besoin de ce rôle pour votre travail. Vous pouvez recevoir un e-mail contenant un lien ou accéder directement au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans cet article pour effectuer un auto-examen de vos rôles attribués.
+Si vous avez été affecté à un rôle d’administrateur, l’administrateur de rôle privilégié de votre organisation peut vous demander de vérifier et confirmer régulièrement que vous avez toujours besoin de ce rôle pour votre travail. Vous pouvez recevoir un e-mail contenant un lien ou accéder directement au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans cet article pour effectuer un auto-examen de vos rôles attribués.
 
-Si vous êtes un administrateur de la sécurité intéressé par les analyses de sécurité, vous obtiendrez plus de détails sous [Comment démarrer une révision de sécurité](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Si vous êtes un administrateur de rôle privilégié intéressé par les analyses de sécurité, vous obtiendrez plus de détails sous [Comment démarrer une révision de sécurité](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Ajout de l’application Privileged Identity Management
 
@@ -49,4 +49,4 @@ L’accès ne sera pas modifié avant que [la révision ne soit terminée](activ
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sécurité Azure sur Channel 9 | Microsoft Azure"
+   pageTitle="Vidéos sur la sécurité Azure sur Channel 9 | Microsoft Azure"
    description="Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
-# Sécurité Azure sur Channel 9
+# Vidéos traitant de la sécurité Azure sur Channel 9
 
 [Channel 9](https://channel9.msdn.com/) est une communauté. Elle met en avant les personnes qui se cachent derrière nos produits et les connecte à ceux qui les utilisent.
 
@@ -45,6 +45,7 @@ Rejoignez cette session pour découvrir la plateforme de sécurité Microsoft en
 Jack Richins montre à [Scott](https://channel9.msdn.com/Niners/Glucose) comment facilement chiffrer ses bases de données SQL Server sur les instances Azure de machines virtuelles. C’est plus facile qu’on pourrait le penser !
 
 Sujets abordés dans cette vidéo :
+
 - Présentation du chiffrement et de SQL Server
 - Présentation des API de protection des données, des clés principales et des certificats
 - Création de la clé principale et des certificats à l’aide de commandes SQL, et chiffrement de la base de données
@@ -67,4 +68,4 @@ Le responsable programmes senior Narayan Annamalai explique à Scott comment uti
 
 Amit Bapat présente Azure Key Vault à Scott. Avec Azure Key Vault, vous pouvez chiffrer des clés et des secrets (tels que les mots de passe) avec des clés stockées dans des modules de sécurité matériels. C’est la gestion des secrets basée sur le cloud et sur le matériel de Microsoft Azure !
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/20/2016"
 	ms.author="danlep"/>
 
@@ -234,4 +234,4 @@ Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources ex
 * Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du Portail Azure, voir [Utilisation du Portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->
