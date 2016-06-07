@@ -1,5 +1,5 @@
 <properties
- pageTitle="Solutions Azure pour l’Internet des objets | Microsoft Azure"
+ pageTitle="Solutions Azure pour l’Internet des objets | Microsoft Azure"
  description="Une vue d’ensemble d’IoT sur Azure, avec un exemple d’architecture de solution et sa relation avec Azure IoT Hub et des solutions préconfigurées."
  services=""
  suite="iot-suite"
@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
@@ -29,7 +29,7 @@ Vous pouvez également être intéressé par le service [Azure IoT Hub][], utili
 
 ## Étapes suivantes
 
-Pour plus d’informations sur IoT sur Azure, explorez les ressources suivantes :
+Pour plus d’informations sur IoT sur Azure, explorez les ressources suivantes :
 
 - [Vue d’ensemble d’Azure IoT Suite][lnk-suite-overview]
 - [Prise en main des solutions préconfigurées IoT][lnk-preconfigured-solutions]
@@ -39,11 +39,11 @@ Pour plus d’informations sur IoT sur Azure, explorez les ressources suivantes 
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
-[Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
-[Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
-[Azure storage]: https://azure.microsoft.com/services/storage/
+[Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

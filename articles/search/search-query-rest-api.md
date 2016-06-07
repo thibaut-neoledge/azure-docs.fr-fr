@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Interroger votre index Azure Search à l’aide de l’API REST
@@ -31,19 +31,19 @@ La *clé API* générée pour le service que vous avez configuré est un composa
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
-3. Cliquez sur l’icône « Clés »
+3. Cliquez sur l’icône « Clés »
 
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
  - Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
- - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
+ - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
 Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de vos clés de requête. Vos clés d’administration peuvent également vous servir pour exécuter des requêtes, mais il est recommandé d’utiliser une clé de requête dans votre code d’application, car cette approche respecte davantage le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## II. Formuler votre requête
 Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). L’une consiste à émettre une requête HTTP POST dans laquelle vos paramètres de requête seront définis dans un objet JSON contenu dans le corps de la requête. L’autre méthode consiste à émettre une requête HTTP GET dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez qu’une méthode POST comporte des [limites plus souples](https://msdn.microsoft.com/library/azure/dn798927.aspx) que la méthode GET quant à la taille des paramètres de requête. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
 
-Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la demande le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2015-02-28` au moment de la publication de ce document). Pour GET, vous allez renseigner les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
+Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la demande le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2015-02-28` au moment de la publication de ce document). Pour GET, vous allez renseigner les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
 
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
@@ -53,7 +53,7 @@ La méthode POST suit un format identique, mais seule la version d’API figure 
 
 #### Exemples de requêtes
 
-Voici quelques exemples de requêtes effectuées sur un index nommé « hotels ». Ces requêtes sont présentées aux formats GET et POST.
+Voici quelques exemples de requêtes effectuées sur un index nommé « hotels ». Ces requêtes sont présentées aux formats GET et POST.
 
 Rechercher le terme « budget » dans la totalité de l’index et retourner uniquement le champ `hotelName` :
 
@@ -98,12 +98,12 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Maintenant que vous avez formulé votre requête dans l’URL (pour GET) ou dans le corps (pour POST) de votre requête HTTP, vous pouvez définir vos en-têtes de requête et envoyer votre requête.
 
 #### Requête et en-têtes de requête
-Vous devez définir deux en-têtes de requête pour GET, ou trois en-têtes pour POST :
+Vous devez définir deux en-têtes de requête pour GET, ou trois en-têtes pour POST :
 1. L’en-tête `api-key` doit être défini sur la clé de requête obtenue à l’étape I ci-dessus. Vous pouvez également utiliser une clé d’administration en tant qu’en-tête `api-key`, mais il est recommandé d’utiliser une clé de requête pour pouvoir obtenir exclusivement un accès en lecture seule aux index et aux documents.
 2. L’en-tête `Accept` doit être défini sur `application/json`.
 3. Pour la méthode POST uniquement, l’en-tête `Content-Type` doit également être défini sur `application/json`.
 
-L’exemple ci-dessous illustre une requête HTTP GET permettant d’effectuer une recherche sur l’index « hotels » à l’aide de l’API REST Azure, en utilisant une simple requête qui recherche le terme « motel » :
+L’exemple ci-dessous illustre une requête HTTP GET permettant d’effectuer une recherche sur l’index « hotels » à l’aide de l’API REST Azure, en utilisant une simple requête qui recherche le terme « motel » :
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
@@ -111,7 +111,7 @@ Accept: application/json
 api-key: [query key]
 ```
 
-Voici le même exemple de requête, cette fois à l’aide de HTTP POST :
+Voici le même exemple de requête, cette fois à l’aide de HTTP POST :
 
 ```
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
@@ -159,4 +159,4 @@ Une demande de requête réussie génère un code d’état `200 OK` et les rés
 
 Pour plus d’informations, consultez la section « Réponse » de la page [Rechercher dans des documents](https://msdn.microsoft.com/library/azure/dn798927.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

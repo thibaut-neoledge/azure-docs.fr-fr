@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"
 />
 # Interroger votre index Azure Search à l’aide du portail Azure
@@ -26,9 +26,9 @@ Ce guide vous explique comment interroger l’index Azure Search dans le portail
 
 Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
 
-## I. Accédez à votre panneau Azure Search
-1. Cliquez sur « Toutes les ressources » dans le menu à gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Sélectionnez votre service Azure Search
+## I. Accéder au panneau Azure Search
+1. Cliquez sur « Toutes les ressources » dans le menu de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+2. Sélectionnez votre service Azure Search.
 
 ## II. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche
 1. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche à partir de la mosaïque « Index ».
@@ -47,4 +47,4 @@ Avant de commencer cette procédure, vous devez déjà avoir [créé un index Az
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->
