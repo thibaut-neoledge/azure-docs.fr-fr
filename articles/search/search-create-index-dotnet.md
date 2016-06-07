@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="brjohnst"/>
 
 # Création d’un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
@@ -36,12 +36,12 @@ Maintenant que vous avez configuré un service Azure Search, vous être presque 
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
-3. Cliquez sur l’icône « Clés »
+3. Cliquez sur l’icône « Clés »
 
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
   - Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
-  - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
+  - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
 Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 
@@ -49,7 +49,7 @@ Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’
 ## II. Création d’une instance de la classe SearchServiceClient
 Pour commencer à utiliser le Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchServiceClient`. Cette classe dispose de plusieurs constructeurs. Celle que vous cherchez utilise le nom de votre service de recherche et un objet `SearchCredentials` en tant paramètres. `SearchCredentials` encapsule votre clé API.
 
-Le code suivant crée un nouveau `SearchServiceClient` à l'aide de valeurs pour le nom du service de recherche et la clé API stockés dans le fichier de configuration de l'application (`app.config` ou `web.config`) :
+Le code suivant crée un nouveau `SearchServiceClient` à l'aide de valeurs pour le nom du service de recherche et la clé API stockés dans le fichier de configuration de l'application (`app.config` ou `web.config`) :
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -64,14 +64,14 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 ## III. Définition de votre index Azure Search à l’aide de la classe `Index`
-Un seul appel à la méthode `Indexes.Create` crée votre index. Cette méthode prend comme paramètre un objet `Index` qui définit votre index Azure Search. Vous devez créer un objet `Index` et l'initialiser comme suit :
+Un seul appel à la méthode `Indexes.Create` crée votre index. Cette méthode prend comme paramètre un objet `Index` qui définit votre index Azure Search. Vous devez créer un objet `Index` et l'initialiser comme suit :
 
 1. Définissez la propriété `Name` de l’objet `Index` sur le nom de votre index.
 2. Définissez la propriété `Fields` de l’objet `Index` sur l’array d’objets `Field`. Chaque objet `Field` définit le comportement d'un champ dans l'index. Vous pouvez fournir le nom du champ au constructeur, ainsi que le type de données (ou un analyseur pour les champs de chaîne). Vous pouvez également définir d'autres propriétés comme `IsSearchable`, `IsFilterable`, etc.
 
 Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque `Field` devant être affecté à des [propriétés correctes](https://msdn.microsoft.com/library/azure/dn798941.aspx). Ces propriétés déterminent les fonctionnalités de recherche (filtrage, facettes, tri de recherche en texte intégral, etc.) qui s’appliqueront à chaque champ. Pour les propriétés que vous ne définissez pas explicitement, la classe `Field` désactive par défaut la fonctionnalité de recherche correspondante, sauf si vous l'activez de façon spécifique.
 
-Dans notre exemple, nous avons nommé notre index « hotels » et défini ses champs de la manière suivante :
+Dans notre exemple, nous avons nommé notre index « hotels » et défini ses champs de la manière suivante :
 
 ```csharp
 var definition = new Index()
@@ -104,7 +104,7 @@ La définition d’index ci-dessus utilise un analyseur de langue personnalisé 
 > [AZURE.NOTE]  Notez que, en transmettant `AnalyzerName.FrLucene` dans le constructeur, le `Field` sera automatiquement défini comme étant de type `DataType.String` et `IsSearchable` sera défini sur `true`.
 
 ## IV. Création de l'index
-Maintenant qu’un objet `Index` a été initialisé, vous pouvez créer l’index en appelant `Indexes.Create` sur votre objet `SearchServiceClient` :
+Maintenant qu’un objet `Index` a été initialisé, vous pouvez créer l’index en appelant `Indexes.Create` sur votre objet `SearchServiceClient` :
 
 ```csharp
 serviceClient.Indexes.Create(definition);
@@ -112,7 +112,7 @@ serviceClient.Indexes.Create(definition);
 
 Pour une requête réussie, la méthode effectuera un retour normalement. En cas de problème avec la requête, comme un paramètre non valide, la méthode lève `CloudException`.
 
-Pour supprimer un index, il vous suffit d’appeler la méthode `Indexes.Delete` sur votre `SearchServiceClient`. Voici, par exemple, la requête à utiliser pour supprimer l’index « hotels » :
+Pour supprimer un index, il vous suffit d’appeler la méthode `Indexes.Delete` sur votre `SearchServiceClient`. Voici, par exemple, la requête à utiliser pour supprimer l’index « hotels » :
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
@@ -123,4 +123,4 @@ serviceClient.Indexes.Delete("hotels");
 ## Suivant
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

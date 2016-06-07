@@ -258,11 +258,36 @@ Pour monter le partage de fichiers à partir d’un client local, vous devez d�
 
 ## Développement avec le stockage de fichiers
 
-Pour travailler avec le stockage de fichiers par programmation, vous pouvez utiliser les bibliothèques clientes de stockage pour .NET et Java ou l’API REST d’Azure Storage. L’exemple présenté dans cette section décrit comment travailler avec un partage de fichiers en utilisant la [bibliothèque cliente Azure Storage pour .NET](https://msdn.microsoft.com/library/mt347887.aspx) à partir d’une simple application console exécutée sur le Bureau.
+Pour écrire du code faisant appel au stockage de fichiers, vous pouvez utiliser les bibliothèques clientes de stockage pour .NET et Java ou l’API REST d’Azure Storage. L’exemple présenté dans cette section décrit comment travailler avec un partage de fichiers en utilisant la [bibliothèque cliente Azure Storage pour .NET](https://msdn.microsoft.com/library/mt347887.aspx) à partir d’une simple application console exécutée sur le Bureau.
 
-[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
+### Création de l’application console et obtention de l’assembly
 
-[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
+Pour créer une application console dans Visual Studio et installer le package NuGet contenant Azure Storage Client Library :
+
+1. Dans Visual Studio, choisissez **Fichier > Nouveau projet**, puis **Windows > Application console** dans la liste de modèles Visual C#.
+2. Nommez l’application console, puis cliquez sur **OK**.
+3. Une fois le projet créé, cliquez dessus avec le bouton droit dans l’Explorateur de solutions et choisissez **Gérer les packages NuGet**. Effectuez une recherche en ligne sur « WindowsAzure.Storage », puis cliquez sur **Installer** pour installer le package Azure Storage Client Library pour .NET et ses dépendances.
+
+Les exemples de code présentés dans cet article utilisent également [Microsoft Azure Configuration Manager Library](https://msdn.microsoft.com/library/azure/mt634646.aspx) pour récupérer la chaîne de connexion de stockage à partir d’un fichier app.config dans l’application console. Azure Configuration Manager vous permet de récupérer votre chaîne de connexion lors de l’exécution, que votre application soit exécutée dans Microsoft Azure ou depuis un ordinateur de bureau, un appareil mobile ou une application web.
+
+Pour installer le package Azure Configuration Manager, cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Gérer les packages NuGet**. Exécutez une recherche en ligne sur « ConfigurationManager » et cliquez sur **Installer** pour installer le package.
+
+L’utilisation d’Azure Configuration Manager est facultative. Vous pouvez également utiliser une API, par exemple la [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) de .NET Framework.
+
+### Enregistrement des informations d’identification de votre compte de stockage dans le fichier app.config
+
+Enregistrez ensuite vos informations d’identification dans le fichier app.config du projet. Modifiez le fichier app.config de façon à ce qu’il soit similaire à l’exemple ci-après, en remplaçant `myaccount` par le nom de votre compte de stockage et `mykey` par la clé de votre compte de stockage.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
 
 > [AZURE.NOTE] La dernière version de l’émulateur de stockage Azure ne prend pas en charge le stockage de fichiers. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud pour fonctionner avec le stockage de fichiers.
 
@@ -397,7 +422,7 @@ L’exemple suivant crée une stratégie d’accès partagé sur un partage, pui
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Pour plus d’informations sur la création et l’utilisation de signatures d’accès partagé, consultez [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
+Pour plus d’informations sur la création et l’utilisation de signatures d’accès partagé, consultez [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copie des fichiers
 
@@ -508,7 +533,7 @@ Vous pouvez activer les métriques pour File Storage à partir du [portail Azure
 
 L’exemple de code suivant explique comment utiliser la bibliothèque cliente Azure Storage pour .NET afin d’activer les métriques de File Storage.
 
-Commencez par ajouter les instructions `using` suivantes à votre fichier program.cs, en plus de celles que vous avez ajoutées ci-dessus :
+Commencez par ajouter les instructions `using` suivantes à votre fichier program.cs, en plus de celles que vous avez ajoutées ci-dessus :
 
 	using Microsoft.WindowsAzure.Storage.File.Protocol;
 	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
@@ -609,11 +634,11 @@ Bien que les services Blob, Table et Queue Storage utilisent le type `ServicePro
 
 13. **Correctif publié pour résoudre le problème de ralentissement des performances avec les fichiers Azure**
 
-	L’équipe Windows a récemment publié un correctif permettant de résoudre un problème de ralentissement des performances lorsque le client accède au stockage de fichiers Azure à partir de Windows 8.1 ou de Windows Server 2012 R2. Pour plus d’informations, consultez l’article de la base de connaissances associé [Ralentissement des performances lors de l’accès à Azure File Storage depuis Windows 8.1 ou Server 2012 R2 (en anglais)](https://support.microsoft.com/fr-FR/kb/3114025).
+	L’équipe Windows a récemment publié un correctif permettant de résoudre un problème de ralentissement des performances lorsque le client accède au stockage de fichiers Azure à partir de Windows 8.1 ou de Windows Server 2012 R2. Pour plus d’informations, consultez l’article de la base de connaissances associé [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/fr-FR/kb/3114025) (Ralentissement des performances lors de l’accès à Azure File Storage depuis Windows 8.1 ou Server 2012 R2).
 
 14. **Utilisation du stockage de fichiers Azure avec Linux**
 
-	IBM a publié un document visant à guider les clients IBM MQ lors de la configuration du stockage de fichiers Azure avec leur service. Pour plus d’informations, consultez l’article [Comment configurer le gestionnaire de file d’attente multi-instance IBM MQ avec le service de fichiers Microsoft Azure (en anglais)](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+	IBM a publié un document visant à guider les clients IBM MQ lors de la configuration du stockage de fichiers Azure avec leur service. Pour plus d’informations, consultez l’article [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Comment configurer le gestionnaire de file d’attente multi-instance IBM MQ avec le service de fichiers Microsoft Azure).
 
 ## Étapes suivantes
 
@@ -642,4 +667,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

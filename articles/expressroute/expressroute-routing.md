@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="05/26/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
 
 **Remarque :** la publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
 
-## Prise en charge des communautés BGP (Bientôt disponible)
+## Prise en charge des communautés BGP
 
 
 Cette section fournit une vue d'ensemble de l'utilisation des communautés BGP avec ExpressRoute. Microsoft publiera des routages sur les chemins d’homologation publiques et Microsoft avec des routages marqués à l’aide des valeurs de communauté appropriées. La logique de cette procédure et les détails concernant les valeurs de la communauté sont décrits ci-dessous. Cependant, Microsoft ignorera toutes les valeurs de communauté marquées pour des itinéraires qui lui sont proposés.
@@ -116,7 +116,7 @@ Reportez-vous à la page [Partenaires ExpressRoute et emplacements d’homologat
 
 Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services.
 
-Microsoft marquera les préfixes publiés via l'homologation publique et l’homologation Microsoft avec les valeurs de communauté BGP appropriées indiquant la région dans laquelle les préfixes sont hébergés. Vous pouvez compter sur les valeurs de communauté pour prendre des décisions de routage avisées et offrir aux clients un routage optimal.
+Microsoft marquera les préfixes publiés via l'homologation publique et l’homologation Microsoft avec les valeurs de communauté BGP appropriées indiquant la région dans laquelle les préfixes sont hébergés. Vous pouvez compter sur les valeurs de communauté pour prendre des décisions de routage avisées et offrir [aux clients un routage optimal](expressroute-optimize-routing.md).
 
 | **Région géopolitique** | **Région Microsoft Azure** | **Valeur de communauté BGP** |
 |---|---|---|
@@ -163,10 +163,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | **CRM Online** | 12076:5040 |
 | **Autres services Office 365** | 12076:5100 |
 
-
-### Manipulation des préférences de routage
-
-Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez configurer une paire de sessions BGP par homologation afin de garantir que les conditions requises pour le [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) sont remplies. Vous pouvez toutefois configurer votre réseau pour préférer un lien plutôt qu’un autre en vous appuyant sur les techniques de manipulation de routage BGP standard. Vous pouvez appliquer différentes préférences locales BGP à chaque lien afin de favoriser un chemin d'accès plutôt qu’un autre de votre réseau vers Microsoft. Vous pouvez ajouter l’attribut AS-PATH aux publications de routage pour forcer le flux de trafic de Microsoft vers votre réseau.
+>[AZURE.NOTE] Microsoft ignore les valeurs de communauté BGP définies sur les itinéraires proposés à Microsoft.
 
 ## Étapes suivantes
 
@@ -176,4 +173,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

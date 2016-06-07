@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Gestion de la sécurité dans Azure
@@ -32,7 +32,7 @@ Les personnes malveillantes tentent souvent d’obtenir un accès privilégié e
 
 Même avec un contrôle strict des comptes d’administrateur principal, des comptes d’utilisateur de niveau inférieur peuvent être utilisés pour exploiter les faiblesses de la stratégie de sécurité. En l’absence d’une formation de sécurité appropriée, des violations de compte peuvent découler de la divulgation accidentelle ou de l’exposition d’informations sur le compte.
 
-Lorsqu’une station de travail utilisateur sert aux tâches d’administration, elle peut être compromise à de nombreux niveaux, que l’utilisateur navigue sur le Web, qu’il se serve d’outils tiers et open source, ou qu’il ouvre un document contenant un cheval de Troie.
+Lorsqu’une station de travail utilisateur sert aux tâches d’administration, elle peut être compromise à de nombreux niveaux, que l’utilisateur navigue sur le web, qu’il se serve d’outils tiers et open source, ou qu’il ouvre un document contenant un cheval de Troie.
 
 En règle générale, la plupart des attaques ciblées entraînant des violations de données sont liées à l’exploitation de vulnérabilités du navigateur, aux plug-ins (par exemple, Flash, PDF, Java) et au hameçonnage ciblé sur les ordinateurs de bureau. Ces ordinateurs disposent d’autorisations d’administration ou de service permettant d’accéder aux serveurs dynamiques ou aux périphériques réseau lors du développement ou de la gestion d’autres ressources.
 
@@ -219,7 +219,7 @@ En outre, des serveurs jump dédiés sur le réseau Microsoft et nécessitant un
 
 La limitation du nombre de tâches réalisables par les administrateurs sur une station de travail renforcée réduit la surface d’attaque de votre environnement de gestion et de développement. Utilisez les technologies suivantes pour protéger votre station de travail renforcée :
 
-- Renforcement d’Internet Explorer. Le navigateur Internet Explorer (comme tout autre navigateur Web) est un point d’entrée clé pour le code malveillant en raison de ses nombreuses interactions avec les serveurs externes. Passez en revue vos stratégies de clients et optez pour un mode protégé, la désactivation des modules complémentaires, la désactivation des téléchargements de fichiers et le filtrage [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Assurez-vous que les avertissements de sécurité s’affichent correctement. Utilisez les zones Internet et créez une liste de sites de confiance pour lesquels vous avez configuré un renforcement raisonnable. Bloquez tous les autres sites et le code intégré du navigateur, comme les contrôles ActiveX et Java.
+- Renforcement d’Internet Explorer. Le navigateur Internet Explorer (comme tout autre navigateur web) est un point d’entrée clé pour le code malveillant en raison de ses nombreuses interactions avec les serveurs externes. Passez en revue vos stratégies de clients et optez pour un mode protégé, la désactivation des modules complémentaires, la désactivation des téléchargements de fichiers et le filtrage [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Assurez-vous que les avertissements de sécurité s’affichent correctement. Utilisez les zones Internet et créez une liste de sites de confiance pour lesquels vous avez configuré un renforcement raisonnable. Bloquez tous les autres sites et le code intégré du navigateur, comme les contrôles ActiveX et Java.
 - Utilisateur standard. Le statut d’utilisateur standard offre un certain nombre d’avantages : il complique notamment le vol d’informations d’identification de l’administrateur par le biais de programmes malveillants. En outre, un compte d’utilisateur standard ne dispose pas de privilèges élevés sur le système d’exploitation racine, tandis que plusieurs options de configuration et API sont verrouillées par défaut.
 - AppLocker. Vous pouvez utiliser [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) pour limiter les programmes et les scripts exécutables. Vous pouvez utiliser AppLocker en mode d’audit ou d’application. Par défaut, AppLocker comporte une règle d’autorisation qui permet aux utilisateurs disposant d’un jeton Admin d’exécuter tout le code sur le client. Cette règle empêche les administrateurs de procéder eux-mêmes au verrouillage, et elle s’applique uniquement aux jetons correspondant à des privilèges élevés. Consultez également l’intégrité du code dans le cadre de la [sécurité de base](http://technet.microsoft.com/library/dd348705.aspx) Windows Server.
 - Signature de code. La signature de code pour tous les scripts et les outils utilisés par les administrateurs offre un moyen simple de déployer des stratégies de verrouillage d’application. Les hachages ne s’adaptent pas à de rapides modifications sur le code, et les chemins d’accès ne fournissent pas un niveau élevé de sécurité. Vous devez combiner les règles AppLocker avec une [stratégie d’exécution](http://technet.microsoft.com/library/ee176961.aspx) PowerShell qui autorise uniquement l’[exécution](http://technet.microsoft.com/library/hh849812.aspx) du code et des scripts signés.
@@ -247,4 +247,4 @@ Les ressources suivantes fournissent des informations générales sur les servic
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

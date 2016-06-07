@@ -24,8 +24,6 @@
 
 Ce didacticiel de bout en bout vous montre comment utiliser le portail Azure pour configurer une machine virtuelle exécutant SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 La galerie de machines virtuelles Azure inclut différentes images contenant Microsoft SQL Server. Vous pouvez sélectionner l’une des images de machine virtuelle SQL à partir de la galerie et l’approvisionner en quelques clics dans votre environnement Azure.
 
 Ce didacticiel présente les procédures suivantes :
@@ -251,4 +249,4 @@ Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL
 
 Pour obtenir une vue d’ensemble de SQL Server sur Azure Virtual Machines, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure est la plate-forme la mieux adaptée à SQL Server 2016).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

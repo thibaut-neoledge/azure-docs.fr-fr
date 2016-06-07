@@ -1,7 +1,7 @@
 <properties
 
 	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
+	description="How to create and manage groups to manage Azure users using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -14,21 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 
 # Gestion des groupes dans Azure Active Directory
 
-L’une des principales fonctionnalités d’Azure Active Directory (Azure AD) est la possibilité de gérer l’accès aux ressources. Ces ressources peuvent être des objets dans le répertoire, des ressources externes au répertoire, comme les applications SaaS, les services Azure et les sites SharePoint, ou des ressources locales. En outre, le propriétaire d’une ressource peut attribuer l’accès à une ressource à un groupe Azure AD. Cette opération autorise les membres de ce groupe à accéder à la ressource. De son côté, le propriétaire du groupe gère l’appartenance au groupe. Le propriétaire de la ressource délègue au propriétaire du groupe l’autorisation d’affecter des utilisateurs à ses ressources.
+L’une des principales fonctionnalités de la gestion des utilisateurs Azure Active Directory (Azure AD) est la possibilité de créer des groupes d’utilisateurs. Vous pouvez ensuite utiliser un groupe pour attribuer des licences à une classe d’utilisateurs. Vous pouvez également utiliser des groupes pour affecter des autorisations d’accès à
+
+- Ressources telles que des objets de l’annuaire
+- Il peut s’agir de ressources externes à l’annuaire, comme des applications SaaS, des services Azure, des sites SharePoint, ou des ressources locales.
+
+En outre, le propriétaire d’une ressource peut attribuer l’accès à une ressource à un groupe Azure AD. Cette opération autorise les membres de ce groupe à accéder à la ressource. De son côté, le propriétaire du groupe gère l’appartenance au groupe. Le propriétaire de la ressource délègue au propriétaire du groupe l’autorisation d’affecter des utilisateurs à ses ressources.
 
 ## Comment créer un groupe ?
 
-**Pour créer un groupe**
+Cette tâche peut être effectuée à l’aide du portail des comptes Office 365, du portail des comptes Windows Intune ou du portail Azure Classic, selon les services auxquels votre organisation est abonnée. Pour plus d’informations sur l’utilisation des portails non Azure pour gérer Azure Active Directory, consultez [Administration de votre annuaire Azure AD](active-directory-administer.md).
 
-Cette tâche peut être effectuée à l’aide du portail des comptes Office 365, du portail des comptes Windows Intune ou du portail Azure, selon les services auxquels votre organisation est abonnée. Pour plus d’informations sur l’utilisation des portails pour gérer Azure Active Directory, consultez [Administration de votre annuaire Azure AD](active-directory-administer.md).
-
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom du répertoire de votre organisation.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom de l’annuaire de votre organisation.
 
 2. Sélectionnez l’onglet **Groupes**.
 
@@ -41,7 +44,7 @@ Cette tâche peut être effectuée à l’aide du portail des comptes Office 365
 
 **Pour ajouter un utilisateur individuel à un groupe**
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom du répertoire de votre organisation.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom de l’annuaire de votre organisation.
 
 2. Sélectionnez l’onglet **Groupes**.
 
@@ -54,7 +57,7 @@ Cette tâche peut être effectuée à l’aide du portail des comptes Office 365
 
 **Pour supprimer un utilisateur individuel d’un groupe**
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom du répertoire de votre organisation.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis le nom de l’annuaire de votre organisation.
 
 2. Sélectionnez l’onglet **Groupes**.
 
@@ -72,9 +75,9 @@ Dans Azure AD, vous pouvez très facilement définir une règle simple (une règ
 > [AZURE.NOTE] Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365. Les appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications à ce stade.
 >
 > L’appartenance dynamique à des groupes nécessite qu’une licence Azure AD Premium soit affectée à
-> 
+>
 > - L’administrateur qui gère la règle sur un groupe
-> - Tous les utilisateurs sélectionés par la règle pour être membres du groupe
+> - Tous les utilisateurs sélectionnés par la règle pour être membres du groupe
 
 **Pour activer l’appartenance dynamique pour un groupe**
 
@@ -102,4 +105,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

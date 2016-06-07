@@ -12,7 +12,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Création d'un index Azure Search
@@ -22,7 +22,7 @@ authors="ashmaka"
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
-## Qu’est-ce qu’un index ?
+## Qu’est-ce qu’un index ?
 
 Un *index* est une banque permanente de *documents* et d’autres éléments utilisés par un service Azure Search. Un document correspond à une unité de données pouvant l’objet d’une recherche dans votre index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, etc. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un*index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
 
@@ -37,7 +37,7 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 |Type|Description|
 |------------|-----------|
 |*Edm.String*|Texte pouvant éventuellement être tokenisé pour la recherche en texte intégral (césure de mots, recherche de radical, etc).|
-|*Collection(Edm.String)*|Liste de chaînes pouvant être éventuellement tokenisées pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections.|
+|*Collection(Edm.String)*|Liste de chaînes pouvant être éventuellement tokenisées pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections.|
 |*Edm.Boolean*|Contient des valeurs true/false.|
 |*Edm.Int32*|Valeurs entières 32 bits.|
 |*Edm.Int64*|Valeurs entières 64 bits.|
@@ -70,4 +70,4 @@ Lorsque vous concevez votre index, prenez le temps lors de la phase de planifica
 
 Si vos besoins en stockage de données changent au fil du temps, vous pouvez augmenter ou diminuer la capacité en ajoutant ou en supprimant des partitions. Pour plus d’informations, consultez [Gérer votre service de recherche dans Azure](search-manage.md) ou [Limites de service](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

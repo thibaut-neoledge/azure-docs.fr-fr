@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/26/2016"
    ms.author="maroche"/>
 
 # Qu’est-ce qu’Azure Data Catalog ?
 
-Microsoft Azure Data Catalog est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. Data Catalog fournit des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) d’inscrire, découvrir, comprendre et utiliser des sources de données, et de partager leurs connaissances pour créer et prendre en charge une communauté et une culture des données.
+Azure Data Catalog est un service cloud entièrement géré qui permet aux utilisateurs de découvrir les sources de données dont ils ont besoin et de comprendre celles qu’ils ont trouvées, tout en aidant les organisations à mieux exploiter leurs investissements existants. Data Catalog propose des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) de découvrir, comprendre et utiliser des sources de données. Data Catalog inclut un modèle de crowdsourcing des métadonnées et des annotations et permet à tous les utilisateurs d’apporter leurs connaissances pour créer une communauté et une culture des données.
 
-## Description du problème - motivation et vue d'ensemble
+## Défis des consommateurs de données en matière de découverte
 
 La détection de sources de données d’entreprise est un processus organique basé sur des connaissances tribales. Elle présente de nombreux défis aux entreprises qui souhaitent tirer le meilleur parti de leurs informations.
 
@@ -29,6 +29,8 @@ La détection de sources de données d’entreprise est un processus organique b
 -	L’utilisateur ne peut pas comprendre les utilisations prévues des données s’il ne connaît pas l’emplacement d’une source de données ; les sources de données et la documentation résident à des emplacements différents et elles sont consommées via différentes expériences.
 -	Si un utilisateur souhaite obtenir des précisions sur une ressource d'informations, il doit localiser l’expert ou l'équipe responsable des données et solliciter ces experts en mode hors connexion ; aucune connexion explicite n’est établie entre les données et les personnes pouvant apporter leurs points de vue d’expert sur leurs utilisations.
 -  Sauf si un utilisateur comprend le processus de demande d’accès à la source de données, la découverte de la source de données et de sa documentation ne lui permet toujours pas d'accéder aux données qu'il requiert.
+
+## Défis des producteurs de données en matière de découverte
 
 Pendant que les consommateurs de données relèvent ces défis, les utilisateurs responsables de la production et de la gestion des ressources d’informations relèvent, quant à eux, des défis qui leur sont propres.
 
@@ -40,74 +42,36 @@ Créer et gérer une documentation sur une source de données est une tâche plu
 
 Lorsqu’ils sont combinés, ces défis représentent un obstacle majeur pour les entreprises qui souhaitent encourager et promouvoir l'utilisation et la compréhension des données d'entreprise.
 
-## Description du service
+## Azure Data Catalog peut être utile
 
-Data Catalog est conçu pour résoudre ces problèmes et permettre aux entreprises de tirer le meilleur parti de leurs ressources d’informations existantes, en les rendant facilement détectables et compréhensibles pour les utilisateurs qui ont besoin de ces données gérées.
+Data Catalog est conçu pour résoudre ces problèmes et permettre aux entreprises de tirer le meilleur parti de leurs ressources d’informations existantes. Data Catalog permet de rendre les sources de données facilement détectables et compréhensibles par les utilisateurs qui ont besoin des données qu’ils gèrent.
 
 Data Catalog fournit un service cloud dans lequel des données source peuvent être inscrites. Les données restent à leur emplacement existant, mais une copie des métadonnées, ainsi qu’une référence à l’emplacement de la source de données, sont ajoutées à Data Catalog. Ces métadonnées sont également indexées de manière à ce que chaque source de données soit facilement détectable via la recherche, et compréhensible pour les utilisateurs qui la découvrent.
 
-Une fois qu'une source de données a été inscrite, ses métadonnées peuvent ensuite être enrichies, par l'utilisateur qui a réalisé l’inscription ou par d'autres utilisateurs de l'entreprise. Tous les utilisateurs peuvent annoter une source de données en fournissant des descriptions, des balises ou d'autres métadonnées, telles que de la documentation, et traiter la demande d’accès à la source de données. Ces métadonnées descriptives complètent les métadonnées structurelles (telles que les noms de colonnes et les types de données) inscrites à partir de la source de données, pour faciliter leur détection et leur compréhension.
+Une fois qu'une source de données a été inscrite, ses métadonnées peuvent ensuite être enrichies, par l'utilisateur qui a réalisé l’inscription ou par d'autres utilisateurs de l'entreprise. Tous les utilisateurs peuvent annoter une source de données en fournissant des descriptions, des balises ou d'autres métadonnées, telles que de la documentation, et traiter la demande d’accès à la source de données. Ces métadonnées descriptives complètent les métadonnées structurelles (telles que les noms de colonnes et les types de données) inscrites à partir de la source de données.
 
 La détection, la compréhension et l’utilisation des sources de données sont le principal objectif de l’inscription des sources. Lorsque les utilisateurs de l’entreprise ont besoin de données pour mener leurs efforts (aide à la décision, développement d’applications, science de données ou toute autre tâche qui nécessite des données spécifiques), ils peuvent utiliser l’expérience de détection de Data Catalog pour rechercher rapidement les données qui correspondent à leurs besoins, comprendre les données afin d’évaluer leur aptitude à l’emploi et utiliser ces données en ouvrant la source de données via l’outil de leur choix. Dans le même temps, Data Catalog permet aux utilisateurs de contribuer au catalogue, en balisant, en documentant et en annotant des sources de données qui ont déjà été inscrites, et en inscrivant les nouvelles sources de données qui peuvent alors être découvertes, comprises et consommées par la communauté des utilisateurs du catalogue.
 
 ![Fonctionnalités Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Inscription des sources de données
+## Prise en main de Data Catalog
 
-L’inscription des sources de données est réalisée via l’outil d’inscription des sources de données de Data Catalog. Vous pouvez télécharger cette application à partir du portail Data Catalog.
+Pour commencer à utiliser Data Catalog dès aujourd’hui, visitez [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
-Le processus d’inscription comporte trois étapes de base :
+Vous trouverez un guide de prise en main [ici](data-catalog-get-started.md).
 
-1.	Se connecter à une source de données : l'utilisateur spécifie l'emplacement de la source de données et les informations d'identification pour se connecter à la source de données, telle qu'une instance SQL Server.
-2.	Sélectionner des objets à inscrire : l’utilisateur sélectionne les objets de l’emplacement spécifié qui doivent être inscrits via Data Catalog. Il peut s’agir d’un ensemble de tables présentes sur toutes les bases de données du serveur, ou d’un sous-ensemble de tables et de vues spécifiques.
-3.	Terminer l’inscription : l’utilisateur termine le processus et l’outil d’inscription des sources de données extrait les métadonnées structurelles à partir de la source de données, qui envoie ensuite les métadonnées au service cloud Data Catalog.
+## En savoir plus sur Data Catalog
 
-> [AZURE.NOTE] Pour afficher la liste des types de sources de données et de ressources pris en charge par Data Catalog, consultez [Sources de données prises en charge par Azure Data Catalog](data-catalog-dsr.md)
+Pour en savoir plus sur les fonctions de Data Catalog, voir :
 
+* [Inscription de sources de données](data-catalog-how-to-register.md)
+* [Détection de sources de données](data-catalog-how-to-discover.md)
+* [Annotation de sources de données](data-catalog-how-to-annotate.md)
+* [Comment documenter des sources de données](data-catalog-how-to-documentation.md)
+* [Connexion aux sources de données](data-catalog-how-to-connect.md)
+* [Travail avec du Big Data](data-catalog-how-to-big-data.md)
+* [Gestion des ressources de données](data-catalog-how-to-manage.md)
+* [Configuration du glossaire métier](data-catalog-how-to-business-glossary.md)
+* [Forum Aux Questions (FAQ)](data-catalog-frequently-asked-questions.md)
 
-> [AZURE.IMPORTANT]L’inscription d’une source de données dans Data Catalog ne copie pas les données à partir de la source de données, sauf si vous sélectionnez « Inclure une version préliminaire » dans l’outil d’inscription des sources de données. L’inscription copie les métadonnées des sources de données, et non les données. Exemples de métadonnées : les noms de tables et autres objets de sources de données, les noms et les types des données, les noms de colonnes et d'autres attributs de sources de données. Les métadonnées incluent également l’emplacement de la source de données pour que les utilisateurs qui découvrent la source de données à l’aide de Data Catalog puissent se connecter à la source de données. Si vous sélectionnez « Inclure l’aperçu », l’outil d’inscription des sources de données copie dans Data Catalog un petit jeu d’enregistrements, qui sera affiché aux utilisateurs qui découvrent la source de données dans le portail Data Catalog.
-
-## Enrichissement des métadonnées de sources de données
-
-Une fois l’inscription terminée, les sources de données peuvent être découvertes et consommées, mais la vraie valeur de Data Catalog provient du fait que les métadonnées descriptives aussi bien que les métadonnées structurelles sont extraites de la source de données. Ces métadonnées supplémentaires offrent trois avantages importants :
-
-- Les sources de données inscrites sont plus facilement détectables. Les métadonnées fournies par l’utilisateur sont ajoutées à l’index de recherche de Data Catalog. Ceci permet aux utilisateurs de détecter les données à l'aide de termes et de concepts qui ne se trouvent peut-être pas dans la source de données d'origine. Le fait d’attribuer, par exemple, un nom convivial « client » à une table de base de données contenant des données client, nommée « tbl\_c45 », permettra aux utilisateurs qui recherchent des données client de la détecter plus facilement. Le fait de fournir une description qui inclut les noms de rapports, les tableaux de bord ou les procédés qui utilisent les données, permettra également aux utilisateurs qui utilisent ces artefacts en aval comme termes de recherche, de détecter plus facilement la source de données.
-- Les sources de données inscrites sont plus facilement compréhensibles une fois détectées. Les métadonnées fournies par l’utilisateur sont présentées aux utilisateurs de Data Catalog qui affichent la source de données annotée, ce qui permet de fournir un contexte et des informations supplémentaires. En règle générale, les sources de données ne fournissent aucune description ou documentation significative, et celles qui en fournissent sont généralement destinées aux administrateurs ou développeurs de base de données. En enrichissant les sources de données de Data Catalog avec des balises et des descriptions appropriées aux audiences, les utilisateurs peuvent s’assurer que ceux qui détectent les données peuvent comprendre leurs descriptions et leurs utilisations prévues.
-- Les administrateurs de Data Catalog peuvent définir un vocabulaire métier commun à l’aide du glossaire métier Data Catalog. Les termes du glossaire peuvent ensuite servir à baliser les ressources de données enregistrées afin de fournir davantage de contexte et de sens. Pour plus d’informations, consultez [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuration du glossaire d’entreprise pour un balisage gouverné)
-- Chaque source de données inscrite peut inclure des informations d'accès de requête, pour que les utilisateurs puissent facilement comprendre et suivre les processus existants pour demander l'accès à la source de données et ses données.
-
-> [AZURE.NOTE] Chaque utilisateur de Data Catalog peut ajouter ses propres balises et descriptions pour les ressources et les attributs des données. Data Catalog conserve la valeur et la source de chaque annotation, et affiche l’utilisateur qui l’a ajoutée. Cette approche de crowdsourcing portant sur les métadonnées permet de s’assurer que chaque utilisateur ayant un point de vue sur les données et leurs utilisations peut l’exprimer et partager ses ressources avec l’ensemble des utilisateurs.
-
-## Exploration, détection et compréhension
-
-L’objectif de l’inscription et de l’enrichissement des sources de données dans Data Catalog est de faire en sorte que ces données puissent être découvertes, comprises et utilisées par les utilisateurs au sein de l’entreprise. Le portail Data Catalog est le principal outil utilisé dans ce processus.
-
-Le portail Data Catalog fournit deux mécanismes principaux d’exploration et de découverte des données : la recherche et le filtrage.
-
-Pour rechercher des sources de données dans Data Catalog, entrez simplement un terme de recherche dans la zone de recherche du portail Data Catalog. Le portail affichera une vignette pour chaque source de données inscrite qui correspond au terme de recherche ; les vignettes contiendront le nom, la description et les balises attribués à la source de données, ainsi que d'autres informations générales.
-
-Pour filtrer le contenu de Data Catalog, sélectionnez simplement un ou plusieurs filtres présentés dans le portail Data Catalog. Ceci ne permettra d’afficher dans le portail que les vignettes correspondant aux critères de filtre qui ont été spécifiés. Vous pouvez filtrer les sources de données sans effectuer de recherche, ou bien filtrer les résultats d'une recherche.
-
-Pour afficher des informations plus détaillées sur une source de données et découvrir si elle est appropriée à la tâche à accomplir, cliquez simplement sur la vignette de la source de données ; le volet Propriétés apparaîtra et contiendra toutes ses métadonnées.
-
-Des boutons supplémentaires apparaîtront en haut du volet Propriétés :
-
-1.	Version préliminaire : cliquer sur ce bouton fera apparaître le jeu statique d'enregistrements de la version préliminaire à partir de la source de données si la version préliminaire a été sélectionnée lors de l’inscription de la source de données.
-2.	Schéma : cliquer sur ce bouton fait apparaître le schéma de la source de données, y compris les noms de colonnes, les types de données et les métadonnées de niveau colonne de Data Catalog.
-
-> [AZURE.NOTE] N’oubliez pas que l’expérience de **découverte** peut être un point d’entrée dans l’expérience d’**enrichissement**, et non pas seulement dans l’expérience de **consommation**. L’approche de crowdsourcing qu’apporte Data Catalog signifie que tous les utilisateurs qui découvrent des sources de données inscrites peuvent partager leur avis sur les données, en plus d’utiliser celles qu’ils ont découvertes.
-
-## Suppression des métadonnées de sources de données
-
-Une fois la source de données inscrite, il est parfois nécessaire de supprimer la référence de la source de données à partir de Data Catalog. Ceci peut être dû à l'évolution des besoins de l'entreprise ou du système source qui a été supprimé. Quelle que soit la raison, Data Catalog permet de supprimer facilement des sources de données en choisissant simplement de les supprimer, de manière à ce qu’elles ne puissent plus être découvertes et utilisées.
-
-> [AZURE.IMPORTANT] Quand vous supprimez une source de données dans Data Catalog, vous ne supprimez que les métadonnées stockées dans le service Data Catalog. Cela n’affecte encore aucun cas la source de données d'origine.
-
-## Utilisation des sources de données
-
-L'objectif ultime de la détection de données est de rechercher les données dont vous avez besoin et de les utiliser dans l'outil de données de votre choix. L’expérience de consommation de données dans Data Catalog active cette fonctionnalité de deux manières.
-
-1.	Pour les applications clientes qui sont directement prises en charge par Data Catalog, les utilisateurs peuvent cliquer sur le menu **Ouvrir dans** de la vignette Source de données se trouvant dans le portail. L’application cliente se lancera alors en se connectant à la source de données sélectionnée.
-2.	Pour toutes les applications clientes, les utilisateurs peuvent utiliser les informations de connexion affichées dans le volet Propriétés pour une source de données sélectionnée. Cette information inclut tous les détails (tels que le nom du serveur, le nom de la base de données et le nom de l'objet) requis pour se connecter aux données et peut être copiée dans l'expérience de connexion de l'outil client. Si les détails d'accès de requête ont été fournis pour une source de données, cette information s'affichera à côté des détails de connexion.
-
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

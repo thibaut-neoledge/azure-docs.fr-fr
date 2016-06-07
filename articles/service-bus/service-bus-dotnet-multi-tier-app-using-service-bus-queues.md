@@ -475,22 +475,9 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 * [Page du service Service Bus][sbwacom]  
 * [Utilisation des files d'attente Service Bus][sbwacomqhowto]  
 
-Pour plus d'informations sur les scénarios multiniveau ou pour savoir comment déployer une application dans un service cloud, consultez la page :
+Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 
 * [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure.][mutitierstorage]  
-
-Vous pouvez mettre en œuvre le composant frontal d’une application multiniveau dans un site Web Azure au lieu d’un service cloud Azure.
-
-Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant que projet Web standard au lieu d'un rôle Web d'un service cloud, suivez les étapes de ce didacticiel en appliquant les différences suivantes :
-
-1. Quand vous créez le projet, choisissez le modèle de projet **Application web ASP.NET MVC** dans la catégorie **Web**, au lieu du modèle **Service cloud** dans la catégorie **Cloud**. Suivez ensuite les mêmes instructions que celles concernant la création de l'application MVC, jusqu'à ce que vous arriviez à la section **Gestionnaire de configuration cloud**.
-
-2. Lorsque vous créez le rôle de travail, créez-le dans une nouvelle solution séparée, comme dans les instructions pour le rôle Web. Maintenant, vous créez uniquement le rôle de travail dans le projet de service cloud. Suivez ensuite les mêmes instructions pour créer le rôle de travail.
-
-3. Vous pouvez tester le composant frontal et le composant principal simultanément, ou vous pouvez les exécuter en même temps dans des instances séparées de Visual Studio.
-
-Pour plus d’informations sur le déploiement du composant frontal sur un site web Azure, consultez [Création d’une application web ASP.NET dans Azure App Service](../app-service-web/web-sites-dotnet-get-started.md). Pour plus d’informations sur le déploiement du composant principal dans un service cloud Azure, consultez la page [Application .NET multiniveau avec tables, files d’attente et objets blob de stockage][mutitierstorage].
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -544,4 +531,4 @@ Pour plus d’informations sur le déploiement du composant frontal sur un site 
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

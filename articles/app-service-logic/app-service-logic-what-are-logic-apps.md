@@ -21,8 +21,8 @@
 | Référence rapide |
 | --------------- |
 | [Langage de définition des applications logiques](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Logic Apps : Documentation sur les API managées](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Forum Logic Apps](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [Documentation du connecteur des applications logiques](../connectors/apis-list.md) |
+| [Forum Logic Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurelogicapps) |
 
 Azure App Service est une plateforme PaaS entièrement gérée (plateforme en tant que service) pour les développeurs. Elle les aide à créer des applications web, mobiles et d’intégration. Logic Apps fait partie de cette suite et permet à n’importe quel utilisateur technique ou développeur d’automatiser l’exécution des processus d’entreprise et des flux de travail à l’aide d’un concepteur visuel facile à utiliser.
 
@@ -68,6 +68,7 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 ## Mise en route  
 
  - Pour vous familiariser avec les applications logiques, effectuez le didacticiel [Créer une application logique][create].  
+ - [Afficher des exemples et des scénarios courants](app-service-logic-examples-and-scenarios.md)
  - [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694) 
  - [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 - Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service][appservice].
@@ -80,4 +81,4 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!------HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->
