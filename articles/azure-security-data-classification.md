@@ -134,7 +134,7 @@ Il est important d’établir de manière claire une chaîne de surveillance de 
 | Propriétaire | X | X | X | X | X |
 | Opérateur | | | X | | |
 | Administrateur | | | | | X |
-| Utilisateur* | | X | | X | |
+| Utilisateur\* | | X | | X | |
 **Les utilisateurs peuvent également bénéficier de droits supplémentaires, comme la modification et la suppression par un opérateur*
 
 > [AZURE.NOTE] ce tableau ne fournit pas de liste exhaustive des rôles et des droits, mais simplement un échantillon représentatif.
