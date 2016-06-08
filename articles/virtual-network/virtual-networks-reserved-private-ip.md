@@ -45,7 +45,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, ext
 	| New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
 ## Récupération des informations d’adresse IP interne statique pour une machine virtuelle
-Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
+Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
 
 	Get-AzureVM -Name TestVM -ServiceName TestService
 
