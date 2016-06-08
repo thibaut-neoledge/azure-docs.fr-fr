@@ -21,7 +21,7 @@ Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP
 >[AZURE.NOTE] Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
 ## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
+Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
 
 	Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
