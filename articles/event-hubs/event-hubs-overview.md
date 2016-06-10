@@ -168,4 +168,4 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->
