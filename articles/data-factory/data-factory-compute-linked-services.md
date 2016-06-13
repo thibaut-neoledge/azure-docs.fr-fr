@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/31/2016"
 	ms.author="spelluru"/>
 
 # Services liés de calcul
@@ -218,7 +218,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 	  }
 	}
 
-Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
+Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
 
 			"accountName": "mybatchaccount.eastus"
 
@@ -339,4 +339,4 @@ Consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.m
 
 Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

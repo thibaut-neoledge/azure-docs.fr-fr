@@ -24,30 +24,30 @@ Azure IoT Hub est un service entièrement géré qui autorise des communications
 
 Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en main d’IoT Hub] et décrit deux modèles évolutifs que vous pouvez utiliser pour le traitement des messages de l’appareil vers le cloud :
 
-- Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Ce scénario est très courant avec les analyses *à froid*, dans lesquelles vous stockez des données de télémétrie dans des objets blob que vous utiliserez comme entrées dans les processus d’analyse à l’aide d’outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
+- Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Un scénario très courant est l’analyse de *chemin à froid*, dans laquelle vous stockez les données de télémétrie dans des objets Blob qui sont ensuite utilisés comme entrée dans les processus d’analyse. Ces processus peuvent être pilotés par des outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
 
-- Le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages envoyés de l’appareil vers le cloud sont considérés comme interactifs lorsqu’ils agissent comme déclencheurs immédiats d’un ensemble d’actions sur le système principal de l’application, par opposition aux messages de *point de données* qui sont chargés dans un moteur d’analyse. Par exemple, une alarme provenant d’un appareil qui doit déclencher l’insertion d’un ticket dans un système CRM est un message interactif, tandis que les données de télémétrie sur la température d’un appareil qui doivent être enregistrées pour une analyse ultérieure constituent un message de point de données.
+- Le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages envoyés de l’appareil vers le cloud sont considérés comme interactifs lorsqu’ils agissent comme déclencheurs immédiats d’un ensemble d’actions sur le système principal de l’application. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de *point de données* sont simplement chargés dans un moteur d’analyse. Par exemple, les données de télémétrie de température d’un appareil qui doivent être enregistrées pour analyse ultérieure constituent un message de point de données.
 
-Étant donné qu’IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs] pour recevoir des messages des appareils vers le cloud, ce didacticiel utilise une instance [EventProcessorHost] qui :
+Étant donné qu’IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs] pour recevoir des messages des appareils vers le cloud, ce didacticiel utilise une instance [EventProcessorHost]. Cette instance :
 
 * stocke de manière fiable les messages de *point de données* dans le stockage d’objets blob Azure ;
-* transfère les messages *interactifs* des appareils vers le cloud vers une [file d’attente Service Bus] en vue de leur traitement immédiat.
+* transfère les messages *interactifs* des appareils vers le cloud vers une [file d’attente Azure Service Bus] en vue de leur traitement immédiat.
 
-Service Bus est un excellent moyen d’assurer un traitement fiable des messages interactifs, car il fournit des points de contrôle par message et la déduplication basée sur la fenêtre temporelle.
+Service Bus permet d’assurer un traitement fiable des messages interactifs, car il fournit des points de contrôle par message et la déduplication basée sur la fenêtre temporelle.
 
-> [AZURE.NOTE] Une instance **EventProcessorHost** ne constitue qu’une façon de traiter les messages interactifs. Les autres options incluent [Azure Service Fabric][lnk-service-fabric] et [Azure Stream Analytics][lnk-stream-analytics].
+> [AZURE.NOTE] Une instance **EventProcessorHost** ne constitue qu’une seule façon de traiter les messages interactifs. Les autres options incluent [Azure Service Fabric][lnk-service-fabric] et [Azure Stream Analytics][lnk-stream-analytics].
 
 À la fin de ce didacticiel, vous exécuterez trois applications de console Windows :
 
 * **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Prise en main de IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
-* **ProcessDeviceToCloudMessages**, qui utilise la classe [EventProcessorHost] pour récupérer les messages sur le point de terminaison compatible avec Event Hubs avant de stocker de manière fiable les messages de point de données dans un stockage d’objets blob Azure et de transférer les messages interactifs vers une file d’attente Service Bus.
-* **ProcessD2CInteractiveMessages**, qui extrait les messages interactifs de la file d’attente Service Bus.
+* **ProcessDeviceToCloudMessages** utilise la classe [EventProcessorHost] pour récupérer des messages à partir du point de terminaison compatible avec Event Hubs. L’instance stocke ensuite les messages de point de données dans le stockage d’objets Blob Azure de façon fiable, puis transfère les messages interactifs à une file d’attente Service Bus.
+* **ProcessD2CInteractiveMessages** extrait les messages interactifs de la file d’attente Service Bus.
 
-> [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et de plusieurs langages (y compris C, Java et Javascript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
+> [AZURE.NOTE] IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
 
-Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Reportez-vous au [Guide du développeur Azure IoT Hub - Appareil vers cloud] pour plus d’informations.
+Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Pour plus d’informations, consultez le [Guide du développeur Azure IoT Hub - Appareil vers cloud].
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
@@ -69,7 +69,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 2.	Appuyez sur **F5** pour lancer les trois applications de la console. L’application **ProcessD2CInteractiveMessages** doit traiter chaque message interactif envoyé à partir de l’application **SimulatedDevice**.
 
-  ![][50]
+  ![Trois applications de console][50]
 
 > [AZURE.NOTE] Pour afficher les mises à jour dans votre fichier blob, vous devrez peut-être définir la constante **MAX\_BLOCK\_SIZE** dans la classe **StoreEventProcessor** sur une valeur inférieure, telle que **1024**. En effet, il faudra peut-être un certain temps pour atteindre la limite de taille de bloc avec les données envoyées par l’appareil simulé. Avec une plus petite taille de bloc, vous n’aurez pas attendre si longtemps avant la création et la mise à jour de l’objet blob. Sachez toutefois qu’une plus grande taille de bloc favorise l’évolutivité de l’application.
 
@@ -77,7 +77,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez appris à traiter de manière fiable des messages de point de données et des messages interactifs d’un appareil vers le cloud à l’aide de la classe [EventProcessorHost].
 
-Le didacticiel [Téléchargement de fichiers à partir d’appareils] dérivé du présent didacticiel utilise une logique de traitement de messages similaire et présente un modèle qui utilise des messages du cloud vers l’appareil afin de faciliter les téléchargements de fichiers à partir d’appareils
+Le didacticiel [Téléchargement de fichiers à partir d’appareils] s’appuie sur ce didacticiel en utilisant la logique de traitement de message analogue. Il décrit également un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
 Informations supplémentaires sur IoT Hub :
 
@@ -96,7 +96,7 @@ Informations supplémentaires sur IoT Hub :
 [stockage d’objets blob Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[file d’attente Service Bus]: ../service-bus/service-bus-dotnet-how-to-use-queues/
+[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
@@ -123,4 +123,4 @@ Informations supplémentaires sur IoT Hub :
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

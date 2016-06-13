@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/31/2016" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -21,11 +21,11 @@
 
 Le processus d’analyse Cortana est une méthode scientifique de traitement systématique des données qui présente une suite d’opérations utilisant des analyses avancées pour générer des applications intelligentes. Les opérations CAP fournissent des **conseils** sur la façon de définir une problématique, d’analyser des données pertinentes, de générer et d’évaluer les modèles prévisionnels, puis de déployer ces modèles dans des applications intelligentes.
 
-Voici les étapes du **processus d’analyse Cortana ** :
+Voici les étapes du **processus d’analyse Cortana ** :
 
 ![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 
@@ -87,8 +87,13 @@ Le [processus d'analyse Cortana](https://azure.microsoft.com/documentation/learn
 
 CAP n'impose pas de types d'artefacts de **documentation** spécifiques. Cependant, il est recommandé de documenter les résultats de l'examen, de la modélisation et de l'évaluation des données et d'enregistrer le code pertinent afin que l'analyse puisse être itérée le cas échéant. Ceci permet également de réutiliser le travail d’analyse lorsque vous travaillez sur d’autres applications impliquant des données et tâches de prévision similaires.
 
-Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Voir [Processus d'analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md) et [Processus d'analyse Cortana en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Consultez, par exemple :
+
+- [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Le processus Cortana Analytics en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+- [Science des données avec Spark sur Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
+- [Science des données évolutive dans Azure Data Lake : une procédure de bout en bout](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/31/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -36,9 +36,9 @@ L'ingénierie et la sélection des caractéristiques constituent une partie d'un
 
 L'ingénierie et la sélection constituent l'étape d'**amélioration des données** de l'apprentissage automatique. Trois aspects de ce processus peuvent être distingués relativement à nos objectifs :
 
-* Le **prétraitement des données** : ce processus tente de s'assurer que les données collectées sont normales et cohérentes. Ce processus inclut des tâches telles que l'intégration de jeux de données multiples, la gestion des données manquantes, la gestion des données inconsistantes et la conversion des types de données.
-* La **conception de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d'augmenter la performance de prédiction de l'algorithme d'apprentissage.
-* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
+* Le **prétraitement des données** : ce processus tente de s'assurer que les données collectées sont normales et cohérentes. Ce processus inclut des tâches telles que l'intégration de jeux de données multiples, la gestion des données manquantes, la gestion des données inconsistantes et la conversion des types de données.
+* La **conception de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d'augmenter la performance de prédiction de l'algorithme d'apprentissage.
+* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
 
 Cette rubrique traite uniquement des aspects de l'ingénierie et de la sélection de caractéristiques du processus d'amélioration des données. Pour plus d'informations sur l'étape de prétraitement des données, consultez la vidéo [Prétraitement des données dans Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
@@ -134,4 +134,4 @@ Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caracté
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide de l’interface de ligne de commande Azure
@@ -139,4 +139,4 @@ Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters
 - [Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure](hdinsight-administer-use-command-line.md)
 - [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -328,9 +328,9 @@ Les données sont maintenant optimisées, plus faciles à gérer et prêtes à �
 
 Dans cette section, vous verrez comment nous avons utilisé les composants Azure Stream Analytics, Azure Machine Learning, Azure Data Factory et Azure HDInsight pour analyser avec précision l’état des véhicules et les habitudes de conduite. Nous proposons ici 3 sous-sections :
 
-1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
-2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
-3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
+1.	**Apprentissage automatique** : cette sous-section contient des informations relatives à l’expérience de détection des anomalies que nous avons utilisée dans cette solution pour identifier de manière proactive les véhicules ayant besoin d’une intervention de maintenance ainsi que les véhicules devant faire l’objet d’un rappel pour des raisons de sécurité.
+2.	**Analyse en temps réel** : cette sous-section contient des informations concernant l’analyse en temps réel utilisant le langage de requête Stream Analytics et l’amélioration de l’expérience d’apprentissage automatique en temps réel à l’aide d'une application personnalisée.
+3.	**Analyse par lots** : cette sous-section contient des informations relatives à la transformation et au traitement des données par lots à l’aide des composants Azure HDInsight et Azure Machine Learning déployés par Azure Data Factory
 
 ### Apprentissage automatique
 
@@ -706,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

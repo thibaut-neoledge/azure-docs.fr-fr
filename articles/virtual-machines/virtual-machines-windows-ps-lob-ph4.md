@@ -19,8 +19,6 @@
 
 # Charge de travail des applications métier, phase 4 : configurer des serveurs Web
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 Au cours de cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez les serveurs Web et y chargez votre application métier.
 
 Vous devez procéder à cette opération avant de passer à la [Phase 5](virtual-machines-windows-ps-lob-ph5.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
@@ -151,4 +149,4 @@ Ce diagramme représente la configuration résultant de l'exécution de cette ph
 
 - Pour terminer la configuration de cette charge de travail, utilisez la [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

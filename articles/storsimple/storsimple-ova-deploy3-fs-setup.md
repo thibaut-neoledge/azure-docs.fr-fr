@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Configuration en tant que serveur de fichiers
@@ -94,7 +94,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	> [AZURE.NOTE]
 	> 
-	> Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
+	> Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué ou qu’il n’en a pas hérité. La stratégie de groupe peut éventuellement installer des applications telles qu’un logiciel antivirus sur le StorSimple Virtual Array. L’installation de logiciels supplémentaires n’est pas prise en charge et peut entraîner une altération des données.
 
 1.  (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici.
 
@@ -192,7 +192,7 @@ Pour créer un partage, procédez comme suit dans le [portail Azure Classic](htt
 
     3.  Sélectionnez un type d'utilisation du partage. Le type d’utilisation peut être **À plusieurs niveaux** ou **Épinglé localement**, À plusieurs niveaux étant l’option par défaut. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement**. Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux**.
 
-	La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère, et sa création peut être très rapide. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
+	La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
 
 1.  Indiquez la capacité allouée pour votre partage. Notez que la capacité spécifiée doit être inférieure à la capacité disponible. Si vous utilisez un partage à plusieurs niveaux, la taille du partage doit être comprise entre 500 Go et 20 To. Pour un partage épinglé localement, spécifiez une taille de partage comprise entre 50 Go et 2 To. Utilisez la capacité disponible comme guide pour configurer un partage. Si la capacité locale disponible est de 0 Go, vous ne pourrez pas configurer de partages locaux ou à plusieurs niveaux.
 
@@ -232,4 +232,4 @@ Regardez la vidéo pour découvrir comment configurer et inscrire StorSimple Vir
 
 Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

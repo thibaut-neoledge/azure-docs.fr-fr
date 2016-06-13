@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/18/2016"
+   ms.date="05/27/2016"
    ms.author="brjohnst"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
@@ -1442,7 +1442,7 @@ Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour A
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2) Dans une recherche à facettes, interroger l'index et récupérer des facettes pour des catégories, des classements, des balises, ainsi que des éléments avec une valeur baseRate comprise dans des plages spécifiques :
@@ -1487,7 +1487,7 @@ Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour A
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) Effectuer une recherche dans plusieurs champs de l'index. Par exemple, vous pouvez stocker et interroger des champs pouvant faire l'objet d'une recherche en plusieurs langues, le tout dans le même index. Si des descriptions en anglais et en français coexistent dans le même document, vous pouvez en retourner certaines ou la totalité dans les résultats de la requête :
@@ -1498,7 +1498,7 @@ Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour A
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas plusieurs index pour chaque langue, sauf si vous prévoyez d'interroger un seul index à la fois.
@@ -1535,7 +1535,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10) Récupérer les documents correspondant à une expression de filtre spécifique
@@ -1567,7 +1567,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) Effectuer une recherche dans l'index en supposant qu'il existe un profil de calcul de score appelé « geo » avec deux fonctions de calcul de score de distance : l'une définit un paramètre appelé « currentLocation » et l'autre un paramètre appelé « lastLocation »
@@ -1853,4 +1853,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

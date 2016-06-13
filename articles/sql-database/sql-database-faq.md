@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="carlrabeler" 
    manager="jhubbard" 
-   editor="monicar"/>
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/25/2016"
+   ms.date="05/25/2016"
    ms.author="sashan;carlrab"/>
 
 # Forum Aux Questions de base de données SQL
@@ -41,8 +41,8 @@ Exemples
 - Le 2e jour, à 5 h 05, la base de données 1 commence à consommer 50 eDTU et reste stable toute la journée. Les bases de données 2-5 fluctuent entre 0 et 80 eDTU. Pendant la journée, vous ajoutez cinq autres bases de données qui utilisent des eDTU pendant la journée. Le jour 2 est un jour complet facturé à 200 eDTU. 
 - Le 3e jour, à 5 h du matin vous ajoutez 15 autres bases de données. L’utilisation de la base de données augmente pendant la journée jusqu’au point où vous décidez d’augmenter le nombre d’eDTU du pool de 200 à 400 à 20 h 05. Les frais au niveau de 200 eDTU en vigueur jusqu’à 8 h 00 et augmente jusqu’à 400 eDTU pour les 4 restants. 
 
-## Comment l’utilisation de la géo-réplication dans un pool élastique de base de données figurera-t-elle sur ma facture ?
-Contrairement aux bases de données uniques, GEO-DR avec les bases de données élastiques n’a pas un impact direct sur la facturation. Vous êtes facturé pour les eDTU configurées pour chaque pool (pool principal et pool secondaire)
+## Comment l’utilisation de la géo-réplication active dans un pool de base de données élastique figurera-t-elle sur ma facture ?
+Contrairement aux bases de données uniques, la [géo-réplication active](sql-database-geo-replication-overview.md) avec les bases de données élastiques n’a pas un impact direct sur la facturation. Vous êtes facturé pour les eDTU configurées pour chaque pool (pool principal et pool secondaire)
 
 ## Quel sera l’impact de l’utilisation de la fonctionnalité d’audit sur ma facture ? 
 La fonctionnalité d’audit est intégrée au service Base de données SQL sans frais supplémentaires et est disponible pour les bases de données De base, Standard et Premium. Toutefois, pour stocker les journaux d’audit, la fonction d’audit utilise un compte Azure Storage et les tarifs des tables et files d’attente dans Azure Storage s’appliquent en fonction de la taille de votre journal d’audit.
@@ -51,7 +51,7 @@ La fonctionnalité d’audit est intégrée au service Base de données SQL sans
 Il existe quelques outils à votre disposition.
 
 - Pour les bases de données sur site, utilisez le [conseil de dimensionnement DTU](http://dtucalculator.azurewebsites.net/), qui recommande les bases de données et les DTU requis, et évaluera plusieurs bases de données pour les pools élastiques de la base de données.
-- Si une base de données unique tire avantage d’être au sein d’un pool, le moteur intelligent d’Azure recommande un pool de bases de données élastique s’il voit un schéma d’utilisation historique qui le garantit. Voir [Surveiller, gérer et dimensionner un pool de base de données élastique avec le portail Azure](sql-database-elastic-pool-manage-portal.md). Pour plus d’informations sur la façon d’effectuer des calculs vous-même, consultez [Considérations relatives au prix et aux performances d’un pool de bases de données élastiques](sql-database-elastic-pool-guidance.md)
+- Si une base de données unique tire avantage d’être au sein d’un pool, le moteur intelligent d’Azure recommande un pool de bases de données élastique s’il voit un schéma d’utilisation historique qui le garantit. Consultez [Surveiller et gérer un pool de base de données élastique avec le portail Azure](sql-database-elastic-pool-manage-portal.md). Pour plus d’informations sur la façon d’effectuer des calculs vous-même, consultez [Considérations relatives au prix et aux performances d’un pool de bases de données élastiques](sql-database-elastic-pool-guidance.md)
 - Pour voir si vous devez activer/désactiver une base de données unique, consultez [Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md).
 
 ## À quelle fréquence puis-je changer le niveau de service ou le niveau de performances d’une base de données unique ? 
@@ -64,12 +64,12 @@ Aussi souvent que vous le souhaitez.
 Le changement de niveau de service d’une base de données et le déplacement dans ou vers un pool exige que la base de données soit copiée sur la plateforme en tant qu’opération d’arrière-plan. L’opération peut prendre de quelques minutes à plusieurs heures en fonction de la taille de la base de données. Dans les deux cas, les bases de données restent en ligne et disponibles pendant le déplacement. Pour plus d’informations sur la modification des bases de données uniques, consultez [Modifier le niveau de service d’une base de données](sql-database-scale-up.md).
 
 ## Quand dois-je choisir une base de données unique plutôt que des bases de données élastiques ? 
-En général, les pools élastiques de base de données sont conçus pour un modèle d’application en tant que service (SaaS) standard, où il existe une base de données par client ou par locataire. L’achat de bases de données individuelles et le sur-approvisionnement destiné à répondre aux pics de demandes variables de chaque base de données ne sont généralement pas rentables. Avec les pools, vous gérez les performances collectives du pool, et les bases de données se mettent à l’échelle automatiquement.
+En général, les pools de base de données élastiques sont conçus pour un modèle d’[application en tant que service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) standard, où il existe une base de données par client ou par locataire. L’achat de bases de données individuelles et le sur-approvisionnement destiné à répondre aux pics de demandes variables de chaque base de données ne sont généralement pas rentables. Avec les pools, vous gérez les performances collectives du pool, et les bases de données se mettent à l’échelle automatiquement.
 
 Le moteur intelligent d’Azure recommande un pool pour les bases de données s’il voit un modèle d’utilisation qui l’exige. Pour plus d’informations, consultez [Recommandations relatives aux niveaux tarifaires des bases de données SQL](sql-database-service-tier-advisor.md). Pour obtenir des instructions détaillées sur le choix entre les bases de données uniques et élastiques, consultez [Considérations relatives aux prix et aux performances pour les pools élastiques de bases de données](sql-database-elastic-pool-guidance.md).
 
 ## Qu’est-ce que cela signifie si je possède jusqu’à 200 % du stockage de base de données configuré maximal pour le stockage de sauvegarde ? 
-Le stockage de sauvegarde est le stockage associé à vos sauvegardes de bases de données automatisées qui sont utilisées pour la restauration dans le temps et la géo-restauration. Microsoft Azure SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépasse l’espace de stockage de sauvegarde fourni, vous pouvez choisir de réduire la période de rétention en contactant le Support technique Azure ou en achetant l’espace de stockage supplémentaire facturé au tarif RA-GRS (Read-Access Geo Redundant Microsoft Azure) standard. Pour plus d’informations sur la facturation RA-GRS, consultez la page Détails de tarification de stockage.
+Le stockage de sauvegarde est le stockage associé à vos sauvegardes de bases de données automatisées qui sont utilisées pour la [restauration dans le temps](sql-database-point-in-time-restore.md) et la [géo-restauration](sql-database-geo-restore.md). Microsoft Azure SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépasse l’espace de stockage de sauvegarde fourni, vous pouvez choisir de réduire la période de rétention en contactant le Support technique Azure ou en achetant l’espace de stockage supplémentaire facturé au tarif RA-GRS (Read-Access Geo Redundant Microsoft Azure) standard. Pour plus d’informations sur la facturation RA-GRS, consultez la page Détails de tarification de stockage.
 
 ## Je passe de services Web/Business à de nouveaux niveaux de service, que dois-je savoir ?
 Les bases de données Web et Business SQL Azure sont désormais supprimées. Les niveaux De base, Standard, Premium et Élastique remplacent les bases de données Web et Business. Nous disposons d’un Forum aux questions supplémentaires qui devrait vous aider dans cette période de transition. [Forum aux questions sur la disparition des éditions Web et Business](sql-database-web-business-sunset-faq.md)
@@ -89,4 +89,4 @@ La zone géographique secondaire est un réplica asynchrone et nous n’essayons
 ## Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
 Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

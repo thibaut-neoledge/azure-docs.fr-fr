@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 #Désinstallation des composants de Tâches de bases de données élastiques.
 Les composants de **Tâches de bases de données élastiques** peuvent être désinstallés à l'aide du portail ou de PowerShell.
@@ -64,4 +64,4 @@ Pour plus d’informations concernant les tâches de bases de données élastiqu
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

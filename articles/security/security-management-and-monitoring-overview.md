@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Présentation de la gestion et surveillance de la sécurité Azure
@@ -28,7 +28,7 @@ Le graphique suivant résume le partage de la responsabilité entre Microsoft et
 
 ![Responsabilité partagée][1]
 
-Pour aller plus loin sur la gestion de la sécurité, consultez [Gestion de la sécurité dans Azure](../azure-security-management.md).
+Pour aller plus loin sur la gestion de la sécurité, consultez [Gestion de la sécurité dans Azure](azure-security-management.md).
 
 Voici les principales fonctionnalités abordées dans cet article :
 
@@ -134,4 +134,4 @@ En savoir plus :
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

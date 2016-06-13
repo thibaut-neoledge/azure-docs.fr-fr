@@ -19,9 +19,6 @@
 
 # Création d’une machine virtuelle exécutant Windows dans le portail Azure
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. Ce didacticiel vous montre comment utiliser le portail Azure pour en créer une rapidement. Il utilise le fichier de clé publique `~/.ssh/id_rsa.pub` pour sécuriser votre connexion **SSH** à la machine virtuelle. Vous pouvez également créer des machines virtuelles Linux en utilisant [vos propres images en tant que modèles](virtual-machines-linux-classic-create-upload-vhd.md).
 
 
@@ -49,7 +46,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
 
-1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
+1. Dans le panneau **Créer une machine virtuelle**, cliquez sur **Options de base**. Entrez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un ** emplacement** de centre de données Azure.
 
 	![](media/virtual-machines-linux-portal-create/step-1-thebasics.png)
 
@@ -126,4 +123,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

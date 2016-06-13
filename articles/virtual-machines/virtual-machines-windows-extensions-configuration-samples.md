@@ -25,13 +25,7 @@
 
 <br>
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
-
-
 Cet article présente un exemple de configuration des extensions de machine virtuelle Azure pour les machines virtuelles Windows.
-
 
 Pour en savoir plus sur ces extensions, consultez la section [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
 
@@ -371,4 +365,4 @@ Voici un exemple de modèle de machine virtuelle complet avec l’extension de s
 
 [Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

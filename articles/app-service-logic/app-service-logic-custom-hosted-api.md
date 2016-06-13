@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques
@@ -24,11 +24,11 @@ Pour plus d’informations sur la création d’API comme déclencheur ou action
 
 ## Déployer votre application web
 
-Tout d’abord, vous devez déployer votre API sous forme d’application web dans Service App. Les instructions fournies ici traitent du déploiement de base : [Créer une application web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Bien qu’ils soit possible d’appeler une API à partir d’une application logique, nous vous recommandons d’ajouter des métadonnées Swagger pour une intégration aisée avec les actions des applications logiques. Vous trouverez plus d’informations sur l’[ajout de swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+Tout d’abord, vous devez déployer votre API sous forme d’application web dans Service App. Les instructions fournies ici traitent du déploiement de base : [Créer une application web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Bien qu’il soit possible d’appeler une API à partir d’une application logique, nous vous recommandons d’ajouter des métadonnées Swagger pour une intégration aisée avec les actions des applications logiques. Vous trouverez plus d’informations sur [l’ajout de swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### Paramètres de l’API
 
-Pour que le concepteur des applications logiques puisse analyser votre Swagger, il est important que vous activiez CORS et que vous définissiez les propriétés APIDefinition de votre application web. Le portail Azure vous permet de les définir facilement. Il vous suffit d’ouvrir le panneau des paramètres de votre application web et de définir « Définition API » sur l’URL de votre fichier swagger.json dans la section API (en général https://{name}.azurewebsites.net/swagger/docs/v1)) et d’ajouter une stratégie CORS pour '*' afin d’autoriser les demandes du concepteur d’applications logiques.
+Pour que le concepteur des applications logiques puisse analyser votre Swagger, il est important que vous activiez CORS et que vous définissiez les propriétés APIDefinition de votre application web. Le portail Azure vous permet de les définir facilement. Il vous suffit d’ouvrir le panneau des paramètres de votre application web et de définir « Définition API » sur l’URL de votre fichier swagger.json dans la section API (en général https://{name}.azurewebsites.net/swagger/docs/v1)) et d’ajouter une stratégie CORS pour ’*’ afin d’autoriser les demandes du concepteur d’applications logiques.
 
 ## Appel dans l’API
 
@@ -41,7 +41,7 @@ Si vous voulez sécuriser votre API, il existe plusieurs façons de procéder :
 
 ## Sécurisation des appels à votre API sans modification de code
 
-Dans cette section, vous allez créer deux applications Azure Active Directory : une pour votre application Logic, et une pour votre application web. Vous devez authentifier des appels à votre application web à l’aide du principal de service (id client et le phrase secrète) associé à l’application AAD pour votre application logique. Enfin, vous devez inclure l’ID d’application dans votre définition d’application logique.
+Dans cette section, vous allez créer deux applications Azure Active Directory : une pour votre application logique, et une pour votre application web. Vous devez authentifier des appels à votre application web à l’aide du principal de service (ID client et phrase secrète) associé à l’application AAD pour votre application logique. Enfin, vous devez inclure l’ID d’application dans votre définition d’application logique.
 
 ### Partie 1 : Configurer l’identité de l’application pour votre application logique
 
@@ -169,4 +169,4 @@ Pour aller plus loin, si vous souhaitez le mettre en œuvre au sein de votre cod
 
 Vous devez toujours exécuter les opérations ci-dessus pour créer une identité d’application pour votre application logique, puis l’utiliser pour l’API.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

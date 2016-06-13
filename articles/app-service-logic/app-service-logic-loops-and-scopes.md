@@ -16,46 +16,46 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-  # Boucles, étendues et décomposition dans Logic Apps
+# Boucles, étendues et décomposition dans Logic Apps
   
-  >[AZURE.NOTE] Cette version de l’article s’applique au schéma 2016-04-01-preview et schémas ultérieurs de Logic Apps. Les concepts sont similaires pour les schémas antérieurs, mais les étendues sont uniquement disponibles pour ce schéma et les schémas ultérieurs.
+>[AZURE.NOTE] Cette version de l’article s’applique au schéma 2016-04-01-preview et schémas ultérieurs de Logic Apps. Les concepts sont similaires pour les schémas antérieurs, mais les étendues sont uniquement disponibles pour ce schéma et les schémas ultérieurs.
   
-  ## Boucle ForEach et tableaux
+## Boucle ForEach et tableaux
   
-  Logic Apps vous permet de parcourir un jeu de données au moyen d’une boucle et d’effectuer une action pour chaque élément. Cette opération est possible grâce à l’action `foreach`. Dans le concepteur, vous pouvez choisir d’ajouter une boucle foreach. Après avoir sélectionné le tableau à parcourir, vous pouvez commencer à ajouter des actions. Actuellement, vous êtes limité à une seule action par boucle foreach, mais cette restriction sera levée dans les semaines à venir. Une fois dans la boucle, vous pouvez commencer à spécifier ce qui doit se produire au niveau de chaque valeur du tableau.
-  
-  Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme ci-dessous. Dans cet exemple, une boucle foreach envoie un e-mail à chaque adresse contenant « microsoft.com » :
-  
-  ```
-  {
-      "forEach_email": {
-          "type": "foreach",
-          "foreach": "@triggerBody()['emails']",
-          "expression": "@contains(item(), 'microsoft.com')",
-          "actions": {
-              "send_email": {
-                  "type": "ApiConnection",
-                  "inputs": {
-                    "body": {
-                        "to": "@item()",
-                        "from": "me@contoso.com",
-                        "message": "Hello, thank you for ordering"
+Logic Apps vous permet de parcourir un jeu de données au moyen d’une boucle et d’effectuer une action pour chaque élément. Cette opération est possible grâce à l’action `foreach`. Dans le concepteur, vous pouvez choisir d’ajouter une boucle foreach. Après avoir sélectionné le tableau à parcourir, vous pouvez commencer à ajouter des actions. Actuellement, vous êtes limité à une seule action par boucle foreach, mais cette restriction sera levée dans les semaines à venir. Une fois dans la boucle, vous pouvez commencer à spécifier ce qui doit se produire au niveau de chaque valeur du tableau.
+
+Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme ci-dessous. Dans cet exemple, une boucle foreach envoie un e-mail à chaque adresse contenant « microsoft.com » :
+
+```
+{
+    "forEach_email": {
+        "type": "foreach",
+        "foreach": "@triggerBody()['emails']",
+        "expression": "@contains(item(), 'microsoft.com')",
+        "actions": {
+            "send_email": {
+                "type": "ApiConnection",
+                "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                }
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
                     }
-                    "host": {
-                        "connection": {
-                            "id": "@parameters('$connections')['office365']['connection']['id']"
-                        }
-                    }
-                  }
-              }
-          }
-      }
-  }
-  ```
+                }
+                }
+            }
+        }
+    }
+}
+```
   
   Une action `foreach` peut parcourir des tableaux comportant jusqu’à 5 000 lignes. Chaque itération pouvant s’exécuter en parallèle, vous pouvez être amené à ajouter des messages à une file d’attente si un contrôle de flux est nécessaire.
   
-  ## Boucle Until
+## Boucle Until
   
   Vous pouvez effectuer une action ou une série d’actions jusqu’à ce qu’une condition soit remplie. Le scénario le plus courant consiste à appeler un point de terminaison jusqu’à obtention de la réponse recherchée. Dans le concepteur, vous pouvez choisir d’ajouter une boucle until. Après avoir ajouté des actions à l’intérieur de la boucle, vous pouvez définir la condition de sortie et les limites de la boucle. Il existe un délai de 1 minute entre les cycles de la boucle.
   
@@ -132,4 +132,4 @@ Vous pouvez grouper une série d’actions à l’aide d’une étendue. Cette o
 }
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main de Threat Detection pour SQL Data Warehouse"
-   description="Procédure de mise en route de Threat Detection pour SQL Data Warehouse"
+   description="Prise en main de la détection de menaces"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="lodipalm"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
-# Prise en main de Threat Detection pour SQL Data Warehouse
+# Prise en main de la détection de menaces
 
 ## Vue d'ensemble
 
 Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. Threat Detection est disponible en version préliminaire et est pris en charge pour SQL Data Warehouse.
 
-Threat Detection fournit une nouvelle couche de sécurité qui permet aux clients de détecter les menaces potentielles et d’y répondre à mesure qu’elles se présentent en générant des alertes de sécurité sur les activités anormales. Les utilisateurs peuvent explorer les événements suspects à l'aide de [l'audit de Azure SQL Data Warehouse]sql-data-warehouse-auditing-get-started.md) pour déterminer s'ils sont le résultat d'une tentative d'accès, d'une violation ou d'une exploitation des données dans l'entrepôt de données. Threat Detection vous permet de réagir facilement aux menaces potentielles envers l'entrepôt de données sans avoir à acquérir une expertise de la sécurité ou à gérer des systèmes de surveillance de la sécurité avancés.
+Threat Detection fournit une nouvelle couche de sécurité qui permet aux clients de détecter les menaces potentielles et d’y répondre à mesure qu’elles se présentent en générant des alertes de sécurité sur les activités anormales. Les utilisateurs peuvent explorer les événements suspects à l’aide de l’[audit d’Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) pour déterminer s’ils sont le résultat d’une tentative d’accès, d’une violation ou d’une exploitation des données dans l’entrepôt de données. Threat Detection vous permet de réagir facilement aux menaces potentielles envers l'entrepôt de données sans avoir à acquérir une expertise de la sécurité ou à gérer des systèmes de surveillance de la sécurité avancés.
 
 Par exemple, il détecte certaines activités de base de données anormales indiquant des tentatives d’injection SQL potentielles. L’injection SQL représente l’un des problèmes de sécurité auxquels sont le plus exposées les applications web, et est utilisée pour cibler les applications pilotées par des données. Les pirates exploitent les vulnérabilités des applications pour injecter des instructions SQL nuisibles dans les champs de saisie d’application afin de violer ou modifier les données contenues dans la base de données.
 
@@ -55,23 +55,23 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
 	![Volet de navigation][4]
 
-2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure Classic et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
+2. Dans le courrier électronique, cliquez sur le lien **Azure SQL Auditing Log** pour ouvrir le portail Azure Classic et afficher les enregistrements d’audit pertinents au moment de l’événement suspect.
 
 	![Volet de navigation][5]
 
-3. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
+3. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
 
 	![Volet de navigation][6]
 
-4. Dans le volet des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/> **Remarque :** dans Excel versions 2010 ou ultérieures, les paramètres Power Query et **Combinaison rapide** sont requis
+4. Dans le volet des enregistrements d’audit, cliquez sur **Ouvrir dans Excel** pour ouvrir un modèle Excel préconfiguré à importer et exécuter une analyse plus approfondie du journal d’audit au moment de l’événement suspect.<br/> **Remarque :** dans Excel versions 2010 ou ultérieures, les paramètres Power Query et **Combinaison rapide** sont requis
 
 	![Volet de navigation][7]
 
-5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « gnore the Privacy Levels and potentially improve performance » :
+5. Pour configurer le paramètre **Combinaison rapide** : sous l’onglet du ruban **POWER QUERY**, sélectionnez **Options** pour afficher la boîte de dialogue correspondante. Sélectionnez la section Confidentialité et choisissez la deuxième option « gnore the Privacy Levels and potentially improve performance » :
 
 	![Volet de navigation][8]
 
-6. Pour charger les journaux d’audit SQL, vérifiez que les paramètres de l’onglet Paramètres sont correctement définis, puis sélectionnez le ruban « Données » et cliquez sur le bouton « Actualiser tout ».
+6. Pour charger les journaux d’audit SQL, vérifiez que les paramètres de l’onglet Paramètres sont correctement définis, puis sélectionnez le ruban « Données » et cliquez sur le bouton « Actualiser tout ».
 
 	![Volet de navigation][9]
 
@@ -89,4 +89,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

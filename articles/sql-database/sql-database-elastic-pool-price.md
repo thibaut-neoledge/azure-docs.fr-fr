@@ -3,15 +3,15 @@
 	description="Informations de tarification propres aux pools de bases de données élastiques."
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/11/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -41,4 +41,4 @@ Pour comprendre les eDTU et les niveaux de service, consultez [Options et perfor
 - [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md)
 - [Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

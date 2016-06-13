@@ -29,8 +29,6 @@ Azure fournit un service qui vous aidera à [prendre rapidement en main Jupyter 
 
 Si le service Notebook n’est pas approprié pour votre scénario, poursuivez la lecture de cet article qui vous indiquera comment déployer Jupyter Notebook sur Microsoft Azure, à l'aide de machines virtuelles Linux (VM).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]le modèle de déploiement classique.
-
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Créer et configurer une machine virtuelle sur Azure
@@ -41,7 +39,7 @@ La première étape consiste à créer une machine virtuelle s’exécutant sur 
 
 Suivez les instructions fournies [ici][portal-vm-linux] pour créer une machine virtuelle de la distribution *Ubuntu*. Ce didacticiel utilise Ubuntu Server 14.04 LTS. Nous présumerons que le nom d’utilisateur est *azureuser*.
 
-Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail Azure, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, **\*** pour le port source (public) et **9999** pour le port de destination (privé).
+Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail Azure, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, ***** pour le port source (public) et **9999** pour le port de destination (privé).
 
 ![Capture d'écran](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
@@ -124,7 +122,7 @@ Vous serez invité à fournir un mot de passe et une confirmation, puis le mot d
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-Nous allons ensuite modifier le fichier de configuration du profil (fichier `jupyter_notebook_config.py` du répertoire dans lequel vous vous trouvez). Si ce fichier n’existe pas encore, vous devez le créer. Ce fichier comporte de nombreux champs, tous commentés par défaut. Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu’il a au moins le contenu suivant. **Remplacez bien c.NotebookApp.password par sha1 fourni à l’étape précédente**.
+Nous allons ensuite modifier le fichier de configuration du profil (fichier `jupyter_notebook_config.py` du répertoire dans lequel vous vous trouvez). Si ce fichier n’existe pas encore, vous devez le créer. Ce fichier comporte de nombreux champs, tous commentés par défaut. Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu’il a au moins le contenu suivant. **Remplacez c.NotebookApp.password dans la configuration par sha1 fourni à l’étape précédente**.
 
     c = get_config()
 
@@ -195,8 +193,8 @@ Les fonctionnalités principales de Jupyter sont également disponibles dans Vis
 
 Pour plus d’informations, consultez le [Centre de développement Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [référentiel]: https://github.com/ipython/ipython
 [outils Python pour Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -25,9 +25,6 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle Resource Manager
-
-
 Ce didacticiel explique comment héberger un site web Django dans Microsoft Azure à l’aide d’une machine virtuelle Linux. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce guide, vous disposerez d'une application Django fonctionnelle dans le cloud.
 
 Vous apprendrez à :
@@ -129,4 +126,4 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

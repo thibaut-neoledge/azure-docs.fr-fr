@@ -25,7 +25,6 @@ Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applic
 - Les rapports interactifs créés dans Power BI Desktop peuvent être incorporés dans votre propre application à l'aide d'un nouveau modèle de jeton d'authentification d'application.
 - Les éditeurs de logiciels indépendants et les entreprises qui conçoivent des applications orientées client peuvent utiliser le service **Power BI Embedded** et le Kit de développement logiciel (SDK) Power BI pour incorporer des rapports interactifs. Pour en savoir plus, consultez [Prise en main de la version préliminaire de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 - En tant que développeur, vous pouvez utiliser l'infrastructure de visualisation Power BI pour créer des visualisations personnalisées utilisables dans votre propre application. Consultez [Développer Power BI avec des éléments visuels personnalisés](https://powerbi.microsoft.com/custom-visuals/).
-- Création de rapports interactifs toujours actualisés au sein des applications. Avec **Power BI Embedded**, vous pouvez créer votre propre tableau de bord en temps réel intégrant des rapports Power BI interactifs. En tant qu'ISV, vous fournissez ainsi à vos clients des informations mises à jour à partir d'appareils, de capteurs et d'applications.
 
 ## Voir aussi
 
@@ -33,4 +32,4 @@ Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applic
 - [Prise en main de l'exemple](power-bi-embedded-get-started.md)
 - [Développer Power BI avec des éléments visuels personnalisés](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

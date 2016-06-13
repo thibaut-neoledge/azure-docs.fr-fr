@@ -91,7 +91,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 
 La solution Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux inclut l’extension de chiffrement de disque pour Windows, l’extension de chiffrement de disque pour Linux, les applets de commande CLI de chiffrement de disque et les modèles Azure Resource Manager de chiffrement de disque. Azure Disk Encryption est pris en charge sur les machines virtuelles IaaS exécutant les systèmes d’exploitation Windows ou Linux. Pour plus d’informations sur les systèmes d’exploitation pris en charge, consultez la section Conditions préalables requises ci-dessous.
 
-**Remarque :** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
+****Remarque : ** le chiffrement des disques de machine virtuelle avec Azure Disk Encryption est gratuit.
 
 ### Proposition de valeur
 
@@ -262,23 +262,23 @@ Vous pouvez aussi configurer l’ID du client et la clé secrète Azure AD à l�
 
 1\. Cliquez sur l’onglet Active Directory comme indiqué dans la figure ci-dessous :
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\. Cliquez sur Ajouter une application et saisissez le nom de l’application, comme indiqué ci-dessous :
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\. Cliquez sur le bouton fléché et configurez les propriétés de l’application, comme indiqué ci-dessous :
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\. Cliquez sur la coche dans le coin inférieur gauche pour terminer. La page de configuration de l’application s’affiche. Notez que l’ID du Client Active Directory de Azure se trouve au bas de la page, comme indiqué ci-dessous.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5 Enregistrer la clé secrète du client Azure AD par un clic sur le bouton Enregistrer. Cliquez sur le bouton Enregistrer et notez la clé secrète mentionnée dans la zone de texte de clé. Il s’agit de la clé secrète du client Azure AD. Vous devez sauvegarder la clé secrète du client Azure AD correctement.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Remarque :** le flux indiqué ci-dessus n’est pas pris en charge dans le portail.
@@ -845,4 +845,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

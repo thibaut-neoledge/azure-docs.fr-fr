@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Application native .NET Azure AD v2.0 | Microsoft Azure"
-	description="Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
+	description="Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -18,34 +18,34 @@
 
 # Ajouter une connexion à une application de bureau Windows
 
-Le point de terminaison v2.0 vous permet de rapidement ajouter une authentification à vos applications de bureau avec la prise en charge des comptes Microsoft personnels, ainsi que les comptes professionnels ou scolaires. Il permet également à votre application de communiquer de manière sécurisée avec une API web principale, ainsi qu’avec [Microsoft Graph](https://graph.microsoft.io) et un nombre limité d’[API unifiées Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+Le point de terminaison v2.0 vous permet de rapidement ajouter une authentification à vos applications de bureau avec la prise en charge des comptes Microsoft personnels, ainsi que les comptes professionnels ou scolaires. Il permet également à votre application de communiquer de manière sécurisée avec une API web principale, ainsi qu’avec [Microsoft Graph](https://graph.microsoft.io) et un nombre limité d’[API unifiées Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
 > [AZURE.NOTE]
 	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
-Pour les [applications natives .NET qui s’exécutent sur un appareil](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD fournit la bibliothèque d’authentification Active Directory (bibliothèque ADAL). Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d’accès pour votre application, qui les utilisent pour appeler les services Web. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches .NET WPF qui exécute les activités suivantes :
+Pour les [applications natives .NET qui s’exécutent sur un appareil](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD fournit la bibliothèque d’authentification Active Directory (bibliothèque ADAL). Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d’accès pour votre application, qui les utilisent pour appeler les services Web. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches .NET WPF qui exécute les activités suivantes :
 
--	connexion de l’utilisateur et obtention des jetons d’accès à l’aide du [protocole d’authentification OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) ;
--	appel sécurisé d’un service Web principal de liste de tâches, qui est également sécurisé par OAuth 2.0 ;
+-	connexion de l’utilisateur et obtention des jetons d’accès à l’aide du [protocole d’authentification OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) ;
+-	appel sécurisé d’un service Web principal de liste de tâches, qui est également sécurisé par OAuth 2.0 ;
 -	déconnexion des utilisateurs.
 
 ## Télécharger l’exemple de code
 
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) ou la cloner :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) ou la cloner :
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
 ## Inscription d’une application
-Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
-- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application ;
+- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Installez et configurez ADAL
-Maintenant que vous disposez d’une application enregistrée auprès de Microsoft, vous pouvez installer ADAL et écrire votre code associé aux identités. Pour permettre à ADAL de communiquer avec le point de terminaison v2.0, vous devez lui fournir des informations sur l’enregistrement de votre application.
+Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
 
 -	Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
@@ -53,7 +53,7 @@ Maintenant que vous disposez d’une application enregistrée auprès de Microso
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
--	Dans le projet TodoListClient, ouvrez `app.config`. Remplacez les valeurs des éléments de la section `<appSettings>` afin qu’elles reflètent les valeurs saisies dans le portail d’inscription d’applications. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
+-	Dans le projet TodoListClient, ouvrez `app.config`. Remplacez les valeurs des éléments de la section `<appSettings>` afin qu’elles reflètent les valeurs saisies dans le portail d’inscription d’applications. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
     -	L’élément `ida:ClientId` est l’**ID d’application** de l’application copiée à partir du portail.
     -	L’élément `ida:RedirectUri` est l’**URI de redirection** provenant du portail.
 - Dans le projet TodoList-Service, ouvrez l’élément `web.config` dans la racine du projet.  
@@ -75,7 +75,7 @@ protected override async void OnInitialized(EventArgs e)
 }
 ```
 
-- Lorsque l’application démarre, nous souhaitons vérifier si l’utilisateur est déjà connecté. Toutefois, nous ne voulons pas encore invoquer d’interface utilisateur de connexion. Nous demanderons à l’utilisateur de cliquer sur l’option de connexion. Également dans la méthode `OnInitialized(...)` :
+- Lorsque l’application démarre, nous souhaitons vérifier si l’utilisateur est déjà connecté. Toutefois, nous ne voulons pas encore invoquer d’interface utilisateur de connexion. Nous demanderons à l’utilisateur de cliquer sur l’option de connexion. Également dans la méthode `OnInitialized(...)` :
 
 ```C#
 // As the app starts, we want to check to see if the user is already signed in.
@@ -115,7 +115,7 @@ catch (AdalException ex)
 }
 ```
 
-- Si l’utilisateur, non connecté, clique sur le bouton de connexion, nous souhaitons invoquer une interface utilisateur de connexion et lui demander de saisir ses informations d’identification. Implémentez le gestionnaire du bouton de connexion :
+- Si l’utilisateur, non connecté, clique sur le bouton de connexion, nous souhaitons invoquer une interface utilisateur de connexion et lui demander de saisir ses informations d’identification. Implémentez le gestionnaire du bouton de connexion :
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -208,10 +208,10 @@ private async void GetTodoList()
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
 		...
-```
+...
 
 
-- Lorsque l’utilisateur a fini de gérer de sa liste des tâches, celui-ci peut se déconnecter de l’application en cliquant sur le bouton Vider le cache.
+- When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -235,22 +235,26 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 
 ## Exécuter
 
-Félicitations ! Vous disposez désormais d’une application .NET WPF fonctionnelle, capable d’authentifier les utilisateurs et d’appeler des API web en toute sécurité via OAuth 2.0. Exécutez vos projets et connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire. Ajoutez des tâches à la liste de tâches de cet utilisateur. Déconnectez-vous et reconnectez-vous à l'aide du compte d'un autre utilisateur pour afficher sa liste de tâches. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
+Félicitations ! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0. Run your both projects, and sign in with either a personal Microsoft account or a work or school account. Add tasks to that user's To-Do list.   Sign out, and sign back in as another user to view their To-Do list. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
 
-La bibliothèque ADAL permet d’intégrer facilement des fonctionnalités d’identité courantes à votre application à l’aide de vos comptes personnels et professionnels. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
+ADAL makes it easy to incorporate common identity features into your app, using both personal and work accounts. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
 
-Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
 ## Étapes suivantes
 
-Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
+Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
-- [Sécurisation de l’API web TodoListService avec le point de terminaison v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Sécurisation de l’API web TodoListService avec le point de terminaison v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-Pour obtenir des ressources supplémentaires, consultez :
-- [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Balise « adal » StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez :
+- [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Balise « adal » StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obtenir les mises à jour de sécurité de nos produits
+
+Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
+
+<!---HONumber=AcomDC_0601_2016-->

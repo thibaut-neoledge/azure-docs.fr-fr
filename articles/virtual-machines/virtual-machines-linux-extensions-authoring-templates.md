@@ -19,8 +19,6 @@
 
 # Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Dans l’interface de ligne de commande Azure, exécutez l’applet de commande suivante :
@@ -41,7 +39,7 @@ Ces trois propriétés sont mappées respectivement à « publisher », « ty
 
 L’étape suivante de la création du modèle d’extension consiste à identifier le format pour fournir les paramètres de configuration. Chaque extension prend en charge son propre ensemble de paramètres.
 
-Pour voir un exemple de configuration pour les extensions Linux, cliquez sur la documentation [Exemples d’extensions Linux](virtual-machines-linux-extensions-configuration-samples.md).
+Pour voir un exemple de configuration pour les extensions Linux, consultez les [exemples d’extensions Linux](virtual-machines-linux-extensions-configuration-samples.md).
 
 Reportez-vous à ce qui suit pour obtenir un modèle totalement terminé avec des extensions de machine virtuelle.
 
@@ -49,4 +47,4 @@ Reportez-vous à ce qui suit pour obtenir un modèle totalement terminé avec de
 
 Une fois le modèle créé, vous pouvez le déployer en utilisant l’interface de ligne de commande Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

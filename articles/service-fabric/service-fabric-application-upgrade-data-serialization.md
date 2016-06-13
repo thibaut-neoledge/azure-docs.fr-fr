@@ -3,7 +3,7 @@
    description="Meilleures pratiques pour la sérialisation de données et son impact sur le déploiement des mises à niveau d'applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/14/2016"
-   ms.author="jesseb"/>
+   ms.author="vturecek"/>
 
 
 # Impact de la sérialisation des données sur la mise à niveau d’une application
@@ -65,6 +65,5 @@ Contrôlez les mises à niveau de votre application à l'aide des [Paramètres d
 Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
 Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
- 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

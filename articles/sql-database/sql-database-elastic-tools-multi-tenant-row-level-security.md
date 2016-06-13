@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
-	ms.author="thmullan;torsteng;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="thmullan;torsteng" />
 
 # Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes 
 
@@ -48,8 +48,8 @@ Générez et exécutez l’application. Cette opération démarre le gestionnair
 
 Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
 
-1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
-2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
+1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
+2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
 
 
 ## Étape 1) Couche application : définissez l’identifiant de locataire dans l’élément SESSION\_CONTEXT
@@ -295,9 +295,9 @@ GO
 
 ### Maintenance 
 
-* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
+* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
 
-* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
 ## Résumé 
@@ -312,4 +312,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

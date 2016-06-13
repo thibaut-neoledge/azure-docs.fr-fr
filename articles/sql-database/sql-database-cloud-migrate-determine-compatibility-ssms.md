@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -16,11 +16,14 @@
    ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Déterminer la compatibilité de Base de données SQL à l’aide de SSMS
+# Utilisez SQL Server Management Studio afin de déterminer la compatibilité de la base de données SQL avant la migration vers une base de données SQL Azure
 
 > [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Conseiller de mise à niveau](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
  
 Dans cet article, vous découvrirez comment déterminer si une base de données SQL Server est compatible pour la migration vers Base de données SQL à l’aide de l’Assistant d’exportation d’une application de couche données dans SQL Server Management Studio.
 
@@ -47,12 +50,21 @@ Dans cet article, vous découvrirez comment déterminer si une base de données 
 
 	![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
-7. Si aucune erreur n’apparaît, votre base de données est compatible : vous êtes donc prêt pour la migration. Si des erreurs sont détectées, vous devez les corriger. Pour afficher les erreurs, cliquez sur **Erreur** au niveau de **Schéma de validation**. ![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. Si aucune erreur n’apparaît, votre base de données est compatible : vous êtes donc prêt pour la migration. Si des erreurs sont détectées, vous devez les corriger. Pour afficher les erreurs, cliquez sur **Erreur** au niveau de **Schéma de validation**. ![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
 8.	Si le fichier *.BACPAC est correctement généré, votre base de données est alors compatible avec la base de données SQL, et vous êtes prêt pour la migration.
 
-## Étape suivante : résoudre les problèmes de compatibilité, le cas échéant
+## Étapes suivantes
 
-[Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md), le cas échéant.
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Résoudre les problèmes de compatibilité de migration de la base de données](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Migrez une base de données SQL Server compatible vers une base de données SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0316_2016-->
+## En savoir plus
+
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

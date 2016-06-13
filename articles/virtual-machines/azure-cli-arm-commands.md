@@ -19,8 +19,6 @@
 
 # Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
-
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents.
 
 Pour commencer, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft.
@@ -1798,7 +1796,7 @@ Options de paramètre :
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]À partir de l’interface de ligne de commande version 0.10, vous pouvez fournir un court alias tel que « UbuntuLTS » ou « Win2012R2Datacenter » comme `image-urn` pour certaines images Marketplace populaires. Exécutez `azure help vm quick-create` pour voir les options. En outre, à partir de la version 0.10, `azure vm quick-create` utilise le stockage premium par défaut s’il est disponible dans la région sélectionnée.
+>[AZURE.TIP]À partir de l’interface de ligne de commande version 0.10, vous pouvez fournir un court alias tel que « UbuntuLTS » ou « Win2012R2Datacenter » comme `image-urn` pour certaines images Marketplace populaires. Exécutez `azure help vm quick-create` pour voir les options. En outre, à partir de la version 0.10, `azure vm quick-create` utilise le stockage Premium par défaut s’il est disponible dans la région sélectionnée.
 
 **Répertorier les machines virtuelles dans un compte**
 
@@ -1874,4 +1872,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

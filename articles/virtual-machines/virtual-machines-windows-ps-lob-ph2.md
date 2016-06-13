@@ -19,9 +19,6 @@
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
- 
-
 Dans cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine réplica dans le réseau virtuel Azure afin que les requêtes Web des clients pour les ressources Web puissent être authentifiées localement dans le réseau virtuel Azure, au lieu d'envoyer ce trafic d'authentification à travers la connexion à votre réseau local.
 
 Vous devez terminer cette opération avant de passer à la [Phase 3](virtual-machines-windows-ps-lob-ph3.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
@@ -168,8 +165,8 @@ Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin
 1.	Dans le volet gauche du portail Azure, cliquez sur **Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
 3.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
-	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
-	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
 4.	Dans le volet de gauche du portail Azure, cliquez sur **Machines virtuelles**.
 5.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 6.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
@@ -197,4 +194,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 3](virtual-machines-windows-ps-lob-ph3.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

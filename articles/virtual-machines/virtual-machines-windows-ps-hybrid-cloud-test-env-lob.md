@@ -19,8 +19,6 @@
 
 # Configuration d’une application métier web dans un cloud hybride pour le test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Cette rubrique vous guide lors de la création d’un environnement cloud hybride pour tester une application métier web hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -130,7 +128,7 @@ Ensuite, joignez SQL1 au domaine Active Directory CORP avec les commandes suivan
 
 Utilisez le compte CORP\\User1 lorsque vous êtes invité à fournir vos informations d’identification du compte de domaine pour la commande **Add-Computer**.
 
-Après le redémarrage, utilisez le portail Azure pour vous connecter à SQL1 *à l’aide du compte d’administrateur local*.
+Après le redémarrage, utilisez le portail Azure pour vous connecter à SQL1 à l’aide *du compte d’administrateur local*.
 
 Ensuite, configurez SQL Server 2014 pour qu'il utilise le lecteur F: pour les nouvelles bases de données et pour les autorisations de compte d'utilisateur.
 
@@ -208,7 +206,7 @@ Ensuite, configurez LOB1 pour IIS et testez l'accès à partir de CLIENT1.
 10.	Sur la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
 11.	Attendez la fin de l’installation des composants, puis cliquez sur **Fermer**.
 12.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
-13.	Dans la barre d’adresses, tapez **http://lob1/**, puis appuyez sur Entrée. Vous devez voir la page web IIS 8 par défaut.
+13.	Dans la barre d’adresses, tapez ****http://lob1/**, puis appuyez sur Entrée. Vous devez voir la page web IIS 8 par défaut.
 
 Ceci est votre configuration actuelle.
 
@@ -218,6 +216,6 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 
 ## Étape suivante
 
-- Déployez l’[environnement de production](virtual-machines-windows-lob-overview.md).
+- Déployez [l’environnement de production](virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

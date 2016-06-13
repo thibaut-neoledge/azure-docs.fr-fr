@@ -25,8 +25,8 @@ Si vous utilisez Windows Server avec Software Assurance, vous pouvez mettre vos 
 ## Conditions préalables
 Plusieurs conditions sont requises pour utiliser Azure Hybrid Use Benefit sur des machines virtuelles Windows Server dans Azure :
 
-- Installer le module Azure PowerShell installé
-- Disque dur Windows Server que vous chargez dans Azure Storage
+- disposer d’une installation du module Azure PowerShell ;
+- charger votre disque dur virtuel Windows Server dans Azure Storage
 
 ### Installation d'Azure PowerShell
 Pour plus d’informations sur l’installation de la dernière version d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Sélectionnez l’abonnement à utiliser et connectez-vous à votre compte Azure. Même si vous vous apprêtez à déployer vos machines virtuelles à l’aide de modèles Resource Manager, Azure PowerShell doit être installé pour pouvoir télécharger votre disque dur virtuel Windows Server (voir l’étape suivante).
@@ -164,4 +164,4 @@ En savoir plus sur la [licence Azure Hybrid Use Benefit](https://azure.microsoft
 
 En savoir plus sur l’[utilisation de modèles Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

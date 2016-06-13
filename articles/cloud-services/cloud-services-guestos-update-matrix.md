@@ -52,7 +52,7 @@ Le déploiement du système d’exploitation invité de 201511-02 de novembre a 
 ## Publications de famille 4
 **Windows Server 2012 R2**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
+Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Les dates précédées de * sont susceptibles de changer.
 
@@ -161,9 +161,9 @@ Les familles de SE invité sont basées sur les versions publiées de Microsoft 
 
 Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 
-**Publication du SE invité** - 2.12 rel2
+**Publication du SE invité** - 2.12 rel2
 
-**Chaîne de configuration pour cette publication** - WA-GUEST-OS-2.12\_201208-02
+**Chaîne de configuration pour cette publication** - WA-GUEST-OS-2.12\_201208-02
 
 Ces informations sont intégrées dans la chaîne de configuration d’un SE invité, ainsi qu’une date indiquant les correctifs MSRC envisagés pour cette publication. Dans cet exemple, les correctifs MSRC produits pour Windows Server 2008 R2 jusqu’à août 2012 inclus ont été envisagés pour l’inclusion. Seuls les correctifs s’appliquant spécifiquement à cette version de Windows Server sont inclus. Par exemple, si un correctif logiciel de MSRC s’applique à Microsoft Office, il ne sera pas inclus, car ce produit ne fait pas partie de l’image de base de Windows Server.
 
@@ -182,7 +182,7 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/fr-FR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Paramètres de mise à jour du SE invité Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -203,4 +203,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

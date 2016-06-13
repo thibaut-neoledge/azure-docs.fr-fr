@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="05/25/2016"
    ms.author="terrylan"/>
 
 # Meilleures pratiques et tendances Azure relatives à la sécurité
@@ -34,11 +34,11 @@ Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivan
 
 Nous disposons actuellement des articles suivants sur les tendances et meilleures pratiques de sécurité Azure. Veillez à consulter ce site régulièrement pour voir les mises à jour de notre liste croissante de tendances et meilleures pratiques de sécurité Azure :
 
-- [Meilleures pratiques en matière de sécurité réseau - Azure](../azure-security-network-security-best-practices.md)
+- [Meilleures pratiques en matière de sécurité réseau - Azure](azure-security-network-security-best-practices.md)
 - [Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure](azure-security-data-encryption-best-practices.md)
 - [Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités](azure-security-identity-management-best-practices.md)
 - [Internet des objets (IoT) : meilleures pratiques en matière de sécurité](azure-security-iot-best-practices.md)
 - [Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 - [Azure Boundary Security Best Practices](../best-practices-network-security.md) (Meilleures pratiques Azure en matière de sécurité des limites)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/31/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -108,12 +108,25 @@ Quand vous ouvrez le Centre de sécurité Azure, seules les recommandations et l
 
 Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné.
 
+## Machines virtuelles
+
 ### Quels sont les types de machines virtuelles pris en charge ?
-Les machines virtuelles créées à partir des [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) sont prises en charge, y compris celles qui font partie de clusters Azure Service Fabric.
+Les machines virtuelles créées à partir des [modèles de déploiement de type classique et Resource Manager](../azure-classic-rm.md) sont prises en charge, notamment celles qui font partie de clusters Azure Service Fabric.
 
 Les recommandations relatives aux listes de contrôle d’accès s’appliquent actuellement aux machines virtuelles de type Classique. Pour l’heure, les groupes de sécurité réseau s’appliquent uniquement aux machines virtuelles de type Resource Manager.
 
-### Les machines virtuelles Linux sont-elles prises en charge ?
-Le Centre de sécurité Azure fournit une surveillance de base pour les machines virtuelles Linux (Ubuntu versions 12.04, 14.04, 14.10 et 15.04 uniquement). Une surveillance renforcée de l’intégrité de la sécurité et une analyse/collecte de données améliorée seront prochainement disponibles, tout comme la prise en charge d’autres distributions de Linux.
+Machines virtuelles Windows prises en charge :
 
-<!---HONumber=AcomDC_0504_2016-->
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+Machines virtuelles Linux prises en charge :
+
+- Ubuntu versions 12.04, 14.04, 15.10 et 16.04
+- Debian versions 7.0 et 8.0
+- CentOS versions 6.0 et 7.0
+- Red Hat Enterprise Linux (RHEL) versions 6 et 7
+- SUSE Linux Enterprise Server (SLES) versions 11 et 12
+
+<!---HONumber=AcomDC_0601_2016-->

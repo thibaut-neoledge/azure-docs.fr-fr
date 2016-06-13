@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/21/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
@@ -155,4 +155,4 @@ Suivez ces instructions pour installer un PCM dans votre appareil StorSimple. As
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="torsteng"/>
 
 # Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper 
 
@@ -174,4 +174,4 @@ Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer p
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

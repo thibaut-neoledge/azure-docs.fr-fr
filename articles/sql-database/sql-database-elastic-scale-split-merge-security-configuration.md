@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="torsteng" />
 
 
 # Configuration de la sécurité du fractionnement et de la fusion  
@@ -357,7 +357,7 @@ Chaque personne pour laquelle un certificat client a été émis doit suivre les
 * Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails
 * Veillez à ce que l'option Afficher indique Tous
 * Sélectionnez le champ nommé Empreinte numérique dans la liste
-* Copiez la valeur de l’empreinte numérique **Supprimez les caractères Unicode non visibles devant le premier chiffre** Supprimez tous les espaces
+* Copiez la valeur de l’empreinte numérique ** Supprimez les caractères Unicode non visibles devant le premier chiffre ** Supprimez tous les espaces
 
 ## Configuration des clients autorisés dans le fichier de configuration de service
 
@@ -487,4 +487,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

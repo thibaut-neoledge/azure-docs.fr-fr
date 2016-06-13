@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/03/2016"
+     ms.date="05/31/2016"
      ms.author="dobett"/>
 
 # Didacticiel : Créer un IoT Hub à l'aide d'un programme C# et de l’API REST
@@ -40,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans le gestionnaire de packages NuGet, activez **INCLURE LA VERSION PRÉLIMINAIRE** et recherchez **Microsoft.Azure.Management.Resources**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
+3. Dans le gestionnaire de packages NuGet, activez **Inclure la version préliminaire** et recherchez **Microsoft.Azure.Management.ResourceManager**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
 4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
 
@@ -51,8 +51,8 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json;
     using Microsoft.Rest;
@@ -154,7 +154,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(token.AccessToken);
@@ -183,4 +183,4 @@ Maintenant que vous avez déployé un IoT Hub à l'aide de l'API REST, vous pouv
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/25/2016" 
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/27/2016" 
+    ms.author="ddove"/>
 
 # Glossaire des outils de base de données élastique
 Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), l’[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md).
@@ -90,4 +90,4 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

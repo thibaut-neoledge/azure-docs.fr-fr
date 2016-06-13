@@ -2,7 +2,8 @@
 	pageTitle="Configuration d’Oracle Data Guard dans des machines virtuelles | Microsoft Azure"
 	description="Suivez un didacticiel permettant de configurer et mettre en œuvre Oracle Data Guard sur des machines virtuelles Azure pour disposer d’une haute disponibilité et d’une récupération d’urgence."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,12 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Configuration d’Oracle Data Guard pour Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 Ce didacticiel explique comment configurer et mettre en œuvre Oracle Data Guard dans un environnement Azure Virtual Machines pour disposer d’une haute disponibilité et d’une récupération d’urgence. Il se concentre sur la réplication unidirectionnelle de bases de données Oracle non RAC.
@@ -30,7 +29,7 @@ En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditio
 - Vous avez déjà consulté la section Considérations relatives à la haute disponibilité et à la récupération d’urgence de la rubrique [Images de machine virtuelle Oracle - Considérations diverses](virtual-machines-windows-classic-oracle-considerations.md). Remarquez qu’Azure prend actuellement en charge des instances autonomes d’Oracle Database, mais pas Oracle Real Application Clusters (Oracle RAC).
 
 
-- Vous avez créé deux machines virtuelles (VM, Virtual Machines) dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plate-forme sur Windows Server. Pour plus d’informations, voir [Création d’une machine virtuelle Oracle Database 12c dans Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) et [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-windows-load-balance.md) et du même [réseau virtuel](azure.microsoft.com/documentation/services/virtual-network/) (Virtual Network) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de définir les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-windows-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Remarquez qu’Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md).
+- Vous avez créé deux machines virtuelles dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plateforme. Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-windows-load-balance.md) et du même [réseau virtuel](azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de définir les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-windows-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Remarquez qu’Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -145,7 +144,7 @@ Exécutez l’instruction suivante pour basculer vers le répertoire Oracle\_Hom
 
 	cd %ORACLE_HOME%\database
 
-Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
+Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
 
 	ORAPWD FILE=PWDTEST.ora PASSWORD=password FORCE=y
 
@@ -267,7 +266,7 @@ Vous devez ensuite modifier le fichier pfile pour ajouter les paramètres de sec
 
 Le bloc d’instructions précédent comprend trois éléments de configuration importants :
 -	**LOG\_ARCHIVE\_CONFIG... :** vous définissez les ID de base de données uniques à l’aide de cette instruction.
--	**LOG\_ARCHIVE\_DEST\_1... :** vous définissez l’emplacement de dossier d’archive local à l’aide de cette instruction. Nous vous recommandons de créer un répertoire pour les besoins d’archivage de votre base de données et de spécifier l’emplacement d’archivage local explicitement à l’aide de cette instruction plutôt que d’utiliser le dossier par défaut %ORACLE\_HOME%\\database\\archive.
+-	**LOG\_ARCHIVE\_DEST\_1... :** vous définissez l’emplacement du dossier d’archive local à l’aide de cette instruction. Nous vous recommandons de créer un répertoire pour les besoins d’archivage de votre base de données et de spécifier l’emplacement d’archivage local explicitement à l’aide de cette instruction plutôt que d’utiliser le dossier par défaut %ORACLE\_HOME%\\database\\archive.
 -	**LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC... :** qui vous permet de définir un processus d’écriture de journaux (LGWR, log writer) asynchrone afin de recueillir les données de rétablissement des transactions et de les transmettre aux destinations de secours. Le nom unique de la base de données DB\_UNIQUE\_NAME spécifie un nom unique concernant la base de données sur le serveur de secours.
 
 Une fois le nouveau fichier de paramètres configuré, vous devez créer le fichier spfile à partir de celui-ci.
@@ -631,4 +630,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-windows-classic-oracle-images.md)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

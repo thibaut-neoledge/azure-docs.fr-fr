@@ -19,7 +19,7 @@
 
 # Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager
 
-Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Elle part du principe qu’un message d’erreur s’est affiché. Pour plus d’informations sur la raison de l’échec de votre déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
+Cette rubrique décrit comment résoudre certaines des erreurs courantes que vous pouvez rencontrer lors du déploiement de ressources sur Azure. Nous espérons que vous avez obtenu un message d’erreur qui vous a été utile. Si le message d’erreur n’était pas clair ou si vous avez besoin de plus d’informations concernant l’échec de votre déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md) puis revenez dans cet article pour résoudre l’erreur.
 
 ## Modèle ou ressource non valide
 
@@ -33,7 +33,7 @@ Selon l’emplacement où le caractère manque dans le modèle, vous pouvez rece
 
 ## Le nom de la ressource existe déjà
 
-Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l'ensemble de l’environnement Azure. Vous pouvez créer un nom unique en concaténant votre convention d’affectation de noms avec le résultat de la fonction [uniqueString](./resource-group-template-functions/#uniquestring).
+Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l'ensemble de l’environnement Azure. Vous pouvez créer un nom unique en concaténant votre convention d’affectation de noms avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -240,4 +240,4 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 - Pour résoudre les erreurs liées au protocole RDP (Remote Desktop Protocol) sur votre machine virtuelle Windows, consultez [Connexions Bureau à distance](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
 - Pour résoudre les erreurs liées à Secure Shell sur votre machine virtuelle Linux, consultez [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

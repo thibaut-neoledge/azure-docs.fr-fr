@@ -36,6 +36,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité ADFS ?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[Quelle méthode de routage la gestion des API utilise-t-elle lors du déploiement sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 
 
 
@@ -54,8 +55,8 @@ Une fonctionnalité en version préliminaire est complète et opérationnelle, m
 Il existe plusieurs options prises en charge.
 
 1. Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Configuration des paramètres de l’API](api-management-howto-create-apis.md#configure-api-settings).
-2. Utilisez l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure](api-management-howto-mutual-certificates.md).
-3. Utilisez une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante et vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez récupérer l’adresse IP de votre instance de gestion des API sur le **Tableau de bord** dans le portail Azure Classic.
+2. Utilisez l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
+3. Utilisez une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante et vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez récupérer l’adresse IP de votre instance Gestion des API sur le **tableau de bord** dans le Portail Azure Classic.
 4. Vous pouvez connecter votre instance de gestion des API à un réseau virtuel Azure (classique). Pour plus d’informations, consultez [Comment configurer des connexions VPN dans Gestion des API Azure](api-management-howto-setup-vpn.md).
 
 ### Comment puis-je copier une instance de la gestion des API vers une nouvelle instance ?
@@ -63,12 +64,12 @@ Il existe plusieurs options prises en charge.
 Il existe plusieurs options que vous pouvez utiliser pour copier une instance de service de gestion des API vers une nouvelle instance.
 
 -	Utilisez la fonctionnalité de sauvegarde et restauration de la gestion des API. Pour plus d’informations, consultez [Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure](api-management-howto-disaster-recovery-backup-restore.md).
--	Créez votre propre fonctionnalité de sauvegarde et restauration à l’aide de l’[API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx) pour enregistrer et restaurer les entités requises à partir de votre instance de service.
+-	Créez votre propre fonctionnalité de sauvegarde et restauration à l’aide de [l’API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx) pour enregistrer et restaurer les entités requises à partir de votre instance de service.
 -	Téléchargez la configuration du service à l’aide de Git et chargez-la vers une nouvelle instance. Pour plus d’informations, consultez [Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git](api-management-configuration-repository-git.md).
 
 ### Puis-je gérer mon instance de gestion des API par programme ?
 
-Oui, vous pouvez la gérer à l’aide de l’[API REST de gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx), du [Kit de développement logiciel (SDK) de la bibliothèque de gestion du service de gestion des API Microsoft Azure](http://aka.ms/apimsdk) et des applets de commande PowerShell de [déploiement du service](https://msdn.microsoft.com/library/mt619282.aspx) et de [gestion du service](https://msdn.microsoft.com/library/mt613507.aspx).
+Oui, vous pouvez la gérer à l’aide de [l’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx), du [Kit de développement logiciel (SDK) de la bibliothèque de gestion du service Gestion des API Microsoft Azure](http://aka.ms/apimsdk) et des applets de commande PowerShell de [déploiement du service](https://msdn.microsoft.com/library/mt619282.aspx) et de [gestion du service](https://msdn.microsoft.com/library/mt613507.aspx).
 
 ### Comment puis-je ajouter un utilisateur au groupe d’administrateurs ?
 
@@ -135,6 +136,14 @@ La gestion des API utilise la [méthode de routage du trafic basé sur les perfo
 
 ### Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?
 
-Oui, consultez les modèles de démarrage rapide [Service de gestion des API Azure](http://aka.ms/apimtemplate).
+Oui, consultez les modèles de démarrage rapide [Service Gestion des API Azure](http://aka.ms/apimtemplate).
 
-<!---HONumber=AcomDC_0525_2016-->
+### Puis-je utiliser un certificat SSL auto-signé pour un service principal ?
+
+Oui. Suivez les étapes ci-dessous :
+
+1. Créez une entité [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) à l’aide de l’API de gestion.
+2. Affectez la valeur true à la propriété skipCertificateChainValidation.
+3. Lorsque vous ne souhaitez plus autoriser le certificat auto-signé, vous pouvez supprimer l’entité Backend ou affecter la valeur false à la propriété skipCertificateChainValidation.
+
+<!---HONumber=AcomDC_0601_2016-->

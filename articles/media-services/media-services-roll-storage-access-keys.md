@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
 #Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
@@ -41,41 +41,41 @@ Mettez à jour Media Services pour utiliser la clé d’accès de stockage secon
 
 - Utilisez l’API REST de gestion de Media Services.
 
-L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion de Media Services](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+L’exemple de code suivant montre comment construire la demande https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion de Media Services](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
-		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
-		{
-		    var clientCert = GetCertificate(CertThumbprint);
-		
-		    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-		        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-		    request.Method = "PUT";
-		    request.ContentType = "application/json; charset=utf-8";
-		    request.Headers.Add("x-ms-version", "2011-10-01");
-		    request.Headers.Add("Accept-Encoding: gzip, deflate");
-		    request.ClientCertificates.Add(clientCert);
-		
-		
-		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-		    {
-		        streamWriter.Write(""");
-		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write(""");
-		        streamWriter.Flush();
-		    }
-		
-		    using (var response = (HttpWebResponse)request.GetResponse())
-		    {
-		        string jsonResponse;
-		        Stream receiveStream = response.GetResponseStream();
-		        Encoding encode = Encoding.GetEncoding("utf-8");
-		        if (receiveStream != null)
-		        {
-		            var readStream = new StreamReader(receiveStream, encode);
-		            jsonResponse = readStream.ReadToEnd();
-		        }
-		    }
-		}
+	public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
+	{
+	    var clientCert = GetCertificate(CertThumbprint);
+	
+	    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
+	        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
+	    request.Method = "PUT";
+	    request.ContentType = "application/json; charset=utf-8";
+	    request.Headers.Add("x-ms-version", "2011-10-01");
+	    request.Headers.Add("Accept-Encoding: gzip, deflate");
+	    request.ClientCertificates.Add(clientCert);
+	
+	
+	    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+	    {
+	        streamWriter.Write(""");
+	        streamWriter.Write(storageAccountKey);
+	        streamWriter.Write(""");
+	        streamWriter.Flush();
+	    }
+	
+	    using (var response = (HttpWebResponse)request.GetResponse())
+	    {
+	        string jsonResponse;
+	        Stream receiveStream = response.GetResponseStream();
+	        Encoding encode = Encoding.GetEncoding("utf-8");
+	        if (receiveStream != null)
+	        {
+	            var readStream = new StreamReader(receiveStream, encode);
+	            jsonResponse = readStream.ReadToEnd();
+	        }
+	    }
+	}
 
 Après cette étape, mettez à jour les localisateurs existants (qui font l’objet d’une dépendance par rapport à l’ancienne clé de stockage), comme indiqué dans l’étape suivante.
 
@@ -159,4 +159,4 @@ Utilisez la même procédure que celle décrite dans l’[étape 3](media-servi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

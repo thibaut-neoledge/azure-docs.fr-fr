@@ -24,9 +24,6 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle classique.
-
-
 Ce didacticiel complet vous montre comment créer un groupe de disponibilité SQL Server avec des machines virtuelles Azure Resource Manager. Il utilise des panneaux Azure pour configurer un modèle. Au cours de ce didacticiel, vous allez passer en revue les paramètres par défaut, entrer les paramètres exigés et mettre à jour les panneaux du portail.
 
 >[AZURE.NOTE] Dans le Portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité Always On avec un Écouteur. Elle configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité. Pour plus d’informations, voir [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Offre Always On SQL Server dans la galerie du Portail Microsoft Azure Classic).
@@ -51,7 +48,7 @@ Toutes les ressources de cette solution appartiennent à un groupe de ressources
 
 Ce didacticiel part des principes suivants :
 
-- Vous disposez déjà d’un compte Azure. Si vous n’en avez pas, [inscrivez-vous pour obtenir un compte d’essai](http://azure.microsoft.com/pricing/free-trial/).
+- Vous disposez déjà d’un compte Azure. Si vous n’en avez pas, [inscrivez-vous pour obtenir un compte d’évaluation](http://azure.microsoft.com/pricing/free-trial/).
 
 - Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, voir [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -75,7 +72,7 @@ Azure fournit une image de galerie pour l’ensemble de la solution. Pour locali
 
 1. 	Connectez-vous au portail Azure avec votre compte.
 1.	Dans le portail Azure, cliquez sur **+Nouveau**. Le portail ouvre le panneau Nouveau.
-1.	Dans le panneau Nouveau, recherchez **Toujours actif**. ![Rechercher le modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	Dans le panneau Nouveau, recherchez **AlwaysOn**. ![Rechercher le modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 1.	Dans les résultats de la recherche, recherchez **Cluster AlwaysOn SQL Server**. ![Modèle AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	Dans **Sélectionner un modèle de déploiement**, choisissez **Resource Manager**.
 
@@ -89,7 +86,7 @@ Cliquez sur **Concepts de base** et configurez les paramètres suivants :
 
 - **Abonnement** correspond à l’abonnement facturé par Azure pour exécuter toutes les ressources déployées pour le groupe de disponibilité. Vous pouvez spécifier un autre abonnement si votre compte en dispose de plusieurs.
 
-- **Groupe de ressources** correspond au nom du groupe auquel appartiennent toutes les ressources Azure créées par ce didacticiel. Pour ce didacticiel, utilisez **SQL-HA-RG**. Pour plus d’informations, consultez (Vue d’ensemble d’Azure Resource Manager)[resource-group-overview.md/#resource-groups].
+- **Groupe de ressources** correspond au nom du groupe auquel appartiennent toutes les ressources Azure créées dans le cadre de ce didacticiel. Pour ce didacticiel, utilisez **SQL-HA-RG**. Pour plus d’informations, consultez (Vue d’ensemble d’Azure Resource Manager)[resource-group-overview.md/#resource-groups].
 
 - **Emplacement** correspond à la région Azure où les ressources sont créées pour ce didacticiel. Sélectionnez une région Azure pour héberger l’infrastructure.
 
@@ -103,7 +100,7 @@ Voici ce à quoi le panneau **Concepts de base** va ressembler :
 
 Ce modèle de galerie Azure crée un domaine avec de nouveaux contrôleurs de domaine. Il crée également un réseau et deux sous-réseaux. Le modèle ne permet pas la création de serveurs dans un domaine ou un réseau virtuel existant. L’étape suivante consiste à configurer les paramètres de domaine et réseau.
 
-Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et réseau :
+Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et de réseau :
 
 - **Nom de domaine racine de la forêt** correspond au nom de domaine utilisé pour le domaine Active Directory qui héberge le cluster. Pour ce didacticiel, utilisez **contoso.com**.
 
@@ -115,7 +112,7 @@ Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs pré
 
 Pour plus d’informations sur les réseaux virtuels dans Azure, voir [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-Les **paramètres de domaine et réseau** doivent ressembler à ceci :
+Les **paramètres de domaine et de réseau** doivent ressembler à ceci :
 
 ![Paramètres de domaine et réseau](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
@@ -125,7 +122,7 @@ Si nécessaire, vous pouvez modifier ces valeurs. Pour ce didacticiel, nous util
 
 ###paramètres de groupe de disponibilité
 
-Dans **Paramètres de groupe de disponibilité**, passez en revue les valeurs prédéfinies du groupe de disponibilité et de l’écouteur.
+Dans les **paramètres de groupe de disponibilité**, passez en revue les valeurs prédéfinies du groupe de disponibilité et de l’écouteur.
 
 - **Nom du groupe de disponibilité** correspond au nom de ressource en cluster du groupe de disponibilité. Pour ce didacticiel, utilisez **Contoso-ag**.
 
@@ -143,9 +140,9 @@ Si nécessaire, vous pouvez modifier ces valeurs. Pour ce didacticiel, utilisez 
 
 Pour **Taille de la machine virtuelle, paramètres de stockage**, choisissez une taille de machine virtuelle SQL Server et vérifiez les autres paramètres.
 
-- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL Server. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. De nombreuses charges de travail de production exigent **DS4** ou plus. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, voir [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
+- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL Server. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. De nombreuses charges de travail de production nécessitent **DS4** ou plus. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
 
->[AZURE.NOTE]Azure installe SQL Server Enterprise Edition. Le coût dépend de l’édition et de la taille de la machine virtuelle. Pour plus d’informations sur les coûts actuels, voir [Tarification de Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure installe SQL Server Enterprise Edition. Le coût dépend de l’édition et de la taille de la machine virtuelle. Pour plus d’informations sur les coûts actuels, voir la [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Taille de la machine virtuelle de contrôleur de domaine** correspond à la taille de la machine virtuelle des contrôleurs de domaine. Pour ce didacticiel, utilisez **D2**.
 
@@ -163,7 +160,7 @@ Pour **Taille de la machine virtuelle, paramètres de stockage**, choisissez une
 
     - **Traitement transactionnel** définit les indicateurs de suivi 1117 et 1118.
 
-    - **Entreposage de données** définit les indicateurs de suivi 1117 et 610.
+    - **Data warehousing** définit les indicateurs de suivi 1117 et 610.
 
 Pour ce didacticiel, utilisez le paramètre **Charge de travail générale**.
 
@@ -194,7 +191,7 @@ Pour plus d’informations sur les bonnes pratiques de configuration SQL Server,
 
 ###Paramètres de SQL Server
 
-Dans **Paramètres de SQL Server**, passez en revue et modifiez le préfixe du nom de la machine virtuelle SQL Server, la version de SQL Server, le compte de service et le mot de passe SQL Server, ainsi que la planification de maintenance de la mise à jour corrective automatique SQL.
+Dans **Paramètres SQL Server**, passez en revue et modifiez le préfixe du nom de la machine virtuelle SQL Server, la version de SQL Server, le compte de service et le mot de passe SQL Server, ainsi que la planification de maintenance de la mise à jour corrective automatique SQL.
 
 - **Préfixe du nom SQL Server** est utilisé pour créer un nom pour chaque serveur SQL Server. Pour ce didacticiel, utilisez **Contoso-ag**. Les noms SQL Server sont *Contoso-ag-0* et *Contoso-ag-1*.
 
@@ -204,9 +201,9 @@ Dans **Paramètres de SQL Server**, passez en revue et modifiez le préfixe du n
 
 - **Mot de passe** correspond au mot de passe du compte de service SQL Server. Utilisez un mot de passe complexe. Confirmez le mot de passe.
 
-- **Planification de maintenance de la mise à jour corrective automatique SQL** identifie le jour de la semaine pendant lequel Azure corrige automatiquement les serveurs SQL Server. Pour ce didacticiel, tapez **Dimanche**.
+- **Planification de maintenance de la mise à jour corrective automatique SQL** identifie le jour de la semaine pendant lequel Azure effectue automatiquement mises à jour correctives des serveurs SQL Server. Pour ce didacticiel, tapez **Dimanche**.
 
-- **Heure de début de maintenance de la mise à jour corrective automatique SQL** correspond à l’heure à laquelle, pour la région Azure, la mise à jour corrective automatique commence.
+- **Heure de début de maintenance de la mise à jour corrective automatique SQL** correspond à l’heure à laquelle la mise à jour corrective automatique commence pour la région Azure.
 
 >[AZURE.NOTE]La fenêtre de mise à jour corrective de chaque machine virtuelle est décalée d’une heure. Une seule machine virtuelle est corrigée à la fois afin d’éviter toute interruption des services.
 
@@ -259,4 +256,4 @@ Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établ
 
 Vous êtes maintenant connecté avec RDP au serveur SQL Server. Vous pouvez ouvrir SQL Server Management Studio, vous connecter à l’instance par défaut de SQL Server et vérifier que le groupe de disponibilité est configuré.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

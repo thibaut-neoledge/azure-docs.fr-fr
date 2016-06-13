@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurer un nom de domaine pour un point de terminaison Blob Storage | Microsoft Azure"
-	description="Découvrez comment mapper un domaine d’utilisateur personnalisé au point de terminaison Blob Storage pour un compte Azure Storage."
+	description="Découvrez comment mapper un domaine d’utilisateur personnalisé au point de terminaison Blob Storage pour un compte Azure Storage dans le Portail Azure Classic."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -22,9 +22,6 @@
 ## Vue d’ensemble
 
 Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de Blob Storage est https://<*mon\_compte\_stockage*>.blob.core.windows.net. Si vous mappez un domaine et un sous-domaine personnalisés, tels que **www.contoso.com** au point de terminaison des objets blob de votre compte de stockage, vos utilisateurs peuvent également accéder aux données d’objets blob de votre compte de stockage à l’aide de ce domaine.
-
-
-> [AZURE.NOTE]	Les procédures décrites ici s’appliquent aux comptes de stockage Azure. Pour les services cloud, consultez la page <a href = "/develop/net/common-tasks/custom-dns/">Configuration d’un nom de domaine personnalisé pour un service cloud Azure</a>. Pour les sites web, consultez la page <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurer un nom de domaine personnalisé dans Azure App Service</a>.
 
 Il existe deux méthodes pour mapper votre domaine personnalisé au point de terminaison de service BLOB de votre compte de stockage. La plus simple consiste à créer un mappage d'enregistrement CNAME entre votre domaine personnalisé et son sous-domaine et le point de terminaison de service BLOB. Un enregistrement CNAME est une fonctionnalité DNS qui mappe un domaine source à un domaine cible. Dans cet exemple, le domaine source est votre domaine personnalisé et son sous-domaine. Notez que le sous-domaine est dans tous les cas indispensable. Le domaine cible est le point de terminaison de votre service BLOB.
 
@@ -112,8 +109,23 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 
 -   http://photos.contoso.com/myforms/applicationform.htm
 
+## Annuler l’inscription d’un domaine personnalisé de votre compte de stockage
+
+Pour annuler l’inscription d’un domaine personnalisé, procédez comme suit :
+
+1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com). 
+
+2. Dans le volet de navigation, cliquez sur **Stockage**.
+
+3. Sur la page **Stockage**, cliquez sur le nom du compte de stockage pour afficher le tableau de bord.
+
+5. Dans le ruban, cliquez sur **Gérer le domaine**.
+
+6. Dans la boîte de dialogue **Mange Custom Domain (Gérer un domaine personnalisé)**, cliquez sur **Annuler l’inscription**.
+
+
 ## Ressources supplémentaires
 
 -   [Comment mapper un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

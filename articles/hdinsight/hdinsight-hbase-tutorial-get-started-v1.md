@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel HBase : prise en main de HBase dans Hadoop | Microsoft Azure"
+	pageTitle="Didacticiel HBase : prise en main de HBase dans Hadoop | Microsoft Azure"
 	description="Suivez ce didacticiel HBase pour apprendre à utiliser Apache HBase avec Hadoop dans HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
 	keywords="apache hbase,hbase,shell hbase,didacticiel hbase"
 	services="hdinsight"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/27/2016"
 	ms.author="jgao"/>
 
 
 
-# Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight
+# Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight
 
 Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide de Hive. Pour obtenir des informations générales sur HBase, consultez la page [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
 
 [AZURE.INCLUDE [portail Azure hdinsight](../../includes/hdinsight-azure-portal.md)]
 
-* [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight](hdinsight-hbase-tutorial-get-started.md)
+* [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight](hdinsight-hbase-tutorial-get-started.md)
  
-> [AZURE.NOTE] HBase (version 0.98.0) peut uniquement être utilisé avec des clusters HDInsight 3.1 sur HDInsight (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
+> [AZURE.NOTE] HBase (version 0.98.0) peut uniquement être utilisé avec des clusters HDInsight 3.1 sur HDInsight (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
 
-La vidéo suivante montre le même contenu :
+La vidéo suivante montre le même contenu :
 
 > [AZURE.VIDEO get-started-with-hbase-in-hdinsight]
 
@@ -40,10 +40,10 @@ La vidéo suivante montre le même contenu :
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Une station de travail** avec Visual Studio 2013 : pour obtenir des instructions, consultez [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- **Une station de travail** avec Visual Studio 2013 : pour obtenir des instructions, consultez [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Créer un cluster HBase
 
@@ -64,9 +64,9 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 	Un compte de stockage Azure est nécessaire pour utiliser le processus de création HBase par défaut. Consultez la page [Création d’un compte de stockage Azure][azure-create-storageaccount] pour en créer un. L’option Création personnalisée permet de créer un compte de stockage avec le processus de création de cluster.
 
-	> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+	> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
-	> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
+	> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 
 4. Cliquez sur **Créer un cluster HDInsight** en bas à droite pour créer le cluster HBase.
 
@@ -75,11 +75,11 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 ## Utilisation de l’interpréteur de commandes HBase
 Actuellement, il existe deux méthodes pour accéder à HBase. Cette section couvre l’utilisation de l’interpréteur de commandes HBase. La section suivante décrit l’utilisation du Kit de développement logiciel (SDK) .NET.
 
-Pour la plupart des utilisateurs, les données s’affichent sous la forme tabulaire :
+Pour la plupart des utilisateurs, les données s’affichent sous la forme tabulaire :
 
 ![données tabulaires hbase hdinsight][img-hbase-sample-data-tabular]
 
-Dans HBase, qui est une implémentation de BigTable, certaines données ont l’aspect suivant :
+Dans HBase, qui est une implémentation de BigTable, certaines données ont l’aspect suivant :
 
 ![données bigtable hbase hdinsight][img-hbase-sample-data-bigtable]
 
@@ -90,16 +90,16 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 1. Utilisez RDP pour vous connecter à votre cluster HBase dans HDInsight. Pour obtenir des instructions sur RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure][hdinsight-manage-portal].
 2. Dans votre session RDP, cliquez sur le raccourci **Ligne de commande Hadoop** sur le Bureau.
-3. Ouvrez l’interpréteur de commandes HBase :
+3. Ouvrez l’interpréteur de commandes HBase :
 
 		cd %HBASE_HOME%\bin
 		hbase shell
 
-4. Créez une HBase contenant deux familles de colonne :
+4. Créez une HBase contenant deux familles de colonne :
 
 		create 'Contacts', 'Personal', 'Office'
 		list
-5. Insérez des données :
+5. Insérez des données :
 
 		put 'Contacts', '1000', 'Personal:Name', 'John Dole'
 		put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
@@ -109,7 +109,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 	![interpréteur de commandes hbase hadoop hdinsight][img-hbase-shell]
 
-6. Récupérez une seule ligne :
+6. Récupérez une seule ligne :
 
 		get 'Contacts', '1000'
 
@@ -127,7 +127,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 HBase propose plusieurs méthodes pour charger des données dans des tables. Pour en savoir plus, consultez la rubrique [Chargement en bloc](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Un exemple de fichier de données a été téléchargé dans un conteneur d’objets blob, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt Le contenu du fichier de données est le suivant :
+Un exemple de fichier de données a été téléchargé dans un conteneur d’objets blob, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt Le contenu du fichier de données est le suivant :
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -145,15 +145,15 @@ Vous pouvez créer un fichier texte et le télécharger sur votre propre compte 
 > [AZURE.NOTE] Cette procédure utilise la table de contacts HBase créée dans la dernière procédure.
 
 1. Dans votre session RDP, cliquez sur le raccourci **Ligne de commande Hadoop** sur le Bureau.
-2. Modifiez le répertoire :
+2. Modifiez le répertoire :
 
 		cd %HBASE_HOME%\bin
 
-3. Exécutez la commande suivante pour transformer le fichier de données en StoreFiles et le stocker sur un chemin d’accès relatif spécifié par Dimporttsv.bulk.output :
+3. Exécutez la commande suivante pour transformer le fichier de données en StoreFiles et le stocker sur un chemin d’accès relatif spécifié par Dimporttsv.bulk.output :
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
-4. Exécutez la commande suivante pour charger les données à partir de /example/data/storeDataFileOutput vers la table HBase :
+4. Exécutez la commande suivante pour charger les données à partir de /example/data/storeDataFileOutput vers la table HBase :
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 
@@ -163,7 +163,7 @@ Vous pouvez créer un fichier texte et le télécharger sur votre propre compte 
 
 HBase dans HDInsight est livré avec une interface utilisateur web pour la surveillance des clusters. Elle vous permet de demander des statistiques ou des informations sur les régions.
 
-Pour ouvrir cette interface utilisateur web, vous devez ouvrir une session RDP dans le cluster, puis cliquer sur le raccourci de l’interface utilisateur web de HMaster Info sur votre bureau, ou utiliser l’URL suivante dans un navigateur web :
+Pour ouvrir cette interface utilisateur web, vous devez ouvrir une session RDP dans le cluster, puis cliquer sur le raccourci de l’interface utilisateur web de HMaster Info sur votre bureau, ou utiliser l’URL suivante dans un navigateur web :
 
 	http://zookeeper[0-2]:60010/master-status
 
@@ -182,7 +182,7 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Cette 
 3. Cliquez sur le nom du cluster où vous voulez exécuter la tâche Hive
 4. Cliquez sur **CONSOLE DE REQUÊTE** en bas de la page pour ouvrir le tableau de bord du cluster. Une page Web s'ouvre dans un autre onglet du navigateur.
 5. Entrez le nom d'utilisateur et le mot de passe du compte d'utilisateur Hadoop. Le nom d’utilisateur par défaut est **admin** et le mot de passe est celui que vous avez entré pendant le processus de création. Un nouvel onglet de navigateur s'ouvre.
-6. Cliquez sur **Éditeur Hive** en haut de la page. L'éditeur Hive se présente comme suit :
+6. Cliquez sur **Éditeur Hive** en haut de la page. L'éditeur Hive se présente comme suit :
 
 	![Tableau de bord de cluster HDInsight.][img-hdinsight-hbase-hive-editor]
 
@@ -225,7 +225,7 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Cette 
 
 	Attendez que l'**état** soit mis à jour sur **Terminé**.
 
-2. Entrez le script HiveQL suivant dans l'éditeur Hive, puis cliquez sur **SOUMETTRE**. La requête Hive interroge les données dans la table HBase :
+2. Entrez le script HiveQL suivant dans l'éditeur Hive, puis cliquez sur **SOUMETTRE**. La requête Hive interroge les données dans la table HBase :
 
      	SELECT count(*) FROM hbasecontacts;
 
@@ -251,16 +251,16 @@ Vous devez télécharger la bibliothèque cliente API REST de HBase pour .NET à
 
 1. Créez une application console Windows Desktop Visual Studio en C#.
 2. Ouvrez la console du gestionnaire de package NuGet en cliquant sur le menu **OUTILS** > **Gestionnaire de Package NuGet** > **Console de gestionnaire de package**.
-3. Exécutez la commande NuGet suivante dans la console :
+3. Exécutez la commande NuGet suivante dans la console :
 
 		Install-Package Microsoft.HBase.Client
 
-5. Ajoutez les instructions **using** suivantes au début du fichier :
+5. Ajoutez les instructions **using** suivantes au début du fichier :
 
 		using Microsoft.HBase.Client;
 		using org.apache.hadoop.hbase.rest.protobuf.generated;
 
-6. Remplacez la fonction **Main** par le code suivant :
+6. Remplacez la fonction **Main** par le code suivant :
 
         static void Main(string[] args)
         {
@@ -332,15 +332,15 @@ Vous devez télécharger la bibliothèque cliente API REST de HBase pour .NET à
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Et ensuite ?
-Dans ce didacticiel HBase pour HDInsight, vous avez appris à créer un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
+## Et ensuite ?
+Dans ce didacticiel HBase pour HDInsight, vous avez appris à créer un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
 
-Pour plus d'informations, consultez les rubriques suivantes :
+Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Vue d'ensemble de HDInsight HBase][hdinsight-hbase-overview] : HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de grandes quantités de données non structurées et semi-structurées.
-- [Création de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] :avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
-- [Configurer la réplication HBase dans HDInsight](hdinsight-hbase-geo-replication.md) : découvrez comment configurer la réplication HBase entre deux centres de données Azure.
-- [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] : découvrez comment effectuer une [analyse de sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) en temps réel des données volumineuses à l'aide de HBase dans un cluster Hadoop sous HDInsight.
+- [Vue d'ensemble de HDInsight HBase][hdinsight-hbase-overview] : HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de grandes quantités de données non structurées et semi-structurées.
+- [Création de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] :avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
+- [Configurer la réplication HBase dans HDInsight](hdinsight-hbase-geo-replication.md) : découvrez comment configurer la réplication HBase entre deux centres de données Azure.
+- [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] : découvrez comment effectuer une [analyse de sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) en temps réel des données volumineuses à l'aide de HBase dans un cluster Hadoop sous HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -369,4 +369,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

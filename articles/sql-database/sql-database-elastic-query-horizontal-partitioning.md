@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016"
+    ms.author="torsteng" />
 
 # Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 
@@ -143,7 +143,7 @@ La clause DISTRIBUTION spécifie la distribution des données utilisée pour cet
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l'aide d'une méthode de distribution liée à l'application. 
 
-**Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
+**Référence de couche de données** : la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
 
 
 ### Sécurité 
@@ -208,4 +208,4 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -85,7 +85,7 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 | Accéder à [Machine Learning Studio] | Non * | Oui |
 
 
-> [AZURE.NOTE] * Un administrateur d’abonnement Azure devient automatiquement propriétaire d’un espace de travail à la création de celui-ci. Toutefois l’accès est accordé uniquement en raison de son statut de propriétaire d’un espace de travail.
+> [AZURE.NOTE] * Un administrateur d’abonnement Azure est automatiquement ajouté à l’espace de travail qu’il crée en tant que propriétaire de l’espace de travail. Toutefois, le simple fait d’être administrateur d’abonnement Azure ne lui accorde pas l’accès à tous les espaces de travail sous cet abonnement.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -106,4 +106,4 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 [Azure Machine Learning Studio]: https://studio.azureml.net/
 [portail Microsoft Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

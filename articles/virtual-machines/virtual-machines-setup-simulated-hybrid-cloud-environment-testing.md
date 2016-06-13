@@ -19,8 +19,6 @@
 
 # Configuration d’une simulation d’environnement de cloud hybride à des fins de test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Cet article vous présente la création d'un environnement de cloud hybride simulé avec Microsoft Azure pour le test, à l'aide de deux réseaux virtuels Azure distincts. Utilisez cette configuration à la place de la [Configuration d’un environnement de cloud hybride à des fins de test](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) lorsque vous ne disposez pas d’une connexion Internet directe et d’une adresse IP publique. Voici la configuration obtenue.
 
 ![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
@@ -131,7 +129,7 @@ Ceci est votre configuration actuelle.
  
 ##Phase 3 : création de la connexion de réseau virtuel à réseau virtuel
 
-Tout d'abord, obtenez une clé prépartagée, aléatoire, à chiffrement fort, de 32 caractères auprès de votre administrateur réseau ou de sécurité. Vous pouvez également utiliser les informations sous [Créer une chaîne aléatoire pour une clé prépartagée IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) pour obtenir une clé prépartagée.
+Tout d'abord, obtenez une clé prépartagée, aléatoire, à chiffrement fort, de 32 caractères auprès de votre administrateur réseau ou de sécurité. Vous pouvez également utiliser les informations de la rubrique [Create a random string for an IPsec preshared key (Création d’une chaîne aléatoire pour une clé prépartagée IPsec)](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) pour obtenir une clé prépartagée.
 
 Puis, utilisez ces commandes pour créer la connexion VPN de site à site, ce qui peut prendre du temps.
 
@@ -202,7 +200,7 @@ Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2
 
 1.	Dans le volet gauche du portail Azure, cliquez sur l’icône des réseaux virtuels, puis sur **TestVNET**.
 2.	Dans l’onglet **Paramètres**, cliquez sur **Serveurs DNS**.
-3.	Dans **Serveur DNS principal**, tapez **192.168.0.4** pour remplacer 10.0.0.4.
+3.	Sous **Serveur DNS principal**, tapez **192.168.0.4** pour remplacer 10.0.0.4.
 4.	Cliquez sur **Enregistrer**.
 
 Ceci est votre configuration actuelle.
@@ -213,6 +211,6 @@ Votre environnement de cloud hybride simulé est maintenant prêt pour les tests
 
 ## Étapes suivantes
 
-- [Ajoutez une machine virtuelle](virtual-machines-windows-create-powershell.md) au sous-réseau TestVNET, par exemple une machine virtuelle exécutant Microsoft SQL Server.
+- [Ajout d’une machine virtuelle](virtual-machines-windows-create-powershell.md) au sous-réseau TestVNET, par exemple une machine virtuelle exécutant Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

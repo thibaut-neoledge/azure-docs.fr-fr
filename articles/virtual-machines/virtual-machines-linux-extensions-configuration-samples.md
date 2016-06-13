@@ -25,11 +25,7 @@
 
 <br>
 
-
 Cet article présente un exemple de configuration des extensions d’une machine virtuelle Azure pour les machines virtuelles Linux.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 
 Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
 
@@ -220,4 +216,4 @@ Voici un modèle de machine virtuelle complet pour la création d’une machine 
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

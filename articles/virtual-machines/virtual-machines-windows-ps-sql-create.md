@@ -26,7 +26,7 @@
 
 Ce didacticiel vous montre comment créer une machine virtuelle Azure à l’aide du modèle de déploiement **Azure Resource Manager** et d’applets de commande Azure PowerShell. Dans ce didacticiel, nous allons créer une machine virtuelle à l’aide d’un lecteur de disque à partir d’une image dans la galerie SQL. Nous allons créer des fournisseurs pour les ressources de stockage, de réseau et de calcul qui seront utilisées par la machine virtuelle. Si vous avez déjà des fournisseurs pour ces ressources, vous pouvez les utiliser.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique. Si vous avez besoin de la version classique de cette rubrique, consultez la page [Créer une machine virtuelle SQL Server dans Azure PowerShell classique](virtual-machines-windows-classic-ps-sql-create.md).
+Si vous avez besoin de la version classique de cette rubrique, consultez la page [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Configuration requise
 
@@ -66,7 +66,7 @@ Apportez les modifications souhaitées, puis exécutez les applets de commande s
 
 Utilisez les variables suivantes pour définir le compte de stockage et le type de stockage à utiliser par la machine virtuelle.
 
-Apportez les modifications souhaitées, puis exécutez l’applet de commande suivante pour initialiser ces variables. Notez que, dans cet exemple, nous utilisons [Premium Storage](../storage/storage-premium-storage.md), ce qui est recommandé pour les charges de travail de production. Pour plus d’informations et d’autres recommandations, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+Apportez les modifications souhaitées, puis exécutez l’applet de commande suivante pour initialiser ces variables. Notez que, dans cet exemple, nous utilisons [Premium Storage](../storage/storage-premium-storage.md), qui est recommandé pour les charges de travail de production. Pour plus d’informations et d’autres recommandations, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageType = "Premium_LRS"
@@ -111,7 +111,7 @@ Notez que vous pouvez obtenir la liste complète des images SQL Server avec la c
 
     Get-AzureRmVMImageOffer -Location 'East US' -Publisher 'MicrosoftSQLServer'
 
-Et vous pouvez voir les références SKU disponibles pour une offre avec la commande Get-AzureRmVMImageSku. La commande suivante affiche toutes les références SKU disponibles pour l’offre **SQL2014SP1-WS2012R2**.
+Et vous pouvez voir les références SKU disponibles pour une offre avec la commande Get-AzureRmVMImageSku. La commande suivante affiche toutes les références disponibles pour l’offre **SQL2014SP1-WS2012R2**.
 
     Get-AzureRmVMImageSku -Location 'East US' -Publisher 'MicrosoftSQLServer' -Offer 'SQL2014SP1-WS2012R2' | Select Skus
 
@@ -125,7 +125,7 @@ Exécutez l’applet de commande suivante pour créer votre groupe de ressources
 
 ## Créer un compte de stockage
 
-La machine virtuelle nécessite des ressources de stockage pour le disque du système d’exploitation ainsi que pour les données et fichiers journaux de SQL Server. Pour plus de simplicité, nous allons créer un seul disque pour les deux. Vous pouvez attacher des disques supplémentaires ultérieurement, à l’aide de l’applet de commande [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx), pour placer vos données et vos fichiers journaux de SQL Server sur des disques dédiés. Nous allons utiliser l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer le compte de stockage dans votre nouveau groupe de ressources, avec le nom du compte de stockage, le nom du stockage et l’emplacement définis à l’aide des variables que vous avez déjà initialisées.
+La machine virtuelle nécessite des ressources de stockage pour le disque du système d’exploitation ainsi que pour les données et fichiers journaux de SQL Server. Pour plus de simplicité, nous allons créer un seul disque pour les deux. Vous pouvez attacher des disques supplémentaires ultérieurement, à l’aide de l’applet de commande [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx), pour placer vos données et vos fichiers journaux SQL Server sur des disques dédiés. Nous allons utiliser l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer le compte de stockage dans votre nouveau groupe de ressources, avec le nom du compte de stockage, le nom du stockage et l’emplacement définis à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour créer votre compte de stockage.
 
@@ -159,7 +159,7 @@ Exécutez l’applet de commande suivante pour créer votre réseau virtuel.
 
 ### Créer une adresse IP publique
 
-Maintenant que nous avons défini notre réseau virtuel, nous devons configurer une adresse IP pour la connectivité à la machine virtuelle. Dans ce didacticiel, nous allons créer une adresse IP publique à l’aide de l’adressage IP dynamique pour la connectivité Internet. Nous allons utiliser l’applet de commande [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) pour créer l’adresse IP publique dans le groupe de ressources déjà créé, avec le nom, l’emplacement, la méthode d’allocation et le libellé du nom de domaine DNS définis à l’aide des variables déjà initialisées.
+Maintenant que nous avons défini notre réseau virtuel, nous devons configurer une adresse IP pour la connectivité à la machine virtuelle. Dans ce didacticiel, nous allons créer une adresse IP publique à l’aide de l’adressage IP dynamique pour la connectivité Internet. Nous allons utiliser l’applet de commande [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) pour créer l’adresse IP publique dans le groupe de ressources déjà créé, avec le nom, l’emplacement, la méthode d’allocation et le libellé du nom de domaine DNS définis à l’aide des variables que vous avez déjà initialisées.
 
 >[AZURE.NOTE] Vous pouvez définir des propriétés supplémentaires de l’adresse IP publique à l’aide de cette applet de commande, mais cela sort du cadre de ce didacticiel. Vous pouvez également créer une adresse privée ou une adresse avec une adresse statique, mais cela sort du cadre de ce didacticiel.
 
@@ -181,7 +181,7 @@ Maintenant que nous avons défini les ressources réseau et de stockage, nous po
 
 ### Créer l’objet de machine virtuelle
 
-Nous allons commencer par spécifier la taille de la machine virtuelle. Dans ce didacticiel, nous spécifions une DS13. Nous allons utiliser l’applet de commande [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) pour créer une machine virtuelle configurable, avec le nom et la taille définis à l’aide des variables initialisées auparavant.
+Nous allons commencer par spécifier la taille de la machine virtuelle. Dans ce didacticiel, nous spécifions une DS13. Nous allons utiliser l’applet de commande [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) pour créer une machine virtuelle configurable, avec le nom et la taille définis à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour créer l’objet de machine virtuelle.
 
@@ -197,7 +197,7 @@ Exécutez l’applet de commande suivante puis, dans la fenêtre de demande d’
 
 ### Configurer les propriétés du système d’exploitation de la machine virtuelle
 
-Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) pour configurer le système d’exploitation Windows, requérir l’[agent de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md) à installer, spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables déjà initialisées.
+Nous pouvons maintenant configurer les propriétés du système d’exploitation de la machine virtuelle. Nous allons utiliser l’applet de commande [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) pour configurer le système d’exploitation Windows, exiger l’installation de [l’agent de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md), spécifier que l’applet de commande active la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour définir les propriétés du système d’exploitation de votre machine virtuelle.
 
@@ -310,4 +310,4 @@ Le script suivant contient le script PowerShell complet pour ce didacticiel. Il 
 ## Étapes suivantes
 Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide du protocole RDP et en configurant la connectivité. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server sur Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->
