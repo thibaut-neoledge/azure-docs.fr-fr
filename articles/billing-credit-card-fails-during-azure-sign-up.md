@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
 # Ma carte de crédit ne fonctionne pas lorsque je tente de m’inscrire à Azure
@@ -31,7 +31,7 @@ Assurez-vous également que le mode de paiement est actif et que votre banque ne
 - Le code de sécurité saisi doit correspondre exactement au code situé sur la face arrière ou avant de la carte de crédit ou de débit.
 
 ## Essayez-vous d’activer une version d’évaluation gratuite Azure ?
-L’offre d’essai gratuite d’Azure est limitée à l’activation d’une seule évaluation gratuite par utilisateur. Si vous avez déjà activé une version d’évaluation gratuite précédemment ou si vous aviez un abonnement Azure auparavant mais que vous essayez à présent d’activer une version d’évaluation gratuite, le système ne vous y autorisera pas. Utilisez plutôt l’un des autres plans Azure disponibles répertoriés sur la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
+L’offre d’essai gratuite d’Azure est limitée à l’activation d’une seule évaluation gratuite par utilisateur. Si vous avez déjà activé une version d’évaluation gratuite avec cette carte bancaire précédemment ou si vous aviez auparavant un abonnement Azure lié à cette carte bancaire, le système ne vous autorisera pas à activer une évaluation gratuite maintenant. Utilisez plutôt l’un des autres plans Azure disponibles répertoriés sur la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## Voulez-vous une autre option de paiement hormis les cartes de crédit ou de débit ?
 Vous pouvez également payer pour votre abonnement Azure à l’aide de méthodes de paiement par facturation, comme les chèques, les chèques à traitement rapide et les virements bancaires.
@@ -40,4 +40,4 @@ Pour utiliser l’option de paiement par facturation, vous devez représenter un
 
 Pour démarrer le processus de configuration d’une facture, consultez [Facturation Azure - Procédure de facturation](https://azure.microsoft.com/pricing/invoicing/) pour plus d’informations.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

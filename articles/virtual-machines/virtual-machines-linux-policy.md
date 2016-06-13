@@ -19,8 +19,6 @@
 
 # Application de stratégies aux machines virtuelles Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique
-
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous allons décrire comment utiliser les stratégies d'Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
 
 Les grandes lignes des étapes sont présentées ci-dessous.
@@ -108,4 +106,4 @@ Après avoir créé la stratégie, vous devez l’appliquer sur une étendue dé
 
 * [Création d’une stratégie](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

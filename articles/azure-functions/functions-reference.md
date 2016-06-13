@@ -129,7 +129,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 3. Accédez à `D:\home\site\wwwroot` pour mettre à jour *host.json* ou `D:\home\site\wwwroot<function_name>` pour mettre à jour les fichiers d’une fonction.
 
-4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers.
+4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip*, une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser. » Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
 
 #### Pour utiliser le FTP
 
@@ -139,7 +139,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 ## Exécution en parallèle
 
-Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle. Si une application de fonction utilise le [Plan de service dynamique](functions-scale.md#dynamic-service-plan), l'application de fonction peut monter en charge automatiquement pour atteindre jusqu'à 10 instances simultanées. Que l’application s’exécute sur le plan de service dynamique ou sur un [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) standard, chaque instance de l'application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads. Le nombre maximal d'appels de fonction simultanés dans chaque instance d'application de fonction varie en fonction de la taille de la mémoire de l'application de fonction.
+Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle. Si une application de fonction utilise le [plan de service dynamique](functions-scale.md#dynamic-service-plan), l’application de fonction peut monter en charge automatiquement pour atteindre jusqu’à 10 instances simultanées. Que l’application s’exécute sur le plan de service dynamique ou sur un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads. Le nombre maximal d'appels de fonction simultanés dans chaque instance d'application de fonction varie en fonction de la taille de la mémoire de l'application de fonction.
 
 ## Azure Functions Pulse  
 
@@ -172,6 +172,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
+* [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

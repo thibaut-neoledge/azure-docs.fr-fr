@@ -23,11 +23,9 @@
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collecte de journaux d’audit
+## Collecter des journaux d’audit
 
 Pour résoudre les problèmes, commencez par collecter les journaux d’audit afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur la marche à suivre.
 
@@ -45,7 +43,7 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’audit af
 
 **N<sup>1</sup> :** si le système d’exploitation est de type Windows généralisé et s’il est téléchargé avec le paramètre spécialisé, cela entraîne une erreur de délai d’attente de configuration et la machine virtuelle est bloquée au niveau de l’écran OOBE.
 
-**N<sup>2</sup> :** si le système d’exploitation est de type Windows spécialisé et s’il est téléchargé avec le paramètre généralisé, cela entraîne une erreur d’échec de configuration et la machine virtuelle est bloquée au niveau de l’écran OOBE, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
+**N<sup>2</sup> :** si le système d’exploitation est de type Windows spécialisé et qu’il est chargé avec le paramètre généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, et la machine virtuelle sera bloquée au niveau de l’écran OOBE, car la nouvelle machine virtuelle s’exécutera avec le nom d’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
 
 **Résolution :**
 
@@ -64,7 +62,7 @@ Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [eff
 ## Problème : Image personnalisée / galerie / marketplace ; échec d’allocation
 Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est épinglée à un cluster qui ne prend pas en charge la taille de machine virtuelle requise ou qui n’a pas d’espace libre suffisant pour prendre en charge la demande.
 
-**Cause 1 :** Le cluster ne peut pas prendre en charge la taille de machine virtuelle requise.
+**Cause 1 :** le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée.
 
 **Résolution 1 :**
 
@@ -74,13 +72,13 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   - Une fois que toutes les machines virtuelles sont arrêtées, créez une machine virtuelle à la taille souhaitée.
   - Démarrez la nouvelle machine virtuelle en premier, puis sélectionnez chacune des machines virtuelles arrêtées et cliquez sur **Démarrer**.
 
-**Cause 2 :** Le cluster n’a pas de ressources libres.
+**Cause 2 :** le cluster n’a pas de ressources libres.
 
 **Résolution 2 :**
 
-- Relancez la requête ultérieurement.
+- Relancez la demande ultérieurement.
 - Si la nouvelle machine virtuelle peut faire partie d’un autre groupe à haute disponibilité
   - Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   - Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

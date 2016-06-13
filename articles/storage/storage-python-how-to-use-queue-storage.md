@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="emgerner"/>
 
 # Utilisation du stockage de files d'attente à partir de Python
@@ -54,7 +54,7 @@ Vous pouvez lire furtivement le message au début de la file d'attente sans le s
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
-		print(message.message_text)
+		print(message.content)
 
 
 ## Retrait des messages de la file d’attente
@@ -68,7 +68,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vou
 
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get\_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
-	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
 		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
@@ -108,4 +108,4 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

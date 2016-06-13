@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -73,7 +73,8 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Stream Analytics](#stream-analytics-limits)
 - [Abonnement](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
-- [Virtual Machines](#virtual-machines-limits)
+- [Machines virtuelles](#virtual-machines-limits)
+- [Jeux de mise à l’échelle de machine virtuelle](#virtual-machine-scale-sets-limits)
 
 
 ### Limites d'abonnement
@@ -91,7 +92,6 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Limites de machines virtuelles
 #### Limites de machine virtuelle
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Limites des jeux de mise à l’échelle de machine virtuelle
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Limites de mise en réseau
 
@@ -184,13 +187,19 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
-- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
-- Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d'un tarif réduit.
-- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
+- *Gratuit* : service mutualisé, partagé avec d’autres abonnés Azure, destiné à des projets d’évaluation et de développement de petite taille.
+- Le niveau *De base (version préliminaire)* fournit des ressources informatiques dédiées aux charges de travail de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d'un tarif réduit.
+- *Standard (S1 et S2)* : pour les charges de travail de production. Une version à capacité plus importante (*S2*) est disponible sur demande (contacter le support ou azuresearch_contact@microsoft.com pour obtenir de l’aide).
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Limites de niveau**
 
-Pour en savoir plus sur les autres limites, telles que la taille du document, les clés, les demandes et les réponses, voir [Limites de service dans Azure Search](search/search-limits-quotas-capacity.md).
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+
+**Limites de stockage**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+
+Pour en savoir plus sur les autres limites, telles que la taille du document, les requêtes par seconde, les clés, les requêtes et les réponses, voir [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Limites de Media Services
 
@@ -291,4 +300,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

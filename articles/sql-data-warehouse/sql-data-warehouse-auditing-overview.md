@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prendre en main l’audit de base de données SQL Data Warehouse | Microsoft Azure"
-   description="Prendre en main de l’audit de base de données SQL Data Warehouse"
+   pageTitle="Audit dans Azure SQL Data Warehouse | Microsoft Azure"
+   description="Prise en main de l’audit dans Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="05/31/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
-# Prendre en main de l’audit de base de données SQL Data Warehouse
-L'audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
+# Audit dans Azure SQL Data Warehouse
+L’audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
 
-L'audit peut vous aider à respecter une conformité réglementaire, à comprendre l'activité de la base de données et à découvrir des discordances et anomalies susceptibles d'indiquer des problèmes pour l'entreprise ou des violations de la sécurité.
+L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
 
 Les outils d'audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d'informations sur les programmes Azure prenant en charge la conformité aux normes, consultez le <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centre de gestion de la confidentialité Azure</a>.
 
@@ -132,13 +132,13 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
-[2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
-[3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
-[4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
-[5]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-dashboard.png
+[1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
+[2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
+[3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
+[4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
+[5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

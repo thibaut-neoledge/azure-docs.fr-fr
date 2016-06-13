@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="torsteng"/>
 
 # Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper 
 
 Ce document est destiné aux développeurs qui utilisent Dapper pour construire des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données. Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper.
 
-**Exemple de code** : [outils de base de données élastique pour l’intégration de la base de données SQL Azure avec Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Exemple de code** : [outils de base de données élastique pour l’intégration de la base de données SQL Azure avec Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
  
 L’intégration de **Dapper** et de **DapperExtensions** avec la bibliothèque cliente de la base de données élastique pour la base de données SQL Azure est simple. Les applications peuvent utiliser le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) à partir de la [bibliothèque cliente](http://msdn.microsoft.com/library/azure/dn765902.aspx). Cela limite les modifications au sein de votre application à la création et l’ouverture de nouvelles connexions uniquement.
 
@@ -48,11 +48,11 @@ Plutôt que d’utiliser la méthode traditionnelle de création des connexions 
 
 Lors de l’utilisation des API de la bibliothèque cliente de la base de données élastique et de Dapper, nous souhaitons conserver les propriétés suivantes :
 
-* **Montée en puissance parallèle** : nous souhaitons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée si nécessaire pour les demandes de capacité de l’application. 
+* **Montée en puissance parallèle** : nous souhaitons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée si nécessaire pour les demandes de capacité de l’application. 
 
--    **Cohérence** : étant donné que notre application est redimensionnée à l’aide du partitionnement, nous devons utiliser le routage dépendant des données. Pour ce faire, nous souhaitons utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, nous souhaitons conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
+-    **Cohérence** : étant donné que notre application est redimensionnée à l’aide du partitionnement, nous devons utiliser le routage dépendant des données. Pour ce faire, nous souhaitons utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, nous souhaitons conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
 
--    **Mappage d’objets** : nous souhaitons conserver la commodité des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes.
+-    **Mappage d’objets** : nous souhaitons conserver la commodité des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes.
 
 La section suivante fournit des instructions relatives aux exigences pour les applications basées sur **Dapper** et **DapperExtensions**.
 
@@ -174,4 +174,4 @@ Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer p
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

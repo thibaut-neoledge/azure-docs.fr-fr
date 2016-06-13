@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="guybo"/>
 
 # Présentation des jeux de machines virtuelles mise à l’échelle
@@ -91,7 +91,7 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 - Ne prévoyez pas plus de 20 machines virtuelles par compte de stockage (sauf si vous définissez la propriété _overprovision_ sur « false », auquel cas vous pouvez en prévoir jusqu’à 40).
 - Fractionnez le plus possible les premières lettres des noms de compte de stockage. Les modèles VMSS exemple [modèles Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/) fournissent des exemples montrant comment effectuer cette opération.
 - Si vous utilisez des machines virtuelles personnalisées, ne prévoyez pas plus de 40 machines virtuelles par jeu de mise à l’échelle de machine virtuelle, dans un seul compte de stockage. Vous aurez besoin de l’image pré copiée dans le compte de stockage avant de pouvoir commencer le déploiement du jeu de mise à l’échelle de machine virtuelle. Visitez le FAQ pour plus d’informations.
-- Ne prévoyez pas plus de 2 048 machines virtuelles par machine virtuelle. Cette limite peut être repoussée par la suite.
+- Ne prévoyez pas plus de 4096 machines virtuelles par réseau virtuel.
 - Le nombre de machines virtuelles que vous pouvez créer est limité par le quota de base dans la région dans laquelle vous déployez. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul augmentée, même si vous avez une limite de cœurs haute à utiliser avec vos services cloud ou IaaS v1 dès aujourd’hui. Pour interroger votre quota, vous pouvez exécuter la commande CLI Azure suivante : `azure vm list-usage`, et la commande PowerShell suivante : `Get-AzureRmVMUsage` (si vous utilisez une version de PowerShell inférieure à 1.0, utilisez `Get-AzureVMUsage`).
 
 ## jeu de mise à l’échelle de machine virtuelle - Forum aux Questions.
@@ -155,4 +155,4 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 **A.** Oui. Un ensemble de mise à l’échelle est un ensemble haute disponibilité implicite avec 5 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les jeux de mise à l’échelle de machine virtuelle peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un jeu de mise à l’échelle est un ensemble de disponibilité unique.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

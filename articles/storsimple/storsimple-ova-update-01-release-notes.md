@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/24/2016"
+   ms.date="05/27/2016"
    ms.author="alkohli" />
 
 # Notes de publication de StorSimple Virtual Array Update 0.1
@@ -29,17 +29,17 @@ Les notes de publication sont régulièrement mises à jour ; les problèmes cri
 
 Update 0.1 contient les améliorations et correctifs de bogues suivants.
 
-- **Résilience autour des pannes du cloud** : cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de connectivité au cloud. 
+- **Résilience optimisée en cas de panne du cloud** : cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de la connectivité au cloud. 
 
 - **Amélioration des performances de restauration** : cette version comporte des correctifs de bogues qui ont considérablement réduit la durée d’exécution des tâches de restauration.
 
 - **Optimisation automatique de la récupération d’espace** : lorsque des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage inutilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
 
-- **Nouveaux VHD, VHDX et VMDK** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles via le portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
+- **Nouvelles images de disque virtuel** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles par le bais du portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
 
 - **Amélioration la précision de l’état des tâches dans le portail** : dans la version antérieure du logiciel, les rapports d’état de la tâche générés dans le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
 
-- **Correctifs de bogues liés à la jonction de domaine et au changement de nom** de l’appareil.
+- **Expérience de jonction de domaine** : correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
 
 
 ## Problèmes résolus dans Update 0.1
@@ -83,4 +83,4 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 
 [Installation d’Update 0.1](storsimple-ova-install-update-01.md) sur StorSimple Virtual Array.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

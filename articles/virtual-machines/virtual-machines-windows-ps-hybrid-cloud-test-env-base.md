@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configuration d’un environnement de cloud hybride pour le test
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
  
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride avec Microsoft Azure pour le test. Voici la configuration obtenue.
 
@@ -45,7 +43,7 @@ Il existe cinq phases principales de configuration de cet environnement de test 
 4.	Créer la connexion VPN de site à site
 5.	Configurer DC2. 
 
-Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte gratuit sur la page [Essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un compte gratuit sur la page [Version d’essai d’Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN ou Visual Studio, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles. Pour plus d’informations, voir la page [Virtual Network - Tarification](https://azure.microsoft.com/pricing/details/virtual-network/). Pour limiter les coûts d’exécution de la passerelle VPN, créez l’environnement de test et exécutez les tests et démonstrations nécessaires aussi rapidement que possible.
 
@@ -187,9 +185,9 @@ Ensuite, utilisez la commande suivante pour déterminer l’adresse IP publique 
 
 	Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
 
-Notez l’adresse IP dans le champ **IPAddress** de l’affichage. Vous en aurez besoin à l’étape 4.
+Notez l’adresse IP dans le champ **IPAddress** de l’écran. Vous en aurez besoin à l’étape 4.
 
-Ensuite, obtenez une clé prépartagée, aléatoire, à chiffrement fort, de 32 caractères auprès de votre administrateur réseau ou de sécurité. Vous pouvez également utiliser les informations sous [Créer une chaîne aléatoire pour une clé prépartagée IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) pour obtenir une clé prépartagée.
+Ensuite, obtenez une clé prépartagée, aléatoire, à chiffrement fort, de 32 caractères auprès de votre administrateur réseau ou de sécurité. Vous pouvez également utiliser les informations de la rubrique [Create a random string for an IPsec preshared key (Création d’une chaîne aléatoire pour une clé prépartagée IPsec)](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) pour obtenir une clé prépartagée.
 
 Utilisez ces commandes pour créer la connexion VPN de site à site dans Azure.
 
@@ -313,7 +311,7 @@ Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2
 
 1.	Dans le volet gauche du portail Azure, cliquez sur l’icône des réseaux virtuels, puis sur **TestVNET**.
 2.	Dans l’onglet **Paramètres**, cliquez sur **Serveurs DNS**.
-3.	Dans **Serveur DNS principal**, tapez **192.168.0.4** pour remplacer 10.0.0.4.
+3.	Sous **Serveur DNS principal**, tapez **192.168.0.4** pour remplacer 10.0.0.4.
 4.	Cliquez sur Enregistrer.
 
 Ensuite, redémarrez DC2 afin qu’elle utilise la nouvelle configuration de serveur DNS avec les commandes suivantes à l’invite de commandes Azure PowerShell.
@@ -331,4 +329,4 @@ Votre environnement de cloud hybride est maintenant prêt à être testé.
 
 - Configurez une [batterie de serveurs intranet SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), une [application métier web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou un [serveur de synchronisation d’annuaires Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) dans cet environnement.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

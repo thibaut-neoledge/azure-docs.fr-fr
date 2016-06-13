@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="05/31/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse : prise en charge des clients de niveau inférieur pour l’audit et le masquage de données dynamiques
 
 
-[L’audit](sql-data-warehouse-auditing-get-started.md) fonctionne avec les clients SQL qui prennent en charge la redirection TDS.
+[L’audit](sql-data-warehouse-auditing-overview.md) fonctionne avec les clients SQL qui prennent en charge la redirection TDS.
 
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
 
@@ -38,4 +38,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

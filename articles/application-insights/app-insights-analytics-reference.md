@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # Référence pour Analytics
@@ -345,95 +345,129 @@ Fractionne un enregistrement d’exception en plusieurs lignes pour chaque élé
 
 ### opérateur parse
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Extrait les valeurs d’une chaîne. Peut utiliser une correspondance d’expression simple ou régulière.
 
-Les éléments dans la clause `with` sont ensuite mis en correspondance avec la chaîne source. Chaque élément traite un fragment du texte source. S’il s’agit d’une chaîne simple, le curseur correspondant se déplace aussi loin que la correspondance. S’il s’agit d’une colonne avec un nom de type, le curseur se déplace suffisamment loin pour analyser le type spécifié. (Les correspondances de chaîne se déplacent jusqu’à ce qu’une correspondance pour l’élément suivant soit identifiée.) S’il s’agit d’une expression régulière, elle est mis en correspondance (et la colonne en résultant a toujours le type chaîne).
-
 **Syntaxe**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
 
-* *T :* table d’entrée.
-* *kind :* simple ou expression régulière. La valeur par défaut est simple.
-* *StringExpression :* expression pouvant être convertie en chaîne ou en prendre la valeur.
-* *SimpleMatch :* chaîne correspondant à la partie suivante du texte.
-* *Column :* spécifie la nouvelle colonne à laquelle attribuer une correspondance.
-* *Type :* détermine comment analyser la partie suivante de la chaîne source.
-* *Regex :* expression régulière pour faire correspondre la partie suivante de la chaîne. 
+* `T` :* table d’entrée.
+* `kind` :* 
+* `simple` (par défaut) :* les chaînes `Match` sont des chaînes de texte brut.
+* `relaxed` :* si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
+* `regex` :* les chaînes `Match` sont des expressions régulières.
+* `Text` :* colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
+* *Correspondance :* faire correspondre la partie suivante de la chaîne et l’ignorer.
+* *Colonne :* affecter la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
+* *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date, double). 
+
 
 **Retourne**
 
 La table d’entrée, étendue en fonction de la liste des colonnes.
 
+Les éléments dans la clause `with` sont ensuite mis en correspondance avec le texte source. Chaque élément traite un fragment du texte source :
+
+* Une chaîne littérale ou une expression régulière déplace le curseur correspondant de la longueur de la correspondance.
+* Dans une analyse regex, une expression régulière peut utiliser l’opérateur de réduction « ? » pour passer dès que possible à la correspondance suivante.
+* Un nom de colonne comportant un type analyse le texte en tant que type spécifié. Une analyse infructueuse invalide la correspondance avec le modèle entier, sauf si kind=relaxed.
+* Un nom de colonne sans type ou comportant le type « string », copie le nombre minimal de caractères pour parvenir à la correspondance suivante.
+* « * » Ignore le nombre minimal de caractères pour parvenir à la correspondance suivante. Vous pouvez utiliser « * » au début et à la fin du modèle, ou après un type autre que « string » ou entre les correspondances de chaîne.
+
+Dans un modèle d’analyse, tous les éléments doivent correspondre correctement ; dans le cas contraire, aucun résultat n’est produit. Il existe une exception à cette règle : lorsque kind=relaxed, si l’analyse d’une variable typée échoue, le reste de l’analyse continue.
 
 **Exemples**
 
-L’opérateur `parse` offre un moyen simple de `extend` une table en utilisant plusieurs applications `extract` sur la même expression `string`. Il est particulièrement utile quand la table a une colonne `string` contenant plusieurs valeurs à répartir en différentes colonnes, par exemple une colonne qui a été générée par une instruction (« `printf` »/« `Console.WriteLine` ») de trace de développeur.
-
-Dans l’exemple suivant, partons du principe que la colonne `EventNarrative` de la table `StormEvents` contient des chaînes sous la forme `{0} at {1} crested at {2} feet around {3} on {4} {5}`. L’opération ci-dessous va étendre la table avec deux colonnes : `SwathSize` et `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|La rivière Green River à Brownsville est montée à 18,8 pieds aux alentours de 9 h 30 EST le 12 décembre (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). À Brownsville, la côte d’inondation est fixée à 18 pieds (Flood stage at Brownsville is 18 feet). À ce niveau, on parle d’une inondation mineure (Minor flooding occurs at this level). La rivière sort de son lit et inonde une partie des berges basses ainsi que certaines terres agricoles (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
-|La rivière Rolling Fork River à Boston est montée à 39,3 pieds aux alentours de 17 h 00 EST le 12 décembre (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). À Boston, la côte d’inondation est fixée à 35 pieds (Flood stage at Boston is 35 feet). À ce niveau, on parle d’une inondation mineure et certaines terres agricoles commencent à être immergées (Minor flooding occurs at this level, with some agricultural bottom land covered).|
-|La rivière Green River à Woodbury est montée à 36,7 pieds aux alentours de 6 h 00 EST le 16 décembre (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). À Woodbury, la côte d’inondation est fixée à 33 pieds (Flood stage at Woodbury is 33 feet). À ce niveau, on parle d’une inondation mineure et certaines plaines autour de la ville de Woodbury commencent à être immergées (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
-|La rivière Ohio River à Tell City est montée à 39,0 pieds aux alentours de 7 h 00 EST le 18 décembre (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). À Tell City, la côte d’inondation est fixée à 38 pieds (Flood stage at Tell City is 38 feet). À ce niveau, la rivière commence à déborder et à inonder ses berges (At this level, the river begins to overflow its banks above the gage). L’autoroute Indiana Highway 66 est inondée entre Rome et Derby (Indiana Highway 66 floods between Rome and Derby).|
+*Simple :*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|Emplacement|Hauteur|Time|Mois|jour|
-|---|---|---|---|---|---|
-|Green River | Woodbury |36,7| 6 h 00 EST | Décembre|16|
-|Rolling Fork River | Boston |39,3| 17 h 00 EST | Décembre|12|
-|Green River | Brownsville |18,8| 9 h 30 EST | Décembre|12|
-|Ohio River | Tell City |39| 7 h 00 EST | Décembre|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-Il est également possible d’établir une correspondance à l’aide d’expressions régulières. Le résultat est le même mais toutes les colonnes de résultat ont le type chaîne :
+*Relaxed :*
+
+Lorsque l’entrée contient une correspondance correcte pour chaque colonne typée, une analyse assouplie (relaxed) produit les mêmes résultats qu’une analyse simple. Mais si l’une des colonnes typées n’analyse pas correctement, une analyse assouplie continue à traiter le reste du modèle, tandis qu’une analyse simple s’arrête et ne parvient pas à générer des résultats.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x | present | Year
+---|---|---
+1 | socks | 63
+
+
+*Regex :*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\)"
+| project-away x, s
+```
+
+resource | slice | lock | release | previous
+---|---|---|---|---
+Scheduler | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### opérateur project
 
@@ -501,10 +535,10 @@ Génère une table de valeurs à une seule colonne. Notez qu’elle ne comporte 
 
 * *ColumnName :* nom de la colonne unique dans la table de sortie.
 * *Start :* plus petite valeur de la sortie.
-* *Stop :* valeur la plus élevée générée dans la sortie (ou une limite pour la valeur la plus élevée, si l’*étape* dépasse cette valeur).
+* *Stop :* valeur la plus élevée générée dans la sortie (ou une limite pour la valeur la plus élevée, si *l’étape* dépasse cette valeur).
 * *Step :* différence entre deux valeurs consécutives. 
 
-Les arguments doivent être des valeurs de type numérique, date ou durée. Ils ne peuvent pas faire référence aux colonnes d’une table. (Si vous souhaitez calculer la plage d’après une table d’entrée, utilisez la [fonction *range*](#range), éventuellement avec l’[opérateur mvexpand](#mvexpand-operator).)
+Les arguments doivent être des valeurs de type numérique, date ou durée. Ils ne peuvent pas faire référence aux colonnes d’une table. (Si vous souhaitez calculer la plage d’après une table d’entrée, utilisez la [fonction *range*](#range), éventuellement avec [l’opérateur mvexpand](#mvexpand-operator).)
 
 **Retourne**
 
@@ -817,7 +851,7 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 ## Agrégations
 
-Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans l’[opération summarize](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
+Les agrégations sont des fonctions utilisées pour combiner des valeurs dans les groupes créés dans [l’opération summarize](#summarize-operator). Par exemple, dans cette requête, dcount() est une fonction d’agrégation :
 
     requests | summarize dcount(name) by success
 
@@ -973,7 +1007,7 @@ Retourne le nombre de lignes pour lesquelles *Predicate* a la valeur `true`. Si 
 
 **Conseil pour optimiser les performances** : utilisez `summarize count(filter)` plutôt que `where filter | summarize count()`.
 
-> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d'utiliser count() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### countif
 
@@ -983,7 +1017,7 @@ Retourne le nombre de lignes pour lesquelles *Predicate* a la valeur `true`.
 
 **Conseil pour optimiser les performances** : utilisez `summarize countif(filter)` plutôt que `where filter | summarize count()`.
 
-> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand l’[échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
+> [AZURE.NOTE] Évitez d’utiliser countif() pour rechercher le nombre de demandes, d’exceptions ou autres événements qui se sont produits. Quand [l’échantillonnage](app-insights-sampling.md) est en cours, le nombre de points de données est inférieur au nombre d’événements réels. Utilisez plutôt `summarize sum(itemCount)...`. La propriété itemCount reflète le nombre d'événements originaux qui sont représentés par chaque point de données conservé.
 
 ### dcount
 
@@ -1049,7 +1083,7 @@ Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* pre
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Consultez aussi l’[opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
+Consultez aussi [l’opérateur `mvexpand`](#mvexpand-operator) pour la fonction inverse.
 
 
 ### max, min
@@ -1359,17 +1393,7 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire |
-| * | Multiplier |
-| / | Diviser |
-| % | Modulo |
-||
-|`<` |Inférieur à 
-|`<=`|Inférieur ou égal à 
-|`>` |Supérieur à 
-|`>=`|Supérieur ou égal à 
-|`<>`|Non égal à 
-|`!=`|Non égal à
+| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
 
 
 ### abs
@@ -1876,7 +1900,7 @@ Si aucune correspondance n’est trouvée, ou si la conversion de type échoue :
 
 **Exemples**
 
-Une définition de `Duration` est recherché dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, qui est ensuite multiplié par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
+Une définition de `Duration` est recherchée dans l’exemple de chaîne `Trace`. La correspondance est convertie en `real`, qui est ensuite multiplié par une constante de temps (`1s`) pour que `Duration` soit de type `timespan`. Dans cet exemple, elle est égale à 123,45 secondes :
 
 ```AIQL
 ...
@@ -2391,4 +2415,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

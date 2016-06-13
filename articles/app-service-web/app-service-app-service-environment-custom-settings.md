@@ -23,7 +23,7 @@ Les environnements App Service étant isolés pour chaque client, certains param
 
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings**. Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments*.
 
-L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
+L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
 
 
     "resources": [
@@ -75,7 +75,17 @@ TLS 1.0 peut être désactivé par le biais de l’entrée **clusterSettings** 
             }
         ],
 
+## Modifier l’ordre des suites de chiffrement TLS ##
+Les clients demandent également s’ils peuvent modifier la liste des chiffrements négociés par leur serveur. Ils peuvent le faire en modifiant l’attribut **clusterSettings** comme indiqué ci-dessous. Vous trouverez la liste des suites de chiffrement disponibles dans [cet article MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
+        "clusterSettings": [
+            {
+                "name": "FrontEndSSLCipherSuiteOrder",
+                "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+            }
+        ],
+
+> Remarque : si des valeurs incorrectes sont définies pour la suite de chiffrement et incompréhensibles pour SChannel, l’ensemble de la communication TLS avec votre serveur peut cesser de fonctionner. Dans ce cas, vous devez redéployer votre environnement App Service, ce qui entraîne un temps d’arrêt considérable et, potentiellement, une perte de données. Utilisez cette fonctionnalité avec précaution.
 
 ## Prise en main
 Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont la définition de base permet de [créer un environnement App Service](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -85,4 +95,4 @@ Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont l
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

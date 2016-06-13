@@ -1,10 +1,10 @@
 <properties
    pageTitle="Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage"
-   description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, importer un fichier BACPAC, sqlpackage"
+   description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, importer un fichier BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage
@@ -28,7 +28,7 @@ Cet article explique comment effectuer une importation vers Base de données SQL
 
 > [AZURE.NOTE] Les étapes ci-dessous supposent que vous avez déjà configuré un serveur de Base de données SQL, que vous disposez des informations de connexion et que vous avez vérifié la compatibilité de votre base de données source.
 
-## Importer un fichier BACPAC dans une base de données SQL Azure à l’aide de SqlPackage
+## Importer un fichier BACPAC dans une base de données SQL Azure à l’aide de SqlPackage
 
 Procédez comme suit pour importer une base de données SQL Server (ou Base de données SQL Azure) compatible à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
 
@@ -49,4 +49,15 @@ Procédez comme suit pour importer une base de données SQL Server (ou Base de d
 
 	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Étapes suivantes
+
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## En savoir plus
+
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -34,13 +34,15 @@ Dans le [portail Azure](https://portal.azure.com/), l’URL du point de terminai
 
 ### Propriété d’Azure Resource Manager
 
-Vous pouvez également configurer l’URL de définition d’API pour une application API à l’aide d’outils tels qu’Azure PowerShell, l’interface de ligne de commande ou l’[Explorateur de ressources](https://resources.azure.com/).
+Vous pouvez également configurer l’URL de définition d’API pour une application API à l’aide de [l’Explorateur de ressources](https://resources.azure.com/) ou des [Azure modèles Resource Manager](../resource-group-authoring-templates.md) dans les outils en ligne de commande, par exemple [Azure PowerShell](../powershell-install-configure.md) et [l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
-Définissez la propriété `apiDefinition` du type de ressource Microsoft.Web/sites/config pour votre ressource <site name>/web. Par exemple, dans **Explorateur de ressources**, accédez à **abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Web > sites > {votre site} > config > web**, et vous verrez la propriété cors :
+Dans **l’Explorateur de ressources**, accédez à **abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Web > sites > {votre site} > config > web**. Vous verrez la propriété `apiDefinition` :
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
+
+Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propriété `apiDefinition`, ouvrez le fichier [azuredeploy.json dans l’exemple d’application de liste des tâches](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Recherchez la section du modèle qui ressemble à l’exemple JSON ci-dessus.
 
 ### Valeur par défaut
 
@@ -58,4 +60,4 @@ Pour obtenir un didacticiel qui vous guide dans la création, le déploiement et
 
 Si vous utilisez Gestion des API Azure avec API Apps, vous pouvez utiliser les métadonnées Swagger pour importer votre API dans Gestion des API. Pour plus d’informations, consultez [Importation de la définition d’une API avec des opérations dans Gestion des API Azure](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

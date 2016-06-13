@@ -19,8 +19,6 @@
 
 # Charge de travail des applications métier, phase 1 : configurer Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
- 
 Au cours de cette phase de déploiement (uniquement dans Intranet) d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-windows-ps-lob-ph2.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-windows-lob-overview.md) pour toutes les phases.
 
 Azure doit être configuré avec les composants réseau de base suivants :
@@ -220,4 +218,4 @@ Vous trouverez ci-dessous la configuration résultant de l'exécution de cette p
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 2](virtual-machines-windows-ps-lob-ph2.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

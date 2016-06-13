@@ -18,6 +18,8 @@
 
 # Types de jeton et de revendication pris en charge
 
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+
 Cette rubrique est conçue pour vous aider à comprendre et évaluer les revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (Azure AD).
 
 La rubrique commence par une description de chaque revendication de jeton et montre un exemple de la revendication dans un jeton SAML et un jeton JWT, le cas échéant. Les revendications qui ont le statut d'aperçu sont répertoriées séparément. La rubrique se termine avec des exemples de jetons pour vous permettre de voir les revendications en contexte.
@@ -412,4 +414,4 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
 
 [Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

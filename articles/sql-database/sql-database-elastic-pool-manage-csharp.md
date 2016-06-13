@@ -3,7 +3,7 @@
     description="Utilisez les techniques de développement de bases de données C# pour gérer un pool de bases de données élastique Azure SQL Database."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Surveiller et gérer un pool de bases de données élastique avec C&#x23; 
 
@@ -432,4 +432,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
 - Consultez [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

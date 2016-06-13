@@ -19,8 +19,6 @@
 
 # Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Les étapes de cette rubrique vous aident à créer un environnement de cloud hybride pour le test d'une batterie de serveurs SharePoint intranet hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -201,7 +199,7 @@ Ensuite, configurez le SP1 pour la nouvelle batterie de serveurs SharePoint et u
 3.	Dans la boîte de dialogue qui vous informe que certains services peuvent avoir besoin d’être redémarrés pendant la configuration, cliquez sur **Oui**.
 4.	Dans la page Se connecter à une batterie de serveurs, cliquez sur **Créer une batterie de serveurs**, puis sur **Suivant**.
 5.	Dans la page Spécifier les paramètres de la base de données de configuration, tapez **sql1.corp.contoso.com** dans **Serveur de base de données**, tapez **CORP\\SPFarmAdmin** dans **Nom d’utilisateur**, tapez le mot de passe du compte SPFarmAdmin dans **Mot de passe**, puis cliquez sur **Suivant**.
-6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez ****P@ssphrase** dans les champs **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**.
+6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez **P@ssphrase** dans les champs **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**.
 7.	Sur la page Configurer l’application Web de l’Administration centrale de SharePoint, cliquez sur **Suivant**.
 8.	Dans la page Fin de l’Assistant Configuration des produits SharePoint, cliquez sur **Suivant**. L'exécution de l'Assistant Configuration des produits SharePoint peut prendre quelques minutes.
 9.	Sur la page Configuration réussie, cliquez sur **Terminer**. Internet Explorer s'ouvre ensuite avec un onglet appelé Assistant Configuration de batterie de serveurs initiale.
@@ -224,4 +222,4 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 
 - [Configurer](https://technet.microsoft.com/library/ee836142.aspx) la batterie de serveurs SharePoint
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

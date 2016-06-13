@@ -19,8 +19,6 @@
 
 # Environnement de test de la configuration de base
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
-
 Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Microsoft Azure, à l’aide de machines virtuelles créées dans le Gestionnaire de ressources.
 
 Vous pouvez utiliser l’environnement de test obtenu :
@@ -181,7 +179,7 @@ Ensuite, créez un compte utilisateur dans Active Directory qui sera utilisé po
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-Notez que cette commande vous invite à fournir le mot de passe du compte User1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, *choisissez un mot de passe fort*. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
+Notez que cette commande vous invite à fournir le mot de passe du compte User1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres du domaine CORP, *choisissez un mot de passe fort*. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
 
 Ensuite, configurez le nouveau compte User1 en tant qu'administrateur d'entreprise. Exécutez cette commande à partir d'une invite de commandes Windows PowerShell de niveau administrateur.
 
@@ -335,4 +333,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

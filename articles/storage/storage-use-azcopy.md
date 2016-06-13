@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transfert de données avec l'utilitaire de ligne de commande AzCopy
@@ -374,13 +374,15 @@ Vous pouvez exécuter la commande suivante pour importer des entités dans une t
 
 ### Copier uniquement les données qui n’existent pas dans la destination
 
-Les paramètres `/XO` et `/XN` vous permettent d’exclure les ressources source plus anciennes ou plus récentes d’être copiées respectivement. Non pris en charge lorsque la source ou la destination est une table. Si vous souhaitez copier uniquement des ressources de code source qui n’existent pas dans la destination, vous pouvez spécifier les deux paramètres dans la commande AzCopy :
+Les paramètres `/XO` et `/XN` vous permettent d’exclure les ressources source plus anciennes ou plus récentes d’être copiées respectivement. Si vous souhaitez copier uniquement des ressources de code source qui n’existent pas dans la destination, vous pouvez spécifier les deux paramètres dans la commande AzCopy :
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Remarque : cela n’est pas pris en charge lorsque la source ou la destination est une table.
 
 ### Utilisation d’un fichier réponse pour spécifier les paramètres de ligne de commande
 
@@ -501,13 +503,13 @@ Les paramètres d’AzCopy sont décrits ci-dessous. Vous pouvez également tape
 
 Spécifie les données sources à partir desquelles la copie peut s’effectuer. La source peut être un répertoire du système de fichiers, un conteneur d’objets blob, un répertoire virtuel d’objets blob, un partage de fichiers de stockage, un répertoire de fichiers de stockage ou une table Azure.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /Dest:"destination"
 
 Spécifie la destination vers laquelle la copie va s’effectuer. La destination peut être un répertoire du système de fichiers, un conteneur d’objets blob, un répertoire virtuel d’objets blob, un partage de fichiers de stockage, un répertoire de fichiers de stockage ou une table Azure.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /Pattern:"file-pattern"
 
@@ -523,13 +525,13 @@ AzCopy tient compte de la casse uniquement quand la /Source est un conteneur d�
 
 Le modèle de fichier par défaut utilisé lorsqu’aucun modèle de fichier n’est spécifié est *.* pour un emplacement de système de fichiers, ou un préfixe vide pour un emplacement Azure Storage. La spécification de plusieurs modèles de fichiers n’est pas prise en charge.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /DestKey:"storage-key"
 
 Spécifie la clé du compte de stockage pour la ressource de destination.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /DestSAS:"sas-token"
 
@@ -539,13 +541,13 @@ Si la ressource de destination est un conteneur d’objets blob, un partage de f
 
 Si la source et la destination sont toutes les deux des objets blob, l’objet blob de destination doit se trouver dans le même compte de stockage que l’objet blob source.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /SourceKey:"storage-key"
 
 Spécifie la clé du compte de stockage pour la ressource source.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /SourceSAS:"sas-token"
 
@@ -555,13 +557,13 @@ Si la ressource source est un conteneur d’objets blob et si aucune clé ou SAP
 
 Si la source est un partage de fichiers ou une table, une clé ou une SAP doit être fournie.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /S
 
 Spécifie le mode récursif pour les opérations de copie. En mode récursif, AzCopy copie tous les objets blob ou fichiers correspondant au modèle de fichier spécifié, incluant ceux qui se trouvent dans les sous-dossiers.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /BlobType:"block" | "page" | "append"
 
@@ -577,7 +579,7 @@ Remarque : Azure Storage ne garantit pas que le hachage MD5 stocké pour l’ob
 
 AzCopy établit toujours la propriété Content-MD5 pour un objet blob ou fichier Azure après l’avoir chargé sur le service.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /Snapshot
 
@@ -631,7 +633,7 @@ Vous pouvez spécifier plusieurs fichiers réponse. Toutefois, AzCopy ne prend p
 
 Supprime toutes les invites de confirmation d’AzCopy.
 
-**S’applique à :** Objets blob, Fichiers, Tables
+**S’applique à :** objets blob, fichiers, tables
 
 ### /L
 
@@ -649,25 +651,25 @@ AzCopy nécessite les autorisations de listing et de lecture sur cet emplacement
 
 Définit l’heure de la dernière modification du fichier pour qu’elle soit identique à celle de l’objet blob ou du fichier source.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /XN
 
 Exclut une ressource de source plus récente. La ressource n’est pas copiée si la dernière heure de modification de la source est identique ou plus récente que la destination.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /XO
 
 Exclut une ressource de source plus ancienne. La ressource n’est pas copiée si la dernière heure de modification de la source est identique ou plus ancienne que la destination.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /A
 
 Charge uniquement les fichiers dont l’attribut Archive est défini.
 
-**S’applique à :** Objets blob, Fichiers
+**S’applique à :** objets blob, fichiers
 
 ### /IA:[RASHCNETOI]
 
@@ -864,4 +866,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, reportez-vous aux ressou
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

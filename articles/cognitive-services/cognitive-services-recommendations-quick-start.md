@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Guide de démarrage rapide"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de recommandations Cognitive Services
@@ -79,7 +79,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  Vous pouvez télécharger les données [ici](http://aka.ms/RecoSampleData). Copiez et décompressez l’archive MsStoreData.Zip dans un dossier sur votre ordinateur local.
 
- > ** Remarque:** l'exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
+ > **Remarque :** l'exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
 
 1.	Examinons maintenant le fichier de catalogue. Naviguez jusqu'à l'emplacement où vous avez copié les données. Ouvrez le fichier de catalogue dans le **bloc-notes**.
 
@@ -129,6 +129,8 @@ Dans cette tâche, vous allez utiliser l'exemple d'application pour générer vo
 
 1. Lorsque le modèle est créé, notez l’**ID de modèle** car vous en aurez besoin lors de la demande de recommandations dans votre environnement de production.
 
+>  Apprenez-en plus sur les types de build et la manière d’évaluer la qualité des builds [ici](cognitive-services-recommendations-buildtypes.md).
+
 <a name="Ex1Task4"></a>
 ### Placement de votre modèle en production ! ###
 
@@ -166,4 +168,4 @@ Consultez la [documentation Obtenir des recommandations d’articles](http://go.
 ### Et ensuite ?
 Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l’API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n’hésitez pas à nous contacter à l’adresse mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->
