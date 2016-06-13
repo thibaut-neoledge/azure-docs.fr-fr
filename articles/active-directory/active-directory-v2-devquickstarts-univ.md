@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application universelle Windows Azure AD v2.0 | Microsoft Azure"
+	pageTitle="Application universelle Microsoft Azure AD v2.0 | Microsoft Azure"
 	description="Génération d’une application universelle Windows qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire."
 	services="active-directory"
 	documentationCenter=""

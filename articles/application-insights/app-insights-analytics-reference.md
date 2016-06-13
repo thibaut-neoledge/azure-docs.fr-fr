@@ -365,12 +365,12 @@ Extrait les valeurs d’une chaîne. Peut utiliser une correspondance d’expres
 
 **Arguments**
 
-* `T` : table d’entrée.
-* `kind` : 
- * `simple` (par défaut) : les chaînes `Match` sont des chaînes de texte brut.
- * `relaxed` : si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
- * `regex` : les chaînes `Match` sont des expressions régulières.
-* `Text` : colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
+* `T` :* table d’entrée.
+* `kind` :* 
+* `simple` (par défaut) :* les chaînes `Match` sont des chaînes de texte brut.
+* `relaxed` :* si le texte n’est pas analysé en tant que type d’une colonne, la colonne est définie sur la valeur null et l’analyse continue 
+* `regex` :* les chaînes `Match` sont des expressions régulières.
+* `Text` :* colonne ou autre expression pouvant être convertie en chaîne ou en prendre la valeur.
 * *Correspondance :* faire correspondre la partie suivante de la chaîne et l’ignorer.
 * *Colonne :* affecter la partie suivante de la chaîne à cette colonne. La colonne est créée si elle n’existe pas.
 * *Type :* analyse la partie suivante de la chaîne comme le type spécifié (par exemple, int, date, double). 

@@ -29,7 +29,7 @@ Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
 ## Composants requis
 
-*   **Ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
+*   **Ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
 
 *   **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
@@ -88,9 +88,9 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Autres composants requis**
 
-* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 
-* **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.5.0 ou ultérieure du script.
+* **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.5.0 ou ultérieure du script.
 
 **Création du fichier de configuration**
 

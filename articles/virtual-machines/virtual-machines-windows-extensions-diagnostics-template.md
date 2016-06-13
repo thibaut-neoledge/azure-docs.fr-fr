@@ -140,24 +140,24 @@ La valeur MetricAggregation de *PT1H* et *PT1M* fait référence à une agrégat
 
 La configuration des mesures ci-dessus génère les tables de votre compte de stockage de diagnostics avec les conventions d’affectation de noms suivantes :
 
-- **WADMetrics** : préfixe standard pour toutes les tables WADMetrics
-- **PT1H** ou **PT1M** : indique que la table contient des données agrégées sur 1 heure ou 1 minute
-- **P10D** : indique que la table contiendra les données pour une période de 10 jours à partir du moment où la table a commencé à collecter les données
-- **V2S** : constante de chaîne
-- **aaaammjj** : date à laquelle la table a démarré la collecte de données
+- **WADMetrics** : préfixe standard pour toutes les tables WADMetrics
+- **PT1H** ou **PT1M** : indique que la table contient des données agrégées sur 1 heure ou 1 minute
+- **P10D** : indique que la table contiendra les données pour une période de 10 jours à partir du moment où la table a commencé à collecter les données
+- **V2S** : constante de chaîne
+- **aaaammjj** : date à laquelle la table a démarré la collecte de données
 
 Exemple : *WADMetricsPT1HP10DV2S20151108* contient les données de mesures agrégées pendant une heure et pour une période de 10 jours commençant le 11 novembre 2015
 
 Chaque table WADMetrics contient les colonnes suivantes :
 
-- **PartitionKey** : la clé de partition est construite selon la valeur *resourceID* pour identifier de façon unique la ressource de machine virtuelle, par exemple : 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-- **RowKey** : suit le format <Descending time tick> :<Performance Counter Name>. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00 h 00 UTC, le calcul est le suivant : DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks). Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne aura l’aspect suivant : 2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
-- **CounterName** : nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
-- **Maximum** : valeur maximale du compteur de performances sur la période d’agrégation.
-- **Minimum** : valeur minimale du compteur de performances sur la période d’agrégation.
-- **Total** : somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
-- **Count** : nombre total de valeurs signalées pour le compteur de performances.
-- **Average** : valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
+- **PartitionKey** : la clé de partition est construite selon la valeur *resourceID* pour identifier de façon unique la ressource de machine virtuelle, par exemple : 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+- **RowKey** : suit le format <Descending time tick> :<Performance Counter Name>. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00 h 00 UTC, le calcul est le suivant : DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks). Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne aura l’aspect suivant : 2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
+- **CounterName** : nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
+- **Maximum** : valeur maximale du compteur de performances sur la période d’agrégation.
+- **Minimum** : valeur minimale du compteur de performances sur la période d’agrégation.
+- **Total** : somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
+- **Count** : nombre total de valeurs signalées pour le compteur de performances.
+- **Average** : valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
 
 
 ## Étapes suivantes

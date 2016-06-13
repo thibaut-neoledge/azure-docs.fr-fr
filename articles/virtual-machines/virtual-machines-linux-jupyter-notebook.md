@@ -193,7 +193,7 @@ Les fonctionnalités principales de Jupyter sont également disponibles dans Vis
 
 Pour plus d’informations, consultez le [Centre de développement Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [référentiel]: https://github.com/ipython/ipython
 [outils Python pour Visual Studio]: http://aka.ms/ptvs
 

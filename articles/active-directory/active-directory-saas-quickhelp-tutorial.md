@@ -148,7 +148,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
     b. Pour charger votre fichier de métadonnées Azure téléchargé, cliquez sur **Browse**, accédez au fichier, puis cliquez sur **Upload Metadata**.
 
-    c. Dans la zone de texte **Adresse de messagerie**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Dans la zone de texte **Adresse de messagerie**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     d. Dans la zone de texte **First Name**, **tapez http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 

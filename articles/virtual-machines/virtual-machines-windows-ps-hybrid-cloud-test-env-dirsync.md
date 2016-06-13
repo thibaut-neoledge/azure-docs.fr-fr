@@ -58,12 +58,12 @@ Ceci est votre configuration actuelle.
 
 Pour démarrer votre version d'évaluation d'Office 365 FastTrack, vous avez besoin d'un nom de société fictif et d'un compte Microsoft. Nous vous recommandons d'utiliser une variante du nom de société Contoso pour le nom de votre société, qui est une société fictive utilisée dans l'exemple de contenu de Microsoft, mais ce n'est pas requis.
 
-Ensuite, inscrivez-vous à un compte Microsoft. Accédez à ****http://outlook.com**, puis créez un compte avec une adresse de messagerie telle que user123@outlook.com. Vous vous inscrirez à une version d'évaluation d'Office 365 FastTrack à l'aide de ce compte.
+Ensuite, inscrivez-vous à un compte Microsoft. Accédez à **http://outlook.com**, puis créez un compte avec une adresse de messagerie telle que user123@outlook.com. Vous vous inscrirez à une version d'évaluation d'Office 365 FastTrack à l'aide de ce compte.
 
 Ensuite, inscrivez-vous à une nouvelle version d'évaluation d'Office 365 Enterprise E3.
 
 1.	Connectez-vous à CLIENT1 avec les informations d'identification du compte CORP\\User1.
-2.	Ouvrez Internet Explorer et accédez à ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+2.	Ouvrez Internet Explorer et accédez à **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
 3.	Suivez le processus d'inscription à la version d'évaluation d'Office 365 Enterprise E3.
 
 Lorsque vous êtes invité à indiquer une **adresse de messagerie professionnelle**, spécifiez votre nouveau compte Microsoft.
@@ -140,7 +140,7 @@ Lorsque vous exécutez chaque commande Windows PowerShell **New-ADUser**, le mot
 
 Ensuite, installez et configurez l'outil Azure AD Connect sur DS1.
 
-1.	Exécutez Internet Explorer, saisissez ****https://www.microsoft.com/download/details.aspx?id=47594** dans la barre d’**adresses**, puis appuyez sur Entrée.
+1.	Exécutez Internet Explorer, saisissez **https://www.microsoft.com/download/details.aspx?id=47594** dans la barre d’**adresses**, puis appuyez sur Entrée.
 2.	Lancez le programme d’installation de Microsoft Azure AD Connect.
 3.	À partir du Bureau, double-cliquez sur **Azure AD Connect**.
 4.	Dans la page de **bienvenue**, sélectionnez **J'accepte les termes du contrat de licence et la déclaration de confidentialité**, puis cliquez sur **Continuer**.
@@ -165,7 +165,7 @@ Montrez ensuite la synchronisation de mot de passe d'Office 365 avec le compte 
 3.	Sous l’onglet **Affecter une licence**, dans **Définir l’emplacement de l’utilisateur**, sélectionnez un emplacement (par exemple, les États-Unis).
 4.	Sélectionnez **Microsoft Office 365 - Plan E3**, puis cliquez sur **Enregistrer**.
 5.	Fermez Internet Explorer.
-6.	Exécutez Internet Explorer et accédez à ****http://portal.microsoftonline.com**.
+6.	Exécutez Internet Explorer et accédez à **http://portal.microsoftonline.com**.
 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera deniseb@<*Votre nom fictif*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
 8.	Après l’ouverture de session réussie, vous voyez la page principale du portail d’Office 365 avec la mention **Faisons la différence aujourd’hui**.
 

@@ -114,7 +114,7 @@ Cette section décrit comment collecter et charger des fichiers journaux spécif
 
 
 ###   Scénario 4 Empêcher l’extension de collecter des journaux
-Cette section décrit comment empêcher l’extension de collecter des journaux. Notez que le processus de l’agent d’analyse sera toujours exécuté, même si cette reconfiguration est effectuée. Si vous souhaitez arrêter complètement le processus d’agent de surveillance, vous pouvez le faire en désactivant l’extension. La commande pour désactiver l’extension est **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions « 2.* »**.
+Cette section décrit comment empêcher l’extension de collecter des journaux. Notez que le processus de l’agent d’analyse sera toujours exécuté, même si cette reconfiguration est effectuée. Si vous souhaitez arrêter complètement le processus d’agent de surveillance, vous pouvez le faire en désactivant l’extension. La commande pour désactiver l’extension est **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions « 2.* »**.
 
 Étape 1. Créez un fichier nommé PrivateConfig.json à l’aide du contenu décrit dans le scénario 1. Créez un autre fichier nommé PublicConfig.json avec le contenu suivant.
 

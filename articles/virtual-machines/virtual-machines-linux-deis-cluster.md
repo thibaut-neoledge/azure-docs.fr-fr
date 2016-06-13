@@ -71,7 +71,7 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. Modifiez le fichier **azuredeploy-parameters.json** : ouvrez le certificat que vous avez créé à l’étape 4 dans un éditeur de texte. Copiez le texte figurant entre les éléments `----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----`, et collez-le dans le paramètre **sshKeyData** (vous devrez supprimer tous les caractères de saut de ligne).
+7. Modifiez le fichier **azuredeploy-parameters.json** : ouvrez le certificat que vous avez créé à l’étape 4 dans un éditeur de texte. Copiez le texte figurant entre les éléments `----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----`, et collez-le dans le paramètre **sshKeyData** (vous devrez supprimer tous les caractères de saut de ligne).
 
 8. Modifiez le paramètre **newStorageAccountName**. Il s’agit du compte de stockage associé aux disques du système d’exploitation de la machine virtuelle. Le nom de ce compte doit être unique au niveau global.
 

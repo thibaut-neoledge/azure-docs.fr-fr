@@ -68,7 +68,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrat
 
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au hub d’événements ci-dessus.
 
@@ -131,7 +131,7 @@ Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel op
 Un registre des identités des appareils IoT Hub :
 
 - ne contient pas de métadonnées de l’application ;
-- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
+- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
 - ne prend pas en charge les requêtes expressives.
 
 Une solution IoT possède généralement une zone de stockage distincte spécifique à la solution qui contient les métadonnées propres à l’application. Dans une solution de développement intelligente, par exemple, la zone de stockage spécifique à la solution doit enregistrer l’espace dans lequel un capteur de température sera déployé.
@@ -171,11 +171,11 @@ Vous pouvez accorder les autorisations de différentes manières :
 
 * **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
 
-    - **iothubowner** : stratégie jouissant de toutes les autorisations.
-    - **service** : stratégie jouissant de l’autorisation ServiceConnect.
-    - **device** : stratégie jouissant de l’autorisation DeviceConnect.
-    - **registryRead** : stratégie jouissant de l’autorisation RegistryRead.
-    - **registryReadWrite** : stratégie jouissant des autorisations RegistryRead et RegistryWrite.
+    - **iothubowner** : stratégie jouissant de toutes les autorisations.
+    - **service** : stratégie jouissant de l’autorisation ServiceConnect.
+    - **device** : stratégie jouissant de l’autorisation DeviceConnect.
+    - **registryRead** : stratégie jouissant de l’autorisation RegistryRead.
+    - **registryReadWrite** : stratégie jouissant des autorisations RegistryRead et RegistryWrite.
 
 
 * **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre d’identité des appareils](#device-identity-registry). Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
@@ -272,7 +272,7 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 | EnqueuedTime | Date et heure de réception du message par IoT Hub. |
 | CorrelationId | Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |
 | UserId | Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |
-| Ack | Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
+| Ack | Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
 | ConnectionDeviceId | Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. |
 | ConnectionDeviceGenerationId | Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **generationId** (conformément aux [Propriétés d’identité des appareils](#deviceproperties)) de l’appareil qui a envoyé le message. |
 | ConnectionAuthMethod | Une méthode d’authentification définie par IoT Hub sur les messages appareil vers cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message. Pour plus d’informations, consultez [Prévention d’usurpation d’identité entre un appareil et le cloud](#antispoofing).|

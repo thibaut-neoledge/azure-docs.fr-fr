@@ -42,7 +42,7 @@ Pour utiliser ce guide, il vous faut :
 
 ##Création d'une instance du service API Management
 
-Vous trouverez ci-dessous les étapes d’utilisation de Gestion des API pour gérer votre service web AzureML. Créez d’abord une instance de service. Connectez-vous au [Portail Classic](https://manage.windowsazure.com/) et cliquez sur **Nouveau** > **App Services** > **Gestion des API** > **Créer**.
+Vous trouverez ci-dessous les étapes d’utilisation de Gestion des API pour gérer votre service web AzureML. Créez d’abord une instance de service. Connectez-vous au [Portail Classic](https://manage.windowsazure.com/) et cliquez sur **Nouveau** > **App Services** > **Gestion des API** > **Créer**.
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
@@ -72,7 +72,7 @@ Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajout
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
+Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez **https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 

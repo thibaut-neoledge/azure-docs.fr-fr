@@ -47,7 +47,7 @@ Pour créer la batterie de serveurs SharePoint à haute disponibilité (neuf ser
 1. Cliquez [ici](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Cliquez sur **Déployer**.
 3. Dans le panneau **Batterie de serveurs SharePoint 2013 hautement disponible**, cliquez sur **Créer**.
-4. Spécifiez les paramètres des 7 étapes du panneau ** de création d’une batterie de serveurs SharePoint 2013 hautement disponible**, puis cliquez sur **Créer**.
+4. Spécifiez les paramètres des 7 étapes du panneau **de création d’une batterie de serveurs SharePoint 2013 hautement disponible**, puis cliquez sur **Créer**.
 
 > [AZURE.NOTE] Vous ne pouvez pas créer la **batterie de serveurs SharePoint 2013 non hautement disponible** ou la **batterie de serveurs SharePoint 2013 hautement disponible** avec un essai gratuit d’Azure.
 

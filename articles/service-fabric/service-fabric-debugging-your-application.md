@@ -24,7 +24,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 
-2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
+2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
 
     ![Démarrer le débogage d'une application][startdebugging]
 

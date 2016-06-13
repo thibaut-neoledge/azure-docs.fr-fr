@@ -55,10 +55,10 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
-    * **-G** : indique qu’il s’agit d’une demande GET.
+    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
+    * **-G** : indique qu’il s’agit d’une demande GET.
 
-    Le début de l’URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur.
+    Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur.
 
 2. Pour envoyer un travail Sqoop, utilisez la commande suivante :
 
@@ -67,13 +67,13 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-        * **user.name** : l’utilisateur qui exécute la commande.
+        * **user.name** : l’utilisateur qui exécute la commande.
 
         * **command**: commande Sqoop à exécuter.
 
-        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche.
+        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche.
 
     Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche.
 
@@ -87,7 +87,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     > [AZURE.NOTE] Cette demande Curl retourne un document JSON (JavaScript Object Notation) avec des informations sur la tâche ; jq est utilisé pour récupérer uniquement la valeur de statut.
 
-4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, **wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
     Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
 

@@ -199,7 +199,7 @@ Ensuite, configurez le SP1 pour la nouvelle batterie de serveurs SharePoint et u
 3.	Dans la boîte de dialogue qui vous informe que certains services peuvent avoir besoin d’être redémarrés pendant la configuration, cliquez sur **Oui**.
 4.	Dans la page Se connecter à une batterie de serveurs, cliquez sur **Créer une batterie de serveurs**, puis sur **Suivant**.
 5.	Dans la page Spécifier les paramètres de la base de données de configuration, tapez **sql1.corp.contoso.com** dans **Serveur de base de données**, tapez **CORP\\SPFarmAdmin** dans **Nom d’utilisateur**, tapez le mot de passe du compte SPFarmAdmin dans **Mot de passe**, puis cliquez sur **Suivant**.
-6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez ****P@ssphrase** dans les champs **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**.
+6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez **P@ssphrase** dans les champs **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**.
 7.	Sur la page Configurer l’application Web de l’Administration centrale de SharePoint, cliquez sur **Suivant**.
 8.	Dans la page Fin de l’Assistant Configuration des produits SharePoint, cliquez sur **Suivant**. L'exécution de l'Assistant Configuration des produits SharePoint peut prendre quelques minutes.
 9.	Sur la page Configuration réussie, cliquez sur **Terminer**. Internet Explorer s'ouvre ensuite avec un onglet appelé Assistant Configuration de batterie de serveurs initiale.
@@ -207,10 +207,10 @@ Ensuite, configurez le SP1 pour la nouvelle batterie de serveurs SharePoint et u
 11.	Dans **Comment voulez-vous configurer votre batterie SharePoint**, cliquez sur **Démarrer l’Assistant**.
 12.	Dans la page Configuration de votre batterie SharePoint, dans **Compte de service**, cliquez sur **Utiliser un compte géré existant**.
 13.	Dans **Services**, décochez toutes les cases, sauf la case **Service d’états**, puis cliquez sur **Suivant**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine.
-14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL ****http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1.
+14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL **http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1.
 15.	Dans la page Cette page est la dernière de l’Assistant Configuration de batterie de serveurs, cliquez sur **Terminer**. L'onglet Internet Explorer affiche le site Administration centrale de SharePoint 2013.
 16.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
-17.	Dans la barre d’adresses, tapez ****http://sp1/**, puis appuyez sur Entrée. Vous devriez voir le site d'équipe SharePoint de la société Contoso Corporation. L'affichage du site peut prendre un certain temps.
+17.	Dans la barre d’adresses, tapez **http://sp1/**, puis appuyez sur Entrée. Vous devriez voir le site d'équipe SharePoint de la société Contoso Corporation. L'affichage du site peut prendre un certain temps.
 
 Ceci est votre configuration actuelle.
 

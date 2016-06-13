@@ -22,7 +22,7 @@
 
 Un instantané est une version en lecture seule d'un objet blob capturé à un instant donné. Les captures instantanées sont utiles pour la sauvegarde des objets blob. Une fois créé, un instantané peut être lu, copié ou supprimé, mais pas modifié.
 
-Un instantané d’objet blob porte le même nom que l’objet blob de base à partir duquel il a été créé, avec une valeur **DateTime** ajoutée qui indique l’heure à laquelle il a été créé. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané ressemblera à `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tous les instantanés d’un objet blob partagent son URI et se distinguent uniquement par cette valeur **DateTime ** ajoutée.
+Un instantané d’objet blob porte le même nom que l’objet blob de base à partir duquel il a été créé, avec une valeur **DateTime** ajoutée qui indique l’heure à laquelle il a été créé. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané ressemblera à `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Tous les instantanés d’un objet blob partagent son URI et se distinguent uniquement par cette valeur **DateTime** ajoutée.
 
 Un objet blob peut avoir plusieurs instantanés. Les instantanés sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un instantané ne peut toutefois pas être conservé plus longtemps que son objet blob source. Vous pouvez énumérer les instantanés associés à votre objet blob pour effectuer le suivi de vos instantanés actuels.
 

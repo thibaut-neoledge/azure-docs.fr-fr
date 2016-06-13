@@ -143,7 +143,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
 
-1.  Pour répondre à la configuration minimale requise, vous devez également ajouter un disque de données virtuel de 500 Go. Dans la page **Paramètres** :
+1.  Pour répondre à la configuration minimale requise, vous devez également ajouter un disque de données virtuel de 500 Go. Dans la page **Paramètres** :
 
     1.  Dans le volet gauche, sélectionnez **Contrôleur SCSI**.
     2.  Dans le volet droit, sélectionnez **Disque dur**, puis cliquez sur **Ajouter**.

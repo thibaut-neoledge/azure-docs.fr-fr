@@ -90,7 +90,7 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 2. Dans l’**Assistant Importation de certificat**, sélectionnez **Utilisateur actuel** et cliquez sur **Suivant**.
 3. Vérifiez le chemin d’accès au fichier et cliquez sur **Suivant**.
 4. Tapez le mot de passe, laissez l’option **Inclure toutes les propriétés étendues** activée, puis cliquez sur **Suivant**.
-5. Laissez l’option ** Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant**.
+5. Laissez l’option **Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant**.
 6. Cliquez sur **Terminer** et sur **OK**.
 
 ### Téléchargement du fichier PFX dans le service cloud
@@ -151,14 +151,14 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Assurez-vous que le nom du serveur ne commence pas par ****https://**.
+* Assurez-vous que le nom du serveur ne commence pas par **https://**.
 * Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com, cliquez sur « Bases de données SQL » à gauche, puis sur « Serveurs » en haut, et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Azure** est défini sur « Oui ». (voir la section « Configuration requise » en haut de cet article).
 
 ## Tester le déploiement du service
 
 ### Se connecter avec un navigateur Web
 
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez ****http://** par ****https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### Effectuer des tests avec des scripts PowerShell
 
@@ -166,11 +166,11 @@ Le déploiement et votre environnement peuvent être testés en exécutant les e
 
 Les fichiers de script inclus sont les suivants :
 
-1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
-2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
-3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
-4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
-5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
+1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
+2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
+3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
+4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
+5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
 
 <table style="width:100%">
   <tr>

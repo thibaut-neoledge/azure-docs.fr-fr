@@ -27,10 +27,10 @@ Cette sélection peut être effectuée de différentes manières. Dans ML, la m�
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes.
 
-1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte. 
-2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée. 
-3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score). 
-4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
+1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte. 
+2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée. 
+3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score). 
+4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
 
 L’expérience ci-dessous indique comment effectuer cette opération dans Microsoft Azure Machine Learning.
 

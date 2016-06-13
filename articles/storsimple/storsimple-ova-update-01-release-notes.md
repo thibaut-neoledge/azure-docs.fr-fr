@@ -35,11 +35,11 @@ Update 0.1 contient les améliorations et correctifs de bogues suivants.
 
 - **Optimisation automatique de la récupération d’espace** : lorsque des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage inutilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
 
-- **Nouvelles images de disque virtuel** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles par le bais du portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
+- **Nouvelles images de disque virtuel** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles par le bais du portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
 
 - **Amélioration la précision de l’état des tâches dans le portail** : dans la version antérieure du logiciel, les rapports d’état de la tâche générés dans le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
 
-- **Expérience de jonction de domaine** : correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
+- **Expérience de jonction de domaine** : correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
 
 
 ## Problèmes résolus dans Update 0.1

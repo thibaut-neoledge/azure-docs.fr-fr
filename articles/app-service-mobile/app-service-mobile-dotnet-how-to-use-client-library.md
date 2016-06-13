@@ -84,7 +84,8 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 
 L’ensemble du code permettant d’accéder aux données d’une table du backend ou de les modifier appelle des fonctions sur l’objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la méthode [GetTable] sur une instance du `MobileServiceClient`, comme suit :
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 Il s'agit du modèle de sérialisation typé. Les modèles de sérialisation non typés sont également pris en charge. Le code suivant [crée une référence à une table non typée] \:
 
@@ -406,11 +407,12 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 
 Certains contrôles dans l’exécution gérée prennent en charge une interface appelée [ISupportIncrementalLoading]. Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Une prise en charge de cette interface peut être intégrée aux applications Windows universelles par le biais de [MobileServiceIncrementalLoadingCollection], qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
 
-    MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
-    items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
+			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
+		items = todoTable.Where(todoItem => todoItem.Complete == false)
+					 ToIncrementalLoadingCollection();
 
-    ListBox lb = new ListBox();
-    lb.ItemsSource = items;
+		ListBox lb = new ListBox();
+		lb.ItemsSource = items;
 
 Pour utiliser la nouvelle collection sur les applications Windows Phone 8 et « Silverlight », utilisez les méthodes d’extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
 
