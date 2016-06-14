@@ -117,7 +117,7 @@ Ce projet est une application de console Visual Studio et utilise le [package Nu
 
 2.  Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
-3.  Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
+3.  Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
 
     ![][11]
 
@@ -568,6 +568,6 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

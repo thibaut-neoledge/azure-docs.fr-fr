@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="06/07/2016"
 	ms.author="nitinme"/>
 
 
-# Prise en main : créer un cluster Apache Spark sur Azure HDInsight Linux et exécuter des requêtes interactives à l’aide de Spark SQL (aperçu)
+# Prise en main : créer un cluster Apache Spark sur Azure HDInsight Linux et exécuter des requêtes interactives à l’aide de Spark SQL
 
 Découvrez comment créer un cluster Apache Spark dans HDInsight, puis comment utiliser le bloc-notes [Jupyter](https://jupyter.org) pour exécuter des requêtes interactives Spark SQL sur le cluster Spark.
 
@@ -38,10 +38,12 @@ Découvrez comment créer un cluster Apache Spark dans HDInsight, puis comment 
     
 	-  Depuis un ordinateur Windows : [Utilisation de SSH avec HDInsight Linux (Hadoop) depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
+>[AZURE.NOTE] Cet article utilise un modèle ARM pour créer un cluster Spark qui utilise des [objets Blob Azure Storage en tant que cluster de stockage](hdinsight-hadoop-use-blob-storage.md). Vous pouvez également créer un cluster Spark qui utilise [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) comme stockage supplémentaire, en plus des objets Blob Azure Storage utilisés en tant que stockage par défaut. Pour plus d’informations, voir [Créer un cluster HDInsight avec Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
 
 ## Création d’un cluster Spark
 
-Dans cette section, vous allez créer un cluster HDInsight version 3.3 (Spark version 1.5.1) à l’aide d’un modèle Azure ARM. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md). Pour obtenir d’autres méthodes de création de cluster, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Dans cette section, vous allez créer un cluster HDInsight version 3.4 (Spark version 1.6.1) à l’aide d’un modèle Azure ARM. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md). Pour obtenir d’autres méthodes de création de cluster, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle ARM dans le portail Azure.         
 
@@ -67,13 +69,13 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.3 (Spark ve
 	> * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
     
-3\.Cliquez sur **OK** pour enregistrer les paramètres.
+3\. Cliquez sur **OK** pour enregistrer les paramètres.
 
-4\.Dans le panneau **Déploiement personnalisé**, cliquez sur la zone de liste déroulante **Groupe de ressources**, puis cliquez sur **Nouveau** pour créer un nouveau groupe de ressources. Le groupe de ressources est un conteneur qui regroupe le cluster, le compte de stockage dépendant et une autre ressource liée.
+4\. Dans le panneau **Déploiement personnalisé**, cliquez sur la zone de liste déroulante **Groupe de ressources**, puis cliquez sur **Nouveau** pour créer un nouveau groupe de ressources. Le groupe de ressources est un conteneur qui regroupe le cluster, le compte de stockage dépendant et une autre ressource liée.
 
-5\.Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
+5\. Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
 
-6\.Cliquez sur **Créer**. Vous verrez une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle. La création du cluster et de la base de données SQL prend environ 20 minutes.
+6\. Cliquez sur **Créer**. Vous verrez une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle. La création du cluster et de la base de données SQL prend environ 20 minutes.
 
 
 
@@ -100,7 +102,7 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
+2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
 	![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
 
@@ -108,7 +110,7 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 		from pyspark.sql.types import *
 		
@@ -135,7 +137,7 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Étant donné que vous utilisez un noyau PySpark, vous pouvez maintenant exécuter directement une requête SQL sur la table temporaire **hvac** que vous venez de créer à l’aide de la méthode magique `%%sql`. Pour plus d’informations sur la méthode magique `%%sql`, ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les ordinateurs portables Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Étant donné que vous utilisez un noyau PySpark, vous pouvez maintenant exécuter directement une requête SQL sur la table temporaire **hvac** que vous venez de créer à l’aide de la méthode magique `%%sql`. Pour plus d’informations sur `%%sql`, ainsi que les autres commandes disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les ordinateurs portables Jupyter avec les clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -183,17 +185,21 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)
+
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gérer des ressources
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md) (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)
+
+### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-### Problèmes connus
-
-* [Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)](hdinsight-apache-spark-known-issues.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -206,4 +212,4 @@ Dans cet article, vous allez utiliser le noyau PySpark. L’article [Noyaux disp
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

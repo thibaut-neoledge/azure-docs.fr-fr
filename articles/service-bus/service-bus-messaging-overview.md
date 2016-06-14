@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Présentation de la messagerie Service Bus | Microsoft Azure"
-	description="Messagerie Service Bus : service flexible de distribution de données dans le cloud"
+	pageTitle="Présentation de la messagerie Service Bus | Microsoft Azure"
+	description="Messagerie Service Bus : service flexible de distribution de données dans le cloud"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -17,13 +17,13 @@
 	ms.author="sethm"/>
 
 
-# Messagerie Service Bus : service flexible de distribution de données dans le cloud
+# Messagerie Service Bus : service flexible de distribution de données dans le cloud
 
 La messagerie Service Bus Azure est un service fiable de distribution des informations. L'objectif de ce service est de simplifier la communication. Quand plusieurs parties souhaitent échanger des informations, elles ont besoin d'un système de communication. La messagerie Service Bus est un système de communication tiers ou réparti, qui peut être comparé à un service postal classique. Le service postal permet aux clients d'envoyer facilement partout dans le monde toutes sortes de lettres et de paquets, avec différentes garanties de distribution au choix.
 
 À l’instar du service postal de distribution du courrier, la messagerie Service Bus constitue un moyen flexible de distribuer des informations entre l’expéditeur et le destinataire. Ce service de messagerie garantit la distribution des informations même si les deux parties concernées ne sont jamais en ligne en même temps ou si elles ne sont pas disponibles au même moment. C'est en cela que ce système de communication répartie s'apparente à l'envoi d'une lettre, tandis que la communication non répartie équivaut à un appel téléphonique traditionnel (quand il n'y avait pas encore de signal d'appel ni d'identification de l'appelant, qui sont plutôt des fonctionnalités de messagerie répartie).
 
-L’expéditeur du message peut aussi choisir divers paramètres de distribution, notamment les transactions, la détection des doublons, l’expiration temporelle et le traitement par lot. Ces modèles présentent également certaines analogies avec le service postal : tentative renouvelée de distribution, signature obligatoire, changement d'adresse ou rappel.
+L’expéditeur du message peut aussi choisir divers paramètres de distribution, notamment les transactions, la détection des doublons, l’expiration temporelle et le traitement par lot. Ces modèles présentent également certaines analogies avec le service postal : tentative renouvelée de distribution, signature obligatoire, changement d'adresse ou rappel.
 
 Service Bus prend en charge deux modèles de messagerie distincts : la messagerie *relayée* et la messagerie *répartie*.
 
@@ -50,10 +50,10 @@ Comme pour l'infrastructure de messagerie relayée, la fonctionnalité de messag
 Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
 
 - [Files d'attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Architecture de Service Bus](service-bus-architecture.md)
-- [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Architecture de Service Bus](service-bus-architecture.md)
+- [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 - [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

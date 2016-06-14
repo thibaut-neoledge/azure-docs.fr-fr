@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="06/07/2016"
 	ms.author="cynthn"/>
 
 # Créer votre première machine virtuelle Windows dans le portail Azure
@@ -49,7 +49,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui serviront à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour ouvrir une session de machine virtuelle et la gérer.
 
-	Le mot de passe doit compter au moins 8 à 123 caractères et au moins 3 des types de caractères suivants : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial.
+	Le mot de passe doit compter 12 à 123 caractères et au moins un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial.
 
 
 3. Sélectionnez un [Groupe de ressources](../resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe. Tapez un **emplacement** de centre de données Azure comme **États-Unis de l’Ouest**.
@@ -116,4 +116,4 @@ Cliquez simplement sur le bouton **Démarrer** pour redémarrer la machine virtu
 
 * Vous pouvez également [créer une machine virtuelle Windows à l’aide de Powershell](virtual-machines-windows-ps-create.md) ou [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) à l’aide de l’interface de ligne de commande Azure.
 
-<!------HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

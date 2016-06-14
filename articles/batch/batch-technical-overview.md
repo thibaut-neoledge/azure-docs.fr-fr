@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/02/2016"
 	ms.author="marsma"/>
 
 # Notions de base d’Azure Batch
@@ -69,7 +69,7 @@ Vos applications et services peuvent émettre des appels d’API REST directs, u
 | **Batch REST** | [MSDN][batch_rest] | N/A | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python Batch** | [readthedocs.IO][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (version préliminaire) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
 
 ### Gestion des ressources Batch
 
@@ -77,7 +77,7 @@ Outre les API clientes, vous pouvez utiliser les éléments suivants pour gérer
 
 - [Applets de commande PowerShell Batch][batch_ps] \: les applets de commande Azure Batch contenues dans le module [Azure PowerShell](../powershell-install-configure.md) vous permettent de gérer les ressources du service Batch avec PowerShell.
 
-- [CLI Azure](../xplat-cli-install.md): l’Interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes shell permettant d’interagir avec de nombreux services Azure, y compris le service Batch.
+- [CLI Azure](../xplat-cli-install.md): l’interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes shell permettant d’interagir avec de nombreux services Azure, y compris le service Batch.
 
 - Bibliothèque cliente [.NET Batch Management](batch-management-dotnet.md) : également [disponible via NuGet][api_net_mgmt_nuget], la bibliothèque cliente .NET Batch Management permet de gérer les comptes Batch, les quotas et les packages d’applications par programme. Consultez les références pour la bibliothèque de gestion sur [MSDN][api_net_mgmt].
 
@@ -105,7 +105,7 @@ Dans ce scénario courant, votre application ou service traite une charge de tra
 
 3. Création d’un **travail** Batch pour exécuter la charge de travail sur le pool de nœuds de calcul. Lorsque vous créez un travail, vous devez l’associer à un pool Batch.
 
-4. Ajoutez des **Tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
+4. Ajoutez des **tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
 
     - 4a. Avant son exécution, la tâche peut charger les données (les fichiers d’entrée) qu’elle devra traiter dans le nœud de calcul auquel elle est affectée. Si l’application n’a pas déjà été installée sur le nœud (voir l’étape 2), vous pouvez la télécharger à cet emplacement. Lorsque les téléchargements sont terminés, les tâches s’exécutent sur les nœuds qui leur sont attribués.
 
@@ -130,6 +130,8 @@ Maintenant que vous avez vu un exemple de scénario du service Batch, le moment 
 - Consultez le [parcours d’apprentissage de Batch][learning_path] pour avoir une idée des ressources dont vous allez disposer dans votre découverte du service Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
+[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -153,4 +155,4 @@ Maintenant que vous avez vu un exemple de scénario du service Batch, le moment 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

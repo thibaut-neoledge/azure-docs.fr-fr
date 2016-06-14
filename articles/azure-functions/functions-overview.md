@@ -44,7 +44,7 @@ Azure Functions est une solution idéale pour le traitement des données, l’in
 Azure Functions fournit des modèles pour vous aider à mettre en œuvre les principaux scénarios, notamment :
 
 * **BlobTrigger** : traitez les objets blob d’Azure Storage lors de leur ajout à des conteneurs. Vous pouvez utiliser ce modèle pour le redimensionnement d’images.
-* **EventHubTrigger** : répondez aux événements qui se produisent dans vos appareils IoT.
+* **EventHubTrigger**: répondre aux événements remis à un hub d’événements Azure. Particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’Internet des Objets (IoT).
 * **Webhook générique** : traitez les requêtes HTTP de webhook à partir de n’importe quel service prenant en charge les webhooks.
 * **Webhook GitHub** : répondez aux événements qui se produisent dans vos référentiels GitHub. Pour obtenir un exemple, consultez l’article [Créer une fonction Azure d’API ou de webhook](functions-create-a-web-hook-or-api-function.md).
 * **HTTPTrigger** : déclenchez l’exécution de votre code à l’aide d’une requête HTTP.
@@ -87,4 +87,4 @@ Pour plus d’informations sur la mise à l’échelle de vos fonctions, consult
 + L’article [Mise à l’échelle d’Azure Functions](functions-scale.md) présente les plans de service disponibles pour Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins. 
 + [En savoir plus sur Azure App Service](../app-service/app-service-value-prop-what-is.md) Azure Functions s’appuie sur la plateforme Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

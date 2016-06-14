@@ -225,7 +225,7 @@ Ces rubriques fournissent des informations détaillées sur Azure Data Factory. 
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Créer votre première fabrique de données Azure à l’aide du portail Azure et de Data Factory Editor.]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Présentation du service Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Didacticiel présentant un scénario réel]: ../data-factory/data-factory-tutorial.md
@@ -239,4 +239,4 @@ Ces rubriques fournissent des informations détaillées sur Azure Data Factory. 
 [portail Azure]: https://portal.azure.com
 [Téléchargez les exemples de données]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

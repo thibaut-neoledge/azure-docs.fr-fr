@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protéger des machines virtuelles ARM avec Azure Backup | Microsoft Azure"
-	description="Protégez des machines virtuelles ARM avec le service Azure Backup. Utilisez des sauvegardes des machines virtuelles ARM et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un archivage de Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
+	pageTitle="Protéger des machines virtuelles déployées via Resource Manager avec Azure Backup | Microsoft Azure"
+	description="Protégez les machines virtuelles déployées via Resource Manager à l’aide d’Azure Backup. Utilisez les sauvegardes des machines virtuelles Resource Manager et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un archivage de Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
-# Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services
+# Premier aperçu : sauvegarder des machines virtuelles Azure Resource Manager dans un archivage Recovery Services
 
 > [AZURE.SELECTOR]
-- [Sauvegarder des machines virtuelles ARM](backup-azure-vms-first-look-arm.md)
+- [Sauvegarder des machines virtuelles déployées à l’aide de Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Sauvegarder des machines virtuelles en mode Classique](backup-azure-vms-first-look.md)
 
 Ce didacticiel détaille les procédures de création d'un coffre Recovery Services et de sauvegarde d'une machine virtuelle Azure. Les coffres Recovery Services protègent :
 
-- les machines virtuelles Azure Resource Manager (ARM),
+- Machines virtuelles déployées à l’aide de Resource Manager
 - les machines virtuelles Classic,
 - les machines virtuelles de stockage standard,
 - les machines virtuelles Premium Storage.
 
 Pour plus d'informations sur la protection des machines virtuelles Premium Storage, consultez [Sauvegarder et restaurer des machines virtuelles Premium Storage](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle. Azure propose deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../resource-manager-deployment-model.md). Cet article concerne les machines virtuelles basées sur Resource manager et sur ARM.
+>[AZURE.NOTE] Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle. Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Cet article concerne l’utilisation de Resource Manager ainsi que les machines virtuelles déployées via Resource Manager.
 
 Voici globalement les étapes que vous allez suivre.
 
@@ -189,35 +189,7 @@ Pour utiliser l’option **Sauvegarder maintenant** :
 
     Lorsque le travail de sauvegarde est terminé, l’état affiché est *Terminé*.
 
-## Définition d’une stratégie de sauvegarde
-
-Une stratégie de sauvegarde définit quand les instantanés de données sont pris ainsi que leur durée de conservation. Lors de la définition de la stratégie de sauvegarde d’une machine virtuelle, vous pouvez déclencher un travail de sauvegarde *une fois par jour*. Lorsque vous créez une stratégie, elle est appliquée à l’archivage. L'interface de la stratégie de sauvegarde ressemble à ceci :
-
-![Stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
-
-Pour créer une stratégie :
-
-1. Dans **Nom de la stratégie**, indiquez le nom de la stratégie.
-
-2. Les instantanés de vos données peuvent être pris à intervalles quotidiens ou hebdomadaires. Utilisez le menu déroulant **Fréquence de sauvegarde** pour déterminer la fréquence de prise des instantanés de données (tous les jours ou toutes les semaines).
-
-    - Si vous choisissez un intervalle quotidien, utilisez le contrôle en surbrillance pour sélectionner l'heure du jour à laquelle prendre l'instantané. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
-
-    ![Stratégie de sauvegarde quotidienne](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
-
-    - Si vous choisissez un intervalle hebdomadaire, utilisez les contrôles en surbrillance pour sélectionner le(s) jour(s) de la semaine et l’heure auxquels prendre l’instantané. Dans le menu du jour, sélectionnez un ou plusieurs jours. Dans le menu de l'heure, sélectionnez une heure. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
-
-    ![Stratégie de sauvegarde hebdomadaire](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
-
-3. Par défaut, toutes les options **Durée de rétention** sont sélectionnées. Désactivez la limite de plage de rétention que vous ne souhaitez pas utiliser.
-
-    >[AZURE.NOTE] Lorsque vous protégez un ordinateur virtuel, un travail de sauvegarde s'exécute une fois par jour. L'heure d'exécution de la sauvegarde est le même pour chaque plage de rétention.
-
-    Dans les contrôles correspondants, spécifiez le ou les intervalles à utiliser. Les durées de rétention mensuelle et annuelle vous permettent de prendre des instantanés selon un intervalle hebdomadaire ou quotidien.
-
-4. Après avoir défini toutes les options de la stratégie, cliquez sur **OK** en bas du panneau.
-
-    La nouvelle stratégie s’applique à l’archivage de Recovery Services, dès que ses paramètres sont définis. Revenez à l’étape 6 de la section [Sélectionner l’objectif d’une sauvegarde, définir la stratégie et définir les éléments à protéger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Installer l’agent de machine virtuelle sur la machine virtuelle
 
@@ -230,7 +202,7 @@ Le tableau suivant fournit des informations supplémentaires sur l’agent de ma
 | **Opération** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installation de l’agent de machine virtuelle | <li>Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. <li>[Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. | <li>Installez l’[agent Linux](https://github.com/Azure/WALinuxAgent) le plus récent à partir de GitHub. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. <li> [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. |
-| Mise à jour de l’agent de machine virtuelle | La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. | Suivez les instructions fournies dans la section [Mise à jour de l’agent de machine virtuelle Linux](../virtual-machines-linux-update-agent.md). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
+| Mise à jour de l’agent de machine virtuelle | La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. | Suivez les instructions fournies dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines-linux-update-agent.md). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
 | Validation de l’installation de l’agent de machine virtuelle | <li>Accédez au dossier *C:\\WindowsAzure\\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. | N/A |
 
 
@@ -241,10 +213,10 @@ Une fois l’agent de machine virtuelle installé sur la machine virtuelle, le s
 Le service Backup installe l’extension de sauvegarde que la machine virtuelle soit ou non en cours d’exécution. Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent. Toutefois, le service Azure Backup poursuit la sauvegarde de la machine virtuelle, même si elle est éteinte et si l’extension n’a pas été installée, autrement dit si la machine virtuelle est hors connexion. Dans ce cas, le point de récupération sera *cohérent en cas d’incident*.
 
 ## Résolution de problèmes
-Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dans cet article, consultez la section [Conseils pour la résolution de problèmes](backup-azure-vms-troubleshoot.md).
+Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dans cet article, consultez ces [recommandations en matière de résolution des problèmes](backup-azure-vms-troubleshoot.md).
 
 
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

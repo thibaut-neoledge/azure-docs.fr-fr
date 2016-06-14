@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est ce que Site Recovery ? | Microsoft Azure" 
+	pageTitle="Qu’est ce que Site Recovery ? | Microsoft Azure" 
 	description="Présente le service Azure Site Recovery et explique comment il peut être déployé." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -16,11 +16,11 @@
 	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-#  Qu’est-ce que Site Recovery ?
+#  Qu’est-ce que Site Recovery ?
 
 Bienvenue dans Azure Site Recovery ! Commencez par cet article pour obtenir une présentation rapide du service Site Recovery et voir de quelle façon il peut contribuer à votre stratégie de récupération d’urgence et de continuité des activités.
 
-Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article s’applique aux deux modèles. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article s’applique aux deux modèles. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## Vue d'ensemble
 
@@ -28,7 +28,7 @@ Une partie importante de la stratégie de continuité des activités et de récu
 
 Site Recovery aide à atteindre cet objectif en coordonnant la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
-## Pourquoi utiliser Azure Site Recovery ? 
+## Pourquoi utiliser Azure Site Recovery ? 
 
 Voici ce que Site Recovery peut faire pour votre entreprise :
 
@@ -56,7 +56,7 @@ Charges de travail s’exécutant sur des serveurs physiques Windows/Linux | Ser
 Charges de travail s’exécutant sur des serveurs physiques Windows/Linux | Serveur physique local | Centre de données secondaire | [Déployer](site-recovery-vmware-to-vmware.md) 
 
 
-## Quelles charges de travail puis-je protéger ?
+## Quelles charges de travail puis-je protéger ?
 
 Site Recovery peut contribuer à la continuité des activités et à la récupération d’urgence compatibles avec les applications afin que les charges de travail et les applications continuent de s’exécuter de manière cohérente en cas de pannes. Site Recovery présente les caractéristiques suivantes :
 
@@ -71,4 +71,4 @@ Site Recovery peut contribuer à la continuité des activités et à la récupé
 - Pour en savoir plus sur l’architecture de Site Recovery, consultez l’article [Comment Azure Site Recovery fonctionne-t-il ?](site-recovery-components.md).
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

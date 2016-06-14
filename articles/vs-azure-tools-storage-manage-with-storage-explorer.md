@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire) | Microsoft Azure"
-	description="Décrit comment utiliser l’Explorateur de stockage Microsoft Azure (version préliminaire) pour créer et gérer des ressources de stockage Azure."
+	pageTitle="Prise en main de l’explorateur de stockage (version préliminaire) | Microsoft Azure"
+	description="Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)"
 	services="visual-studio-online"
 	documentationCenter="na"
 	authors="TomArcher"
@@ -10,176 +10,284 @@
  <tags
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="06/05/2016"
 	ms.author="tarcher" />
 
-# Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)
+# Prise en main de l’explorateur de stockage (version préliminaire)
 
-L’Explorateur de stockage Microsoft Azure (version préliminaire) est un outil autonome qui vous permet de gérer facilement vos comptes de stockage Azure. Il est utile dans les situations où vous souhaitez gérer rapidement le stockage en dehors du portail Azure, par exemple lorsque vous développez des applications dans Visual Studio. Cette version préliminaire vous permet de travailler facilement avec Blob Storage. Vous pouvez créer et supprimer des conteneurs, charger, télécharger et supprimer des objets blob et effectuer des recherches dans tous vos conteneurs et objets blob. Les fonctionnalités avancées permettent aux développeurs et aux opérations de travailler avec des clés et des stratégies SAP. Les développeurs Windows peuvent également utiliser l’émulateur de stockage Azure pour tester leur code à l’aide du compte de stockage de développement local.
+## Vue d'ensemble 
 
-Pour afficher ou gérer les ressources de stockage dans l’Explorateur de stockage, vous devez être en mesure d’accéder à un compte de stockage Azure dans votre abonnement ou à un compte de stockage externe. Si vous ne possédez pas de compte de stockage, vous pouvez en créer un en quelques minutes. Si vous avez un abonnement MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [Version d’évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
+L’explorateur de stockage Microsoft Azure (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Azure Storage sur Windows, OSX et Linux. Dans cet article, vous découvrirez les différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
 
-## Gérer les abonnements et les comptes Azure
+## Configuration requise
 
-Pour afficher vos ressources de stockage Azure dans l’Explorateur de stockage, vous devez vous connecter à un compte Azure avec un ou plusieurs abonnements actifs. Si vous avez plusieurs comptes Azure, vous pouvez les ajouter à l’Explorateur de stockage, puis sélectionner les abonnements que vous souhaitez inclure dans l’affichage des ressources de l’Explorateur de stockage. Si vous n’avez jamais utilisé Azure ou que vous n’avez pas ajouté les comptes nécessaires à Visual Studio, vous serez invité à vous connecter à un compte Azure.
+- [Télécharger et installer l’explorateur de stockage (version préliminaire)](http://go.microsoft.com/fwlink/?LinkId=708343)
 
-### Ajouter un compte Azure à l’Explorateur de stockage
+## Connexion à un service ou un compte de stockage
 
-1.	Cliquez sur l’icône **Paramètres** (engrenage) dans la barre d’outils de l’Explorateur de stockage.
-1.	Sélectionnez le lien **Ajouter un compte**. Connectez-vous au compte Azure dont vous souhaitez parcourir les ressources de stockage. Le compte que vous venez d'ajouter doit être sélectionné dans la liste déroulante du sélecteur de compte. Tous les abonnements de ce compte apparaissent sous l’entrée du compte.
+L’explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Il vous permet notamment de vous connecter aux comptes de stockage associés à vos abonnements Azure, de vous connecter à des services et comptes de stockage partagés à partir d’autres abonnements Azure et même de vous connecter au stockage local et de le gérer à l’aide de l’émulateur de stockage Azure :
+
+- [Connexion à un abonnement Azure](#connect-to-an-azure-subscription) : gérez les ressources de stockage appartenant à votre abonnement Azure.
+- [Connexion au stockage local ](#connect-to-local-storage) : gérez le stockage local à l’aide de l’émulateur de stockage Azure. 
+- [Attachement à un stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage appartenant à un autre abonnement Azure à l’aide du nom et de la clé du compte de stockage.
+- [Attachement d’un compte à l’aide d’une SAP](#attach-account-using-sas) : gérez les ressources de stockage appartenant à un autre abonnement Azure à l’aide d’une SAP.
+- [Attachement d’un service à l’aide d’une SAP](#attach-service-using-sas) : gérez un service de stockage spécifique (conteneur d’objets blob, file d’attente ou table) appartenant à un autre abonnement Azure à l’aide d’une SAP.
+
+## Connexion à un abonnement Azure
+
+> [AZURE.NOTE] Si vous ne possédez pas de compte Azure, vous pouvez [vous inscrire à un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+1. Démarrez l’explorateur de stockage (version préliminaire). 
+
+1. Si vous exécutez l’explorateur de stockage (version préliminaire) pour la première fois ou si vous l’avez déjà exécuté mais ne vous êtes pas connecté à un compte Azure, une barre d’informations vous permettra de vous connecter à un compte Azure.
 
 	![][0]
+	
+1. Sélectionnez **Connexion à Microsoft Azure** et suivez les boîtes de dialogue pour vous connecter avec un compte Microsoft associé à un ou plusieurs abonnements Azure actifs.
 
-1.	Cochez les cases des abonnements de compte que vous souhaitez parcourir, puis sélectionnez le bouton **Appliquer**.
+Une fois que vous être connecté à un compte Microsoft, le volet gauche de l’explorateur de stockage (version préliminaire) est renseigné avec tous les comptes de stockage associés à l’ensemble des abonnements Azure associés au compte Microsoft.
+
+### Filtrer les abonnements Azure
+
+L’explorateur de stockage (version préliminaire) vous permet de filtrer les abonnements Azure associés à votre ou vos comptes Microsoft connectés, dont les comptes de stockage seront répertoriés dans le volet gauche.
+
+1. Sélectionnez l’icône **Paramètres** (engrenage).
 
 	![][1]
 
-	Les ressources de stockage Azure des abonnements sélectionnés apparaissent dans l’Explorateur de stockage.
-
-### Attacher un stockage externe
-
-1. Obtenez le nom du compte et la clé du compte de stockage que vous souhaitez attacher.
-	1.	Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), choisissez le compte de stockage que vous souhaitez attacher.
-	1.	Dans la section **Gérer** du volet **Paramètres**, choisissez le bouton **Clés**.
-	1.	Copiez les valeurs **Nom du compte de stockage** et **Clé d’accès primaire**.
-
-		![][2]
-
-1.	Dans le menu contextuel du nœud **Comptes de stockage** dans l’Explorateur de stockage, choisissez la commande **Attacher un stockage externe**.
+1. 	Une liste déroulante contenant tous les comptes Microsoft auxquels vous vous êtes connecté est disponible en haut du volet gauche.
 
 	![][3]
-
-1. Entrez le nom du compte de stockage dans la zone **Nom de compte** et la clé d’accès primaire dans la zone **Clé de compte**. Sélectionnez le bouton **Ok** pour continuer.
+	 
+1.	Sélectionnez la flèche vers le bas en regard de la liste déroulante pour afficher tous les comptes Microsoft connectés, ainsi qu’un lien pour ajouter (se connecter à) d’autres comptes Microsoft.
 
 	![][4]
 
-	Le stockage externe s’affiche dans l’Explorateur de stockage.
+1.	Dans la liste déroulante, sélectionnez le compte Microsoft de votre choix.
+
+1. 	Le volet gauche affiche tous les abonnements Azure associés au compte Microsoft sélectionné. La case à cocher à gauche de chaque abonnement Azure vous permet de spécifier si vous souhaitez ou non utiliser l’explorateur de stockage (version préliminaire) pour répertorier tous les comptes de stockage associés à ces abonnements Azure. La case à cocher **Tous les abonnements** permet de sélectionner ou désélectionner l’ensemble des abonnements Azure répertoriés.
+
+	![][2]
+
+1.	Lorsque vous avez sélectionné les abonnements Azure que vous souhaitez gérer, sélectionnez **Appliquer**. Le volet gauche est mis à jour pour afficher la liste complète des comptes de stockage pour chaque abonnement Azure sélectionné correspondant au compte Microsoft actuel.
+
+### Ajout d’autres comptes Microsoft
+
+Les étapes suivantes vous permettent de vous connecter à d’autres comptes Microsoft pour afficher les abonnements et comptes de stockage Azure de chaque compte.
+
+1.	Sélectionnez l’icône **Paramètres** (engrenage).
+
+	![][1]
+
+1. 	Une liste déroulante contenant tous les comptes Microsoft actuellement connectés est disponible en haut du volet gauche.
+
+	![][3]
+	 
+1.	Sélectionnez la flèche vers le bas en regard de la liste déroulante pour afficher tous les comptes Microsoft connectés, ainsi qu’un lien pour ajouter (se connecter à) d’autres comptes Microsoft.
+
+	![][4]
+
+1.	Sélectionnez **Ajouter un compte** et suivez les boîtes de dialogue pour vous connecter à un compte associé à un ou plusieurs abonnements Azure actifs.
+
+1.	Sélectionnez les cases à cocher correspondant aux abonnements Azure que vous souhaitez parcourir.
+
+	![][2]
+
+1.	Sélectionnez **Appliquer**.
+
+### Basculer entre des comptes Microsoft
+
+Même si vous pouvez vous connecter à plusieurs comptes Microsoft, le volet gauche affiche uniquement les comptes de stockage associés aux abonnements d’un seul compte Microsoft (le compte actuel). Si vous vous connectez à plusieurs comptes Microsoft, vous pouvez basculer entre les comptes comme décrit ci-après :
+
+1.	Sélectionnez l’icône **Paramètres** (engrenage).
+
+	![][1]
+
+1. 	Une liste déroulante contenant tous les comptes Microsoft actuellement connectés est disponible en haut du volet gauche.
+
+	![][3]
+	 
+1.	Sélectionnez la flèche vers le bas en regard de la liste déroulante pour afficher tous les comptes Microsoft connectés, ainsi qu’un lien pour ajouter (se connecter à) d’autres comptes Microsoft.
+
+	![][4]
+
+1.	Sélectionnez le compte Microsoft de votre choix.
+
+1.	Sélectionnez les cases à cocher correspondant aux abonnements Azure que vous souhaitez parcourir.
+
+	![][2]
+
+1.	Sélectionnez **Appliquer**.
+  
+## Connexion au stockage local
+
+L’explorateur de stockage (version préliminaire) vous permet de travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Vous pouvez ainsi écrire du code pour le stockage et le tester sans nécessairement disposer d’un compte de stockage déployé sur Azure (étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure).
+
+>[AZURE.NOTE] Actuellement, l’émulateur de stockage Azure est pris en charge uniquement pour Windows.
+
+1. Démarrez l’explorateur de stockage (version préliminaire). 
+
+1. Dans le volet gauche, développez le nœud **(Développement)**.
+
+	![][21]
+
+1. Si vous n’avez pas encore installé l’émulateur de stockage Azure, vous êtes invité à le faire par le biais d’une barre d’informations. Si la barre d’informations s’affiche, sélectionnez **Télécharger la dernière version** et installez l’émulateur.
+
+	![][22]
+
+1. Une fois que l’émulateur est installé, vous pouvez créer et utiliser des tables, des files d’attente et objets blob locaux. Pour apprendre à utiliser chaque type de compte de stockage, sélectionnez le lien approprié ci-dessous :
+
+	- [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md) (Gérer les ressources Azure Blob Storage)
+	- Manage Azure queue storage resources (Gérer les ressources Azure Queue Storage) - *Bientôt disponible*
+	- Manage Azure table storage resources (Gérer les ressources Azure Table Storage) - *Bientôt disponible*
+
+## Attacher ou détacher un compte de stockage externe
+
+L’explorateur de stockage (version préliminaire) permet l’attachement aux comptes de stockage externes, pour un partage simplifié des comptes de stockage. Cette section explique la procédure d’attachement à des comptes de stockage externes (et la procédure de détachement).
+
+### Obtention des informations d’identification du compte de stockage
+
+Afin de partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte (externe). Vous pouvez obtenir les informations d’identification du compte de stockage par le biais du Portail Azure en suivant ces étapes :
+
+1.	Connectez-vous au [portail Azure](https://portal.azure.com).
+1.	Sélectionnez **Parcourir**.
+1.	Sélectionnez **Comptes de stockage**.
+1.	Dans le panneau **Comptes de stockage**, sélectionnez le compte de stockage souhaité.
+1.	Dans le panneau **Paramètres** du compte de stockage sélectionné, sélectionnez **Clés d’accès**.
 
 	![][5]
-
-1. Pour supprimer le stockage externe, dans le menu contextuel du stockage externe, choisissez la commande Détacher.
+	
+1.	Dans le panneau **Clés d’accès**, copiez les valeurs **NOM DU COMPTE DE STOCKAGE** et **CLÉ 1** à utiliser pour l’attachement au compte de stockage.
 
 	![][6]
 
-## Afficher et parcourir les ressources de stockage
+### Attachement à un compte de stockage externe
 
-Pour accéder à une ressource de stockage Azure et afficher ses informations dans l’Explorateur de stockage, développez le type de stockage, puis choisissez la ressource. Des informations sur la ressource sélectionnée s’affichent dans les onglets **Actions** et **Propriétés** au bas de l’Explorateur de stockage.
+1.	Dans l’explorateur de stockage (version préliminaire), cliquez avec le bouton droit sur **Comptes de stockage** puis, dans le menu contextuel, sélectionnez **Attacher un stockage externe**.
 
-![][7]
+	![][7]
+	
+1.	La section *Obtention des informations d’identification du compte de stockage* explique comment obtenir les valeurs de nom et de clé 1 du compte de stockage. Ces valeurs seront utilisées dans cette étape. Dans la boîte de dialogue **Attacher un stockage externe**, entrez le nom du compte de stockage dans la zone **Nom du compte** et la valeur de clé 1 dans la zone **Clé du compte**. Cliquez sur **OK** quand vous avez terminé.
 
--	L’onglet **Actions** indique les actions possibles dans l’Explorateur de stockage pour la ressource de stockage sélectionnée, par exemple l’ouverture, la copie ou la suppression. Les actions apparaissent également dans le menu contextuel de la ressource.
+	![][8]
 
--	L’onglet **Propriétés** affiche les propriétés de la ressource de stockage, notamment son type, ses paramètres régionaux, son groupe de ressources associé et son URL.
+	Une fois attaché, le compte de stockage externe s’affiche avec le texte **(Externe)** ajouté au nom.
 
-Tous les comptes de stockage possèdent l’action **Ouvrir dans le portail**. Lorsque vous sélectionnez cette action, l’Explorateur de stockage affiche le compte de stockage sélectionné dans le portail Azure en version préliminaire.
+	![][9]
 
-Des actions et des valeurs de propriétés supplémentaires s’affichent en fonction de la ressource sélectionnée. Par exemple, les nœuds conteneurs d’objets blob, files d’attente et tables possèdent tous une action **Créer**. Les éléments individuels (par exemple, les conteneurs d’objets blob) possèdent des actions telles que **Ouvrir**, **Supprimer** et **Obtenir une signature d’accès partagé**. Une action d’ouverture de l’éditeur d’objets blob apparaît lorsque vous choisissez un objet blob de compte de stockage.
+### Détachement d’un compte de stockage externe
 
-## Effectuer des recherches dans les comptes de stockage et les conteneurs d’objets blob
-
-Pour trouver des comptes de stockage et des conteneurs d’objets blob portant un nom spécifique dans les abonnements de votre compte Azure, entrez le nom dans la zone de **recherche** de l’Explorateur de stockage.
-
-![][8]
-
-Lorsque vous entrez des caractères dans la zone de **recherche**, seuls les comptes de stockage ou les conteneurs d’objets blob dont les noms correspondent à ces caractères s’affichent dans l’arborescence de ressources. Pour effacer la recherche, choisissez le bouton **x** dans la zone de **recherche**.
-
-## Modifier les comptes de stockage
-
-Pour ajouter du contenu à un compte de stockage ou le modifier, choisissez la commande **Ouvrir l’éditeur** pour ce type de stockage. Vous pouvez choisir des actions dans le menu contextuel de l’élément sélectionné, ou dans l’onglet **Actions** en bas de l’Explorateur de stockage.
-
-![][9]
-
-Vous pouvez créer ou supprimer des conteneurs d’objets blob, des files d’attente et des tables. Vous pouvez également modifier des objets blob dans l’Explorateur de stockage en choisissant l’action **Ouvrir l’éditeur de conteneurs d’objets blob**.
-
-### Modifier un conteneur d’objets blob
-
-1.	Choisissez l’action **Ouvrir l’éditeur de conteneurs d’objets blob**. L’éditeur de conteneurs d’objets blob s’affiche dans le volet droit.
+1. 	Cliquez avec le bouton droit sur le compte de stockage externe que vous souhaitez détacher puis, dans le menu contextuel, sélectionnez **Détacher**.
 
 	![][10]
 
-1.	Choisissez le bouton **Charger**, puis la commande **Charger des fichiers**.
-
-	![][11]
-
-	Si les fichiers à charger sont dans le même dossier, vous pouvez choisir la commande Charger un dossier à la place.
-
-1. Dans la boîte de dialogue **Charger des fichiers**, sélectionnez le bouton des points de suspension (**…**) sur le côté droit de la zone Fichiers pour sélectionner les fichiers que vous souhaitez charger. Ensuite, choisissez le type d’objet blob sous la forme duquel vous souhaitez les charger (bloc, page ou ajout). Si vous le souhaitez, vous pouvez choisir de charger les fichiers dans un dossier du conteneur d’objets blob. Entrez le nom du dossier dans la zone **Charger vers le dossier (facultatif)**. Si le dossier n’existe pas, il est créé.
+1.	Lorsque le message de confirmation s’affiche, sélectionnez **Oui** pour confirmer le détachement du compte de stockage externe.
 
 	![][12]
 
-	Dans la capture d’écran suivante, trois fichiers image ont été chargés vers un nouveau dossier appelé **Mes nouveaux fichiers** dans le conteneur d’objets blob **Images**.
+## Attachement d’un compte à l’aide d’une SAP
+
+Une SAP (signature d’accès partagé) permet à l’administrateur d’un abonnement Azure d’accorder un accès temporaire à un compte de stockage sans avoir à fournir les informations d’identification de l’abonnement Azure.
+
+Pour illustrer cela, supposons que l’utilisateur A est l’administrateur d’un abonnement Azure et qu’il souhaite autoriser l’utilisateur B à accéder à un compte de stockage pour une durée limitée, avec certaines autorisations :
+
+1. L’utilisateur A génère une SAP (composée de la chaîne de connexion du compte de stockage) pour une période spécifique, avec les autorisations souhaitées.
+1. L’utilisateur A partage la SAP avec la personne souhaitant accéder au compte de stockage, en l’occurrence l’utilisateur B.  
+1. L’utilisateur B utilise l’explorateur de stockage (version préliminaire) pour effectuer l’attachement au compte appartenant à l’utilisateur A à l’aide de la SAP fournie. 
+
+### Obtention d’une SAP pour le compte à partager
+
+1.	Ouvrez l’explorateur de stockage (version préliminaire).
+1.	Dans le volet gauche, cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager puis, dans le menu contextuel, sélectionnez **Get Shared Access Signature** (Obtenir une signature d’accès partagé).
 
 	![][13]
 
-	Les boutons de la barre d’outils de l’éditeur d’objets blob vous permettent de sélectionner, de télécharger, d’ouvrir, de copier et de supprimer les fichiers, et bien plus encore. Le volet **Activité** en bas de la boîte de dialogue indique si votre opération a réussi et vous permet de supprimer uniquement les activités réussies de l’affichage, ou d’effacer l’intégralité du volet. Choisissez l’icône **+** en regard des fichiers chargés pour afficher une liste détaillée des fichiers chargés.
-
-## Créer une signature d’accès partagé (SAP)
-
-Pour certaines opérations, une SAP peut être nécessaire pour accéder à une ressource de stockage. Vous pouvez en créer une à l’aide de l’Explorateur de stockage.
-
-1.	Sélectionnez l’élément pour lequel vous souhaitez créer une SAP, puis choisissez la commande **Obtenir une signature d’accès partagé** dans le volet **Actions** ou dans le menu contextuel de l’élément.
+1. Dans la boîte de dialogue **Shared Access Signature** (Signature d’accès partagé), spécifiez la période et les autorisations souhaitées pour le compte, puis sélectionnez **Créer**.
 
 	![][14]
+ 
+1. Une seconde boîte de dialogue **Signature d’accès partagé** affiche la SAP. Sélectionnez **Copier** en regard de la **Chaîne de connexion** pour la copier dans le Presse-papiers. Sélectionnez **Fermer** pour fermer la boîte de dialogue.
 
-1.	Dans la boîte de dialogue **Signature d’accès partagé**, sélectionnez la stratégie, les dates de début et d’expiration et le fuseau horaire. En outre, cochez les cases correspondant aux niveaux d’accès de votre choix pour la ressource, par exemple, lecture seule, lecture-écriture, etc. Lorsque vous avez terminé, choisissez le bouton **Créer** pour créer la SAP.
+### Attachement au compte partagé à l’aide de la SAP
 
-	![][15]
+1.	Ouvrez l’explorateur de stockage (version préliminaire).
+1.	Dans le volet gauche, cliquez avec le bouton droit sur **Comptes de stockage** puis, dans le menu contextuel, sélectionnez **Attach account using SAS** (Attacher le compte à l’aide d’une SAP). ![][15]
 
-1.	La boîte de dialogue **Signature d’accès partagé** répertorie les conteneurs, ainsi que les URL et les chaînes de requête que vous pouvez utiliser pour accéder à la ressource de stockage. Choisissez le bouton **Copier** pour copier les chaînes.
+1. Dans la boîte de dialogue **Attach Account using SAS** (Attacher le compte à l’aide d’une SAP) :
 
+	- **Nom du compte** : entrez le nom que vous souhaitez associer à ce compte. **REMARQUE :** le nom du compte ne doit pas nécessairement correspondre au nom du compte de stockage d’origine pour lequel la SAP a été générée. 
+ 	- **Chaîne de connexion** : collez la chaîne de connexion que vous avez copiée précédemment.
+ 	- Cliquez sur **OK** quand vous avez terminé.
+	
 	![][16]
 
-## Gérer la SAP et les autorisations
+Une fois attaché, le compte de stockage s’affiche avec le texte (SAP) ajouté au nom fourni.
 
-Pour contrôler l’accès aux conteneurs d’objets blob, vous pouvez choisir les commandes **Gérer la liste de contrôle d’accès** et **Définir le niveau d’accès public**.
+![][17]
 
--	La commande Gérer la liste de contrôle d’accès vous permet d’ajouter, de modifier et de supprimer des stratégies d’accès (si les utilisateurs peuvent lire, écrire et ainsi de suite) sur le conteneur d’objets blob sélectionné.
--	La commande Définir le niveau d’accès public vous permet de déterminer l’accès à la ressource dont bénéficient les utilisateurs publics.  
+## Attachement d’un service à l’aide d’une SAP
 
--
+La section [Attachement d’un compte à l’aide d’une SAP](#attach-account-using-sas) illustre la façon dont l’administrateur d’un abonnement Azure peut accorder un accès temporaire à un compte de stockage en générant (et en partageant) une SAP pour le compte de stockage. De la même façon, une SAP peut être générée pour un service spécifique (conteneur d’objets blob, file d’attente ou table) dans un compte de stockage.
 
-1.	Sélectionnez le conteneur d’objets blob, puis la commande **Gérer la liste de contrôle d’accès** dans le menu contextuel ou dans le volet **Actions**.
+### Génération d’une SAP pour le service à partager
 
-	![][17]
+Dans ce contexte, un service peut être un conteneur d’objets blob, une file d’attente ou une table. Les sections suivantes expliquent comment générer la SAP pour le service répertorié :
 
-1.	Dans la boîte de dialogue **Liste de contrôle d’accès**, sélectionnez le bouton **Ajouter** pour ajouter des stratégies d’accès. Choisissez une stratégie d’accès, puis sélectionnez les autorisations pour celle-ci. Lorsque vous avez terminé, cliquez sur le bouton **Enregistrer**.
+- [Obtenir la signature d’accès partagé pour un conteneur d’objets blob](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- Get the SAS for a queue (Obtenir la signature d’accès partagé pour une file d’attente) - *Bientôt disponible*
+- Get the SAS for a table (Obtenir la signature d’accès partagé pour une table) - *Bientôt disponible*
 
-	![][18]
+### Attachement au service de compte partagé à l’aide de la SAP
 
-1.	Pour définir un niveau d’accès pour un conteneur d’objets blob, sélectionnez-le dans l’Explorateur de stockage, puis choisissez la commande **Définir le niveau d’accès public** dans le menu contextuel ou dans le volet **Actions**.
+1.	Ouvrez l’explorateur de stockage (version préliminaire).
+1.	Dans le volet gauche, cliquez avec le bouton droit sur **Comptes de stockage** puis, dans le menu contextuel, sélectionnez **Attach service using SAS** (Attacher le service à l’aide d’une SAP). ![][18]
+
+1. Dans la boîte de dialogue **Attach Account using SAS** (Attacher le compte à l’aide d’une SAP), collez l’URI de la SAP que vous avez copié précédemment, puis sélectionnez **OK**.
 
 	![][19]
 
-1.	Dans la boîte de dialogue **Définir le niveau d’accès public du conteneur**, sélectionnez la case d’option pour le niveau d’accès que vous souhaitez accorder aux utilisateurs publics, puis cliquez sur le bouton **Appliquer**.
+Une fois attaché, le service nouvellement attaché s’affiche sous le nœud **(Service SAS)** (SAP de service).
 
-	![][20]
+![][20]
+
+## Recherche de comptes de stockage
+
+Si vous avez une longue liste de comptes de stockage, la zone de recherche située en haut du volet gauche offre un moyen rapide de rechercher un compte spécifique.
+
+Lorsque vous tapez dans la zone de recherche, le volet gauche affiche uniquement les comptes de stockage qui correspondent à la valeur en cours de saisie. La capture d’écran suivante montre un exemple dans lequel je recherche tous les comptes de stockage dont le nom contient le texte « tarcher ».
+
+![][11]
+	
+Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherche.
 
 ## Étapes suivantes
-En savoir plus sur les fonctionnalités dans les services Azure Storage en lisant les articles de la page [Introduction à Microsoft Azure Storage](./storage/storage-introduction.md).
+- [Gérer les ressources Azure Blob Storage avec l’explorateur de stockage (version préliminaire)](./vs-azure-tools-storage-explorer-blobs.md)
 
-[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External1c.png
-[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External2c.png
-[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External3c.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External4c.png
-[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External5c.png
-[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Navigatec.png
-[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Searchc.png
-[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit1c.png
-[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit2c.png
-[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit3c.png
-[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit4c.png
-[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit5c.png
-[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS1c.png
-[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS2c.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS3c.png
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS1c.png
-[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS2c.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
-[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
+[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure.png
+[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-gear.png
+[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-subscriptions.png
+[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-accounts.png
+[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/accounts-drop-down.png
+[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys.png
+[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys-copy.png
+[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage.png
+[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage-dlg.png
+[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/external-storage-account.png
+[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage.png
+[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-account-search.png
+[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
+[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-context-menu.png
+[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-dlg1.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-context-menu.png
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-dlg.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-finished.png
+[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-context-menu.png
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-dlg.png
+[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
+[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/local-storage-drop-down.png
+[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

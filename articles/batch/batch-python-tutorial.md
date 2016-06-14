@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Prise en main du client Python Azure Batch
@@ -24,7 +24,7 @@
 
 Découvrez les principes de base des clients [Azure Batch][azure_batch] et [Batch Python][py_azure_sdk] dans cet article où nous décrivons une simple application Batch écrite en langage Python. Nous allons voir comment deux exemples de scripts tirent parti du service Batch pour traiter une charge de travail parallèle sur des machines virtuelles Linux dans le cloud, ainsi que la façon dont ceux-ci interagissent avec [Azure Storage](./../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
 
-> [AZURE.NOTE] La prise en charge de Linux dans Azure Batch se trouve actuellement en version préliminaire. Certains aspects de la fonctionnalité présentée ici peuvent changer avant la mise à la disposition générale. Les [packages d’applications](batch-application-packages.md) et les [tâches multi-instances](batch-mpi.md) ne sont **actuellement pas pris en charge** sur les nœuds de calcul Linux.
+> [AZURE.NOTE] La prise en charge de Linux dans Azure Batch se trouve actuellement en version préliminaire. Certains aspects de la fonctionnalité présentée ici peuvent changer avant la mise à la disposition générale. Les [packages d’applications](batch-application-packages.md) ne sont **actuellement pas pris en charge** sur les nœuds de calcul Linux.
 
 ![Flux de travail de la solution Batch (de base)][11]<br/>
 
@@ -34,7 +34,7 @@ Cet article suppose que vous avez acquis une connaissance pratique de Python et 
 
 ### Comptes
 
-- **Compte Azure** : si vous ne possédez pas déjà un abonnement Azure, [créez un compte Azure gratuit][azure_free_account].
+- **Compte Azure** : si vous ne possédez pas encore d’abonnement Azure, [créez un compte Azure gratuit][azure_free_account].
 - **Compte Batch** : une fois que vous disposez d’un abonnement Azure, [créez un compte Azure Batch](batch-account-create-portal.md).
 - **Compte de stockage** : voir la section [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
@@ -250,9 +250,8 @@ Après le chargement des tâches de script et des fichiers de données dans le c
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Ensuite, un pool de nœuds de calcul est créé dans le compte Batch avec un appel à `create_pool`.
@@ -324,7 +323,7 @@ Lorsque vous créez un pool, vous définissez un [PoolAddParameter][py_pooladdpa
 
 - Le **nombre de nœuds de calcul** (*target\_dedicated* - requis)<p/> Spécifie le nombre de machines virtuelles devant être déployées dans le pool. Il est important de noter que tous les comptes Batch ont un **quota** par défaut qui limite le nombre de **cœurs** (et par conséquent, celui des nœuds de calcul) dans un compte Batch. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur comment [augmenter un quota](batch-quota-limit.md#increase-a-quota) (par exemple, le nombre maximal de cœurs dans votre compte Batch), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si vous vous demandez pourquoi votre pool n’atteint pas plus de X nœuds, ce quota de cœurs peut en être la raison.
 
-- Le **système d’exploitation** pour les nœuds (*virtual\_machine\_configuration* **ou** *cloud\_service\_configuration* - requis)<p/> Dans *python\_tutorial\_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config], obtenu à l’aide de notre fonction d’assistance `get_vm_config_for_distro`. Cette fonction d’assistance utilise [list\_node\_agent\_skus][py_list_skus] pour obtenir et sélectionner une image à partir d’une liste d’images de [machines virtuelles Azure Marketplace][vm_marketplace] compatibles. Vous avez la possibilité de spécifier une [CloudServiceConfiguration][py_cs_config] à la place et créer un pool de nœuds Windows à partir des Cloud Services. Pour plus d’informations sur les deux configurations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch.](batch-linux-nodes.md)
+- Le **système d’exploitation** pour les nœuds (*virtual\_machine\_configuration* **ou** *cloud\_service\_configuration* - requis)<p/> Dans *python\_tutorial\_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config], obtenu à l’aide de notre fonction d’assistance `get_vm_config_for_distro`. Cette fonction d’assistance utilise [list\_node\_agent\_skus][py_list_skus] pour obtenir et sélectionner une image à partir d’une liste d’images de [machines virtuelles Azure Marketplace][vm_marketplace] compatibles. Vous avez la possibilité de spécifier une [CloudServiceConfiguration][py_cs_config] à la place et créer un pool de nœuds Windows à partir des Cloud Services. Pour plus d’informations sur les deux configurations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md).
 
 - La **taille de nœuds de calcul** (*vm\_size* - requis)<p/> Étant donné que nous spécifions des nœuds Linux pour notre [VirtualMachineConfiguration][py_vm_config], nous spécifions une taille de machine virtuelle (`STANDARD_A1` dans cet exemple) parmi les [tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-linux-sizes.md). Pour plus d’informations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md).
 
@@ -665,4 +664,4 @@ N’hésitez pas à apporter des modifications à *python\_tutorial\_client.py* 
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flux de travail de la solution Batch (diagramme minimal)"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

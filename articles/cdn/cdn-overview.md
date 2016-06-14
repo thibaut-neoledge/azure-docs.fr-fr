@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/24/2016"
+	ms.date="06/06/2016"
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -56,6 +56,7 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 | Prise en charge de HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Équilibrage de la charge | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Protection DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Double pile IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Mise en cache des chaînes de requête](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrage par pays](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -78,4 +79,6 @@ Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016]
 
 Pour plus d’informations sur la tarification, consultez la page [Prix appliqués au CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0525_2016-->
+Une idée de fonctionnalité à ajouter à Azure CDN ? [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn) !
+
+<!---HONumber=AcomDC_0608_2016-->

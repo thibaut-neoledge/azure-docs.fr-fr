@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
-# Vue d’ensemble : Apache Spark sur Azure HDInsight Linux (aperçu)
+# Vue d’ensemble : Apache Spark sur Azure HDInsight Linux
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques. Spark est également compatible avec le stockage des objets blob Azure (WASB) pour que vos données existantes stockées dans Azure puissent être facilement traitées via Spark.
 
@@ -37,13 +37,16 @@ Azure HDInsight propose un service Spark entièrement géré. Les avantages li�
 
 | Fonctionnalité | Description |
 |-------------------------------------|-------------------|
-| Facilité de création | Vous pouvez créer un cluster Spark sur HDInsight en quelques minutes en utilisant le portail de gestion Azure, Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight. Consultez [Prise en main des clusters Spark dans HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
+| Facilité de création des clusters | Vous pouvez créer un cluster Spark sur HDInsight en quelques minutes en utilisant le portail de gestion Azure, Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight. Consultez [Prise en main des clusters Spark dans HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Simplicité d'utilisation | Les clusters Spark dans HDInsight incluent des blocs-notes Jupyter préconfigurés. Vous pouvez les utiliser pour le traitement interactif et la visualisation des données. L’URL est https://CLUSTERNAME.azurehdinsight.net/jupyter. Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight Spark.|
 | API REST | Spark dans HDInsight comprend [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un serveur de tâches Spark basé sur une API REST, qui permet de soumettre et de surveiller à distance des tâches en cours d’exécution. |
+| Prise en charge d’Azure Data Lake Store | Spark sur HDInsight peut être configuré pour utiliser Azure Data Lake Store en tant que stockage supplémentaire. Pour plus d’informations sur Data Lake Store, consultez [Vue d’ensemble d’Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+| Intégration aux services Azure | Spark sur HDInsight est fourni avec un connecteur à Azure Event Hubs. Les clients peuvent créer des applications de diffusion en continu en utilisant Event Hubs, en plus de [Kafka](http://kafka.apache.org/), qui est déjà disponible dans Spark. |
+| Prise en charge du serveur R | Vous pouvez configurer un serveur R sur un cluster Spark HDInsight pour exécuter des calculs R distribués à la vitesse d’un cluster Spark. Pour plus d’informations, consultez la section [Prise en main de R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md). |
+| Intégration avec IntelliJ IDEA | Vous pouvez utiliser le plugin HDInsight pour IntelliJ afin de créer et soumettre des applications sur un cluster Spark HDInsight. Pour plus d’informations, consultez [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer des applications Spark Scala pour un cluster Linux HDInsight Spark](hdinsight-apache-spark-intellij-tool-plugin.md). |
 | Requêtes simultanées | Spark dans HDInsight prend en charge les requêtes simultanées. Ainsi, plusieurs requêtes d’un même utilisateur ou plusieurs requêtes de différents utilisateurs et applications peuvent partager les mêmes ressources de cluster. |
 | Mise en cache sur des disques SSD | Vous pouvez choisir de mettre en cache des données en mémoire ou dans les disques SSD attachés aux nœuds de cluster. La mise en cache en mémoire fournit les meilleures performances de requêtes, mais peut s’avérer coûteuse. La mise en cache sur des disques SSD constitue une très bonne option pour améliorer les performances des requêtes sans nécessité de créer un cluster d’une taille requise pour tenir l’ensemble du jeu de données en mémoire.|
-| Intégration aux services Azure | Spark sur HDInsight est fourni avec un connecteur à Azure Event Hubs. Les clients peuvent créer des applications de diffusion en continu en utilisant Event Hubs, en plus de [Kafka](http://kafka.apache.org/), qui est déjà disponible dans Spark. |
-| Intégration aux outils décisionnels | Spark pour HDInsight fournit des connecteurs pour les outils décisionnels les plus utilisés, comme [Power BI](http://www.powerbi.com/) et [Tableau](http://www.tableau.com/products/desktop), pour l’analyse des données.|
+| Intégration aux outils décisionnels | Spark pour HDInsight fournit des connecteurs pour certains outils décisionnels, comme [Power BI](http://www.powerbi.com/) et [Tableau](http://www.tableau.com/products/desktop), pour l’analyse des données.|
 | Bibliothèques Anaconda préchargées | Les clusters Spark sur HDInsight sont fournis avec des bibliothèques Anaconda préinstallées. [Anaconda](http://docs.continuum.io/anaconda/) fournit près de 200 bibliothèques pour l’apprentissage automatique, l’analyse des données, la visualisation, etc.|
 | Extensibilité | Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight vous permettent de modifier le nombre de nœuds du cluster. En outre, les clusters Spark peuvent être supprimés sans perte de données puisque toutes les données sont stockées dans le stockage des objets blob Azure. |
 | Support technique 24 heures sur 24, 7 jours sur 7 | Spark sur HDInsight est fourni avec un support technique de niveau d’entreprise assuré 24 heures sur 24, 7 jours sur 7 et un contrat SLA de 99,9 % de temps d’activité.|
@@ -113,15 +116,23 @@ Commencez par créer un cluster Spark sur HDInsight Linux. Consultez [Démarrage
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)
+
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gérer des ressources
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md) (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)
+
+### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)
 
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

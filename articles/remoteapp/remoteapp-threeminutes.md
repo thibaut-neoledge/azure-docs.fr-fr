@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="02/25/2016"
+    ms.date="05/31/2016"
     ms.author="mbaldwin" />
 
 
@@ -35,4 +35,4 @@ Votre opinion est importante. À la fin de chaque session, vous verrez une boît
 
 >[AZURE.NOTE] Comme il s’agit d’un environnement contrôlé à des fins de démonstration, nous n’avons pas activé l’accès internet externe à partir des applications de démonstration publiées. Pour cette raison, des services comme OneDrive ne sont pas accessibles. En outre, le partage du presse-papiers (copier-coller), ainsi que la redirection USB et de l’imprimante sont désactivés.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->
